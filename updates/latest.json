@@ -1,13 +1,13 @@
 {
-  "version": "2.5.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.5.0.plugin",
-  "sha256": "442c37df6be8d35e9129abce7a1a91035e8737d3def6ff47f9251fd5e79861a4",
+  "version": "2.6.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.6.0.plugin",
+  "sha256": "a9e21d452a37f7c47f730f83350bef061c92783cf08ef8fe6afa7c5456c865cf",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- The Operating Model view now renders a **graphical influence map** — a left-to-right diagram of external **factors → internal drivers → EPS & fair value**. Factors are grouped and colored by category (economic / policy / supply-chain / consumer); edges are **green when they raise** a driver and **red when they lower** it, with thickness scaled to sensitivity, and every edge carries its rationale on hover. **Shock a factor right in the diagram** and the impact propagates through the edges into the valuation engine, with the isolated path highlighted and the full factor→driver→outcome trace sh",
-  "published": "2026-07-17T19:02:56.744Z",
+  "notes": "- The external-factor layer can now **calibrate itself from data**. **Calibrate from FRED** sets each factor's *current level* from its FRED series (interest_rate ← DGS10, inflation ← CPI YoY, consumer_confidence ← UMCSENT, …), shown on each factor node in the influence map, so shocks read as \"move rates to 5%\" rather than an abstract delta. On request it also **fits factor→driver sensitivities by OLS** — regressing the company's annual gross margin and revenue growth (from filings) on the aligned annual factor history. A fitted coefficient only **replaces** the structured prior when the fit i",
+  "published": "2026-07-17T19:12:04.232Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
