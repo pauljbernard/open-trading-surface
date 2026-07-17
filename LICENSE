@@ -14,9 +14,10 @@ By downloading, installing, copying, accessing, or otherwise using the
 Software, You agree to be bound by this Agreement. If You do not agree, do
 not download, install, or use the Software.
 
-THIS SOFTWARE IS SOURCE-AVAILABLE BUT IS NOT OPEN SOURCE. No rights are
-granted under any Open Source Initiative–approved license. All rights not
-expressly granted below are reserved by the Licensor.
+THIS SOFTWARE IS NOT OPEN SOURCE, AND ITS SOURCE CODE IS NOT MADE PUBLIC. It
+is distributed only as a packaged, executable plugin. No rights are granted
+under any Open Source Initiative–approved license. All rights not expressly
+granted below are reserved by the Licensor.
 
 
 1. LICENSE GRANT
@@ -52,8 +53,8 @@ party to:
 
 
 3. RESERVATION OF RIGHTS; CHANGES TO TERMS
-The Licensor reserves all rights not expressly granted. Availability of the
-source code does not grant any license beyond Section 1. The Licensor may,
+The Licensor reserves all rights not expressly granted. Distribution of the
+packaged Software does not grant any license beyond Section 1. The Licensor may,
 at its sole discretion and at any time, and without notice or liability:
   (i)   modify, suspend, or discontinue the Software or its free availability;
   (ii)  change the terms of this Agreement; and

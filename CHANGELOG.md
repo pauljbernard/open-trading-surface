@@ -3,7 +3,8 @@
 All notable changes to Orrery. Versions follow semantic versioning.
 
 ## [2.3.1] — Rebrand to Orrery
-- **Licensing**: added a proprietary, source-available end-user license (`LICENSE`) — free to download and use (incl. commercial); no redistribution or derivative works; Licensor may change terms for future versions. Governing law: Texas. Added Orrery logo/iconography assets under `docs/assets/`.
+- **Package-only distribution**: the released `.plugin` now ships the server bundled + minified (via esbuild) and the client chart files minified — runnable, but not the authored source. Release assets and history contain no source; source lives in a separate private repository.
+- **Licensing**: added a proprietary end-user license (`LICENSE`); the software is distributed as a package only, not as source — free to download and use (incl. commercial); no redistribution or derivative works; Licensor may change terms for future versions. Governing law: Texas. Added Orrery logo/iconography assets under `docs/assets/`.
 - **Renamed the entire project from Surface-StockChart to Orrery** — an orrery is a mechanical model of the heavens, fitting for a terminal that builds a working model of the market. This touches the brand text, the plugin id (`surface-stockchart` → `orrery`), the MCP server name (tools are now `mcp__orrery__*`), the on-disk store directory (`~/.surface-stockchart` → `~/.orrery`), environment-variable prefix (`STOCKCHART_*` → `ORRERY_*`), and the session token header (`x-scp-token` → `x-orrery-token`). Docs, release pipeline, and issue templates all point at the `pauljbernard` org.
 - **Hardened `.gitignore`** so secrets (`config.json`, `*.env`, `*.key`), all `~/.orrery` runtime data stores, build artifacts (`*.plugin`, `dist/`), test reports, and local Claude Code state (`.claude/`) can never be pushed to the remote. Fixed an inert inline-comment rule that had left `config.json` unignored.
 

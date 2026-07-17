@@ -4,7 +4,7 @@
 
 > ⚠️ **Not investment advice.** Orrery is an informational research tool. Nothing it produces is advice or a recommendation; data and computations may be inaccurate — verify everything independently. You bear full responsibility for all decisions. See [`DISCLAIMER.md`](DISCLAIMER.md) and the [legal page](https://pauljbernard.github.io/orrery/legal.html).
 
-This repository is the **public home** for Orrery: documentation, downloads, and the issue tracker. The software is **free to download and use** (including commercially) under a proprietary, **source-available but not open-source** license — see [`LICENSE`](LICENSE).
+This repository is the **public home** for Orrery: documentation, downloads, and the issue tracker. The software is **free to download and use** (including commercially) under a proprietary license. It is **not open source, and its source code is not public** — the plugin is distributed as a runnable, minified package only. See [`LICENSE`](LICENSE).
 
 ## Download & install
 
@@ -27,4 +27,4 @@ Found a bug or have a feature request? The [**issue tracker**](https://github.co
 
 ## License
 
-Orrery is **source-available but not open source**. Free to download and use (incl. commercial use); redistribution, resale, and derivative works are not permitted, and the Licensor reserves the right to change the license for future versions at any time. Copyright © 2026 Paul Bernard. All rights reserved. See [`LICENSE`](LICENSE).
+Orrery is **not open source, and its source code is not public** — it is distributed as a runnable package only. Free to download and use (incl. commercial use); redistribution, resale, and derivative works are not permitted, and the Licensor reserves the right to change the license for future versions at any time. Copyright © 2026 Paul Bernard. All rights reserved. See [`LICENSE`](LICENSE).
