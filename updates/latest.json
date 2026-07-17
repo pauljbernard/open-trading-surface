@@ -1,13 +1,13 @@
 {
   "version": "2.3.3",
   "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.3.3.plugin",
-  "sha256": "df8cc0134eab0170fc8a43b25ae20adf2bd1a69ff3e17811153edcd448c8af21",
+  "sha256": "404f4563d12ad6f384af3d9bcc85265a2727e45c1ed2ce7d246dbce2e274c29e",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Fixed the terminal's "Load failed" bug**: the local web server that backs the terminal (Settings save, data tabs, charts) now runs as a **persistent detached daemon** with a stable port + token (`~/.orrery/server.json`), so pages keep working when the plugin process is cycled by the host. Previously the server died with the plugin process, orphaning any open tab. Falls back to the legacy in-process server where a daemon can't be spawned (no regression). - **⚙ tab is now labeled "Settings"** ",
-  "published": "2026-07-17T16:55:59Z",
+  "notes": "- **Fixed the terminal's \"Load failed\" bug**: the local web server that backs the terminal (Settings save, data tabs, charts) now runs as a **persistent detached daemon** with a stable port + token (`~/.orrery/server.json`), so pages keep working when the plugin process is cycled by the host. Previously the server died with the plugin process, orphaning any open tab. Falls back to the legacy in-process server where a daemon can't be spawned (no regression). - **⚙ tab is now labeled \"Settings\"** (was a bare gear icon); unreachable-server fetches show an actionable \"reopen the terminal\" message ",
+  "published": "2026-07-17T17:03:43.393Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
