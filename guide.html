@@ -94,10 +94,12 @@
 
   <h2 id="install">Installing</h2>
   <h3>Claude desktop (Cowork)</h3>
+  <p>Orrery is a <b>plugin</b>. Install it from the Customize menu:</p>
   <ol>
     <li>Download the latest package — <a href="download/orrery.plugin"><code>orrery.plugin</code></a>.</li>
-    <li>Open it with the desktop app, or add it under <b>Settings → Capabilities</b>.</li>
-    <li><b>Restart the session</b> so the plugin's local server starts. Tools then appear as <code>mcp__orrery__*</code>.</li>
+    <li>Open the <b>Cowork</b> tab, then open <b>Customize</b> in the left sidebar and go to the <b>Plugins</b> tab. (Customize is where plugins, skills, and connectors now live.)</li>
+    <li>Under <b>Personal plugins</b>, click the <b>+</b> button and add the <code>orrery.plugin</code> file you downloaded. Plugins you add yourself are stored locally on your computer.</li>
+    <li><b>Restart the session</b> so the plugin's local server starts. Orrery's skills then appear under the <code>/</code> menu, and its tools as <code>mcp__orrery__*</code>.</li>
   </ol>
   <h3>Claude Code (CLI)</h3>
 <pre><code>claude plugin marketplace add pauljbernard/orrery-marketplace
@@ -189,7 +191,7 @@ claude plugin install orrery@orrery</code></pre>
 
   <h2 id="uninstall">Uninstalling</h2>
   <ul>
-    <li><b>Cowork:</b> Settings → Capabilities → remove Orrery.</li>
+    <li><b>Cowork:</b> open <b>Customize</b> → <b>Plugins</b> tab, find Orrery under Personal plugins, and choose <b>Uninstall</b>.</li>
     <li><b>CLI:</b> <code>claude plugin uninstall orrery</code></li>
     <li>To also erase local data, delete the <code>~/.orrery/</code> directory (this removes your keys, portfolios, theses, notes, and models).</li>
   </ul>
