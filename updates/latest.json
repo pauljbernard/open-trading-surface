@@ -1,13 +1,13 @@
 {
-  "version": "2.3.4",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.3.4.plugin",
-  "sha256": "f0d6b614ab2c054a17895fb95d36c39d4452c579ddb335aabe440f1b47b0e9e5",
+  "version": "2.3.5",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.3.5.plugin",
+  "sha256": "0010ffb5e9abb7482d47673b5518259faa46cd34ae5fd3bb05f9c6240efbfef9",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Fixed blank data tabs on first run**: when you save an FMP or FRED key in ⚙ Settings, the terminal now reloads so tabs that were opened before the key existed (chart, financials, analyst, etc.) fetch their data. Previously the quote header updated but the chart/panels stayed blank until a manual page reload.",
-  "published": "2026-07-17T18:22:02.636Z",
+  "notes": "- **Screens no longer look frozen**: the screener and thesis \"Screening…\" now show a live elapsed-time counter (screens scan ~7,600 names and enrich the top candidates; 30–90s is normal), a 150s timeout with a Retry button, and clear errors instead of an endless spinner. - **Batched quotes**: the quote enrichment stage now uses FMP's comma-separated batch endpoint (≈200 calls → ~2) with per-symbol fallback. (Ratios/scores/growth remain per-symbol; FMP bulk endpoints are the next optimization.)",
+  "published": "2026-07-17T18:42:32.083Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
