@@ -1,13 +1,13 @@
 {
-  "version": "2.3.5",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.3.5.plugin",
-  "sha256": "0010ffb5e9abb7482d47673b5518259faa46cd34ae5fd3bb05f9c6240efbfef9",
+  "version": "2.4.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.4.0.plugin",
+  "sha256": "500b25c41224573c1fa6fd918a4edde8737b91223be719afcf5f3db3f0f24400",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Screens no longer look frozen**: the screener and thesis \"Screening…\" now show a live elapsed-time counter (screens scan ~7,600 names and enrich the top candidates; 30–90s is normal), a 150s timeout with a Retry button, and clear errors instead of an endless spinner. - **Batched quotes**: the quote enrichment stage now uses FMP's comma-separated batch endpoint (≈200 calls → ~2) with per-symbol fallback. (Ratios/scores/growth remain per-symbol; FMP bulk endpoints are the next optimization.)",
-  "published": "2026-07-17T18:42:32.083Z",
+  "notes": "- Company operating models now support an **external-factor layer** beyond internal drivers — **economic, political/policy, supply-chain, and consumer/customer** forces — each linked to internal drivers by **signed influence edges** (with rationale, auditable). Shocking a factor **propagates** through the edges into the drivers and reuses the valuation engine to produce the EPS / fair-value impact, with a full factor→driver→outcome trace. - New tools: `get_factor_catalog`, `seed_model_factors`, `add_model_factor`, `link_factor_to_driver`, `shock_factors`, `get_model_graph`. (Next: a graphical ",
+  "published": "2026-07-17T18:51:29.875Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
