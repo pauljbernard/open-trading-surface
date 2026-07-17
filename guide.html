@@ -157,6 +157,15 @@ claude plugin install orrery@orrery</code></pre>
     <tr><td>"Shock gross margin down 2 points and raise the tax rate to 21%."</td><td>Re-runs the model and reports the EPS and fair-value impact.</td></tr>
     <tr><td>"Which drivers matter most?"</td><td>Returns the elasticity table (sensitivity of fair value to each driver).</td></tr>
   </table>
+  <h3>The influence map — the outside world, wired in</h3>
+  <p>A model isn't just its internal drivers. The Operating Model view now carries an <b>influence map</b>: external <b>economic</b>, <b>policy</b>, <b>supply-chain</b> and <b>consumer/customer</b> factors, each linked to the internal drivers it moves by a <b>signed influence edge</b> (with a stated rationale you can audit). It's shown as a left-to-right diagram — factors → drivers → EPS &amp; fair value — with green edges that raise a driver and red that lower it, thickness scaled to sensitivity. Shock a factor (say tariffs +10pp) and Orrery <b>propagates</b> it through the edges into the drivers and reuses the valuation engine, returning the full factor → driver → outcome trace. Click any factor to isolate its path.</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Show CAT's influence map."</td><td>Opens the factor → driver → value diagram (seeds a sensible default factor set the first time).</td></tr>
+    <tr><td>"Raise tariffs 10 points on CAT — what happens to fair value?"</td><td>Propagates the tariff shock into gross margin and re-runs the model, with the trace.</td></tr>
+    <tr><td>"Link consumer confidence to revenue growth for this name and set the sensitivity."</td><td>Adds or re-weights a signed influence edge you can then shock.</td></tr>
+  </table>
+  <div class="note">Influence edges are structured estimates, not measured coefficients — verify the sensitivities against the business. (Data-driven calibration from FRED and filings is the next step.) The design generalizes: because a factor can later be another company's output, a market-wide view is just individual operating models linked to each other.</div>
 
   <h2 id="thesis">The thesis engine</h2>
   <p>Turn a view into a maintained, probability-weighted thesis with an evidence ledger — and let the system propose its own from macro (FRED) signals. As evidence arrives, the probability moves and the change is logged. As theses resolve, Orrery scores its own calibration (Brier score, skill vs base rate).</p>
