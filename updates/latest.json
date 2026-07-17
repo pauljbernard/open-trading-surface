@@ -1,9 +1,13 @@
 {
-  "version": "2.3.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.3.1.plugin",
-  "sha256": "7ed7c0ffd666773e230dc3af71e024cbbecd5185a9b2f00fbe746cfb4146cb8f",
+  "version": "2.3.2",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.3.2.plugin",
+  "sha256": "7a6f42206ab2ad189d23c37bea053f5c4c3d45923b87811fc81b420206ef4404",
+  "signed": true,
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-2.3.2.plugin.asc",
+  "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
+  "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "- **Package-only distribution**: the released `.plugin` now ships the server bundled + minified (via esbuild) and the client chart files minified — runnable, but not the authored source. Release assets and history contain no source; source lives in a separate private repository. - **Licensing**: added a proprietary end-user license (`LICENSE`); the software is distributed as a package only, not as source — free to download and use (incl. commercial); no redistribution or derivative works; Licens",
-  "published": "2026-07-17T14:29:49Z",
+  "notes": "- **In-product feedback**: `report_issue` composes prefilled GitHub bug/feature/idea reports (version + environment stamped); `get_feedback_history`; new product-idea issue template; GitHub Discussions; the docs Support page is now a feedback/community hub. - **Opt-in, local-only telemetry**: `set_usage_reporting` / `get_usage_report` — a usage/error journal that never leaves your machine but can be exported to attach to a report; wired into the tool dispatch. - **Engineering quality**: dev-only",
+  "published": "2026-07-17T15:35:44Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

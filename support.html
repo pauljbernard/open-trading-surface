@@ -79,6 +79,17 @@
 
   <div class="note">Feedback and issue tracking are hosted publicly on GitHub, so bugs, requests, ideas, and their status are open for everyone to see and follow. The application source itself stays private. Orrery can also keep an <b>opt-in, local-only</b> usage journal (ask the agent to "turn on usage reporting") that never leaves your machine but can be exported to attach to a report.</div>
 
+  <h2>Verify your download (optional)</h2>
+  <p style="color:var(--muted);font-size:14px">Each release is signed with the Orrery release key so you can confirm your <code>orrery.plugin</code> is authentic and untampered. Verify the checksum and the GPG signature:</p>
+  <pre><code># checksum (compare against download/orrery.plugin.sha256)
+shasum -a 256 orrery.plugin
+
+# import the public key once, then verify the detached signature
+curl -fsSL https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc | gpg --import
+gpg --verify orrery.plugin.asc orrery.plugin
+# → "Good signature from Orrery Release Signing Key"</code></pre>
+  <p style="color:var(--muted);font-size:13px">Key fingerprint: <code>7FB3 00D8 4247 9AF6 41C8 EEF9 911D 3894 8CBC 401B</code></p>
+
   <h2>Issue status at a glance</h2>
   <p style="color:var(--muted);font-size:14px">This snapshot is illustrative; the <a href="https://github.com/pauljbernard/orrery/issues">live tracker</a> is the source of truth.</p>
   <table>

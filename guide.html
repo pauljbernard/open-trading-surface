@@ -41,19 +41,49 @@
 </div></header>
 <div class="wrap">
   <h1>User Guide</h1>
-  <p class="lead">Everything you need to install, configure, use, update, and remove Orrery.</p>
+  <p class="lead">How Orrery works, how to set it up, and how to use every part of it. If you're new, start with the <a href="#quickstart">5-minute quickstart</a>, then dip into whichever feature you need.</p>
   <div class="toc">
+    <a href="#quickstart">★ 5-minute quickstart</a>
+    <a href="#how">How Orrery works</a>
     <a href="#requirements">Requirements</a>
     <a href="#install">Installing</a>
     <a href="#keys">Configuring API keys</a>
     <a href="#first">First run &amp; the disclaimer</a>
-    <a href="#using">Using the terminal</a>
-    <a href="#agent">Working with the agent</a>
+    <a href="#driving">Driving Orrery with the agent</a>
+    <a href="#charts">Charts &amp; the workbench</a>
+    <a href="#screener">Screening stocks</a>
+    <a href="#portfolio">Portfolios &amp; analytics</a>
+    <a href="#models">Company operating models</a>
+    <a href="#thesis">The thesis engine</a>
+    <a href="#watch">Watchlists, alerts &amp; calendar</a>
+    <a href="#memory">Research notes &amp; memory</a>
+    <a href="#feedback">Giving feedback</a>
     <a href="#updates">Updating</a>
     <a href="#uninstall">Uninstalling</a>
     <a href="#data">Your data &amp; privacy</a>
     <a href="#trouble">Troubleshooting</a>
   </div>
+
+  <h2 id="quickstart">★ 5-minute quickstart</h2>
+  <ol>
+    <li><b>Install</b> the plugin and restart your Claude session (details <a href="#install">below</a>).</li>
+    <li><b>Add your FMP key</b>: say <em>"open the Orrery terminal"</em>, go to the <b>⚙ Settings</b> tab, paste your key, press <b>Test</b>.</li>
+    <li><b>Accept the one-time disclaimer</b> when prompted.</li>
+    <li><b>Try your first real task</b> — just ask the agent in plain language:
+      <pre><code>"Analyze NVDA — chart it with the 50/200-day averages and RSI,
+ then give me the fundamental picture and what the bulls and bears would say."</code></pre>
+    </li>
+    <li><b>Then explore one thing</b>: <em>"screen large-cap tech under 20× earnings ranked by momentum"</em>, or <em>"build an operating model for CAT and shock gross margin down 2 points."</em></li>
+  </ol>
+  <div class="note">You don't click Orrery like a dashboard — you <b>tell the agent what you want</b> and it drives the terminal, charts, screens, and models for you. The sections below show what's possible and the phrasings that work.</div>
+
+  <h2 id="how">How Orrery works</h2>
+  <p>Two ideas explain everything:</p>
+  <h3>1. It's a living world-model, not a data feed</h3>
+  <p>Orrery doesn't just fetch quotes. It maintains a connected chain: a <b>worldview</b> (macro, geopolitics, demographics) becomes <b>theses</b> with explicit, auditable probability estimates and an <b>evidence ledger</b>; theses compile into <b>screens</b> and paper <b>portfolios</b>; individual names are grounded in driver-based <b>operating models</b>. It persists between sessions and is continuously reassessed as evidence arrives. Everything you build compounds instead of resetting.</p>
+  <h3>2. It's agent-native</h3>
+  <p>The terminal is a <b>shared world-model</b>: everything you see, the agent can read and drive. You work by conversation — "add an anchored VWAP and mark the earnings gap," "what do the signals say," "record this as a thesis." The agent inspects the exact view you're looking at and acts on it. It's <b>plan-only</b>: it models, screens, and drafts, but never places a trade or moves money.</p>
+  <div class="warn"><b>Orrery is not investment advice.</b> Every output — including probabilities, models, and fair values — is a decision aid to verify independently. You bear full responsibility for all decisions.</div>
 
   <h2 id="requirements">Requirements</h2>
   <ul>
@@ -81,18 +111,73 @@ claude plugin install orrery@orrery</code></pre>
   <p>On first launch the terminal presents a one-time legal acknowledgment. You must read and accept it before using the application. A short disclaimer stays visible in the footer at all times, and the full terms live on the <a href="legal.html">Legal page</a>.</p>
   <div class="warn"><b>Orrery is not investment advice.</b> Every output is a decision aid to be independently verified. You bear full responsibility for all investment decisions.</div>
 
-  <h2 id="using">Using the terminal</h2>
-  <p>Ask the agent to <em>open the terminal</em>. Across the top are per-security tabs plus pinned tabs for <b>Portfolios</b>, <b>Screener</b>, <b>Watchlists</b>, and <b>Theses</b>, a <b>⚙ Settings</b> tab, and an <b>✉ Agent</b> button to leave the agent a message. Each security tab has a left rail: Stock Chart, Company Info, Financial Statements, Analyst Ratings, Peer Comps, Ownership, Transcripts, News, SEC Filings, Insider Trades, Operating Model, and Research Notes.</p>
+  <h2 id="driving">Driving Orrery with the agent</h2>
+  <p>Ask the agent to <em>"open the Orrery terminal."</em> Across the top are per-security tabs plus pinned tabs for <b>Portfolios</b>, <b>Screener</b>, <b>Watchlists</b>, and <b>Theses</b>, a <b>⚙ Settings</b> tab, and an <b>✉ Agent</b> button to leave the agent a message. Each security tab has a left rail: Stock Chart, Company Info, Financial Statements, Analyst Ratings, Peer Comps, Ownership, Transcripts, News, SEC Filings, Insider Trades, Operating Model, and Research Notes.</p>
+  <p>You can navigate it yourself, but the fastest way is to ask. The agent can read what's on screen ("what does the analyst view say for this name?") and drive it ("switch to the cash-flow statement," "open the rebalance view"). Everything below works whether the terminal is open or not — the agent will open what it needs.</p>
 
-  <h2 id="agent">Working with the agent</h2>
-  <p>The agent operates every surface for you. A few things to try:</p>
-  <ul>
-    <li>"Build an operating model for CAT and shock gross margin down 2 points."</li>
-    <li>"Screen large-cap industrials for quality and momentum, sector-neutral."</li>
-    <li>"Create a thesis from this view, set a probability, and build its model portfolio."</li>
-    <li>"Give me a morning brief" or "what's on my calendar this week?"</li>
-    <li>"Import my broker CSV and reconcile dividends."</li>
-  </ul>
+  <h2 id="charts">Charts &amp; the workbench</h2>
+  <p>The charting workbench is a full technical-analysis surface with its own engine — ~125 indicators, 39 drawing tools, all timeframes and extended hours, compare overlays, and event markers (earnings/dividends/splits/insider trades). Open one with a request, then refine it in words.</p>
+  <table>
+    <tr><th>You say</th><th>What happens</th></tr>
+    <tr><td>"Chart AAPL daily with the 50 and 200-day moving averages, RSI, and MACD."</td><td>Opens an interactive chart with those overlays and oscillators.</td></tr>
+    <tr><td>"Add an anchored VWAP from the last earnings date and mark the gap."</td><td>The agent adds the drawing/overlay to the chart you're looking at.</td></tr>
+    <tr><td>"Switch to weekly, log scale, and compare against MSFT and the SP500."</td><td>Reconfigures timeframe/scale and adds normalized compare lines.</td></tr>
+    <tr><td>"What do the signals say?"</td><td>Reads the live 12-signal technical battery + key levels off the chart.</td></tr>
+  </table>
+  <div class="note">Charts are served from a localhost URL; the API key stays server-side. A standalone file copy is also saved — that copy embeds the key, so treat it like a credential.</div>
+
+  <h2 id="screener">Screening stocks</h2>
+  <p>The screener does cross-sectional factor ranking (percentile or winsorized z-score, sector-neutral), an expression language for custom filters and derived fields, quality/health scores (Piotroski, Altman), 12-1 momentum, 13F crowding, and point-in-time-honest factor backtests.</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Screen large-cap tech under 20× earnings, ranked by momentum, sector-neutral."</td><td>Builds and runs the screen, returns a ranked table.</td></tr>
+    <tr><td>"Add a filter: free-cash-flow yield &gt; 4% and Piotroski ≥ 7."</td><td>Uses the expression DSL to refine the universe.</td></tr>
+    <tr><td>"Save this as 'Quality Compounders' and tell me who entered or left since last run."</td><td>Persists the screen and reports membership deltas over time.</td></tr>
+  </table>
+
+  <h2 id="portfolio">Portfolios &amp; analytics</h2>
+  <p>Track what you own and measure it like a professional: time-weighted vs money-weighted returns, Carino-linked Brinson attribution, ex-ante factor risk, a mean-variance optimizer, FIFO tax lots, broker-CSV import, and dividend reconciliation. Positions are derived from a transaction ledger (nothing is an opaque balance).</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Create a portfolio 'Core' and record: bought 100 AAPL at 180, deposited 50k."</td><td>Sets up the ledger and derives positions, cost basis, cash, weights.</td></tr>
+    <tr><td>"Import my broker CSV and reconcile any missing dividends."</td><td>Imports transactions and flags/records dividends.</td></tr>
+    <tr><td>"Show performance vs SPY, and attribute my active return by sector."</td><td>TWR/MWR, risk stats, and Brinson allocation/selection/interaction.</td></tr>
+    <tr><td>"Propose target weights that cut risk without dropping expected return much, then a rebalance plan."</td><td>Runs the optimizer and produces buy/sell deltas (plan only).</td></tr>
+  </table>
+
+  <h2 id="models">Company operating models</h2>
+  <p>Give any company a driver-based operating model calibrated from its filings and consensus, then turn any event into an instant EPS and fair-value delta. An elasticity table shows exactly which drivers move the stock.</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Build an operating model for CAT."</td><td>Calibrates revenue → EBIT → EPS → FCF, plus exit-multiple + DCF fair value.</td></tr>
+    <tr><td>"Shock gross margin down 2 points and raise the tax rate to 21%."</td><td>Re-runs the model and reports the EPS and fair-value impact.</td></tr>
+    <tr><td>"Which drivers matter most?"</td><td>Returns the elasticity table (sensitivity of fair value to each driver).</td></tr>
+  </table>
+
+  <h2 id="thesis">The thesis engine</h2>
+  <p>Turn a view into a maintained, probability-weighted thesis with an evidence ledger — and let the system propose its own from macro (FRED) signals. As evidence arrives, the probability moves and the change is logged. As theses resolve, Orrery scores its own calibration (Brier score, skill vs base rate).</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Create a thesis: US energy-security capex supercycle; set it high-confidence; sectors Energy and Utilities overweight."</td><td>Records the thesis with an initial probability and tilts.</td></tr>
+    <tr><td>"Nat-gas guidance was cut — log that as evidence against, and reassess the probability."</td><td>Appends to the evidence ledger and updates the probability with a reason.</td></tr>
+    <tr><td>"Compile this thesis into a screen and build a paper model portfolio."</td><td>Turns tilts into a screen spec and a model portfolio.</td></tr>
+    <tr><td>"How well-calibrated have my probabilities been?"</td><td>Reports calibration once enough theses have resolved (else says so honestly).</td></tr>
+  </table>
+  <div class="note">Probabilities are subjective, auditable estimates with a full evidence trail — not validated forecasts. Treat them as decision aids.</div>
+
+  <h2 id="watch">Watchlists, alerts &amp; calendar</h2>
+  <p>Keep names under surveillance: watchlists with a live monitor, edge-triggered alert rules (price, % move, RSI, 52-week, earnings-within-N-days) with playbooks, and a catalyst calendar (earnings/dividends/splits/economic) scoped to your names. A "morning brief" pulls it together.</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Add NVDA, AMD, AVGO to a 'Semis' watchlist and alert me if any breaks its 52-week high."</td><td>Creates the watchlist and arms the alert rules.</td></tr>
+    <tr><td>"What's on my calendar this week?" / "Give me a morning brief."</td><td>Upcoming catalysts for your names + a consolidated brief.</td></tr>
+  </table>
+
+  <h2 id="memory">Research notes &amp; memory</h2>
+  <p>Orrery has a shared memory: research notes tied to symbols, portfolios, or theses that persist between sessions, so you and the agent build on prior work instead of starting over. Ask the agent to "write your take on this name to research notes," or "what did we conclude about MSFT last month?"</p>
+
+  <h2 id="feedback">Giving feedback</h2>
+  <p>Orrery is being shaped by the people who use it. The easiest way to report a bug, request a feature, or share an idea is to just tell the agent — <em>"report a bug: the rebalance view didn't load,"</em> or <em>"I have an idea: add options analytics."</em> It composes a ready-to-post GitHub report prefilled with your details and version for you to submit (it never posts on your behalf). You can also browse and follow every issue on the <a href="support.html">Support page</a>, join <a href="https://github.com/pauljbernard/orrery/discussions">Discussions</a>, and optionally enable a local-only usage journal ("turn on usage reporting") to attach to a report.</p>
 
   <h2 id="updates">Updating</h2>
   <table>
