@@ -1,0 +1,150 @@
+Orrery End-User License Agreement (EULA)
+
+Copyright © 2026 Paul Bernard. All rights reserved.
+
+Version 1.0 — 2026-07-17
+
+IMPORTANT — READ CAREFULLY. This End-User License Agreement ("Agreement")
+is a legal agreement between you (an individual or a single entity, "You")
+and Paul Bernard ("Licensor") for the Orrery software, including its source
+code, object code, packaged distributions (the ".plugin" archive), skills,
+commands, documentation, and any updates (collectively, the "Software").
+
+By downloading, installing, copying, accessing, or otherwise using the
+Software, You agree to be bound by this Agreement. If You do not agree, do
+not download, install, or use the Software.
+
+THIS SOFTWARE IS SOURCE-AVAILABLE BUT IS NOT OPEN SOURCE. No rights are
+granted under any Open Source Initiative–approved license. All rights not
+expressly granted below are reserved by the Licensor.
+
+
+1. LICENSE GRANT
+Subject to Your continuous compliance with this Agreement, the Licensor
+grants You a limited, personal, worldwide, royalty-free, non-exclusive,
+non-transferable, non-sublicensable, and REVOCABLE license to download,
+install, and use the Software, in object and source form, solely to run it
+for Your own internal purposes, including personal and commercial use, for
+so long as the Licensor makes the Software available free of charge. This
+grant applies only to the version(s) of the Software You have obtained and
+does not entitle You to any future version, update, support, or service.
+
+
+2. RESTRICTIONS
+Except to the extent this Agreement expressly permits or applicable law
+prohibits the restriction, You shall NOT, and shall not permit any third
+party to:
+  (a) redistribute, publish, sell, rent, lease, lend, sublicense, host,
+      offer as a service, or otherwise make the Software (in whole or in
+      part, modified or unmodified) available to any third party;
+  (b) modify, adapt, translate, or create derivative works of the Software,
+      or incorporate any part of it into other software, except for
+      configuration expressly contemplated by the documentation;
+  (c) reverse engineer, decompile, or disassemble the Software, except and
+      only to the extent this restriction is unenforceable under applicable
+      law;
+  (d) remove, alter, or obscure any copyright, trademark, or other
+      proprietary notice;
+  (e) use the name "Orrery," the Licensor's name, or any Orrery logo or mark
+      to endorse, promote, or name derivative or competing products; or
+  (f) use the Software in violation of any applicable law or third-party
+      terms (including the terms of the data providers referenced below).
+
+
+3. RESERVATION OF RIGHTS; CHANGES TO TERMS
+The Licensor reserves all rights not expressly granted. Availability of the
+source code does not grant any license beyond Section 1. The Licensor may,
+at its sole discretion and at any time, and without notice or liability:
+  (i)   modify, suspend, or discontinue the Software or its free availability;
+  (ii)  change the terms of this Agreement; and
+  (iii) release any future version of the Software under different license
+        terms (including proprietary, paid, or open-source terms).
+This version of the Agreement governs the version(s) of the Software You
+obtained under it. Your continued download or use of the Software after
+revised terms are made available constitutes acceptance of the revised
+terms; if You do not accept them, Your remedy is to stop using the Software.
+
+
+4. OWNERSHIP
+The Software is licensed, not sold. The Licensor and its licensors retain
+all right, title, and interest in and to the Software, including all
+intellectual property rights. This Agreement does not transfer any
+ownership interest to You.
+
+
+5. THIRD-PARTY DATA AND COMPONENTS
+The Software retrieves data from third-party providers, including Financial
+Modeling Prep, the Federal Reserve Bank of St. Louis (FRED), and the U.S.
+Securities and Exchange Commission (EDGAR). Your use of such data is subject
+to those providers' respective terms, and the Licensor is not responsible
+for that data. The Software may include third-party open-source components
+that remain governed by their own licenses; nothing in this Agreement limits
+Your rights under those licenses with respect to those components.
+
+
+6. NOT INVESTMENT ADVICE
+The Software is an informational and educational research tool. Nothing it
+produces constitutes investment, financial, legal, tax, or accounting advice
+or a recommendation. You are solely responsible for all investment decisions
+and for independently verifying any information the Software produces. See
+the accompanying DISCLAIMER.md, which is incorporated into this Agreement by
+reference.
+
+
+7. DISCLAIMER OF WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, AND NON-INFRINGEMENT. THE LICENSOR
+DOES NOT WARRANT THAT THE SOFTWARE OR ITS OUTPUT WILL BE ACCURATE, RELIABLE,
+COMPLETE, TIMELY, UNINTERRUPTED, OR ERROR-FREE.
+
+
+8. LIMITATION OF LIABILITY
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL THE LICENSOR BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL,
+EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR ANY LOSS OF PROFITS, REVENUE, DATA, OR
+INVESTMENT LOSSES, ARISING FROM OR RELATED TO THE SOFTWARE OR THIS AGREEMENT,
+UNDER ANY THEORY OF LIABILITY, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGES. YOU ASSUME TOTAL RESPONSIBILITY AND RISK FOR YOUR USE OF THE
+SOFTWARE. SOME JURISDICTIONS DO NOT ALLOW CERTAIN LIMITATIONS, SO PARTS OF
+THIS SECTION MAY NOT APPLY TO YOU.
+
+
+9. INDEMNIFICATION
+You agree to indemnify, defend, and hold harmless the Licensor from any
+claims, liabilities, damages, losses, and expenses (including reasonable
+legal fees) arising from Your use of the Software, Your investment decisions,
+or Your breach of this Agreement.
+
+
+10. TERM AND TERMINATION
+This Agreement is effective until terminated. It terminates automatically,
+without notice, if You breach any of its terms. The Licensor may also
+terminate the license granted in Section 1 at any time as described in
+Section 3. Upon termination, You must cease all use of the Software and
+destroy all copies in Your possession or control. Sections 2, 4, 6, 7, 8, 9,
+11, and 12 survive termination.
+
+
+11. EXPORT AND COMPLIANCE
+You represent that You are not located in, and will not use or export the
+Software in violation of, any applicable export-control or sanctions laws.
+
+
+12. GOVERNING LAW; VENUE
+This Agreement is governed by the laws of the State of Texas, United States,
+without regard to its conflict-of-laws rules. The exclusive venue for any
+dispute arising out of or relating to this Agreement shall be the state and
+federal courts located in the State of Texas, and You consent to their
+jurisdiction.
+
+
+13. GENERAL
+This Agreement, together with DISCLAIMER.md, is the entire agreement between
+You and the Licensor regarding the Software and supersedes all prior
+understandings. If any provision is held unenforceable, the remaining
+provisions remain in full force. The Licensor's failure to enforce any right
+is not a waiver. You may not assign this Agreement without the Licensor's
+prior written consent.
+
+Contact: open an issue on the Orrery repository.

@@ -1,0 +1,80 @@
+# ─────────────────────────────────────────────────────────────
+# Orrery .gitignore — keep secrets, user data, and build output
+# OUT of the public/remote repository. Source-only lives in git.
+# NOTE: git does not support inline (end-of-line) comments in
+# .gitignore, so every rule below is on its own uncommented line.
+# ─────────────────────────────────────────────────────────────
+
+# ── Secrets & credentials (NEVER commit) ──
+# config.json holds the FMP/FRED API keys (written mode 600)
+.env
+*.env
+.env.*
+config.json
+**/config.json
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.*
+*secret*
+*credentials*
+apikey*
+api-key*
+*.token
+
+# ── User data / local application state ──
+# All Orrery runtime stores live under ~/.orrery by default; these
+# guards catch any copy or env-redirected store landing in the repo.
+.orrery/
+**/.orrery/
+.surface-stockchart/
+**/.surface-stockchart/
+portfolios.json
+watchlists.json
+alerts.json
+notes.json
+theses.json
+worldview.json
+company-models.json
+screen-runs.json
+agreement.json
+inbox.json
+playbooks.json
+journal.json
+pit/
+imports/
+*.import.csv
+
+# ── Build / packaging artifacts ──
+*.plugin
+dist/
+build/
+out/
+staging/
+
+# ── Test output (regenerated) ──
+test-reports/
+coverage/
+.nyc_output/
+*.lcov
+
+# ── Dependencies ──
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ── Local tooling / editor / OS noise ──
+# .claude/ is local Claude Code project state; the plugin's own
+# config lives in .claude-plugin/ which IS committed.
+.claude/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+*.log
+tmp/
+.tmp/

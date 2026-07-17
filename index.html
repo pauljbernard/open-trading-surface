@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orrery — the research terminal that thinks between sessions</title>
+<meta name="description" content="An agent-native investment research terminal for Claude: charting, factor screening, portfolio analytics, company operating models, and a probability-weighted thesis engine.">
+<style>
+  :root{--bg:#0b0e14;--panel:#131722;--border:#242938;--text:#d7dbe6;--muted:#8b93a7;--accent:#2f7bff;--pos:#26a969;--neg:#ef5350;--r:14px}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:radial-gradient(1200px 620px at 72% -12%,rgba(47,123,255,.16),transparent),var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  header.nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:rgba(11,14,20,.7);border-bottom:1px solid var(--border)}
+  .nav .wrap{display:flex;align-items:center;gap:20px;height:62px}
+  .brand{font-weight:800;letter-spacing:-.3px;font-size:17px}.brand span{color:var(--accent)}
+  .nav nav{margin-left:auto;display:flex;gap:22px;font-size:14px;color:var(--muted)}
+  .nav nav a{color:var(--muted)}.nav nav a:hover{color:var(--text)}
+  .nav .dl{background:var(--accent);color:#fff!important;padding:8px 16px;border-radius:9px;font-weight:600}
+  .hero{padding:76px 0 30px;text-align:center}
+  .kicker{display:inline-block;font-size:12.5px;letter-spacing:.4px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(47,123,255,.35);border-radius:20px;padding:5px 14px;margin-bottom:22px}
+  .hero h1{font-size:50px;line-height:1.06;margin:0 0 18px;letter-spacing:-1.4px}
+  .hero p.lead{font-size:20px;color:var(--muted);max-width:730px;margin:0 auto 28px}
+  .cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .btn{display:inline-block;padding:13px 24px;border-radius:11px;font-weight:600;font-size:15px}
+  .btn.primary{background:var(--accent);color:#fff}.btn.ghost{border:1px solid var(--border);color:var(--text)}
+  .trust{margin-top:20px;color:var(--muted);font-size:13px}
+  .shot{border-radius:var(--r);border:1px solid var(--border);box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden;background:var(--panel)}
+  .shot img{display:block;width:100%}
+  .heroShot{max-width:1000px;margin:44px auto 0}
+  .browserbar{display:flex;align-items:center;gap:7px;padding:9px 14px;background:#0d1017;border-bottom:1px solid var(--border)}
+  .browserbar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .browserbar .r{background:#ef5350}.browserbar .y{background:#f5b544}.browserbar .g{background:#26a969}
+  .browserbar span{margin-left:12px;color:var(--muted);font-size:12px}
+  section{padding:60px 0;border-top:1px solid var(--border)}
+  section h2{font-size:30px;margin:0 0 6px;letter-spacing:-.6px;text-align:center}
+  section .sub{color:var(--muted);margin:0 auto 34px;text-align:center;max-width:640px}
+  .feat{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;margin:46px 0}
+  .feat.rev{grid-template-columns:1fr 1.05fr}.feat.rev .txt{order:2}
+  .feat h3{font-size:23px;margin:0 0 10px;letter-spacing:-.3px}
+  .feat p{color:var(--muted);font-size:15.5px;margin:0 0 14px}
+  .feat ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}
+  .feat ul li{margin:4px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:26px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:20px 22px}
+  .card .ic{font-size:22px;margin-bottom:6px}.card h4{margin:0 0 5px;font-size:16px}.card p{margin:0;color:var(--muted);font-size:14px}
+  .steps{max-width:720px;margin:0 auto;counter-reset:s;list-style:none;padding:0}
+  .steps li{position:relative;padding:16px 0 16px 48px;border-bottom:1px solid var(--border)}
+  .steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:15px;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+  .steps li b{display:block}
+  pre{background:#0d1017;border:1px solid var(--border);border-radius:10px;padding:15px 18px;overflow:auto;font:13px/1.55 ui-monospace,Menlo,monospace;color:#c8d0e0;max-width:720px;margin:16px auto}
+  code{font:13px ui-monospace,Menlo,monospace;background:#0d1017;border:1px solid var(--border);border-radius:5px;padding:1px 6px}
+  pre code{background:none;border:none;padding:0}
+  .disc{background:rgba(239,83,80,.07);border:1px solid rgba(239,83,80,.3);border-radius:12px;padding:16px 20px;color:var(--text);font-size:13.5px;max-width:820px;margin:26px auto 0;text-align:center}
+  .disc b{color:#ff8a86}
+  footer{padding:44px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--border);text-align:center}
+  footer a{color:var(--muted)}
+  @media(max-width:820px){.feat,.feat.rev{grid-template-columns:1fr}.feat.rev .txt{order:0}.hero h1{font-size:36px}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <div class="brand">Surface<span>·</span>StockChart</div>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#install">Install</a>
+    <a href="guide.html">Guide</a>
+    <a href="support.html">Support</a>
+    <a class="dl" href="#install">Get it</a>
+  </nav>
+</div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <span class="kicker">An agent-native research terminal for Claude</span>
+    <h1>The research terminal that<br>thinks between sessions.</h1>
+    <p class="lead">Charting, factor screening, GIPS-grade portfolio analytics, driver-based company models, and a probability-weighted thesis engine — every surface driven by the agent, all running on your machine.</p>
+    <div class="cta">
+      <a class="btn primary" href="#install">Install</a>
+      <a class="btn ghost" href="#features">See what it does</a>
+    </div>
+    <div class="trust">Runs locally · zero dependencies · your keys never leave your machine · never trades</div>
+  </div>
+  <div class="shot heroShot">
+    <div class="browserbar"><i class="r"></i><i class="y"></i><i class="g"></i><span>Orrery — Operating Model · CAT</span></div>
+    <img src="assets/model.png" alt="Company operating model with drivers, projection, and fair-value sensitivity">
+  </div>
+  <div class="disc"><b>Not investment advice.</b> Orrery is an informational research tool. Nothing it produces is advice or a recommendation; data may be inaccurate — verify everything independently. You bear full responsibility for all decisions. See the <a href="legal.html">full disclaimer</a>.</div>
+</div>
+
+<section id="features"><div class="wrap">
+  <h2>One tool, the whole workflow</h2>
+  <p class="sub">From a market view to a modeled position — top to bottom, all agent-operable.</p>
+
+  <div class="feat">
+    <div class="txt">
+      <h3>📐 Company operating models</h3>
+      <p>Every company can carry a driver-based model calibrated from its filings and consensus. Turn any event into an instant answer.</p>
+      <ul><li>Revenue → EBIT → EPS → FCF, five years out</li><li>Blended exit-multiple + DCF fair value</li><li>Shock any driver — tariffs, contract wins, rate moves — and see the fair-value delta</li><li>An elasticity table showing exactly what moves the stock</li></ul>
+    </div>
+    <div class="shot"><img src="assets/model.png" alt="Operating model"></div>
+  </div>
+
+  <div class="feat rev">
+    <div class="txt">
+      <h3>🧭 A thesis engine that keeps score</h3>
+      <p>A maintained worldview feeds candidate theses with explicit probabilities and an evidence ledger that updates them as the world changes — the system even proposes its own from FRED macro data.</p>
+      <ul><li>Probability-weighted, not vibes</li><li>Every development logged as evidence that moves the odds</li><li>Compiles into screens and paper model portfolios</li></ul>
+    </div>
+    <div class="shot"><img src="assets/thesis.png" alt="Thesis with probability and evidence ledger"></div>
+  </div>
+
+  <div class="feat">
+    <div class="txt">
+      <h3>💼 Institutional portfolio analytics</h3>
+      <p>The measurement core professionals expect — verified against closed forms.</p>
+      <ul><li>Time-weighted vs money-weighted returns</li><li>Carino-linked Brinson attribution</li><li>Ex-ante factor risk, mean-variance optimization</li><li>FIFO tax lots, broker CSV import, dividend reconciliation</li></ul>
+    </div>
+    <div class="shot"><img src="assets/performance.png" alt="Portfolio performance dashboard"></div>
+  </div>
+
+  <div class="feat rev">
+    <div class="txt">
+      <h3>🔍 Analyst-grade screening &amp; comps</h3>
+      <p>Cross-sectional factor composites, an expression language, and relative-valuation tables — well beyond boolean filters.</p>
+      <ul><li>Sector-neutral percentile / z-score ranks</li><li>Piotroski, Altman, 12-1 momentum, 13F crowding</li><li>Peer comps with medians; honest factor backtests</li></ul>
+    </div>
+    <div class="shot"><img src="assets/comps.png" alt="Peer comparison table"></div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><div class="ic">📈</div><h4>Own charting engine</h4><p>~125 indicators, 39 drawing tools, every granularity, extended hours — no third-party library.</p></div>
+    <div class="card"><div class="ic">📅</div><h4>Surveillance</h4><p>Watchlists, edge-triggered alerts with playbooks, a catalyst calendar scoped to your names, a morning brief.</p></div>
+    <div class="card"><div class="ic">🤖</div><h4>Agent-native</h4><p>A workspace cockpit, an event inbox, research memory, an audit journal — the agent watches and drafts the work.</p></div>
+    <div class="card"><div class="ic">🔐</div><h4>Private &amp; safe</h4><p>Runs locally, keys stay on your machine, security-reviewed, fully test-covered, and it never places a trade.</p></div>
+  </div>
+</div></section>
+
+<section id="install"><div class="wrap">
+  <h2>Install in two minutes</h2>
+  <p class="sub">Two ways, depending on how you run Claude.</p>
+  <h3 style="text-align:center;margin:8px 0 4px">Claude desktop (Cowork)</h3>
+  <ol class="steps">
+    <li><b>Download the package</b><span style="color:var(--muted);font-size:14px">Grab the latest <code>orrery.plugin</code> from Releases.</span></li>
+    <li><b>Install it</b><span style="color:var(--muted);font-size:14px">Open it in the app, or add it under Settings → Capabilities, and restart the session.</span></li>
+    <li><b>Add your keys in the ⚙ Settings tab</b><span style="color:var(--muted);font-size:14px">Paste your FMP key (and a free FRED key), hit Test. Keys never leave your machine.</span></li>
+    <li><b>Accept the terms &amp; go</b><span style="color:var(--muted);font-size:14px">Acknowledge the one-time disclaimer, then ask the agent to open the terminal.</span></li>
+  </ol>
+  <h3 style="text-align:center;margin:30px 0 4px">Claude Code (CLI)</h3>
+<pre><code>claude plugin marketplace add pauljbernard/orrery-marketplace
+claude plugin install orrery@orrery</code></pre>
+  <p class="sub" style="margin-top:18px">Requires Node.js 18+. Stay current: the plugin tells you when a new version ships. <a href="guide.html#updates">Update &amp; uninstall guide →</a></p>
+</div></section>
+
+<footer><div class="wrap">
+  <div style="margin-bottom:10px"><a href="legal.html">Legal &amp; Disclaimer</a> · <a href="guide.html">User Guide</a> · <a href="changelog.html">Changelog</a> · <a href="support.html">Support &amp; Issues</a></div>
+  Runs entirely on your machine · not investment advice · does not execute trades.<br>
+  Market data by Financial Modeling Prep · economic data by FRED · filings via SEC EDGAR.
+</div></footer>
+</body>
+</html>

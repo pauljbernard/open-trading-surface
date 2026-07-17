@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation & User Guide
+    url: https://pauljbernard.github.io/orrery/guide.html
+    about: Install, configure, update, and troubleshoot.
+  - name: Legal Disclaimer
+    url: https://pauljbernard.github.io/orrery/legal.html
+    about: This is an informational tool, not investment advice.

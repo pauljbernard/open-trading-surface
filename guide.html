@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Guide — Orrery</title>
+<style>
+  :root{--bg:#0b0e14;--panel:#131722;--border:#242938;--text:#d7dbe6;--muted:#8b93a7;--accent:#2f7bff;--r:12px}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px}
+  header{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(11,14,20,.85);backdrop-filter:blur(10px);z-index:10}
+  header .wrap{display:flex;align-items:center;height:60px}
+  .brand{font-weight:800}.brand span{color:var(--accent)}
+  header nav{margin-left:auto;font-size:14px;color:var(--muted)}header nav a{color:var(--muted);margin-left:18px}
+  h1{font-size:32px;margin:36px 0 8px}.lead{color:var(--muted);margin:0 0 22px}
+  h2{font-size:22px;margin:34px 0 8px;border-top:1px solid var(--border);padding-top:26px}
+  h3{font-size:17px;margin:22px 0 6px}
+  p,li{font-size:15px}li{color:var(--text);margin:5px 0}
+  code{font:13px ui-monospace,Menlo,monospace;background:#0d1017;border:1px solid var(--border);border-radius:5px;padding:1px 6px}
+  pre{background:#0d1017;border:1px solid var(--border);border-radius:10px;padding:14px 18px;overflow:auto;font:13px/1.55 ui-monospace,Menlo,monospace;color:#c8d0e0}
+  pre code{background:none;border:none;padding:0}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted)}
+  .toc{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:14px 20px;margin:20px 0;columns:2}
+  .toc a{display:block;padding:3px 0;font-size:14px}
+  .note{background:rgba(47,123,255,.08);border:1px solid rgba(47,123,255,.3);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
+  .warn{background:rgba(239,83,80,.07);border:1px solid rgba(239,83,80,.3);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
+  footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;padding:30px 0;margin-top:44px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="brand">Surface<span>·</span>StockChart</div>
+  <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>User Guide</h1>
+  <p class="lead">Everything you need to install, configure, use, update, and remove Orrery.</p>
+  <div class="toc">
+    <a href="#requirements">Requirements</a>
+    <a href="#install">Installing</a>
+    <a href="#keys">Configuring API keys</a>
+    <a href="#first">First run &amp; the disclaimer</a>
+    <a href="#using">Using the terminal</a>
+    <a href="#agent">Working with the agent</a>
+    <a href="#updates">Updating</a>
+    <a href="#uninstall">Uninstalling</a>
+    <a href="#data">Your data &amp; privacy</a>
+    <a href="#trouble">Troubleshooting</a>
+  </div>
+
+  <h2 id="requirements">Requirements</h2>
+  <ul>
+    <li><b>Node.js 18 or newer</b> — the plugin's local server has zero npm dependencies.</li>
+    <li><b>A Financial Modeling Prep API key</b> — for market and fundamental data.</li>
+    <li><b>Optional: a free FRED API key</b> — unlocks the macro signal engine and system-proposed theses. <a href="https://fred.stlouisfed.org/docs/api/api_key.html">Register free</a>.</li>
+  </ul>
+
+  <h2 id="install">Installing</h2>
+  <h3>Claude desktop (Cowork)</h3>
+  <ol>
+    <li>Download the latest <code>orrery.plugin</code> from Releases.</li>
+    <li>Open it with the desktop app, or add it under <b>Settings → Capabilities</b>.</li>
+    <li><b>Restart the session</b> so the plugin's local server starts. Tools then appear as <code>mcp__orrery__*</code>.</li>
+  </ol>
+  <h3>Claude Code (CLI)</h3>
+<pre><code>claude plugin marketplace add pauljbernard/orrery-marketplace
+claude plugin install orrery@orrery</code></pre>
+
+  <h2 id="keys">Configuring API keys</h2>
+  <p>The easiest path is in the UI: open the terminal, click the <b>⚙ Settings</b> tab, paste your FMP key (and optionally FRED), and press <b>Test</b> to confirm live connectivity. You can also set <code>FMP_API_KEY</code> / <code>FRED_API_KEY</code> environment variables, which take precedence.</p>
+  <div class="note">Keys are stored on your machine in <code>~/.orrery/config.json</code> with file mode 600 and are never transmitted anywhere but the data providers themselves.</div>
+
+  <h2 id="first">First run &amp; the disclaimer</h2>
+  <p>On first launch the terminal presents a one-time legal acknowledgment. You must read and accept it before using the application. A short disclaimer stays visible in the footer at all times, and the full terms live on the <a href="legal.html">Legal page</a>.</p>
+  <div class="warn"><b>Orrery is not investment advice.</b> Every output is a decision aid to be independently verified. You bear full responsibility for all investment decisions.</div>
+
+  <h2 id="using">Using the terminal</h2>
+  <p>Ask the agent to <em>open the terminal</em>. Across the top are per-security tabs plus pinned tabs for <b>Portfolios</b>, <b>Screener</b>, <b>Watchlists</b>, and <b>Theses</b>, a <b>⚙ Settings</b> tab, and an <b>✉ Agent</b> button to leave the agent a message. Each security tab has a left rail: Stock Chart, Company Info, Financial Statements, Analyst Ratings, Peer Comps, Ownership, Transcripts, News, SEC Filings, Insider Trades, Operating Model, and Research Notes.</p>
+
+  <h2 id="agent">Working with the agent</h2>
+  <p>The agent operates every surface for you. A few things to try:</p>
+  <ul>
+    <li>"Build an operating model for CAT and shock gross margin down 2 points."</li>
+    <li>"Screen large-cap industrials for quality and momentum, sector-neutral."</li>
+    <li>"Create a thesis from this view, set a probability, and build its model portfolio."</li>
+    <li>"Give me a morning brief" or "what's on my calendar this week?"</li>
+    <li>"Import my broker CSV and reconcile dividends."</li>
+  </ul>
+
+  <h2 id="updates">Updating</h2>
+  <table>
+    <tr><th>&nbsp;</th><th>Claude desktop (Cowork)</th><th>Claude Code (CLI)</th></tr>
+    <tr><td><b>Check</b></td><td>Ask the agent to <code>check_for_updates</code>; the workspace cockpit also flags new versions automatically.</td><td><code>claude plugin update</code></td></tr>
+    <tr><td><b>Apply</b></td><td>Download the new <code>.plugin</code>, install it, restart the session.</td><td><code>claude plugin update orrery</code></td></tr>
+  </table>
+  <div class="note">Update checks are non-blocking and only request a version number — they never transmit your data. Your settings, portfolios, theses, and notes persist across updates.</div>
+
+  <h2 id="uninstall">Uninstalling</h2>
+  <ul>
+    <li><b>Cowork:</b> Settings → Capabilities → remove Orrery.</li>
+    <li><b>CLI:</b> <code>claude plugin uninstall orrery</code></li>
+    <li>To also erase local data, delete the <code>~/.orrery/</code> directory (this removes your keys, portfolios, theses, notes, and models).</li>
+  </ul>
+
+  <h2 id="data">Your data &amp; privacy</h2>
+  <p>Everything lives in <code>~/.orrery/</code> on your machine: keys, portfolios, watchlists, theses, notes, company models, alerts, an audit journal, and test reports. Nothing is uploaded to any server operated by the publisher. The only outbound calls are read-only requests to your chosen data providers (FMP, FRED, SEC EDGAR) and a version-number check to the update channel.</p>
+
+  <h2 id="trouble">Troubleshooting</h2>
+  <ul>
+    <li><b>Tools don't appear:</b> restart the Claude session after installing; the MCP server starts on session load.</li>
+    <li><b>"No API key configured":</b> add your FMP key in the ⚙ Settings tab and press Test.</li>
+    <li><b>Charts show no live data when opened from a saved file:</b> by design, saved files never embed your key; open the live terminal URL the agent provides for live data.</li>
+    <li><b>SEC filing fetch returns 403:</b> set an EDGAR contact in ⚙ Settings (e.g. "Your Name your@email.com").</li>
+    <li><b>Something looks wrong:</b> ask the agent to <code>run_test_suite</code>, and <a href="support.html">open an issue</a>.</li>
+  </ul>
+
+  <footer><a href="index.html">Home</a> · <a href="legal.html">Legal &amp; Disclaimer</a> · <a href="support.html">Support &amp; Issues</a></footer>
+</div>
+</body>
+</html>

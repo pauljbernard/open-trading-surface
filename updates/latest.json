@@ -1,0 +1,9 @@
+{
+  "version": "2.3.1",
+  "download_url": "https://github.com/pauljbernard/orrery/releases/download/v2.3.1/orrery-2.3.1.plugin",
+  "sha256": "d72dff0641e0b2e10d2af21283f2d118c07869deaeca01ba42e08c64398393f0",
+  "min_node": "18",
+  "notes": "- **Licensing**: added a proprietary, source-available end-user license (`LICENSE`) — free to download and use (incl. commercial); no redistribution or derivative works; Licensor may change terms for future versions. Governing law: Texas. Added Orrery logo/iconography assets under `docs/assets/`. - **Renamed the entire project from Surface-StockChart to Orrery** — an orrery is a mechanical model of the heavens, fitting for a terminal that builds a working model of the market. This touches the br",
+  "published": "2026-07-17T13:53:50Z",
+  "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
+}

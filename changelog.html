@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Changelog — Orrery</title>
+<style>:root{--bg:#0b0e14;--panel:#131722;--border:#242938;--text:#d7dbe6;--muted:#8b93a7;--accent:#2f7bff}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:800px;margin:0 auto;padding:0 22px}
+header{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(11,14,20,.85);backdrop-filter:blur(10px)}header .wrap{display:flex;align-items:center;height:60px}
+.brand{font-weight:800}.brand span{color:var(--accent)}header nav{margin-left:auto;font-size:14px;color:var(--muted)}header nav a{color:var(--muted);margin-left:18px}
+h1{font-size:32px;margin:36px 0 20px}h2{font-size:19px;margin:28px 0 6px;color:var(--text);border-top:1px solid var(--border);padding-top:20px}
+ul{margin:6px 0 14px;padding-left:20px}li{color:var(--muted);font-size:14.5px;margin:5px 0}li b{color:var(--text)}
+footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;padding:30px 0;margin-top:40px}</style></head>
+<body><header><div class="wrap"><div class="brand">Surface<span>·</span>StockChart</div>
+<nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
+<div class="wrap"><h1>Changelog</h1>
+<p>All notable changes to Orrery. Versions follow semantic versioning.</p>
+<h2>[2.3.0] — Distribution &amp; legal</h2>
+<ul>
+<li><b>Update channel</b>: `check_for_updates` tool and cockpit surfacing against a public version manifest; one-command `release.sh` pipeline emitting the `.plugin`, SHA-256 checksum, and manifest for GitHub Releases + Pages.</li>
+<li><b>Documentation website</b> (GitHub Pages): screenshot-rich marketing landing, full user guide, changelog, and support/issues page.</li>
+<li><b>Legal</b>: comprehensive disclaimer (repo `DISCLAIMER.md`, docs legal page); in-app first-run acceptance gate with persistent footer; `get_disclaimer` / `record_disclaimer_acceptance` tools. Not investment advice; user assumes full responsibility; as-is, no warranty/liability.</li>
+<li>Refreshed plugin metadata and README to the full capability set; FRED key passthrough in `.mcp.json`.</li>
+</ul>
+<h2>[2.2.0] — Hardening</h2>
+<ul>
+<li>Full test harness across <b>functional, non-functional (HTTP + security), and performance</b> categories with a `run-all.js` orchestrator producing JSON + Markdown reports; `run_test_suite` tool.</li>
+<li><b>Secure code review</b> remediations: EDGAR SSRF allowlist (re-checked on redirects), API keys never embedded at rest, workbench XSS escaping, chart-save path containment, DNS-rebinding Host guard, timing-safe token comparison, expression DoS caps, store-corruption self-heal. `SECURITY.md` added.</li>
+</ul>
+<h2>[2.1.0] — Worldview &amp; thesis probability</h2>
+<ul>
+<li>Structured <b>worldview</b> across eight domains; `propose_theses` macro signal engine over <b>FRED</b> + FMP data (the system forms its own theses from data).</li>
+<li>Thesis <b>probabilities</b> with a full <b>evidence ledger</b> and probability history; continuous reassessment; `get_worldview_refresh_bundle`.</li>
+</ul>
+<h2>[2.0.0] — Company operating models</h2>
+<ul>
+<li>Driver-based per-company <b>operating models</b> calibrated from filings + consensus; instant event→driver→EPS/fair-value shocks; elasticity tables; terminal Operating Model view.</li>
+</ul>
+<h2>[1.9.0] — The fully-leveraged agent</h2>
+<ul>
+<li>`get_workspace_state` cockpit, agent <b>inbox</b>, generalized <b>playbooks</b>, audit <b>journal</b>, API budget governor; filing-diff intelligence, thesis review / IC-memo bundles, event triage, macro context.</li>
+</ul>
+<h2>[1.8.0] — Thesis engine</h2>
+<ul>
+<li>Thesis → compiled screen → model portfolio pipeline; screener <b>expression DSL</b> (where/derive); 13F crowding fields; point-in-time snapshot archive; honest technical-factor backtester.</li>
+</ul>
+<h2>[1.7.0] — Institutional portfolio operations</h2>
+<ul>
+<li>Broker CSV import; dividend reconciliation; Carino-linked multi-period Brinson attribution; ETF-proxy ex-ante factor model with scenario shocks; mean-variance optimizer.</li>
+</ul>
+<h2>[1.6.0] — Research memory</h2>
+<ul>
+<li>Persistent research notes; alert playbooks + morning brief; pro-forma what-if; event-annotated charts; screen deltas; pre-earnings prep pack.</li>
+</ul>
+<h2>[1.5.0] — Surveillance &amp; relative analysis</h2>
+<ul>
+<li>Watchlists + live monitor; edge-triggered alerts; events calendar; peer comps; 13F ownership; earnings surprises; Brinson attribution.</li>
+</ul>
+<h2>[1.4.0] — Professional screener &amp; portfolio analytics</h2>
+<ul>
+<li>Cross-sectional factor screener (percentile / z-score, sector-neutral, Piotroski/Altman, 12-1 momentum); GIPS-style TWR/MWR, risk suite, FIFO tax lots, exposures, rebalancing.</li>
+</ul>
+<h2>[1.3.0] — Foundation</h2>
+<ul>
+<li>Clean-room canvas charting engine (~125 indicators, 39 drawing tools), multi-security research terminal, FMP-backed data, localhost server with agent control channel, packaged as an installable plugin.</li>
+</ul>
+<footer><a href="index.html">Home</a> · <a href="legal.html">Legal &amp; Disclaimer</a></footer></div></body></html>
