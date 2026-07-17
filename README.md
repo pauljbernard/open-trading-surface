@@ -8,7 +8,7 @@ This repository is the **public home** for Orrery: documentation, downloads, and
 
 ## Download & install
 
-Grab the latest `orrery.plugin` from the [**Releases**](https://github.com/pauljbernard/orrery/releases/latest) page, then install it in Claude desktop (Settings → Capabilities) and restart your session.
+Download **[`orrery.plugin`](https://pauljbernard.github.io/orrery/download/orrery.plugin)** (the latest package), then install it in Claude desktop (Settings → Capabilities) and restart your session. Orrery is distributed as a runnable, minified package — the source code is not published.
 
 Requires **Node.js ≥ 18** (the bundled MCP server has zero npm dependencies).
 

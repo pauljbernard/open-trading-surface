@@ -1,9 +1,9 @@
 {
   "version": "2.3.1",
-  "download_url": "https://github.com/pauljbernard/orrery/releases/download/v2.3.1/orrery-2.3.1.plugin",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.3.1.plugin",
   "sha256": "5f1cfe01e9d394b42e5315c29d4828162977b23a5beea55053ab006920997d00",
   "min_node": "18",
-  "notes": "- **Package-only distribution**: the released `.plugin` now ships the server bundled + minified (via esbuild) and the client chart files minified — runnable, but not the authored source. Release assets and history contain no source; source lives in a separate private repository. - **Licensing**: added a proprietary end-user license (`LICENSE`); the software is distributed as a package only, not as source — free to download and use (incl. commercial); no redistribution or derivative works; Licens",
+  "notes": "- **Package-only distribution**: the released `.plugin` now ships the server bundled + minified (via esbuild) and the client chart files minified \u2014 runnable, but not the authored source. Release assets and history contain no source; source lives in a separate private repository. - **Licensing**: added a proprietary end-user license (`LICENSE`); the software is distributed as a package only, not as source \u2014 free to download and use (incl. commercial); no redistribution or derivative works; Licens",
   "published": "2026-07-17T14:08:47Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
