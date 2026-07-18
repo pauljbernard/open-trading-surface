@@ -1,13 +1,13 @@
 {
-  "version": "2.19.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.19.1.plugin",
-  "sha256": "b73a86e23036a198aa0aaa86a763e7ba2fafb58f59e46f70289bb0ccdb92aa9e",
+  "version": "2.20.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.20.0.plugin",
+  "sha256": "046c4458983aff389184346da6172fe5169d96b41369e5b62fca11dcd3c735ed",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Fixed a false error toast when loading or refreshing a chart.** Charts served by the local server deliberately carry **no embedded API key** — data flows through the same-origin `/fmp` proxy with the key held server-side — but a leftover check from the old standalone-file era warned whenever no key was embedded, so it fired on every proxy-served chart even though nothing was wrong. The warning is now correctly scoped to the standalone `file://` copy, which is the only case that actually needs an embedded key (and its wording now points at opening the live chart URL instead of \"regenerating",
-  "published": "2026-07-18T17:37:04.561Z",
+  "notes": "- **Hover an event marker to see what it is.** Markers on the chart carry their source events now, so pointing at one shows a tooltip with the event label, date, detail and sentiment. Where several events land on the same bar the marker collapses to `N×` and the tooltip lists them (first six, plus a count of the rest). - **Click a marker to open that event.** The chart runs as an iframe inside the research terminal, so selecting a marker posts up to the terminal, which switches the security to the rail view that owns that source — filings → SEC Filings, ratings → Analyst Ratings, insider → Ins",
+  "published": "2026-07-18T18:07:06.499Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
