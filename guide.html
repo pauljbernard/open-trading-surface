@@ -127,6 +127,16 @@
   </table>
   <div class="note">Charts are served from a localhost URL; the API key stays server-side. A standalone file copy is also saved — that copy embeds the key, so treat it like a credential.</div>
 
+  <h3>Overlaying macro, commodity, financial &amp; filing series</h3>
+  <p>The chart isn't limited to price. The <b>🌐 Macro/Data</b> menu overlays any external time series — economic (FRED), commodity/energy prices, per-company financial-statement line items, or SEC EDGAR XBRL facts — directly on the chart so you can compare and test predictive relationships. Each overlay renders either on its <b>own stacked right-hand axis</b> (so different units line up honestly) or in a <b>separate pane</b>, your choice per series, and can be <b>shifted forward or back</b> in bars to line a leading indicator up against price. Ask the agent to <em>"find the best lead/lag"</em> and it runs a cross-correlation (<code>analyze_lead_lag</code>) to tell you which lag aligns them best and how strongly.</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Overlay the 10-year Treasury yield and WTI crude on this chart."</td><td>Adds each as its own right-hand axis (refs like <code>fred:DGS10</code>, <code>commodity:CLUSD</code>).</td></tr>
+    <tr><td>"Does copper lead this stock? Shift it to the best lag."</td><td>Runs the lead/lag cross-correlation and applies the shift that best aligns them.</td></tr>
+    <tr><td>"Plot AAPL quarterly revenue and its EDGAR net income under the price."</td><td>Adds <code>fmp:income:AAPL:revenue:quarter</code> and <code>edgar:AAPL:NetIncomeLoss</code> as panes.</td></tr>
+  </table>
+  <div class="note">Overlays align to the price dates by as-of (forward-fill), so a monthly or quarterly series steps correctly against daily bars. Lead/lag shifts and correlations are analytical aids — verify the economic logic; correlation is not causation.</div>
+
   <h2 id="screener">Screening stocks</h2>
   <p>The screener does cross-sectional factor ranking (percentile or winsorized z-score, sector-neutral), an expression language for custom filters and derived fields, quality/health scores (Piotroski, Altman), 12-1 momentum, 13F crowding, and point-in-time-honest factor backtests.</p>
   <table>

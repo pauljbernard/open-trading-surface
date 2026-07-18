@@ -1,13 +1,13 @@
 {
-  "version": "2.7.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.7.0.plugin",
-  "sha256": "beadf1447c533d5e11045486ccfbd60f2ff4d973f618f6a0dff1ebc769d15822",
+  "version": "2.8.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.8.0.plugin",
+  "sha256": "b3540b7391d96e2c253135023d1713129c6be8b2eb61f7cff4172fad2d87e659",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- New unified **external time-series layer**: a single `resolve_series` fetches any series across **FRED** (economic), **FMP** (commodity/energy prices and per-company financial-statement line items over time), and **SEC EDGAR** (XBRL company-facts, e.g. Revenues, NetIncomeLoss) as normalized `{date,value}` points, addressed by compact refs (`fred:DGS10`, `commodity:CLUSD`, `fmp:income:AAPL:revenue:quarter`, `edgar:AAPL:Revenues`). `search_series` surfaces a curated, symbol-aware catalog. - New **lead/lag analysis**: `analyze_lead_lag` aligns an external series onto a stock's price dates and c",
-  "published": "2026-07-18T02:33:23.249Z",
+  "notes": "- **Overlay any external series directly on the price chart.** A new **🌐 Macro/Data** menu adds economic (FRED), commodity/energy, per-company financial-statement, and SEC EDGAR XBRL series to the workbench — each rendered either on its **own stacked right-hand axis** (multiple axes align mixed units honestly) or in a **separate pane**, configurable per series. Overlays align to the price dates by as-of forward-fill, so monthly/quarterly series step correctly against daily bars. - **Lead/lag shift on the chart**: every overlay carries a ± bar shift so you can slide a leading indicator to line",
+  "published": "2026-07-18T02:55:13.614Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

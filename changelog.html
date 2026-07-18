@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.8.0] — Cross-series chart overlays (chart overlays, part 2)</h2>
+<ul>
+<li><b>Overlay any external series directly on the price chart.</b> A new <b>🌐 Macro/Data</b> menu adds economic (FRED), commodity/energy, per-company financial-statement, and SEC EDGAR XBRL series to the workbench — each rendered either on its <b>own stacked right-hand axis</b> (multiple axes align mixed units honestly) or in a <b>separate pane</b>, configurable per series. Overlays align to the price dates by as-of forward-fill, so monthly/quarterly series step correctly against daily bars.</li>
+<li><b>Lead/lag shift on the chart</b>: every overlay carries a ± bar shift so you can slide a leading indicator to line its turns up against price; pair it with <code>analyze_lead_lag</code> to find the best-aligning lag quantitatively.</li>
+<li><b>Agent-drivable</b>: <code>control_chart</code> gains <code>add_overlay</code> / <code>set_overlay</code> / <code>remove_overlay</code> / <code>clear_overlays</code>, and <code>inspect_chart</code> now reports overlays — so the agent can build and shift a cross-series comparison the same way it drives indicators.</li>
+<li>Engine: the charting engine now supports <b>multiple stacked right-hand axes</b> (each overlay its own labeled scale), verified by a headless render test; overlay config persists across reloads.</li>
+</ul>
 <h2>[2.7.0] — Cross-series analysis engine (chart overlays, part 1)</h2>
 <ul>
 <li>New unified <b>external time-series layer</b>: a single <code>resolve_series</code> fetches any series across <b>FRED</b> (economic), <b>FMP</b> (commodity/energy prices and per-company financial-statement line items over time), and <b>SEC EDGAR</b> (XBRL company-facts, e.g. Revenues, NetIncomeLoss) as normalized <code>{date,value}</code> points, addressed by compact refs (<code>fred:DGS10</code>, <code>commodity:CLUSD</code>, <code>fmp:income:AAPL:revenue:quarter</code>, <code>edgar:AAPL:Revenues</code>). <code>search_series</code> surfaces a curated, symbol-aware catalog.</li>
