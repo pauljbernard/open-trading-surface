@@ -1,13 +1,13 @@
 {
-  "version": "2.9.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.9.0.plugin",
-  "sha256": "5ce9eec72d34a4d63349e98afa0479bec3762e1579e3a75422321ff9dc47db35",
+  "version": "2.9.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.9.1.plugin",
+  "sha256": "09b24d14ed2834d19bb498dbac0da9bea9860074ce1aeb5b8be7b86b9e0a932c",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- Extended the cross-series layer to the remaining FMP time-series families so overlays/analysis now span the full set: **FMP economic indicators** (`fmp:econ:realGDP|CPI|inflationRate|unemploymentRate|federalFunds|retailSales|consumerSentiment`), the **FMP treasury yield curve** per tenor (`fmp:treasury:year2|year10|year30|…`), and first-class **indices / forex / crypto** refs (`index:^GSPC`, `index:^VIX`, `forex:EURUSD`, `crypto:BTCUSD`) — previously only reachable through the generic price ref and not discoverable. All are catalogued (new `rates` and `index` categories) so `search_series` a",
-  "published": "2026-07-18T03:15:34.543Z",
+  "notes": "- **Fixed stock charts showing \"ENOENT: no such file or directory … server/engine.js\" on a fresh install.** The chart HTML was assembled by reading three browser-side files (engine/indicators/talib-ext) from disk at runtime, but those files are never `require()`d — so a plugin loader that installs only the required module graph placed the bundled `index.js` without them, breaking every chart. Those client files are now **embedded into the bundle at build time** (via `client-embed`), so the shipped server assembles charts with **zero runtime file reads** and no sibling-file dependency. Dev (unb",
+  "published": "2026-07-18T03:42:57.826Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
