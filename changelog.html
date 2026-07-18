@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.9.0] — Full external-series coverage: FMP economic, treasury &amp; indices</h2>
+<ul>
+<li>Extended the cross-series layer to the remaining FMP time-series families so overlays/analysis now span the full set: <b>FMP economic indicators</b> (<code>fmp:econ:realGDP|CPI|inflationRate|unemploymentRate|federalFunds|retailSales|consumerSentiment</code>), the <b>FMP treasury yield curve</b> per tenor (<code>fmp:treasury:year2|year10|year30|…</code>), and first-class <b>indices / forex / crypto</b> refs (<code>index:^GSPC</code>, <code>index:^VIX</code>, <code>forex:EURUSD</code>, <code>crypto:BTCUSD</code>) — previously only reachable through the generic price ref and not discoverable. All are catalogued (new <code>rates</code> and <code>index</code> categories) so <code>search_series</code> and the 🌐 Macro/Data menu surface them, and all flow through the same overlay + <code>analyze_lead_lag</code> machinery.</li>
+<li>Honest fallbacks: FMP economic/treasury endpoints require a higher FMP plan; when unavailable the resolver returns a clear message pointing at the equivalent FRED series (which remains the more complete source for economic data and rates).</li>
+</ul>
 <h2>[2.8.0] — Cross-series chart overlays (chart overlays, part 2)</h2>
 <ul>
 <li><b>Overlay any external series directly on the price chart.</b> A new <b>🌐 Macro/Data</b> menu adds economic (FRED), commodity/energy, per-company financial-statement, and SEC EDGAR XBRL series to the workbench — each rendered either on its <b>own stacked right-hand axis</b> (multiple axes align mixed units honestly) or in a <b>separate pane</b>, configurable per series. Overlays align to the price dates by as-of forward-fill, so monthly/quarterly series step correctly against daily bars.</li>
