@@ -147,6 +147,30 @@
   </table>
   <div class="note">A single-symbol rule backtest is a <b>hypothesis check, not strategy validation</b>. Costs are modelled per side; slippage, borrow, taxes and survivorship are not — and rules chosen by looking at the same sample are an upper bound. Note a level rule (<code>close &gt; 50</code>) is a state that re-enters after each exit; use <code>crossover</code>/<code>crossunder</code> for edge-triggered entries.</div>
 
+  <h3>Indicators you define yourself</h3>
+  <p>Beyond the built-in library you can define your own indicator from a formula and use it exactly
+  like a built-in. Ask for it in words — <em>"define an indicator called vol_ratio that is the 10-day
+  average volume over the 50-day average volume"</em> — and it appears in the chart's indicator library
+  under <b>Custom</b>, with the same add / edit-parameters / hide / remove controls as everything else.
+  Definitions persist, so they are there in your next session.</p>
+  <p>Formulas are written over the bar fields (<code>open</code>, <code>high</code>, <code>low</code>,
+  <code>close</code>, <code>volume</code>) with windowed functions — <code>sma</code>, <code>ema</code>,
+  <code>wma</code>, <code>highest</code>, <code>lowest</code>, <code>stdev</code>, <code>sum</code>,
+  <code>slope</code>, <code>ref</code>, <code>crossover</code>, <code>crossunder</code>,
+  <code>barssince</code> — plus any parameters you declare, which then become editable inputs on the
+  chart. An indicator can plot several series, and a plot marked as a lower pane gets its own lane.</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Define an indicator: 20-day high minus 20-day low, divided by close."</td><td>Creates it and makes it addable (<code>define_indicator</code>).</td></tr>
+    <tr><td>"What custom indicators do I have?"</td><td>Lists your definitions (<code>list_custom_indicators</code>).</td></tr>
+    <tr><td>"Put vol_ratio on the chart with n=30."</td><td>Adds it with that parameter value.</td></tr>
+    <tr><td>"Delete the vol_ratio indicator."</td><td>Removes the definition (<code>delete_custom_indicator</code>).</td></tr>
+  </table>
+  <div class="note">The formula language has no loops, no assignment and no access to anything outside
+  the bars — it is evaluated on the server, never <code>eval</code>-ed in your browser, and the chart
+  sends bars it already holds, so a custom indicator costs no extra API calls. The same expressions
+  drive rule backtesting, so an idea you can plot is an idea you can test.</div>
+
   <h3>Auto-detected trendlines, zones &amp; patterns</h3>
   <p>The <b>🔎 Detect</b> menu runs pattern recognition locally on the bars already loaded — no extra API calls. Toggle <b>Trendlines</b> (fitted through pivots, scored by touches, recency and violations), <b>S/R zones</b> (volume-weighted pivot clusters), <b>Candlestick patterns</b> (~40 recognizers), and <b>Geometric patterns</b> (double tops/bottoms, head &amp; shoulders, triangles, channels), with a minimum-confidence slider. Detections render as ordinary chart drawings but tagged <code>auto</code> — dashed and tinted by direction — so they never mix with your own drawings and can be cleared separately from them.</p>
   <p>Crucially they are <b>structured objects, not pixels</b>: each carries chart coordinates, a confidence score, a direction, a status (<em>forming / confirmed / invalidated</em>) and a plain-language narrative. So the agent can read exactly what you are looking at and act on it — "draw the trendline it found," "is that head &amp; shoulders confirmed yet?" — and anything the agent detects appears in your chart for you to edit or delete.</p>
@@ -165,7 +189,30 @@
     <tr><td>"Put insider trades, analyst rating changes and filings on the chart."</td><td>Toggles those event sources as sentiment-colored markers.</td></tr>
     <tr><td>"Show me everything that happened on this name and the net tone."</td><td>Returns the unified event stream with a sentiment composite (<code>get_events</code>).</td></tr>
     <tr><td>"Add the events pane so I can see sentiment over time."</td><td>Adds the net-event-sentiment lane under the price chart.</td></tr>
+    <tr><td>"Open the filing behind that marker."</td><td>Jumps to the event in its own view (<code>control_chart select_event</code>).</td></tr>
   </table>
+
+  <h4>Interrogating a marker</h4>
+  <p><b>Hover</b> any marker to see what it is — label, date, detail and sentiment. Where several
+  events land on the same bar the marker collapses to <b>N&times;</b> and the tooltip lists them.
+  <b>Click</b> it and the terminal switches that security to the view which owns the source —
+  filings to <b>SEC Filings</b>, ratings to <b>Analyst Ratings</b>, insider to <b>Insider Trades</b>,
+  and likewise for transcripts, news, ownership, notes and financial releases — then highlights the
+  dated row. So a spike on the chart takes two seconds to trace back to the document that caused it,
+  rather than a hunt through a list.</p>
+
+  <h4>Which driver does this event move?</h4>
+  <p>If the security has an <a href="#models">operating model</a>, every event also carries a
+  <b>model link</b>: the tooltip tells you which internal driver it bears on, and clicking offers a
+  jump straight to the Operating Model view. The link is drawn two ways — by <b>event type</b>
+  (reported results and filed statements reset the growth and margin baseline, guidance moves growth,
+  street ratings feed the exit multiple and discount rate), and by <b>matching the headline against
+  the factors your model actually carries</b>. So if your model has a tariff factor wired to gross
+  margin, a tariff headline links through that edge to <code>gross_margin_pct</code>.</p>
+  <div class="note">The link is only ever drawn through edges your model really has — a model with no
+  tariff factor produces no tariff link, and nothing is inferred beyond the wiring you built. It points
+  you at the driver to re-examine; it does not re-estimate the driver for you. Agents get the same
+  thing as <code>model_link</code> on every event from <code>get_events</code>.</div>
   <div class="note">Event sentiment is a <b>heuristic</b> read per event type (insider P/S, grade-rank moves, EPS vs estimate, net 13F flow, a news lexicon, note kind) — a fast orientation aid, not a verdict. Read the underlying event before acting on it.</div>
 
   <h2 id="screener">Screening stocks</h2>

@@ -1,13 +1,13 @@
 {
-  "version": "2.20.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.20.0.plugin",
-  "sha256": "046c4458983aff389184346da6172fe5169d96b41369e5b62fca11dcd3c735ed",
+  "version": "2.20.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.20.1.plugin",
+  "sha256": "2c13ff3134ef044d1d9438099a30d63bb326b8f6393ca8c48052b09b7df80efb",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Hover an event marker to see what it is.** Markers on the chart carry their source events now, so pointing at one shows a tooltip with the event label, date, detail and sentiment. Where several events land on the same bar the marker collapses to `N×` and the tooltip lists them (first six, plus a count of the rest). - **Click a marker to open that event.** The chart runs as an iframe inside the research terminal, so selecting a marker posts up to the terminal, which switches the security to the rail view that owns that source — filings → SEC Filings, ratings → Analyst Ratings, insider → Ins",
-  "published": "2026-07-18T18:07:06.499Z",
+  "notes": "- **The user guide now documents indicators you define yourself.** This shipped in 2.19.0 and was missing from the site entirely — there is now a section covering the formula language, the windowed functions available, parameters as editable chart inputs, multi-plot and lower-pane indicators, and the fact that evaluation happens server-side over bars the chart already holds (no `eval` in the browser, no extra API calls). - **The events section covers marker hover, click-through and the model link** added in 2.20.0, including what the link means and — importantly — what it does not: it is drawn",
+  "published": "2026-07-18T19:19:27.982Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.20.1] — Documentation and test coverage catch up with the features</h2>
+<ul>
+<li><b>The user guide now documents indicators you define yourself.</b> This shipped in 2.19.0 and was missing from the site entirely — there is now a section covering the formula language, the windowed functions available, parameters as editable chart inputs, multi-plot and lower-pane indicators, and the fact that evaluation happens server-side over bars the chart already holds (no <code>eval</code> in the browser, no extra API calls).</li>
+<li><b>The events section covers marker hover, click-through and the model link</b> added in 2.20.0, including what the link means and — importantly — what it does not: it is drawn only through influence edges your model actually carries, and it points at a driver to re-examine rather than re-estimating it.</li>
+<li><b>The landing page gained a charting section.</b> The workbench is the largest surface in the product and had no feature card at all; overlays, events, auto-detection, no-lookahead replay, custom indicators and rule backtesting are now visible to someone deciding whether to install.</li>
+<li><b>Tests for the client contract.</b> The chart and the terminal are separate documents that talk by <code>postMessage</code> and cannot import each other, so nothing checked that the two halves agreed. A new suite asserts the message type matches on both sides, the terminal rejects foreign origins and the chart targets its own, <b>every</b> event source has a destination rail view and every view referenced exists, markers carry their payload, and the agent has parity. Each assertion was verified to fail when the contract is broken.</li>
+<li><b>Behavioural tests for marker hit-testing</b>: <code>markerAt</code> resolves the marker under the cursor with its event payload, misses outside the radius, drops stale hit boxes when a source is toggled off, and records nothing for markers scrolled out of view.</li>
+</ul>
 <h2>[2.20.0] — Event markers you can interrogate: hover, click through, and see the operating-model link</h2>
 <ul>
 <li><b>Hover an event marker to see what it is.</b> Markers on the chart carry their source events now, so pointing at one shows a tooltip with the event label, date, detail and sentiment. Where several events land on the same bar the marker collapses to <code>N×</code> and the tooltip lists them (first six, plus a count of the rest).</li>
