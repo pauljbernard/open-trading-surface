@@ -118,12 +118,28 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.27.1</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-18 23:00 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.28.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-18 23:41 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.28.0 <span class="reltitle">The operating model becomes a real causal graph, and starts keeping its own score</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>Any cause, not just macro.</b> Model nodes now cover whatever actually moves the company — supply chains, vendors, energy, raw materials, labor, new products, sales channels, competition, recalls, regulation — with an OPEN category vocabulary instead of a fixed list. The old closed list was forcing real-world causes into whichever bucket fit least badly.</li>
+        <li><b>The model is chartable against the price</b> — the only real test. New series refs <code>model:&lt;SYM&gt;:fair_value</code>, <code>model:&lt;SYM&gt;:eps_yr1</code>, <code>model:&lt;SYM&gt;:eps_yr5</code> resolve from the snapshot track through the SAME overlay machinery as FRED or a commodity, so <code>control_chart add_overlay {ref: "model:AAPL:fair_value"}</code> draws what the model believed, when, on top of what the stock actually did. The Operating Model view gains a <b>Model track record</b> table (date, price, fair value, FV-vs-price gap, EPS, node/edge counts).</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Causes chain.</b> Edges may land on another node, not only on a financial driver: <code>lithium_price → cell_cost → gross_margin_pct</code>, or <code>recall → warranty_cost → opex</code> alongside <code>recall → brand → revenue growth</code>. A shock propagates along every path as the <b>product of sensitivities</b>, and each completed path is traced so the answer reads as a story. Dead ends are reported ("this node reaches no financial driver"), cycles are rejected at link time, and paths cap at depth 8 because a longer causal story is a modelling smell.</li>
+        <li><b>Deep chains can earn grades.</b> When both ends of a node→node edge carry a series ref (lithium price → a vendor's reported input costs), the link is FITTED series-to-series with full inference, not just estimated. The influence map lays nodes out by topological depth, so chains render as chains, with stage nodes tinted per category (open categories get a stable generated hue).</li>
+        <li><b>The model keeps a dated track of its own conclusions.</b> Every save snapshots concluded fair value, EPS (yr1/yr5), the drivers, and the price at the time — deduplicated per day unless the conclusion moved, capped at 400. <code>modelDrift</code> compares snapshots and names which ASSUMPTIONS moved and by how much: the model shifting is a different fact from the stock moving, and it is the one you did to yourself.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.27.1 <span class="reltitle">Fix: the CI UI check assumed a portfolio existed</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -226,29 +242,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li>The solve reuses the existing tested <code>project()</code>/<code>valuation()</code> rather than duplicating the arithmetic — a second implementation would drift and the two would silently disagree. It is graded as arithmetic over assumed inputs, never as a measurement.</li>
         <li><code>calibrate_model_factors</code> now accepts a fit only when the statistics support it. Some sensitivities that previously auto-applied no longer will; that is the point.</li>
         <li>The model-factors test suite was rewritten to the honest standard: eight clean annual points are explicitly <b>not</b> enough to accept a sensitivity.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.22.0 <span class="reltitle">The operating model gets its real data foundation, and events finally have a home</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>Every driver now has a fitted history.</b> Calibration used to see two drivers — gross margin and revenue growth — built from three years of income statements, while opex, capex, working capital, tax, D&amp;A, share count and net debt carried catalog ESTIMATES that nothing ever checked. Driver history is now assembled from income/balance/cash-flow statements, key-metrics, enterprise-values and employee count (revenue per employee is a real operating driver), and <b>extended by as-filed SEC EDGAR XBRL</b> where it reaches further back than FMP — which matters when fitting a sensitivity through a cycle.</li>
-        <li>New <code>get_model_events</code> tool; <code>calibrate_model_factors</code> gains <code>accept</code>, <code>use_edgar</code> and <code>breaks_from_events</code>.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>EDGAR extends history; it never overwrites it.</b> Only years FMP lacks are filled, because the two sources disagree on restatements and silently preferring one would make a fit unreproducible. Every point records the source it came from.</li>
-        <li><b>Any factor series ref is now calibratable.</b> Calibration read only a hardcoded FRED id, so a factor you attached as <code>commodity:CLUSD</code> or <code>edgar:...</code> was chartable and shockable but <b>silently skipped</b> — never given a reading, never fitted. Factors now resolve through the full series layer (FRED, commodity, index, FX, crypto, FMP econ/treasury/statements, EDGAR), and anything that still cannot be calibrated is reported in <code>skipped_factors</code> with the reason instead of vanishing.</li>
-        <li><b>Fitted sensitivities are shown beside the estimate in force, and are never applied automatically.</b> Each fit reports n, r, r², the period and the driver's data sources; accepting it is a deliberate act (<code>accept: true</code>), because a weak regression on a few annual points should not silently overwrite a considered judgment.</li>
-        <li><b>Events enter the model in the three roles they can honestly play</b> — and sentiment regression is deliberately <i>not</i> one of them. Regressing a driver on a sentiment score fits reverse causality (news reacts to fundamentals far more than it drives them) and launders a ±1 lexicon into a decimal sensitivity.</li>
-        <li><b>The legal terms are now versioned by a hash of their own text</b>, not by a constant someone has to remember to bump. Any edit to the disclaimer — with no code change and no version change — automatically invalidates acceptance and re-prompts on the next start. The previously accepted text is stored, so the re-prompt can show <b>what actually changed</b> rather than just demanding agreement again, and "never accepted" is reported differently from "accepted terms that have since changed". Whitespace reflowing does not spuriously re-prompt.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
-      <ul>
-        <li><b>The support page now carries release information</b> — current version, publish timestamp, update channel and download link, plus the last eight releases with each note grouped into New / Fixed / Changed / Removed. It is generated from <code>CHANGELOG.md</code> during the release build, so it cannot drift from what was actually shipped; the grouping is derived from each note's wording and the page says so.</li>
       </ul>
     </div>
   </div>
