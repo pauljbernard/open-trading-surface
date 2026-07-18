@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.12.0] — Event markers, events pane &amp; Analysis sentiment (event overlays, part 2)</h2>
+<ul>
+<li><b>All 11 event sources are now chart markers.</b> The 📅 Events menu went from 4 toggles (earnings/dividends/splits/insider) to every source: earnings (beat/miss), dividends, splits, insider buys/sells, SEC filings, earnings-call transcripts, institutional 13F ownership flow, analyst rating changes, quarterly financial releases, news, and research notes — each independently toggleable, <b>sentiment-colored</b> (green positive / red negative), with dense days collapsed into a single <code>N×</code> cluster and a density cap so long ranges stay readable.</li>
+<li><b>New events pane</b>: an optional lane under the price chart charting <b>net event sentiment per bar</b>, so you can see tone accumulate over time next to price.</li>
+<li><b>Analysis panel</b> now includes an <b>Events &amp; sentiment</b> section: the recent event stream with per-event sentiment pills plus the weighted composite score/verdict, alongside the existing technical battery.</li>
+<li>Agent-drivable: <code>control_chart set_events {events:{…11 sources…}, pane:true}</code>, and <code>inspect_chart</code> reports the enabled sources, pane state, and current sentiment composite.</li>
+</ul>
 <h2>[2.11.0] — Unified event + sentiment engine (event overlays, part 1)</h2>
 <ul>
 <li>New <b>event layer</b>: one <code>get_events</code> call returns a single, dated, <b>sentiment-scored</b> stream across every source — earnings (beat/miss), dividends, splits, insider trades (buy/sell), SEC filings, earnings-call transcripts, institutional-ownership 13F net flow, analyst rating changes (up/downgrade), quarterly financial releases, news (tone), and your research notes — plus a weighted sentiment <b>composite</b> (score −100..100 + verdict) over the recent window. Each event carries a −1/0/+1 sentiment derived per type (insider P/S, grade-rank moves, EPS vs estimate, a news lexicon, net institutional flow, note kind).</li>

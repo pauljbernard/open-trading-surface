@@ -137,6 +137,16 @@
   </table>
   <div class="note">Overlays align to the price dates by as-of (forward-fill), so a monthly or quarterly series steps correctly against daily bars. Lead/lag shifts and correlations are analytical aids — verify the economic logic; correlation is not causation.</div>
 
+  <h3>Events &amp; sentiment on the chart</h3>
+  <p>The <b>📅 Events</b> menu now covers <b>every</b> source, not just earnings and dividends: earnings (beat/miss), dividends, splits, insider buys/sells, SEC filings, earnings-call transcripts, institutional 13F ownership flow, analyst rating changes, quarterly financial releases, news, and your own research notes. Each is a separate toggle, and every marker is <b>sentiment-colored</b> — green for positive (insider buy, upgrade, EPS beat, net institutional buying, positive news), red for negative — with busy days collapsed into a single <code>N×</code> cluster so a long range stays readable. Turn on <b>Show events pane</b> for a dedicated lane charting <b>net event sentiment per bar</b>, and the <b>🔬 Analysis</b> panel now lists recent events with their sentiment plus a weighted composite score.</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Put insider trades, analyst rating changes and filings on the chart."</td><td>Toggles those event sources as sentiment-colored markers.</td></tr>
+    <tr><td>"Show me everything that happened on this name and the net tone."</td><td>Returns the unified event stream with a sentiment composite (<code>get_events</code>).</td></tr>
+    <tr><td>"Add the events pane so I can see sentiment over time."</td><td>Adds the net-event-sentiment lane under the price chart.</td></tr>
+  </table>
+  <div class="note">Event sentiment is a <b>heuristic</b> read per event type (insider P/S, grade-rank moves, EPS vs estimate, net 13F flow, a news lexicon, note kind) — a fast orientation aid, not a verdict. Read the underlying event before acting on it.</div>
+
   <h2 id="screener">Screening stocks</h2>
   <p>The screener does cross-sectional factor ranking (percentile or winsorized z-score, sector-neutral), an expression language for custom filters and derived fields, quality/health scores (Piotroski, Altman), 12-1 momentum, 13F crowding, and point-in-time-honest factor backtests.</p>
   <table>

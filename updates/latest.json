@@ -1,13 +1,13 @@
 {
-  "version": "2.11.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.11.0.plugin",
-  "sha256": "d282a103d3ccd18f2af728452c0e68819ae2644d6113064aee6200ff7b66b0f6",
+  "version": "2.12.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.12.0.plugin",
+  "sha256": "081f3dc9a9326850c114e601ef24d3dd5b4048784300eba190c1df453f44f5ba",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- New **event layer**: one `get_events` call returns a single, dated, **sentiment-scored** stream across every source — earnings (beat/miss), dividends, splits, insider trades (buy/sell), SEC filings, earnings-call transcripts, institutional-ownership 13F net flow, analyst rating changes (up/downgrade), quarterly financial releases, news (tone), and your research notes — plus a weighted sentiment **composite** (score −100..100 + verdict) over the recent window. Each event carries a −1/0/+1 sentiment derived per type (insider P/S, grade-rank moves, EPS vs estimate, a news lexicon, net instituti",
-  "published": "2026-07-18T05:07:44.362Z",
+  "notes": "- **All 11 event sources are now chart markers.** The 📅 Events menu went from 4 toggles (earnings/dividends/splits/insider) to every source: earnings (beat/miss), dividends, splits, insider buys/sells, SEC filings, earnings-call transcripts, institutional 13F ownership flow, analyst rating changes, quarterly financial releases, news, and research notes — each independently toggleable, **sentiment-colored** (green positive / red negative), with dense days collapsed into a single `N×` cluster and a density cap so long ranges stay readable. - **New events pane**: an optional lane under the price",
+  "published": "2026-07-18T05:29:58.980Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
