@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.18.0] — PIT bar replay: replay without lookahead (Spec B: part 2)</h2>
+<ul>
+<li><b>Replay mode</b> walks a chart forward bar by bar from any start date, with transport controls (step back/forward, play/pause at 1×/4×/10×, exit) in a replay bar that always states what you are looking at.</li>
+<li><b>The no-lookahead guarantee is structural, not a promise</b>: replay windows <code>state.bars</code> to the cursor, so every downstream consumer — indicators, the 12-signal battery, Spec A's auto-detections, event markers, the analysis panel — recomputes from bars ≤ cursor and *cannot* see the future.</li>
+<li><b>The honest-replay moat</b>: analyst-target and DCF price lines are as-known-<b>now</b>, so during replay they are <b>suppressed and labelled</b> rather than silently drawn. If a <b>point-in-time snapshot</b> covers the cursor date, the values you actually observed then are drawn instead and marked <b>as-known-then (snapshot YYYY-MM-DD)</b>. New <code>/pit/asof</code> route backs the distinction.</li>
+<li><b>Agent parity</b>: <code>control_chart replay {action: start|step|play|pause|stop, date?, steps?, speed?}</code>, and <code>inspect_chart what=state</code> reports the cursor index/date, total bars, play state, speed, and whether fundamentals are as-known-then or suppressed — so the agent can run a name forward and narrate what a disciplined analyst would have concluded at each step.</li>
+</ul>
 <h2>[2.17.0] — Rule backtesting over the series DSL (Spec B: part 1)</h2>
 <ul>
 <li>New <code>backtest_rule</code>: entry/exit rules written as <b>series-DSL expressions</b> (or translated from plain English) are backtested locally on already-fetched bars — returning the <b>trade list, per-bar equity curve, hit rate, average win/loss, profit factor, exposure, max drawdown</b> and a buy-and-hold comparison, with costs charged in basis points per side.</li>
