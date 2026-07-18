@@ -1,13 +1,13 @@
 {
-  "version": "2.28.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.28.0.plugin",
-  "sha256": "f10beb617c87a43984ed767fc6ea7bbb42537bfe756d9ac9d04ad441de2346dd",
+  "version": "2.28.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.28.1.plugin",
+  "sha256": "aac6a1643fd63b70f4f9f4637397d87743e5ec8345c477ea29b12566a9a6d32a",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Any cause, not just macro.** Model nodes now cover whatever actually moves the company — supply chains, vendors, energy, raw materials, labor, new products, sales channels, competition, recalls, regulation — with an OPEN category vocabulary instead of a fixed list. The old closed list was forcing real-world causes into whichever bucket fit least badly. - **Causes chain.** Edges may land on another node, not only on a financial driver: `lithium_price → cell_cost → gross_margin_pct`, or `recall → warranty_cost → opex` alongside `recall → brand → revenue growth`. A shock propagates along ever",
-  "published": "2026-07-18T23:41:34.792Z",
+  "notes": "- The **Add factor** control's target list now includes existing nodes alongside the financial drivers, so multi-hop chains (materials → unit cost → margin) can be built directly in the Operating Model view, not only through the agent tools.",
+  "published": "2026-07-18T23:48:20.973Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

@@ -118,12 +118,20 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.28.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-18 23:41 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.28.1</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-18 23:48 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.28.1 <span class="reltitle">The model view can build chains by hand</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>The <b>Add factor</b> control's target list now includes existing nodes alongside the financial drivers, so multi-hop chains (materials → unit cost → margin) can be built directly in the Operating Model view, not only through the agent tools.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.28.0 <span class="reltitle">The operating model becomes a real causal graph, and starts keeping its own score</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -216,32 +224,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
         <li><b>The legal-gate test resolved its module by an absolute path</b> belonging to the machine it was written on, so all five of its cases passed locally and failed on every other machine. CI had been red since 2.22.0 for this reason alone — no product code was involved. It now resolves relatively, like every other test.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.23.0 <span class="reltitle">Honest confidence, the reference class, and the valuation run backwards</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>Every fitted estimate now carries real statistics and an A–D grade.</b> New <code>inference.js</code> computes t-distribution p-values (validated against published tables), standard errors and 95% confidence intervals — no runtime dependencies.</li>
-        <li><b>New <code>get_base_rates</code></b>: what comparable companies actually did. For each driver assumption you get the cohort distribution, where your number sits in it, and a flag when you are forecasting a top- or bottom-decile outcome.</li>
-        <li><b>New <code>get_implied_expectations</code></b>: the valuation solved backwards. Instead of "what is this worth if I am right", it answers "what must be true for today's price to be fair" — solving for the driver value at which the model equals the price, holding the others fixed.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The threshold this replaces was indefensible.</b> A sensitivity counted as "trustworthy" at <code>n ≥ 5</code> and <code>|r| ≥ 0.3</code>. At n=8 that is p≈0.47 — indistinguishable from noise, presented to the user as trustworthy. That exact case now grades <b>D</b>, and there is a test asserting it.</li>
-        <li><b>Grades are capped by METHOD, not just by the numbers.</b> Ten annual observations cannot support a confident causal slope, so annual regressions cap at B however good the fit looks; a 35-word sentiment lexicon caps at D; chart patterns cap at C; as-filed accounting can reach A. The ceiling encodes what the method can bear, independent of how the particular sample landed.</li>
-        <li><b>An exact fit is flagged, not celebrated</b> — zero residuals in financial data almost always mean the same quantity expressed twice rather than a discovered effect.</li>
-        <li><b>A conclusion is graded by its weakest input</b>, because a chain of inference is only as strong as its worst step.</li>
-        <li><b>Persistence</b>: a five-year forecast is a persistence claim, so the question is not "is 18% plausible" but "what share of companies that reached 18% held it every year for five more". It decays far faster than models assume.</li>
-        <li><b>Fade curves</b>: the empirical median path of companies that started in a given band. A model holding a top-quintile margin flat is claiming the company escapes a fade the cohort typically did not — now visible rather than implicit.</li>
-        <li>The cohort is built from live listings, so it is <b>survivorship-biased and says so</b> in every response: failed companies are absent and the distribution is optimistic.</li>
-        <li><b>The gap against the base rate is where this becomes a research signal</b>: the price requires 21% growth; 4% of the cohort delivered that. Readings are demanding / unremarkable / undemanding against stated quintile thresholds that can be overridden — the cut-offs are a judgement and are shown rather than hidden.</li>
-        <li><b>It refuses to fabricate</b>: if no value of that driver alone explains the price, it says so and shows the range it searched, instead of returning a clamped bound. Where the valuation is undefined at an extreme (margins low enough that no leg stays positive), the solve narrows to the region where a value exists rather than giving up.</li>
-        <li>The solve reuses the existing tested <code>project()</code>/<code>valuation()</code> rather than duplicating the arithmetic — a second implementation would drift and the two would silently disagree. It is graded as arithmetic over assumed inputs, never as a measurement.</li>
-        <li><code>calibrate_model_factors</code> now accepts a fit only when the statistics support it. Some sensitivities that previously auto-applied no longer will; that is the point.</li>
-        <li>The model-factors test suite was rewritten to the honest standard: eight clean annual points are explicitly <b>not</b> enough to accept a sensitivity.</li>
       </ul>
     </div>
   </div>

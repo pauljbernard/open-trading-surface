@@ -16,6 +16,10 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.28.1] — The model view can build chains by hand</h2>
+<ul>
+<li>The <b>Add factor</b> control's target list now includes existing nodes alongside the financial drivers, so multi-hop chains (materials → unit cost → margin) can be built directly in the Operating Model view, not only through the agent tools.</li>
+</ul>
 <h2>[2.28.0] — The operating model becomes a real causal graph, and starts keeping its own score</h2>
 <ul>
 <li><b>Any cause, not just macro.</b> Model nodes now cover whatever actually moves the company — supply chains, vendors, energy, raw materials, labor, new products, sales channels, competition, recalls, regulation — with an OPEN category vocabulary instead of a fixed list. The old closed list was forcing real-world causes into whichever bucket fit least badly.</li>
