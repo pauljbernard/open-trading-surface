@@ -16,6 +16,17 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.21.0] — The workflow breadcrumb: every holding traces back to the view that produced it</h2>
+<ul>
+<li><b>Portfolios now record where they came from.</b> Building a model book from a thesis snapshots the full lineage: the thesis, the <b>compiled screen exactly as it ran</b>, the screen run id, and every pick with the rank score that earned it a place and the weight it received. Previously the only link was a single <code>model_portfolio</code> name string on the thesis — one-directional, and the screen was never stored at all, so once you edited the thesis you could no longer reconstruct why those names were bought. A compiled screen is a function of the thesis's *current* tilts, so re-deriving it answers "what would this screen for today", not "why do I own this".</li>
+<li><b>Links are by id, not name.</b> Renaming a portfolio or retitling a thesis used to silently break the connection (and a rebuild would quietly create a second book beside the orphaned first). The chain now resolves by id and *surfaces* a rename rather than hiding it.</li>
+<li><b>A breadcrumb in the UI</b>: model portfolios show *Thesis › Screen › Book* above the holdings, each hop clickable, and the thesis view links forward to the book it produced.</li>
+<li><b>Screen runs are addressable</b> — each run gets an id and is appended to a capped history alongside the spec that produced it, so a portfolio can point at the exact run instead of a name that drifts.</li>
+<li><b>Per-lot provenance</b>: model-build transactions carry a structured <code>origin</code> (thesis id, run id, rank score) instead of only a free-text note.</li>
+<li><b>Honest about what it knows.</b> Books built before this existed can be reconstructed by name-matching, but are labelled <b>inferred</b> and carry <b>no screen spec</b> — none was ever recorded, and fabricating one would misrepresent an audit trail. A portfolio created by hand reports no lineage rather than guessing.</li>
+<li>New <code>get_provenance</code> tool (trace a book, or reverse-index the books built from a thesis) and a guarded <code>/pv/</code> route behind the session token.</li>
+<li><b>Pinned tabs now follow the workflow</b>: Settings, Agent, Watchlists, Theses, Screener, Portfolios, then your security tabs. The saved-state indices behind them are unchanged, so existing sessions and the agent control channel keep working — with a test pinning both the order and the indices.</li>
+</ul>
 <h2>[2.20.1] — Documentation and test coverage catch up with the features</h2>
 <ul>
 <li><b>The user guide now documents indicators you define yourself.</b> This shipped in 2.19.0 and was missing from the site entirely — there is now a section covering the formula language, the windowed functions available, parameters as editable chart inputs, multi-plot and lower-pane indicators, and the fact that evaluation happens server-side over bars the chart already holds (no <code>eval</code> in the browser, no extra API calls).</li>

@@ -262,6 +262,26 @@
   <div class="note">Attribution is a decision aid, not a forecast guarantee: contributions are marginal (one factor at a time) so they won't sum exactly to the total — the residual is reported. The regression cross-check can mislead under collinearity or short history; treat disagreement as a prompt to re-examine the edge, not proof either way.</div>
   <div class="note">Influence edges start as structured estimates. <b>Calibrate from data</b> sets each factor's live reading from its FRED series and can fit sensitivities by OLS against the company's filings — but a fitted coefficient only replaces the default when the fit is trustworthy (enough aligned years, real variation, a real correlation); otherwise it's attached to the edge as auditable evidence and the prior is kept. Always verify against the business. The design generalizes: because a factor can later be another company's output, a market-wide view is just individual operating models linked to each other.</div>
 
+  <h2 id="provenance">Where a holding came from</h2>
+  <p>Orrery's premise is that a position traces back to a view. That only means something
+  if the chain is <b>recorded</b> rather than reconstructed, so building a model portfolio
+  from a thesis now snapshots the whole lineage: the thesis it came from, the
+  <b>compiled screen exactly as it ran</b>, the run id, and every pick with the rank score
+  that earned it a place and the weight it received.</p>
+  <p>Open a portfolio and you will see the <b>breadcrumb</b> above it —
+  <em>Thesis &rsaquo; Screen &rsaquo; Book</em> — with each hop clickable, and the thesis view
+  links forward to the book it produced. Ask the agent <em>"why do I own these names?"</em> and
+  <code>get_provenance</code> returns the same chain.</p>
+  <p>Two details worth knowing. The links are by <b>id</b>, not name: renaming a portfolio or
+  retitling a thesis no longer breaks the chain, and a rename is surfaced rather than hidden.
+  And the screen spec is a snapshot, because a compiled screen is a function of the thesis's
+  <em>current</em> tilts — re-deriving it after you edit the thesis would answer "what would
+  this screen for today", not "why do I own this".</p>
+  <div class="note">Books built before this existed can be reconstructed by name-matching, but
+  they are labelled <b>inferred</b> and carry <b>no screen spec</b> — none was ever stored, and
+  inventing one would misrepresent an audit trail. A portfolio you created by hand honestly
+  reports no lineage rather than guessing at one.</div>
+
   <h2 id="thesis">The thesis engine</h2>
   <p>Turn a view into a maintained, probability-weighted thesis with an evidence ledger — and let the system propose its own from macro (FRED) signals. As evidence arrives, the probability moves and the change is logged. As theses resolve, Orrery scores its own calibration (Brier score, skill vs base rate).</p>
   <table>
