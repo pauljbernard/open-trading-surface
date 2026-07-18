@@ -1,13 +1,13 @@
 {
-  "version": "2.15.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.15.0.plugin",
-  "sha256": "b7b11b40b286f079abd196c23d8afe7d08db709c288d02eb927db585ada7eb82",
+  "version": "2.16.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.16.0.plugin",
+  "sha256": "46e809ff35fa49572f6edf91d7c3443396568a41c8cfc5f53a3569350d38c7c1",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- New **local detection engine** (`patterns.js`, no extra API calls): fractal **pivot** extraction, **trendline** fitting over pivot pairs scored by touch count / recency / violations, volume-weighted **support & resistance zone** clustering, **~40 candlestick recognizers** (engulfing, hammer/hanging man, the doji family incl. dragonfly/gravestone/long-legged, shooting star, marubozu, harami + harami cross, tweezers, kickers, morning/evening (doji) stars, three white soldiers / black crows, three inside/outside up-down, abandoned baby, rising/falling three methods), and **geometric patterns** ",
-  "published": "2026-07-18T15:01:48.258Z",
+  "notes": "- The detection engine from 2.15.0 is now **on the chart**. New **🔎 Detect** menu with per-category toggles (Trendlines, S/R zones, Candlestick patterns, Geometric patterns) and a minimum-confidence slider; detection runs **on the bars the chart already holds** (posted to a local `/pat` route) so it still costs **zero API calls**. - Detections render through the ordinary drawing layer **tagged `source: auto`** — dashed and tinted by direction (green bullish / red bearish / grey neutral) so they are always distinguishable from your own drawings, and **clearable independently**: the legend show",
+  "published": "2026-07-18T15:36:23.796Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
