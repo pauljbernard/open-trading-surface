@@ -6,31 +6,84 @@ header{border-bottom:1px solid var(--border);position:sticky;top:0;background:rg
 .brand{font-weight:800}.brand span{color:var(--accent)}header nav{margin-left:auto;font-size:14px;color:var(--muted)}header nav a{color:var(--muted);margin-left:18px}
 h1{font-size:32px;margin:36px 0 20px}h2{font-size:19px;margin:28px 0 6px;color:var(--text);border-top:1px solid var(--border);padding-top:20px}
 ul{margin:6px 0 14px;padding-left:20px}li{color:var(--muted);font-size:14.5px;margin:5px 0}li b{color:var(--text)}
+code{font:13px ui-monospace,Menlo,monospace;background:#0d1017;border:1px solid var(--border);border-radius:5px;padding:1px 6px}
 footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;padding:30px 0;margin-top:40px}</style><link rel="icon" type="image/svg+xml" href="assets/orrery-mark.svg">
 <meta property="og:title" content="Orrery — agent-native investment research terminal">
 <meta property="og:image" content="assets/orrery-wordmark.svg">
-<style>.brand{display:inline-flex!important;align-items:center;gap:9px}.brand .brandmark{width:26px;height:26px;border-radius:7px;display:block;flex:none}.hero-mark{display:block;margin:0 auto 22px;width:78px;height:78px;border-radius:18px;box-shadow:0 14px 44px rgba(47,123,255,.28)}</style>
+<style>.brand{display:inline-flex!important;align-items:center;gap:9px}.brand .brandmark{width:26px;height:26px;border-radius:7px;display:block;flex:none}</style>
 </head>
 <body><header><div class="wrap"><div class="brand"><img class="brandmark" src="assets/orrery-mark.svg" alt="">Orrery</div>
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
-<p>All notable changes to Orrery. Versions follow semantic versioning.</p>
+<p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.6.1] — Documentation accuracy pass</h2>
+<ul>
+<li>Reconciled the docs with the shipping product: removed the dead Claude Code marketplace install path everywhere (distribution is package-only), corrected the README tool list (was the stale 17-tool v1.3 set) to the real ~107 tools by area, de-duplicated the README key-configuration section, and added the operating-model <b>influence map</b> to the README and landing page.</li>
+<li><b>The public changelog is now generated from <code>CHANGELOG.md</code> at build</b> (it had drifted six releases behind at 2.3.0); added <code>scripts/docs-lint.js</code> (run by <code>release.sh</code>) that fails the build on a reintroduced marketplace path, broken internal links, or signature-verification instructions while releases are unsigned.</li>
+<li>Fixed release-integrity docs to match reality (GPG signing is temporarily paused → checksum-only; removed the stale signature and BAD-signature trap), corrected <code>RELEASING.md</code> topology (source lives in the private <code>orrery-source</code>; distribution is a push to Pages with no tags/Releases), and documented the real terminal failure modes (the daemon "Load failed" fix, blank first-run tabs, and the slow-not-frozen screener) in <code>TROUBLESHOOTING.md</code>.</li>
+</ul>
+<h2>[2.6.0] — Rich operating models: data-driven calibration (phase c)</h2>
+<ul>
+<li>The external-factor layer can now <b>calibrate itself from data</b>. <b>Calibrate from FRED</b> sets each factor's *current level* from its FRED series (interest_rate ← DGS10, inflation ← CPI YoY, consumer_confidence ← UMCSENT, …), shown on each factor node in the influence map, so shocks read as "move rates to 5%" rather than an abstract delta. On request it also <b>fits factor→driver sensitivities by OLS</b> — regressing the company's annual gross margin and revenue growth (from filings) on the aligned annual factor history. A fitted coefficient only <b>replaces</b> the structured prior when the fit is *trustworthy* (≥5 aligned years, real factor variation, |correlation| ≥ 0.3) and you pass apply; otherwise it's attached to the edge as <b>auditable evidence</b> and the prior is kept. New <code>calibrate_model_factors</code> tool + <code>/cm/calibrate</code> route; the OLS/alignment/level/sensitivity core is pure and unit-tested (injected data clients keep the module runtime-dependency-free).</li>
+</ul>
+<h2>[2.5.0] — Rich operating models: graphical influence view (phase b)</h2>
+<ul>
+<li>The Operating Model view now renders a <b>graphical influence map</b> — a left-to-right diagram of external <b>factors → internal drivers → EPS &amp; fair value</b>. Factors are grouped and colored by category (economic / policy / supply-chain / consumer); edges are <b>green when they raise</b> a driver and <b>red when they lower</b> it, with thickness scaled to sensitivity, and every edge carries its rationale on hover. <b>Shock a factor right in the diagram</b> and the impact propagates through the edges into the valuation engine, with the isolated path highlighted and the full factor→driver→outcome trace shown. New <code>/cm/graph</code> and <code>/cm/propagate</code> terminal routes, covered by an HTTP integration test.</li>
+</ul>
+<h2>[2.4.0] — Rich operating models: external factors (phase a)</h2>
+<ul>
+<li>Company operating models now support an <b>external-factor layer</b> beyond internal drivers — <b>economic, political/policy, supply-chain, and consumer/customer</b> forces — each linked to internal drivers by <b>signed influence edges</b> (with rationale, auditable). Shocking a factor <b>propagates</b> through the edges into the drivers and reuses the valuation engine to produce the EPS / fair-value impact, with a full factor→driver→outcome trace.</li>
+<li>New tools: <code>get_factor_catalog</code>, <code>seed_model_factors</code>, <code>add_model_factor</code>, <code>link_factor_to_driver</code>, <code>shock_factors</code>, <code>get_model_graph</code>. (Next: a graphical influence diagram, then data-driven calibration from FRED/filings.)</li>
+</ul>
+<h2>[2.3.5] — Screener responsiveness</h2>
+<ul>
+<li><b>Screens no longer look frozen</b>: the screener and thesis "Screening…" now show a live elapsed-time counter (screens scan ~7,600 names and enrich the top candidates; 30–90s is normal), a 150s timeout with a Retry button, and clear errors instead of an endless spinner.</li>
+<li><b>Batched quotes</b>: the quote enrichment stage now uses FMP's comma-separated batch endpoint (≈200 calls → ~2) with per-symbol fallback. (Ratios/scores/growth remain per-symbol; FMP bulk endpoints are the next optimization.)</li>
+</ul>
+<h2>[2.3.4] — Auto-refresh after key setup</h2>
+<ul>
+<li><b>Fixed blank data tabs on first run</b>: when you save an FMP or FRED key in ⚙ Settings, the terminal now reloads so tabs that were opened before the key existed (chart, financials, analyst, etc.) fetch their data. Previously the quote header updated but the chart/panels stayed blank until a manual page reload.</li>
+</ul>
+<h2>[2.3.3] — Terminal reliability</h2>
+<ul>
+<li><b>Fixed the terminal's "Load failed" bug</b>: the local web server that backs the terminal (Settings save, data tabs, charts) now runs as a <b>persistent detached daemon</b> with a stable port + token (<code>~/.orrery/server.json</code>), so pages keep working when the plugin process is cycled by the host. Previously the server died with the plugin process, orphaning any open tab. Falls back to the legacy in-process server where a daemon can't be spawned (no regression).</li>
+<li><b>⚙ tab is now labeled "Settings"</b> (was a bare gear icon); unreachable-server fetches show an actionable "reopen the terminal" message instead of "Load failed".</li>
+<li><b>Tests for the gaps this exposed</b>: Settings save round-trip (FMP/FRED/EDGAR) over HTTP, and a daemon-persistence suite proving a published page survives its publisher exiting.</li>
+</ul>
+<h2>[2.3.2] — Feedback loop, quality &amp; hardening</h2>
+<ul>
+<li><b>In-product feedback</b>: <code>report_issue</code> composes prefilled GitHub bug/feature/idea reports (version + environment stamped); <code>get_feedback_history</code>; new product-idea issue template; GitHub Discussions; the docs Support page is now a feedback/community hub.</li>
+<li><b>Opt-in, local-only telemetry</b>: <code>set_usage_reporting</code> / <code>get_usage_report</code> — a usage/error journal that never leaves your machine but can be exported to attach to a report; wired into the tool dispatch.</li>
+<li><b>Engineering quality</b>: dev-only TypeScript toolchain + strict <code>tsc</code> type-checking; GitHub Actions CI (typecheck + full harness + coverage gate + build + package-source-leak check); Node built-in coverage (baseline lines 83% / branch 79% / funcs 79%); the <b>shipped minified bundle is now tested</b>, not just source; data-provider <b>network-layer tests</b> (rate limits, non-JSON, empty payloads, missing key); UI check integrated (opt-in).</li>
+<li><b>Reliability</b>: all stores now use <b>atomic writes</b> (temp + rename) with schema versioning and user-only file mode — no more half-written/corrupt stores.</li>
+<li><b>Security</b>: <b>GPG-signed</b> packages with a published verification key + manifest signature fields; <b>indirect prompt-injection</b> defense (untrusted-content fencing + detection) with a documented threat model.</li>
+<li><b>Honesty</b>: thesis probabilities reframed as subjective, auditable estimates (not validated forecasts) with a <b>calibration</b> tool (Brier score, skill vs base rate) that stays silent until enough theses resolve.</li>
+<li><b>Legal</b>: explicit non-affiliation with and non-endorsement of data providers (FMP/FRED/SEC EDGAR); no certification that provider data is fit for purpose.</li>
+<li><b>Docs</b>: a true feature <b>User Guide</b> (+ 5-minute quickstart), <code>TROUBLESHOOTING.md</code>, <code>ARCHITECTURE.md</code>, <code>CONTRIBUTING.md</code>; private source maps for decoding minified stack traces.</li>
+</ul>
+<h2>[2.3.1] — Rebrand to Orrery</h2>
+<ul>
+<li><b>Package-only distribution</b>: the released <code>.plugin</code> now ships the server bundled + minified (via esbuild) and the client chart files minified — runnable, but not the authored source. Release assets and history contain no source; source lives in a separate private repository.</li>
+<li><b>Licensing</b>: added a proprietary end-user license (<code>LICENSE</code>); the software is distributed as a package only, not as source — free to download and use (incl. commercial); no redistribution or derivative works; Licensor may change terms for future versions. Governing law: Texas. Added Orrery logo/iconography assets under <code>docs/assets/</code>.</li>
+<li><b>Renamed the entire project from Surface-StockChart to Orrery</b> — an orrery is a mechanical model of the heavens, fitting for a terminal that builds a working model of the market. This touches the brand text, the plugin id (<code>surface-stockchart</code> → <code>orrery</code>), the MCP server name (tools are now <code>mcp__orrery__*</code>), the on-disk store directory (<code>~/.surface-stockchart</code> → <code>~/.orrery</code>), environment-variable prefix (<code>STOCKCHART_*</code> → <code>ORRERY_*</code>), and the session token header (<code>x-scp-token</code> → <code>x-orrery-token</code>). Docs, release pipeline, and issue templates all point at the <code>pauljbernard</code> org.</li>
+<li><b>Hardened <code>.gitignore</code></b> so secrets (<code>config.json</code>, <code>*.env</code>, <code>*.key</code>), all <code>~/.orrery</code> runtime data stores, build artifacts (<code>*.plugin</code>, <code>dist/</code>), test reports, and local Claude Code state (<code>.claude/</code>) can never be pushed to the remote. Fixed an inert inline-comment rule that had left <code>config.json</code> unignored.</li>
+</ul>
 <h2>[2.3.0] — Distribution &amp; legal</h2>
 <ul>
-<li><b>Update channel</b>: `check_for_updates` tool and cockpit surfacing against a public version manifest; one-command `release.sh` pipeline emitting the `.plugin`, SHA-256 checksum, and manifest for GitHub Releases + Pages.</li>
+<li><b>Update channel</b>: <code>check_for_updates</code> tool and cockpit surfacing against a public version manifest; one-command <code>release.sh</code> pipeline emitting the <code>.plugin</code>, SHA-256 checksum, and manifest for GitHub Releases + Pages.</li>
 <li><b>Documentation website</b> (GitHub Pages): screenshot-rich marketing landing, full user guide, changelog, and support/issues page.</li>
-<li><b>Legal</b>: comprehensive disclaimer (repo `DISCLAIMER.md`, docs legal page); in-app first-run acceptance gate with persistent footer; `get_disclaimer` / `record_disclaimer_acceptance` tools. Not investment advice; user assumes full responsibility; as-is, no warranty/liability.</li>
-<li>Refreshed plugin metadata and README to the full capability set; FRED key passthrough in `.mcp.json`.</li>
+<li><b>Legal</b>: comprehensive disclaimer (repo <code>DISCLAIMER.md</code>, docs legal page); in-app first-run acceptance gate with persistent footer; <code>get_disclaimer</code> / <code>record_disclaimer_acceptance</code> tools. Not investment advice; user assumes full responsibility; as-is, no warranty/liability.</li>
+<li>Refreshed plugin metadata and README to the full capability set; FRED key passthrough in <code>.mcp.json</code>.</li>
 </ul>
 <h2>[2.2.0] — Hardening</h2>
 <ul>
-<li>Full test harness across <b>functional, non-functional (HTTP + security), and performance</b> categories with a `run-all.js` orchestrator producing JSON + Markdown reports; `run_test_suite` tool.</li>
-<li><b>Secure code review</b> remediations: EDGAR SSRF allowlist (re-checked on redirects), API keys never embedded at rest, workbench XSS escaping, chart-save path containment, DNS-rebinding Host guard, timing-safe token comparison, expression DoS caps, store-corruption self-heal. `SECURITY.md` added.</li>
+<li>Full test harness across <b>functional, non-functional (HTTP + security), and performance</b> categories with a <code>run-all.js</code> orchestrator producing JSON + Markdown reports; <code>run_test_suite</code> tool.</li>
+<li><b>Secure code review</b> remediations: EDGAR SSRF allowlist (re-checked on redirects), API keys never embedded at rest, workbench XSS escaping, chart-save path containment, DNS-rebinding Host guard, timing-safe token comparison, expression DoS caps, store-corruption self-heal. <code>SECURITY.md</code> added.</li>
 </ul>
 <h2>[2.1.0] — Worldview &amp; thesis probability</h2>
 <ul>
-<li>Structured <b>worldview</b> across eight domains; `propose_theses` macro signal engine over <b>FRED</b> + FMP data (the system forms its own theses from data).</li>
-<li>Thesis <b>probabilities</b> with a full <b>evidence ledger</b> and probability history; continuous reassessment; `get_worldview_refresh_bundle`.</li>
+<li>Structured <b>worldview</b> across eight domains; <code>propose_theses</code> macro signal engine over <b>FRED</b> + FMP data (the system forms its own theses from data).</li>
+<li>Thesis <b>probabilities</b> with a full <b>evidence ledger</b> and probability history; continuous reassessment; <code>get_worldview_refresh_bundle</code>.</li>
 </ul>
 <h2>[2.0.0] — Company operating models</h2>
 <ul>
@@ -38,7 +91,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 </ul>
 <h2>[1.9.0] — The fully-leveraged agent</h2>
 <ul>
-<li>`get_workspace_state` cockpit, agent <b>inbox</b>, generalized <b>playbooks</b>, audit <b>journal</b>, API budget governor; filing-diff intelligence, thesis review / IC-memo bundles, event triage, macro context.</li>
+<li><code>get_workspace_state</code> cockpit, agent <b>inbox</b>, generalized <b>playbooks</b>, audit <b>journal</b>, API budget governor; filing-diff intelligence, thesis review / IC-memo bundles, event triage, macro context.</li>
 </ul>
 <h2>[1.8.0] — Thesis engine</h2>
 <ul>

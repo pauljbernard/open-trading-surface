@@ -131,7 +131,7 @@
     <div class="pillar">
       <div class="pic">🤖</div>
       <h3>Agent-native by construction</h3>
-      <p>The terminal is a <b>shared world-model</b>: everything you see, the agent can <b>read and drive</b>. It isn't a dashboard a human clicks — it's an operating surface with 90+ introspectable tools, an <b>event inbox</b>, reusable <b>playbooks</b>, an audit <b>journal</b>, and <b>research memory</b>. Ask in plain language; the agent inspects the exact view you're looking at and acts on it.</p>
+      <p>The terminal is a <b>shared world-model</b>: everything you see, the agent can <b>read and drive</b>. It isn't a dashboard a human clicks — it's an operating surface with 100+ introspectable tools, an <b>event inbox</b>, reusable <b>playbooks</b>, an audit <b>journal</b>, and <b>research memory</b>. Ask in plain language; the agent inspects the exact view you're looking at and acts on it.</p>
       <ul>
         <li><b>inspect_* / control_*</b> — the agent reads state, rendered views, and raw data, and drives every surface</li>
         <li><b>Thinks between sessions</b> — inbox, morning brief, memory, and an API-budget governor</li>
@@ -180,7 +180,7 @@
     <div class="txt">
       <h3>📐 Company operating models</h3>
       <p>Every company can carry a driver-based model calibrated from its filings and consensus. Turn any event into an instant answer.</p>
-      <ul><li>Revenue → EBIT → EPS → FCF, five years out</li><li>Blended exit-multiple + DCF fair value</li><li>Shock any driver — tariffs, contract wins, rate moves — and see the fair-value delta</li><li>An elasticity table showing exactly what moves the stock</li></ul>
+      <ul><li>Revenue → EBIT → EPS → FCF, five years out</li><li>Blended exit-multiple + DCF fair value</li><li>Shock any driver — tariffs, contract wins, rate moves — and see the fair-value delta</li><li>A graphical <b>influence map</b> wiring economic, policy, supply-chain &amp; consumer factors to the drivers they move</li><li>Calibrate factor levels from FRED; fit sensitivities from filings</li><li>An elasticity table showing exactly what moves the stock</li></ul>
     </div>
     <div class="shot"><img src="assets/model.png" alt="Operating model"></div>
   </div>
@@ -222,8 +222,7 @@
 
 <section id="install"><div class="wrap">
   <h2>Install in two minutes</h2>
-  <p class="sub">Two ways, depending on how you run Claude.</p>
-  <h3 style="text-align:center;margin:8px 0 4px">Claude desktop (Cowork)</h3>
+  <p class="sub">Download the package, add it in Cowork, and ask the agent to open it.</p>
   <ol class="steps">
     <li><b>Download the package</b><span style="color:var(--muted);font-size:14px">Grab the latest package — <a href="download/orrery.plugin"><code>orrery.plugin</code></a>.</span></li>
     <li><b>Install it as a plugin</b><span style="color:var(--muted);font-size:14px">Open the <b>Cowork</b> tab, then open <b>Customize</b> in the left sidebar → <b>Plugins</b> tab. Under <b>Personal plugins</b> click <b>+</b> and add the <code>orrery.plugin</code> file you downloaded, then restart the session.</span></li>
@@ -231,10 +230,7 @@
     <li><b>Add your keys in the ⚙ Settings tab</b><span style="color:var(--muted);font-size:14px">In the terminal, open ⚙ Settings, paste your FMP key (and a free FRED key), hit Test. Keys never leave your machine.</span></li>
     <li><b>Go</b><span style="color:var(--muted);font-size:14px">Ask in plain language — e.g. <b>“analyze NVDA”</b> or <b>“screen large-cap tech under 20× earnings.”</b></span></li>
   </ol>
-  <h3 style="text-align:center;margin:30px 0 4px">Claude Code (CLI)</h3>
-<pre><code>claude plugin marketplace add pauljbernard/orrery-marketplace
-claude plugin install orrery@orrery</code></pre>
-  <p class="sub" style="margin-top:18px">Requires Node.js 18+. Stay current: the plugin tells you when a new version ships. <a href="guide.html#updates">Update &amp; uninstall guide →</a></p>
+  <p class="sub" style="margin-top:18px">Requires Node.js 18+ (built and tested on Node 22 LTS). Stay current: the plugin tells you when a new version ships. <a href="guide.html#updates">Update &amp; uninstall guide →</a></p>
 </div></section>
 
 <footer><div class="wrap">

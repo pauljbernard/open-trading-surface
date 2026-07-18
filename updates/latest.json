@@ -1,13 +1,13 @@
 {
-  "version": "2.6.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.6.0.plugin",
-  "sha256": "a9e21d452a37f7c47f730f83350bef061c92783cf08ef8fe6afa7c5456c865cf",
+  "version": "2.6.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.6.1.plugin",
+  "sha256": "1504df212a517b667442ddc498f10aad8d5c09c2e9d125f138a52a44ffec4818",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- The external-factor layer can now **calibrate itself from data**. **Calibrate from FRED** sets each factor's *current level* from its FRED series (interest_rate ← DGS10, inflation ← CPI YoY, consumer_confidence ← UMCSENT, …), shown on each factor node in the influence map, so shocks read as \"move rates to 5%\" rather than an abstract delta. On request it also **fits factor→driver sensitivities by OLS** — regressing the company's annual gross margin and revenue growth (from filings) on the aligned annual factor history. A fitted coefficient only **replaces** the structured prior when the fit i",
-  "published": "2026-07-17T19:12:04.232Z",
+  "notes": "- Reconciled the docs with the shipping product: removed the dead Claude Code marketplace install path everywhere (distribution is package-only), corrected the README tool list (was the stale 17-tool v1.3 set) to the real ~107 tools by area, de-duplicated the README key-configuration section, and added the operating-model **influence map** to the README and landing page. - **The public changelog is now generated from `CHANGELOG.md` at build** (it had drifted six releases behind at 2.3.0); added `scripts/docs-lint.js` (run by `release.sh`) that fails the build on a reintroduced marketplace path",
+  "published": "2026-07-18T01:26:38.627Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

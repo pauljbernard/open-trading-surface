@@ -80,15 +80,10 @@
   <div class="note">Feedback and issue tracking are hosted publicly on GitHub, so bugs, requests, ideas, and their status are open for everyone to see and follow. The application source itself stays private. Orrery can also keep an <b>opt-in, local-only</b> usage journal (ask the agent to "turn on usage reporting") that never leaves your machine but can be exported to attach to a report.</div>
 
   <h2>Verify your download (optional)</h2>
-  <p style="color:var(--muted);font-size:14px">Each release is signed with the Orrery release key so you can confirm your <code>orrery.plugin</code> is authentic and untampered. Verify the checksum and the GPG signature:</p>
-  <pre><code># checksum (compare against download/orrery.plugin.sha256)
-shasum -a 256 orrery.plugin
-
-# import the public key once, then verify the detached signature
-curl -fsSL https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc | gpg --import
-gpg --verify orrery.plugin.asc orrery.plugin
-# → "Good signature from Orrery Release Signing Key"</code></pre>
-  <p style="color:var(--muted);font-size:13px">Key fingerprint: <code>7FB3 00D8 4247 9AF6 41C8 EEF9 911D 3894 8CBC 401B</code></p>
+  <p style="color:var(--muted);font-size:14px">Every release ships a SHA-256 checksum so you can confirm your <code>orrery.plugin</code> downloaded intact. Compare it against the published checksum:</p>
+  <pre><code># compare against download/orrery.plugin.sha256
+shasum -a 256 orrery.plugin</code></pre>
+  <p style="color:var(--muted);font-size:13px">GPG signing of releases is temporarily paused and will return in a future release; this page will document signature verification again when it does.</p>
 
   <h2>Issue status at a glance</h2>
   <p style="color:var(--muted);font-size:14px">This snapshot is illustrative; the <a href="https://github.com/pauljbernard/orrery/issues">live tracker</a> is the source of truth.</p>
@@ -100,7 +95,7 @@ gpg --verify orrery.plugin.asc orrery.plugin
   <h2>Frequently asked</h2>
   <details><summary>Where do I put my API keys?</summary><p>Open the terminal and click the <b>⚙ Settings</b> tab. Paste your FMP key (and optionally a free FRED key) and hit Test. Keys are stored locally in <code>~/.orrery/config.json</code> (mode 600) and never transmitted anywhere but the data providers.</p></details>
   <details><summary>Is this investment advice?</summary><p>No. Orrery is an informational research tool. Nothing it produces is advice or a recommendation. Data and computations may be inaccurate — you must verify everything and you bear full responsibility for your decisions. See the <a href="legal.html">disclaimer</a>.</p></details>
-  <details><summary>How do I update?</summary><p>Ask the agent to <code>check_for_updates</code>, or watch the workspace cockpit — it flags new versions. Then install the new <code>.plugin</code> (Cowork) or run <code>claude plugin update</code> (CLI). See the <a href="guide.html#updates">guide</a>.</p></details>
+  <details><summary>How do I update?</summary><p>Ask the agent to <code>check_for_updates</code>, or watch the workspace cockpit — it flags new versions. Then download the new <code>orrery.plugin</code> and add it under <b>Customize → Plugins → Personal plugins</b>, and restart the session. See the <a href="guide.html#updates">guide</a>.</p></details>
   <details><summary>Does it place trades?</summary><p>Never. It plans, models, and records — any transaction you enter is a bookkeeping entry only. It has no brokerage integration.</p></details>
   <details><summary>What data does it use?</summary><p>Financial Modeling Prep (markets &amp; fundamentals), FRED (economic data), and SEC EDGAR (filings). You supply your own FMP and FRED keys.</p></details>
 
