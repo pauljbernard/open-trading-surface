@@ -1,13 +1,13 @@
 {
-  "version": "2.18.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.18.0.plugin",
-  "sha256": "aafd85b6c1260d04f685884011a6895d4cd4606508d59bc793595b9fe8165919",
+  "version": "2.19.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.19.0.plugin",
+  "sha256": "5cbfb084d0ceb299f71000b3788b70d24e47b9bf95e207716304730370076b7b",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Replay mode** walks a chart forward bar by bar from any start date, with transport controls (step back/forward, play/pause at 1×/4×/10×, exit) in a replay bar that always states what you are looking at. - **The no-lookahead guarantee is structural, not a promise**: replay windows `state.bars` to the cursor, so every downstream consumer — indicators, the 12-signal battery, Spec A's auto-detections, event markers, the analysis panel — recomputes from bars ≤ cursor and *cannot* see the future. - **The honest-replay moat**: analyst-target and DCF price lines are as-known-**now**, so during rep",
-  "published": "2026-07-18T16:26:19.394Z",
+  "notes": "- **Spec C polish**: custom indicators now appear in the chart's indicator library under a **Custom** category alongside the built-ins, with the same add / param-edit / hide / remove affordances, and are addable by the agent via `control_chart add_indicator {id:\"custom:<name>\"}` (a definition created after the chart loaded is picked up automatically). Plots marked `pane:\"lower\"` get their own pane. The DSL stays server-side — the chart posts the bars it already holds to `/ci/eval` and receives plot series, so there is still no eval in the browser and no extra API calls. `inspect_chart what=sta",
+  "published": "2026-07-18T17:14:39.159Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
