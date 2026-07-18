@@ -1,13 +1,13 @@
 {
-  "version": "2.21.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.21.0.plugin",
-  "sha256": "7a1bed197b7c97b2a3068e02cdfd2a595e9c4c173eec44da2566780fed3570ad",
+  "version": "2.21.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.21.1.plugin",
+  "sha256": "6e787b0e17e1da8c6d92b8f002c453156add55a60e2066b8d57523532d97c926",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Portfolios now record where they came from.** Building a model book from a thesis snapshots the full lineage: the thesis, the **compiled screen exactly as it ran**, the screen run id, and every pick with the rank score that earned it a place and the weight it received. Previously the only link was a single `model_portfolio` name string on the thesis — one-directional, and the screen was never stored at all, so once you edited the thesis you could no longer reconstruct why those names were bought. A compiled screen is a function of the thesis's *current* tilts, so re-deriving it answers \"wh",
-  "published": "2026-07-18T19:50:12.187Z",
+  "notes": "- **A thesis now records the reading of the world it rests on.** `create_thesis` takes `worldview_domains`, and Orrery snapshots what each cited domain **said at the time** — its trend and summary — not just its name. This completes the chain: worldview → thesis → screen → portfolio, all four hops in the breadcrumb. - **Worldview drift is detected and surfaced.** A thesis formed when inflation was *deteriorating* stands on different ground once that domain turns *improving*, so the chain compares the snapshot against the current worldview and flags which domains have moved. Drift is not an err",
+  "published": "2026-07-18T19:58:12.273Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
