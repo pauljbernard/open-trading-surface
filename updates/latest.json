@@ -1,13 +1,13 @@
 {
-  "version": "2.12.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.12.0.plugin",
-  "sha256": "081f3dc9a9326850c114e601ef24d3dd5b4048784300eba190c1df453f44f5ba",
+  "version": "2.13.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.13.0.plugin",
+  "sha256": "5b0b136f7fe3ae094a7721e862b09308575d9c9f5aeb39743b1aa1b7dd37fc1f",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **All 11 event sources are now chart markers.** The 📅 Events menu went from 4 toggles (earnings/dividends/splits/insider) to every source: earnings (beat/miss), dividends, splits, insider buys/sells, SEC filings, earnings-call transcripts, institutional 13F ownership flow, analyst rating changes, quarterly financial releases, news, and research notes — each independently toggleable, **sentiment-colored** (green positive / red negative), with dense days collapsed into a single `N×` cluster and a density cap so long ranges stay readable. - **New events pane**: an optional lane under the price",
-  "published": "2026-07-18T05:29:58.980Z",
+  "notes": "- The Operating Model view now has the **attribution calculator** on top of the engine shipped in 2.10.0: **Run forecast & attribution** projects every series-backed factor forward (trend / CAGR / flat, per factor) and decomposes the multi-year fair-value & EPS forecast into **ranked per-factor contributions with computed weight shares** — bar-scaled, with the interaction residual reported — plus the **regression cross-check** table (OLS beta, standardized beta, R², and sign agreement vs each structured sensitivity). - New **Factors & weights** table: every factor with its backing series, curr",
+  "published": "2026-07-18T05:48:29.975Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

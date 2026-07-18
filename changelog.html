@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.13.0] — Forecast-attribution calculator in the Operating Model view</h2>
+<ul>
+<li>The Operating Model view now has the <b>attribution calculator</b> on top of the engine shipped in 2.10.0: <b>Run forecast &amp; attribution</b> projects every series-backed factor forward (trend / CAGR / flat, per factor) and decomposes the multi-year fair-value &amp; EPS forecast into <b>ranked per-factor contributions with computed weight shares</b> — bar-scaled, with the interaction residual reported — plus the <b>regression cross-check</b> table (OLS beta, standardized beta, R², and sign agreement vs each structured sensitivity).</li>
+<li>New <b>Factors &amp; weights</b> table: every factor with its backing series, current level, an editable <b>tunable weight</b> (persisted immediately), and a per-factor forecast method; plus an <b>Add series factor</b> control to wire any ref (<code>commodity:CLUSD</code>, <code>fred:DGS10</code>, <code>fmp:income:AAPL:revenue</code>, <code>edgar:AAPL:Revenues</code>, …) to a driver with a sensitivity — so the single-name model can depend on the full external-series layer from the UI, not just the agent.</li>
+</ul>
 <h2>[2.12.0] — Event markers, events pane &amp; Analysis sentiment (event overlays, part 2)</h2>
 <ul>
 <li><b>All 11 event sources are now chart markers.</b> The 📅 Events menu went from 4 toggles (earnings/dividends/splits/insider) to every source: earnings (beat/miss), dividends, splits, insider buys/sells, SEC filings, earnings-call transcripts, institutional 13F ownership flow, analyst rating changes, quarterly financial releases, news, and research notes — each independently toggleable, <b>sentiment-colored</b> (green positive / red negative), with dense days collapsed into a single <code>N×</code> cluster and a density cap so long ranges stay readable.</li>

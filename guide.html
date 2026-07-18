@@ -183,6 +183,15 @@
     <tr><td>"Link consumer confidence to revenue growth for this name and set the sensitivity."</td><td>Adds or re-weights a signed influence edge you can then shock.</td></tr>
     <tr><td>"Calibrate CAT's factors from data."</td><td>Pulls each factor's <b>current level from FRED</b> (rates, inflation, confidence…) and, on request, <b>fits sensitivities by regression</b> of the company's historical gross margin and revenue growth on the aligned factor history.</td></tr>
   </table>
+  <h3>Forecast attribution &amp; weighting</h3>
+  <p>Any external series can be a model dependency — economic, commodity, index, financial line item, or EDGAR fact — and the model will tell you <b>what actually carries the forecast</b>. <b>Run forecast &amp; attribution</b> projects every series-backed factor forward (trend, CAGR, flat, or a scenario), propagates each through its weighted influence edges, and decomposes the multi-year fair-value / EPS forecast into <b>per-factor contributions with computed weight shares</b> (ranked bars, plus a reconciliation residual for interaction effects). A <b>regression cross-check</b> runs an OLS of each calibratable driver on its linked factors and compares the betas to your structured sensitivities — so you can see where the data agrees with the model and where it doesn't. Each factor carries a <b>tunable weight</b> (1 = as-calibrated) to amplify, damp, or mute a dependency without touching the calibration.</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Make CAT depend on WTI and the 10-year, then attribute the 5-year forecast."</td><td>Attaches the series as factors, projects them, and ranks each one's contribution to fair value.</td></tr>
+    <tr><td>"Halve the weight on oil and re-run."</td><td>Sets the tunable weight and recomputes the attribution and shares.</td></tr>
+    <tr><td>"Does the regression back up these sensitivities?"</td><td>Returns OLS betas / standardized betas / R² next to the structured edges, with sign agreement.</td></tr>
+  </table>
+  <div class="note">Attribution is a decision aid, not a forecast guarantee: contributions are marginal (one factor at a time) so they won't sum exactly to the total — the residual is reported. The regression cross-check can mislead under collinearity or short history; treat disagreement as a prompt to re-examine the edge, not proof either way.</div>
   <div class="note">Influence edges start as structured estimates. <b>Calibrate from data</b> sets each factor's live reading from its FRED series and can fit sensitivities by OLS against the company's filings — but a fitted coefficient only replaces the default when the fit is trustworthy (enough aligned years, real variation, a real correlation); otherwise it's attached to the edge as auditable evidence and the prior is kept. Always verify against the business. The design generalizes: because a factor can later be another company's output, a market-wide view is just individual operating models linked to each other.</div>
 
   <h2 id="thesis">The thesis engine</h2>
