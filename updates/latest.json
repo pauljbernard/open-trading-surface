@@ -1,13 +1,13 @@
 {
-  "version": "2.14.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.14.0.plugin",
-  "sha256": "54f369abf93079f7f5d6ee1a76efbd469eeae5ea9cb04233b50c2f3a6524ef54",
+  "version": "2.15.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.15.0.plugin",
+  "sha256": "b7b11b40b286f079abd196c23d8afe7d08db709c288d02eb927db585ada7eb82",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **The shared foundation for the three charting specs**: the screener's expression DSL now has a SERIES-valued sibling (`expr-series.js`) that evaluates over a bar array. Identifiers bind to OHLCV (`open/high/low/close/volume/hlc3/ohlc4/time`); windowed builtins `sma/ema/wma/highest/lowest/stdev/sum/slope(x,n)`, `ref(x,k)`, `crossover/crossunder`, `barssince(cond)` join `abs/log/sqrt/min/max`; scalars broadcast against series; results are null-padded and null-poisoning. It reuses the existing tokenizer/grammar and inherits the caps (2,000 chars / 1,000 tokens) with **no eval, no loops, no rec",
-  "published": "2026-07-18T14:39:30.800Z",
+  "notes": "- New **local detection engine** (`patterns.js`, no extra API calls): fractal **pivot** extraction, **trendline** fitting over pivot pairs scored by touch count / recency / violations, volume-weighted **support & resistance zone** clustering, **~40 candlestick recognizers** (engulfing, hammer/hanging man, the doji family incl. dragonfly/gravestone/long-legged, shooting star, marubozu, harami + harami cross, tweezers, kickers, morning/evening (doji) stars, three white soldiers / black crows, three inside/outside up-down, abandoned baby, rising/falling three methods), and **geometric patterns** ",
+  "published": "2026-07-18T15:01:48.258Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
