@@ -1,13 +1,13 @@
 {
-  "version": "2.16.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.16.0.plugin",
-  "sha256": "46e809ff35fa49572f6edf91d7c3443396568a41c8cfc5f53a3569350d38c7c1",
+  "version": "2.17.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.17.0.plugin",
+  "sha256": "f21b472f594e1117a205b9c7a9940a73ade879160a886956a471ab517e20f798",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- The detection engine from 2.15.0 is now **on the chart**. New **🔎 Detect** menu with per-category toggles (Trendlines, S/R zones, Candlestick patterns, Geometric patterns) and a minimum-confidence slider; detection runs **on the bars the chart already holds** (posted to a local `/pat` route) so it still costs **zero API calls**. - Detections render through the ordinary drawing layer **tagged `source: auto`** — dashed and tinted by direction (green bullish / red bearish / grey neutral) so they are always distinguishable from your own drawings, and **clearable independently**: the legend show",
-  "published": "2026-07-18T15:36:23.796Z",
+  "notes": "- New `backtest_rule`: entry/exit rules written as **series-DSL expressions** (or translated from plain English) are backtested locally on already-fetched bars — returning the **trade list, per-bar equity curve, hit rate, average win/loss, profit factor, exposure, max drawdown** and a buy-and-hold comparison, with costs charged in basis points per side. - **No lookahead by construction**: every DSL builtin is backward-windowed and null-padded, and fills occur at the signal bar's close — a price known once that bar completes. A regression test appends wildly different future bars and asserts a ",
+  "published": "2026-07-18T16:11:35.541Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

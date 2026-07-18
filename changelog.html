@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.17.0] — Rule backtesting over the series DSL (Spec B: part 1)</h2>
+<ul>
+<li>New <code>backtest_rule</code>: entry/exit rules written as <b>series-DSL expressions</b> (or translated from plain English) are backtested locally on already-fetched bars — returning the <b>trade list, per-bar equity curve, hit rate, average win/loss, profit factor, exposure, max drawdown</b> and a buy-and-hold comparison, with costs charged in basis points per side.</li>
+<li><b>No lookahead by construction</b>: every DSL builtin is backward-windowed and null-padded, and fills occur at the signal bar's close — a price known once that bar completes. A regression test appends wildly different future bars and asserts a already-closed trade is byte-identical.</li>
+<li>Honest by default: an unclosed leg is reported as an <b>open position</b> rather than silently realized, and every result carries the caveat set — *single-symbol rule backtests are a <b>hypothesis check</b>, not strategy validation*; costs/slippage/borrow/tax limits; in-sample selection is an upper bound. The tool also warns that a level condition (<code>close &gt; 50</code>) is a STATE that re-enters after each exit, versus edge-triggered <code>crossover/crossunder</code>.</li>
+<li>Next in Spec B: the PIT replay governor (bar-by-bar cursor with indicators, signals and detections recomputed to the cursor, and fundamentals marked as-known-then vs as-known-now) plus painting trades/equity onto the chart.</li>
+</ul>
 <h2>[2.16.0] — Detection on the chart (Spec A complete: world-model contract met)</h2>
 <ul>
 <li>The detection engine from 2.15.0 is now <b>on the chart</b>. New <b>🔎 Detect</b> menu with per-category toggles (Trendlines, S/R zones, Candlestick patterns, Geometric patterns) and a minimum-confidence slider; detection runs <b>on the bars the chart already holds</b> (posted to a local <code>/pat</code> route) so it still costs <b>zero API calls</b>.</li>
