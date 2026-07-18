@@ -293,6 +293,57 @@
   inventing one would misrepresent an audit trail. A portfolio you created by hand honestly
   reports no lineage rather than guessing at one.</div>
 
+  <h2 id="honesty">Honest numbers: grades, base rates &amp; implied expectations</h2>
+  <p>Every fitted estimate in Orrery carries an <b>evidence grade (A&ndash;D)</b> computed from real
+  statistics &mdash; p-values, confidence intervals, sample size &mdash; and <b>capped by method</b>:
+  a regression on a dozen annual points can never grade above B however clean it looks, a
+  sentiment lexicon never above D, chart patterns never above C, while as-filed accounting can
+  reach A. The influence map draws each link with the confidence its evidence earns: solid and
+  weighted for A/B fits, dashed for weak ones, sparse dots for catalog estimates never fitted
+  against data. Confidence degrades with the evidence automatically, rather than depending on
+  anyone remembering a caveat.</p>
+  <p><b>Base rates</b> (<code>get_base_rates</code>) judge a forecast against what comparable
+  companies actually did: the cohort distribution, where your number sits in it, the share that
+  <em>sustained</em> that level for your horizon, and the empirical <b>fade curve</b> a flat-line
+  model quietly assumes away. <b>Implied expectations</b> (<code>get_implied_expectations</code>)
+  run the valuation backwards &mdash; what must be true for today's price to be fair &mdash; and state
+  the answer against the cohort: <em>"the price requires 21% growth; 4% of comparable companies
+  delivered that."</em> That gap is where research time goes.</p>
+  <div class="note">Cohorts are built from live listings, so they are survivorship-biased and say
+  so in every response. A monthly membership snapshot now accrues automatically toward a genuinely
+  point-in-time universe, forward from first use.</div>
+
+  <h3>The backtester stops flattering you</h3>
+  <p>Every rule backtest now reserves the most recent ~25% of bars as a <b>holdout</b> and scores
+  both windows &mdash; the split happens inside the engine, so no one can request the flattering half
+  alone. A holdout return collapsing to a fraction of in-sample is named as the signature of an
+  overfit rule. A <b>search ledger</b> counts every distinct rule you have tried on a symbol and
+  deflates significance accordingly: the best of 20 rules looking good is a property of 20, not of
+  the rule &mdash; p=0.04 after 20 tries is a coin flip, and the result says so.</p>
+
+  <h3>Attention &amp; sizing</h3>
+  <p>The <b>re-underwrite queue</b> (<code>get_reunderwrite_queue</code>) scans your holdings and
+  watchlists and pushes the names that deserve attention: structural breaks, new events bearing on
+  a driver the position depends on, worldview drift, a model that has run persistently high or low,
+  or a position never underwritten at all &mdash; <em>held on memory alone</em>. An entry is a prompt
+  to re-underwrite, never a signal to trade. <b>Sizing</b> (<code>propose_sizing</code>) maps the
+  two things the product measures into a weight: the evidence grade <em>caps</em> size (an edge you
+  don't understand is one you can't hold through drawdown) and the expectations read sets the
+  multiplier within the cap. Weights scale down to fit and never up, the do-nothing row is always
+  present, and the mapping is disclosed in full.</p>
+
+  <h3>Arguing the other side, and keeping score</h3>
+  <p>A thesis cannot graduate to <b>active</b> until it carries a recorded <b>challenge</b>
+  (<code>challenge_thesis</code>) &mdash; the strongest opposing case argued from the same data. A token
+  objection is rejected; forcing past the gate is allowed but permanently logged. The
+  <b>risk register</b> (<code>get_risk_register</code>) lists active convictions nobody has argued
+  against. <b>Decision records</b> (<code>record_decision</code>) require an expectation, a horizon
+  and a <b>falsifier</b> &mdash; the observable that would prove the decision wrong &mdash; and the
+  <b>scorecard</b> (<code>get_decision_scorecard</code>) grades decisions rather than returns,
+  singling out <em>right for the wrong reason</em> as the dangerous column: it pays you to keep a
+  broken process. Rebalance plans now state their <b>full cost</b> &mdash; trading cost, estimated tax
+  on realized gains &mdash; and the hurdle against doing nothing, which is free.</p>
+
   <h2 id="thesis">The thesis engine</h2>
   <p>Turn a view into a maintained, probability-weighted thesis with an evidence ledger — and let the system propose its own from macro (FRED) signals. As evidence arrives, the probability moves and the change is logged. As theses resolve, Orrery scores its own calibration (Brier score, skill vs base rate).</p>
   <table>

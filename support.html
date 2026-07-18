@@ -118,12 +118,27 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.26.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-18 22:38 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.27.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-18 22:52 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.27.0 <span class="reltitle">The strategy reaches the screen: graded visuals, honest rebalance costs, CI-verified UI</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>The influence map now looks as certain as the data, not as certain as the artist.</b> Each link is drawn with the confidence its evidence earns: solid and weighted only for statistically supported fits (grade A/B), dashed for weak fits (C/D), sparse dots for catalog estimates never fitted against data — with the grade and its reason in the hover. A legend states the visual grammar. The graph payload (<code>get_model_graph</code>, <code>/cm/graph</code>) now carries <code>grade</code>, <code>p</code>, <code>fitted</code> and <code>source</code> per edge.</li>
+        <li><b>The guide documents phases 4–6</b>: a new "Honest numbers" section covers grades and method ceilings, base rates and fade, implied expectations, the holdout-and-search-ledger backtester, the re-underwrite queue, grade-capped sizing, the adversarial gate and the decision scorecard.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Rebalance plans state their full cost and the do-nothing hurdle.</b> <code>get_rebalance_plan</code> now reports turnover, trading cost (<code>cost_bps</code> per side, default 5), and estimated tax on the gain share of each sell (<code>tax_rate_pct</code>, default 20 — pass 0 for sheltered accounts; selling a loser is recognised as tax-free), then says plainly: <i>this plan starts X% of equity behind doing nothing, which is free.</i> Assumptions are disclosed in the response, not buried in a constant.</li>
+        <li><b>The headless UI check now runs in CI.</b> It boots the real server and terminal in headless Chromium, drives the portfolio views, and fails on client-side defects. Provider failures (CI uses a demo key) are expected and filtered — the gate is for script errors and broken rendering, not for the network being absent. Locally it still skips cleanly when no browser is provisioned.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.26.0 <span class="reltitle">Phase 6: the adversarial pass, and scoring decisions instead of luck</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -245,25 +260,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-rm">Removed</span>
       <ul>
         <li><b>No guessing at the top either</b>: a thesis that cites no domains reports none rather than inferring which parts of the worldview "probably" applied — that is a judgment, not a lookup — and citing an unknown domain is rejected instead of silently dropped.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.21.0 <span class="reltitle">The workflow breadcrumb: every holding traces back to the view that produced it</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>New <code>get_provenance</code> tool (trace a book, or reverse-index the books built from a thesis) and a guarded <code>/pv/</code> route behind the session token.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Portfolios now record where they came from.</b> Building a model book from a thesis snapshots the full lineage: the thesis, the <b>compiled screen exactly as it ran</b>, the screen run id, and every pick with the rank score that earned it a place and the weight it received. Previously the only link was a single <code>model_portfolio</code> name string on the thesis — one-directional, and the screen was never stored at all, so once you edited the thesis you could no longer reconstruct why those names were bought. A compiled screen is a function of the thesis's <i>current</i> tilts, so re-deriving it answers "what would this screen for today", not "why do I own this".</li>
-        <li><b>Links are by id, not name.</b> Renaming a portfolio or retitling a thesis used to silently break the connection (and a rebuild would quietly create a second book beside the orphaned first). The chain now resolves by id and <i>surfaces</i> a rename rather than hiding it.</li>
-        <li><b>A breadcrumb in the UI</b>: model portfolios show <i>Thesis › Screen › Book</i> above the holdings, each hop clickable, and the thesis view links forward to the book it produced.</li>
-        <li><b>Screen runs are addressable</b> — each run gets an id and is appended to a capped history alongside the spec that produced it, so a portfolio can point at the exact run instead of a name that drifts.</li>
-        <li><b>Per-lot provenance</b>: model-build transactions carry a structured <code>origin</code> (thesis id, run id, rank score) instead of only a free-text note.</li>
-        <li><b>Honest about what it knows.</b> Books built before this existed can be reconstructed by name-matching, but are labelled <b>inferred</b> and carry <b>no screen spec</b> — none was ever recorded, and fabricating one would misrepresent an audit trail. A portfolio created by hand reports no lineage rather than guessing.</li>
-        <li><b>Pinned tabs now follow the workflow</b>: Settings, Agent, Watchlists, Theses, Screener, Portfolios, then your security tabs. The saved-state indices behind them are unchanged, so existing sessions and the agent control channel keep working — with a test pinning both the order and the indices.</li>
       </ul>
     </div>
   </div>
