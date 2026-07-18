@@ -1,13 +1,13 @@
 {
-  "version": "2.9.2",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.9.2.plugin",
-  "sha256": "fd38f7697ba47672bf07871366a0d9f4e00c582a88be61682ff34a64967b0892",
+  "version": "2.10.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.10.0.plugin",
+  "sha256": "2cca7dcf0f005913addde9bca450002de37016b6ab3f84835d5e003f1397b6a4",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Fixed the 🆚 Compare feature**: adding a comparison symbol flipped the chart to percentage scale and showed a legend chip, but never drew the comparison line — the render step was missing. Comparison symbols now render as normalized lines on the shared percentage scale (all series rebased to their first visible value), so relative performance shows correctly. - Groundwork (not yet user-exposed): operating-model factors can now be backed by ANY external series ref and carry a tunable weight, and a new forecast+attribution engine (contribution decomposition + weight shares + multivariate reg",
-  "published": "2026-07-18T04:27:53.286Z",
+  "notes": "- **Any external series can now drive a company operating model, with forecast attribution.** New tools: `attach_series_factor` (wire any fred:/fmp:econ:/fmp:treasury:/index:/commodity:/financial/edgar series into the model as a factor, optionally linked to a driver), `set_factor_weight` (tunable weight multiplier per factor), and `forecast_and_attribute` — which projects each factor forward (trend/cagr/flat/scenario), propagates through the weighted influence edges, and attributes the multi-year EPS/fair-value forecast to the factors: a deterministic **contribution decomposition** with **comp",
+  "published": "2026-07-18T04:49:20.224Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
