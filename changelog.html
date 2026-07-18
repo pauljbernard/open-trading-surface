@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.7.0] — Cross-series analysis engine (chart overlays, part 1)</h2>
+<ul>
+<li>New unified <b>external time-series layer</b>: a single <code>resolve_series</code> fetches any series across <b>FRED</b> (economic), <b>FMP</b> (commodity/energy prices and per-company financial-statement line items over time), and <b>SEC EDGAR</b> (XBRL company-facts, e.g. Revenues, NetIncomeLoss) as normalized <code>{date,value}</code> points, addressed by compact refs (<code>fred:DGS10</code>, <code>commodity:CLUSD</code>, <code>fmp:income:AAPL:revenue:quarter</code>, <code>edgar:AAPL:Revenues</code>). <code>search_series</code> surfaces a curated, symbol-aware catalog.</li>
+<li>New <b>lead/lag analysis</b>: <code>analyze_lead_lag</code> aligns an external series onto a stock's price dates and cross-correlates across ± lags, reporting the lag that best aligns them and its strength — i.e. whether the series <b>leads</b> the stock (predictive) or lags it, on a level or return basis. Both humans and the agent can now test dependent/predictive relationships quantitatively.</li>
+<li>Under the hood: <code>server/series.js</code> (ref parsing, resolution, as-of alignment, Pearson + cross-correlation — pure and unit-tested with injected clients), EDGAR client extended to <code>data.sec.gov</code> XBRL company-concept with ticker→CIK resolution, and token-guarded <code>/series/*</code> chart proxy routes. This is the data/analysis foundation; the on-chart overlay rendering (stacked right-hand axes + separate panes, with manual shift) lands next.</li>
+</ul>
 <h2>[2.6.1] — Documentation accuracy pass</h2>
 <ul>
 <li>Reconciled the docs with the shipping product: removed the dead Claude Code marketplace install path everywhere (distribution is package-only), corrected the README tool list (was the stale 17-tool v1.3 set) to the real ~107 tools by area, de-duplicated the README key-configuration section, and added the operating-model <b>influence map</b> to the README and landing page.</li>
