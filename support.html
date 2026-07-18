@@ -118,12 +118,39 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.23.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-18 21:53 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.24.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-18 22:10 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.24.0 <span class="reltitle">Phase 4: the discovery surface stops flattering you</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>A search ledger counts every rule you have tried on a symbol.</b> The best of 40 random rules looks impressive; that is a property of 40, not of the rule — and the 40 used to be invisible. Every <code>backtest_rule</code> run is recorded, distinct rules are counted (re-running the same rule is one attempt), and each result now carries <code>search.rules_tried_on_this_symbol</code> plus a <b>Šidák-deflated significance</b>: p=0.04 after 20 tries is ~0.56 — a coin flip, not a discovery. The correction is conservative in the right direction, since correlated rules make the effective search smaller than the count.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Every backtest reserves a holdout, structurally.</b> The most recent ~25% of bars are split off inside <code>runRule</code> itself, so no caller — UI, tool, or agent — can request the flattering half alone. Both windows are scored and compared, with a verdict: a holdout return collapsing to a fraction of in-sample is named as the signature of an overfit rule, a rule that never triggers out-of-sample is named as saying nothing, and a sample too short to split is stamped ENTIRELY IN-SAMPLE rather than silently passing. (Discipline still matters — iterating against the full chart means you have seen the "holdout" — but the honest workflow is now the default, not an option.)</li>
+        <li><b>The universe starts archiving itself toward survivorship correction.</b> The screener universe lists only companies alive today, so every cohort and factor backtest against it is optimistic by an unknown margin. A frozen membership snapshot is now taken monthly as a side effect of normal refreshes — never rewritten, so a company that later delists stays in the months it was actually alive. This cannot fix the past; it builds a genuinely point-in-time panel forward from first use, and until years accumulate the responses say plainly that the bias remains.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">2.23.1 <span class="reltitle">Fix: the agreement test hardcoded an absolute path and broke CI</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>Added a guard so this cannot recur</b>: a test that scans the suite for absolute <code>require()</code> paths and fails if one appears. A test that only passes on its author's machine is worse than no test, because it reports green while checking nothing everywhere else.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The legal-gate test resolved its module by an absolute path</b> belonging to the machine it was written on, so all five of its cases passed locally and failed on every other machine. CI had been red since 2.22.0 for this reason alone — no product code was involved. It now resolves relatively, like every other test.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.23.0 <span class="reltitle">Honest confidence, the reference class, and the valuation run backwards</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -235,24 +262,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>Click a marker to open that event.</b> The chart runs as an iframe inside the research terminal, so selecting a marker posts up to the terminal, which switches the security to the rail view that owns that source — filings → SEC Filings, ratings → Analyst Ratings, insider → Insider Trades, transcripts, news, ownership, notes, earnings/financials → Financial Statements — and highlights the dated row it landed on. A standalone chart with no terminal above it falls back to the event's source URL.</li>
         <li><b>Every event now knows which operating-model driver it bears on.</b> <code>get_events</code> (and the chart tooltip) return <code>model_link = {factors, drivers, via, why}</code>. Two paths produce it: event type — reported results and filed statements reset the growth/margin baseline, guidance moves growth, street ratings feed the exit multiple and discount rate — and keyword matching against the factors <b>actually attached to that company's model</b>, so a tariff headline links to the <code>tariff_rate</code> factor and, through its influence edge, to <code>gross_margin_pct</code>. A model that carries no tariff factor produces no tariff link; the association is only ever drawn through edges the model really has. When a clicked event carries a model link, the terminal offers a one-click jump to the Operating Model view.</li>
         <li><b>Agent parity</b>: <code>control_chart select_event {source, date}</code> performs the same navigation a click does, and <code>inspect_chart what=state</code> reports <code>selected_event</code>.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.19.1 <span class="reltitle">Fix: spurious "No FMP API key embedded" warning on every chart</span></h3>
-    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
-      <ul>
-        <li><b>Fixed a false error toast when loading or refreshing a chart.</b> Charts served by the local server deliberately carry <b>no embedded API key</b> — data flows through the same-origin <code>/fmp</code> proxy with the key held server-side — but a leftover check from the old standalone-file era warned whenever no key was embedded, so it fired on every proxy-served chart even though nothing was wrong. The warning is now correctly scoped to the standalone <code>file://</code> copy, which is the only case that actually needs an embedded key (and its wording now points at opening the live chart URL instead of "regenerating from Claude Code").</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.19.0 <span class="reltitle">Custom indicators on the chart + backtests painted on price (specs complete)</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>Spec C polish</b>: custom indicators now appear in the chart's indicator library under a <b>Custom</b> category alongside the built-ins, with the same add / param-edit / hide / remove affordances, and are addable by the agent via <code>control_chart add_indicator {id:"custom:&lt;name&gt;"}</code> (a definition created after the chart loaded is picked up automatically). Plots marked <code>pane:"lower"</code> get their own pane. The DSL stays server-side — the chart posts the bars it already holds to <code>/ci/eval</code> and receives plot series, so there is still no eval in the browser and no extra API calls. <code>inspect_chart what=state</code> now lists the custom definitions, so an indicator the user edits in the rail and one the agent authored are the same object.</li>
-        <li><b>Spec B painting</b>: a new <b>🧪 Backtest</b> menu runs an entry/exit rule on the loaded bars and paints the result onto price — BUY/SELL markers per trade (exit labelled with its return, open legs marked) plus an <b>equity-curve pane</b> — with the summary line (trades, total return, hit rate, max drawdown, buy &amp; hold) in the menu. <code>control_chart backtest {entry, exit, cost_bps}</code> / <code>clear_backtest</code>, and the full result object is readable through the new <b><code>inspect_chart what=backtest</code></b>; <code>what=state</code> carries the rule, costs and stats. Backtests launched from the UI and from the agent produce the identical object and the identical painting.</li>
-        <li>With this, all three charting specs meet the world-model gate: every new object (detections, replay cursor, backtest results, custom indicator definitions) is introspectable as structured state, every affordance has a tool twin, and mutations flow through the existing stores and journal.</li>
       </ul>
     </div>
   </div>

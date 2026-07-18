@@ -16,6 +16,17 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.24.0] — Phase 4: the discovery surface stops flattering you</h2>
+<ul>
+<li><b>A search ledger counts every rule you have tried on a symbol.</b> The best of 40 random rules looks impressive; that is a property of 40, not of the rule — and the 40 used to be invisible. Every <code>backtest_rule</code> run is recorded, distinct rules are counted (re-running the same rule is one attempt), and each result now carries <code>search.rules_tried_on_this_symbol</code> plus a <b>Šidák-deflated significance</b>: p=0.04 after 20 tries is ~0.56 — a coin flip, not a discovery. The correction is conservative in the right direction, since correlated rules make the effective search smaller than the count.</li>
+<li><b>Every backtest reserves a holdout, structurally.</b> The most recent ~25% of bars are split off inside <code>runRule</code> itself, so no caller — UI, tool, or agent — can request the flattering half alone. Both windows are scored and compared, with a verdict: a holdout return collapsing to a fraction of in-sample is named as the signature of an overfit rule, a rule that never triggers out-of-sample is named as saying nothing, and a sample too short to split is stamped ENTIRELY IN-SAMPLE rather than silently passing. (Discipline still matters — iterating against the full chart means you have seen the "holdout" — but the honest workflow is now the default, not an option.)</li>
+<li><b>The universe starts archiving itself toward survivorship correction.</b> The screener universe lists only companies alive today, so every cohort and factor backtest against it is optimistic by an unknown margin. A frozen membership snapshot is now taken monthly as a side effect of normal refreshes — never rewritten, so a company that later delists stays in the months it was actually alive. This cannot fix the past; it builds a genuinely point-in-time panel forward from first use, and until years accumulate the responses say plainly that the bias remains.</li>
+</ul>
+<h2>[2.23.1] — Fix: the agreement test hardcoded an absolute path and broke CI</h2>
+<ul>
+<li><b>The legal-gate test resolved its module by an absolute path</b> belonging to the machine it was written on, so all five of its cases passed locally and failed on every other machine. CI had been red since 2.22.0 for this reason alone — no product code was involved. It now resolves relatively, like every other test.</li>
+<li><b>Added a guard so this cannot recur</b>: a test that scans the suite for absolute <code>require()</code> paths and fails if one appears. A test that only passes on its author's machine is worse than no test, because it reports green while checking nothing everywhere else.</li>
+</ul>
 <h2>[2.23.0] — Honest confidence, the reference class, and the valuation run backwards</h2>
 <ul>
 <li><b>Every fitted estimate now carries real statistics and an A–D grade.</b> New <code>inference.js</code> computes t-distribution p-values (validated against published tables), standard errors and 95% confidence intervals — no runtime dependencies.</li>

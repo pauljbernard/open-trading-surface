@@ -1,13 +1,13 @@
 {
-  "version": "2.23.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.23.0.plugin",
-  "sha256": "2459fcd28c6ef34b69267c95673ee23dfd8410430a5a7488f5ca2ecfbfbe1b6d",
+  "version": "2.24.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.24.0.plugin",
+  "sha256": "b4f439b20a81b5f025348a328cecbb66810452e75cc58a038f0be70e224644f2",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "This release implements the first three phases of a strategy aimed at two goals at once: making the product harder to fool yourself with, and giving it a real source of edge. They are the same project — calibration is what makes position sizing worth anything. ### Phase 1 — the epistemic spine - **Every fitted estimate now carries real statistics and an A–D grade.** New `inference.js` computes t-distribution p-values (validated against published tables), standard errors and 95% confidence intervals — no runtime dependencies. - **The threshold this replaces was indefensible.** A sensitivity cou",
-  "published": "2026-07-18T21:53:51.235Z",
+  "notes": "The backtester made it cheap to try ideas, which made it an efficient machine for discovering rules that worked in-sample. Three structural mechanisms now ride on it — none of them optional, because prose caveats lose to a green equity curve. - **A search ledger counts every rule you have tried on a symbol.** The best of 40 random rules looks impressive; that is a property of 40, not of the rule — and the 40 used to be invisible. Every `backtest_rule` run is recorded, distinct rules are counted (re-running the same rule is one attempt), and each result now carries `search.rules_tried_on_this_s",
+  "published": "2026-07-18T22:10:07.836Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
