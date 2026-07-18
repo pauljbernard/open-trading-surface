@@ -118,12 +118,26 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.24.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-18 22:10 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.25.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-18 22:26 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.25.0 <span class="reltitle">Phase 5: the push half — re-underwriting when it matters, sizing by what you know</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>New <code>get_reunderwrite_queue</code>.</b> The pieces existed — events resolve to the drivers they bear on, models know what they depend on, worldview drift flags theses — but nothing pushed; the user had to think to ask. The queue scans holdings and watchlist names and asks one question per name: has anything happened that bears on a driver this position depends on, <b>since it was last underwritten</b>? Reasons, loudest first: structural breaks (every fitted sensitivity spanning one is suspect), events bearing on a depended-on driver (grouped per driver via <code>model_link</code>), worldview drift under an associated thesis, systematic forecast bias (re-derive the assumption, don't adjust it by feel), and staleness — including "never underwritten: held on memory alone". Events already seen at the last underwrite don't re-queue a name. Speed matters most where coverage is thinnest; an entry is a prompt to re-underwrite, never a signal to trade.</li>
+        <li><b>New <code>propose_sizing</code> — where calibration becomes geometric return.</b> Rank-proportional weighting ignored both how well a position is understood and what the price demands. Now the <b>evidence grade caps size</b> (A 12% / B 8% / C 4% / D 1.5% — an edge you don't understand is one you can't hold through drawdown) and the <b>expectations read sets the multiplier within the cap</b> (undemanding price 1.0×, down to 0.25× for a price requiring a rare cohort outcome; unknown edge costs half). Weights scale <i>down</i> to fit and never up: one C-grade idea leaves the book mostly in cash, because a thin opportunity set should look thin.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Deliberately not Kelly</b>, and the plan says why: Kelly needs win probabilities and payoff ratios measured far better than this data supports, and overbetting on misestimated inputs is ruinous. The full mapping is disclosed in every response rather than optimised in private, the <b>do-nothing row is always present</b> ("doing nothing is free"), and the module never touches a portfolio.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.24.0 <span class="reltitle">Phase 4: the discovery surface stops flattering you</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -251,17 +265,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>The user guide now documents indicators you define yourself.</b> This shipped in 2.19.0 and was missing from the site entirely — there is now a section covering the formula language, the windowed functions available, parameters as editable chart inputs, multi-plot and lower-pane indicators, and the fact that evaluation happens server-side over bars the chart already holds (no <code>eval</code> in the browser, no extra API calls).</li>
         <li><b>The landing page gained a charting section.</b> The workbench is the largest surface in the product and had no feature card at all; overlays, events, auto-detection, no-lookahead replay, custom indicators and rule backtesting are now visible to someone deciding whether to install.</li>
         <li><b>Behavioural tests for marker hit-testing</b>: <code>markerAt</code> resolves the marker under the cursor with its event payload, misses outside the radius, drops stale hit boxes when a source is toggled off, and records nothing for markers scrolled out of view.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.20.0 <span class="reltitle">Event markers you can interrogate: hover, click through, and see the operating-model link</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Hover an event marker to see what it is.</b> Markers on the chart carry their source events now, so pointing at one shows a tooltip with the event label, date, detail and sentiment. Where several events land on the same bar the marker collapses to <code>N×</code> and the tooltip lists them (first six, plus a count of the rest).</li>
-        <li><b>Click a marker to open that event.</b> The chart runs as an iframe inside the research terminal, so selecting a marker posts up to the terminal, which switches the security to the rail view that owns that source — filings → SEC Filings, ratings → Analyst Ratings, insider → Insider Trades, transcripts, news, ownership, notes, earnings/financials → Financial Statements — and highlights the dated row it landed on. A standalone chart with no terminal above it falls back to the event's source URL.</li>
-        <li><b>Every event now knows which operating-model driver it bears on.</b> <code>get_events</code> (and the chart tooltip) return <code>model_link = {factors, drivers, via, why}</code>. Two paths produce it: event type — reported results and filed statements reset the growth/margin baseline, guidance moves growth, street ratings feed the exit multiple and discount rate — and keyword matching against the factors <b>actually attached to that company's model</b>, so a tariff headline links to the <code>tariff_rate</code> factor and, through its influence edge, to <code>gross_margin_pct</code>. A model that carries no tariff factor produces no tariff link; the association is only ever drawn through edges the model really has. When a clicked event carries a model link, the terminal offers a one-click jump to the Operating Model view.</li>
-        <li><b>Agent parity</b>: <code>control_chart select_event {source, date}</code> performs the same navigation a click does, and <code>inspect_chart what=state</code> reports <code>selected_event</code>.</li>
       </ul>
     </div>
   </div>

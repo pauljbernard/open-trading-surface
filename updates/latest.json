@@ -1,13 +1,13 @@
 {
-  "version": "2.24.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.24.0.plugin",
-  "sha256": "b4f439b20a81b5f025348a328cecbb66810452e75cc58a038f0be70e224644f2",
+  "version": "2.25.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.25.0.plugin",
+  "sha256": "fca3f603ef6703f3ea4563e92b9ded349475c96654c0d644a45635ffb3908088",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "The backtester made it cheap to try ideas, which made it an efficient machine for discovering rules that worked in-sample. Three structural mechanisms now ride on it — none of them optional, because prose caveats lose to a green equity curve. - **A search ledger counts every rule you have tried on a symbol.** The best of 40 random rules looks impressive; that is a property of 40, not of the rule — and the 40 used to be invisible. Every `backtest_rule` run is recorded, distinct rules are counted (re-running the same rule is one attempt), and each result now carries `search.rules_tried_on_this_s",
-  "published": "2026-07-18T22:10:07.836Z",
+  "notes": "- **New `get_reunderwrite_queue`.** The pieces existed — events resolve to the drivers they bear on, models know what they depend on, worldview drift flags theses — but nothing pushed; the user had to think to ask. The queue scans holdings and watchlist names and asks one question per name: has anything happened that bears on a driver this position depends on, **since it was last underwritten**? Reasons, loudest first: structural breaks (every fitted sensitivity spanning one is suspect), events bearing on a depended-on driver (grouped per driver via `model_link`), worldview drift under an asso",
+  "published": "2026-07-18T22:26:08.589Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
