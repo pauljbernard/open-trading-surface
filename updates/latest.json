@@ -1,13 +1,13 @@
 {
-  "version": "2.21.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.21.1.plugin",
-  "sha256": "6e787b0e17e1da8c6d92b8f002c453156add55a60e2066b8d57523532d97c926",
+  "version": "2.22.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.22.0.plugin",
+  "sha256": "0172f2e3696191b0a48bd85491498f0eeee55b04e12acb9f0bb799f367347b4c",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **A thesis now records the reading of the world it rests on.** `create_thesis` takes `worldview_domains`, and Orrery snapshots what each cited domain **said at the time** — its trend and summary — not just its name. This completes the chain: worldview → thesis → screen → portfolio, all four hops in the breadcrumb. - **Worldview drift is detected and surfaced.** A thesis formed when inflation was *deteriorating* stands on different ground once that domain turns *improving*, so the chain compares the snapshot against the current worldview and flags which domains have moved. Drift is not an err",
-  "published": "2026-07-18T19:58:12.273Z",
+  "notes": "- **Every driver now has a fitted history.** Calibration used to see two drivers — gross margin and revenue growth — built from three years of income statements, while opex, capex, working capital, tax, D&A, share count and net debt carried catalog ESTIMATES that nothing ever checked. Driver history is now assembled from income/balance/cash-flow statements, key-metrics, enterprise-values and employee count (revenue per employee is a real operating driver), and **extended by as-filed SEC EDGAR XBRL** where it reaches further back than FMP — which matters when fitting a sensitivity through a cyc",
+  "published": "2026-07-18T21:15:51.381Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

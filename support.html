@@ -32,6 +32,19 @@
   summary{cursor:pointer;font-weight:600}
   details p{color:var(--muted);font-size:14px}
   footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;padding:30px 0;margin-top:44px}
+  .relhead{display:flex;flex-wrap:wrap;gap:22px;margin:10px 0 6px;padding:12px 16px;border:1px solid var(--border);border-radius:10px;background:var(--panel)}
+  .relhead .rellbl{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:2px}
+  .relbox{border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin:12px 0;background:var(--panel)}
+  .relver{margin:0 0 8px;font-size:15px}
+  .reltitle{font-weight:400;color:var(--muted)}
+  .relgrp{display:flex;gap:10px;align-items:flex-start;margin:6px 0}
+  .relgrp ul{margin:0;padding-left:18px}
+  .relgrp li{margin:3px 0}
+  .reltag{flex:0 0 auto;margin-top:3px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;border-radius:10px;padding:1px 8px;border:1px solid}
+  .rel-new{color:#26a69a;border-color:#26a69a}
+  .rel-fix{color:#e0a33e;border-color:#e0a33e}
+  .rel-rm{color:#ef5350;border-color:#ef5350}
+  .rel-ch{color:#8b93a7;border-color:#8b93a7}
 </style>
 <link rel="icon" type="image/svg+xml" href="assets/orrery-mark.svg">
 <meta property="og:title" content="Orrery — agent-native investment research terminal">
@@ -102,4 +115,137 @@ shasum -a 256 orrery.plugin</code></pre>
   <footer><a href="index.html">Home</a> · <a href="legal.html">Legal &amp; Disclaimer</a> · <a href="changelog.html">Changelog</a></footer>
 </div>
 </body>
-</html>
+</html><!-- RELEASE-INFO:START -->
+  <h2 id="release">Release information</h2>
+  <div class="relhead">
+    <div><span class="rellbl">Current version</span><b>2.22.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-18 21:15 UTC</b></div>
+    <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
+    <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
+  </div>
+  <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.22.0 <span class="reltitle">The operating model gets its real data foundation, and events finally have a home</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>Every driver now has a fitted history.</b> Calibration used to see two drivers — gross margin and revenue growth — built from three years of income statements, while opex, capex, working capital, tax, D&amp;A, share count and net debt carried catalog ESTIMATES that nothing ever checked. Driver history is now assembled from income/balance/cash-flow statements, key-metrics, enterprise-values and employee count (revenue per employee is a real operating driver), and <b>extended by as-filed SEC EDGAR XBRL</b> where it reaches further back than FMP — which matters when fitting a sensitivity through a cycle.</li>
+        <li>New <code>get_model_events</code> tool; <code>calibrate_model_factors</code> gains <code>accept</code>, <code>use_edgar</code> and <code>breaks_from_events</code>.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>EDGAR extends history; it never overwrites it.</b> Only years FMP lacks are filled, because the two sources disagree on restatements and silently preferring one would make a fit unreproducible. Every point records the source it came from.</li>
+        <li><b>Any factor series ref is now calibratable.</b> Calibration read only a hardcoded FRED id, so a factor you attached as <code>commodity:CLUSD</code> or <code>edgar:...</code> was chartable and shockable but <b>silently skipped</b> — never given a reading, never fitted. Factors now resolve through the full series layer (FRED, commodity, index, FX, crypto, FMP econ/treasury/statements, EDGAR), and anything that still cannot be calibrated is reported in <code>skipped_factors</code> with the reason instead of vanishing.</li>
+        <li><b>Fitted sensitivities are shown beside the estimate in force, and are never applied automatically.</b> Each fit reports n, r, r², the period and the driver's data sources; accepting it is a deliberate act (<code>accept: true</code>), because a weak regression on a few annual points should not silently overwrite a considered judgment.</li>
+        <li><b>Events enter the model in the three roles they can honestly play</b> — and sentiment regression is deliberately <i>not</i> one of them. Regressing a driver on a sentiment score fits reverse causality (news reacts to fundamentals far more than it drives them) and launders a ±1 lexicon into a decimal sensitivity.</li>
+        <li><b>The legal terms are now versioned by a hash of their own text</b>, not by a constant someone has to remember to bump. Any edit to the disclaimer — with no code change and no version change — automatically invalidates acceptance and re-prompts on the next start. The previously accepted text is stored, so the re-prompt can show <b>what actually changed</b> rather than just demanding agreement again, and "never accepted" is reported differently from "accepted terms that have since changed". Whitespace reflowing does not spuriously re-prompt.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
+      <ul>
+        <li><b>The support page now carries release information</b> — current version, publish timestamp, update channel and download link, plus the last eight releases with each note grouped into New / Fixed / Changed / Removed. It is generated from <code>CHANGELOG.md</code> during the release build, so it cannot drift from what was actually shipped; the grouping is derived from each note's wording and the page says so.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">2.21.1 <span class="reltitle">The breadcrumb reaches the top: worldview → thesis, with drift detection</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>A thesis now records the reading of the world it rests on.</b> <code>create_thesis</code> takes <code>worldview_domains</code>, and Orrery snapshots what each cited domain <b>said at the time</b> — its trend and summary — not just its name. This completes the chain: worldview → thesis → screen → portfolio, all four hops in the breadcrumb.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Worldview drift is detected and surfaced.</b> A thesis formed when inflation was <i>deteriorating</i> stands on different ground once that domain turns <i>improving</i>, so the chain compares the snapshot against the current worldview and flags which domains have moved. Drift is not an error — it is the trigger to revisit the view. Stale domains (not refreshed recently) are reported <b>separately</b>, because not having looked is a different condition from having seen a change.</li>
+        <li>The thesis view shows its upward lineage with each cited domain, its trend as cited, and an arrow to where it has since moved; <code>get_provenance {thesis}</code> returns the same upward chain plus the books that thesis produced.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
+      <ul>
+        <li><b>No guessing at the top either</b>: a thesis that cites no domains reports none rather than inferring which parts of the worldview "probably" applied — that is a judgment, not a lookup — and citing an unknown domain is rejected instead of silently dropped.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">2.21.0 <span class="reltitle">The workflow breadcrumb: every holding traces back to the view that produced it</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>New <code>get_provenance</code> tool (trace a book, or reverse-index the books built from a thesis) and a guarded <code>/pv/</code> route behind the session token.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Portfolios now record where they came from.</b> Building a model book from a thesis snapshots the full lineage: the thesis, the <b>compiled screen exactly as it ran</b>, the screen run id, and every pick with the rank score that earned it a place and the weight it received. Previously the only link was a single <code>model_portfolio</code> name string on the thesis — one-directional, and the screen was never stored at all, so once you edited the thesis you could no longer reconstruct why those names were bought. A compiled screen is a function of the thesis's <i>current</i> tilts, so re-deriving it answers "what would this screen for today", not "why do I own this".</li>
+        <li><b>Links are by id, not name.</b> Renaming a portfolio or retitling a thesis used to silently break the connection (and a rebuild would quietly create a second book beside the orphaned first). The chain now resolves by id and <i>surfaces</i> a rename rather than hiding it.</li>
+        <li><b>A breadcrumb in the UI</b>: model portfolios show <i>Thesis › Screen › Book</i> above the holdings, each hop clickable, and the thesis view links forward to the book it produced.</li>
+        <li><b>Screen runs are addressable</b> — each run gets an id and is appended to a capped history alongside the spec that produced it, so a portfolio can point at the exact run instead of a name that drifts.</li>
+        <li><b>Per-lot provenance</b>: model-build transactions carry a structured <code>origin</code> (thesis id, run id, rank score) instead of only a free-text note.</li>
+        <li><b>Honest about what it knows.</b> Books built before this existed can be reconstructed by name-matching, but are labelled <b>inferred</b> and carry <b>no screen spec</b> — none was ever recorded, and fabricating one would misrepresent an audit trail. A portfolio created by hand reports no lineage rather than guessing.</li>
+        <li><b>Pinned tabs now follow the workflow</b>: Settings, Agent, Watchlists, Theses, Screener, Portfolios, then your security tabs. The saved-state indices behind them are unchanged, so existing sessions and the agent control channel keep working — with a test pinning both the order and the indices.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">2.20.1 <span class="reltitle">Documentation and test coverage catch up with the features</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>The events section covers marker hover, click-through and the model link</b> added in 2.20.0, including what the link means and — importantly — what it does not: it is drawn only through influence edges your model actually carries, and it points at a driver to re-examine rather than re-estimating it.</li>
+        <li><b>Tests for the client contract.</b> The chart and the terminal are separate documents that talk by <code>postMessage</code> and cannot import each other, so nothing checked that the two halves agreed. A new suite asserts the message type matches on both sides, the terminal rejects foreign origins and the chart targets its own, <b>every</b> event source has a destination rail view and every view referenced exists, markers carry their payload, and the agent has parity. Each assertion was verified to fail when the contract is broken.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The user guide now documents indicators you define yourself.</b> This shipped in 2.19.0 and was missing from the site entirely — there is now a section covering the formula language, the windowed functions available, parameters as editable chart inputs, multi-plot and lower-pane indicators, and the fact that evaluation happens server-side over bars the chart already holds (no <code>eval</code> in the browser, no extra API calls).</li>
+        <li><b>The landing page gained a charting section.</b> The workbench is the largest surface in the product and had no feature card at all; overlays, events, auto-detection, no-lookahead replay, custom indicators and rule backtesting are now visible to someone deciding whether to install.</li>
+        <li><b>Behavioural tests for marker hit-testing</b>: <code>markerAt</code> resolves the marker under the cursor with its event payload, misses outside the radius, drops stale hit boxes when a source is toggled off, and records nothing for markers scrolled out of view.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">2.20.0 <span class="reltitle">Event markers you can interrogate: hover, click through, and see the operating-model link</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Hover an event marker to see what it is.</b> Markers on the chart carry their source events now, so pointing at one shows a tooltip with the event label, date, detail and sentiment. Where several events land on the same bar the marker collapses to <code>N×</code> and the tooltip lists them (first six, plus a count of the rest).</li>
+        <li><b>Click a marker to open that event.</b> The chart runs as an iframe inside the research terminal, so selecting a marker posts up to the terminal, which switches the security to the rail view that owns that source — filings → SEC Filings, ratings → Analyst Ratings, insider → Insider Trades, transcripts, news, ownership, notes, earnings/financials → Financial Statements — and highlights the dated row it landed on. A standalone chart with no terminal above it falls back to the event's source URL.</li>
+        <li><b>Every event now knows which operating-model driver it bears on.</b> <code>get_events</code> (and the chart tooltip) return <code>model_link = {factors, drivers, via, why}</code>. Two paths produce it: event type — reported results and filed statements reset the growth/margin baseline, guidance moves growth, street ratings feed the exit multiple and discount rate — and keyword matching against the factors <b>actually attached to that company's model</b>, so a tariff headline links to the <code>tariff_rate</code> factor and, through its influence edge, to <code>gross_margin_pct</code>. A model that carries no tariff factor produces no tariff link; the association is only ever drawn through edges the model really has. When a clicked event carries a model link, the terminal offers a one-click jump to the Operating Model view.</li>
+        <li><b>Agent parity</b>: <code>control_chart select_event {source, date}</code> performs the same navigation a click does, and <code>inspect_chart what=state</code> reports <code>selected_event</code>.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">2.19.1 <span class="reltitle">Fix: spurious "No FMP API key embedded" warning on every chart</span></h3>
+    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
+      <ul>
+        <li><b>Fixed a false error toast when loading or refreshing a chart.</b> Charts served by the local server deliberately carry <b>no embedded API key</b> — data flows through the same-origin <code>/fmp</code> proxy with the key held server-side — but a leftover check from the old standalone-file era warned whenever no key was embedded, so it fired on every proxy-served chart even though nothing was wrong. The warning is now correctly scoped to the standalone <code>file://</code> copy, which is the only case that actually needs an embedded key (and its wording now points at opening the live chart URL instead of "regenerating from Claude Code").</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">2.19.0 <span class="reltitle">Custom indicators on the chart + backtests painted on price (specs complete)</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>Spec C polish</b>: custom indicators now appear in the chart's indicator library under a <b>Custom</b> category alongside the built-ins, with the same add / param-edit / hide / remove affordances, and are addable by the agent via <code>control_chart add_indicator {id:"custom:&lt;name&gt;"}</code> (a definition created after the chart loaded is picked up automatically). Plots marked <code>pane:"lower"</code> get their own pane. The DSL stays server-side — the chart posts the bars it already holds to <code>/ci/eval</code> and receives plot series, so there is still no eval in the browser and no extra API calls. <code>inspect_chart what=state</code> now lists the custom definitions, so an indicator the user edits in the rail and one the agent authored are the same object.</li>
+        <li><b>Spec B painting</b>: a new <b>🧪 Backtest</b> menu runs an entry/exit rule on the loaded bars and paints the result onto price — BUY/SELL markers per trade (exit labelled with its return, open legs marked) plus an <b>equity-curve pane</b> — with the summary line (trades, total return, hit rate, max drawdown, buy &amp; hold) in the menu. <code>control_chart backtest {entry, exit, cost_bps}</code> / <code>clear_backtest</code>, and the full result object is readable through the new <b><code>inspect_chart what=backtest</code></b>; <code>what=state</code> carries the rule, costs and stats. Backtests launched from the UI and from the agent produce the identical object and the identical painting.</li>
+        <li>With this, all three charting specs meet the world-model gate: every new object (detections, replay cursor, backtest results, custom indicator definitions) is introspectable as structured state, every affordance has a tool twin, and mutations flow through the existing stores and journal.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">2.18.0 <span class="reltitle">PIT bar replay: replay without lookahead (Spec B: part 2)</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>The honest-replay moat</b>: analyst-target and DCF price lines are as-known-<b>now</b>, so during replay they are <b>suppressed and labelled</b> rather than silently drawn. If a <b>point-in-time snapshot</b> covers the cursor date, the values you actually observed then are drawn instead and marked <b>as-known-then (snapshot YYYY-MM-DD)</b>. New <code>/pit/asof</code> route backs the distinction.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Replay mode</b> walks a chart forward bar by bar from any start date, with transport controls (step back/forward, play/pause at 1×/4×/10×, exit) in a replay bar that always states what you are looking at.</li>
+        <li><b>The no-lookahead guarantee is structural, not a promise</b>: replay windows <code>state.bars</code> to the cursor, so every downstream consumer — indicators, the 12-signal battery, Spec A's auto-detections, event markers, the analysis panel — recomputes from bars ≤ cursor and <i>cannot</i> see the future.</li>
+        <li><b>Agent parity</b>: <code>control_chart replay {action: start|step|play|pause|stop, date?, steps?, speed?}</code>, and <code>inspect_chart what=state</code> reports the cursor index/date, total bars, play state, speed, and whether fundamentals are as-known-then or suppressed — so the agent can run a name forward and narrate what a disciplined analyst would have concluded at each step.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
+  <!-- RELEASE-INFO:END -->
+
+  
