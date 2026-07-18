@@ -16,6 +16,10 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.27.1] — Fix: the CI UI check assumed a portfolio existed</h2>
+<ul>
+<li>The headless UI check drives the portfolio views, whose rail items only render once a portfolio exists — true on any machine that has used Orrery, false on a fresh CI runner, so the check's very first CI run failed on "rail item missing". The test now <b>seeds a throwaway portfolio through the real code path</b> when no store is provided, and explicitly selects it before driving the views. Failure output from the UI harness now surfaces the actual error line instead of the last three lines of a stack trace.</li>
+</ul>
 <h2>[2.27.0] — The strategy reaches the screen: graded visuals, honest rebalance costs, CI-verified UI</h2>
 <ul>
 <li><b>The influence map now looks as certain as the data, not as certain as the artist.</b> Each link is drawn with the confidence its evidence earns: solid and weighted only for statistically supported fits (grade A/B), dashed for weak fits (C/D), sparse dots for catalog estimates never fitted against data — with the grade and its reason in the hover. A legend states the visual grammar. The graph payload (<code>get_model_graph</code>, <code>/cm/graph</code>) now carries <code>grade</code>, <code>p</code>, <code>fitted</code> and <code>source</code> per edge.</li>

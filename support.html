@@ -118,12 +118,20 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.27.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-18 22:52 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.27.1</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-18 23:00 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.27.1 <span class="reltitle">Fix: the CI UI check assumed a portfolio existed</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>The headless UI check drives the portfolio views, whose rail items only render once a portfolio exists — true on any machine that has used Orrery, false on a fresh CI runner, so the check's very first CI run failed on "rail item missing". The test now <b>seeds a throwaway portfolio through the real code path</b> when no store is provided, and explicitly selects it before driving the views. Failure output from the UI harness now surfaces the actual error line instead of the last three lines of a stack trace.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.27.0 <span class="reltitle">The strategy reaches the screen: graded visuals, honest rebalance costs, CI-verified UI</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -241,25 +249,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-rm">Removed</span>
       <ul>
         <li><b>The support page now carries release information</b> — current version, publish timestamp, update channel and download link, plus the last eight releases with each note grouped into New / Fixed / Changed / Removed. It is generated from <code>CHANGELOG.md</code> during the release build, so it cannot drift from what was actually shipped; the grouping is derived from each note's wording and the page says so.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.21.1 <span class="reltitle">The breadcrumb reaches the top: worldview → thesis, with drift detection</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>A thesis now records the reading of the world it rests on.</b> <code>create_thesis</code> takes <code>worldview_domains</code>, and Orrery snapshots what each cited domain <b>said at the time</b> — its trend and summary — not just its name. This completes the chain: worldview → thesis → screen → portfolio, all four hops in the breadcrumb.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Worldview drift is detected and surfaced.</b> A thesis formed when inflation was <i>deteriorating</i> stands on different ground once that domain turns <i>improving</i>, so the chain compares the snapshot against the current worldview and flags which domains have moved. Drift is not an error — it is the trigger to revisit the view. Stale domains (not refreshed recently) are reported <b>separately</b>, because not having looked is a different condition from having seen a change.</li>
-        <li>The thesis view shows its upward lineage with each cited domain, its trend as cited, and an arrow to where it has since moved; <code>get_provenance {thesis}</code> returns the same upward chain plus the books that thesis produced.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
-      <ul>
-        <li><b>No guessing at the top either</b>: a thesis that cites no domains reports none rather than inferring which parts of the worldview "probably" applied — that is a judgment, not a lookup — and citing an unknown domain is rejected instead of silently dropped.</li>
       </ul>
     </div>
   </div>

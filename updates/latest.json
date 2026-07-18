@@ -1,13 +1,13 @@
 {
-  "version": "2.27.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.27.0.plugin",
-  "sha256": "fe683c6088c3af4e52805b55e1b07511847afb4785376dd90808f11bb02afcaf",
+  "version": "2.27.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.27.1.plugin",
+  "sha256": "8aef5c60f2396b1d6ea8ca1ebfbead7244d97d83055b5f7d5d034321d0d23cdd",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **The influence map now looks as certain as the data, not as certain as the artist.** Each link is drawn with the confidence its evidence earns: solid and weighted only for statistically supported fits (grade A/B), dashed for weak fits (C/D), sparse dots for catalog estimates never fitted against data — with the grade and its reason in the hover. A legend states the visual grammar. The graph payload (`get_model_graph`, `/cm/graph`) now carries `grade`, `p`, `fitted` and `source` per edge. - **Rebalance plans state their full cost and the do-nothing hurdle.** `get_rebalance_plan` now reports ",
-  "published": "2026-07-18T22:52:51.043Z",
+  "notes": "- The headless UI check drives the portfolio views, whose rail items only render once a portfolio exists — true on any machine that has used Orrery, false on a fresh CI runner, so the check's very first CI run failed on \"rail item missing\". The test now **seeds a throwaway portfolio through the real code path** when no store is provided, and explicitly selects it before driving the views. Failure output from the UI harness now surfaces the actual error line instead of the last three lines of a stack trace.",
+  "published": "2026-07-18T23:00:14.556Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
