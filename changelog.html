@@ -16,6 +16,10 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.29.0] — Attribution runs are time series, and chart like them</h2>
+<ul>
+<li>Correcting an earlier claim: attribution is a vector at one moment, but every run is timestamped with its inputs and outputs — so each factor's contribution ACROSS runs is a time series, and so is the attributed forecast fair value. <code>forecast_and_attribute</code> now records each run, and two new series refs chart the history through the standard overlay machinery: <code>model:&lt;SYM&gt;:forecast_fv</code> (the attributed forecast over time) and <code>model:&lt;SYM&gt;:attr:&lt;factor&gt;</code> (one factor's fair-value contribution over time, in %). Overlay them on the price chart or stack several factors in panes to watch the attribution composition evolve.</li>
+</ul>
 <h2>[2.28.1] — The model view can build chains by hand</h2>
 <ul>
 <li>The <b>Add factor</b> control's target list now includes existing nodes alongside the financial drivers, so multi-hop chains (materials → unit cost → margin) can be built directly in the Operating Model view, not only through the agent tools.</li>

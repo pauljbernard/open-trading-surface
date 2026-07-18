@@ -1,13 +1,13 @@
 {
-  "version": "2.28.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.28.1.plugin",
-  "sha256": "aac6a1643fd63b70f4f9f4637397d87743e5ec8345c477ea29b12566a9a6d32a",
+  "version": "2.29.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.29.0.plugin",
+  "sha256": "5a461e90de33db1126f96ca3f89e4d2cfc53607e6b2864fa4e24dc9b0fb1f188",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- The **Add factor** control's target list now includes existing nodes alongside the financial drivers, so multi-hop chains (materials → unit cost → margin) can be built directly in the Operating Model view, not only through the agent tools.",
-  "published": "2026-07-18T23:48:20.973Z",
+  "notes": "- Correcting an earlier claim: attribution is a vector at one moment, but every run is timestamped with its inputs and outputs — so each factor's contribution ACROSS runs is a time series, and so is the attributed forecast fair value. `forecast_and_attribute` now records each run, and two new series refs chart the history through the standard overlay machinery: `model:<SYM>:forecast_fv` (the attributed forecast over time) and `model:<SYM>:attr:<factor>` (one factor's fair-value contribution over time, in %). Overlay them on the price chart or stack several factors in panes to watch the attribu",
+  "published": "2026-07-18T23:55:00.947Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

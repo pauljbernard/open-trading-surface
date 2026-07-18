@@ -118,12 +118,20 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.28.1</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-18 23:48 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.29.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-18 23:55 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.29.0 <span class="reltitle">Attribution runs are time series, and chart like them</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>Correcting an earlier claim: attribution is a vector at one moment, but every run is timestamped with its inputs and outputs — so each factor's contribution ACROSS runs is a time series, and so is the attributed forecast fair value. <code>forecast_and_attribute</code> now records each run, and two new series refs chart the history through the standard overlay machinery: <code>model:&lt;SYM&gt;:forecast_fv</code> (the attributed forecast over time) and <code>model:&lt;SYM&gt;:attr:&lt;factor&gt;</code> (one factor's fair-value contribution over time, in %). Overlay them on the price chart or stack several factors in panes to watch the attribution composition evolve.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.28.1 <span class="reltitle">The model view can build chains by hand</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -211,19 +219,6 @@ shasum -a 256 orrery.plugin</code></pre>
       <ul>
         <li><b>Every backtest reserves a holdout, structurally.</b> The most recent ~25% of bars are split off inside <code>runRule</code> itself, so no caller — UI, tool, or agent — can request the flattering half alone. Both windows are scored and compared, with a verdict: a holdout return collapsing to a fraction of in-sample is named as the signature of an overfit rule, a rule that never triggers out-of-sample is named as saying nothing, and a sample too short to split is stamped ENTIRELY IN-SAMPLE rather than silently passing. (Discipline still matters — iterating against the full chart means you have seen the "holdout" — but the honest workflow is now the default, not an option.)</li>
         <li><b>The universe starts archiving itself toward survivorship correction.</b> The screener universe lists only companies alive today, so every cohort and factor backtest against it is optimistic by an unknown margin. A frozen membership snapshot is now taken monthly as a side effect of normal refreshes — never rewritten, so a company that later delists stays in the months it was actually alive. This cannot fix the past; it builds a genuinely point-in-time panel forward from first use, and until years accumulate the responses say plainly that the bias remains.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.23.1 <span class="reltitle">Fix: the agreement test hardcoded an absolute path and broke CI</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>Added a guard so this cannot recur</b>: a test that scans the suite for absolute <code>require()</code> paths and fails if one appears. A test that only passes on its author's machine is worse than no test, because it reports green while checking nothing everywhere else.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The legal-gate test resolved its module by an absolute path</b> belonging to the machine it was written on, so all five of its cases passed locally and failed on every other machine. CI had been red since 2.22.0 for this reason alone — no product code was involved. It now resolves relatively, like every other test.</li>
       </ul>
     </div>
   </div>
