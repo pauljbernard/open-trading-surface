@@ -1,13 +1,13 @@
 {
-  "version": "2.19.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.19.0.plugin",
-  "sha256": "5cbfb084d0ceb299f71000b3788b70d24e47b9bf95e207716304730370076b7b",
+  "version": "2.19.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.19.1.plugin",
+  "sha256": "b73a86e23036a198aa0aaa86a763e7ba2fafb58f59e46f70289bb0ccdb92aa9e",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Spec C polish**: custom indicators now appear in the chart's indicator library under a **Custom** category alongside the built-ins, with the same add / param-edit / hide / remove affordances, and are addable by the agent via `control_chart add_indicator {id:\"custom:<name>\"}` (a definition created after the chart loaded is picked up automatically). Plots marked `pane:\"lower\"` get their own pane. The DSL stays server-side — the chart posts the bars it already holds to `/ci/eval` and receives plot series, so there is still no eval in the browser and no extra API calls. `inspect_chart what=sta",
-  "published": "2026-07-18T17:14:39.159Z",
+  "notes": "- **Fixed a false error toast when loading or refreshing a chart.** Charts served by the local server deliberately carry **no embedded API key** — data flows through the same-origin `/fmp` proxy with the key held server-side — but a leftover check from the old standalone-file era warned whenever no key was embedded, so it fired on every proxy-served chart even though nothing was wrong. The warning is now correctly scoped to the standalone `file://` copy, which is the only case that actually needs an embedded key (and its wording now points at opening the live chart URL instead of \"regenerating",
+  "published": "2026-07-18T17:37:04.561Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

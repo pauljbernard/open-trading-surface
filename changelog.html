@@ -16,6 +16,10 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.19.1] — Fix: spurious "No FMP API key embedded" warning on every chart</h2>
+<ul>
+<li><b>Fixed a false error toast when loading or refreshing a chart.</b> Charts served by the local server deliberately carry <b>no embedded API key</b> — data flows through the same-origin <code>/fmp</code> proxy with the key held server-side — but a leftover check from the old standalone-file era warned whenever no key was embedded, so it fired on every proxy-served chart even though nothing was wrong. The warning is now correctly scoped to the standalone <code>file://</code> copy, which is the only case that actually needs an embedded key (and its wording now points at opening the live chart URL instead of "regenerating from Claude Code").</li>
+</ul>
 <h2>[2.19.0] — Custom indicators on the chart + backtests painted on price (specs complete)</h2>
 <ul>
 <li><b>Spec C polish</b>: custom indicators now appear in the chart's indicator library under a <b>Custom</b> category alongside the built-ins, with the same add / param-edit / hide / remove affordances, and are addable by the agent via <code>control_chart add_indicator {id:"custom:&lt;name&gt;"}</code> (a definition created after the chart loaded is picked up automatically). Plots marked <code>pane:"lower"</code> get their own pane. The DSL stays server-side — the chart posts the bars it already holds to <code>/ci/eval</code> and receives plot series, so there is still no eval in the browser and no extra API calls. <code>inspect_chart what=state</code> now lists the custom definitions, so an indicator the user edits in the rail and one the agent authored are the same object.</li>
