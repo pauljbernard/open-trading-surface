@@ -1,13 +1,13 @@
 {
-  "version": "2.22.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.22.0.plugin",
-  "sha256": "0172f2e3696191b0a48bd85491498f0eeee55b04e12acb9f0bb799f367347b4c",
+  "version": "2.23.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.23.0.plugin",
+  "sha256": "2459fcd28c6ef34b69267c95673ee23dfd8410430a5a7488f5ca2ecfbfbe1b6d",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Every driver now has a fitted history.** Calibration used to see two drivers — gross margin and revenue growth — built from three years of income statements, while opex, capex, working capital, tax, D&A, share count and net debt carried catalog ESTIMATES that nothing ever checked. Driver history is now assembled from income/balance/cash-flow statements, key-metrics, enterprise-values and employee count (revenue per employee is a real operating driver), and **extended by as-filed SEC EDGAR XBRL** where it reaches further back than FMP — which matters when fitting a sensitivity through a cyc",
-  "published": "2026-07-18T21:15:51.381Z",
+  "notes": "This release implements the first three phases of a strategy aimed at two goals at once: making the product harder to fool yourself with, and giving it a real source of edge. They are the same project — calibration is what makes position sizing worth anything. ### Phase 1 — the epistemic spine - **Every fitted estimate now carries real statistics and an A–D grade.** New `inference.js` computes t-distribution p-values (validated against published tables), standard errors and 95% confidence intervals — no runtime dependencies. - **The threshold this replaces was indefensible.** A sensitivity cou",
+  "published": "2026-07-18T21:53:51.235Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
