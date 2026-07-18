@@ -48,6 +48,10 @@ imports/
 
 # ── Build / packaging artifacts ──
 *.plugin
+# ...but the PUBLISHED packages under download/ are the whole point of this
+# repo, so they must be tracked. Without this negation git add -A silently
+# skips each new versioned package and the manifest points at a 404.
+!download/*.plugin
 dist/
 build/
 out/
