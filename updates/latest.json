@@ -1,13 +1,13 @@
 {
-  "version": "2.10.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.10.0.plugin",
-  "sha256": "2cca7dcf0f005913addde9bca450002de37016b6ab3f84835d5e003f1397b6a4",
+  "version": "2.11.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.11.0.plugin",
+  "sha256": "d282a103d3ccd18f2af728452c0e68819ae2644d6113064aee6200ff7b66b0f6",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Any external series can now drive a company operating model, with forecast attribution.** New tools: `attach_series_factor` (wire any fred:/fmp:econ:/fmp:treasury:/index:/commodity:/financial/edgar series into the model as a factor, optionally linked to a driver), `set_factor_weight` (tunable weight multiplier per factor), and `forecast_and_attribute` — which projects each factor forward (trend/cagr/flat/scenario), propagates through the weighted influence edges, and attributes the multi-year EPS/fair-value forecast to the factors: a deterministic **contribution decomposition** with **comp",
-  "published": "2026-07-18T04:49:20.224Z",
+  "notes": "- New **event layer**: one `get_events` call returns a single, dated, **sentiment-scored** stream across every source — earnings (beat/miss), dividends, splits, insider trades (buy/sell), SEC filings, earnings-call transcripts, institutional-ownership 13F net flow, analyst rating changes (up/downgrade), quarterly financial releases, news (tone), and your research notes — plus a weighted sentiment **composite** (score −100..100 + verdict) over the recent window. Each event carries a −1/0/+1 sentiment derived per type (insider P/S, grade-rank moves, EPS vs estimate, a news lexicon, net instituti",
+  "published": "2026-07-18T05:07:44.362Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
