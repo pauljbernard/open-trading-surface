@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.9.2] — Fix: Compare overlay drew nothing</h2>
+<ul>
+<li><b>Fixed the 🆚 Compare feature</b>: adding a comparison symbol flipped the chart to percentage scale and showed a legend chip, but never drew the comparison line — the render step was missing. Comparison symbols now render as normalized lines on the shared percentage scale (all series rebased to their first visible value), so relative performance shows correctly.</li>
+<li>Groundwork (not yet user-exposed): operating-model factors can now be backed by ANY external series ref and carry a tunable weight, and a new forecast+attribution engine (contribution decomposition + weight shares + multivariate regression cross-check) is in place and unit-tested — the next operating-model release wires it to tools and the calculator UI.</li>
+</ul>
 <h2>[2.9.1] — Fix: charts failed to load on a clean install (ENOENT engine.js)</h2>
 <ul>
 <li><b>Fixed stock charts showing "ENOENT: no such file or directory … server/engine.js" on a fresh install.</b> The chart HTML was assembled by reading three browser-side files (engine/indicators/talib-ext) from disk at runtime, but those files are never <code>require()</code>d — so a plugin loader that installs only the required module graph placed the bundled <code>index.js</code> without them, breaking every chart. Those client files are now <b>embedded into the bundle at build time</b> (via <code>client-embed</code>), so the shipped server assembles charts with <b>zero runtime file reads</b> and no sibling-file dependency. Dev (unbundled source) still reads the raw files.</li>

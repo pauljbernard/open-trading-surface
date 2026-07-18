@@ -1,13 +1,13 @@
 {
-  "version": "2.9.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.9.1.plugin",
-  "sha256": "09b24d14ed2834d19bb498dbac0da9bea9860074ce1aeb5b8be7b86b9e0a932c",
+  "version": "2.9.2",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.9.2.plugin",
+  "sha256": "fd38f7697ba47672bf07871366a0d9f4e00c582a88be61682ff34a64967b0892",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Fixed stock charts showing \"ENOENT: no such file or directory … server/engine.js\" on a fresh install.** The chart HTML was assembled by reading three browser-side files (engine/indicators/talib-ext) from disk at runtime, but those files are never `require()`d — so a plugin loader that installs only the required module graph placed the bundled `index.js` without them, breaking every chart. Those client files are now **embedded into the bundle at build time** (via `client-embed`), so the shipped server assembles charts with **zero runtime file reads** and no sibling-file dependency. Dev (unb",
-  "published": "2026-07-18T03:42:57.826Z",
+  "notes": "- **Fixed the 🆚 Compare feature**: adding a comparison symbol flipped the chart to percentage scale and showed a legend chip, but never drew the comparison line — the render step was missing. Comparison symbols now render as normalized lines on the shared percentage scale (all series rebased to their first visible value), so relative performance shows correctly. - Groundwork (not yet user-exposed): operating-model factors can now be backed by ANY external series ref and carry a tunable weight, and a new forecast+attribution engine (contribution decomposition + weight shares + multivariate reg",
+  "published": "2026-07-18T04:27:53.286Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
