@@ -118,12 +118,25 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.48.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 21:57 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.49.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 22:07 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.49.0 <span class="reltitle">Model honesty, camp 2: fair value stops pretending to be a number</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The output finally joins the epistemic spine.</b> Every model input was graded, deflated and holdout-tested, and then the model printed <code>blended_fair_value: 17.21</code> — a scalar, to the cent, with no interval and no grade. Fair value is now a <b>distribution</b>: each driver carries an uncertainty band derived from <b>its own provenance</b> (as-reported → narrow and grade A; fitted → grade B; consensus/judgment → C; <b>catalog default → widest band and grade D</b>), drivers that share an influence-graph factor parent move <b>together</b> rather than independently, and the projection is resampled to yield <b>P10 / P50 / P90</b>.</li>
+        <li><b>The grade is inherited, and materiality is measured.</b> The reported grade is the weakest input the answer <i>materially</i> depends on — materiality determined by each driver's own elasticity, not asserted — and the payload names the drivers that cap it.</li>
+        <li><b>Precision follows the interval.</b> A value known to ±50% no longer carries cents; the rounding step is derived from the width of the band. And when P90 exceeds 3× P10, or the answer rests on a grade-D input, the <b>point estimate is withheld entirely</b> — the range is the honest answer. On a default-laden model, <code>$17.21</code> now reads <code>$8–$35 (grade D, no point estimate)</code>.</li>
+        <li><b>Terminal-heavy valuations are reframed</b>: above 60% terminal share the payload says plainly that this is an assertion about the exit multiple and discount rate, not a cash-flow valuation.</li>
+        <li><b>Deterministic by design</b> — a seeded sampler, so the same model yields the same interval on every refresh; a band that wandered would be its own dishonesty. Absence is honest too: a model with no bandable drivers reports that no distribution can be built rather than inventing one, and the disclosure states what the interval is <i>not</i> — model-input uncertainty, never a confidence interval for the stock price.</li>
+        <li>The Operating Model view now <b>leads with the range, its grade and what governs it</b>, demoting the scalar to a reference figure. <code>fair_value_distribution</code> rides <code>get_company_model</code> and <code>build_company_model</code> for the agent. 10 further tests in <code>model-honesty.test.js</code> (18 total).</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.48.0 <span class="reltitle">Model honesty, camp 1: elasticities reconciled with the influence graph</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -202,14 +215,6 @@ shasum -a 256 orrery.plugin</code></pre>
       <ul>
         <li><b>Composable transforms on any series ref</b>: <code>:ttm</code> (rolling 4-quarter sum — refuses non-quarterly cadence and says to add <code>:quarter</code>), <code>:per_share</code> (as-of aligned diluted shares; refuses symbol-less refs), <code>:yoy</code> (±45-day matched, unmatched points drop out), <code>:indexed</code> (rebase 100). They compose left to right: <code>fmp:income:AAPL:netIncome:quarter:ttm:per_share</code> is true TTM EPS. Labels state the applied pipeline.</li>
         <li><b>Discoverability by design (the new law from CHARTING-SPEC)</b>: the transforms live in one self-describing registry that the server applies, the field browser's new transform selector enumerates (via <code>/series/transforms</code> — never a hand-copied list), and the knowledge base compiles (<code>transform.*</code> entries). A transform cannot exist without its affordance.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.41.4 <span class="reltitle">Chart isolation: overlays and indicators are scoped per symbol</span></h3>
-    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
-      <ul>
-        <li>Fixed overlays bleeding across charts (TSLA series appearing on the AAPL chart): the chart layout — indicators, overlays, style — was saved under one GLOBAL key shared by every chart, while drawings were always correctly per-symbol. The layout store is now keyed by symbol, switching symbols reloads that symbol's own layout, and a one-time migration keeps your indicator setup while dropping overlays bound to a different symbol. <b>Compare remains the only cross-symbol mechanism</b>, as designed. A contract test now enforces the isolation.</li>
       </ul>
     </div>
   </div>
