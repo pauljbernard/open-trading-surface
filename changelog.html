@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.37.6] — The chart fits its window again</h2>
+<ul>
+<li><b>Fixed resize overflow</b>: pane heights were computed from the viewport once at build time and frozen; resizing the window (or the terminal pane) only refitted widths, so the chart overflowed and pushed the bottom controls — ranges, interval, dates — out of view. A height change now recomputes the whole layout (debounced), and the controls stay visible at every size.</li>
+</ul>
+<h2>[2.37.5] — Fair value belongs on the price axis</h2>
+<ul>
+<li>New overlay mode <b><code>price</code></b>: draws a series on the symbol's own price scale instead of a stacked side axis or pane. <code>model:&lt;SYM&gt;:fair_value</code> and <code>forecast_fv</code> <b>default to it</b> — a fair value is in dollars for this very symbol, and rendering it on a compressed side axis visually parked a $17 conclusion at mid-chart next to a $380 price. On the price scale, the FV-vs-price gap IS the picture. Mode remains switchable per overlay (axis | pane | price), including via <code>control_chart</code>.</li>
+</ul>
 <h2>[2.37.4] — A model saved on Saturday is no longer invisible on the chart</h2>
 <ul>
 <li><b>Fixed overlay alignment dropping post-close conclusions</b>: model track points are date-stamped in UTC, so a conclusion saved after Friday's close (or on a weekend) is dated after the last trading bar — and the as-of alignment rendered it NOWHERE, leaving the "model fair value" pane empty with data present. Points recorded after the last bar now land on the most recent bar.</li>

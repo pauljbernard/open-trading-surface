@@ -118,12 +118,28 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.37.4</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 02:28 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.37.6</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 02:51 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.37.6 <span class="reltitle">The chart fits its window again</span></h3>
+    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
+      <ul>
+        <li><b>Fixed resize overflow</b>: pane heights were computed from the viewport once at build time and frozen; resizing the window (or the terminal pane) only refitted widths, so the chart overflowed and pushed the bottom controls — ranges, interval, dates — out of view. A height change now recomputes the whole layout (debounced), and the controls stay visible at every size.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">2.37.5 <span class="reltitle">Fair value belongs on the price axis</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>New overlay mode <b><code>price</code></b>: draws a series on the symbol's own price scale instead of a stacked side axis or pane. <code>model:&lt;SYM&gt;:fair_value</code> and <code>forecast_fv</code> <b>default to it</b> — a fair value is in dollars for this very symbol, and rendering it on a compressed side axis visually parked a $17 conclusion at mid-chart next to a $380 price. On the price scale, the FV-vs-price gap IS the picture. Mode remains switchable per overlay (axis | pane | price), including via <code>control_chart</code>.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.37.4 <span class="reltitle">A model saved on Saturday is no longer invisible on the chart</span></h3>
     <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
@@ -194,31 +210,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>The tie is a test, not a hope</b>: assets = liabilities + equity is enforced in EVERY projected year — a model that cannot tie throws, naming the year and the gap, because a flow booked to one side only is a model defect, not a rounding issue.</li>
         <li><b>Buybacks retire real dollars</b>: <code>buyback_pct_fcf</code> spends a share of FCF at the base price and the share count falls by shares actually repurchased — a buyback shock changes EPS through the count, not through a multiplier. <b>Target leverage works through capital return</b>: an under-levered sheet reaches its target by returning the excess via extra buybacks; an over-levered one deleverages only as FCF accumulates — no fictional instant repayment, and no paper debt moves (issuing debt into cash cannot change net debt).</li>
         <li>Honesty rules: articulated mode <b>refuses to run without an opening equity</b> rather than fabricate a balance sheet; buyback dollars without a base price refuse to guess a share count; <code>build_company_model</code> now captures the opening sheet and reports <b>derived-from-history starting points</b> for the three drivers (latest payout, buyback intensity, leverage) — shown, never applied.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.35.0 <span class="reltitle">Ascent 2 complete: the scoreboard accrues quarterly</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Quarterly forecast scoring</b> in <code>get_model_events</code> (<code>quarterly_scoring</code>): each dated model-track snapshot becomes a <b>next-quarter EPS checkpoint</b> — the annual conclusion converted through the company's OWN seasonal EPS mix (median share of annual EPS per fiscal quarter over complete profitable years, a reported fact) and scored against the reported quarter within weeks of the print. MAE, bias and a leaning per model; the accountability loop runs four times faster than annual scoring.</li>
-        <li>Honesty rules: the quarterly number is labelled a <b>derived checkpoint, not a quarterly model</b>; the LAST snapshot before each print is the one scored (no hindsight re-picks); loss quarters and partial years are excluded from the mix; fewer than two complete profitable years means <b>no mix, never a guess</b>; an empty scoreboard says it fills in as earnings arrive — it never shows zeros.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.34.0 <span class="reltitle">Ascent 2, first camp: quarterly frequency</span></h3>
-    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
-      <ul>
-        <li>Fixed a latent grader crash: an A-branch fit with an undefined r² (zero-variance outcome) crashed instead of reporting "r² undefined — outcome has no variance".</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Quarterly driver history</b> (<code>quarterlyDriverHistory</code>): every driver assembled per fiscal quarter from FMP quarterly statements, labelled by the statement's own period field (calendar-month guessing only as a stated fallback). ~60 points where annual data offers ~15.</li>
-        <li><b>Seasonality is structure, never signal</b>: growth and all fit series are <b>year-over-year same-quarter</b> — a strong-Q4 business shows constant growth, not a seasonal sawtooth, and sequential quarter-on-quarter is never regressed.</li>
-        <li><b><code>calibrate_model_factors</code> gains <code>period:'quarter'</code></b>: factor series are aggregated to quarterly averages and YoY-transformed exactly like the driver side, fits run through the inference spine under the <code>quarterly_regression</code> ceiling — the <b>A grade</b> that ~15 annual points can never honestly reach is now earnable on ~60 quarterly points that measure it.</li>
-        <li><b>Breaks at quarter grain</b>: a structural break carrying a quarter (<code>2020Q2</code>) disqualifies fits at that resolution; year-grain breaks land at that year's Q1 and still disqualify. <code>accept:true</code> never applies a break-spanning fit.</li>
       </ul>
     </div>
   </div>
