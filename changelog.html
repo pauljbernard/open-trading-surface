@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.41.0] — Self-support complete: the Support view</h2>
+<ul>
+<li><b>A pinned 🛟 Support tab</b> joins the workflow order with four sub-views: <b>Guide</b> (browsable topics + code-generated reference, each stamped with the KB version), <b>Diagnostics</b> (one-click run of the same engine the agent uses via the same daemon routes; findings shown observed-vs-expected with the remedy one click away; last run persisted), <b>What's new</b> (structured release history), and <b>Learn</b> (the curriculum with build-time-computed worked examples).</li>
+<li><b>"Try it with the agent"</b>: every Learn module's schema-validated invocation can be handed to the agent through the ✉ inbox — the UI presents, the agent executes, both from the same module. One KB id space, two renderings: the entry the agent cites in chat is the page the user opens in the terminal.</li>
+<li>Agent parity holds by construction: the view is reachable via control_terminal, readable via inspect_terminal, and served from the identical support-kb/diagnostics modules behind the /support/* routes.</li>
+</ul>
 <h2>[2.40.0] — Self-support, camp 3 (agent side): education that executes</h2>
 <ul>
 <li><b><code>explain_concept</code> / <code>get_learning_path</code></b>: a six-module curriculum (operator → analyst → methodologist) teaching the methodology — evidence grades and ceilings, the search ledger, YoY same-quarter discipline, the articulation tie, segment mix as an output, terminal basics. Every module's worked example is <b>computed by the real functions at build time</b> (the deflation example calls the live Šidák code; the tie example runs a real articulated projection and shows gap 0) — the release fails if an example stops matching the software. Every <code>try_it</code> is a <b>literal, schema-validated tool invocation</b> the agent can run against your data; an invocation citing a tool or argument that no longer exists fails the build.</li>

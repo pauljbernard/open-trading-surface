@@ -118,12 +118,26 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.40.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 19:15 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.41.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 19:31 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.41.0 <span class="reltitle">Self-support complete: the Support view</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>A pinned 🛟 Support tab</b> joins the workflow order with four sub-views: <b>Guide</b> (browsable topics + code-generated reference, each stamped with the KB version), <b>Diagnostics</b> (one-click run of the same engine the agent uses via the same daemon routes; findings shown observed-vs-expected with the remedy one click away; last run persisted), <b>What's new</b> (structured release history), and <b>Learn</b> (the curriculum with build-time-computed worked examples).</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>"Try it with the agent"</b>: every Learn module's schema-validated invocation can be handed to the agent through the ✉ inbox — the UI presents, the agent executes, both from the same module. One KB id space, two renderings: the entry the agent cites in chat is the page the user opens in the terminal.</li>
+        <li>Agent parity holds by construction: the view is reachable via control_terminal, readable via inspect_terminal, and served from the identical support-kb/diagnostics modules behind the /support/* routes.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.40.0 <span class="reltitle">Self-support, camp 3 (agent side): education that executes</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -197,14 +211,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-new">New</span>
       <ul>
         <li>The chart's <b>🌐 Macro/Data</b> panel now shows an "Operating model conclusions" section for the active symbol — one-click quick-picks for <code>fair_value</code>, <code>forecast_fv</code>, <code>eps_yr1</code> and <code>eps_yr5</code>, beside the macro quick-picks, with a note that points appear as the model is saved and attributed. Previously the Model category existed only in search results, which required already knowing to type "model".</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.37.2 <span class="reltitle">Model conclusions in the chart's own overlay picker</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>The workbench overlay search now carries a <b>Model</b> category: <code>model:&lt;SYM&gt;:fair_value</code>, <code>model:&lt;SYM&gt;:forecast_fv</code> (attribution runs), <code>model:&lt;SYM&gt;:eps_yr1</code> and <code>model:&lt;SYM&gt;:eps_yr5</code> appear beside the economic/rates/commodity catalog — type "model" in the chart's overlay search and the model's own dated conclusions overlay directly on price. Previously these series resolved but were agent-only knowledge: nothing in the UI told you they existed.</li>
       </ul>
     </div>
   </div>
