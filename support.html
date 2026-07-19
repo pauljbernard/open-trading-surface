@@ -118,12 +118,25 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.44.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 21:06 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.45.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 21:08 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.45.0 <span class="reltitle">Charting arc, camp 5: the performance envelope, measured</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>The harness's performance suite now covers the <b>extreme charting envelope</b>: the full indicator battery at 25k and 50k bars, and the new series machinery at scale — TTM/per-share transforms over 120 quarters, expression evaluation over 7,500 daily points, valuation-band construction over 7,500 multiple observations — all against explicit budgets that fail on order-of-magnitude regressions.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The measured result</b>: the 50k-bar battery completes in tens of milliseconds and every series operation in single-digit milliseconds. Computation is not the binding constraint at any realistic chart size; provider latency is. The envelope is documented in the knowledge base (<code>guide.performance_envelope</code>) from the measured numbers, and re-measurable any time via run_test_suite — measured, not assumed, and no premature optimization shipped.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.44.0 <span class="reltitle">Charting arc, camp 3: valuation bands</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -186,20 +199,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
         <li><code>daemon.reachable</code> probed <code>/health</code>; the daemon answers on <code>/_health</code> — a running daemon was reported down. Caught by the check's first live run. Fixed.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.41.0 <span class="reltitle">Self-support complete: the Support view</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>A pinned 🛟 Support tab</b> joins the workflow order with four sub-views: <b>Guide</b> (browsable topics + code-generated reference, each stamped with the KB version), <b>Diagnostics</b> (one-click run of the same engine the agent uses via the same daemon routes; findings shown observed-vs-expected with the remedy one click away; last run persisted), <b>What's new</b> (structured release history), and <b>Learn</b> (the curriculum with build-time-computed worked examples).</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>"Try it with the agent"</b>: every Learn module's schema-validated invocation can be handed to the agent through the ✉ inbox — the UI presents, the agent executes, both from the same module. One KB id space, two renderings: the entry the agent cites in chat is the page the user opens in the terminal.</li>
-        <li>Agent parity holds by construction: the view is reachable via control_terminal, readable via inspect_terminal, and served from the identical support-kb/diagnostics modules behind the /support/* routes.</li>
       </ul>
     </div>
   </div>

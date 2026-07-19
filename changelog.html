@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.45.0] — Charting arc, camp 5: the performance envelope, measured</h2>
+<ul>
+<li>The harness's performance suite now covers the <b>extreme charting envelope</b>: the full indicator battery at 25k and 50k bars, and the new series machinery at scale — TTM/per-share transforms over 120 quarters, expression evaluation over 7,500 daily points, valuation-band construction over 7,500 multiple observations — all against explicit budgets that fail on order-of-magnitude regressions.</li>
+<li><b>The measured result</b>: the 50k-bar battery completes in tens of milliseconds and every series operation in single-digit milliseconds. Computation is not the binding constraint at any realistic chart size; provider latency is. The envelope is documented in the knowledge base (<code>guide.performance_envelope</code>) from the measured numbers, and re-measurable any time via run_test_suite — measured, not assumed, and no premature optimization shipped.</li>
+</ul>
 <h2>[2.44.0] — Charting arc, camp 3: valuation bands</h2>
 <ul>
 <li><b><code>band:&lt;SYM&gt;:&lt;pe|ps&gt;:&lt;percentile&gt;</code></b> — the price implied by holding the multiple at a chosen percentile of its OWN trailing distribution, drawn through time on the price scale. Fundamentals come through the transform pipeline (true TTM EPS / TTM sales per share), so the bands inherit every honesty rule already in the machinery. The label discloses the multiple and the observation count; <b>fewer than 40 multiple observations is refused</b> — a band from thin history is a guess, and absence renders as absence.</li>
