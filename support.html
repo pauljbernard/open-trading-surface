@@ -118,12 +118,30 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.54.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 23:47 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.55.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 23:55 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.55.0 <span class="reltitle">Value decomposition, camp 1: the gap was never an error</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>The denominator guard.</b> A premium moves because price moved or because the model's own fair value moved — TSLA's fell 173 → 55 on a single filing, mechanically tripling its premium. Every change now carries <code>driven_by</code> (price / substantiated / both) and flags a &gt;25% move in the substantiated leg as <b>a model event, not market enthusiasm</b>.</li>
+        <li>Four new chartable series — <code>model:&lt;SYM&gt;:substantiated</code>, <code>:premium_total</code>, <code>:premium_cohort</code>, <code>:premium_idio[:&lt;cohort&gt;]</code> — whose catalog labels state they are descriptive, not predictive. Every premium surface carries the <b>recorded negative result</b> from the 45-name study, permanently. New <code>premium.test.js</code> (13 tests).</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b><code>decompose_price</code></b> — price splits into <b>substantiated value × cohort premium × idiosyncratic premium</b>, computed for <i>every</i> cohort the name belongs to. What the model used to report as one number called "the gap", and treat as error, is now two measurable quantities: how much of it is the whole market re-rating, and how much is this name specifically. On AAPL the distinction inverts the reading — total premium rose 1.28× → 1.60× while the idiosyncratic premium <b>fell</b> 0.70× → 0.61×: relative to peers it got <i>cheaper</i>, and all of the apparent re-rating was market-wide.</li>
+        <li><b><code>attribute_return</code></b> — the payoff of the identity. Because it is multiplicative, logs make it additive, so a move splits <b>exactly</b>: <i>"AAPL +48.8%: +18.9pp substantiated, +34.9pp cohort premium, −5.0pp idiosyncratic."</i> The residual is computed and <b>shown</b> rather than hidden, and a test asserts it rounds to zero.</li>
+        <li><b><code>get_cohort_premium</code></b> — what the market pays a whole group above fundamentals, with dispersion and an auditable member list. This is the term that was polluting every single-name gap: across 45 large caps it ran 1.84× (Jul 2024) → 2.61× (Jul 2026); across sectors, roughly 1.07× (Financials) to 3.58× (Energy).</li>
+        <li><b>Robustness makes cohort shopping visible rather than available.</b> The spread of the idiosyncratic reading across every membership is reported: tight, and the relative reading is not an artifact of which comparison group was picked; wide, and the payload says so in as many words.</li>
+        <li><b>Honest floors throughout</b>: a cohort premium is built only from members that actually have models, coverage is disclosed on every reading, and fewer than 12 modeled members <b>refuses</b> — absent, not zero, not imputed. Attribution refuses on a single snapshot rather than inventing a baseline.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.54.0 <span class="reltitle">Value decomposition, camp 0: the cohort lattice</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -217,16 +235,6 @@ shasum -a 256 orrery.plugin</code></pre>
       <ul>
         <li><b>Sign disagreements are named, not silently resolved.</b> When the lead edge and the full graph point opposite ways, the row says so explicitly and tells you to trust the total.</li>
         <li><b>Unstable elasticities are flagged.</b> An elasticity is a ratio, and against a near-zero base it overstates sensitivity: a company earning 1.2% FCF margin shows "capex +1pp moves fair value 15%" because the denominator is nearly zero. Rows now carry <code>unstable</code> with the measured reason, and the model view leads with the warning. A healthy-margin business is not flagged — the check discriminates.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.47.0 <span class="reltitle">EV roll-forward bands and continuous crosshair linking</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b><code>band:&lt;SYM&gt;:ev_ebitda:&lt;percentile&gt;</code></b> — EV/EBITDA valuation bands, previously refused because a daily enterprise value would have required inventing daily debt. The <b>EV roll-forward</b> makes it honest: EV(t) = daily market cap + net debt held constant at its <b>last reported balance-sheet value</b> between filings — a disclosed step function, never an interpolation. The implied price line backs net debt out again ((multiple × TTM EBITDA − net debt) / shares), the label discloses the roll-forward and observation count, thin history (&lt;40 observations) still renders as absence, and a percentile that implies non-positive equity refuses rather than drawing nonsense. One-click 10/35/65/90 set beside P/E and P/S in the Macro/Data panel.</li>
-        <li><b>Continuous crosshair linking for grid layouts</b>: the ⌖ Link crosshair toggle makes hovering any grid cell draw a live vertical crosshair at the same date in every other cell (as-of snapped when calendars differ), so AAPL's price, TSLA's band position and the model gap read at the <b>same instant</b>. Throttled at the source, relayed only between your own same-origin cells, and external crosshairs never re-emit — no ping-pong. Range sync (⇄) remains the explicit one-shot it was.</li>
-        <li><b>Agent parity</b>: <code>control_terminal link_crosshair {on?}</code>; terminal state reports <code>grid.link_crosshair</code>. Contract-tested end to end: message names, engine verbs, the no-re-emit rule, the toggle gate, and same-origin discipline.</li>
       </ul>
     </div>
   </div>
