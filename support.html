@@ -118,12 +118,20 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.37.1</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 02:05 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.37.2</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 02:09 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.37.2 <span class="reltitle">Model conclusions in the chart's own overlay picker</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>The workbench overlay search now carries a <b>Model</b> category: <code>model:&lt;SYM&gt;:fair_value</code>, <code>model:&lt;SYM&gt;:forecast_fv</code> (attribution runs), <code>model:&lt;SYM&gt;:eps_yr1</code> and <code>model:&lt;SYM&gt;:eps_yr5</code> appear beside the economic/rates/commodity catalog — type "model" in the chart's overlay search and the model's own dated conclusions overlay directly on price. Previously these series resolved but were agent-only knowledge: nothing in the UI told you they existed.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.37.1 <span class="reltitle">Forecast &amp; attribution: no more zeros, and no more garbage either</span></h3>
     <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
@@ -215,15 +223,6 @@ shasum -a 256 orrery.plugin</code></pre>
       <ul>
         <li><code>get_segments</code> gains <b><code>apply_to_model</code></b>: the latest <i>tied</i> disclosure period becomes <code>base.segment_mix</code>, and each segment receives a scoped growth default — the <b>median of its recent reported YoY prints</b>, explicitly labelled a reported-fact starting point and NOT a forecast. The model immediately projects with mix-weighted blended growth and mix shift as an output.</li>
         <li>Honesty rules carried through: an existing scoped assumption is <b>never overwritten</b> (the analyst's number stands), the <code>unallocated</code> residual holds its mix weight but takes no growth default (it grows at the consolidated rate), and seeding is <b>refused outright</b> when no period ties to consolidated revenue — a mix built from suspect data would poison every projection downstream.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.31.0 <span class="reltitle">Ascent 1, second camp: segment-scoped growth drivers</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Drivers may now be scoped to a segment</b>: <code>revenue_growth_pct@cloud</code> alongside the consolidated assumption. With <code>base.segment_mix</code> set (from <code>get_segments</code>), each year's consolidated growth is the <b>mix-weighted blend</b> — scoped segments grow at their own faded rate, unscoped segments at the consolidated one — and the projection carries <code>segment_mix</code> per year, so <b>mix shift is an output, not an input</b>: a segment growing 30% against a 5% book climbs from 25% to ~37% of revenue over five years, and you watch it happen.</li>
-        <li><b>Honest edges</b>: a scoped rate without a mix is ignored rather than guessed at, models without scoped drivers project byte-identically to before, and the mix always renormalizes to 100.</li>
       </ul>
     </div>
   </div>

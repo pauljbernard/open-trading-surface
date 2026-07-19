@@ -16,6 +16,10 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.37.2] — Model conclusions in the chart's own overlay picker</h2>
+<ul>
+<li>The workbench overlay search now carries a <b>Model</b> category: <code>model:&lt;SYM&gt;:fair_value</code>, <code>model:&lt;SYM&gt;:forecast_fv</code> (attribution runs), <code>model:&lt;SYM&gt;:eps_yr1</code> and <code>model:&lt;SYM&gt;:eps_yr5</code> appear beside the economic/rates/commodity catalog — type "model" in the chart's overlay search and the model's own dated conclusions overlay directly on price. Previously these series resolved but were agent-only knowledge: nothing in the UI told you they existed.</li>
+</ul>
 <h2>[2.37.1] — Forecast &amp; attribution: no more zeros, and no more garbage either</h2>
 <ul>
 <li><b>Fixed forecast-and-attribute reporting zeros on legacy models</b>: the forecast path never received the 2.29.1 series-ref migration that calibration got, so models seeded before factors carried refs skipped EVERY factor and reported a confident +0.00%. <code>forecast_and_attribute</code> now runs the same <code>ensure()</code> backfill (persisted on save), and factors that genuinely have no observable series are skipped with instructions instead of a bare "no series ref".</li>

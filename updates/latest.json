@@ -1,13 +1,13 @@
 {
-  "version": "2.37.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.37.1.plugin",
-  "sha256": "588873df4a73b169d33a5960df649c6cf10a31fd3f611a77b8ad3bcbe4a3adb5",
+  "version": "2.37.2",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.37.2.plugin",
+  "sha256": "0a69290b5d0d994197e54fcbcc9a221731b5ea37c26fd5e3221d72b46bf5a9b2",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Fixed forecast-and-attribute reporting zeros on legacy models**: the forecast path never received the 2.29.1 series-ref migration that calibration got, so models seeded before factors carried refs skipped EVERY factor and reported a confident +0.00%. `forecast_and_attribute` now runs the same `ensure()` backfill (persisted on save), and factors that genuinely have no observable series are skipped with instructions instead of a bare \"no series ref\". - **Fixed a units bug the zeros were hiding**: `yoy`-mode factors (inflation, USD, commodities) were forecast as raw **index levels** — a CPI t",
-  "published": "2026-07-19T02:05:04.922Z",
+  "notes": "- The workbench overlay search now carries a **Model** category: `model:<SYM>:fair_value`, `model:<SYM>:forecast_fv` (attribution runs), `model:<SYM>:eps_yr1` and `model:<SYM>:eps_yr5` appear beside the economic/rates/commodity catalog — type \"model\" in the chart's overlay search and the model's own dated conclusions overlay directly on price. Previously these series resolved but were agent-only knowledge: nothing in the UI told you they existed.",
+  "published": "2026-07-19T02:09:12.270Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
