@@ -118,12 +118,27 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.47.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 21:31 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.48.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 21:57 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.48.0 <span class="reltitle">Model honesty, camp 1: elasticities reconciled with the influence graph</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>The contradiction is fixed.</b> The elasticity table bumped one driver at a time while the influence graph asserted that a single external factor drives several drivers at once — so the two disagreed in public. On a net-cash balance sheet the old table showed <code>interest_rate_pct +1pp → fair value +5.2%</code>, which reads as "rates are good for this company"; the graph simultaneously routed the same rate move into the discount rate the other way. New <b><code>factor_elasticities</code></b> bumps the FACTOR and propagates through <b>every edge</b>, reporting <code>direct</code> (the strongest single edge, what the driver table effectively showed) beside <code>total</code> (all edges together), with the <b>indirect offset</b> between them — the model's own account of how much of the naive answer is cancelled by paths it already knew about. Factor weights scale propagation.</li>
+        <li>Both tables render in the Operating Model view with edge provenance disclosed, and both ride <code>get_company_model</code> / <code>build_company_model</code> for the agent. New <code>model-honesty.test.js</code> suite (8 tests) pins the reconciliation, the naming of disagreements, weight scaling, honest absence when a model has no edges, and the discrimination of the stability check.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Sign disagreements are named, not silently resolved.</b> When the lead edge and the full graph point opposite ways, the row says so explicitly and tells you to trust the total.</li>
+        <li><b>Unstable elasticities are flagged.</b> An elasticity is a ratio, and against a near-zero base it overstates sensitivity: a company earning 1.2% FCF margin shows "capex +1pp moves fair value 15%" because the denominator is nearly zero. Rows now carry <code>unstable</code> with the measured reason, and the model view leads with the warning. A healthy-margin business is not flagged — the check discriminates.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.47.0 <span class="reltitle">EV roll-forward bands and continuous crosshair linking</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -195,14 +210,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
       <ul>
         <li>Fixed overlays bleeding across charts (TSLA series appearing on the AAPL chart): the chart layout — indicators, overlays, style — was saved under one GLOBAL key shared by every chart, while drawings were always correctly per-symbol. The layout store is now keyed by symbol, switching symbols reloads that symbol's own layout, and a one-time migration keeps your indicator setup while dropping overlays bound to a different symbol. <b>Compare remains the only cross-symbol mechanism</b>, as designed. A contract test now enforces the isolation.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.41.3 <span class="reltitle">Support view Guide/What's-new crash fixed</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>The Support view failed with "Can't find variable: g": the client source is embedded in a template literal, so the regex escape <code>\<i>\</i></code> collapsed at parse into <code>/<b>/g</code> — an empty comment plus a bare identifier, syntactically valid and invisible to every parse guard, a ReferenceError at runtime. Fixed, and a new release-gated scan now rejects any collapsed-regex landmine (<code>/</b>/</code> followed by an identifier) in the generated client scripts — the whole class, not just this instance.</li>
       </ul>
     </div>
   </div>

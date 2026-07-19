@@ -1,13 +1,13 @@
 {
-  "version": "2.47.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.47.0.plugin",
-  "sha256": "71ad26fda29f999b9e99c0d27eacf0d68190a6c3420971eb59fe390da8b1a208",
+  "version": "2.48.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.48.0.plugin",
+  "sha256": "0654fbca3c0cd3288c1761e4d854c96e01bcb7fb5ea1f4a2eaff7c72c80c5dc3",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **`band:<SYM>:ev_ebitda:<percentile>`** — EV/EBITDA valuation bands, previously refused because a daily enterprise value would have required inventing daily debt. The **EV roll-forward** makes it honest: EV(t) = daily market cap + net debt held constant at its **last reported balance-sheet value** between filings — a disclosed step function, never an interpolation. The implied price line backs net debt out again ((multiple × TTM EBITDA − net debt) / shares), the label discloses the roll-forward and observation count, thin history (<40 observations) still renders as absence, and a percentile ",
-  "published": "2026-07-19T21:31:59.260Z",
+  "notes": "- **The contradiction is fixed.** The elasticity table bumped one driver at a time while the influence graph asserted that a single external factor drives several drivers at once — so the two disagreed in public. On a net-cash balance sheet the old table showed `interest_rate_pct +1pp → fair value +5.2%`, which reads as \"rates are good for this company\"; the graph simultaneously routed the same rate move into the discount rate the other way. New **`factor_elasticities`** bumps the FACTOR and propagates through **every edge**, reporting `direct` (the strongest single edge, what the driver table",
+  "published": "2026-07-19T21:57:27.882Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
