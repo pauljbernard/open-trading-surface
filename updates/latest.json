@@ -1,13 +1,13 @@
 {
-  "version": "2.37.6",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.37.6.plugin",
-  "sha256": "9e19d9eb116ab314142c45a28071b58687336ee4906d19651bd82ed45527a5c8",
+  "version": "2.38.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.38.0.plugin",
+  "sha256": "4dbdc35891e9a3fa27641422ac3fbae34becbff31ccf41559b35bcf03fa57b54",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Fixed resize overflow**: pane heights were computed from the viewport once at build time and frozen; resizing the window (or the terminal pane) only refitted widths, so the chart overflowed and pushed the bottom controls — ranges, interval, dates — out of view. A height change now recomputes the whole layout (debounced), and the controls stay visible at every size.",
-  "published": "2026-07-19T02:51:02.632Z",
+  "notes": "- **Three new tools**: `get_user_guide` (enumerable TOC + guide topics + reference sections), `search_support` (canonical excerpts with kb ids and version stamps), `get_whats_new` (structured release history). Every payload is stamped with the version it was generated from; every tool description carries the retrieval doctrine: answer from the payload only, cite ids, and say when the knowledge base does not cover a question — never answer from general knowledge, which cannot know this version of the software. - **The KB is compiled from the registries at build time** (`gen-kb`): the tool refer",
+  "published": "2026-07-19T18:20:34.256Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

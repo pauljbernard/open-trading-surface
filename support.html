@@ -118,12 +118,27 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.37.6</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 02:51 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.38.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 18:20 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.38.0 <span class="reltitle">Self-support, camp 1: the knowledge base is generated from the code it describes</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>Three new tools</b>: <code>get_user_guide</code> (enumerable TOC + guide topics + reference sections), <code>search_support</code> (canonical excerpts with kb ids and version stamps), <code>get_whats_new</code> (structured release history). Every payload is stamped with the version it was generated from; every tool description carries the retrieval doctrine: answer from the payload only, cite ids, and say when the knowledge base does not cover a question — never answer from general knowledge, which cannot know this version of the software.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The KB is compiled from the registries at build time</b> (<code>gen-kb</code>): the tool reference IS the tool registry (the same objects served to Claude), drivers from DRIVER_DEFS, factors from FACTOR_DEFS, evidence grades and method ceilings from inference.js, ~116 indicators from the workbench registry, the series catalog, the changelog, and the content-hashed terms. The governing rule: a capability describes itself, colocated with its code; authored prose is reserved for cross-capability knowledge no single capability can own.</li>
+        <li><b>The release gate refuses drift</b>: <code>gen-kb --lint</code> fails the build if any guide topic references a tool or code symbol that no longer exists — documentation cannot ship disagreeing with the software. The lint itself is tested (a planted dangling reference must be caught).</li>
+        <li><b>Introspection of the introspection</b>: the KB manifest (source hashes, generation time, lint status, generated-vs-authored inventory) is queryable, so the agent can verify the knowledge base is fresh relative to the running version.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.37.6 <span class="reltitle">The chart fits its window again</span></h3>
     <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
@@ -194,22 +209,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
         <li><b>Docs</b>: the user guide's operating-model chapter gains "Going deep: segments, quarters, and the full three statements" — the three ascents (segment-scoped drivers with chartable mix shift, quarterly fits at the honestly-earned A ceiling plus the quarterly EPS scoreboard, and articulated three-statement mode with the enforced tie) with worked "you say / it does" examples and the honesty rules that govern each. The backtester section and the site front page now describe the live deflation pipeline and the deep-model capabilities.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.36.0 <span class="reltitle">Ascent 3: three-statement articulation. The mountain is climbed.</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>The projection now articulates</b>: setting any of the new drivers (<code>payout_ratio_pct</code>, <code>buyback_pct_fcf</code>, <code>target_leverage</code>) switches a model into three-statement mode — earnings → retained earnings → equity; capex − D&amp;A → net fixed assets; working-capital deltas and FCF less dividends and buybacks → cash; <b>interest recomputed from average net debt</b> (fixed-point), so a leveraged company's operating deltas compound through the balance sheet instead of paying interest on a frozen opening number.</li>
-        <li><b>Full back-compat, tested</b>: models without the new drivers project byte-identically to the legacy engine.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The tie is a test, not a hope</b>: assets = liabilities + equity is enforced in EVERY projected year — a model that cannot tie throws, naming the year and the gap, because a flow booked to one side only is a model defect, not a rounding issue.</li>
-        <li><b>Buybacks retire real dollars</b>: <code>buyback_pct_fcf</code> spends a share of FCF at the base price and the share count falls by shares actually repurchased — a buyback shock changes EPS through the count, not through a multiplier. <b>Target leverage works through capital return</b>: an under-levered sheet reaches its target by returning the excess via extra buybacks; an over-levered one deleverages only as FCF accumulates — no fictional instant repayment, and no paper debt moves (issuing debt into cash cannot change net debt).</li>
-        <li>Honesty rules: articulated mode <b>refuses to run without an opening equity</b> rather than fabricate a balance sheet; buyback dollars without a base price refuse to guess a share count; <code>build_company_model</code> now captures the opening sheet and reports <b>derived-from-history starting points</b> for the three drivers (latest payout, buyback intensity, leverage) — shown, never applied.</li>
       </ul>
     </div>
   </div>
