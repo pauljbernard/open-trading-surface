@@ -118,12 +118,23 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.49.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 22:07 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.50.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 22:15 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.50.0 <span class="reltitle">Model honesty, camp 3: the influence map stops flattering itself</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Model completeness, measured.</b> A graph with fifteen factors and seventeen edges looks authoritative even when nine factors carry no value and every edge is a catalog prior nobody fitted. <code>provenanceSummary</code> now scores exactly that — factors populated, edges fitted vs catalog default, drivers still sitting on calibration defaults — into one <b>completeness score out of 100</b> with a plain verdict: <i>substantially calibrated</i> / <i>partly calibrated</i> / <i>largely uncalibrated scaffolding</i>. The scoring is deliberately unforgiving: an empty factor and an unfitted edge both count zero, because both are scaffolding presented as structure. A real TSLA model scores <b>22/100</b>.</li>
+        <li><b>Empty factors are hidden by default</b> in the influence map, with the count and their names kept visible and a one-click <i>show them</i> — hiding as disclosure, never concealment. The map never blanks entirely.</li>
+        <li><b>The score rides the graph payload itself</b>, so the picture and the number are computed from the same registries and cannot drift apart, and <code>provenance_summary</code> is returned by <code>get_company_model</code> / <code>build_company_model</code> for agent parity.</li>
+        <li>Fitted edges were already drawn differently from catalog priors (weight and dash by grade); the missing half was saying so numerically. 6 further tests (24 in <code>model-honesty.test.js</code>), including that a fully calibrated model scores ≥70 — the metric has to be able to say yes — and that an empty model scores <i>nothing</i> rather than scoring zero as a fact.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.49.0 <span class="reltitle">Model honesty, camp 2: fair value stops pretending to be a number</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -206,15 +217,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b><code>price:&lt;SYM&gt;</code></b> joins the ref grammar as daily closes, usable anywhere a series ref works.</li>
         <li><b>The accountability chart, one click</b>: <code>expr:(model:SYM:fair_value)-(price:SYM)</code> — the model gap as its own series — leads the Operating-model quick-picks in the Macro/Data panel. When that line trends toward zero the model is being vindicated; when it widens, one of them is wrong.</li>
         <li>Discoverability law honored: the expression grammar self-describes (<code>EXPR_HELP</code>), rides the series catalog into the KB, and the panel's search hint teaches the syntax inline.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.42.0 <span class="reltitle">Charting arc, camp 1: series transforms</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>Composable transforms on any series ref</b>: <code>:ttm</code> (rolling 4-quarter sum — refuses non-quarterly cadence and says to add <code>:quarter</code>), <code>:per_share</code> (as-of aligned diluted shares; refuses symbol-less refs), <code>:yoy</code> (±45-day matched, unmatched points drop out), <code>:indexed</code> (rebase 100). They compose left to right: <code>fmp:income:AAPL:netIncome:quarter:ttm:per_share</code> is true TTM EPS. Labels state the applied pipeline.</li>
-        <li><b>Discoverability by design (the new law from CHARTING-SPEC)</b>: the transforms live in one self-describing registry that the server applies, the field browser's new transform selector enumerates (via <code>/series/transforms</code> — never a hand-copied list), and the knowledge base compiles (<code>transform.*</code> entries). A transform cannot exist without its affordance.</li>
       </ul>
     </div>
   </div>

@@ -1,13 +1,13 @@
 {
-  "version": "2.49.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.49.0.plugin",
-  "sha256": "4c240450fc6d8cff9cd36ec02b6ec6595e16a251d8ededb55221cb067b4fb97a",
+  "version": "2.50.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.50.0.plugin",
+  "sha256": "2d5a262ac5a30a205b7e13f769c872e363fdda6e4f5d5b6e6eee4cf14d655d3d",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **The output finally joins the epistemic spine.** Every model input was graded, deflated and holdout-tested, and then the model printed `blended_fair_value: 17.21` — a scalar, to the cent, with no interval and no grade. Fair value is now a **distribution**: each driver carries an uncertainty band derived from **its own provenance** (as-reported → narrow and grade A; fitted → grade B; consensus/judgment → C; **catalog default → widest band and grade D**), drivers that share an influence-graph factor parent move **together** rather than independently, and the projection is resampled to yield *",
-  "published": "2026-07-19T22:07:30.619Z",
+  "notes": "- **Model completeness, measured.** A graph with fifteen factors and seventeen edges looks authoritative even when nine factors carry no value and every edge is a catalog prior nobody fitted. `provenanceSummary` now scores exactly that — factors populated, edges fitted vs catalog default, drivers still sitting on calibration defaults — into one **completeness score out of 100** with a plain verdict: *substantially calibrated* / *partly calibrated* / *largely uncalibrated scaffolding*. The scoring is deliberately unforgiving: an empty factor and an unfitted edge both count zero, because both ar",
+  "published": "2026-07-19T22:15:50.426Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
