@@ -118,12 +118,15 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.29.1</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 00:08 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.30.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 00:39 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.30.0 <span class="reltitle">Ascent 1 begins: segment-level revenue history</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.29.1 <span class="reltitle">Fix: a confident 0.00% that actually meant "no data"</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -204,20 +207,6 @@ shasum -a 256 orrery.plugin</code></pre>
       <ul>
         <li><b>Decision records demand a falsifier.</b> <code>record_decision</code> refuses anything without an expectation, a horizon ("eventually" is unfalsifiable) and the observable that would prove it wrong — a decision without a falsifier is a mood: nothing can ever force you to admit it failed, so nothing is learned. The do-nothing case rides along, because the alternative to every trade is free. Recording a deliberate HOLD is as scoreable as a trade.</li>
         <li><b>Resolution is one-shot and honest about the worst outcome.</b> <code>resolve_decision</code> closes a record against its own stated terms; <code>right_for_wrong_reason</code> is a separate verdict and the scorecard singles it out as the dangerous column — it pays you to keep a broken process. <code>get_decision_scorecard</code> reports hit rate over judged calls and names every overdue unresolved decision, scoring <b>decisions rather than portfolio return, because return conflates process with luck</b>.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.25.0 <span class="reltitle">Phase 5: the push half — re-underwriting when it matters, sizing by what you know</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>New <code>get_reunderwrite_queue</code>.</b> The pieces existed — events resolve to the drivers they bear on, models know what they depend on, worldview drift flags theses — but nothing pushed; the user had to think to ask. The queue scans holdings and watchlist names and asks one question per name: has anything happened that bears on a driver this position depends on, <b>since it was last underwritten</b>? Reasons, loudest first: structural breaks (every fitted sensitivity spanning one is suspect), events bearing on a depended-on driver (grouped per driver via <code>model_link</code>), worldview drift under an associated thesis, systematic forecast bias (re-derive the assumption, don't adjust it by feel), and staleness — including "never underwritten: held on memory alone". Events already seen at the last underwrite don't re-queue a name. Speed matters most where coverage is thinnest; an entry is a prompt to re-underwrite, never a signal to trade.</li>
-        <li><b>New <code>propose_sizing</code> — where calibration becomes geometric return.</b> Rank-proportional weighting ignored both how well a position is understood and what the price demands. Now the <b>evidence grade caps size</b> (A 12% / B 8% / C 4% / D 1.5% — an edge you don't understand is one you can't hold through drawdown) and the <b>expectations read sets the multiplier within the cap</b> (undemanding price 1.0×, down to 0.25× for a price requiring a rare cohort outcome; unknown edge costs half). Weights scale <i>down</i> to fit and never up: one C-grade idea leaves the book mostly in cash, because a thin opportunity set should look thin.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Deliberately not Kelly</b>, and the plan says why: Kelly needs win probabilities and payoff ratios measured far better than this data supports, and overbetting on misestimated inputs is ruinous. The full mapping is disclosed in every response rather than optimised in private, the <b>do-nothing row is always present</b> ("doing nothing is free"), and the module never touches a portfolio.</li>
       </ul>
     </div>
   </div>

@@ -1,13 +1,13 @@
 {
-  "version": "2.29.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.29.1.plugin",
-  "sha256": "f94fa85dedf00faf3bb186d657518c17261a9d269514e80648b02bcb61c0bd6d",
+  "version": "2.30.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.30.0.plugin",
+  "sha256": "cb4987ffa4beea0ed9123f58b905389f76de5db1f1c151b6c2573ffd1dccb442",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Legacy models could never calibrate.** Models seeded before factors carried a `series` ref (the GOOG case) had catalog factors with no way to resolve data — Series showed \"—\", levels stayed null, every forward projection was flat, and attribution reported +0.00% as if it were a conclusion. `ensure()` now migrates old models by backfilling the catalog FRED ref, so Calibrate from FRED works on them like on new ones. - **The attribution panel now says \"nothing to attribute yet\"** — with the reason and the remedy (calibrate, or attach series-backed factors) — whenever every factor forecast is ",
-  "published": "2026-07-19T00:08:48.362Z",
+  "notes": "First camp of DEEP-MODEL-SPEC. New `get_segments` returns per-segment revenue, YoY growth and mix share over time from the company's product or geographic disclosures, with the trust rules built in structurally: segments must **reconcile** to consolidated revenue — an undershoot is carried as an explicit `unallocated` segment, never silently dropped; an overshoot is flagged suspect, never silently scaled to fit. **Re-segmentations** (the company changing its segment cut) are detected and named as comparability breaks that fits must not span. A name with **no disclosure reports absence, not zer",
+  "published": "2026-07-19T00:39:51.155Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
