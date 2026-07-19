@@ -118,12 +118,28 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.32.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 01:02 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.33.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 01:21 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.33.0 <span class="reltitle">Ascent 1 complete: factor edges reach individual segments</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Factor edges may now target scoped drivers</b>: <code>tpu_supply → revenue_growth_pct@cloud</code> is a legal edge, so a supply-chain cause moves the Cloud assumption while Search stands untouched. Cycle detection and path-product propagation carry through unchanged.</li>
+        <li><b>Scoped edges fit on segment data through the inference spine</b>: calibration fits <code>factor → revenue_growth_pct@segment</code> against the segment's own reported YoY growth series, graded A–D like every other fit; <b>re-segmentations arrive as structural breaks</b> that disqualify spanning fits even under <code>accept:true</code>.</li>
+        <li><b>Segment mix is chartable</b>: <code>model:&lt;SYM&gt;:mix:&lt;segment&gt;</code> resolves the disclosed mix history as a series — overlay Cloud's share of revenue directly on the price chart.</li>
+        <li><code>shock_company_model</code> accepts scoped driver keys, with a clear error pointing at <code>get_segments apply_to_model</code> when the scoped assumption is missing.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
+      <ul>
+        <li><b>Shocks land honestly at three levels</b>: on the scoped driver when the model carries it; <b>folded into the consolidated driver at the segment's mix weight</b> when it doesn't (a 2pp Cloud shock on a 25% segment is ~0.5pp of the book, and the fold is reported in <code>scoped_folds</code>); and DROPPED with instructions — never guessed — when there is neither a scoped assumption nor a mix to weight by.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.32.0 <span class="reltitle">Ascent 1, third camp: disclosure wired into the model</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -187,14 +203,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>Causes chain.</b> Edges may land on another node, not only on a financial driver: <code>lithium_price → cell_cost → gross_margin_pct</code>, or <code>recall → warranty_cost → opex</code> alongside <code>recall → brand → revenue growth</code>. A shock propagates along every path as the <b>product of sensitivities</b>, and each completed path is traced so the answer reads as a story. Dead ends are reported ("this node reaches no financial driver"), cycles are rejected at link time, and paths cap at depth 8 because a longer causal story is a modelling smell.</li>
         <li><b>Deep chains can earn grades.</b> When both ends of a node→node edge carry a series ref (lithium price → a vendor's reported input costs), the link is FITTED series-to-series with full inference, not just estimated. The influence map lays nodes out by topological depth, so chains render as chains, with stage nodes tinted per category (open categories get a stable generated hue).</li>
         <li><b>The model keeps a dated track of its own conclusions.</b> Every save snapshots concluded fair value, EPS (yr1/yr5), the drivers, and the price at the time — deduplicated per day unless the conclusion moved, capped at 400. <code>modelDrift</code> compares snapshots and names which ASSUMPTIONS moved and by how much: the model shifting is a different fact from the stock moving, and it is the one you did to yourself.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.27.1 <span class="reltitle">Fix: the CI UI check assumed a portfolio existed</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>The headless UI check drives the portfolio views, whose rail items only render once a portfolio exists — true on any machine that has used Orrery, false on a fresh CI runner, so the check's very first CI run failed on "rail item missing". The test now <b>seeds a throwaway portfolio through the real code path</b> when no store is provided, and explicitly selects it before driving the views. Failure output from the UI harness now surfaces the actual error line instead of the last three lines of a stack trace.</li>
       </ul>
     </div>
   </div>

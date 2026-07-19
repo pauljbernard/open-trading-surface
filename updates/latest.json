@@ -1,13 +1,13 @@
 {
-  "version": "2.32.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.32.0.plugin",
-  "sha256": "fdf06a2fe264f9902ec6501f3e74bc0e3c9c048948d2ca39bc31e08652a1b22e",
+  "version": "2.33.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.33.0.plugin",
+  "sha256": "f646c110e7344a777e470661b910d58702ae155c0227509150e26461a84a0347",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- `get_segments` gains **`apply_to_model`**: the latest *tied* disclosure period becomes `base.segment_mix`, and each segment receives a scoped growth default — the **median of its recent reported YoY prints**, explicitly labelled a reported-fact starting point and NOT a forecast. The model immediately projects with mix-weighted blended growth and mix shift as an output. - Honesty rules carried through: an existing scoped assumption is **never overwritten** (the analyst's number stands), the `unallocated` residual holds its mix weight but takes no growth default (it grows at the consolidated r",
-  "published": "2026-07-19T01:02:07.750Z",
+  "notes": "- **Factor edges may now target scoped drivers**: `tpu_supply → revenue_growth_pct@cloud` is a legal edge, so a supply-chain cause moves the Cloud assumption while Search stands untouched. Cycle detection and path-product propagation carry through unchanged. - **Shocks land honestly at three levels**: on the scoped driver when the model carries it; **folded into the consolidated driver at the segment's mix weight** when it doesn't (a 2pp Cloud shock on a 25% segment is ~0.5pp of the book, and the fold is reported in `scoped_folds`); and DROPPED with instructions — never guessed — when there is",
+  "published": "2026-07-19T01:21:34.141Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

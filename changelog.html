@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.33.0] — Ascent 1 complete: factor edges reach individual segments</h2>
+<ul>
+<li><b>Factor edges may now target scoped drivers</b>: <code>tpu_supply → revenue_growth_pct@cloud</code> is a legal edge, so a supply-chain cause moves the Cloud assumption while Search stands untouched. Cycle detection and path-product propagation carry through unchanged.</li>
+<li><b>Shocks land honestly at three levels</b>: on the scoped driver when the model carries it; <b>folded into the consolidated driver at the segment's mix weight</b> when it doesn't (a 2pp Cloud shock on a 25% segment is ~0.5pp of the book, and the fold is reported in <code>scoped_folds</code>); and DROPPED with instructions — never guessed — when there is neither a scoped assumption nor a mix to weight by.</li>
+<li><b>Scoped edges fit on segment data through the inference spine</b>: calibration fits <code>factor → revenue_growth_pct@segment</code> against the segment's own reported YoY growth series, graded A–D like every other fit; <b>re-segmentations arrive as structural breaks</b> that disqualify spanning fits even under <code>accept:true</code>.</li>
+<li><b>Segment mix is chartable</b>: <code>model:&lt;SYM&gt;:mix:&lt;segment&gt;</code> resolves the disclosed mix history as a series — overlay Cloud's share of revenue directly on the price chart.</li>
+<li><code>shock_company_model</code> accepts scoped driver keys, with a clear error pointing at <code>get_segments apply_to_model</code> when the scoped assumption is missing.</li>
+</ul>
 <h2>[2.32.0] — Ascent 1, third camp: disclosure wired into the model</h2>
 <ul>
 <li><code>get_segments</code> gains <b><code>apply_to_model</code></b>: the latest *tied* disclosure period becomes <code>base.segment_mix</code>, and each segment receives a scoped growth default — the <b>median of its recent reported YoY prints</b>, explicitly labelled a reported-fact starting point and NOT a forecast. The model immediately projects with mix-weighted blended growth and mix shift as an output.</li>
