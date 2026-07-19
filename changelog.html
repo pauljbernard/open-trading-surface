@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.35.0] — Ascent 2 complete: the scoreboard accrues quarterly</h2>
+<ul>
+<li><b>Quarterly forecast scoring</b> in <code>get_model_events</code> (<code>quarterly_scoring</code>): each dated model-track snapshot becomes a <b>next-quarter EPS checkpoint</b> — the annual conclusion converted through the company's OWN seasonal EPS mix (median share of annual EPS per fiscal quarter over complete profitable years, a reported fact) and scored against the reported quarter within weeks of the print. MAE, bias and a leaning per model; the accountability loop runs four times faster than annual scoring.</li>
+<li>Honesty rules: the quarterly number is labelled a <b>derived checkpoint, not a quarterly model</b>; the LAST snapshot before each print is the one scored (no hindsight re-picks); loss quarters and partial years are excluded from the mix; fewer than two complete profitable years means <b>no mix, never a guess</b>; an empty scoreboard says it fills in as earnings arrive — it never shows zeros.</li>
+</ul>
 <h2>[2.34.0] — Ascent 2, first camp: quarterly frequency</h2>
 <ul>
 <li><b>Quarterly driver history</b> (<code>quarterlyDriverHistory</code>): every driver assembled per fiscal quarter from FMP quarterly statements, labelled by the statement's own period field (calendar-month guessing only as a stated fallback). ~60 points where annual data offers ~15.</li>

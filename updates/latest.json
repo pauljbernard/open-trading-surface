@@ -1,13 +1,13 @@
 {
-  "version": "2.34.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.34.0.plugin",
-  "sha256": "ad240662c5579d226f2c4b9291c5f2c8ece6d3a74900c222bf61cc41631fc0c9",
+  "version": "2.35.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.35.0.plugin",
+  "sha256": "3afd0f4a075b0714a83fcb618b06171073cb73584362fa38bbcd86aa06b6f356",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Quarterly driver history** (`quarterlyDriverHistory`): every driver assembled per fiscal quarter from FMP quarterly statements, labelled by the statement's own period field (calendar-month guessing only as a stated fallback). ~60 points where annual data offers ~15. - **Seasonality is structure, never signal**: growth and all fit series are **year-over-year same-quarter** — a strong-Q4 business shows constant growth, not a seasonal sawtooth, and sequential quarter-on-quarter is never regressed. - **`calibrate_model_factors` gains `period:'quarter'`**: factor series are aggregated to quarte",
-  "published": "2026-07-19T01:31:03.841Z",
+  "notes": "- **Quarterly forecast scoring** in `get_model_events` (`quarterly_scoring`): each dated model-track snapshot becomes a **next-quarter EPS checkpoint** — the annual conclusion converted through the company's OWN seasonal EPS mix (median share of annual EPS per fiscal quarter over complete profitable years, a reported fact) and scored against the reported quarter within weeks of the print. MAE, bias and a leaning per model; the accountability loop runs four times faster than annual scoring. - Honesty rules: the quarterly number is labelled a **derived checkpoint, not a quarterly model**; the LA",
+  "published": "2026-07-19T01:37:13.593Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

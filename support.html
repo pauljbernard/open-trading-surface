@@ -118,12 +118,21 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.34.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 01:31 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.35.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 01:37 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.35.0 <span class="reltitle">Ascent 2 complete: the scoreboard accrues quarterly</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Quarterly forecast scoring</b> in <code>get_model_events</code> (<code>quarterly_scoring</code>): each dated model-track snapshot becomes a <b>next-quarter EPS checkpoint</b> — the annual conclusion converted through the company's OWN seasonal EPS mix (median share of annual EPS per fiscal quarter over complete profitable years, a reported fact) and scored against the reported quarter within weeks of the print. MAE, bias and a leaning per model; the accountability loop runs four times faster than annual scoring.</li>
+        <li>Honesty rules: the quarterly number is labelled a <b>derived checkpoint, not a quarterly model</b>; the LAST snapshot before each print is the one scored (no hindsight re-picks); loss quarters and partial years are excluded from the mix; fewer than two complete profitable years means <b>no mix, never a guess</b>; an empty scoreboard says it fills in as earnings arrive — it never shows zeros.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.34.0 <span class="reltitle">Ascent 2, first camp: quarterly frequency</span></h3>
     <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
@@ -195,14 +204,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-new">New</span>
       <ul>
         <li>Correcting an earlier claim: attribution is a vector at one moment, but every run is timestamped with its inputs and outputs — so each factor's contribution ACROSS runs is a time series, and so is the attributed forecast fair value. <code>forecast_and_attribute</code> now records each run, and two new series refs chart the history through the standard overlay machinery: <code>model:&lt;SYM&gt;:forecast_fv</code> (the attributed forecast over time) and <code>model:&lt;SYM&gt;:attr:&lt;factor&gt;</code> (one factor's fair-value contribution over time, in %). Overlay them on the price chart or stack several factors in panes to watch the attribution composition evolve.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.28.1 <span class="reltitle">The model view can build chains by hand</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>The <b>Add factor</b> control's target list now includes existing nodes alongside the financial drivers, so multi-hop chains (materials → unit cost → margin) can be built directly in the Operating Model view, not only through the agent tools.</li>
       </ul>
     </div>
   </div>
