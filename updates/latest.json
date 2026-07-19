@@ -1,13 +1,13 @@
 {
-  "version": "2.50.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.50.0.plugin",
-  "sha256": "2d5a262ac5a30a205b7e13f769c872e363fdda6e4f5d5b6e6eee4cf14d655d3d",
+  "version": "2.51.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.51.0.plugin",
+  "sha256": "1244639041baa5f40118a92fdff668200abe51e219b2b22dd49ef3f381e88eb3",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Model completeness, measured.** A graph with fifteen factors and seventeen edges looks authoritative even when nine factors carry no value and every edge is a catalog prior nobody fitted. `provenanceSummary` now scores exactly that — factors populated, edges fitted vs catalog default, drivers still sitting on calibration defaults — into one **completeness score out of 100** with a plain verdict: *substantially calibrated* / *partly calibrated* / *largely uncalibrated scaffolding*. The scoring is deliberately unforgiving: an empty factor and an unfitted edge both count zero, because both ar",
-  "published": "2026-07-19T22:15:50.426Z",
+  "notes": "- **The source contradiction is named.** Calibration takes revenue growth from analyst consensus and margins from the last reported year \"for internal consistency\" — but the analysts supplying that growth generally assume margin expansion too, so the model was running their volumes against profitability they never forecast, and saying nothing. `calibration_coherence` now reports the conflict with its reasoning and remedy. A self-consistent calibration is not accused; the check discriminates. - **Holding a level flat is treated as the forecast it is.** Revenue growth always decayed toward termi",
+  "published": "2026-07-19T22:22:07.489Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

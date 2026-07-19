@@ -118,12 +118,27 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.50.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 22:15 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.51.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 22:22 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.51.0 <span class="reltitle">Model honesty, camp 4: calibration coherence and driver fade</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b><code>set_model_fade</code></b> — new tool. Set explicit terminal levels (<code>{gross_margin_pct: 45}</code>) or adopt the cohort fade path with <code>from_base_rates: true</code>, which reads the existing base-rate engine rather than inventing a curve; it <b>refuses</b> when the cohort produces no usable path rather than making one up. Faded drivers move linearly from their year-1 value to the terminal level, and the fade flows through the projection, the valuation, the elasticities and the uncertainty band alike.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The source contradiction is named.</b> Calibration takes revenue growth from analyst consensus and margins from the last reported year "for internal consistency" — but the analysts supplying that growth generally assume margin expansion too, so the model was running their volumes against profitability they never forecast, and saying nothing. <code>calibration_coherence</code> now reports the conflict with its reasoning and remedy. A self-consistent calibration is not accused; the check discriminates.</li>
+        <li><b>Holding a level flat is treated as the forecast it is.</b> Revenue growth always decayed toward terminal while gross margin, opex, D&amp;A and capex intensity were pinned for the entire horizon — an unstated claim that the company escapes the reversion its cohort typically shows. The coherence block now states which drivers are being held flat and why that is an assumption, quoting the base-rate engine's own finding.</li>
+        <li><b>Never applied silently</b>: without a fade map the projection is byte-identical to before, so both choices are now explicit and disclosed — flat is a decision you can see rather than a default you never noticed. 7 further tests (31 in <code>model-honesty.test.js</code>), including that year 1 is unchanged, that interpolation is linear at the midpoint, and that a faded driver stops being reported as "held flat".</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.50.0 <span class="reltitle">Model honesty, camp 3: the influence map stops flattering itself</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -206,17 +221,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
         <li><b><code>band:&lt;SYM&gt;:&lt;pe|ps&gt;:&lt;percentile&gt;</code></b> — the price implied by holding the multiple at a chosen percentile of its OWN trailing distribution, drawn through time on the price scale. Fundamentals come through the transform pipeline (true TTM EPS / TTM sales per share), so the bands inherit every honesty rule already in the machinery. The label discloses the multiple and the observation count; <b>fewer than 40 multiple observations is refused</b> — a band from thin history is a guess, and absence renders as absence.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.43.0 <span class="reltitle">Charting arc, camp 2: expression series and the accountability chart</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b><code>expr:</code> refs</b> — arithmetic over resolved series (<code>+ - <i> /</code>, parentheses, numeric literals), as-of aligned to the first series leaf: <code>expr:(price:AAPL)/(price:MSFT)</code> is relative value; <code>expr:(fmp:income:AAPL:eps:quarter:ttm)</i>25</code> is a P/E-25 line; transforms compose inside. Division by ~zero yields a <b>gap, never an infinity</b>.</li>
-        <li><b><code>price:&lt;SYM&gt;</code></b> joins the ref grammar as daily closes, usable anywhere a series ref works.</li>
-        <li><b>The accountability chart, one click</b>: <code>expr:(model:SYM:fair_value)-(price:SYM)</code> — the model gap as its own series — leads the Operating-model quick-picks in the Macro/Data panel. When that line trends toward zero the model is being vindicated; when it widens, one of them is wrong.</li>
-        <li>Discoverability law honored: the expression grammar self-describes (<code>EXPR_HELP</code>), rides the series catalog into the KB, and the panel's search hint teaches the syntax inline.</li>
       </ul>
     </div>
   </div>
