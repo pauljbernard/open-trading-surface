@@ -118,12 +118,28 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.35.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 01:37 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.36.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 01:44 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.36.0 <span class="reltitle">Ascent 3: three-statement articulation. The mountain is climbed.</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>The projection now articulates</b>: setting any of the new drivers (<code>payout_ratio_pct</code>, <code>buyback_pct_fcf</code>, <code>target_leverage</code>) switches a model into three-statement mode — earnings → retained earnings → equity; capex − D&amp;A → net fixed assets; working-capital deltas and FCF less dividends and buybacks → cash; <b>interest recomputed from average net debt</b> (fixed-point), so a leveraged company's operating deltas compound through the balance sheet instead of paying interest on a frozen opening number.</li>
+        <li><b>Full back-compat, tested</b>: models without the new drivers project byte-identically to the legacy engine.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The tie is a test, not a hope</b>: assets = liabilities + equity is enforced in EVERY projected year — a model that cannot tie throws, naming the year and the gap, because a flow booked to one side only is a model defect, not a rounding issue.</li>
+        <li><b>Buybacks retire real dollars</b>: <code>buyback_pct_fcf</code> spends a share of FCF at the base price and the share count falls by shares actually repurchased — a buyback shock changes EPS through the count, not through a multiplier. <b>Target leverage works through capital return</b>: an under-levered sheet reaches its target by returning the excess via extra buybacks; an over-levered one deleverages only as FCF accumulates — no fictional instant repayment, and no paper debt moves (issuing debt into cash cannot change net debt).</li>
+        <li>Honesty rules: articulated mode <b>refuses to run without an opening equity</b> rather than fabricate a balance sheet; buyback dollars without a base price refuse to guess a share count; <code>build_company_model</code> now captures the opening sheet and reports <b>derived-from-history starting points</b> for the three drivers (latest payout, buyback intensity, leverage) — shown, never applied.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.35.0 <span class="reltitle">Ascent 2 complete: the scoreboard accrues quarterly</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -196,14 +212,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
         <li><b>The attribution panel now says "nothing to attribute yet"</b> — with the reason and the remedy (calibrate, or attach series-backed factors) — whenever every factor forecast is flat, instead of presenting a data-free zero as a forecast. A zero that means "no data" saying so is the product's own standard.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.29.0 <span class="reltitle">Attribution runs are time series, and chart like them</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>Correcting an earlier claim: attribution is a vector at one moment, but every run is timestamped with its inputs and outputs — so each factor's contribution ACROSS runs is a time series, and so is the attributed forecast fair value. <code>forecast_and_attribute</code> now records each run, and two new series refs chart the history through the standard overlay machinery: <code>model:&lt;SYM&gt;:forecast_fv</code> (the attributed forecast over time) and <code>model:&lt;SYM&gt;:attr:&lt;factor&gt;</code> (one factor's fair-value contribution over time, in %). Overlay them on the price chart or stack several factors in panes to watch the attribution composition evolve.</li>
       </ul>
     </div>
   </div>

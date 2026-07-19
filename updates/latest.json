@@ -1,13 +1,13 @@
 {
-  "version": "2.35.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.35.0.plugin",
-  "sha256": "3afd0f4a075b0714a83fcb618b06171073cb73584362fa38bbcd86aa06b6f356",
+  "version": "2.36.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.36.0.plugin",
+  "sha256": "274d886da326dc02be33dcc7ce4fe4f9cd795ba0c94aa3952b4cf513da45adc8",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Quarterly forecast scoring** in `get_model_events` (`quarterly_scoring`): each dated model-track snapshot becomes a **next-quarter EPS checkpoint** — the annual conclusion converted through the company's OWN seasonal EPS mix (median share of annual EPS per fiscal quarter over complete profitable years, a reported fact) and scored against the reported quarter within weeks of the print. MAE, bias and a leaning per model; the accountability loop runs four times faster than annual scoring. - Honesty rules: the quarterly number is labelled a **derived checkpoint, not a quarterly model**; the LA",
-  "published": "2026-07-19T01:37:13.593Z",
+  "notes": "- **The projection now articulates**: setting any of the new drivers (`payout_ratio_pct`, `buyback_pct_fcf`, `target_leverage`) switches a model into three-statement mode — earnings → retained earnings → equity; capex − D&A → net fixed assets; working-capital deltas and FCF less dividends and buybacks → cash; **interest recomputed from average net debt** (fixed-point), so a leveraged company's operating deltas compound through the balance sheet instead of paying interest on a frozen opening number. - **The tie is a test, not a hope**: assets = liabilities + equity is enforced in EVERY projecte",
+  "published": "2026-07-19T01:44:21.909Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
