@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.47.0] — EV roll-forward bands and continuous crosshair linking</h2>
+<ul>
+<li><b><code>band:&lt;SYM&gt;:ev_ebitda:&lt;percentile&gt;</code></b> — EV/EBITDA valuation bands, previously refused because a daily enterprise value would have required inventing daily debt. The <b>EV roll-forward</b> makes it honest: EV(t) = daily market cap + net debt held constant at its <b>last reported balance-sheet value</b> between filings — a disclosed step function, never an interpolation. The implied price line backs net debt out again ((multiple × TTM EBITDA − net debt) / shares), the label discloses the roll-forward and observation count, thin history (&lt;40 observations) still renders as absence, and a percentile that implies non-positive equity refuses rather than drawing nonsense. One-click 10/35/65/90 set beside P/E and P/S in the Macro/Data panel.</li>
+<li><b>Continuous crosshair linking for grid layouts</b>: the ⌖ Link crosshair toggle makes hovering any grid cell draw a live vertical crosshair at the same date in every other cell (as-of snapped when calendars differ), so AAPL's price, TSLA's band position and the model gap read at the <b>same instant</b>. Throttled at the source, relayed only between your own same-origin cells, and external crosshairs never re-emit — no ping-pong. Range sync (⇄) remains the explicit one-shot it was.</li>
+<li><b>Agent parity</b>: <code>control_terminal link_crosshair {on?}</code>; terminal state reports <code>grid.link_crosshair</code>. Contract-tested end to end: message names, engine verbs, the no-re-emit rule, the toggle gate, and same-origin discipline.</li>
+</ul>
 <h2>[2.46.0] — Charting arc, camp 4: multi-chart layouts</h2>
 <ul>
 <li><b>Grid layouts in the chart view</b>: 1, 2-across, or 2×2 — cell one is the active tab, extra cells default to your other open security tabs, and each cell's symbol is one click to change. Every cell is a full independent chart: its own overlays, indicators, transforms, expressions and bands, with per-symbol isolation holding per cell by construction — <b>Compare remains the only data crossover</b>.</li>

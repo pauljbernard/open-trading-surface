@@ -1,13 +1,13 @@
 {
-  "version": "2.46.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.46.0.plugin",
-  "sha256": "67677f462e2cfa0648e2b9838de9440b63aa4e30c27726ae0d29368a29a5a932",
+  "version": "2.47.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.47.0.plugin",
+  "sha256": "71ad26fda29f999b9e99c0d27eacf0d68190a6c3420971eb59fe390da8b1a208",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Grid layouts in the chart view**: 1, 2-across, or 2×2 — cell one is the active tab, extra cells default to your other open security tabs, and each cell's symbol is one click to change. Every cell is a full independent chart: its own overlays, indicators, transforms, expressions and bands, with per-symbol isolation holding per cell by construction — **Compare remains the only data crossover**. - **Range sync**: the ⇄ button pushes the primary cell's date window to every other cell — explicit and observable rather than an invisible continuous link (continuous crosshair sync is the stated nex",
-  "published": "2026-07-19T21:14:37.383Z",
+  "notes": "- **`band:<SYM>:ev_ebitda:<percentile>`** — EV/EBITDA valuation bands, previously refused because a daily enterprise value would have required inventing daily debt. The **EV roll-forward** makes it honest: EV(t) = daily market cap + net debt held constant at its **last reported balance-sheet value** between filings — a disclosed step function, never an interpolation. The implied price line backs net debt out again ((multiple × TTM EBITDA − net debt) / shares), the label discloses the roll-forward and observation count, thin history (<40 observations) still renders as absence, and a percentile ",
+  "published": "2026-07-19T21:31:59.260Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

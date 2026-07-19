@@ -118,12 +118,22 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.46.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 21:14 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.47.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 21:31 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.47.0 <span class="reltitle">EV roll-forward bands and continuous crosshair linking</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b><code>band:&lt;SYM&gt;:ev_ebitda:&lt;percentile&gt;</code></b> — EV/EBITDA valuation bands, previously refused because a daily enterprise value would have required inventing daily debt. The <b>EV roll-forward</b> makes it honest: EV(t) = daily market cap + net debt held constant at its <b>last reported balance-sheet value</b> between filings — a disclosed step function, never an interpolation. The implied price line backs net debt out again ((multiple × TTM EBITDA − net debt) / shares), the label discloses the roll-forward and observation count, thin history (&lt;40 observations) still renders as absence, and a percentile that implies non-positive equity refuses rather than drawing nonsense. One-click 10/35/65/90 set beside P/E and P/S in the Macro/Data panel.</li>
+        <li><b>Continuous crosshair linking for grid layouts</b>: the ⌖ Link crosshair toggle makes hovering any grid cell draw a live vertical crosshair at the same date in every other cell (as-of snapped when calendars differ), so AAPL's price, TSLA's band position and the model gap read at the <b>same instant</b>. Throttled at the source, relayed only between your own same-origin cells, and external crosshairs never re-emit — no ping-pong. Range sync (⇄) remains the explicit one-shot it was.</li>
+        <li><b>Agent parity</b>: <code>control_terminal link_crosshair {on?}</code>; terminal state reports <code>grid.link_crosshair</code>. Contract-tested end to end: message names, engine verbs, the no-re-emit rule, the toggle gate, and same-origin discipline.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.46.0 <span class="reltitle">Charting arc, camp 4: multi-chart layouts</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -193,14 +203,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-new">New</span>
       <ul>
         <li>The Support view failed with "Can't find variable: g": the client source is embedded in a template literal, so the regex escape <code>\<i>\</i></code> collapsed at parse into <code>/<b>/g</code> — an empty comment plus a bare identifier, syntactically valid and invisible to every parse guard, a ReferenceError at runtime. Fixed, and a new release-gated scan now rejects any collapsed-regex landmine (<code>/</b>/</code> followed by an identifier) in the generated client scripts — the whole class, not just this instance.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.41.2 <span class="reltitle">Statement series are one click, not a magic search term</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>The chart's 🌐 Macro/Data panel gains a <b>Company financials</b> quick-pick section for the active symbol — EPS, Revenue, Net income, Free cash flow, Gross margin — each one click into its own pane, with a note that <code>:quarter</code> on the ref gives quarterly — plus a <b>full field browser</b>: pick any of the five statements (income, balance sheet, cash flow, ratios, key metrics), annual or quarterly, and every numeric field the provider actually returns is listed with its latest value, one click to overlay. The field list is enumerated from the live data row, so it can never disagree with what the provider serves. The capability existed (<code>fmp:income:&lt;SYM&gt;:eps</code> has resolved for many releases) but was reachable only by typing the ref grammar into search — the same discoverability failure as the model series, fixed the same way.</li>
       </ul>
     </div>
   </div>
