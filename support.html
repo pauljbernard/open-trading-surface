@@ -118,12 +118,20 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.41.2</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 19:42 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.41.3</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 19:57 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.41.3 <span class="reltitle">Support view Guide/What's-new crash fixed</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>The Support view failed with "Can't find variable: g": the client source is embedded in a template literal, so the regex escape <code>\<i>\</i></code> collapsed at parse into <code>/<b>/g</code> — an empty comment plus a bare identifier, syntactically valid and invisible to every parse guard, a ReferenceError at runtime. Fixed, and a new release-gated scan now rejects any collapsed-regex landmine (<code>/</b>/</code> followed by an identifier) in the generated client scripts — the whole class, not just this instance.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.41.2 <span class="reltitle">Statement series are one click, not a magic search term</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -198,14 +206,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
       <ul>
         <li><b>Fixed resize overflow</b>: pane heights were computed from the viewport once at build time and frozen; resizing the window (or the terminal pane) only refitted widths, so the chart overflowed and pushed the bottom controls — ranges, interval, dates — out of view. A height change now recomputes the whole layout (debounced), and the controls stay visible at every size.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.37.5 <span class="reltitle">Fair value belongs on the price axis</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>New overlay mode <b><code>price</code></b>: draws a series on the symbol's own price scale instead of a stacked side axis or pane. <code>model:&lt;SYM&gt;:fair_value</code> and <code>forecast_fv</code> <b>default to it</b> — a fair value is in dollars for this very symbol, and rendering it on a compressed side axis visually parked a $17 conclusion at mid-chart next to a $380 price. On the price scale, the FV-vs-price gap IS the picture. Mode remains switchable per overlay (axis | pane | price), including via <code>control_chart</code>.</li>
       </ul>
     </div>
   </div>

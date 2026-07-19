@@ -1,13 +1,13 @@
 {
-  "version": "2.41.2",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.41.2.plugin",
-  "sha256": "809786ecfff9a937f8b5cb8748a1892553eae20acf6b1485d3afd5018a5e734b",
+  "version": "2.41.3",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.41.3.plugin",
+  "sha256": "24c3867a4da1d9d7e68d0a2527959fdb60f4a4302e4cf98bb7e0bbb939788ea7",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- The chart's 🌐 Macro/Data panel gains a **Company financials** quick-pick section for the active symbol — EPS, Revenue, Net income, Free cash flow, Gross margin — each one click into its own pane, with a note that `:quarter` on the ref gives quarterly — plus a **full field browser**: pick any of the five statements (income, balance sheet, cash flow, ratios, key metrics), annual or quarterly, and every numeric field the provider actually returns is listed with its latest value, one click to overlay. The field list is enumerated from the live data row, so it can never disagree with what the pr",
-  "published": "2026-07-19T19:42:43.929Z",
+  "notes": "- The Support view failed with \"Can't find variable: g\": the client source is embedded in a template literal, so the regex escape `\\*\\*` collapsed at parse into `/**/g` — an empty comment plus a bare identifier, syntactically valid and invisible to every parse guard, a ReferenceError at runtime. Fixed, and a new release-gated scan now rejects any collapsed-regex landmine (`/**/` followed by an identifier) in the generated client scripts — the whole class, not just this instance.",
+  "published": "2026-07-19T19:57:16.940Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
