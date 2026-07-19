@@ -118,12 +118,25 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.37.3</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 02:19 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.37.4</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 02:28 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.37.4 <span class="reltitle">A model saved on Saturday is no longer invisible on the chart</span></h3>
+    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
+      <ul>
+        <li><b>Fixed overlay alignment dropping post-close conclusions</b>: model track points are date-stamped in UTC, so a conclusion saved after Friday's close (or on a weekend) is dated after the last trading bar — and the as-of alignment rendered it NOWHERE, leaving the "model fair value" pane empty with data present. Points recorded after the last bar now land on the most recent bar.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Sparse series are visible</b>: a young model track with one or two points now draws explicit point markers instead of an invisible zero-segment line — the track becomes a line as history accrues.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.37.3 <span class="reltitle">Model conclusions visible in the Macro/Data panel, not hidden behind a search term</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -206,22 +219,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>Seasonality is structure, never signal</b>: growth and all fit series are <b>year-over-year same-quarter</b> — a strong-Q4 business shows constant growth, not a seasonal sawtooth, and sequential quarter-on-quarter is never regressed.</li>
         <li><b><code>calibrate_model_factors</code> gains <code>period:'quarter'</code></b>: factor series are aggregated to quarterly averages and YoY-transformed exactly like the driver side, fits run through the inference spine under the <code>quarterly_regression</code> ceiling — the <b>A grade</b> that ~15 annual points can never honestly reach is now earnable on ~60 quarterly points that measure it.</li>
         <li><b>Breaks at quarter grain</b>: a structural break carrying a quarter (<code>2020Q2</code>) disqualifies fits at that resolution; year-grain breaks land at that year's Q1 and still disqualify. <code>accept:true</code> never applies a break-spanning fit.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.33.0 <span class="reltitle">Ascent 1 complete: factor edges reach individual segments</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Factor edges may now target scoped drivers</b>: <code>tpu_supply → revenue_growth_pct@cloud</code> is a legal edge, so a supply-chain cause moves the Cloud assumption while Search stands untouched. Cycle detection and path-product propagation carry through unchanged.</li>
-        <li><b>Scoped edges fit on segment data through the inference spine</b>: calibration fits <code>factor → revenue_growth_pct@segment</code> against the segment's own reported YoY growth series, graded A–D like every other fit; <b>re-segmentations arrive as structural breaks</b> that disqualify spanning fits even under <code>accept:true</code>.</li>
-        <li><b>Segment mix is chartable</b>: <code>model:&lt;SYM&gt;:mix:&lt;segment&gt;</code> resolves the disclosed mix history as a series — overlay Cloud's share of revenue directly on the price chart.</li>
-        <li><code>shock_company_model</code> accepts scoped driver keys, with a clear error pointing at <code>get_segments apply_to_model</code> when the scoped assumption is missing.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
-      <ul>
-        <li><b>Shocks land honestly at three levels</b>: on the scoped driver when the model carries it; <b>folded into the consolidated driver at the segment's mix weight</b> when it doesn't (a 2pp Cloud shock on a 25% segment is ~0.5pp of the book, and the fold is reported in <code>scoped_folds</code>); and DROPPED with instructions — never guessed — when there is neither a scoped assumption nor a mix to weight by.</li>
       </ul>
     </div>
   </div>

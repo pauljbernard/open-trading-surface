@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.37.4] — A model saved on Saturday is no longer invisible on the chart</h2>
+<ul>
+<li><b>Fixed overlay alignment dropping post-close conclusions</b>: model track points are date-stamped in UTC, so a conclusion saved after Friday's close (or on a weekend) is dated after the last trading bar — and the as-of alignment rendered it NOWHERE, leaving the "model fair value" pane empty with data present. Points recorded after the last bar now land on the most recent bar.</li>
+<li><b>Sparse series are visible</b>: a young model track with one or two points now draws explicit point markers instead of an invisible zero-segment line — the track becomes a line as history accrues.</li>
+</ul>
 <h2>[2.37.3] — Model conclusions visible in the Macro/Data panel, not hidden behind a search term</h2>
 <ul>
 <li>The chart's <b>🌐 Macro/Data</b> panel now shows an "Operating model conclusions" section for the active symbol — one-click quick-picks for <code>fair_value</code>, <code>forecast_fv</code>, <code>eps_yr1</code> and <code>eps_yr5</code>, beside the macro quick-picks, with a note that points appear as the model is saved and attributed. Previously the Model category existed only in search results, which required already knowing to type "model".</li>

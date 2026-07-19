@@ -1,13 +1,13 @@
 {
-  "version": "2.37.3",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.37.3.plugin",
-  "sha256": "152d91aed2584e0ae69517df8d126e017a58d403752bf973e7cd2d21b8be8d11",
+  "version": "2.37.4",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.37.4.plugin",
+  "sha256": "c9a4b247b4bfa9bdca00ef73643cfa0fba3dcefec855ac8935da1c66d3cf62b3",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- The chart's **🌐 Macro/Data** panel now shows an \"Operating model conclusions\" section for the active symbol — one-click quick-picks for `fair_value`, `forecast_fv`, `eps_yr1` and `eps_yr5`, beside the macro quick-picks, with a note that points appear as the model is saved and attributed. Previously the Model category existed only in search results, which required already knowing to type \"model\".",
-  "published": "2026-07-19T02:19:00.786Z",
+  "notes": "- **Fixed overlay alignment dropping post-close conclusions**: model track points are date-stamped in UTC, so a conclusion saved after Friday's close (or on a weekend) is dated after the last trading bar — and the as-of alignment rendered it NOWHERE, leaving the \"model fair value\" pane empty with data present. Points recorded after the last bar now land on the most recent bar. - **Sparse series are visible**: a young model track with one or two points now draws explicit point markers instead of an invisible zero-segment line — the track becomes a line as history accrues.",
+  "published": "2026-07-19T02:28:28.649Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
