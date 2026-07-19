@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.43.0] — Charting arc, camp 2: expression series and the accountability chart</h2>
+<ul>
+<li><b><code>expr:</code> refs</b> — arithmetic over resolved series (<code>+ - * /</code>, parentheses, numeric literals), as-of aligned to the first series leaf: <code>expr:(price:AAPL)/(price:MSFT)</code> is relative value; <code>expr:(fmp:income:AAPL:eps:quarter:ttm)*25</code> is a P/E-25 line; transforms compose inside. Division by ~zero yields a <b>gap, never an infinity</b>.</li>
+<li><b><code>price:&lt;SYM&gt;</code></b> joins the ref grammar as daily closes, usable anywhere a series ref works.</li>
+<li><b>The accountability chart, one click</b>: <code>expr:(model:SYM:fair_value)-(price:SYM)</code> — the model gap as its own series — leads the Operating-model quick-picks in the Macro/Data panel. When that line trends toward zero the model is being vindicated; when it widens, one of them is wrong.</li>
+<li>Discoverability law honored: the expression grammar self-describes (<code>EXPR_HELP</code>), rides the series catalog into the KB, and the panel's search hint teaches the syntax inline.</li>
+</ul>
 <h2>[2.42.0] — Charting arc, camp 1: series transforms</h2>
 <ul>
 <li><b>Composable transforms on any series ref</b>: <code>:ttm</code> (rolling 4-quarter sum — refuses non-quarterly cadence and says to add <code>:quarter</code>), <code>:per_share</code> (as-of aligned diluted shares; refuses symbol-less refs), <code>:yoy</code> (±45-day matched, unmatched points drop out), <code>:indexed</code> (rebase 100). They compose left to right: <code>fmp:income:AAPL:netIncome:quarter:ttm:per_share</code> is true TTM EPS. Labels state the applied pipeline.</li>
