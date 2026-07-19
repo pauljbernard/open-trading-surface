@@ -16,6 +16,10 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.41.4] — Chart isolation: overlays and indicators are scoped per symbol</h2>
+<ul>
+<li>Fixed overlays bleeding across charts (TSLA series appearing on the AAPL chart): the chart layout — indicators, overlays, style — was saved under one GLOBAL key shared by every chart, while drawings were always correctly per-symbol. The layout store is now keyed by symbol, switching symbols reloads that symbol's own layout, and a one-time migration keeps your indicator setup while dropping overlays bound to a different symbol. <b>Compare remains the only cross-symbol mechanism</b>, as designed. A contract test now enforces the isolation.</li>
+</ul>
 <h2>[2.41.3] — Support view Guide/What's-new crash fixed</h2>
 <ul>
 <li>The Support view failed with "Can't find variable: g": the client source is embedded in a template literal, so the regex escape <code>\*\*</code> collapsed at parse into <code>/<b>/g</code> — an empty comment plus a bare identifier, syntactically valid and invisible to every parse guard, a ReferenceError at runtime. Fixed, and a new release-gated scan now rejects any collapsed-regex landmine (<code>/</b>/</code> followed by an identifier) in the generated client scripts — the whole class, not just this instance.</li>

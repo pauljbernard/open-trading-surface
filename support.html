@@ -118,12 +118,20 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.41.3</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 19:57 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.41.4</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 19:59 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.41.4 <span class="reltitle">Chart isolation: overlays and indicators are scoped per symbol</span></h3>
+    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
+      <ul>
+        <li>Fixed overlays bleeding across charts (TSLA series appearing on the AAPL chart): the chart layout — indicators, overlays, style — was saved under one GLOBAL key shared by every chart, while drawings were always correctly per-symbol. The layout store is now keyed by symbol, switching symbols reloads that symbol's own layout, and a one-time migration keeps your indicator setup while dropping overlays bound to a different symbol. <b>Compare remains the only cross-symbol mechanism</b>, as designed. A contract test now enforces the isolation.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.41.3 <span class="reltitle">Support view Guide/What's-new crash fixed</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -198,14 +206,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>The KB is compiled from the registries at build time</b> (<code>gen-kb</code>): the tool reference IS the tool registry (the same objects served to Claude), drivers from DRIVER_DEFS, factors from FACTOR_DEFS, evidence grades and method ceilings from inference.js, ~116 indicators from the workbench registry, the series catalog, the changelog, and the content-hashed terms. The governing rule: a capability describes itself, colocated with its code; authored prose is reserved for cross-capability knowledge no single capability can own.</li>
         <li><b>The release gate refuses drift</b>: <code>gen-kb --lint</code> fails the build if any guide topic references a tool or code symbol that no longer exists — documentation cannot ship disagreeing with the software. The lint itself is tested (a planted dangling reference must be caught).</li>
         <li><b>Introspection of the introspection</b>: the KB manifest (source hashes, generation time, lint status, generated-vs-authored inventory) is queryable, so the agent can verify the knowledge base is fresh relative to the running version.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.37.6 <span class="reltitle">The chart fits its window again</span></h3>
-    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
-      <ul>
-        <li><b>Fixed resize overflow</b>: pane heights were computed from the viewport once at build time and frozen; resizing the window (or the terminal pane) only refitted widths, so the chart overflowed and pushed the bottom controls — ranges, interval, dates — out of view. A height change now recomputes the whole layout (debounced), and the controls stay visible at every size.</li>
       </ul>
     </div>
   </div>
