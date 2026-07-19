@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.44.0] — Charting arc, camp 3: valuation bands</h2>
+<ul>
+<li><b><code>band:&lt;SYM&gt;:&lt;pe|ps&gt;:&lt;percentile&gt;</code></b> — the price implied by holding the multiple at a chosen percentile of its OWN trailing distribution, drawn through time on the price scale. Fundamentals come through the transform pipeline (true TTM EPS / TTM sales per share), so the bands inherit every honesty rule already in the machinery. The label discloses the multiple and the observation count; <b>fewer than 40 multiple observations is refused</b> — a band from thin history is a guess, and absence renders as absence.</li>
+<li><b>One-click band sets</b> in the Macro/Data panel: P/E bands and P/S bands (10/35/65/90) for the active symbol, added together in price mode. EV/EBITDA bands are <b>deliberately absent</b> until the EV roll-forward is wired — the help text says so rather than shipping a fiction.</li>
+</ul>
 <h2>[2.43.0] — Charting arc, camp 2: expression series and the accountability chart</h2>
 <ul>
 <li><b><code>expr:</code> refs</b> — arithmetic over resolved series (<code>+ - * /</code>, parentheses, numeric literals), as-of aligned to the first series leaf: <code>expr:(price:AAPL)/(price:MSFT)</code> is relative value; <code>expr:(fmp:income:AAPL:eps:quarter:ttm)*25</code> is a P/E-25 line; transforms compose inside. Division by ~zero yields a <b>gap, never an infinity</b>.</li>

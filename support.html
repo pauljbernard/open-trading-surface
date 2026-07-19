@@ -118,12 +118,25 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.43.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 20:54 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.44.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 21:06 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.44.0 <span class="reltitle">Charting arc, camp 3: valuation bands</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>One-click band sets</b> in the Macro/Data panel: P/E bands and P/S bands (10/35/65/90) for the active symbol, added together in price mode. EV/EBITDA bands are <b>deliberately absent</b> until the EV roll-forward is wired — the help text says so rather than shipping a fiction.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b><code>band:&lt;SYM&gt;:&lt;pe|ps&gt;:&lt;percentile&gt;</code></b> — the price implied by holding the multiple at a chosen percentile of its OWN trailing distribution, drawn through time on the price scale. Fundamentals come through the transform pipeline (true TTM EPS / TTM sales per share), so the bands inherit every honesty rule already in the machinery. The label discloses the multiple and the observation count; <b>fewer than 40 multiple observations is refused</b> — a band from thin history is a guess, and absence renders as absence.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.43.0 <span class="reltitle">Charting arc, camp 2: expression series and the accountability chart</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -187,20 +200,6 @@ shasum -a 256 orrery.plugin</code></pre>
       <ul>
         <li><b>"Try it with the agent"</b>: every Learn module's schema-validated invocation can be handed to the agent through the ✉ inbox — the UI presents, the agent executes, both from the same module. One KB id space, two renderings: the entry the agent cites in chat is the page the user opens in the terminal.</li>
         <li>Agent parity holds by construction: the view is reachable via control_terminal, readable via inspect_terminal, and served from the identical support-kb/diagnostics modules behind the /support/* routes.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.40.0 <span class="reltitle">Self-support, camp 3 (agent side): education that executes</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>Education joins the search index. Coming next: the terminal Support view (guide browser, one-click diagnostics, what's new, Learn with "try it with the agent" handoff) completing the co-equal UX integration.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b><code>explain_concept</code> / <code>get_learning_path</code></b>: a six-module curriculum (operator → analyst → methodologist) teaching the methodology — evidence grades and ceilings, the search ledger, YoY same-quarter discipline, the articulation tie, segment mix as an output, terminal basics. Every module's worked example is <b>computed by the real functions at build time</b> (the deflation example calls the live Šidák code; the tie example runs a real articulated projection and shows gap 0) — the release fails if an example stops matching the software. Every <code>try_it</code> is a <b>literal, schema-validated tool invocation</b> the agent can run against your data; an invocation citing a tool or argument that no longer exists fails the build.</li>
-        <li><b>The cockpit knows about support</b>: <code>get_workspace_state</code> gains a support block (KB availability and version, last diagnostic run), and failing diagnostic checks surface in the attention list the way fired alerts do.</li>
       </ul>
     </div>
   </div>

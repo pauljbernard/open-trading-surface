@@ -1,13 +1,13 @@
 {
-  "version": "2.43.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.43.0.plugin",
-  "sha256": "c2843cfec6cb21e0978e98625e0791c910b2d613f57a82be70ebfa69a40fb3d1",
+  "version": "2.44.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.44.0.plugin",
+  "sha256": "8197a8fafca060b3ca835e7f4bda8f62c6abe64b76d16cd0f348c8ecf29a40c4",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **`expr:` refs** — arithmetic over resolved series (`+ - * /`, parentheses, numeric literals), as-of aligned to the first series leaf: `expr:(price:AAPL)/(price:MSFT)` is relative value; `expr:(fmp:income:AAPL:eps:quarter:ttm)*25` is a P/E-25 line; transforms compose inside. Division by ~zero yields a **gap, never an infinity**. - **`price:<SYM>`** joins the ref grammar as daily closes, usable anywhere a series ref works. - **The accountability chart, one click**: `expr:(model:SYM:fair_value)-(price:SYM)` — the model gap as its own series — leads the Operating-model quick-picks in the Macro/",
-  "published": "2026-07-19T20:54:21.526Z",
+  "notes": "- **`band:<SYM>:<pe|ps>:<percentile>`** — the price implied by holding the multiple at a chosen percentile of its OWN trailing distribution, drawn through time on the price scale. Fundamentals come through the transform pipeline (true TTM EPS / TTM sales per share), so the bands inherit every honesty rule already in the machinery. The label discloses the multiple and the observation count; **fewer than 40 multiple observations is refused** — a band from thin history is a guess, and absence renders as absence. - **One-click band sets** in the Macro/Data panel: P/E bands and P/S bands (10/35/65/",
+  "published": "2026-07-19T21:06:29.361Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
