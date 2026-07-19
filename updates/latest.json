@@ -1,13 +1,13 @@
 {
-  "version": "2.53.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.53.0.plugin",
-  "sha256": "08eb80a9410fd0cc4c7442a6d4ccda588e785c52dae65be050b2cc6b51e1764c",
+  "version": "2.54.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.54.0.plugin",
+  "sha256": "e05cf763daf5d12074d603653d43f5f5843e3aa47cfc0fef33f81991ee70e663",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **`backfill_model_track`** — reconstructs what a model WOULD have concluded at past dates, so the accountability machinery (forecast scoring, re-underwriting, the model-gap chart) has evidence now rather than in three years. It had exactly one snapshot before this. - **The rules are absolute, not aspirational.** A statement is usable at a date only if it was **filed** by then — fiscal period end is not knowledge, so FY2024 ending 31 December is invisible until its February filing. Statements without a filing date are never used. And if the provider reports **no** filing dates at all, the too",
-  "published": "2026-07-19T22:33:43.935Z",
+  "notes": "- **A cohort is now a first-class entity, and membership is many-to-many.** A security belongs to its sector, its size band, an index, any factor screen it satisfies and any custom list containing it — *simultaneously* — and valuation reads differently against each. So the analytical answer is a **set of readings, not a scalar**, and `cohorts_for_symbol` is the central query. - **Why the shape was forced.** A 56-name, 7-sector study measured median price ÷ substantiated value at **1.07× (Financials) to 3.58× (Energy)**, with **33.6% of premium variance between sectors** — so a single universe ",
+  "published": "2026-07-19T23:47:44.562Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
