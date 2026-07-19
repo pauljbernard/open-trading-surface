@@ -1,13 +1,13 @@
 {
-  "version": "2.52.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.52.0.plugin",
-  "sha256": "7b5bbd1af066409672f365f3b0487dc5cfcc9b0eb85cd77e80b9a2d25550f52d",
+  "version": "2.53.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.53.0.plugin",
+  "sha256": "08eb80a9410fd0cc4c7442a6d4ccda588e785c52dae65be050b2cc6b51e1764c",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **A large gap is now a question, not a verdict.** The TSLA model concluded $17 against a $381 price and reported **−95%** with a straight face. That is not a valuation opinion; it is a five-year DCF on car margins failing to represent what the market is paying for. **Gap triage** now runs automatically past a ±35% gap: the system reverse-solves *itself* and classifies. On TSLA it finds that **no** revenue growth between −40% and +120% and **no** gross margin up to 95% produces $381 — so the verdict reads *\"the gap is not an opinion about these drivers\"* rather than a −95% call. - **Two class",
-  "published": "2026-07-19T22:27:47.487Z",
+  "notes": "- **`backfill_model_track`** — reconstructs what a model WOULD have concluded at past dates, so the accountability machinery (forecast scoring, re-underwriting, the model-gap chart) has evidence now rather than in three years. It had exactly one snapshot before this. - **The rules are absolute, not aspirational.** A statement is usable at a date only if it was **filed** by then — fiscal period end is not knowledge, so FY2024 ending 31 December is invisible until its February filing. Statements without a filing date are never used. And if the provider reports **no** filing dates at all, the too",
+  "published": "2026-07-19T22:33:43.935Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

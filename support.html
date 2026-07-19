@@ -118,12 +118,25 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.52.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 22:27 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.53.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 22:33 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.53.0 <span class="reltitle">Model honesty, camp 6: a point-in-time track record, or none at all</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b><code>backfill_model_track</code></b> — reconstructs what a model WOULD have concluded at past dates, so the accountability machinery (forecast scoring, re-underwriting, the model-gap chart) has evidence now rather than in three years. It had exactly one snapshot before this.</li>
+        <li><b>The rules are absolute, not aspirational.</b> A statement is usable at a date only if it was <b>filed</b> by then — fiscal period end is not knowledge, so FY2024 ending 31 December is invisible until its February filing. Statements without a filing date are never used. And if the provider reports <b>no</b> filing dates at all, the tool <b>refuses outright</b>: guessing a reporting lag would fabricate the very track record it claims to measure. A fabricated history would launder hindsight into apparent skill and every downstream honesty mechanism would inherit the lie.</li>
+        <li><b>What it cannot do is stated on every payload</b>: restatements are indistinguishable from originals in this data; analyst consensus cannot be reconstructed historically, so growth uses trailing CAGR from filed statements and the method therefore <i>differs</i> from the live model; judgment drivers (discount rate, exit multiple) are carried back from today, which is hindsight.</li>
+        <li><b>Separate by construction</b>: reconstructions are stored apart from the live track and carry their own series ref — <code>model:&lt;SYM&gt;:backfill_fv</code>, whose catalog label reads <i>"BACKFILLED … not calls that were made"</i> in the very text you pick it by. A reconstruction can never be charted as a call that was actually made.</li>
+        <li><b>Scoring refuses more than it reports.</b> Fewer than three completed forward windows yields no summary at all ("computing one anyway would be the failure this module exists to avoid"). When a regression is possible it is graded like every other estimate and ships its own reasons for doubt: overlapping windows, no search-ledger deflation, no holdout, one name — <i>"a hint to investigate, not evidence of edge"</i>.</li>
+        <li>9 further tests (48 in <code>model-honesty.test.js</code>), most of them asserting what the module refuses to do. <b>MODEL-HONESTY-SPEC is now fully executed.</b></li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.52.0 <span class="reltitle">Model honesty, camp 5: scope — the model says what it cannot see</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -206,19 +219,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>Grid layouts in the chart view</b>: 1, 2-across, or 2×2 — cell one is the active tab, extra cells default to your other open security tabs, and each cell's symbol is one click to change. Every cell is a full independent chart: its own overlays, indicators, transforms, expressions and bands, with per-symbol isolation holding per cell by construction — <b>Compare remains the only data crossover</b>.</li>
         <li><b>Range sync</b>: the ⇄ button pushes the primary cell's date window to every other cell — explicit and observable rather than an invisible continuous link (continuous crosshair sync is the stated next step). Same-origin checks guard the relay on both sides.</li>
         <li><b>Agent parity from day one</b>: <code>control_terminal set_grid {mode, symbols?}</code> and <code>sync_grid_ranges</code>; the grid is reported in terminal state. Contract-tested, including the isolation guarantee.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.45.0 <span class="reltitle">Charting arc, camp 5: the performance envelope, measured</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>The harness's performance suite now covers the <b>extreme charting envelope</b>: the full indicator battery at 25k and 50k bars, and the new series machinery at scale — TTM/per-share transforms over 120 quarters, expression evaluation over 7,500 daily points, valuation-band construction over 7,500 multiple observations — all against explicit budgets that fail on order-of-magnitude regressions.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The measured result</b>: the 50k-bar battery completes in tens of milliseconds and every series operation in single-digit milliseconds. Computation is not the binding constraint at any realistic chart size; provider latency is. The envelope is documented in the knowledge base (<code>guide.performance_envelope</code>) from the measured numbers, and re-measurable any time via run_test_suite — measured, not assumed, and no premature optimization shipped.</li>
       </ul>
     </div>
   </div>
