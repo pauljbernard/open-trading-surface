@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.37.0] — The deflation is live; the mountain is documented</h2>
+<ul>
+<li><b>Fixed the acknowledged Šidák dead-code defect</b>: every rule backtest now runs a <b>two-sided t-test of the mean per-trade return against zero</b>, and that nominal p-value flows into the search ledger where it is <b>actually deflated</b> by the number of distinct rules tried (a nominal p=0.03 after 10 tries deflates to ≈0.26 — and the result says so). Previously the deflation machinery existed but no backtest ever computed a p-value to feed it. Fewer than three closed trades yields no p at all, with the reason stated — never a fabricated significance.</li>
+<li><b>Docs</b>: the user guide's operating-model chapter gains "Going deep: segments, quarters, and the full three statements" — the three ascents (segment-scoped drivers with chartable mix shift, quarterly fits at the honestly-earned A ceiling plus the quarterly EPS scoreboard, and articulated three-statement mode with the enforced tie) with worked "you say / it does" examples and the honesty rules that govern each. The backtester section and the site front page now describe the live deflation pipeline and the deep-model capabilities.</li>
+</ul>
 <h2>[2.36.0] — Ascent 3: three-statement articulation. The mountain is climbed.</h2>
 <ul>
 <li><b>The projection now articulates</b>: setting any of the new drivers (<code>payout_ratio_pct</code>, <code>buyback_pct_fcf</code>, <code>target_leverage</code>) switches a model into three-statement mode — earnings → retained earnings → equity; capex − D&amp;A → net fixed assets; working-capital deltas and FCF less dividends and buybacks → cash; <b>interest recomputed from average net debt</b> (fixed-point), so a leveraged company's operating deltas compound through the balance sheet instead of paying interest on a frozen opening number.</li>

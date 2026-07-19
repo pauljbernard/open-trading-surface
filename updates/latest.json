@@ -1,13 +1,13 @@
 {
-  "version": "2.36.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.36.0.plugin",
-  "sha256": "274d886da326dc02be33dcc7ce4fe4f9cd795ba0c94aa3952b4cf513da45adc8",
+  "version": "2.37.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.37.0.plugin",
+  "sha256": "676d85b1a9c8d35d711a84e7e073552400c02da96df0b37e521f3bde8b1c9974",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **The projection now articulates**: setting any of the new drivers (`payout_ratio_pct`, `buyback_pct_fcf`, `target_leverage`) switches a model into three-statement mode — earnings → retained earnings → equity; capex − D&A → net fixed assets; working-capital deltas and FCF less dividends and buybacks → cash; **interest recomputed from average net debt** (fixed-point), so a leveraged company's operating deltas compound through the balance sheet instead of paying interest on a frozen opening number. - **The tie is a test, not a hope**: assets = liabilities + equity is enforced in EVERY projecte",
-  "published": "2026-07-19T01:44:21.909Z",
+  "notes": "- **Fixed the acknowledged Šidák dead-code defect**: every rule backtest now runs a **two-sided t-test of the mean per-trade return against zero**, and that nominal p-value flows into the search ledger where it is **actually deflated** by the number of distinct rules tried (a nominal p=0.03 after 10 tries deflates to ≈0.26 — and the result says so). Previously the deflation machinery existed but no backtest ever computed a p-value to feed it. Fewer than three closed trades yields no p at all, with the reason stated — never a fabricated significance. - **Docs**: the user guide's operating-model",
+  "published": "2026-07-19T01:51:52.869Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

@@ -262,6 +262,44 @@
   <div class="note">Attribution is a decision aid, not a forecast guarantee: contributions are marginal (one factor at a time) so they won't sum exactly to the total — the residual is reported. The regression cross-check can mislead under collinearity or short history; treat disagreement as a prompt to re-examine the edge, not proof either way.</div>
   <div class="note">Influence edges start as structured estimates. <b>Calibrate from data</b> sets each factor's live reading from its FRED series and can fit sensitivities by OLS against the company's filings — but a fitted coefficient only replaces the default when the fit is trustworthy (enough aligned years, real variation, a real correlation); otherwise it's attached to the edge as auditable evidence and the prior is kept. Always verify against the business. The design generalizes: because a factor can later be another company's output, a market-wide view is just individual operating models linked to each other.</div>
 
+  <h3>Going deep: segments, quarters, and the full three statements</h3>
+  <p>Spreadsheet models have done single-company fidelity for forty years; Orrery now carries that
+  fidelity on top of what spreadsheets never had &mdash; graded assumptions, versioned tracks scored
+  against price, and machine legibility. Three capabilities, each opt-in and fully back-compatible:</p>
+  <p><b>Segment-level drivers.</b> A consolidated model cannot answer &ldquo;what if Cloud growth
+  halves?&rdquo;. Orrery assembles each company's disclosed <b>segment revenue history</b>, ties every
+  period to consolidated revenue (a residual becomes an explicit <i>unallocated</i> segment; an
+  overshoot is flagged suspect, never scaled away), and detects <b>re-segmentations</b> as structural
+  breaks. Drivers may then be <b>scoped</b> &mdash; <code>revenue_growth_pct@cloud</code> &mdash; and
+  the projection blends growth by the segment mix, with <b>mix shift as an output</b> you can chart
+  (<code>model:GOOG:mix:cloud</code>). Influence edges can target a scoped driver, so a supply-chain
+  cause moves Cloud while Search stands untouched, and scoped fits are graded on the segment's own
+  reported growth.</p>
+  <p><b>Quarterly frequency.</b> Annual fits cap near 15 points; quarterly gives ~60, which honestly
+  earns the <b>A</b> evidence grade that annual data structurally cannot. Seasonality is treated as
+  structure, never signal: all quarterly fits use <b>year-over-year same-quarter</b> changes, and
+  sequential Q4-vs-Q3 is never regressed. The model's track record also accrues quarterly: each
+  dated model snapshot becomes a <b>next-quarter EPS checkpoint</b> (the annual conclusion converted
+  through the company's own seasonal EPS mix &mdash; a reported fact) scored against the print within
+  weeks, with MAE, bias and a leaning &mdash; a scoreboard that fills in four times faster.</p>
+  <p><b>Three-statement articulation.</b> Setting any of <code>payout_ratio_pct</code>,
+  <code>buyback_pct_fcf</code> or <code>target_leverage</code> switches a model into articulated
+  mode: earnings roll into equity, capex &minus; D&amp;A into fixed assets, FCF less dividends and
+  buybacks into cash, and <b>interest is recomputed from average net debt</b> &mdash; so a leveraged
+  company's operating deltas compound through the balance sheet. Buybacks retire <b>real dollars</b>
+  (EPS moves through the share count, not a multiplier) and target leverage works through <b>capital
+  return</b>, never fictional instant repayment. The tie &mdash; assets = liabilities + equity &mdash;
+  is <b>enforced in every projected year</b>: a model that cannot tie refuses to run and names the gap.</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Pull GOOG's segments and wire them into the model."</td><td>Ties disclosed segment history to consolidated revenue, seeds the mix and per-segment growth defaults from reported facts (never overwriting your assumptions).</td></tr>
+    <tr><td>"What if Cloud growth halves?"</td><td>Shocks <code>revenue_growth_pct@cloud</code> only; fair value moves by the segment-weighted amount and the mix path updates.</td></tr>
+    <tr><td>"Calibrate quarterly."</td><td>Fits factor sensitivities on ~60 YoY same-quarter points under the A ceiling, with quarter-grain break detection.</td></tr>
+    <tr><td>"How has the model scored against the last few prints?"</td><td>Returns the quarterly scoreboard: implied vs reported EPS per quarter, MAE and bias.</td></tr>
+    <tr><td>"Model AAPL with a 25% payout and buybacks at 70% of FCF."</td><td>Runs the articulated projection: balance sheet rolls forward, interest follows net debt, shares fall by dollars actually spent &mdash; and every year ties.</td></tr>
+  </table>
+  <div class="note">Honesty rules carry through: segment coverage is uneven below large caps and absence renders as absence; the quarterly EPS checkpoint is a derived read of the annual model, labelled as such; articulated mode refuses to run without an opening equity rather than fabricate a balance sheet.</div>
+
   <h2 id="provenance">Where a holding came from</h2>
   <p>Orrery's premise is that a position traces back to a view. That only means something
   if the chain is <b>recorded</b> rather than reconstructed, so building a model portfolio
@@ -317,9 +355,12 @@
   <p>Every rule backtest now reserves the most recent ~25% of bars as a <b>holdout</b> and scores
   both windows &mdash; the split happens inside the engine, so no one can request the flattering half
   alone. A holdout return collapsing to a fraction of in-sample is named as the signature of an
-  overfit rule. A <b>search ledger</b> counts every distinct rule you have tried on a symbol and
-  deflates significance accordingly: the best of 20 rules looking good is a property of 20, not of
-  the rule &mdash; p=0.04 after 20 tries is a coin flip, and the result says so.</p>
+  overfit rule. Every backtest also runs a <b>two-sided t-test of the mean per-trade return against
+  zero</b>, and a <b>search ledger</b> counts every distinct rule you have tried on the symbol and
+  <b>&Scaron;id&aacute;k-deflates that p-value</b> by the size of your search: the best of 20 rules
+  looking good is a property of 20, not of the rule &mdash; a nominal p=0.03 after 10 tries deflates
+  to &asymp;0.26, and the result says so. Fewer than three closed trades means no p at all, with the
+  reason stated &mdash; never a fabricated significance.</p>
 
   <h3>Attention &amp; sizing</h3>
   <p>The <b>re-underwrite queue</b> (<code>get_reunderwrite_queue</code>) scans your holdings and

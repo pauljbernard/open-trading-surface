@@ -118,12 +118,25 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.36.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 01:44 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.37.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 01:51 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.37.0 <span class="reltitle">The deflation is live; the mountain is documented</span></h3>
+    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
+      <ul>
+        <li><b>Fixed the acknowledged Šidák dead-code defect</b>: every rule backtest now runs a <b>two-sided t-test of the mean per-trade return against zero</b>, and that nominal p-value flows into the search ledger where it is <b>actually deflated</b> by the number of distinct rules tried (a nominal p=0.03 after 10 tries deflates to ≈0.26 — and the result says so). Previously the deflation machinery existed but no backtest ever computed a p-value to feed it. Fewer than three closed trades yields no p at all, with the reason stated — never a fabricated significance.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Docs</b>: the user guide's operating-model chapter gains "Going deep: segments, quarters, and the full three statements" — the three ascents (segment-scoped drivers with chartable mix shift, quarterly fits at the honestly-earned A ceiling plus the quarterly EPS scoreboard, and articulated three-statement mode with the enforced tie) with worked "you say / it does" examples and the honesty rules that govern each. The backtester section and the site front page now describe the live deflation pipeline and the deep-model capabilities.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.36.0 <span class="reltitle">Ascent 3: three-statement articulation. The mountain is climbed.</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -201,19 +214,6 @@ shasum -a 256 orrery.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">2.30.0 <span class="reltitle">Ascent 1 begins: segment-level revenue history</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.29.1 <span class="reltitle">Fix: a confident 0.00% that actually meant "no data"</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>Legacy models could never calibrate.</b> Models seeded before factors carried a <code>series</code> ref (the GOOG case) had catalog factors with no way to resolve data — Series showed "—", levels stayed null, every forward projection was flat, and attribution reported +0.00% as if it were a conclusion. <code>ensure()</code> now migrates old models by backfilling the catalog FRED ref, so Calibrate from FRED works on them like on new ones.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The attribution panel now says "nothing to attribute yet"</b> — with the reason and the remedy (calibrate, or attach series-backed factors) — whenever every factor forecast is flat, instead of presenting a data-free zero as a forecast. A zero that means "no data" saying so is the product's own standard.</li>
-      </ul>
-    </div>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
