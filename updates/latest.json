@@ -1,13 +1,13 @@
 {
-  "version": "2.37.2",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.37.2.plugin",
-  "sha256": "0a69290b5d0d994197e54fcbcc9a221731b5ea37c26fd5e3221d72b46bf5a9b2",
+  "version": "2.37.3",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.37.3.plugin",
+  "sha256": "152d91aed2584e0ae69517df8d126e017a58d403752bf973e7cd2d21b8be8d11",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- The workbench overlay search now carries a **Model** category: `model:<SYM>:fair_value`, `model:<SYM>:forecast_fv` (attribution runs), `model:<SYM>:eps_yr1` and `model:<SYM>:eps_yr5` appear beside the economic/rates/commodity catalog — type \"model\" in the chart's overlay search and the model's own dated conclusions overlay directly on price. Previously these series resolved but were agent-only knowledge: nothing in the UI told you they existed.",
-  "published": "2026-07-19T02:09:12.270Z",
+  "notes": "- The chart's **🌐 Macro/Data** panel now shows an \"Operating model conclusions\" section for the active symbol — one-click quick-picks for `fair_value`, `forecast_fv`, `eps_yr1` and `eps_yr5`, beside the macro quick-picks, with a note that points appear as the model is saved and attributed. Previously the Model category existed only in search results, which required already knowing to type \"model\".",
+  "published": "2026-07-19T02:19:00.786Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

@@ -118,12 +118,20 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.37.2</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 02:09 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.37.3</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 02:19 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.37.3 <span class="reltitle">Model conclusions visible in the Macro/Data panel, not hidden behind a search term</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>The chart's <b>🌐 Macro/Data</b> panel now shows an "Operating model conclusions" section for the active symbol — one-click quick-picks for <code>fair_value</code>, <code>forecast_fv</code>, <code>eps_yr1</code> and <code>eps_yr5</code>, beside the macro quick-picks, with a note that points appear as the model is saved and attributed. Previously the Model category existed only in search results, which required already knowing to type "model".</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.37.2 <span class="reltitle">Model conclusions in the chart's own overlay picker</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -214,15 +222,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-rm">Removed</span>
       <ul>
         <li><b>Shocks land honestly at three levels</b>: on the scoped driver when the model carries it; <b>folded into the consolidated driver at the segment's mix weight</b> when it doesn't (a 2pp Cloud shock on a 25% segment is ~0.5pp of the book, and the fold is reported in <code>scoped_folds</code>); and DROPPED with instructions — never guessed — when there is neither a scoped assumption nor a mix to weight by.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.32.0 <span class="reltitle">Ascent 1, third camp: disclosure wired into the model</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><code>get_segments</code> gains <b><code>apply_to_model</code></b>: the latest <i>tied</i> disclosure period becomes <code>base.segment_mix</code>, and each segment receives a scoped growth default — the <b>median of its recent reported YoY prints</b>, explicitly labelled a reported-fact starting point and NOT a forecast. The model immediately projects with mix-weighted blended growth and mix shift as an output.</li>
-        <li>Honesty rules carried through: an existing scoped assumption is <b>never overwritten</b> (the analyst's number stands), the <code>unallocated</code> residual holds its mix weight but takes no growth default (it grows at the consolidated rate), and seeding is <b>refused outright</b> when no period ties to consolidated revenue — a mix built from suspect data would poison every projection downstream.</li>
       </ul>
     </div>
   </div>
