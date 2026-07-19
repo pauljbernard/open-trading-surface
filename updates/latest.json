@@ -1,13 +1,13 @@
 {
-  "version": "2.45.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.45.0.plugin",
-  "sha256": "e1e56bd95810e2b043d15c18509cf5625bd7e3992147d37e951c2e2271f03fcc",
+  "version": "2.46.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.46.0.plugin",
+  "sha256": "67677f462e2cfa0648e2b9838de9440b63aa4e30c27726ae0d29368a29a5a932",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- The harness's performance suite now covers the **extreme charting envelope**: the full indicator battery at 25k and 50k bars, and the new series machinery at scale — TTM/per-share transforms over 120 quarters, expression evaluation over 7,500 daily points, valuation-band construction over 7,500 multiple observations — all against explicit budgets that fail on order-of-magnitude regressions. - **The measured result**: the 50k-bar battery completes in tens of milliseconds and every series operation in single-digit milliseconds. Computation is not the binding constraint at any realistic chart s",
-  "published": "2026-07-19T21:08:48.238Z",
+  "notes": "- **Grid layouts in the chart view**: 1, 2-across, or 2×2 — cell one is the active tab, extra cells default to your other open security tabs, and each cell's symbol is one click to change. Every cell is a full independent chart: its own overlays, indicators, transforms, expressions and bands, with per-symbol isolation holding per cell by construction — **Compare remains the only data crossover**. - **Range sync**: the ⇄ button pushes the primary cell's date window to every other cell — explicit and observable rather than an invisible continuous link (continuous crosshair sync is the stated nex",
+  "published": "2026-07-19T21:14:37.383Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

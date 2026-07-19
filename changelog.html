@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.46.0] — Charting arc, camp 4: multi-chart layouts</h2>
+<ul>
+<li><b>Grid layouts in the chart view</b>: 1, 2-across, or 2×2 — cell one is the active tab, extra cells default to your other open security tabs, and each cell's symbol is one click to change. Every cell is a full independent chart: its own overlays, indicators, transforms, expressions and bands, with per-symbol isolation holding per cell by construction — <b>Compare remains the only data crossover</b>.</li>
+<li><b>Range sync</b>: the ⇄ button pushes the primary cell's date window to every other cell — explicit and observable rather than an invisible continuous link (continuous crosshair sync is the stated next step). Same-origin checks guard the relay on both sides.</li>
+<li><b>Agent parity from day one</b>: <code>control_terminal set_grid {mode, symbols?}</code> and <code>sync_grid_ranges</code>; the grid is reported in terminal state. Contract-tested, including the isolation guarantee.</li>
+</ul>
 <h2>[2.45.0] — Charting arc, camp 5: the performance envelope, measured</h2>
 <ul>
 <li>The harness's performance suite now covers the <b>extreme charting envelope</b>: the full indicator battery at 25k and 50k bars, and the new series machinery at scale — TTM/per-share transforms over 120 quarters, expression evaluation over 7,500 daily points, valuation-band construction over 7,500 multiple observations — all against explicit budgets that fail on order-of-magnitude regressions.</li>
