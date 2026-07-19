@@ -1,13 +1,13 @@
 {
-  "version": "2.41.4",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.41.4.plugin",
-  "sha256": "b194673e6cf513bfc9f00ff6aeae0867cf8be496cb8df8c3764f6c6fe6d25f9b",
+  "version": "2.42.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.42.0.plugin",
+  "sha256": "3c486b56fc09201f691b060e8b9a4260765dcbb2aff9c1283951d3dff18a0537",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- Fixed overlays bleeding across charts (TSLA series appearing on the AAPL chart): the chart layout — indicators, overlays, style — was saved under one GLOBAL key shared by every chart, while drawings were always correctly per-symbol. The layout store is now keyed by symbol, switching symbols reloads that symbol's own layout, and a one-time migration keeps your indicator setup while dropping overlays bound to a different symbol. **Compare remains the only cross-symbol mechanism**, as designed. A contract test now enforces the isolation.",
-  "published": "2026-07-19T19:59:21.399Z",
+  "notes": "- **Composable transforms on any series ref**: `:ttm` (rolling 4-quarter sum — refuses non-quarterly cadence and says to add `:quarter`), `:per_share` (as-of aligned diluted shares; refuses symbol-less refs), `:yoy` (±45-day matched, unmatched points drop out), `:indexed` (rebase 100). They compose left to right: `fmp:income:AAPL:netIncome:quarter:ttm:per_share` is true TTM EPS. Labels state the applied pipeline. - **Discoverability by design (the new law from CHARTING-SPEC)**: the transforms live in one self-describing registry that the server applies, the field browser's new transform select",
+  "published": "2026-07-19T20:14:22.076Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

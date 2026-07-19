@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.42.0] — Charting arc, camp 1: series transforms</h2>
+<ul>
+<li><b>Composable transforms on any series ref</b>: <code>:ttm</code> (rolling 4-quarter sum — refuses non-quarterly cadence and says to add <code>:quarter</code>), <code>:per_share</code> (as-of aligned diluted shares; refuses symbol-less refs), <code>:yoy</code> (±45-day matched, unmatched points drop out), <code>:indexed</code> (rebase 100). They compose left to right: <code>fmp:income:AAPL:netIncome:quarter:ttm:per_share</code> is true TTM EPS. Labels state the applied pipeline.</li>
+<li><b>Discoverability by design (the new law from CHARTING-SPEC)</b>: the transforms live in one self-describing registry that the server applies, the field browser's new transform selector enumerates (via <code>/series/transforms</code> — never a hand-copied list), and the knowledge base compiles (<code>transform.*</code> entries). A transform cannot exist without its affordance.</li>
+</ul>
 <h2>[2.41.4] — Chart isolation: overlays and indicators are scoped per symbol</h2>
 <ul>
 <li>Fixed overlays bleeding across charts (TSLA series appearing on the AAPL chart): the chart layout — indicators, overlays, style — was saved under one GLOBAL key shared by every chart, while drawings were always correctly per-symbol. The layout store is now keyed by symbol, switching symbols reloads that symbol's own layout, and a one-time migration keeps your indicator setup while dropping overlays bound to a different symbol. <b>Compare remains the only cross-symbol mechanism</b>, as designed. A contract test now enforces the isolation.</li>
