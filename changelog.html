@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.32.0] — Ascent 1, third camp: disclosure wired into the model</h2>
+<ul>
+<li><code>get_segments</code> gains <b><code>apply_to_model</code></b>: the latest *tied* disclosure period becomes <code>base.segment_mix</code>, and each segment receives a scoped growth default — the <b>median of its recent reported YoY prints</b>, explicitly labelled a reported-fact starting point and NOT a forecast. The model immediately projects with mix-weighted blended growth and mix shift as an output.</li>
+<li>Honesty rules carried through: an existing scoped assumption is <b>never overwritten</b> (the analyst's number stands), the <code>unallocated</code> residual holds its mix weight but takes no growth default (it grows at the consolidated rate), and seeding is <b>refused outright</b> when no period ties to consolidated revenue — a mix built from suspect data would poison every projection downstream.</li>
+</ul>
 <h2>[2.31.0] — Ascent 1, second camp: segment-scoped growth drivers</h2>
 <ul>
 <li><b>Drivers may now be scoped to a segment</b>: <code>revenue_growth_pct@cloud</code> alongside the consolidated assumption. With <code>base.segment_mix</code> set (from <code>get_segments</code>), each year's consolidated growth is the <b>mix-weighted blend</b> — scoped segments grow at their own faded rate, unscoped segments at the consolidated one — and the projection carries <code>segment_mix</code> per year, so <b>mix shift is an output, not an input</b>: a segment growing 30% against a 5% book climbs from 25% to ~37% of revenue over five years, and you watch it happen.</li>
