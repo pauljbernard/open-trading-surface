@@ -118,12 +118,26 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.39.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 18:28 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.40.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 19:15 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.40.0 <span class="reltitle">Self-support, camp 3 (agent side): education that executes</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>Education joins the search index. Coming next: the terminal Support view (guide browser, one-click diagnostics, what's new, Learn with "try it with the agent" handoff) completing the co-equal UX integration.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b><code>explain_concept</code> / <code>get_learning_path</code></b>: a six-module curriculum (operator → analyst → methodologist) teaching the methodology — evidence grades and ceilings, the search ledger, YoY same-quarter discipline, the articulation tie, segment mix as an output, terminal basics. Every module's worked example is <b>computed by the real functions at build time</b> (the deflation example calls the live Šidák code; the tie example runs a real articulated projection and shows gap 0) — the release fails if an example stops matching the software. Every <code>try_it</code> is a <b>literal, schema-validated tool invocation</b> the agent can run against your data; an invocation citing a tool or argument that no longer exists fails the build.</li>
+        <li><b>The cockpit knows about support</b>: <code>get_workspace_state</code> gains a support block (KB availability and version, last diagnostic run), and failing diagnostic checks surface in the attention list the way fired alerts do.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.39.0 <span class="reltitle">Self-support, camp 2: troubleshooting as behavior</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -191,21 +205,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-new">New</span>
       <ul>
         <li>The workbench overlay search now carries a <b>Model</b> category: <code>model:&lt;SYM&gt;:fair_value</code>, <code>model:&lt;SYM&gt;:forecast_fv</code> (attribution runs), <code>model:&lt;SYM&gt;:eps_yr1</code> and <code>model:&lt;SYM&gt;:eps_yr5</code> appear beside the economic/rates/commodity catalog — type "model" in the chart's overlay search and the model's own dated conclusions overlay directly on price. Previously these series resolved but were agent-only knowledge: nothing in the UI told you they existed.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.37.1 <span class="reltitle">Forecast &amp; attribution: no more zeros, and no more garbage either</span></h3>
-    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
-      <ul>
-        <li><b>Fixed forecast-and-attribute reporting zeros on legacy models</b>: the forecast path never received the 2.29.1 series-ref migration that calibration got, so models seeded before factors carried refs skipped EVERY factor and reported a confident +0.00%. <code>forecast_and_attribute</code> now runs the same <code>ensure()</code> backfill (persisted on save), and factors that genuinely have no observable series are skipped with instructions instead of a bare "no series ref".</li>
-        <li><b>Fixed a units bug the zeros were hiding</b>: <code>yoy</code>-mode factors (inflation, USD, commodities) were forecast as raw <b>index levels</b> — a CPI trend of −54 index points was fed to a sensitivity calibrated in YoY percentage points, fabricating a +104% fair-value contribution. These factors are now forecast in <b>YoY% space</b> (matching how their sensitivities are calibrated and how their levels are read), with the unit stated on the forecast. <code>LEVEL_MODE</code> is now a single shared definition, so calibration and forecasting can never disagree about units again.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The attribution track record actually records</b>: <code>recordAttribution</code> read a result key that never existed (<code>contributions</code> instead of <code>per_factor</code>), so <code>model:&lt;SYM&gt;:attr:&lt;factor&gt;</code> and <code>model:&lt;SYM&gt;:forecast_fv</code> series were always empty. The run now concludes a real forecast fair value and per-factor contributions land in the track — the chartable series work.</li>
-        <li><b>Absence, not zero</b>: when every factor is skipped, the totals are now null with a note ("an absence of data, not a zero-impact forecast"), never +0.00%.</li>
       </ul>
     </div>
   </div>

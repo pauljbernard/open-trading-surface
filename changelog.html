@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.40.0] — Self-support, camp 3 (agent side): education that executes</h2>
+<ul>
+<li><b><code>explain_concept</code> / <code>get_learning_path</code></b>: a six-module curriculum (operator → analyst → methodologist) teaching the methodology — evidence grades and ceilings, the search ledger, YoY same-quarter discipline, the articulation tie, segment mix as an output, terminal basics. Every module's worked example is <b>computed by the real functions at build time</b> (the deflation example calls the live Šidák code; the tie example runs a real articulated projection and shows gap 0) — the release fails if an example stops matching the software. Every <code>try_it</code> is a <b>literal, schema-validated tool invocation</b> the agent can run against your data; an invocation citing a tool or argument that no longer exists fails the build.</li>
+<li><b>The cockpit knows about support</b>: <code>get_workspace_state</code> gains a support block (KB availability and version, last diagnostic run), and failing diagnostic checks surface in the attention list the way fired alerts do.</li>
+<li>Education joins the search index. Coming next: the terminal Support view (guide browser, one-click diagnostics, what's new, Learn with "try it with the agent" handoff) completing the co-equal UX integration.</li>
+</ul>
 <h2>[2.39.0] — Self-support, camp 2: troubleshooting as behavior</h2>
 <ul>
 <li><b><code>diagnose</code></b>: the diagnostic engine executes real checks — node version, key presence and a classifying authenticated probe (invalid / plan-limited / rate-limited, never a generic error), daemon reachability and <b>version match against this build</b> (the stale-daemon failure made visible), state-file integrity naming any corrupt file, disk writability, and the release channel. Findings are observed-vs-expected, each bound to a remedy; runs work with <b>zero keys configured</b>, never print key material, are journaled, and persist for the UI. The engine self-describes its full check inventory including what it <b>cannot</b> see.</li>
