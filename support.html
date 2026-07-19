@@ -118,12 +118,20 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.41.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 19:31 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.41.1</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 19:37 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.41.1 <span class="reltitle">Diagnostics fix its own first false alarm</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><code>daemon.reachable</code> probed <code>/health</code>; the daemon answers on <code>/_health</code> — a running daemon was reported down. Caught by the check's first live run. Fixed.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.41.0 <span class="reltitle">Self-support complete: the Support view</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -203,14 +211,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
         <li><b>Sparse series are visible</b>: a young model track with one or two points now draws explicit point markers instead of an invisible zero-segment line — the track becomes a line as history accrues.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.37.3 <span class="reltitle">Model conclusions visible in the Macro/Data panel, not hidden behind a search term</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>The chart's <b>🌐 Macro/Data</b> panel now shows an "Operating model conclusions" section for the active symbol — one-click quick-picks for <code>fair_value</code>, <code>forecast_fv</code>, <code>eps_yr1</code> and <code>eps_yr5</code>, beside the macro quick-picks, with a note that points appear as the model is saved and attributed. Previously the Model category existed only in search results, which required already knowing to type "model".</li>
       </ul>
     </div>
   </div>

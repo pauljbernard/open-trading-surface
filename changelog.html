@@ -16,6 +16,10 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.41.1] — Diagnostics fix its own first false alarm</h2>
+<ul>
+<li><code>daemon.reachable</code> probed <code>/health</code>; the daemon answers on <code>/_health</code> — a running daemon was reported down. Caught by the check's first live run. Fixed.</li>
+</ul>
 <h2>[2.41.0] — Self-support complete: the Support view</h2>
 <ul>
 <li><b>A pinned 🛟 Support tab</b> joins the workflow order with four sub-views: <b>Guide</b> (browsable topics + code-generated reference, each stamped with the KB version), <b>Diagnostics</b> (one-click run of the same engine the agent uses via the same daemon routes; findings shown observed-vs-expected with the remedy one click away; last run persisted), <b>What's new</b> (structured release history), and <b>Learn</b> (the curriculum with build-time-computed worked examples).</li>

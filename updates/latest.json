@@ -1,13 +1,13 @@
 {
-  "version": "2.41.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.41.0.plugin",
-  "sha256": "543ec041e73befed35f60c196b73daef4ee9376728cec53fd2120b89bb01c684",
+  "version": "2.41.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.41.1.plugin",
+  "sha256": "909e70223a8f02c8455d42879cb4f2c6ad52801298ac5b72ccd897eb8a2b72cb",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **A pinned 🛟 Support tab** joins the workflow order with four sub-views: **Guide** (browsable topics + code-generated reference, each stamped with the KB version), **Diagnostics** (one-click run of the same engine the agent uses via the same daemon routes; findings shown observed-vs-expected with the remedy one click away; last run persisted), **What's new** (structured release history), and **Learn** (the curriculum with build-time-computed worked examples). - **\"Try it with the agent\"**: every Learn module's schema-validated invocation can be handed to the agent through the ✉ inbox — the ",
-  "published": "2026-07-19T19:31:05.356Z",
+  "notes": "- `daemon.reachable` probed `/health`; the daemon answers on `/_health` — a running daemon was reported down. Caught by the check's first live run. Fixed.",
+  "published": "2026-07-19T19:37:57.427Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
