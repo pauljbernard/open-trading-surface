@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.39.0] — Self-support, camp 2: troubleshooting as behavior</h2>
+<ul>
+<li><b><code>diagnose</code></b>: the diagnostic engine executes real checks — node version, key presence and a classifying authenticated probe (invalid / plan-limited / rate-limited, never a generic error), daemon reachability and <b>version match against this build</b> (the stale-daemon failure made visible), state-file integrity naming any corrupt file, disk writability, and the release channel. Findings are observed-vs-expected, each bound to a remedy; runs work with <b>zero keys configured</b>, never print key material, are journaled, and persist for the UI. The engine self-describes its full check inventory including what it <b>cannot</b> see.</li>
+<li><b><code>get_troubleshooting</code></b>: symptom → causes → the executable check that confirms each → remedy. The release lint enforces the binding in <b>both directions</b> — no cause may cite a check that does not execute, and no check may emit a remedy that has no entry. The prescribed workflow is built into the payload: match the symptom, confirm with diagnose, then remedy — observe, never guess.</li>
+<li>Troubleshooting entries join the search index, so "missing feature" finds the stale-daemon entry with its check and fix.</li>
+</ul>
 <h2>[2.38.0] — Self-support, camp 1: the knowledge base is generated from the code it describes</h2>
 <ul>
 <li><b>Three new tools</b>: <code>get_user_guide</code> (enumerable TOC + guide topics + reference sections), <code>search_support</code> (canonical excerpts with kb ids and version stamps), <code>get_whats_new</code> (structured release history). Every payload is stamped with the version it was generated from; every tool description carries the retrieval doctrine: answer from the payload only, cite ids, and say when the knowledge base does not cover a question — never answer from general knowledge, which cannot know this version of the software.</li>

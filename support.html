@@ -118,12 +118,22 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.38.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 18:20 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.39.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 18:28 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.39.0 <span class="reltitle">Self-support, camp 2: troubleshooting as behavior</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b><code>diagnose</code></b>: the diagnostic engine executes real checks — node version, key presence and a classifying authenticated probe (invalid / plan-limited / rate-limited, never a generic error), daemon reachability and <b>version match against this build</b> (the stale-daemon failure made visible), state-file integrity naming any corrupt file, disk writability, and the release channel. Findings are observed-vs-expected, each bound to a remedy; runs work with <b>zero keys configured</b>, never print key material, are journaled, and persist for the UI. The engine self-describes its full check inventory including what it <b>cannot</b> see.</li>
+        <li><b><code>get_troubleshooting</code></b>: symptom → causes → the executable check that confirms each → remedy. The release lint enforces the binding in <b>both directions</b> — no cause may cite a check that does not execute, and no check may emit a remedy that has no entry. The prescribed workflow is built into the payload: match the symptom, confirm with diagnose, then remedy — observe, never guess.</li>
+        <li>Troubleshooting entries join the search index, so "missing feature" finds the stale-daemon entry with its check and fix.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.38.0 <span class="reltitle">Self-support, camp 1: the knowledge base is generated from the code it describes</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -196,19 +206,6 @@ shasum -a 256 orrery.plugin</code></pre>
       <ul>
         <li><b>The attribution track record actually records</b>: <code>recordAttribution</code> read a result key that never existed (<code>contributions</code> instead of <code>per_factor</code>), so <code>model:&lt;SYM&gt;:attr:&lt;factor&gt;</code> and <code>model:&lt;SYM&gt;:forecast_fv</code> series were always empty. The run now concludes a real forecast fair value and per-factor contributions land in the track — the chartable series work.</li>
         <li><b>Absence, not zero</b>: when every factor is skipped, the totals are now null with a note ("an absence of data, not a zero-impact forecast"), never +0.00%.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.37.0 <span class="reltitle">The deflation is live; the mountain is documented</span></h3>
-    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
-      <ul>
-        <li><b>Fixed the acknowledged Šidák dead-code defect</b>: every rule backtest now runs a <b>two-sided t-test of the mean per-trade return against zero</b>, and that nominal p-value flows into the search ledger where it is <b>actually deflated</b> by the number of distinct rules tried (a nominal p=0.03 after 10 tries deflates to ≈0.26 — and the result says so). Previously the deflation machinery existed but no backtest ever computed a p-value to feed it. Fewer than three closed trades yields no p at all, with the reason stated — never a fabricated significance.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Docs</b>: the user guide's operating-model chapter gains "Going deep: segments, quarters, and the full three statements" — the three ascents (segment-scoped drivers with chartable mix shift, quarterly fits at the honestly-earned A ceiling plus the quarterly EPS scoreboard, and articulated three-statement mode with the enforced tie) with worked "you say / it does" examples and the honesty rules that govern each. The backtester section and the site front page now describe the live deflation pipeline and the deep-model capabilities.</li>
       </ul>
     </div>
   </div>
