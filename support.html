@@ -118,12 +118,27 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.37.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 01:51 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.37.1</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 02:05 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.37.1 <span class="reltitle">Forecast &amp; attribution: no more zeros, and no more garbage either</span></h3>
+    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
+      <ul>
+        <li><b>Fixed forecast-and-attribute reporting zeros on legacy models</b>: the forecast path never received the 2.29.1 series-ref migration that calibration got, so models seeded before factors carried refs skipped EVERY factor and reported a confident +0.00%. <code>forecast_and_attribute</code> now runs the same <code>ensure()</code> backfill (persisted on save), and factors that genuinely have no observable series are skipped with instructions instead of a bare "no series ref".</li>
+        <li><b>Fixed a units bug the zeros were hiding</b>: <code>yoy</code>-mode factors (inflation, USD, commodities) were forecast as raw <b>index levels</b> — a CPI trend of −54 index points was fed to a sensitivity calibrated in YoY percentage points, fabricating a +104% fair-value contribution. These factors are now forecast in <b>YoY% space</b> (matching how their sensitivities are calibrated and how their levels are read), with the unit stated on the forecast. <code>LEVEL_MODE</code> is now a single shared definition, so calibration and forecasting can never disagree about units again.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The attribution track record actually records</b>: <code>recordAttribution</code> read a result key that never existed (<code>contributions</code> instead of <code>per_factor</code>), so <code>model:&lt;SYM&gt;:attr:&lt;factor&gt;</code> and <code>model:&lt;SYM&gt;:forecast_fv</code> series were always empty. The run now concludes a real forecast fair value and per-factor contributions land in the track — the chartable series work.</li>
+        <li><b>Absence, not zero</b>: when every factor is skipped, the totals are now null with a note ("an absence of data, not a zero-impact forecast"), never +0.00%.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.37.0 <span class="reltitle">The deflation is live; the mountain is documented</span></h3>
     <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
@@ -211,9 +226,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>Honest edges</b>: a scoped rate without a mix is ignored rather than guessed at, models without scoped drivers project byte-identically to before, and the mix always renormalizes to 100.</li>
       </ul>
     </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.30.0 <span class="reltitle">Ascent 1 begins: segment-level revenue history</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
