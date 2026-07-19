@@ -1,13 +1,13 @@
 {
-  "version": "2.29.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.29.0.plugin",
-  "sha256": "5a461e90de33db1126f96ca3f89e4d2cfc53607e6b2864fa4e24dc9b0fb1f188",
+  "version": "2.29.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.29.1.plugin",
+  "sha256": "f94fa85dedf00faf3bb186d657518c17261a9d269514e80648b02bcb61c0bd6d",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- Correcting an earlier claim: attribution is a vector at one moment, but every run is timestamped with its inputs and outputs — so each factor's contribution ACROSS runs is a time series, and so is the attributed forecast fair value. `forecast_and_attribute` now records each run, and two new series refs chart the history through the standard overlay machinery: `model:<SYM>:forecast_fv` (the attributed forecast over time) and `model:<SYM>:attr:<factor>` (one factor's fair-value contribution over time, in %). Overlay them on the price chart or stack several factors in panes to watch the attribu",
-  "published": "2026-07-18T23:55:00.947Z",
+  "notes": "- **Legacy models could never calibrate.** Models seeded before factors carried a `series` ref (the GOOG case) had catalog factors with no way to resolve data — Series showed \"—\", levels stayed null, every forward projection was flat, and attribution reported +0.00% as if it were a conclusion. `ensure()` now migrates old models by backfilling the catalog FRED ref, so Calibrate from FRED works on them like on new ones. - **The attribution panel now says \"nothing to attribute yet\"** — with the reason and the remedy (calibrate, or attach series-backed factors) — whenever every factor forecast is ",
+  "published": "2026-07-19T00:08:48.362Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

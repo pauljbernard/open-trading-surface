@@ -118,12 +118,25 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.29.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-18 23:55 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.29.1</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 00:08 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.29.1 <span class="reltitle">Fix: a confident 0.00% that actually meant "no data"</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>Legacy models could never calibrate.</b> Models seeded before factors carried a <code>series</code> ref (the GOOG case) had catalog factors with no way to resolve data — Series showed "—", levels stayed null, every forward projection was flat, and attribution reported +0.00% as if it were a conclusion. <code>ensure()</code> now migrates old models by backfilling the catalog FRED ref, so Calibrate from FRED works on them like on new ones.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The attribution panel now says "nothing to attribute yet"</b> — with the reason and the remedy (calibrate, or attach series-backed factors) — whenever every factor forecast is flat, instead of presenting a data-free zero as a forecast. A zero that means "no data" saying so is the product's own standard.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.29.0 <span class="reltitle">Attribution runs are time series, and chart like them</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -205,20 +218,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
         <li><b>Deliberately not Kelly</b>, and the plan says why: Kelly needs win probabilities and payoff ratios measured far better than this data supports, and overbetting on misestimated inputs is ruinous. The full mapping is disclosed in every response rather than optimised in private, the <b>do-nothing row is always present</b> ("doing nothing is free"), and the module never touches a portfolio.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.24.0 <span class="reltitle">Phase 4: the discovery surface stops flattering you</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>A search ledger counts every rule you have tried on a symbol.</b> The best of 40 random rules looks impressive; that is a property of 40, not of the rule — and the 40 used to be invisible. Every <code>backtest_rule</code> run is recorded, distinct rules are counted (re-running the same rule is one attempt), and each result now carries <code>search.rules_tried_on_this_symbol</code> plus a <b>Šidák-deflated significance</b>: p=0.04 after 20 tries is ~0.56 — a coin flip, not a discovery. The correction is conservative in the right direction, since correlated rules make the effective search smaller than the count.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Every backtest reserves a holdout, structurally.</b> The most recent ~25% of bars are split off inside <code>runRule</code> itself, so no caller — UI, tool, or agent — can request the flattering half alone. Both windows are scored and compared, with a verdict: a holdout return collapsing to a fraction of in-sample is named as the signature of an overfit rule, a rule that never triggers out-of-sample is named as saying nothing, and a sample too short to split is stamped ENTIRELY IN-SAMPLE rather than silently passing. (Discipline still matters — iterating against the full chart means you have seen the "holdout" — but the honest workflow is now the default, not an option.)</li>
-        <li><b>The universe starts archiving itself toward survivorship correction.</b> The screener universe lists only companies alive today, so every cohort and factor backtest against it is optimistic by an unknown margin. A frozen membership snapshot is now taken monthly as a side effect of normal refreshes — never rewritten, so a company that later delists stays in the months it was actually alive. This cannot fix the past; it builds a genuinely point-in-time panel forward from first use, and until years accumulate the responses say plainly that the bias remains.</li>
       </ul>
     </div>
   </div>

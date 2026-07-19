@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.29.1] — Fix: a confident 0.00% that actually meant "no data"</h2>
+<ul>
+<li><b>Legacy models could never calibrate.</b> Models seeded before factors carried a <code>series</code> ref (the GOOG case) had catalog factors with no way to resolve data — Series showed "—", levels stayed null, every forward projection was flat, and attribution reported +0.00% as if it were a conclusion. <code>ensure()</code> now migrates old models by backfilling the catalog FRED ref, so Calibrate from FRED works on them like on new ones.</li>
+<li><b>The attribution panel now says "nothing to attribute yet"</b> — with the reason and the remedy (calibrate, or attach series-backed factors) — whenever every factor forecast is flat, instead of presenting a data-free zero as a forecast. A zero that means "no data" saying so is the product's own standard.</li>
+</ul>
 <h2>[2.29.0] — Attribution runs are time series, and chart like them</h2>
 <ul>
 <li>Correcting an earlier claim: attribution is a vector at one moment, but every run is timestamped with its inputs and outputs — so each factor's contribution ACROSS runs is a time series, and so is the attributed forecast fair value. <code>forecast_and_attribute</code> now records each run, and two new series refs chart the history through the standard overlay machinery: <code>model:&lt;SYM&gt;:forecast_fv</code> (the attributed forecast over time) and <code>model:&lt;SYM&gt;:attr:&lt;factor&gt;</code> (one factor's fair-value contribution over time, in %). Overlay them on the price chart or stack several factors in panes to watch the attribution composition evolve.</li>
