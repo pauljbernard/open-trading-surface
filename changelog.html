@@ -16,6 +16,10 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.41.2] — Statement series are one click, not a magic search term</h2>
+<ul>
+<li>The chart's 🌐 Macro/Data panel gains a <b>Company financials</b> quick-pick section for the active symbol — EPS, Revenue, Net income, Free cash flow, Gross margin — each one click into its own pane, with a note that <code>:quarter</code> on the ref gives quarterly — plus a <b>full field browser</b>: pick any of the five statements (income, balance sheet, cash flow, ratios, key metrics), annual or quarterly, and every numeric field the provider actually returns is listed with its latest value, one click to overlay. The field list is enumerated from the live data row, so it can never disagree with what the provider serves. The capability existed (<code>fmp:income:&lt;SYM&gt;:eps</code> has resolved for many releases) but was reachable only by typing the ref grammar into search — the same discoverability failure as the model series, fixed the same way.</li>
+</ul>
 <h2>[2.41.1] — Diagnostics fix its own first false alarm</h2>
 <ul>
 <li><code>daemon.reachable</code> probed <code>/health</code>; the daemon answers on <code>/_health</code> — a running daemon was reported down. Caught by the check's first live run. Fixed.</li>
