@@ -1,13 +1,13 @@
 {
-  "version": "2.30.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.30.0.plugin",
-  "sha256": "cb4987ffa4beea0ed9123f58b905389f76de5db1f1c151b6c2573ffd1dccb442",
+  "version": "2.31.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.31.0.plugin",
+  "sha256": "6e5fdec55cdab2c59fc25d284e77679f214ea648564d460eb5ad223fb2c6dc91",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "First camp of DEEP-MODEL-SPEC. New `get_segments` returns per-segment revenue, YoY growth and mix share over time from the company's product or geographic disclosures, with the trust rules built in structurally: segments must **reconcile** to consolidated revenue — an undershoot is carried as an explicit `unallocated` segment, never silently dropped; an overshoot is flagged suspect, never silently scaled to fit. **Re-segmentations** (the company changing its segment cut) are detected and named as comparability breaks that fits must not span. A name with **no disclosure reports absence, not zer",
-  "published": "2026-07-19T00:39:51.155Z",
+  "notes": "- **Drivers may now be scoped to a segment**: `revenue_growth_pct@cloud` alongside the consolidated assumption. With `base.segment_mix` set (from `get_segments`), each year's consolidated growth is the **mix-weighted blend** — scoped segments grow at their own faded rate, unscoped segments at the consolidated one — and the projection carries `segment_mix` per year, so **mix shift is an output, not an input**: a segment growing 30% against a 5% book climbs from 25% to ~37% of revenue over five years, and you watch it happen. - **Honest edges**: a scoped rate without a mix is ignored rather than",
+  "published": "2026-07-19T00:54:39.823Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

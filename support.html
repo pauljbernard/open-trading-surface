@@ -118,12 +118,21 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.30.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 00:39 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.31.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 00:54 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.31.0 <span class="reltitle">Ascent 1, second camp: segment-scoped growth drivers</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Drivers may now be scoped to a segment</b>: <code>revenue_growth_pct@cloud</code> alongside the consolidated assumption. With <code>base.segment_mix</code> set (from <code>get_segments</code>), each year's consolidated growth is the <b>mix-weighted blend</b> — scoped segments grow at their own faded rate, unscoped segments at the consolidated one — and the projection carries <code>segment_mix</code> per year, so <b>mix shift is an output, not an input</b>: a segment growing 30% against a 5% book climbs from 25% to ~37% of revenue over five years, and you watch it happen.</li>
+        <li><b>Honest edges</b>: a scoped rate without a mix is ignored rather than guessed at, models without scoped drivers project byte-identically to before, and the mix always renormalizes to 100.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.30.0 <span class="reltitle">Ascent 1 begins: segment-level revenue history</span></h3>
   </div>
@@ -192,21 +201,6 @@ shasum -a 256 orrery.plugin</code></pre>
       <ul>
         <li><b>Rebalance plans state their full cost and the do-nothing hurdle.</b> <code>get_rebalance_plan</code> now reports turnover, trading cost (<code>cost_bps</code> per side, default 5), and estimated tax on the gain share of each sell (<code>tax_rate_pct</code>, default 20 — pass 0 for sheltered accounts; selling a loser is recognised as tax-free), then says plainly: <i>this plan starts X% of equity behind doing nothing, which is free.</i> Assumptions are disclosed in the response, not buried in a constant.</li>
         <li><b>The headless UI check now runs in CI.</b> It boots the real server and terminal in headless Chromium, drives the portfolio views, and fails on client-side defects. Provider failures (CI uses a demo key) are expected and filtered — the gate is for script errors and broken rendering, not for the network being absent. Locally it still skips cleanly when no browser is provisioned.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.26.0 <span class="reltitle">Phase 6: the adversarial pass, and scoring decisions instead of luck</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>A thesis cannot graduate to <code>active</code> until someone has argued the other side.</b> The same reasoning that proposes a thesis compiles its screen, builds its book and reads its attribution — apparent confirmation is partly self-generated, and the invalidation triggers were written by the thesis's own author. New <code>challenge_thesis</code> records the STRONGEST opposing case from the same data (fade curves, implied expectations, weak-grade sensitivities are all ammunition); a token objection is rejected for lack of substance. Activation without a challenge throws; <code>force:true</code> overrides but leaves a permanent mark in the review log.</li>
-        <li><b>New <code>get_risk_register</code></b>: active convictions nobody has argued against, plus decisions past their stated horizon and unresolved. That list is where the next loss is most likely hiding.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Decision records demand a falsifier.</b> <code>record_decision</code> refuses anything without an expectation, a horizon ("eventually" is unfalsifiable) and the observable that would prove it wrong — a decision without a falsifier is a mood: nothing can ever force you to admit it failed, so nothing is learned. The do-nothing case rides along, because the alternative to every trade is free. Recording a deliberate HOLD is as scoreable as a trade.</li>
-        <li><b>Resolution is one-shot and honest about the worst outcome.</b> <code>resolve_decision</code> closes a record against its own stated terms; <code>right_for_wrong_reason</code> is a separate verdict and the scorecard singles it out as the dangerous column — it pays you to keep a broken process. <code>get_decision_scorecard</code> reports hit rate over judged calls and names every overdue unresolved decision, scoring <b>decisions rather than portfolio return, because return conflates process with luck</b>.</li>
       </ul>
     </div>
   </div>
