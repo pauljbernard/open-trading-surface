@@ -118,12 +118,28 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.33.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 01:21 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.34.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 01:31 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.34.0 <span class="reltitle">Ascent 2, first camp: quarterly frequency</span></h3>
+    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
+      <ul>
+        <li>Fixed a latent grader crash: an A-branch fit with an undefined r² (zero-variance outcome) crashed instead of reporting "r² undefined — outcome has no variance".</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Quarterly driver history</b> (<code>quarterlyDriverHistory</code>): every driver assembled per fiscal quarter from FMP quarterly statements, labelled by the statement's own period field (calendar-month guessing only as a stated fallback). ~60 points where annual data offers ~15.</li>
+        <li><b>Seasonality is structure, never signal</b>: growth and all fit series are <b>year-over-year same-quarter</b> — a strong-Q4 business shows constant growth, not a seasonal sawtooth, and sequential quarter-on-quarter is never regressed.</li>
+        <li><b><code>calibrate_model_factors</code> gains <code>period:'quarter'</code></b>: factor series are aggregated to quarterly averages and YoY-transformed exactly like the driver side, fits run through the inference spine under the <code>quarterly_regression</code> ceiling — the <b>A grade</b> that ~15 annual points can never honestly reach is now earnable on ~60 quarterly points that measure it.</li>
+        <li><b>Breaks at quarter grain</b>: a structural break carrying a quarter (<code>2020Q2</code>) disqualifies fits at that resolution; year-grain breaks land at that year's Q1 and still disqualify. <code>accept:true</code> never applies a break-spanning fit.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.33.0 <span class="reltitle">Ascent 1 complete: factor edges reach individual segments</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -187,22 +203,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-new">New</span>
       <ul>
         <li>The <b>Add factor</b> control's target list now includes existing nodes alongside the financial drivers, so multi-hop chains (materials → unit cost → margin) can be built directly in the Operating Model view, not only through the agent tools.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.28.0 <span class="reltitle">The operating model becomes a real causal graph, and starts keeping its own score</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>Any cause, not just macro.</b> Model nodes now cover whatever actually moves the company — supply chains, vendors, energy, raw materials, labor, new products, sales channels, competition, recalls, regulation — with an OPEN category vocabulary instead of a fixed list. The old closed list was forcing real-world causes into whichever bucket fit least badly.</li>
-        <li><b>The model is chartable against the price</b> — the only real test. New series refs <code>model:&lt;SYM&gt;:fair_value</code>, <code>model:&lt;SYM&gt;:eps_yr1</code>, <code>model:&lt;SYM&gt;:eps_yr5</code> resolve from the snapshot track through the SAME overlay machinery as FRED or a commodity, so <code>control_chart add_overlay {ref: "model:AAPL:fair_value"}</code> draws what the model believed, when, on top of what the stock actually did. The Operating Model view gains a <b>Model track record</b> table (date, price, fair value, FV-vs-price gap, EPS, node/edge counts).</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Causes chain.</b> Edges may land on another node, not only on a financial driver: <code>lithium_price → cell_cost → gross_margin_pct</code>, or <code>recall → warranty_cost → opex</code> alongside <code>recall → brand → revenue growth</code>. A shock propagates along every path as the <b>product of sensitivities</b>, and each completed path is traced so the answer reads as a story. Dead ends are reported ("this node reaches no financial driver"), cycles are rejected at link time, and paths cap at depth 8 because a longer causal story is a modelling smell.</li>
-        <li><b>Deep chains can earn grades.</b> When both ends of a node→node edge carry a series ref (lithium price → a vendor's reported input costs), the link is FITTED series-to-series with full inference, not just estimated. The influence map lays nodes out by topological depth, so chains render as chains, with stage nodes tinted per category (open categories get a stable generated hue).</li>
-        <li><b>The model keeps a dated track of its own conclusions.</b> Every save snapshots concluded fair value, EPS (yr1/yr5), the drivers, and the price at the time — deduplicated per day unless the conclusion moved, capped at 400. <code>modelDrift</code> compares snapshots and names which ASSUMPTIONS moved and by how much: the model shifting is a different fact from the stock moving, and it is the one you did to yourself.</li>
       </ul>
     </div>
   </div>

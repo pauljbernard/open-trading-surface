@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.34.0] — Ascent 2, first camp: quarterly frequency</h2>
+<ul>
+<li><b>Quarterly driver history</b> (<code>quarterlyDriverHistory</code>): every driver assembled per fiscal quarter from FMP quarterly statements, labelled by the statement's own period field (calendar-month guessing only as a stated fallback). ~60 points where annual data offers ~15.</li>
+<li><b>Seasonality is structure, never signal</b>: growth and all fit series are <b>year-over-year same-quarter</b> — a strong-Q4 business shows constant growth, not a seasonal sawtooth, and sequential quarter-on-quarter is never regressed.</li>
+<li><b><code>calibrate_model_factors</code> gains <code>period:'quarter'</code></b>: factor series are aggregated to quarterly averages and YoY-transformed exactly like the driver side, fits run through the inference spine under the <code>quarterly_regression</code> ceiling — the <b>A grade</b> that ~15 annual points can never honestly reach is now earnable on ~60 quarterly points that measure it.</li>
+<li><b>Breaks at quarter grain</b>: a structural break carrying a quarter (<code>2020Q2</code>) disqualifies fits at that resolution; year-grain breaks land at that year's Q1 and still disqualify. <code>accept:true</code> never applies a break-spanning fit.</li>
+<li>Fixed a latent grader crash: an A-branch fit with an undefined r² (zero-variance outcome) crashed instead of reporting "r² undefined — outcome has no variance".</li>
+</ul>
 <h2>[2.33.0] — Ascent 1 complete: factor edges reach individual segments</h2>
 <ul>
 <li><b>Factor edges may now target scoped drivers</b>: <code>tpu_supply → revenue_growth_pct@cloud</code> is a legal edge, so a supply-chain cause moves the Cloud assumption while Search stands untouched. Cycle detection and path-product propagation carry through unchanged.</li>
