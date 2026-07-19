@@ -118,12 +118,23 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.51.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-19 22:22 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.52.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-19 22:27 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.52.0 <span class="reltitle">Model honesty, camp 5: scope — the model says what it cannot see</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>A large gap is now a question, not a verdict.</b> The TSLA model concluded $17 against a $381 price and reported <b>−95%</b> with a straight face. That is not a valuation opinion; it is a five-year DCF on car margins failing to represent what the market is paying for. <b>Gap triage</b> now runs automatically past a ±35% gap: the system reverse-solves <i>itself</i> and classifies. On TSLA it finds that <b>no</b> revenue growth between −40% and +120% and <b>no</b> gross margin up to 95% produces $381 — so the verdict reads <i>"the gap is not an opinion about these drivers"</i> rather than a −95% call.</li>
+        <li><b>Two classifications, both earned by an actual solve.</b> <code>drivers_disputable</code> names the assumption the price requires ("growth would have to be X, you assume Y — get_base_rates puts that against the cohort"); <code>value_outside_model_scope</code> says plainly that the price is unreachable inside the model. A gap the model explains is left alone — triage does not manufacture a scope problem.</li>
+        <li><b>The unmodeled register</b> (<code>set_unmodeled</code>): declare what a model does not capture — a business line, optionality, an asset the DCF cannot see. Fair value is then reported as <b>modeled core</b> with declared items listed beside it. <b>Value ranges are optional by design</b>: an item carried unvalued stays excluded from every total, because <i>"I cannot value this"</i> is a position, not a gap to fill with a guess. Declaring scope changes the prompt — the gap becomes expected rather than unexplained.</li>
+        <li><b>Silence about scope is itself reported</b>: a model with nothing declared is told that an undeclared omission reads as a valuation opinion. 8 further tests (39 in <code>model-honesty.test.js</code>), including that the modeled core is never absorbed into a total and that nameless items and inverted ranges are refused.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.51.0 <span class="reltitle">Model honesty, camp 4: calibration coherence and driver fade</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -208,19 +219,6 @@ shasum -a 256 orrery.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
         <li><b>The measured result</b>: the 50k-bar battery completes in tens of milliseconds and every series operation in single-digit milliseconds. Computation is not the binding constraint at any realistic chart size; provider latency is. The envelope is documented in the knowledge base (<code>guide.performance_envelope</code>) from the measured numbers, and re-measurable any time via run_test_suite — measured, not assumed, and no premature optimization shipped.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.44.0 <span class="reltitle">Charting arc, camp 3: valuation bands</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>One-click band sets</b> in the Macro/Data panel: P/E bands and P/S bands (10/35/65/90) for the active symbol, added together in price mode. EV/EBITDA bands are <b>deliberately absent</b> until the EV roll-forward is wired — the help text says so rather than shipping a fiction.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b><code>band:&lt;SYM&gt;:&lt;pe|ps&gt;:&lt;percentile&gt;</code></b> — the price implied by holding the multiple at a chosen percentile of its OWN trailing distribution, drawn through time on the price scale. Fundamentals come through the transform pipeline (true TTM EPS / TTM sales per share), so the bands inherit every honesty rule already in the machinery. The label discloses the multiple and the observation count; <b>fewer than 40 multiple observations is refused</b> — a band from thin history is a guess, and absence renders as absence.</li>
       </ul>
     </div>
   </div>
