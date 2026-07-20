@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.65.0</h2>
+<ul>
+<li><b>Seeding scope is now a parameter, defaulting to the S&amp;P 500 + Dow.</b> ~503 unique names (the Dow is nearly a subset). <code>indexes</code> overrides it; <code>index.nasdaq100</code> remains available.</li>
+<li><b>Only PUBLISHED constituent lists are seedable, and the reason is recorded in the code.</b> An index cohort resolves from the provider's membership endpoint and returns the whole index; a rule-based cohort goes through the screener, which is capped at 60 rows. Seeding from a capped screen would hand you the 60 largest names of something and call it the set.</li>
+<li><b>The Nasdaq Composite is not offered, with the measurement to justify it.</b> No endpoint publishes its constituents. The public components page carries ~400 names by company NAME rather than ticker, and a Nasdaq exchange screen returned 196 rows of which 134 were mutual funds. Naming a cohort after an index it is not would be the substitution this codebase refuses everywhere else.</li>
+<li>Every run reports <code>cohorts_used</code>, so a narrowed scope can never be mistaken for full coverage.</li>
+</ul>
 <h2>2.64.0</h2>
 <ul>
 <li><b><code>seed_default_models</code> — bulk operating-model coverage.</b> Seeds models across the union of S&amp;P 500, Dow and Nasdaq-100 constituents (~550 unique names) so cohort premiums have enough modelled members to produce a baseline at all. It runs the *same* calibration as <code>build_company_model</code>: drivers come from each company's filed statements and consensus estimates, clamped, with the calibrator's warnings preserved on the model.</li>
