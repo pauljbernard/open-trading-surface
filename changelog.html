@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.62.2</h2>
+<ul>
+<li><b>Fixed: rule-based cohorts were permanently empty.</b> An empty membership resolution was being CACHED, so a transient provider failure became a self-confirming fact — every sector and size cohort resolved to zero members and stayed that way. An empty result is now never persisted, and a cohort that resolved empty re-asks rather than serving the cached nothing.</li>
+<li><b>Fixed: <code>max_cache_days: 0</code> did the opposite of what it says.</b> Under <code>age &lt; max</code> it could never be satisfied, so the one control for forcing a refresh silently pinned the stale answer in place.</li>
+<li><b>Fixed a refusal that named the wrong cause.</b> "only 0 of 0 members have a model — build models for more members" told the user to fix their modelling when the real failure was membership resolution. Zero members now reports the membership failure, quotes the provider error where there is one, and states that membership is UNKNOWN rather than empty.</li>
+</ul>
 <h2>2.62.1</h2>
 <ul>
 <li><b>Fixed: selecting the Cohorts tab bricked the entire terminal.</b> Cohorts shipped at pinned index -7 wired into <code>renderContent</code> but not <code>renderRail</code>, so it fell through to <code>state.tabs[-7]</code> (undefined) and threw on <code>tab.view</code>. Because the throw happened during boot, the agent control channel never started — the terminal painted its tab strip and then sat blank and unreachable, identically on every reload, with every automated check green.</li>
