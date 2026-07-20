@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.69.0 — membership was filtered by liquidity, and by nothing that checked whether a company still exists</h2>
+<ul>
+<li><b><code>volumeMoreThan: 250000</code> was excluding live mega caps from their own sectors.</b> An Energy screen at &gt;$40B returned nine names, missing EOG, PSX, MPC, VLO, WMB, OKE, BKR, FANG, TRGP and EQT. COP came back with volume 191,520 on one call and 253,972 on the next — it flickered across the threshold, so membership was not even deterministic between reads. The provider's <code>volume</code> field is plainly not daily volume. The deeper error was conceptual: <b>a cohort is defined by what a company IS, not by how much it traded this morning.</b> Liquidity is a screening concern and belongs in a screen the user asks for. Filter removed.</li>
+<li><b><code>isActivelyTrading: false</code> was ignored.</b> PXD (Pioneer, acquired 2024) and HES (Hess, acquired) sat in the Energy cohort with healthy-looking caps and prices while live companies were filtered out by volume. The provider had been telling us they stopped trading the entire time; the hygiene filter only checked for a zero cap or price and never read the field.</li>
+</ul>
 <h2>2.68.0 — Camp 2: Security and Peer Group on the contract</h2>
 <ul>
 <li><b>Security confidence is unearned for almost every symbol.</b> It becomes measured only where backfill scoring has actually resolved outcomes. Everywhere else it is a structural prior explicitly marked <code>earned: false</code> — and an auto-seeded model now carries *lower* structural confidence (0.2) than one somebody reasoned about (0.4), with an <code>issues()</code> entry saying it is unexamined.</li>
