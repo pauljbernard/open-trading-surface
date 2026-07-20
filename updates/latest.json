@@ -1,13 +1,13 @@
 {
-  "version": "2.60.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.60.1.plugin",
-  "sha256": "4a9f0e901ad8490f3d1135cf1e95d2282487b4625c63ebd769cd0d6dd3fcf5cf",
+  "version": "2.61.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.61.0.plugin",
+  "sha256": "9846ffefcdfeef1bd82dc878378d5bccdfe439ccc8adba13f32e52eada74a55e",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **The whole point of the arc was missing from the Operating Model view.** The engine shipped, the tool shipped, and the view rendered cohort *membership* chips — so you could see that AAPL belongs to Technology, Mega cap and Megacap platforms, and nothing about what the model actually said against them. The bare −47% gap sat there unreframed, which is precisely what the decomposition exists to fix. Reported by a user looking at the view and finding **no appreciable improvement** — an accurate reading of what was in front of them. - **What the price is made of** now renders directly beneath t",
-  "published": "2026-07-20T01:04:52.836Z",
+  "notes": "- **The bug that made the whole lattice look empty.** `cohorts.js` called a provider endpoint that does not exist (`stock-screener` instead of `company-screener`), and the failure was swallowed by a `.catch(() => [])`. Every rule-based cohort silently resolved to **zero members**, so the decomposition reported *\"0 of 0 members have a model\"* — a refusal naming the wrong cause, which is worse than a crash. Fixed, and a provider failure now returns `membership is UNKNOWN, not empty` rather than pretending the group is empty. - **A Cohorts tab (🧬).** The peer groups every valuation is measured a",
+  "published": "2026-07-20T01:42:30.733Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
