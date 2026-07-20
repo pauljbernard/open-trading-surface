@@ -1,13 +1,13 @@
 {
-  "version": "2.60.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.60.0.plugin",
-  "sha256": "ce000054de1d93fe711fa00fd16c2bdf02ff8b888653645da5763586b4a2e947",
+  "version": "2.60.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.60.1.plugin",
+  "sha256": "4a9f0e901ad8490f3d1135cf1e95d2282487b4625c63ebd769cd0d6dd3fcf5cf",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **`set_exit_anchor`** — anchor a model's exit multiple to its cohort's own median multiple instead of the catalog `18x`, which measured across 45 large caps is roughly half what the market pays and is precisely why every default-calibrated model concludes the same thing. The multiple is computed from member models' year-1 EPS — **self-contained, no external multiple feed** — and refuses below 12 modeled members. - **Suggested, never applied.** Default behaviour is suggestion-only, following the `articulation_suggested` precedent, because this is the one change in the arc that alters what an ",
-  "published": "2026-07-20T00:46:35.492Z",
+  "notes": "- **The whole point of the arc was missing from the Operating Model view.** The engine shipped, the tool shipped, and the view rendered cohort *membership* chips — so you could see that AAPL belongs to Technology, Mega cap and Megacap platforms, and nothing about what the model actually said against them. The bare −47% gap sat there unreframed, which is precisely what the decomposition exists to fix. Reported by a user looking at the view and finding **no appreciable improvement** — an accurate reading of what was in front of them. - **What the price is made of** now renders directly beneath t",
+  "published": "2026-07-20T01:04:52.836Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

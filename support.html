@@ -118,12 +118,23 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.60.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-20 00:46 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.60.1</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-20 01:04 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.60.1 <span class="reltitle">Fix: the decomposition was reachable as a tool but invisible in the UI</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The whole point of the arc was missing from the Operating Model view.</b> The engine shipped, the tool shipped, and the view rendered cohort <i>membership</i> chips — so you could see that AAPL belongs to Technology, Mega cap and Megacap platforms, and nothing about what the model actually said against them. The bare −47% gap sat there unreframed, which is precisely what the decomposition exists to fix. Reported by a user looking at the view and finding <b>no appreciable improvement</b> — an accurate reading of what was in front of them.</li>
+        <li><b>What the price is made of</b> now renders directly beneath the fair-value range: <code>price = substantiated × total premium</code>, then a row per cohort giving members modeled, the <b>cohort premium</b> (what the market pays that whole group over fundamentals — the part that is not about this company), <b>this name vs cohort</b>, and the percentile of that reading in its own history. Absorbed and ineligible cohorts state why. The <b>robustness</b> spread across cohorts renders beneath, so a flattering comparison group stays visible rather than available.</li>
+        <li><b>A contract test now enforces the law I broke.</b> "A capability does not exist until it is discoverable in both renderings" — the test asserts the daemon exposes the route, the view fetches it, all three terms of the identity render, and the recorded negative result travels with them. Shipping an engine plus a tool satisfied neither half properly.</li>
+        <li>480 tests across 51 suites.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.60.0 <span class="reltitle">Value decomposition, camp 6: absolute or relative, but say which. VALUE-DECOMPOSITION-SPEC complete.</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -236,19 +247,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>Curated examples are labelled as the editorial judgments they are.</b> "AI complex" is an opinion about membership, not a taxonomy — shipping it beside "Semiconductors" as though both were facts would smuggle a view into an analytical baseline. They carry <code>curated_example</code>, say so in their own provenance, are freely deletable, and deletion is <b>tombstoned</b> so the seeder cannot helpfully restore the judgment you just rejected.</li>
         <li><b>Watchlists are cohorts</b> — bridged by reference, never rewritten. <code>promote_watchlist_to_cohort</code> makes one curated list serve both roles: still a watchlist for monitoring, now also a baseline others are valued against. Membership is stored once, and <b>resync is deliberate rather than automatic</b> so a comparison baseline never shifts under an analysis unnoticed.</li>
         <li><b>Honest floors and disclosure</b>: fewer than 12 members and a cohort <b>refuses to supply a premium</b> — a median of four is not a median — while remaining perfectly usable for watching and screening. Rule-based membership is cached with its date <b>always disclosed</b>; without a provider profile, rule-based membership is reported as <i>absent</i> rather than guessed.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.53.0 <span class="reltitle">Model honesty, camp 6: a point-in-time track record, or none at all</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b><code>backfill_model_track</code></b> — reconstructs what a model WOULD have concluded at past dates, so the accountability machinery (forecast scoring, re-underwriting, the model-gap chart) has evidence now rather than in three years. It had exactly one snapshot before this.</li>
-        <li><b>The rules are absolute, not aspirational.</b> A statement is usable at a date only if it was <b>filed</b> by then — fiscal period end is not knowledge, so FY2024 ending 31 December is invisible until its February filing. Statements without a filing date are never used. And if the provider reports <b>no</b> filing dates at all, the tool <b>refuses outright</b>: guessing a reporting lag would fabricate the very track record it claims to measure. A fabricated history would launder hindsight into apparent skill and every downstream honesty mechanism would inherit the lie.</li>
-        <li><b>What it cannot do is stated on every payload</b>: restatements are indistinguishable from originals in this data; analyst consensus cannot be reconstructed historically, so growth uses trailing CAGR from filed statements and the method therefore <i>differs</i> from the live model; judgment drivers (discount rate, exit multiple) are carried back from today, which is hindsight.</li>
-        <li><b>Separate by construction</b>: reconstructions are stored apart from the live track and carry their own series ref — <code>model:&lt;SYM&gt;:backfill_fv</code>, whose catalog label reads <i>"BACKFILLED … not calls that were made"</i> in the very text you pick it by. A reconstruction can never be charted as a call that was actually made.</li>
-        <li><b>Scoring refuses more than it reports.</b> Fewer than three completed forward windows yields no summary at all ("computing one anyway would be the failure this module exists to avoid"). When a regression is possible it is graded like every other estimate and ships its own reasons for doubt: overlapping windows, no search-ledger deflation, no holdout, one name — <i>"a hint to investigate, not evidence of edge"</i>.</li>
-        <li>9 further tests (48 in <code>model-honesty.test.js</code>), most of them asserting what the module refuses to do. <b>MODEL-HONESTY-SPEC is now fully executed.</b></li>
       </ul>
     </div>
   </div>

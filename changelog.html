@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.60.1] — Fix: the decomposition was reachable as a tool but invisible in the UI</h2>
+<ul>
+<li><b>The whole point of the arc was missing from the Operating Model view.</b> The engine shipped, the tool shipped, and the view rendered cohort *membership* chips — so you could see that AAPL belongs to Technology, Mega cap and Megacap platforms, and nothing about what the model actually said against them. The bare −47% gap sat there unreframed, which is precisely what the decomposition exists to fix. Reported by a user looking at the view and finding <b>no appreciable improvement</b> — an accurate reading of what was in front of them.</li>
+<li><b>What the price is made of</b> now renders directly beneath the fair-value range: <code>price = substantiated × total premium</code>, then a row per cohort giving members modeled, the <b>cohort premium</b> (what the market pays that whole group over fundamentals — the part that is not about this company), <b>this name vs cohort</b>, and the percentile of that reading in its own history. Absorbed and ineligible cohorts state why. The <b>robustness</b> spread across cohorts renders beneath, so a flattering comparison group stays visible rather than available.</li>
+<li><b>A contract test now enforces the law I broke.</b> "A capability does not exist until it is discoverable in both renderings" — the test asserts the daemon exposes the route, the view fetches it, all three terms of the identity render, and the recorded negative result travels with them. Shipping an engine plus a tool satisfied neither half properly.</li>
+<li>480 tests across 51 suites.</li>
+</ul>
 <h2>[2.60.0] — Value decomposition, camp 6: absolute or relative, but say which. VALUE-DECOMPOSITION-SPEC complete.</h2>
 <ul>
 <li><b><code>set_exit_anchor</code></b> — anchor a model's exit multiple to its cohort's own median multiple instead of the catalog <code>18x</code>, which measured across 45 large caps is roughly half what the market pays and is precisely why every default-calibrated model concludes the same thing. The multiple is computed from member models' year-1 EPS — <b>self-contained, no external multiple feed</b> — and refuses below 12 modeled members.</li>
