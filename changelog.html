@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.68.0 — Camp 2: Security and Peer Group on the contract</h2>
+<ul>
+<li><b>Security confidence is unearned for almost every symbol.</b> It becomes measured only where backfill scoring has actually resolved outcomes. Everywhere else it is a structural prior explicitly marked <code>earned: false</code> — and an auto-seeded model now carries *lower* structural confidence (0.2) than one somebody reasoned about (0.4), with an <code>issues()</code> entry saying it is unexamined.</li>
+<li><b>Security refuses historical dates it cannot reconstruct.</b> <code>state(at)</code> returns a backfilled point or an absence naming <code>backfill_model_track</code> — never today's drivers dressed as history.</li>
+<li><b>A peer group has NO point-in-time support, and now says so.</b> Membership is cached with a date but not versioned, so "who was in Technology in 2020" is unanswerable. Claiming otherwise would mean today's members with yesterday's prices.</li>
+<li><b>A peer group REFUSES to forecast its premium.</b> Per OPERATING-MODEL-SPEC camp 5, forecasting a premium implies the convergence this project has twice failed to demonstrate. The refusal cites the failed name-holdout and states the condition for lifting it. This is camp 5 enforced at the model level rather than left to a future Opportunity Engine to remember.</li>
+<li><b>Coverage, composition and truncation now live in <code>state()</code> together</b>, because each changes what a premium means and any one of them missing makes it look better supported than it is.</li>
+</ul>
 <h2>2.67.0 — Camp 1: the Operating Model contract</h2>
 <ul>
 <li><b><code>series()</code> makes the discoverability law mechanical.</b> A computed quantity that should be visible must be declared here. The failure this closes is the one that recurred three times in a single evening: a correct engine invisible at the surface, most recently a premium built from 47 mechanically-seeded models displayed with nothing saying so.</li>
