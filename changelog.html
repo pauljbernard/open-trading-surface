@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>[2.59.0] — Value decomposition, camp 4: the negative results become part of the product</h2>
+<ul>
+<li><b>A study register</b>, shipped with the software rather than kept as user data — because the failure mode of quantitative research is *rediscovery*: running the same analysis next quarter, getting the same artifact, and believing it because nobody wrote down that it had already been tested and had already died.</li>
+<li><b>Two findings ship.</b> The premium-vs-forward-returns study is recorded as an <b>ARTIFACT</b>, with the numbers that made it look real (slope −17.5, r² 0.046, p 0.0015, grade B, sign-consistent 5/5 slices, cluster t −8.2, <b>survived Šidák deflation at 0.009</b>) sitting beside the two checks that killed it (name-holdout producing *opposite* signs, +5.3 train vs −26.9 holdout; and collapse to p 0.29 on dropping five AI/semiconductor names). The sector-dispersion study is recorded as <b>CONFIRMED</b>, with the caveat that part of the spread is model misspecification rather than market pricing — which is an argument *for* cohort-relative reading, since comparing like with like cancels shared model error too.</li>
+<li><b><code>get_research_studies</code></b> returns the running total of hypotheses tried against this data, so a new test knows it is the 8th and deflates accordingly. <b><code>record_study</code></b> lets you add your own — with a field for *what killed it*, because a recorded negative is worth more than an unrecorded positive.</li>
+<li><b>Two new education modules</b>, both lint-bound to real tools: *"A significant result that wasn't"* carries the full autopsy and its lesson — <b>deflation corrects for how many rules you tried, not for how few independent things you observed</b> — and *"Why one comparison group is never enough"* carries the 1.07×–3.58× sector spread and the 33.6%/66.4% variance split that forced the lattice design.</li>
+<li>156 tools, 8 education modules, 473 tests across 51 suites.</li>
+</ul>
 <h2>[2.58.0] — Value decomposition, camp 3b: the decomposition becomes queryable</h2>
 <ul>
 <li><b>Premium fields in the screener</b>, resolved through the panel: <code>substantiated</code>, <code>total_premium</code>, <code>idio_premium_min/max/median</code>, <code>robustness</code>, <code>n_cohorts</code>, <code>has_model</code>. A new <code>premium</code> stage, appended last so it never runs for a screen that does not ask for it — existing saved screens evaluate identically.</li>

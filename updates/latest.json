@@ -1,13 +1,13 @@
 {
-  "version": "2.58.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.58.0.plugin",
-  "sha256": "eb7171e6193e91f2e6b239b92b25dfcd2b9fc10c4b556609357bb3dd8197ccd3",
+  "version": "2.59.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.59.0.plugin",
+  "sha256": "34e3731352cba6eee849a18ff7d53161ed269541d7a65531e9e16523318aeb43",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **Premium fields in the screener**, resolved through the panel: `substantiated`, `total_premium`, `idio_premium_min/max/median`, `robustness`, `n_cohorts`, `has_model`. A new `premium` stage, appended last so it never runs for a screen that does not ask for it — existing saved screens evaluate identically. - **The anti-shopping law stops being an exhortation and becomes a query.** `where idio_premium_max < 0.85` selects names cheap against **every** cohort they belong to, since the max is the least flattering reading. `where robustness > 0.5` finds names whose relative valuation depends on w",
-  "published": "2026-07-20T00:31:04.152Z",
+  "notes": "- **A study register**, shipped with the software rather than kept as user data — because the failure mode of quantitative research is *rediscovery*: running the same analysis next quarter, getting the same artifact, and believing it because nobody wrote down that it had already been tested and had already died. - **Two findings ship.** The premium-vs-forward-returns study is recorded as an **ARTIFACT**, with the numbers that made it look real (slope −17.5, r² 0.046, p 0.0015, grade B, sign-consistent 5/5 slices, cluster t −8.2, **survived Šidák deflation at 0.009**) sitting beside the two che",
+  "published": "2026-07-20T00:36:25.847Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

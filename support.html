@@ -118,12 +118,32 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.58.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-20 00:31 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.59.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-20 00:36 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.59.0 <span class="reltitle">Value decomposition, camp 4: the negative results become part of the product</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b><code>get_research_studies</code></b> returns the running total of hypotheses tried against this data, so a new test knows it is the 8th and deflates accordingly. <b><code>record_study</code></b> lets you add your own — with a field for <i>what killed it</i>, because a recorded negative is worth more than an unrecorded positive.</li>
+        <li><b>Two new education modules</b>, both lint-bound to real tools: <i>"A significant result that wasn't"</i> carries the full autopsy and its lesson — <b>deflation corrects for how many rules you tried, not for how few independent things you observed</b> — and <i>"Why one comparison group is never enough"</i> carries the 1.07×–3.58× sector spread and the 33.6%/66.4% variance split that forced the lattice design.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
+      <ul>
+        <li><b>A study register</b>, shipped with the software rather than kept as user data — because the failure mode of quantitative research is <i>rediscovery</i>: running the same analysis next quarter, getting the same artifact, and believing it because nobody wrote down that it had already been tested and had already died.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Two findings ship.</b> The premium-vs-forward-returns study is recorded as an <b>ARTIFACT</b>, with the numbers that made it look real (slope −17.5, r² 0.046, p 0.0015, grade B, sign-consistent 5/5 slices, cluster t −8.2, <b>survived Šidák deflation at 0.009</b>) sitting beside the two checks that killed it (name-holdout producing <i>opposite</i> signs, +5.3 train vs −26.9 holdout; and collapse to p 0.29 on dropping five AI/semiconductor names). The sector-dispersion study is recorded as <b>CONFIRMED</b>, with the caveat that part of the spread is model misspecification rather than market pricing — which is an argument <i>for</i> cohort-relative reading, since comparing like with like cancels shared model error too.</li>
+        <li>156 tools, 8 education modules, 473 tests across 51 suites.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.58.0 <span class="reltitle">Value decomposition, camp 3b: the decomposition becomes queryable</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -227,21 +247,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>Two classifications, both earned by an actual solve.</b> <code>drivers_disputable</code> names the assumption the price requires ("growth would have to be X, you assume Y — get_base_rates puts that against the cohort"); <code>value_outside_model_scope</code> says plainly that the price is unreachable inside the model. A gap the model explains is left alone — triage does not manufacture a scope problem.</li>
         <li><b>The unmodeled register</b> (<code>set_unmodeled</code>): declare what a model does not capture — a business line, optionality, an asset the DCF cannot see. Fair value is then reported as <b>modeled core</b> with declared items listed beside it. <b>Value ranges are optional by design</b>: an item carried unvalued stays excluded from every total, because <i>"I cannot value this"</i> is a position, not a gap to fill with a guess. Declaring scope changes the prompt — the gap becomes expected rather than unexplained.</li>
         <li><b>Silence about scope is itself reported</b>: a model with nothing declared is told that an undeclared omission reads as a valuation opinion. 8 further tests (39 in <code>model-honesty.test.js</code>), including that the modeled core is never absorbed into a total and that nameless items and inverted ranges are refused.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.51.0 <span class="reltitle">Model honesty, camp 4: calibration coherence and driver fade</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b><code>set_model_fade</code></b> — new tool. Set explicit terminal levels (<code>{gross_margin_pct: 45}</code>) or adopt the cohort fade path with <code>from_base_rates: true</code>, which reads the existing base-rate engine rather than inventing a curve; it <b>refuses</b> when the cohort produces no usable path rather than making one up. Faded drivers move linearly from their year-1 value to the terminal level, and the fade flows through the projection, the valuation, the elasticities and the uncertainty band alike.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The source contradiction is named.</b> Calibration takes revenue growth from analyst consensus and margins from the last reported year "for internal consistency" — but the analysts supplying that growth generally assume margin expansion too, so the model was running their volumes against profitability they never forecast, and saying nothing. <code>calibration_coherence</code> now reports the conflict with its reasoning and remedy. A self-consistent calibration is not accused; the check discriminates.</li>
-        <li><b>Holding a level flat is treated as the forecast it is.</b> Revenue growth always decayed toward terminal while gross margin, opex, D&amp;A and capex intensity were pinned for the entire horizon — an unstated claim that the company escapes the reversion its cohort typically shows. The coherence block now states which drivers are being held flat and why that is an assumption, quoting the base-rate engine's own finding.</li>
-        <li><b>Never applied silently</b>: without a fade map the projection is byte-identical to before, so both choices are now explicit and disclosed — flat is a decision you can see rather than a default you never noticed. 7 further tests (31 in <code>model-honesty.test.js</code>), including that year 1 is unchanged, that interpolation is linear at the midpoint, and that a faded driver stops being reported as "held flat".</li>
       </ul>
     </div>
   </div>
