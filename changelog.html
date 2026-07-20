@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.63.1</h2>
+<ul>
+<li><b>A disconnected terminal now says so.</b> The session token is baked into the page when it is served; if the server restarts and mints a new one, that page holds a dead token and every control-channel poll is rejected. The rejection was swallowed by a bare <code>.catch</code> and retried silently every 3s — producing a terminal that rendered views and updated prices while the agent could not see or drive it, with nothing on screen to say why. Rejected polls now raise a visible "Disconnected from Orrery" banner with a cache-busting Reload, because a plain refresh can return the same cached page with the same dead token (which is why refreshing appeared to do nothing).</li>
+<li><b><code>open_terminal</code> distinguishes the two causes.</b> A blank pane means a boot error; a normally-rendering page means an expired session. They are indistinguishable from the server side and are told apart by looking at the screen, so the tool now says that instead of guessing one.</li>
+</ul>
 <h2>2.63.0</h2>
 <ul>
 <li><b>Cohort membership hygiene.</b> A live Technology cohort resolved 60 "companies" that included <code>MU.TO</code> beside <code>MU</code> (at a *larger* cap, for the same company), <code>AVGO.TO</code>, <code>6697.T</code>, <code>SQ</code> and <code>XYZ</code> (both Block), and <code>ATVI</code> and <code>VMW</code> — acquired in 2023 and still carrying stale caps. A median over that set counts several companies twice and a few that no longer exist; a cap-weighted premium is distorted worse. Secondary listings, duplicate issuers and provider-stated dead tickers are now removed, the largest listing wins, and <b>every removal is reported</b> in the resolved cohort and shown in the Cohorts tab. A *missing* cap is unknown, not dead, and never removes a member.</li>
