@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.67.0 — Camp 1: the Operating Model contract</h2>
+<ul>
+<li><b><code>series()</code> makes the discoverability law mechanical.</b> A computed quantity that should be visible must be declared here. The failure this closes is the one that recurred three times in a single evening: a correct engine invisible at the surface, most recently a premium built from 47 mechanically-seeded models displayed with nothing saying so.</li>
+<li><b>A bare number is rejected as confidence.</b> <code>confidence()</code> requires <code>{ value, basis, earned, n }</code>. A heuristic 0.8 and an 0.8 measured over 200 resolved forecasts look identical as numbers and mean nothing alike, so <code>earned: false</code> is a first-class value and cannot be claimed without observations.</li>
+<li><b>Answering a historical date from today's knowledge fails by DEFAULT.</b> Point-in-time support is declared (<code>pit: true</code>) and the default is that you do not have it. The first cut of this check required opting *in* to enforcement — meaning the dangerous case passed silently unless someone remembered to ask, which is the same shape as every defect the contract exists to prevent. The burden is now inverted.</li>
+<li><b><code>undefined</code> is never an acceptable answer.</b> Not-knowing is expressed with <code>absent(reason, what_would_help)</code>, which makes an absence actionable rather than merely honest.</li>
+</ul>
 <h2>2.66.0 — Camp 0: the substrate repair</h2>
 <ul>
 <li><b>Rule-based cohorts were the HEAD of their rule, not its population.</b> The screener returns at most ~60 rows per request whatever <code>limit</code> you pass, results arrive ordered by market cap, and the default was 60 — so "Technology" was the 60 largest technology companies wearing the sector's name, and its premium was biased upward by exactly the size effect a premium is supposed to be measured against. Membership now resolves by a <b>recursive market-cap band sweep</b>: a band that returns a saturated page is still hiding members, so it splits geometrically (caps are log-distributed) and both halves are swept, until no band saturates.</li>
