@@ -118,12 +118,24 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.56.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-20 00:02 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.57.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-20 00:09 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.57.0 <span class="reltitle">Value decomposition, camp 2: premium bands, without lookahead</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b><code>get_premium_band</code></b> — where a name's idiosyncratic premium sits in <b>its own history</b> against a cohort: percentile, p10/p25/p50/p75/p90, the window, and a plain reading ("at the top of its own range — priced further above its cohort than it usually is"). This is the treatment the premium legs deserve: the substantiated leg is a fundamental quantity and gets fundamental analysis, while the premiums are market-determined and get the statistical treatment a market series gets.</li>
+        <li><b>A stated, different floor.</b> 12 observations minimum, and it refuses below. The price-based valuation bands require 40 — but premiums are quarterly, so 40 would mean a decade. The lower bar is <b>stated rather than silently relaxed</b>, and the refusal points at <code>seed_premium_history</code> as the way to deepen it.</li>
+        <li><b>The percentile series does not look ahead.</b> <code>model:&lt;SYM&gt;:premium_idio_pct</code> ranks each point only against observations that <b>preceded</b> it — an expanding window. Ranking against the full history would leak the future into every past point and make the series look far more informative than it is. Tested directly: a monotonically rising premium ranks at 100 throughout, and a falling one at 0, because that is what an honest expanding rank says.</li>
+        <li><b>The distribution discloses its own composition</b>: how many observations are reconstructions seeded from backfills versus live decompositions, since a percentile built mostly from reconstructions inherits their limitations.</li>
+        <li>Percentiles now ride each <code>decompose_price</code> reading alongside the idiosyncratic premium, so "1.6× against this cohort" arrives with "which is the 90th percentile of its own history". Every band surface carries the recorded negative result. 7 further tests (20 in <code>premium.test.js</code>), 154 tools.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.56.0 <span class="reltitle">Value decomposition, camp 3a: the premium panel, and history without waiting three years</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -224,19 +236,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>Empty factors are hidden by default</b> in the influence map, with the count and their names kept visible and a one-click <i>show them</i> — hiding as disclosure, never concealment. The map never blanks entirely.</li>
         <li><b>The score rides the graph payload itself</b>, so the picture and the number are computed from the same registries and cannot drift apart, and <code>provenance_summary</code> is returned by <code>get_company_model</code> / <code>build_company_model</code> for agent parity.</li>
         <li>Fitted edges were already drawn differently from catalog priors (weight and dash by grade); the missing half was saying so numerically. 6 further tests (24 in <code>model-honesty.test.js</code>), including that a fully calibrated model scores ≥70 — the metric has to be able to say yes — and that an empty model scores <i>nothing</i> rather than scoring zero as a fact.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.49.0 <span class="reltitle">Model honesty, camp 2: fair value stops pretending to be a number</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The output finally joins the epistemic spine.</b> Every model input was graded, deflated and holdout-tested, and then the model printed <code>blended_fair_value: 17.21</code> — a scalar, to the cent, with no interval and no grade. Fair value is now a <b>distribution</b>: each driver carries an uncertainty band derived from <b>its own provenance</b> (as-reported → narrow and grade A; fitted → grade B; consensus/judgment → C; <b>catalog default → widest band and grade D</b>), drivers that share an influence-graph factor parent move <b>together</b> rather than independently, and the projection is resampled to yield <b>P10 / P50 / P90</b>.</li>
-        <li><b>The grade is inherited, and materiality is measured.</b> The reported grade is the weakest input the answer <i>materially</i> depends on — materiality determined by each driver's own elasticity, not asserted — and the payload names the drivers that cap it.</li>
-        <li><b>Precision follows the interval.</b> A value known to ±50% no longer carries cents; the rounding step is derived from the width of the band. And when P90 exceeds 3× P10, or the answer rests on a grade-D input, the <b>point estimate is withheld entirely</b> — the range is the honest answer. On a default-laden model, <code>$17.21</code> now reads <code>$8–$35 (grade D, no point estimate)</code>.</li>
-        <li><b>Terminal-heavy valuations are reframed</b>: above 60% terminal share the payload says plainly that this is an assertion about the exit multiple and discount rate, not a cash-flow valuation.</li>
-        <li><b>Deterministic by design</b> — a seeded sampler, so the same model yields the same interval on every refresh; a band that wandered would be its own dishonesty. Absence is honest too: a model with no bandable drivers reports that no distribution can be built rather than inventing one, and the disclosure states what the interval is <i>not</i> — model-input uncertainty, never a confidence interval for the stock price.</li>
-        <li>The Operating Model view now <b>leads with the range, its grade and what governs it</b>, demoting the scalar to a reference figure. <code>fair_value_distribution</code> rides <code>get_company_model</code> and <code>build_company_model</code> for the agent. 10 further tests in <code>model-honesty.test.js</code> (18 total).</li>
       </ul>
     </div>
   </div>
