@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.71.0 — the sector variance decomposition becomes a tool</h2>
+<ul>
+<li><b>Sectors below 12 modelled members are excluded AND listed</b>, with their coverage. A decomposition that silently drops thin sectors measures the well-covered ones and calls the result "the market".</li>
+<li><b>The interpretation follows the number.</b> If most variance turns out to sit within sectors, the study says the case for sector cohorts as a primary dimension is WEAK — the finding that would undermine the lattice is stated as plainly as the one that supports it, and a test pins both strings so a later edit cannot quietly soften the unwelcome branch.</li>
+<li><b>The coverage caveat travels with the result</b>: model coverage is concentrated in index constituents, so both terms are measured over the large-cap portion of each sector. The between term is the more robust; the within term is understated to the extent small caps disperse more than large ones.</li>
+<li>Results are recorded in the study ledger with a date, so the number has provenance rather than living in somebody's memory of a conversation.</li>
+</ul>
 <h2>2.70.0 — Camp 3: the Relationship Operating Model</h2>
 <ul>
 <li><b>A FITTED edge earns confidence; an ASSERTED one never does.</b> A fitted slope with an observation count returns <code>earned: true</code> with the grade as its basis. A catalog default returns 0.15, <code>earned: false</code>, and says plainly that it is "a causal claim carrying no evidence beyond its plausibility — a hypothesis being used as an input". Most edges in most models are the second kind.</li>
