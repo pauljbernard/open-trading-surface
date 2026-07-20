@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.62.1</h2>
+<ul>
+<li><b>Fixed: selecting the Cohorts tab bricked the entire terminal.</b> Cohorts shipped at pinned index -7 wired into <code>renderContent</code> but not <code>renderRail</code>, so it fell through to <code>state.tabs[-7]</code> (undefined) and threw on <code>tab.view</code>. Because the throw happened during boot, the agent control channel never started — the terminal painted its tab strip and then sat blank and unreachable, identically on every reload, with every automated check green.</li>
+<li><b>A render fault can no longer silence the terminal.</b> <code>renderAll</code> degrades to a visible on-screen error naming the failure, and the ctl channel survives it. A blank pane is the one failure mode this product exists to refuse.</li>
+<li><b>Both dispatchers now guard an absent tab</b>, and a contract test derives the pinned set from <code>PINNED</code> and asserts every index is handled by <code>renderContent</code> AND <code>renderRail</code> — so the next pinned tab cannot be wired into one and forgotten in the other.</li>
+</ul>
 <h2>2.62.0</h2>
 <ul>
 <li><b>Index cohorts ship off the shelf.</b> S&amp;P 500, Nasdaq-100 and the Dow join the lattice, resolved from published constituents. The Dow is registered as PRICE weighted, not quietly normalised to cap weighting — share count is an accident of splits, but the index really is built that way.</li>
