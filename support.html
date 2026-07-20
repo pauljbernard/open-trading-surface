@@ -118,12 +118,25 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.59.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-20 00:36 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.60.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-20 00:46 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.60.0 <span class="reltitle">Value decomposition, camp 6: absolute or relative, but say which. VALUE-DECOMPOSITION-SPEC complete.</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b><code>set_exit_anchor</code></b> — anchor a model's exit multiple to its cohort's own median multiple instead of the catalog <code>18x</code>, which measured across 45 large caps is roughly half what the market pays and is precisely why every default-calibrated model concludes the same thing. The multiple is computed from member models' year-1 EPS — <b>self-contained, no external multiple feed</b> — and refuses below 12 modeled members.</li>
+        <li><b>Suggested, never applied.</b> Default behaviour is suggestion-only, following the <code>articulation_suggested</code> precedent, because this is the one change in the arc that alters what an existing model <i>concludes</i>. The payload states the tradeoff in full: an anchored model <b>can no longer disagree with the market about that cohort</b>, only about this company within it — an absolute valuation becomes a relative one.</li>
+        <li><b>Mutual exclusivity, enforced.</b> While anchored, the decomposition reports that cohort's reading as <code>absorbed</code> with a null premium: it is now inside the substantiated leg, and reporting it again as a separate multiplicative term would count the same market re-rating twice and make the identity false. The rest of the lattice is unaffected. <code>clear:true</code> returns to an absolute frame and restores the separate premium.</li>
+        <li><b>A measured band displaces an invented one.</b> An anchored <code>exit_multiple</code> takes the <b>actual cross-sectional dispersion of peer multiples</b> as its uncertainty band, replacing the assumed <code>BASE_SD</code> of 4 — and its provenance is upgraded from <i>catalog default</i> (grade D) to <i>consensus</i> (grade C), since it is an observed market fact even though using it as a forecast remains an assumption.</li>
+        <li><b>The frame is always stated.</b> <code>calibration_coherence</code> now reports either <code>frame.cohort_anchored</code> ("this is a RELATIVE valuation") or <code>frame.absolute</code> ("this asserts what the multiple SHOULD be, which is a claim about the market as well as the company"). The two are mutually exclusive and one is always present — a model can no longer be silent about which claim it is making.</li>
+        <li>6 further tests (26 in <code>premium.test.js</code>), 479 across 51 suites, 157 tools. <b>All seven camps of VALUE-DECOMPOSITION-SPEC are now built.</b></li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.59.0 <span class="reltitle">Value decomposition, camp 4: the negative results become part of the product</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -236,17 +249,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>Separate by construction</b>: reconstructions are stored apart from the live track and carry their own series ref — <code>model:&lt;SYM&gt;:backfill_fv</code>, whose catalog label reads <i>"BACKFILLED … not calls that were made"</i> in the very text you pick it by. A reconstruction can never be charted as a call that was actually made.</li>
         <li><b>Scoring refuses more than it reports.</b> Fewer than three completed forward windows yields no summary at all ("computing one anyway would be the failure this module exists to avoid"). When a regression is possible it is graded like every other estimate and ships its own reasons for doubt: overlapping windows, no search-ledger deflation, no holdout, one name — <i>"a hint to investigate, not evidence of edge"</i>.</li>
         <li>9 further tests (48 in <code>model-honesty.test.js</code>), most of them asserting what the module refuses to do. <b>MODEL-HONESTY-SPEC is now fully executed.</b></li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.52.0 <span class="reltitle">Model honesty, camp 5: scope — the model says what it cannot see</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>A large gap is now a question, not a verdict.</b> The TSLA model concluded $17 against a $381 price and reported <b>−95%</b> with a straight face. That is not a valuation opinion; it is a five-year DCF on car margins failing to represent what the market is paying for. <b>Gap triage</b> now runs automatically past a ±35% gap: the system reverse-solves <i>itself</i> and classifies. On TSLA it finds that <b>no</b> revenue growth between −40% and +120% and <b>no</b> gross margin up to 95% produces $381 — so the verdict reads <i>"the gap is not an opinion about these drivers"</i> rather than a −95% call.</li>
-        <li><b>Two classifications, both earned by an actual solve.</b> <code>drivers_disputable</code> names the assumption the price requires ("growth would have to be X, you assume Y — get_base_rates puts that against the cohort"); <code>value_outside_model_scope</code> says plainly that the price is unreachable inside the model. A gap the model explains is left alone — triage does not manufacture a scope problem.</li>
-        <li><b>The unmodeled register</b> (<code>set_unmodeled</code>): declare what a model does not capture — a business line, optionality, an asset the DCF cannot see. Fair value is then reported as <b>modeled core</b> with declared items listed beside it. <b>Value ranges are optional by design</b>: an item carried unvalued stays excluded from every total, because <i>"I cannot value this"</i> is a position, not a gap to fill with a guess. Declaring scope changes the prompt — the gap becomes expected rather than unexplained.</li>
-        <li><b>Silence about scope is itself reported</b>: a model with nothing declared is told that an undeclared omission reads as a valuation opinion. 8 further tests (39 in <code>model-honesty.test.js</code>), including that the modeled core is never absorbed into a total and that nameless items and inverted ranges are refused.</li>
       </ul>
     </div>
   </div>

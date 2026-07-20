@@ -1,13 +1,13 @@
 {
-  "version": "2.59.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.59.0.plugin",
-  "sha256": "34e3731352cba6eee849a18ff7d53161ed269541d7a65531e9e16523318aeb43",
+  "version": "2.60.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.60.0.plugin",
+  "sha256": "ce000054de1d93fe711fa00fd16c2bdf02ff8b888653645da5763586b4a2e947",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **A study register**, shipped with the software rather than kept as user data — because the failure mode of quantitative research is *rediscovery*: running the same analysis next quarter, getting the same artifact, and believing it because nobody wrote down that it had already been tested and had already died. - **Two findings ship.** The premium-vs-forward-returns study is recorded as an **ARTIFACT**, with the numbers that made it look real (slope −17.5, r² 0.046, p 0.0015, grade B, sign-consistent 5/5 slices, cluster t −8.2, **survived Šidák deflation at 0.009**) sitting beside the two che",
-  "published": "2026-07-20T00:36:25.847Z",
+  "notes": "- **`set_exit_anchor`** — anchor a model's exit multiple to its cohort's own median multiple instead of the catalog `18x`, which measured across 45 large caps is roughly half what the market pays and is precisely why every default-calibrated model concludes the same thing. The multiple is computed from member models' year-1 EPS — **self-contained, no external multiple feed** — and refuses below 12 modeled members. - **Suggested, never applied.** Default behaviour is suggestion-only, following the `articulation_suggested` precedent, because this is the one change in the arc that alters what an ",
+  "published": "2026-07-20T00:46:35.492Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
