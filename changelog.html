@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.63.0</h2>
+<ul>
+<li><b>Cohort membership hygiene.</b> A live Technology cohort resolved 60 "companies" that included <code>MU.TO</code> beside <code>MU</code> (at a *larger* cap, for the same company), <code>AVGO.TO</code>, <code>6697.T</code>, <code>SQ</code> and <code>XYZ</code> (both Block), and <code>ATVI</code> and <code>VMW</code> — acquired in 2023 and still carrying stale caps. A median over that set counts several companies twice and a few that no longer exist; a cap-weighted premium is distorted worse. Secondary listings, duplicate issuers and provider-stated dead tickers are now removed, the largest listing wins, and <b>every removal is reported</b> in the resolved cohort and shown in the Cohorts tab. A *missing* cap is unknown, not dead, and never removes a member.</li>
+<li><b>One answer to "what version am I".</b> Five call sites answered it independently and two consulted the compiled KB stamp — a file written at release time, so it lags the running code. <code>diagnose</code> therefore reported "daemon 2.62.0 != plugin 2.61.0" while <code>check_for_updates</code>, in the same process, correctly read 2.62.0, and sent two rounds of debugging in the wrong direction. All consumers now defer to <code>version.js</code>; a test asserts no module resolves its version from a build stamp.</li>
+<li><b><code>open_terminal</code> no longer asserts liveness it never checked.</b> It reported "Terminal is live" on four consecutive attempts while the page was throwing during boot and no client was registered on the control channel. It now polls for registration and, failing that, says plainly that this is not a working terminal and names the likely cause.</li>
+</ul>
 <h2>2.62.2</h2>
 <ul>
 <li><b>Fixed: rule-based cohorts were permanently empty.</b> An empty membership resolution was being CACHED, so a transient provider failure became a self-confirming fact — every sector and size cohort resolved to zero members and stayed that way. An empty result is now never persisted, and a cohort that resolved empty re-asks rather than serving the cached nothing.</li>
