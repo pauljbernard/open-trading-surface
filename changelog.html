@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.66.0 — Camp 0: the substrate repair</h2>
+<ul>
+<li><b>Rule-based cohorts were the HEAD of their rule, not its population.</b> The screener returns at most ~60 rows per request whatever <code>limit</code> you pass, results arrive ordered by market cap, and the default was 60 — so "Technology" was the 60 largest technology companies wearing the sector's name, and its premium was biased upward by exactly the size effect a premium is supposed to be measured against. Membership now resolves by a <b>recursive market-cap band sweep</b>: a band that returns a saturated page is still hiding members, so it splits geometrically (caps are log-distributed) and both halves are swept, until no band saturates.</li>
+<li><b>A cohort that cannot be completed says so.</b> Where a band cannot be subdivided further, the result carries <code>truncated: true</code>, the offending bands, and a note stating that the premium is biased toward the largest names and that membership is a lower bound. Truncation travels with the premium into <code>decompose_price</code> and is rendered in the decomposition table.</li>
+<li><b>The sweep discloses its own floor.</b> Companies below $10M market cap are not swept. That is a design choice; an undisclosed one would still misrepresent the cohort as the whole population of its rule, so <code>floor</code> and <code>floor_note</code> are reported.</li>
+<li>An explicit <code>limit</code> is treated as a deliberate request for a slice and is not swept.</li>
+</ul>
 <h2>2.65.1</h2>
 <ul>
 <li><b>Fixed: <code>decompose_price</code> readings dropped the composition disclosure.</b> <code>cohortPremium</code> computed the seeded-vs-considered mix correctly, but <code>decompose()</code> built each reading from a hand-copied field list that omitted it — so the path a user actually reads showed a premium built from 47 mechanically-seeded models with nothing indicating that. A disclosure that is computed and not surfaced is not a disclosure. A contract test now pins the field.</li>
