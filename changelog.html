@@ -16,6 +16,15 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.70.0 — Camp 3: the Relationship Operating Model</h2>
+<ul>
+<li><b>A FITTED edge earns confidence; an ASSERTED one never does.</b> A fitted slope with an observation count returns <code>earned: true</code> with the grade as its basis. A catalog default returns 0.15, <code>earned: false</code>, and says plainly that it is "a causal claim carrying no evidence beyond its plausibility — a hypothesis being used as an input". Most edges in most models are the second kind.</li>
+<li><b><code>state()</code> carries the distinction in the payload</b>, not in a footnote: <code>provenance</code> reads <code>FITTED — a regression produced this slope</code> or <code>ASSERTED — supplied by a person or a catalog default, not measured</code>.</li>
+<li><b>An asserted edge reports itself as an <code>issue</code></b>, so it surfaces in a review sweep rather than only where somebody thought to render a label.</li>
+<li><b><code>forecast()</code> refuses.</b> Whether an edge's strength persists has never been measured here, and a projected edge strength would be an unvalidated mechanism composed into every conclusion above it. The refusal states the condition for lifting it: refit on an earlier window, compare with the realised slope later, record in the search ledger with deflation for the number of edges tested.</li>
+<li><b><code>state(at)</code> and <code>history()</code> refuse.</b> Edges are not versioned, so past strength is not reconstructible — and an edge history invented from today's slope is the purest form of look-ahead. Both name the fix: snapshot each edge on fit and on edit.</li>
+<li>The model's existing sign-disagreement detector is now surfaced <b>per edge</b>, rather than only in an aggregate table where it was easy to miss.</li>
+</ul>
 <h2>2.69.0 — membership was filtered by liquidity, and by nothing that checked whether a company still exists</h2>
 <ul>
 <li><b><code>volumeMoreThan: 250000</code> was excluding live mega caps from their own sectors.</b> An Energy screen at &gt;$40B returned nine names, missing EOG, PSX, MPC, VLO, WMB, OKE, BKR, FANG, TRGP and EQT. COP came back with volume 191,520 on one call and 253,972 on the next — it flickered across the threshold, so membership was not even deterministic between reads. The provider's <code>volume</code> field is plainly not daily volume. The deeper error was conceptual: <b>a cohort is defined by what a company IS, not by how much it traded this morning.</b> Liquidity is a screening concern and belongs in a screen the user asks for. Filter removed.</li>
