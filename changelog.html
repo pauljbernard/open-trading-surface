@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.62.0</h2>
+<ul>
+<li><b>Index cohorts ship off the shelf.</b> S&amp;P 500, Nasdaq-100 and the Dow join the lattice, resolved from published constituents. The Dow is registered as PRICE weighted, not quietly normalised to cap weighting — share count is an accident of splits, but the index really is built that way.</li>
+<li><b>A fourth weighting, <code>price</code></b>, with its meaning written down beside the other three.</li>
+<li><b>Cap weighting degrades loudly.</b> When market caps are unavailable, a cap-weighted index falls back to equal weighting and says so, with coverage reported, rather than presenting a weighted reading built from weights it never had.</li>
+<li><b>The Cohorts tab is grouped by kind</b> — Indexes, Sectors, Size bands, Factor screens, Custom &amp; examples, Discovered — so what came with the product is legible against what you made. Each row shows its weighting and its caveats.</li>
+<li>A provider failure now makes index membership UNKNOWN rather than an empty set.</li>
+</ul>
 <h2>[2.61.0] — Peer groups become real: a bug fix, a Cohorts tab, cohort-driven comps, and weighted groups</h2>
 <ul>
 <li><b>The bug that made the whole lattice look empty.</b> <code>cohorts.js</code> called a provider endpoint that does not exist (<code>stock-screener</code> instead of <code>company-screener</code>), and the failure was swallowed by a <code>.catch(() =&gt; [])</code>. Every rule-based cohort silently resolved to <b>zero members</b>, so the decomposition reported *"0 of 0 members have a model"* — a refusal naming the wrong cause, which is worse than a crash. Fixed, and a provider failure now returns <code>membership is UNKNOWN, not empty</code> rather than pretending the group is empty.</li>
