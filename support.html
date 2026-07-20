@@ -118,12 +118,29 @@ shasum -a 256 orrery.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>2.57.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-20 00:09 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>2.58.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-20 00:31 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/orrery.plugin">orrery.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">2.58.0 <span class="reltitle">Value decomposition, camp 3b: the decomposition becomes queryable</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>Premium fields in the screener</b>, resolved through the panel: <code>substantiated</code>, <code>total_premium</code>, <code>idio_premium_min/max/median</code>, <code>robustness</code>, <code>n_cohorts</code>, <code>has_model</code>. A new <code>premium</code> stage, appended last so it never runs for a screen that does not ask for it — existing saved screens evaluate identically.</li>
+        <li>New <code>screener-premium.test.js</code> (7 tests). 473 tests across 51 suites.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The anti-shopping law stops being an exhortation and becomes a query.</b> <code>where idio_premium_max &lt; 0.85</code> selects names cheap against <b>every</b> cohort they belong to, since the max is the least flattering reading. <code>where robustness &gt; 0.5</code> finds names whose relative valuation depends on which comparison group you picked. <code>where premium_driven_by = 'substantiated'</code> surfaces the TSLA case — a premium that moved because the model's own fair value collapsed on a filing, not because the market re-rated anything.</li>
+        <li><b>Baselines are computed once per query, not per row.</b> Each cohort's premium is resolved a single time and every row's reading derived from it — the panel exists precisely so that screening 500 names never means 500 model builds.</li>
+        <li><b>Coverage is disclosed on every result that touches the premium stage</b>, measured <i>before</i> the where-clause removes anything: <i>"188 of 312 candidates have no operating model and were EXCLUDED from every premium predicate — absence, not rejection."</i> Grade-D models are included with their grade visible rather than hidden, because most default-calibrated models are scaffolding and the panel must not launder that into a clean-looking ranking.</li>
+        <li><b>A null premium can never satisfy a predicate.</b> In plain JavaScript <code>null &lt; 0.85</code> is <i>true</i>, so an unmodelled name would otherwise sail through a cheapness filter and appear cheap. Both evaluation paths reject it — the structured-filter operator returns false for null, and the where-expression returns null against a <code>=== true</code> test — and a test now pins both, documenting the trap explicitly.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">2.57.0 <span class="reltitle">Value decomposition, camp 2: premium bands, without lookahead</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -225,17 +242,6 @@ shasum -a 256 orrery.plugin</code></pre>
         <li><b>The source contradiction is named.</b> Calibration takes revenue growth from analyst consensus and margins from the last reported year "for internal consistency" — but the analysts supplying that growth generally assume margin expansion too, so the model was running their volumes against profitability they never forecast, and saying nothing. <code>calibration_coherence</code> now reports the conflict with its reasoning and remedy. A self-consistent calibration is not accused; the check discriminates.</li>
         <li><b>Holding a level flat is treated as the forecast it is.</b> Revenue growth always decayed toward terminal while gross margin, opex, D&amp;A and capex intensity were pinned for the entire horizon — an unstated claim that the company escapes the reversion its cohort typically shows. The coherence block now states which drivers are being held flat and why that is an assumption, quoting the base-rate engine's own finding.</li>
         <li><b>Never applied silently</b>: without a fade map the projection is byte-identical to before, so both choices are now explicit and disclosed — flat is a decision you can see rather than a default you never noticed. 7 further tests (31 in <code>model-honesty.test.js</code>), including that year 1 is unchanged, that interpolation is linear at the midpoint, and that a faded driver stops being reported as "held flat".</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.50.0 <span class="reltitle">Model honesty, camp 3: the influence map stops flattering itself</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>Model completeness, measured.</b> A graph with fifteen factors and seventeen edges looks authoritative even when nine factors carry no value and every edge is a catalog prior nobody fitted. <code>provenanceSummary</code> now scores exactly that — factors populated, edges fitted vs catalog default, drivers still sitting on calibration defaults — into one <b>completeness score out of 100</b> with a plain verdict: <i>substantially calibrated</i> / <i>partly calibrated</i> / <i>largely uncalibrated scaffolding</i>. The scoring is deliberately unforgiving: an empty factor and an unfitted edge both count zero, because both are scaffolding presented as structure. A real TSLA model scores <b>22/100</b>.</li>
-        <li><b>Empty factors are hidden by default</b> in the influence map, with the count and their names kept visible and a one-click <i>show them</i> — hiding as disclosure, never concealment. The map never blanks entirely.</li>
-        <li><b>The score rides the graph payload itself</b>, so the picture and the number are computed from the same registries and cannot drift apart, and <code>provenance_summary</code> is returned by <code>get_company_model</code> / <code>build_company_model</code> for agent parity.</li>
-        <li>Fitted edges were already drawn differently from catalog priors (weight and dash by grade); the missing half was saying so numerically. 6 further tests (24 in <code>model-honesty.test.js</code>), including that a fully calibrated model scores ≥70 — the metric has to be able to say yes — and that an empty model scores <i>nothing</i> rather than scoring zero as a fact.</li>
       </ul>
     </div>
   </div>

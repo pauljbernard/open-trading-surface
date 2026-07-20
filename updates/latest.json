@@ -1,13 +1,13 @@
 {
-  "version": "2.57.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.57.0.plugin",
-  "sha256": "6a95468237988517e7f2bd6aaaa13dccd0da900a6121207cb36df4995fca8862",
+  "version": "2.58.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.58.0.plugin",
+  "sha256": "eb7171e6193e91f2e6b239b92b25dfcd2b9fc10c4b556609357bb3dd8197ccd3",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **`get_premium_band`** — where a name's idiosyncratic premium sits in **its own history** against a cohort: percentile, p10/p25/p50/p75/p90, the window, and a plain reading (\"at the top of its own range — priced further above its cohort than it usually is\"). This is the treatment the premium legs deserve: the substantiated leg is a fundamental quantity and gets fundamental analysis, while the premiums are market-determined and get the statistical treatment a market series gets. - **A stated, different floor.** 12 observations minimum, and it refuses below. The price-based valuation bands req",
-  "published": "2026-07-20T00:09:56.553Z",
+  "notes": "- **Premium fields in the screener**, resolved through the panel: `substantiated`, `total_premium`, `idio_premium_min/max/median`, `robustness`, `n_cohorts`, `has_model`. A new `premium` stage, appended last so it never runs for a screen that does not ask for it — existing saved screens evaluate identically. - **The anti-shopping law stops being an exhortation and becomes a query.** `where idio_premium_max < 0.85` selects names cheap against **every** cohort they belong to, since the max is the least flattering reading. `where robustness > 0.5` finds names whose relative valuation depends on w",
+  "published": "2026-07-20T00:31:04.152Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
