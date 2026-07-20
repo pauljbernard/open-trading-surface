@@ -1,13 +1,13 @@
 {
-  "version": "2.55.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.55.0.plugin",
-  "sha256": "d1e12737e73eadf14fcc89e3cc42e24e86d6c85c32d9ae7e87a46cb55333f983",
+  "version": "2.56.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.56.0.plugin",
+  "sha256": "aeb49c239b8de263a12fbd5501a9b9584ea7576dc9f43157f3b13e4f6c9c1db5",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "- **`decompose_price`** — price splits into **substantiated value × cohort premium × idiosyncratic premium**, computed for *every* cohort the name belongs to. What the model used to report as one number called \"the gap\", and treat as error, is now two measurable quantities: how much of it is the whole market re-rating, and how much is this name specifically. On AAPL the distinction inverts the reading — total premium rose 1.28× → 1.60× while the idiosyncratic premium **fell** 0.70× → 0.61×: relative to peers it got *cheaper*, and all of the apparent re-rating was market-wide. - **`attribute_re",
-  "published": "2026-07-19T23:55:07.989Z",
+  "notes": "- **`get_premium_panel`** — the batch cross-section of substantiated value, price and premium that the screener and band machinery read, so nothing has to build models inline (evaluating a premium live across 500 names would mean 500 model builds per query). **Coverage is the headline, not a footnote**: names without a model are excluded *and counted*, never treated as failing a filter, because a panel that silently drops two thirds of its universe is worse than one that refuses. - **`seed_premium_history`** — solves the sequencing problem that would have made premium bands useless. Bands need",
+  "published": "2026-07-20T00:02:02.440Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
