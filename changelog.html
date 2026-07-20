@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.95.0 — the picker was calling a route that had never been called</h2>
+<ul>
+<li>Its first version used a fixed series ref and passed once, then failed on the second run. The HTTP calls reach the <b>daemon</b>, which has its own persistent ledger — an in-process <code>ORRERY_ADMISSION</code> override isolates the test process and not the server answering it.</li>
+<li><code>searchCount()</code> floors at 1 because Šidák needs <code>k ≥ 1</code>, so on a fresh ledger the first inspection moves 1 → 1 and proves nothing. The assertion has to start from past the floor or it passes for the wrong reason.</li>
+</ul>
 <h2>2.94.0 — the picker could not express the analysis it was calling</h2>
 <ul>
 </ul>

@@ -1,13 +1,13 @@
 {
-  "version": "2.94.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.94.0.plugin",
-  "sha256": "dd064cdc34defd2640920fdba071a649858b2f214308f9ee040f1d574692f927",
+  "version": "2.95.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-2.95.0.plugin",
+  "sha256": "433c88a0943e83820cb1b1ddc4e4b6d9e38eb98233990531cb5a0460ca59e8b2",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
   "notes": "",
-  "published": "2026-07-20T22:03:11.868Z",
+  "published": "2026-07-20T22:13:36.835Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
