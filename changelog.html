@@ -16,6 +16,19 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.77.0 — the model now resolves to the price, and reports what it cannot explain</h2>
+<ul>
+<li>Cross-sectional premium had no stable relationship with forward returns once a name-holdout was applied.</li>
+<li>Sector explained ~27% of premium variance on a knowingly narrowed universe. The further collapse to 7.8% came from <b>excluding REITs and banks</b> — dropping the most distinctive sectors from a between-sector calculation, which is not evidence of anything. The earlier reading of that number as "the signature of an artifact" was wrong and is corrected in the spec.</li>
+<li><code>blended_fair_value</code> averages two legs, and leg 1 is an exit multiple calibrated from the name's <b>own trailing P/E</b>. Algebraically the P/E cancels: that leg measures whether projected EPS growth beats the discount rate and says nothing about whether the stock is expensive.</li>
+<li>The identity is checked on the <b>published</b> values, not on unrounded internals. The first cut rounded the output while self-certifying from the internals — the same shape as three defects already paid for, where a correct engine and its surface quietly disagreed.</li>
+<li>An absent level contributor <b>refuses</b>. It does not report the residual as 100% of price: a missing model is not a spectacular unexplained figure.</li>
+<li>An adjustment that cannot be computed contributes <b>nothing and says so</b> — never a silent zero, because "neutral here" and "not computable here" must stay distinguishable.</li>
+<li>Endogenous contributors must declare a fixed lag. Explaining today's price with today's momentum is circular and would inflate explained share while teaching us nothing.</li>
+<li>Nothing is <b>admitted</b> by default. The holdout-and-deflation gate is camp B, and every contributor in the block until then is disclosed as unvalidated on every reading.</li>
+<li>Block-version changes are recorded as <b>events</b>, so residual movement across a refit boundary is visibly partly our own doing rather than the world changing.</li>
+<li>A live observation supersedes a reconstruction for the same date, never the reverse.</li>
+</ul>
 <h2>2.76.0 — is the within-cohort spread the market, or is it us?</h2>
 <ul>
 </ul>
