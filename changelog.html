@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.93.0 — the probabilities, as distinct from the weights</h2>
+<ul>
+<li>a <b>large share with a low probability</b> means a correlated group is doing the work, and the group is reported with its joint "at least one belongs" probability — 1.00 for that pair, against 0.46 and 0.57 individually</li>
+<li>a <b>small share with a high probability</b> is a small, robust, consistent effect, which is precisely what a share-ranked table buries</li>
+</ul>
 <h2>2.92.0 — feature selection analysis, and the gravitational family</h2>
 <ul>
 <li><b>Leave-one-out peer exposures</b>, structurally — no flag, no code path computing an inclusive aggregate. That removes only the tautological part where the name appears on both sides. The real channel survives untouched, because when the basket is bought the *other* members are bought too.</li>
