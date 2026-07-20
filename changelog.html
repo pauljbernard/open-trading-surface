@@ -16,6 +16,10 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>2.65.1</h2>
+<ul>
+<li><b>Fixed: <code>decompose_price</code> readings dropped the composition disclosure.</b> <code>cohortPremium</code> computed the seeded-vs-considered mix correctly, but <code>decompose()</code> built each reading from a hand-copied field list that omitted it — so the path a user actually reads showed a premium built from 47 mechanically-seeded models with nothing indicating that. A disclosure that is computed and not surfaced is not a disclosure. A contract test now pins the field.</li>
+</ul>
 <h2>2.65.0</h2>
 <ul>
 <li><b>Seeding scope is now a parameter, defaulting to the S&amp;P 500 + Dow.</b> ~503 unique names (the Dow is nearly a subset). <code>indexes</code> overrides it; <code>index.nasdaq100</code> remains available.</li>
