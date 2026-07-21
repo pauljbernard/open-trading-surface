@@ -1,13 +1,13 @@
 {
-  "version": "3.7.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.7.0.plugin",
-  "sha256": "76ecd42f5b0add55efe6829160e81dae35a02b64e4d8d35ab4383076abf956c4",
+  "version": "3.7.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.7.1.plugin",
+  "sha256": "0079295175dbcf0d020002fce80608ccf4b2fa91e61778ffbc6b6629d3c8e79a",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Ford could not be valued. The DCF returned no positive fair value, so the Attribution page refused outright. The obvious reading is that Ford is hard to value; the actual reading is that we were modelling an assumption instead of the company. interest_rate_pct was hardcoded to 4 and applied to net debt for every company in the ledger. | | Model | Ford actually filed | | Interest expense | $5.16B (4% x $129.1B net debt) | $1.254B | | Interest income | ignored | $1.490B | | Net | -$5.16B | +$0.236B | Ford is a net receiver of interest. The implied net rate from filed results is -0.183%. The phan",
-  "published": "2026-07-21T18:21:33.289Z",
+  "notes": "calibrate() threw num is not defined on its first live call. The interest derivation shipped in 3.7.0 used a helper that does not exist in that module, so building or recalibrating any operating model failed outright — a worse state than the bug it was fixing. The test suite passed. It passed because the test file reimplemented the rate derivation locally and asserted against its own copy, rather than calling calibrate(). A test that reproduces the logic it is checking verifies only that the same expression can be written twice; it cannot see a reference error in the real function, because the",
+  "published": "2026-07-21T18:29:22.004Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
