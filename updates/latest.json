@@ -1,13 +1,13 @@
 {
-  "version": "3.18.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.18.0.plugin",
-  "sha256": "f68dcd3d72dfe9eb642b5104da112e29819e74ee29e7786f7a53d854784ea282",
+  "version": "3.19.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.19.0.plugin",
+  "sha256": "aae7297ce4383c4f0f6d7a6d6fd70cb960d470959616fb683a11ef1a921aef44",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "A cohort is a named set of securities defined by some membership rule. A screen is the language for membership rules. So a cohort *is* a screen — and the two capabilities should be one. This is the first step of collapsing them: proving the screen language can define every cohort we have. It nearly could already. A sector is sector in [...]. A size band is a marketCap bound. A factor cohort is a fundamentals predicate. And a hand list is symbol in [...] — which is exactly why a watchlist was only ever a screen wearing a different name. The one membership rule that is *not* a predicate over fun",
-  "published": "2026-07-21T21:37:53.299Z",
+  "notes": "With every cohort now expressible as a screen (3.18.0), the screening capability moves where it belongs — inside Cohorts. Your saved screens migrate to cohorts. On the next Cohorts load, each becomes a screen-defined cohort carrying an *inline* copy of its predicates — self-contained, so it survives the standalone screener being retired next. It's idempotent and non-destructive (the saved screen stays until then), and shipped preset screens aren't migrated, since those are examples rather than your own groups. And you can build a cohort from predicates without leaving Cohorts. The tab gains a ",
+  "published": "2026-07-21T21:48:20.427Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
