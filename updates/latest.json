@@ -1,13 +1,13 @@
 {
-  "version": "3.4.2",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.4.2.plugin",
-  "sha256": "0e561ffd8bcb82b7c6c4c3aff788f187c9350fa552b1af05cd41c2659872be76",
+  "version": "3.5.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.5.0.plugin",
+  "sha256": "0160d7b686b944608a145da9ee89a61078f7f1a1c0d686c765d66c7968a033d2",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "It threw undefined is not an object (evaluating 'render(tab, v).catch') on every open. The renderer set its markup and fired its fetch but never returned the promise, and the dispatcher calls render(tab, v).catch(...) to surface failures — so a renderer returning undefined crashes the view instead of showing it. The tab shipped in 3.4.0 and has never once displayed content. Two fixes. The renderer returns its promise, as every other renderer already did. And the dispatcher now wraps in Promise.resolve(), so the next renderer that forgets — easy, since most are side-effecting — costs its own bu",
-  "published": "2026-07-21T16:06:37.987Z",
+  "notes": "The Standing tab and the level-admission gate behind it are gone. Every field on that page was a constant: five models, five identical status chips, five identical sentences, and a held-out column reading not run five times. Nothing on it varied by security or by model, so it discriminated between nothing. The gate that was supposed to fill it timed out at 180s on its first real run — it called sectorFacts.gather() inside a per-member loop, so a sector cohort meant hundreds of sequential provider calls. It was written and tested against synthetic columns without its runtime ever being consider",
+  "published": "2026-07-21T16:38:50.761Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
