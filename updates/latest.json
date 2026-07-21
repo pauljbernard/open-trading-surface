@@ -1,13 +1,13 @@
 {
-  "version": "3.8.3",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.8.3.plugin",
-  "sha256": "fb684486aff89f1ae40258ca2f376332f1db06e34e4da5d597078f9dfd763c8e",
+  "version": "3.9.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.9.0.plugin",
+  "sha256": "e5e2e2223cf7d74dbd94bbe703e596ea8b47233fd2a5f4aacb4d0d0e51b81e96",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "3.8.2 made the correction able to reach all 503 names. It could not actually get there. A full reseed does not fit inside the tool timeout. limit only ever slices from the top, so the only way to reach the tail was to raise it — which re-does everything already done and then still times out before the end. With overwrite: true there is no already-seeded skip to make that redundant prefix cheap. The run stalled at 300 of 503, and the 203 names past the cut kept the fabricated 4% rate. offset makes the run addressable: walk the universe in windows that each fit the timeout. Each response reports",
-  "published": "2026-07-21T19:18:07.364Z",
+  "notes": "Adding the S&P 500 to a watchlist made it 503 names, and every surface had quietly assumed watchlists were small. get_watchlist could not read it at all. It Promise.all-ed over every item at two provider calls each — 1,006 simultaneous requests. The API governor is a *rate* limit, not a *concurrency* limit, so it could only meter the flood: roughly 100 seconds of pure throttle before latency, against a 180-second tool timeout. The list became unreadable at exactly the size that made it worth keeping. The monitor panel had the same shape. Its route joined all 503 symbols into one URL — past bot",
+  "published": "2026-07-21T19:33:35.902Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
