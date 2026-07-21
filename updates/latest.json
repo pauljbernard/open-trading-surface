@@ -1,13 +1,13 @@
 {
-  "version": "3.19.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.19.0.plugin",
-  "sha256": "aae7297ce4383c4f0f6d7a6d6fd70cb960d470959616fb683a11ef1a921aef44",
+  "version": "3.20.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.20.0.plugin",
+  "sha256": "8d140192d60612e58d8cdfc6f6ec16b120a220ebfd12c0cd523f4b37b07aff7a",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "With every cohort now expressible as a screen (3.18.0), the screening capability moves where it belongs — inside Cohorts. Your saved screens migrate to cohorts. On the next Cohorts load, each becomes a screen-defined cohort carrying an *inline* copy of its predicates — self-contained, so it survives the standalone screener being retired next. It's idempotent and non-destructive (the saved screen stays until then), and shipped preset screens aren't migrated, since those are examples rather than your own groups. And you can build a cohort from predicates without leaving Cohorts. The tab gains a ",
-  "published": "2026-07-21T21:48:20.427Z",
+  "notes": "Step 2 brought a compact predicate builder into Cohorts. This brings the *whole* expressive machine — so nothing is lost when the Screener tab is retired. The Cohorts \"Build from predicates\" panel now draws the full field vocabulary from the screener (not a curated nine), offers the complete op set including the cross-sectional percentile predicates (pctl_gt/pctl_lt), and carries the where-clause expression DSL — compound boolean logic and derived fields, e.g. roe > 0.15 and pe < 20 or fcfGrowth > revenueGrowth. And it previews the matches before you create, so you see the exact membership the",
+  "published": "2026-07-21T22:03:23.467Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
