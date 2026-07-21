@@ -1,13 +1,13 @@
 {
-  "version": "3.2.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.2.1.plugin",
-  "sha256": "5eb58e47dc392750eb5548c419faec8c671c3243f2982adb6128cb361e9e43df",
+  "version": "3.4.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.4.0.plugin",
+  "sha256": "ff8892d37889ff3331fe374a18356124db6be81db92f267efbb15b77cb42c449",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "",
-  "published": "2026-07-21T02:06:13.253Z",
+  "notes": "For Realty Income the system valued the company at 70.51 from capitalised AFFO while the Model panel rendered the operating-company DCF in the low sixties. Alongside it: a five-year Revenue/EBIT/EPS projection, and a stat labelled *Terminal share of DCF* — for a model that has no terminal, does not project, and never computed a DCF. Two panels showed different valuations for the same company and neither said so. The Model panel is the one that looks authoritative, because it is the one with drivers you can edit. Attribution followed the per-name routing added in #146. The Model panel never did",
+  "published": "2026-07-21T15:01:52.160Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
