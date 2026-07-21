@@ -1,13 +1,13 @@
 {
-  "version": "3.15.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.15.0.plugin",
-  "sha256": "966a04910fea5c87873885f53af797aec7d47e0c16e0cb2b45e7a34f3577c5c4",
+  "version": "3.16.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.16.0.plugin",
+  "sha256": "524f44d861151f5c77b9c0eae7cee954a817c1dc8bd0fbb4f2a215b41bf17e6a",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Final step of the consolidation. The four watchlist symbol-list tools — create_watchlist, list_watchlists, get_watchlist, edit_watchlist — are gone. Everything they did now has a cohort equivalent: create_cohort, list_cohorts, the cohort drill-down, and edit_cohort. Keeping both was the duplication that made a watchlist and a cohort feel like two things when they are one. The watchlist store stays — not as a user surface, but because a few internal consumers still read it: the one-time migration that turns your old watchlists into cohorts, and the \"is this symbol one of mine\" cross-references ",
-  "published": "2026-07-21T20:51:19.998Z",
+  "notes": "The consolidation gave every symbol list one home. This gives that home the distinction you flagged as key: not every cohort is a price factor. A sector or an index is a group defined by shared economics, so its premium is a candidate explanation for a member's price. A hand-kept list of \"names I find interesting\" is not — a security happening to sit in that list says nothing about what prices it, and before this release the decomposition would treat it as a factor anyway, injecting a spurious premium leg into every member and polluting the cross-cohort robustness verdict. Each cohort now carr",
+  "published": "2026-07-21T21:07:59.354Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
