@@ -1,13 +1,13 @@
 {
-  "version": "3.14.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.14.0.plugin",
-  "sha256": "9d321d365150759395a5c0684aa105ae999f215d45e6a2cb71d246c999966958",
+  "version": "3.15.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.15.0.plugin",
+  "sha256": "966a04910fea5c87873885f53af797aec7d47e0c16e0cb2b45e7a34f3577c5c4",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Second step of the consolidation. With a custom cohort now monitorable, screen-promotable, and editable, a watchlist symbol-list has no capability a cohort lacks — so the lists move to Cohorts and the tab stops being about lists. The Watchlists tab is now Alerts. It holds the two things that actually belonged there: price and event alerts, and the market calendar — reframed as a dated-events view of the same tab rather than a separate feature. The per-watchlist symbol monitor is gone from this tab; the rail points you to Cohorts for lists. Your existing watchlists migrate automatically. On the",
-  "published": "2026-07-21T20:38:53.954Z",
+  "notes": "Final step of the consolidation. The four watchlist symbol-list tools — create_watchlist, list_watchlists, get_watchlist, edit_watchlist — are gone. Everything they did now has a cohort equivalent: create_cohort, list_cohorts, the cohort drill-down, and edit_cohort. Keeping both was the duplication that made a watchlist and a cohort feel like two things when they are one. The watchlist store stays — not as a user surface, but because a few internal consumers still read it: the one-time migration that turns your old watchlists into cohorts, and the \"is this symbol one of mine\" cross-references ",
+  "published": "2026-07-21T20:51:19.998Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
