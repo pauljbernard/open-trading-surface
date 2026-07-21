@@ -1,13 +1,13 @@
 {
-  "version": "3.9.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.9.0.plugin",
-  "sha256": "e5e2e2223cf7d74dbd94bbe703e596ea8b47233fd2a5f4aacb4d0d0e51b81e96",
+  "version": "3.10.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.10.0.plugin",
+  "sha256": "0dd01df55dca7009f4d604912e4e6052139b99263ec3901ce4a2b7029690d297",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Adding the S&P 500 to a watchlist made it 503 names, and every surface had quietly assumed watchlists were small. get_watchlist could not read it at all. It Promise.all-ed over every item at two provider calls each — 1,006 simultaneous requests. The API governor is a *rate* limit, not a *concurrency* limit, so it could only meter the flood: roughly 100 seconds of pure throttle before latency, against a 180-second tool timeout. The list became unreadable at exactly the size that made it worth keeping. The monitor panel had the same shape. Its route joined all 503 symbols into one URL — past bot",
-  "published": "2026-07-21T19:33:35.902Z",
+  "notes": "The Cohorts page was a catalog. It listed the peer groups, said how many members each had, and stopped. There was nowhere to go. Member count is not what decides whether a cohort premium means anything — coverage is. A cohort of 503 names whose baseline rests on six modelled members is not a baseline, and the catalog rendered it identically to one with full coverage. The coverage figure was computed and disclosed in the tool output the whole time; the page just never showed it. And \"has a model\" is itself two different things. A *seeded* model is a mechanical starting point. A *considered* one",
+  "published": "2026-07-21T19:41:31.544Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
