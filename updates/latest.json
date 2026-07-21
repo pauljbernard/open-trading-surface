@@ -1,13 +1,13 @@
 {
-  "version": "3.6.3",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.6.3.plugin",
-  "sha256": "219edc3c5021799bbab46c8acaeb74ed1ef60f9b88b8676102eabb430dec142b",
+  "version": "3.7.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.7.0.plugin",
+  "sha256": "76ecd42f5b0add55efe6829160e81dae35a02b64e4d8d35ab4383076abf956c4",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Open Ford and the whole Attribution page collapsed to an apology: *\"No partition for F — the level contributor produced no positive value.\"* Nothing else rendered. But feature selection never needed a valuation. It explains the security's own daily price change from its own price history. The DCF failing on Ford has no bearing on whether rates or peers move the stock. The absent-model branch was returning early and taking the entire view with it, including a capability that was working fine. That is the shape of a tool that explains what it cannot do instead of doing what it can. Now the refus",
-  "published": "2026-07-21T17:39:35.660Z",
+  "notes": "Ford could not be valued. The DCF returned no positive fair value, so the Attribution page refused outright. The obvious reading is that Ford is hard to value; the actual reading is that we were modelling an assumption instead of the company. interest_rate_pct was hardcoded to 4 and applied to net debt for every company in the ledger. | | Model | Ford actually filed | | Interest expense | $5.16B (4% x $129.1B net debt) | $1.254B | | Interest income | ignored | $1.490B | | Net | -$5.16B | +$0.236B | Ford is a net receiver of interest. The implied net rate from filed results is -0.183%. The phan",
+  "published": "2026-07-21T18:21:33.289Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
