@@ -1,13 +1,13 @@
 {
-  "version": "3.7.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.7.1.plugin",
-  "sha256": "0079295175dbcf0d020002fce80608ccf4b2fa91e61778ffbc6b6629d3c8e79a",
+  "version": "3.8.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.8.0.plugin",
+  "sha256": "83effcf79284a8cc3f53153ed302b4267a0fe8663dc4cb29f0c5f43ed670c3f1",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "calibrate() threw num is not defined on its first live call. The interest derivation shipped in 3.7.0 used a helper that does not exist in that module, so building or recalibrating any operating model failed outright — a worse state than the bug it was fixing. The test suite passed. It passed because the test file reimplemented the rate derivation locally and asserted against its own copy, rather than calling calibrate(). A test that reproduces the logic it is checking verifies only that the same expression can be written twice; it cannot see a reference error in the real function, because the",
-  "published": "2026-07-21T18:29:22.004Z",
+  "notes": "Fixing Ford's interest charge revealed three more defects behind it, all of the same kind: the model asserting a number where it should have been checking one. The blend was silently one-legged Ford came back exit_multiple_value: 7.37, dcf_value: -36.44, blended_fair_value: 7.37. The DCF leg was removed by a > 0 filter and the survivor kept the label blended. A two-leg average and one surviving leg are different claims and were sharing a name. Now every valuation reports legs_used, legs_dropped with the reason for each, and where only one leg survives: *\"THIS IS NOT A BLEND.\"* A perpetuity on ",
+  "published": "2026-07-21T18:43:30.706Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
