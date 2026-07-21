@@ -1,13 +1,13 @@
 {
-  "version": "3.11.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.11.0.plugin",
-  "sha256": "669a27303b0835a36236f7f5343c2aa9d22ba3e5c7b206198b4223763e96752b",
+  "version": "3.12.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.12.0.plugin",
+  "sha256": "accb5160667c68dbacbbaf7fc044ce40b5792ba2500ebad3deefa23a3b2884d5",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "index.sp500 already tracked the S&P 500 and re-fetched its own membership. The advice to use it rather than hand-build a 503-name watchlist was right about staleness and useless in practice — only a watchlist could show prices, so the duplicate list was the only thing that actually worked. 3.10.0 opened the cohort but answered only the modelling question. The drill-down now carries the monitoring columns: last, day %, distance from the 52-week high, volume against average. Quotes are chunked rather than fanned out, for the reason 3.9.0 documents. And it is navigable, not merely steppable. Six ",
-  "published": "2026-07-21T19:50:47.146Z",
+  "notes": "You asked for a NASDAQ Composite cohort. The honest answer is that there is no true Composite constituent feed — the provider's nasdaq-constituent endpoint is the Nasdaq-100, which already ships as index.nasdaq100. Hardcoding \"all NASDAQ-listed\" as an index would manufacture a false index. Your suggestion was the right one: tie the screener into cohorts, so any screen — a NASDAQ filter, or anything else — becomes a dynamic cohort. A saved screen already *is* a membership rule re-evaluated against live fundamentals, which is exactly what a factor cohort is. The bridge turned out to already exis",
+  "published": "2026-07-21T20:15:27.376Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
