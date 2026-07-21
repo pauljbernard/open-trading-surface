@@ -1,13 +1,13 @@
 {
-  "version": "3.23.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.23.0.plugin",
-  "sha256": "87c260f13b86377c9578021305733a5a0701569c13d99a99aa08204873d4eec7",
+  "version": "3.24.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.24.0.plugin",
+  "sha256": "48b1d990e433e9ccaf2e9c1b6889363b151c706c05439eda05a8057cfe7be920",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Two follow-ups to peer-cohorts, both from the same realisation: if a peer group is a cohort, it should behave like one everywhere. It now enters the price decomposition. A name's own peer group joins its sector, size and indexes as a cohort the decomposition measures it against — so \"cheap vs peers\" and \"cheap vs the sector\" become two reported facts with the spread between them shown as robustness. Because a curated peer set is not a sample of a broad population but the comparison universe itself, it clears a lower eligibility floor (6, versus 12 for a broad median) — the number a comps table",
-  "published": "2026-07-21T22:48:13.224Z",
+  "notes": "\"The group of names to compare this one against\" was being built in several places, each its own way. The comps table resolved it through the peer cohort. Base rates, though, kept a *second* builder: it called the provider peer endpoint and then screened the universe for a sector-and-size band of its own. Two code paths for one idea — which meant the base-rate distribution, the fade curves and the implied-expectations reference could be measured against a *different* peer group than the comps table and the price decomposition were using. Nothing warned you; the numbers just quietly disagreed. ",
+  "published": "2026-07-21T23:04:52.340Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
