@@ -1,13 +1,13 @@
 {
-  "version": "3.4.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.4.1.plugin",
-  "sha256": "db620e20776b8588fa1a8267cdb3903c171b90a486f32ebf510a5e7ead20cd41",
+  "version": "3.4.2",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.4.2.plugin",
+  "sha256": "0e561ffd8bcb82b7c6c4c3aff788f187c9350fa552b1af05cd41c2659872be76",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "3.4.0's headline feature never ran. The Model panel reported every sector model as refused: Cannot find module './blocks/reit-ffo' and the Standing page listed one model instead of four. Not a logic error — a bundling one, which is why every test passed. The server is bundled by esbuild into a single file, and a bundler can only follow a require whose path it can read at build time. Both new modules used require(variable): level-shapes looped over an array of path strings, level-registry mapped level ids to paths and required them later. esbuild never traced into blocks/, so the directory was ",
-  "published": "2026-07-21T16:01:58.312Z",
+  "notes": "It threw undefined is not an object (evaluating 'render(tab, v).catch') on every open. The renderer set its markup and fired its fetch but never returned the promise, and the dispatcher calls render(tab, v).catch(...) to surface failures — so a renderer returning undefined crashes the view instead of showing it. The tab shipped in 3.4.0 and has never once displayed content. Two fixes. The renderer returns its promise, as every other renderer already did. And the dispatcher now wraps in Promise.resolve(), so the next renderer that forgets — easy, since most are side-effecting — costs its own bu",
+  "published": "2026-07-21T16:06:37.987Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
