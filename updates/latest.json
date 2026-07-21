@@ -1,13 +1,13 @@
 {
-  "version": "3.16.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.16.0.plugin",
-  "sha256": "524f44d861151f5c77b9c0eae7cee954a817c1dc8bd0fbb4f2a215b41bf17e6a",
+  "version": "3.17.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.17.0.plugin",
+  "sha256": "33a252f06e8aa22af1a63e1fd65a183722c3ca292c6c790833835aa2894a7423",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "The consolidation gave every symbol list one home. This gives that home the distinction you flagged as key: not every cohort is a price factor. A sector or an index is a group defined by shared economics, so its premium is a candidate explanation for a member's price. A hand-kept list of \"names I find interesting\" is not — a security happening to sit in that list says nothing about what prices it, and before this release the decomposition would treat it as a factor anyway, injecting a spurious premium leg into every member and polluting the cross-cohort robustness verdict. Each cohort now carr",
-  "published": "2026-07-21T21:07:59.354Z",
+  "notes": "3.16.0 got the direction wrong. It defaulted hand lists and shipped examples to *ineligible* — which is automatic exclusion by another name: a cohort silently dropped from a member's decomposition because of its kind, not because anyone decided it didn't belong. That is precisely what a per-cohort choice is supposed to prevent. Corrected: inclusion and exclusion are both deliberate choices, and nothing is excluded automatically. Every cohort participates in the decomposition by default. The only thing that removes one is an explicit exclusion you make — reversible at any time. A migrated watch",
+  "published": "2026-07-21T21:20:11.068Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
