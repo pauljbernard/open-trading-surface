@@ -1,13 +1,13 @@
 {
-  "version": "3.6.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.6.0.plugin",
-  "sha256": "730dd0aa67619c160cc935b1f8e882584b43efe71b34630cb04f663ef3615726",
+  "version": "3.6.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.6.1.plugin",
+  "sha256": "2a1bc25731c7c47b97411bcc082b2516dec30416b9856ba94d6339096eb8a2ad",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Attribution exists to choose which parameters belong in a model of one specific security. What it was analysing was residual_ln — the level of ln(price) minus a valuation — across 471 names at ~10 sparse dates, defaulting to a cross-section that answers \"why is Apple priced differently from Microsoft.\" Different quantity, different axis, different question. The target is now the security's own daily log return, ln(P_t / P_t-1), for one name, on the trading-day grid. Periodic data on a daily grid Most candidates aren't daily. CPI is monthly, revenue quarterly. They reach the daily axis by as-of",
-  "published": "2026-07-21T17:06:19.003Z",
+  "notes": "3.6.0 swapped the engine and left the UI in front of it unchanged, so the new panel was unreachable from the terminal. The picker now defaults to RETURNS — this name's daily price change, and the older residual-level scopes remain available beneath it. Selecting returns posts to /rp/analyse rather than /fs/analyse: the two answer different questions on different grids, and routing both through one handler behind a flag is the shape that produced most of this week's defects. Transform options now match what the returns panel implements — change leads, log_return replaces the old log. New readou",
+  "published": "2026-07-21T17:18:44.173Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
