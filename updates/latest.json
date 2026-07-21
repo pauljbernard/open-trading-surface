@@ -1,13 +1,13 @@
 {
-  "version": "3.4.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.4.0.plugin",
-  "sha256": "ff8892d37889ff3331fe374a18356124db6be81db92f267efbb15b77cb42c449",
+  "version": "3.4.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.4.1.plugin",
+  "sha256": "db620e20776b8588fa1a8267cdb3903c171b90a486f32ebf510a5e7ead20cd41",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "For Realty Income the system valued the company at 70.51 from capitalised AFFO while the Model panel rendered the operating-company DCF in the low sixties. Alongside it: a five-year Revenue/EBIT/EPS projection, and a stat labelled *Terminal share of DCF* — for a model that has no terminal, does not project, and never computed a DCF. Two panels showed different valuations for the same company and neither said so. The Model panel is the one that looks authoritative, because it is the one with drivers you can edit. Attribution followed the per-name routing added in #146. The Model panel never did",
-  "published": "2026-07-21T15:01:52.160Z",
+  "notes": "3.4.0's headline feature never ran. The Model panel reported every sector model as refused: Cannot find module './blocks/reit-ffo' and the Standing page listed one model instead of four. Not a logic error — a bundling one, which is why every test passed. The server is bundled by esbuild into a single file, and a bundler can only follow a require whose path it can read at build time. Both new modules used require(variable): level-shapes looped over an array of path strings, level-registry mapped level ids to paths and required them later. esbuild never traced into blocks/, so the directory was ",
+  "published": "2026-07-21T16:01:58.312Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
