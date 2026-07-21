@@ -1,13 +1,13 @@
 {
-  "version": "3.6.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.6.1.plugin",
-  "sha256": "2a1bc25731c7c47b97411bcc082b2516dec30416b9856ba94d6339096eb8a2ad",
+  "version": "3.6.2",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.6.2.plugin",
+  "sha256": "8030ee5047ed182da64a5cdd7a2bfce93ccf95894be9d9f2d7664bc3135329d6",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "3.6.0 swapped the engine and left the UI in front of it unchanged, so the new panel was unreachable from the terminal. The picker now defaults to RETURNS — this name's daily price change, and the older residual-level scopes remain available beneath it. Selecting returns posts to /rp/analyse rather than /fs/analyse: the two answer different questions on different grids, and routing both through one handler behind a flag is the shape that produced most of this week's defects. Transform options now match what the returns panel implements — change leads, log_return replaces the old log. New readou",
-  "published": "2026-07-21T17:18:44.173Z",
+  "notes": "Running the returns panel on AAPL against a peer, a rate, a CPI series and a quarterly fundamental surfaced four defects. The panel mechanics validated exactly as designed — MSFT moved 749 of 749 days at confidence 1.0, AAPL revenue moved 12 days on a measured 91-day cadence at confidence 0.62 — but the layer reporting the result did not. FRED was unreachable with a live key configured. The /rp/ routes passed { fmp } alone, so every fred: candidate returned \"FRED client not available\" — a missing *argument* reported as a missing *key*, which sends you to check settings that were never the prob",
+  "published": "2026-07-21T17:29:41.680Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
