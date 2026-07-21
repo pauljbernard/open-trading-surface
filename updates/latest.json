@@ -1,13 +1,13 @@
 {
-  "version": "3.25.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.25.0.plugin",
-  "sha256": "257f9b7c088c6f4ab193059c17ac48d5d1c09752d430dddb07d9210dbf16c5df",
+  "version": "3.26.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.26.0.plugin",
+  "sha256": "7dd026630142a652c6f900f425b3326013f9cc98c2ac5b3b68244478b6f8122f",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Now that cohorts are one coherent object, the attribution tool can finally read them. Until this release the price-identity attribution panel had a single known leg — the security's own substantiated value — and *everything* a name's cohort explained sat in the residual, undifferentiated from real idiosyncrasy. The decompose_price surface measured that cohort re-rating and reported it; the attribution panel never saw it, because the two were built on different substrates. On GOOG that left 61% of the price \"unattributed\" when a large part of it was simply the sector trading richly as a group. ",
-  "published": "2026-07-21T23:35:36.401Z",
+  "notes": "A premium is price divided by a *substantiated value*, and a substantiated value only means something next to the model that produced it: a DCF fair value, a REIT's capitalised AFFO, and a bank's residual income are three different denominators. Averaging premiums across them compares valuation bases, not richness — a \"large-cap\" cohort that mixes a bank, a REIT, and a software name produces a median premium that is a blend of apples and oranges. Two places now enforce or disclose that: - The cohort-block exposure is level-restricted. The identity leg shipped in 3.25.0 builds its leave-one-out",
+  "published": "2026-07-21T23:45:22.866Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

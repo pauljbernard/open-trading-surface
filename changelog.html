@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.26.0 — a premium only compares like with like</h2>
+<ul>
+<li><b>The cohort-block exposure is level-restricted.</b> The identity leg shipped in 3.25.0 builds its leave-one-out cohort premium only from members valued on the <b>subject's own level</b>. A REIT sitting in a size-band or peer cohort is dropped before the median is taken, so the exposure is one cohort re-rating rather than a blend of denominators. The leg now reports the level it enforced and how many members it dropped for being on a different basis. (The sector cohort — the default — mostly satisfies this by construction, since sector members route to the same level; the guard catches the peer- and size-cohort fallbacks where they don't.)</li>
+<li><b><code>decompose_price</code> discloses the mix.</b> Every cohort premium now carries its <code>level_composition</code>, and a premium pooled across more than one valuation level says so plainly, so a reader can prefer a single-level cohort when the comparison has to be exact.</li>
+</ul>
 <h2>3.25.0 — the cohort re-rating enters the attribution</h2>
 <ul>
 <li><b>Non-circular by construction.</b> The exposure is <code>ln</code> of the <b>leave-one-out</b> cohort premium — the subject is dropped from its own cohort before the premium is taken — so a name is never explained by its own price (PRICE-IDENTITY-SPEC 2.2). The <b>sector</b> cohort is used because its members route to the same valuation level as the subject, making the premium ratio like-for-like rather than a mix of AFFO- and DCF-based premiums.</li>
