@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.25.0 — the cohort re-rating enters the attribution</h2>
+<ul>
+<li><b>Non-circular by construction.</b> The exposure is <code>ln</code> of the <b>leave-one-out</b> cohort premium — the subject is dropped from its own cohort before the premium is taken — so a name is never explained by its own price (PRICE-IDENTITY-SPEC 2.2). The <b>sector</b> cohort is used because its members route to the same valuation level as the subject, making the premium ratio like-for-like rather than a mix of AFFO- and DCF-based premiums.</li>
+<li><b>It enters <code>known</code> only through the gate.</b> The level legs predate the admission gate and are grandfathered; a leg added now gets no such grace. Until <code>evaluate_cohort_block</code> admits it against the recorded residual ledger (name-holdout, incremental, Šidák deflation), it contributes <b>nothing</b> — it is *shown* in the panel as a candidate with its would-be exposure named, and the cohort re-rating stays in the residual. Nothing enters the known block without surviving a held-out test (PRICE-IDENTITY-SPEC 2.1).</li>
+<li><b>Frozen coefficient.</b> Once admitted, the operative coefficient is the one fitted at admission and frozen — never re-fit on the fly, so residual movement is never partly our own re-estimation.</li>
+</ul>
 <h2>3.24.0 — one comparable set, used everywhere</h2>
 <ul>
 </ul>

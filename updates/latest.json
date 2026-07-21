@@ -1,13 +1,13 @@
 {
-  "version": "3.24.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.24.0.plugin",
-  "sha256": "48b1d990e433e9ccaf2e9c1b6889363b151c706c05439eda05a8057cfe7be920",
+  "version": "3.25.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.25.0.plugin",
+  "sha256": "257f9b7c088c6f4ab193059c17ac48d5d1c09752d430dddb07d9210dbf16c5df",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "\"The group of names to compare this one against\" was being built in several places, each its own way. The comps table resolved it through the peer cohort. Base rates, though, kept a *second* builder: it called the provider peer endpoint and then screened the universe for a sector-and-size band of its own. Two code paths for one idea — which meant the base-rate distribution, the fade curves and the implied-expectations reference could be measured against a *different* peer group than the comps table and the price decomposition were using. Nothing warned you; the numbers just quietly disagreed. ",
-  "published": "2026-07-21T23:04:52.340Z",
+  "notes": "Now that cohorts are one coherent object, the attribution tool can finally read them. Until this release the price-identity attribution panel had a single known leg — the security's own substantiated value — and *everything* a name's cohort explained sat in the residual, undifferentiated from real idiosyncrasy. The decompose_price surface measured that cohort re-rating and reported it; the attribution panel never saw it, because the two were built on different substrates. On GOOG that left 61% of the price \"unattributed\" when a large part of it was simply the sector trading richly as a group. ",
+  "published": "2026-07-21T23:35:36.401Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
