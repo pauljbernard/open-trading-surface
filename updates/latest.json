@@ -1,13 +1,13 @@
 {
-  "version": "3.20.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.20.0.plugin",
-  "sha256": "8d140192d60612e58d8cdfc6f6ec16b120a220ebfd12c0cd523f4b37b07aff7a",
+  "version": "3.21.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.21.0.plugin",
+  "sha256": "4be0bb26fbb6803e1996499af27c03825f9390f766b20ab04485e251bb676ba3",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Step 2 brought a compact predicate builder into Cohorts. This brings the *whole* expressive machine — so nothing is lost when the Screener tab is retired. The Cohorts \"Build from predicates\" panel now draws the full field vocabulary from the screener (not a curated nine), offers the complete op set including the cross-sectional percentile predicates (pctl_gt/pctl_lt), and carries the where-clause expression DSL — compound boolean logic and derived fields, e.g. roe > 0.15 and pe < 20 or fcfGrowth > revenueGrowth. And it previews the matches before you create, so you see the exact membership the",
-  "published": "2026-07-21T22:03:23.467Z",
+  "notes": "The last step. The standalone Screener tab is gone, and with it the last place the product pretended a screen and a cohort were two different things. Everything it did has a home: saved screens migrated to cohorts (3.19.0), the full expressive builder — every field, the where-clause, percentile predicates, live preview — lives in the Cohorts tab (3.20.0), and index membership is a predicate (3.18.0). So the tab and its dead renderers are removed. Nothing that pointed at the Screener is orphaned. A persisted \"active tab = Screener\" from old saved state lands on Cohorts. The agent's open_screene",
+  "published": "2026-07-21T22:16:51.149Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
