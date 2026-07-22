@@ -1,13 +1,13 @@
 {
-  "version": "3.27.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.27.0.plugin",
-  "sha256": "a95d3173b660215c9117fa158e9bd5e2243db4fed5f4e88e6e40a31c16828586",
+  "version": "3.28.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.28.0.plugin",
+  "sha256": "125f5d8c9e8d091f1b524e4807105108287394e31c721ded1f67239c7f74a7db",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Horizontal tabs used to be one-security-each, which stops scaling the moment you are watching dozens of names. A tab is now a view: a set of securities shown in a 1/2/4 layout, with exactly one selected security in context. - A per-view security multi-select. Under the tab strip, a view bar shows the view's securities as chips. Click one to make it the security in context — the selected chip feeds the tab label, the left rail, the quote strip and the agent, so everything downstream keeps pointing at one unambiguous name. Add or remove securities from the view without opening a new tab. - The 1",
-  "published": "2026-07-22T00:19:30.698Z",
+  "notes": "The auto-label (selected security + a +N badge) is a fine default, but a view that holds \"Semis\" or \"Rate-sensitive names\" or \"My book\" deserves to say so. Views can now be given a custom name: hover a tab and a pencil appears, or double-click the tab, or click the name in the view bar — any of the three opens a rename. Blank restores the auto-label. The name persists with the view and shows in both the tab and the view bar, and the agent can set it too (rename_view), with terminal state now reporting each view's name.",
+  "published": "2026-07-22T00:28:53.801Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
