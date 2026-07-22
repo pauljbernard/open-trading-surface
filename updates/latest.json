@@ -1,13 +1,13 @@
 {
-  "version": "3.36.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.36.0.plugin",
-  "sha256": "83174d24d4708e84cf3c2b851a8935996950b6be0f67e4dfaea3a528fed00de4",
+  "version": "3.37.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.37.0.plugin",
+  "sha256": "95b4fa5ae827b7cbed9cb2ec95d48cbc17fbb78b1a10899bdd223e601289ef7f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.36.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.37.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "The horizon-model spiral stripped every confound from the attribution and left 55 names over-attributed on the LEVEL alone — pure level defects. The remedy already existed: security.block.v2 (per-name cost of capital, capitalised R&D, durability fade, DCF-only — no circular exit-multiple leg) was built, registered, and then left invisible: absent from the per-name level registry, and computing every WACC off a hardcoded 4% risk-free because only FRED was tried and this install has no FRED key. - The risk-free rate now falls back honestly: fred:DGS10 → fmp:treasury:year10 → the assumed 4% as a ",
-  "published": "2026-07-22T17:42:20.557Z",
+  "notes": "compare_security_blocks has always named its own limit: \"establishing better requires the fundamental-accuracy test — did these drivers project revenue and margins that matched what was later reported?\" That test now exists. run_level_accuracy_study rewinds each name to a base fiscal year ~3 years back, builds the v1 driver treatment (point-in-time drivers) and the v2 treatment (R&D-capitalisation margin adjustment + durability fade, from prior-only history), projects both with the SHARED engine, and scores projected revenue and EBIT (MAPE) against what was actually filed since. WACC is exclud",
+  "published": "2026-07-22T17:52:47.840Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
