@@ -1,13 +1,13 @@
 {
-  "version": "3.39.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.39.0.plugin",
-  "sha256": "2f8c76de4cb30344ca0438e498471bd572a7f9d17b344852bdb65b9de9233353",
+  "version": "3.40.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.40.0.plugin",
+  "sha256": "3d4b35b077f40b212ed7b89ec1a0aa157c6be6731d80faeb43f7acce607ab88b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.39.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.40.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "A valuation-based time series with outer bands that bound normal positive and normal negative variation from a foundational valuation, independent of the actual price path — so \"overbought\"/\"oversold\" stops being a binary verdict and becomes a measured DEGREE: where, exactly, does today's deviation sit inside this name's own history of deviations? - The foundation is the model/attribution substrate, not a fit on price. The band's spine is the Model/Attribution panels' per-security valuation: the price-identity LEVEL series — the ledger known with the admitted cohort leg stripped back out (stri",
-  "published": "2026-07-22T21:58:47.550Z",
+  "notes": "The valuation band's V2, and a redesign of the Model and Attribution panels around it. The organizing idea: short-termism is a deviation phenomenon. The market's punishment of heavy capex/R&D is real and is REPORTED — but it belongs in the measured deviation and its degree percentile, never in the foundation. The foundation stays PATIENT about investment; businesses that underinvest tend to underperform long-run, but current pricing is what it is, and the instrument reports degree, not verdicts. - The patient foundation. Where the routed level is security.valuation — the operating DCF, which E",
+  "published": "2026-07-22T22:17:34.768Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
