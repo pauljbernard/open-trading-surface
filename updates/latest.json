@@ -1,13 +1,13 @@
 {
-  "version": "3.33.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.33.0.plugin",
-  "sha256": "7ca5b110ee5153aea7ac5bc63ec2e00ffc8208c000e60a15b5d3557cdec4b347",
+  "version": "3.34.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.34.0.plugin",
+  "sha256": "c173664c64aff9a3fe89e4f41883222c923dd3369383cb4a228bf8156f8d136e",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.33.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.34.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "Loop 2's held-out check across 15 over-attributed names was a clean negative: the CLASS-CONSTANT mixture tracked price *worse* than the level alone (median |ln| 0.52 vs 0.43), because it applies the admitted cohort lift to names that demonstrably do not carry their group's re-rating — the Appendix-B finding recurring one layer up. The mixture cannot be a class constant. - The per-name LOADING g — how much of its group's re-rating this name's own price has historically carried: ln price − ln level ≈ g · cohort_ln. Fitted walk-forward with exponential weighting from strictly-prior observations, ",
-  "published": "2026-07-22T16:30:14.231Z",
+  "notes": "The cohort block's design says the SECTOR cohort supplies the leave-one-out exposure, because its members route to the subject's valuation level (like-for-like premium ratios). The horizon-model loop-3 sweep said otherwise: 17 of 30 names had no admitted cohort leg, \"too few substantiated leave-one-out peers.\" Root cause: pickCohort searched for kind 'sector' — a label no cohort carries. Sector cohorts are kind 'taxonomic' (the provider classification; cohorts.js itself finds sector by that kind). The preference never matched, every name silently fell through to its thin peer cohort, and the f",
+  "published": "2026-07-22T16:59:01.448Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

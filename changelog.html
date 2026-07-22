@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.34.0 — the sector cohort preference never fired: a kind the producer doesn't emit</h2>
+<ul>
+<li><b>Preference order fixed</b>: <code>taxonomic</code> (the sector cohort) first; peer/size/index remain the labelled fallbacks.</li>
+<li><b>The fixture now asserts the real world</b>: the suite constructs memberships with BOTH a taxonomic sector cohort and a peer cohort and asserts the sector wins — and that the peer fallback names why it fired.</li>
+<li><b>The admitted coefficient must be re-earned.</b> The frozen β was fitted against the old (peer-fallback) exposures; applying it to sector exposures would be a coefficient on the wrong basis. After this release, <code>evaluate_cohort_block</code> re-runs the held-out gate on the corrected exposure and re-freezes — recorded as a new admission/block-version event so residual history stays readable across the boundary. Until re-run, contribute() keeps applying the previous frozen coefficient to the new exposure, which is exactly why the re-gate should happen promptly.</li>
+</ul>
 <h2>3.33.0 — horizon models, spiral loop 3a: the per-name loading, fitted walk-forward</h2>
 <ul>
 <li><b>The per-name LOADING g</b> — how much of its group's re-rating this name's own price has historically carried: <code>ln price − ln level ≈ g · cohort_ln</code>. Fitted <b>walk-forward</b> with exponential weighting from <b>strictly-prior</b> observations, so the divergence at t is price vs the name's OWN historical composite relationship — never a same-day fit that reconciles by construction. A regime break shows up one step late by design, never same-day.</li>
