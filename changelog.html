@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.36.0 — the level upgrade surfaces: v2 becomes visible, and its risk-free rate becomes real</h2>
+<ul>
+<li><b>The risk-free rate now falls back honestly</b>: <code>fred:DGS10</code> → <code>fmp:treasury:year10</code> → the assumed 4% as a LAST resort, each source named in the provenance string. Every comparison run before this fix understated every WACC by ~0.6pp (the 10Y is ~4.6%) while presenting itself as a per-name derivation.</li>
+<li><b>v2 appears in the per-name level registry</b> (<code>get_level_registry</code>): a fifth row alongside the operating-company model and the three sector blocks, valued/refused with its WACC, risk-free source, competitive-advantage period, and whether R&amp;D was capitalised — plus the note that it is registered but NOT the default (adoption is <code>select_price_level</code>, a recorded block-version event). The registry existed to show "every model that could value this name" and omitted the only general-purpose alternative — its own founding defect, recurring.</li>
+<li>Baseline comparison (22 names, pre-fix risk-free): v1 residual dispersion 0.62 vs v2 0.75 — dispersion RISES, the expected consequence of removing the price-anchored leg's artificial compression. WACC differentiates 5–15% (NVDA 15.0, GILD 5.4) vs the flat 9. Not a validation; the adoption decision needs the re-run with the real risk-free and the fundamental-accuracy criterion.</li>
+</ul>
 <h2>3.35.0 — the widened leave-one-out set needs a cache, not a timeout</h2>
 <ul>
 </ul>
