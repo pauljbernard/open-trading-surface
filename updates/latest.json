@@ -1,13 +1,13 @@
 {
-  "version": "3.38.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.38.0.plugin",
-  "sha256": "bc7745dca60be627c6bae224655f7f551987c03d377be8e91ef4d0c1b4355dad",
+  "version": "3.39.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.39.0.plugin",
+  "sha256": "2f8c76de4cb30344ca0438e498471bd572a7f9d17b344852bdb65b9de9233353",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.38.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.39.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "The horizon spiral's verdict stands: the level's absolute scale failed the accuracy standard, and the band survived it. So the tracking line's spine pivots from valuation to TREND CORRELATION — per security, walk-forward: ln price = α + β₁·ln(TTM EPS) + β₂·ln(revenue/share), fitted on decades of FILED statements, with the deviation band ln(price/trend) z-scored against the name's own strictly-prior history. Spiral loop T1 ships the seed: two regressors, filings only; economics, forward estimates, and the counted per-name regressor search are T2. - The grounding constraint, enforced three ways ",
-  "published": "2026-07-22T20:42:39.151Z",
+  "notes": "A valuation-based time series with outer bands that bound normal positive and normal negative variation from a foundational valuation, independent of the actual price path — so \"overbought\"/\"oversold\" stops being a binary verdict and becomes a measured DEGREE: where, exactly, does today's deviation sit inside this name's own history of deviations? - The foundation is the model/attribution substrate, not a fit on price. The band's spine is the Model/Attribution panels' per-security valuation: the price-identity LEVEL series — the ledger known with the admitted cohort leg stripped back out (stri",
+  "published": "2026-07-22T21:58:47.550Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
