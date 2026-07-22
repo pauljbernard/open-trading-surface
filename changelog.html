@@ -16,6 +16,15 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.31.0 — horizon models, spiral loop 1: three duration models, a class registry, and the composite tracking line</h2>
+<ul>
+<li><b><code>server/horizon-models.js</code></b> — three per-horizon values from existing engine outputs: SHORT = relative price (substantiated × cohort premium) tilted by momentum; MEDIUM = the sector-routed substantiated value; LONG = the terminal-heavy DCF leg. A <b>class registry</b> carries per-class mixtures and long-leg forms (duration is one vector, class another); loop 1 implements the software class plus a generic default rather than forcing every name into a class.</li>
+<li><b>The composite and its divergence.</b> <code>composite = Σ w_h · value_h</code> under the class mixture PRIOR (declared, not fitted — loop 3 estimates it); <code>divergence = ln(price / composite)</code>. The historical series carries a trailing z-band against the name's <b>strictly-prior</b> history — the band is the signal, because it cancels a constant multiplicative bias in an uncalibrated level; the absolute level inherits the level model's grade and says so.</li>
+<li><b>Absence is not zero.</b> A missing horizon leg yields an absent composite, never an imputed 0; an ineligible cohort premium falls back to a declared momentum-only short leg, never a fabricated 1.0×.</li>
+<li><b><code>get_horizon_composite</code> tool</b> — live values, or <code>series:true</code> for the historical tracking line with per-date readings (in line / far afield rich / far afield cheap / band forming).</li>
+<li><b>Chartable as native series</b> — <code>model:&lt;SYM&gt;:composite</code> and <code>model:&lt;SYM&gt;:divergence</code> resolve through the same overlay engine as every other series; labels state the epistemic standing (candidate, parallel to the price identity).</li>
+<li><b>Loop-1 simplifications are declared in the payload</b>: historical medium and long legs coincide (level-only PIT backfill), the cohort premium is held at the live reading across history, and the momentum tilt is a trailing 63-bar ROC. Each is scheduled to be replaced by a recorded series in later loops.</li>
+</ul>
 <h2>3.30.0 — the value line is a native model series, not a separate chart</h2>
 <ul>
 <li><b>New native series <code>model:&lt;SYM&gt;:value</code></b> — the price-identity KNOWN block over time: the routed level (fundamentals) <b>plus the admitted cohort re-rating</b>. It is the single line that folds in every contributor the model stands behind, so <code>price − value</code> on the chart is the residual. Distinct from <code>:substantiated</code> (level only) and <code>:backfill_fv</code> (the level-only point-in-time reconstruction), and it reads the recorded residual ledger, backfilling history when thin.</li>
