@@ -1,13 +1,13 @@
 {
-  "version": "3.28.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.28.0.plugin",
-  "sha256": "125f5d8c9e8d091f1b524e4807105108287394e31c721ded1f67239c7f74a7db",
+  "version": "3.28.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.28.1.plugin",
+  "sha256": "aa8863dc5cd840f69d829247467580969c5eb5f2d76b5d5ad1308f55a7a242f5",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "The auto-label (selected security + a +N badge) is a fine default, but a view that holds \"Semis\" or \"Rate-sensitive names\" or \"My book\" deserves to say so. Views can now be given a custom name: hover a tab and a pencil appears, or double-click the tab, or click the name in the view bar — any of the three opens a rename. Blank restores the auto-label. The name persists with the view and shows in both the tab and the view bar, and the agent can set it too (rename_view), with terminal state now reporting each view's name.",
-  "published": "2026-07-22T00:28:53.801Z",
+  "notes": "Every lens rendered correctly in a 2- or 4-up view except Earnings Transcripts: the three panels drew on top of each other. The transcript panel positions itself absolute; inset:0, and a grid cell's body was not a positioning context, so each panel escaped to the shared grid host and stacked on its siblings. Grid cells are now positioning contexts, so an absolutely-positioned panel is contained within its own cell — the fix is general, not transcript-specific.",
+  "published": "2026-07-22T00:36:44.276Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
