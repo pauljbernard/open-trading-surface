@@ -1,13 +1,13 @@
 {
-  "version": "3.43.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.43.0.plugin",
-  "sha256": "d1f58035adefd84b84f29505cf19cee123cf5232f268fa06ed21d395f2ad7fa5",
+  "version": "3.43.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.43.1.plugin",
+  "sha256": "1cf8e397040345c352b4e41fd8a5c6938da036c646e3b1f323363c113cb25f2b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.43.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.43.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "A 1-minute chart left open goes stale the minute after it loads. This release lets it follow the tape — as a DELTA, and only when asked. - A Realtime checkbox joins Log and Ext on the workbench's bottom bar, enabled ONLY on the 1-minute interval (disabled elsewhere, with a tooltip saying why). It is OPT-IN and never the default: unchecked, today's behavior is exactly unchanged. When checked, once per minute the chart fetches ONLY the newest 1-minute bars and merges them into the loaded series — never a full-history refetch or repaint. - Merge semantics, by bar time. The still-forming minute (s",
-  "published": "2026-07-22T23:39:32.599Z",
+  "notes": "The first live S&P run of backfill_valuation_bands surfaced two defects that fed each other: reconstructions came back far shallower than requested, and the sweep's skip criterion could not recognise them as finished — so it redid the same first 25 names on every call, remaining sat frozen at 474, and the resume note said \"29 of 503\" forever. Both fixed. - The depth cap: a 15-year request quietly produced ~9 points. Two silent truncations in the reconstruction chain. The PIT backfill clamped years to 12 without a word — and, far worse, fetched the price history at the provider DEFAULT window (",
+  "published": "2026-07-22T23:57:56.818Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
