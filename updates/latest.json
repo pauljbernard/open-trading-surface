@@ -1,13 +1,13 @@
 {
-  "version": "3.26.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.26.0.plugin",
-  "sha256": "7dd026630142a652c6f900f425b3326013f9cc98c2ac5b3b68244478b6f8122f",
+  "version": "3.27.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.27.0.plugin",
+  "sha256": "a95d3173b660215c9117fa158e9bd5e2243db4fed5f4e88e6e40a31c16828586",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "A premium is price divided by a *substantiated value*, and a substantiated value only means something next to the model that produced it: a DCF fair value, a REIT's capitalised AFFO, and a bank's residual income are three different denominators. Averaging premiums across them compares valuation bases, not richness — a \"large-cap\" cohort that mixes a bank, a REIT, and a software name produces a median premium that is a blend of apples and oranges. Two places now enforce or disclose that: - The cohort-block exposure is level-restricted. The identity leg shipped in 3.25.0 builds its leave-one-out",
-  "published": "2026-07-21T23:45:22.866Z",
+  "notes": "Horizontal tabs used to be one-security-each, which stops scaling the moment you are watching dozens of names. A tab is now a view: a set of securities shown in a 1/2/4 layout, with exactly one selected security in context. - A per-view security multi-select. Under the tab strip, a view bar shows the view's securities as chips. Click one to make it the security in context — the selected chip feeds the tab label, the left rail, the quote strip and the agent, so everything downstream keeps pointing at one unambiguous name. Add or remove securities from the view without opening a new tab. - The 1",
+  "published": "2026-07-22T00:19:30.698Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.27.0 — a tab is a view, not a security</h2>
+<ul>
+<li><b>A per-view security multi-select.</b> Under the tab strip, a view bar shows the view's securities as chips. Click one to make it the security in context — the selected chip feeds the tab label, the left rail, the quote strip and the agent, so everything downstream keeps pointing at one unambiguous name. Add or remove securities from the view without opening a new tab.</li>
+<li><b>The 1/2/4 layout is per view, and works for every lens.</b> The grid metaphor that used to live only in the chart view is now a property of the view itself, and it generalizes: a 2- or 4-up layout renders the chart as linked panes *or* any data lens (Operating Model, Financials, Comps…) as one panel per security. The selected cell is outlined; clicking a cell moves the context to it. A single-security view — the default — is unchanged.</li>
+<li><b>The tab is labelled by its selected security</b>, with a <code>+N</code> badge when the view holds more, so a dozen names live behind a handful of legible tabs instead of a dozen tabs.</li>
+<li><b>Migration is automatic.</b> Every existing single-security tab becomes a one-security view. The agent channel gains the new model too: terminal state reports each view's <code>securities</code> and <code>layout</code>, <code>set_grid</code> now drives the active view's set and layout for any lens, and <code>select_security</code> moves the in-context selection.</li>
+</ul>
 <h2>3.26.0 — a premium only compares like with like</h2>
 <ul>
 <li><b>The cohort-block exposure is level-restricted.</b> The identity leg shipped in 3.25.0 builds its leave-one-out cohort premium only from members valued on the <b>subject's own level</b>. A REIT sitting in a size-band or peer cohort is dropped before the median is taken, so the exposure is one cohort re-rating rather than a blend of denominators. The leg now reports the level it enforced and how many members it dropped for being on a different basis. (The sector cohort — the default — mostly satisfies this by construction, since sector members route to the same level; the guard catches the peer- and size-cohort fallbacks where they don't.)</li>
