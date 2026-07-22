@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.30.0 — the value line is a native model series, not a separate chart</h2>
+<ul>
+<li><b>New native series <code>model:&lt;SYM&gt;:value</code></b> — the price-identity KNOWN block over time: the routed level (fundamentals) <b>plus the admitted cohort re-rating</b>. It is the single line that folds in every contributor the model stands behind, so <code>price − value</code> on the chart is the residual. Distinct from <code>:substantiated</code> (level only) and <code>:backfill_fv</code> (the level-only point-in-time reconstruction), and it reads the recorded residual ledger, backfilling history when thin.</li>
+<li><b>The model's <code>series()</code> now declares the full band</b> — value, substantiated, backfilled history, and the driver-derived (drivable) forecast — so all of it is *discoverable from the model* and one click to overlay. Shocking a driver reshapes the forecast line through the same machinery; the value line is drivable, not a picture.</li>
+<li><b>The separate Valuation view, its bespoke tool, route, and module are removed.</b> Read the bands on the Stock Chart: overlay <code>model:&lt;SYM&gt;:substantiated</code> and <code>model:&lt;SYM&gt;:value</code> against price, and the gap is the residual.</li>
+</ul>
 <h2>3.29.0 — the Valuation overlay: the earnings-justified chart, from the price identity</h2>
 <ul>
 <li><b>Three series, not one.</b> The fundamentals line is the routed level (DCF / AFFO / residual income); the upper line adds the <b>admitted cohort re-rating</b>; the band between them is how much of the premium is the peer/sector group being re-rated versus this name specifically; and the gap from there to price is the residual — unexplained, never a claim the price is wrong. Every band is an attribution contribution.</li>

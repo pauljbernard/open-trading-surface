@@ -1,13 +1,13 @@
 {
-  "version": "3.29.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.29.0.plugin",
-  "sha256": "ba170bce6a448956fcc5b8a94f3c4c6c638b81c1fdc6bb558d94f0afcaf3914d",
+  "version": "3.30.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.30.0.plugin",
+  "sha256": "109701253d5bbea66cedfa4088409655b7a7805f76871182cdddb2c9baa8e1a1",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "FAST Graphs' signature view overlays price on a fair-value line = normalized EPS × a fixed multiple — legible, and one hardcoded heuristic. Orrery now draws the same idiom from a legible causal substrate: a new Valuation view under Operating Model plots price against the model's substantiated value over time, as a *decomposition* rather than a single line. - Three series, not one. The fundamentals line is the routed level (DCF / AFFO / residual income); the upper line adds the admitted cohort re-rating; the band between them is how much of the premium is the peer/sector group being re-rated ve",
-  "published": "2026-07-22T02:16:12.310Z",
+  "notes": "3.29.0 shipped the valuation overlay as a bespoke view with its own chart. That was the wrong seam: the operating model already exposes its dated conclusions as native series (model:<SYM>:fair_value, :substantiated, :backfill_fv, :forecast_fv, the premium decomposition), declared through the model's series() contract member and plotted on the Stock Chart through the same resolver as any FRED or FMP series. So the value line belongs there, not in a parallel chart. - New native series model:<SYM>:value — the price-identity KNOWN block over time: the routed level (fundamentals) plus the admitted ",
+  "published": "2026-07-22T02:42:11.018Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
