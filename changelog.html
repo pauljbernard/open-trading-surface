@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.33.0 — horizon models, spiral loop 3a: the per-name loading, fitted walk-forward</h2>
+<ul>
+<li><b>The per-name LOADING g</b> — how much of its group's re-rating this name's own price has historically carried: <code>ln price − ln level ≈ g · cohort_ln</code>. Fitted <b>walk-forward</b> with exponential weighting from <b>strictly-prior</b> observations, so the divergence at t is price vs the name's OWN historical composite relationship — never a same-day fit that reconciles by construction. A regime break shows up one step late by design, never same-day.</li>
+<li><b>Honest fallbacks throughout</b>: fewer than 3 prior observations → the class prior, labelled; near-zero cohort_ln cannot identify g and is skipped as an observation; implied loadings are clamped so a data defect cannot become a coefficient; no cohort leg → the declared prior mixture.</li>
+<li><b>Composite becomes a log-linear blend</b>: <code>ln composite = ln level + g·cohort_ln (+ momentum tilt)</code>. The historical series reports the per-date loading, its source (walk_forward | prior), and prior count; the live payload carries <code>loading</code> with the same disclosure.</li>
+<li><b>Loop 3b declared, not faked</b>: regressing loading CHANGES on the certainty/risk-reward observables (IV term structure, estimate dispersion, guidance events), lead-lag disciplined, awaits a deeper ledger — the limitation says so in the payload.</li>
+</ul>
 <h2>3.32.0 — horizon models, spiral loop 2: the short leg earns its coefficient, and the double-count is gone</h2>
 <ul>
 <li><b>Level-only base for every leg.</b> <code>stripCohortLn</code> divides the recorded cohort contribution back out of <code>known</code>, so SHORT/MEDIUM/LONG are all built on the level (fundamentals) alone. An absent cohort contribution strips nothing — absence is not a value. Rebuilding <code>level × exp(cohort_ln)</code> recovers <code>known</code> exactly: one application, never two.</li>

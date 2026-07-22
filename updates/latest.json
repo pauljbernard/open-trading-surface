@@ -1,13 +1,13 @@
 {
-  "version": "3.32.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.32.0.plugin",
-  "sha256": "7b08fd9f3c6214b3fd034e8822be76d37ed9ef334a2a69c49367cc6ad659fcc5",
+  "version": "3.33.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.33.0.plugin",
+  "sha256": "7ca5b110ee5153aea7ac5bc63ec2e00ffc8208c000e60a15b5d3557cdec4b347",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.32.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.33.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "Loop 1's live validation surfaced exactly what a spiral is for: the composite jumped discontinuously at the live edge (ADBE 7/22: 420 → 905) because the ledger's known already includes the admitted cohort leg, and the short model multiplied the raw cohort premium on top of it — the re-rating counted twice. - Level-only base for every leg. stripCohortLn divides the recorded cohort contribution back out of known, so SHORT/MEDIUM/LONG are all built on the level (fundamentals) alone. An absent cohort contribution strips nothing — absence is not a value. Rebuilding level × exp(cohort_ln) recovers k",
-  "published": "2026-07-22T16:14:22.541Z",
+  "notes": "Loop 2's held-out check across 15 over-attributed names was a clean negative: the CLASS-CONSTANT mixture tracked price *worse* than the level alone (median |ln| 0.52 vs 0.43), because it applies the admitted cohort lift to names that demonstrably do not carry their group's re-rating — the Appendix-B finding recurring one layer up. The mixture cannot be a class constant. - The per-name LOADING g — how much of its group's re-rating this name's own price has historically carried: ln price − ln level ≈ g · cohort_ln. Fitted walk-forward with exponential weighting from strictly-prior observations, ",
+  "published": "2026-07-22T16:30:14.231Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
