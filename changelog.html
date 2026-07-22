@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.29.0 — the Valuation overlay: the earnings-justified chart, from the price identity</h2>
+<ul>
+<li><b>Three series, not one.</b> The fundamentals line is the routed level (DCF / AFFO / residual income); the upper line adds the <b>admitted cohort re-rating</b>; the band between them is how much of the premium is the peer/sector group being re-rated versus this name specifically; and the gap from there to price is the residual — unexplained, never a claim the price is wrong. Every band is an attribution contribution.</li>
+<li><b>Point-in-time history.</b> The historical value line is reconstructed from statements filed by each date (via the price-identity backfill), so it is what the model *would* have said with only-then-available data — a stronger claim than "normalized." Reconstructed points render dashed and are labelled weaker evidence than the live segment.</li>
+<li><b>A dense price line</b> (weekly) weaves around the value line the way the idiom is meant to be read, with a live readout: price, model value, the discount/premium, attributed share, and whether the cohort leg is admitted.</li>
+</ul>
 <h2>3.28.1 — fix overlapping transcripts in a multi-panel view</h2>
 <ul>
 </ul>

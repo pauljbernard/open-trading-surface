@@ -1,13 +1,13 @@
 {
-  "version": "3.28.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.28.1.plugin",
-  "sha256": "aa8863dc5cd840f69d829247467580969c5eb5f2d76b5d5ad1308f55a7a242f5",
+  "version": "3.29.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.29.0.plugin",
+  "sha256": "ba170bce6a448956fcc5b8a94f3c4c6c638b81c1fdc6bb558d94f0afcaf3914d",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Every lens rendered correctly in a 2- or 4-up view except Earnings Transcripts: the three panels drew on top of each other. The transcript panel positions itself absolute; inset:0, and a grid cell's body was not a positioning context, so each panel escaped to the shared grid host and stacked on its siblings. Grid cells are now positioning contexts, so an absolutely-positioned panel is contained within its own cell — the fix is general, not transcript-specific.",
-  "published": "2026-07-22T00:36:44.276Z",
+  "notes": "FAST Graphs' signature view overlays price on a fair-value line = normalized EPS × a fixed multiple — legible, and one hardcoded heuristic. Orrery now draws the same idiom from a legible causal substrate: a new Valuation view under Operating Model plots price against the model's substantiated value over time, as a *decomposition* rather than a single line. - Three series, not one. The fundamentals line is the routed level (DCF / AFFO / residual income); the upper line adds the admitted cohort re-rating; the band between them is how much of the premium is the peer/sector group being re-rated ve",
+  "published": "2026-07-22T02:16:12.310Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
