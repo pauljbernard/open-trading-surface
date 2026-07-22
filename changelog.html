@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.43.0 — realtime tailing for 1-minute charts, opt-in</h2>
+<ul>
+<li><b>A <code>Realtime</code> checkbox</b> joins Log and Ext on the workbench's bottom bar, enabled ONLY on the 1-minute interval (disabled elsewhere, with a tooltip saying why). It is OPT-IN and never the default: unchecked, today's behavior is exactly unchanged. When checked, once per minute the chart fetches ONLY the newest 1-minute bars and merges them into the loaded series — never a full-history refetch or repaint.</li>
+<li><b>Merge semantics, by bar time.</b> The still-forming minute (same timestamp as the newest loaded bar) is replaced in place; genuinely new minutes are appended; anything older is ignored — loaded history is final and never rewritten. A tick that changes nothing (market closed, quiet tape) is silent and cheap: zero merged bars means zero repaint.</li>
+<li><b>The delta stays small server-side.</b> FMP's from/to are date-granular and cannot express "the last five minutes", so the existing <code>/fmp</code> proxy route learned a lightweight <code>?tail=N</code> — stripped before forwarding, sliced to the newest N rows on return — instead of a second data route shipping a full day of 1-min bars per tick.</li>
+<li><b>Polite about resources.</b> The timer pauses while the tab is hidden and resumes (with a catch-up delta) on visibility; changing interval or symbol clears it; leaving the 1-minute interval unchecks the box.</li>
+<li><b>Agent parity.</b> <code>control_chart set_realtime {on}</code> — refused with a stated reason on any interval other than 1-minute — and <code>inspect_chart what=state</code> reports <code>realtime: true/false</code> alongside log and ext.</li>
+</ul>
 <h2>3.42.0 — back-calculated bands for the index, and on demand</h2>
 <ul>
 <li><b><code>backfill_valuation_bands</code></b> — bulk back-calculation of the deviation history the band needs, across a cohort (default <code>index.sp500</code>) or for a single name. For every member with an operating model whose usable ledger is shallower than 40 rows, it runs the PIT reconstruction (~15 years of filed-only statements) and the ledger deepens; the band forms from history the name actually has. PIT-HONEST, HINDSIGHT-LITE: reconstructed rows are what the model WOULD have said from statements filed by each date, with judgment drivers carried back from today — weaker evidence than live rows, flagged as such, and a live row on the same date always supersedes its reconstruction.</li>
