@@ -1,13 +1,13 @@
 {
-  "version": "3.34.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.34.0.plugin",
-  "sha256": "c173664c64aff9a3fe89e4f41883222c923dd3369383cb4a228bf8156f8d136e",
+  "version": "3.35.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.35.0.plugin",
+  "sha256": "c59d532851d74387fca50ea5eb14815c575aa97650ad7fd032f78c6d5ddc384e",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.34.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.35.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "The cohort block's design says the SECTOR cohort supplies the leave-one-out exposure, because its members route to the subject's valuation level (like-for-like premium ratios). The horizon-model loop-3 sweep said otherwise: 17 of 30 names had no admitted cohort leg, \"too few substantiated leave-one-out peers.\" Root cause: pickCohort searched for kind 'sector' — a label no cohort carries. Sector cohorts are kind 'taxonomic' (the provider classification; cohorts.js itself finds sector by that kind). The preference never matched, every name silently fell through to its thin peer cohort, and the f",
-  "published": "2026-07-22T16:59:01.448Z",
+  "notes": "3.34.0 routed the exposure to the sector cohort — hundreds of members instead of ~10 peers — and substantiatedFor re-parses the residual ledger on every call, so one exposure became hundreds of file parses and evaluate_cohort_block timed out across the index. Per-symbol substantiated readings are now memoised and per-cohort member-premium lists built once, behind a short TTL (the list only changes when the ledger is re-recorded, so a 5-minute cache is honest), keyed by the premium IMPLEMENTATION so an injected test double can never leak readings into production or another fixture. Cleared whol",
+  "published": "2026-07-22T17:14:05.096Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
