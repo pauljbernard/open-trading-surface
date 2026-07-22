@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.32.0 — horizon models, spiral loop 2: the short leg earns its coefficient, and the double-count is gone</h2>
+<ul>
+<li><b>Level-only base for every leg.</b> <code>stripCohortLn</code> divides the recorded cohort contribution back out of <code>known</code>, so SHORT/MEDIUM/LONG are all built on the level (fundamentals) alone. An absent cohort contribution strips nothing — absence is not a value. Rebuilding <code>level × exp(cohort_ln)</code> recovers <code>known</code> exactly: one application, never two.</li>
+<li><b>The short leg's cohort term now comes through the admission gate.</b> <code>cohort-block.contribute</code> applies the FROZEN coefficient (α + β·ln leave-one-out cohort premium) that was earned against held-out residuals — the short model's first *fitted* internal weight, replacing the raw premium at full weight. Not admitted, or no eligible cohort → the term is absent and the short leg is momentum-only.</li>
+<li><b>The historical series is more point-in-time honest</b>: rows recorded with a cohort contribution use their own dated ln; level-only backfill rows borrow the live-edge admitted ln, and the limitation says so.</li>
+</ul>
 <h2>3.31.0 — horizon models, spiral loop 1: three duration models, a class registry, and the composite tracking line</h2>
 <ul>
 <li><b><code>server/horizon-models.js</code></b> — three per-horizon values from existing engine outputs: SHORT = relative price (substantiated × cohort premium) tilted by momentum; MEDIUM = the sector-routed substantiated value; LONG = the terminal-heavy DCF leg. A <b>class registry</b> carries per-class mixtures and long-leg forms (duration is one vector, class another); loop 1 implements the software class plus a generic default rather than forcing every name into a class.</li>
