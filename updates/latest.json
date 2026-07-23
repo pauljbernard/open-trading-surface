@@ -1,13 +1,13 @@
 {
-  "version": "3.46.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.46.1.plugin",
-  "sha256": "aef1d550936abedab8f66a843921f116e15ecd5c037782447c2ff5262dd63852",
+  "version": "3.47.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.47.0.plugin",
+  "sha256": "0bcdedddf1a5500d4aa1c5f47175886e65d73f0a6933dbf7dd35608d020a5f61",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.46.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.47.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "Setting a dozen pricing-model overlays into their own panes surfaced a layout defect the pane floors had always implied: mainH floors at 260px and every sub-pane at 90px, so with enough panes the stack is taller than the window — and the charts column simply CLIPPED. Panes past the fold rendered nowhere, silently; there was no scrollbar and no indication they existed. - The charts column scrolls inside the frame. #charts now takes an explicit viewport height and overflow-y: auto: when the pane stack fits, nothing changes; when it is taller, it scrolls. Pane minimums stay (a 9px lane is not a c",
-  "published": "2026-07-23T15:35:37.585Z",
+  "notes": "The Operating Model panels (Model / Attribution / Interpretation) are replaced in the terminal by an analysis built on the full pricing basket: the WEIGHTED MODEL OF MODELS. The premise: the market prices every name on SOME frame — earnings power, asset value, growth cash flows, a multiple — and which frame it is using is readable from which model's value series TRACKS the price series. The weights are the finding; the blend is the model. - Walk-forward correlation weights, per stock, adaptive over time. At each quarterly date, each model's trailing-12-observation Pearson ρ of ln(model value) ",
+  "published": "2026-07-23T15:53:20.179Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
