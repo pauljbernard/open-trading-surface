@@ -1,13 +1,13 @@
 {
-  "version": "3.45.2",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.45.2.plugin",
-  "sha256": "0c9e8eb08720b678737b08911e9b0d0c663cec92a7474276c7ca3bbde4e6d244",
+  "version": "3.46.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.46.0.plugin",
+  "sha256": "2963df657d34123628964a61692a7234c9109c6beca55a76d9c33b08572ceb94",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.45.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.46.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "3.45.1 fixed the wedge; this fixes the RECOVERY from it, which turned out to be three separate defects standing on each other's shoulders. The observed shape (\"all of the pages are failing\"): the terminal opened, showed prices, then every view said Load failed — and the Stock Chart cell rejected itself with a containment error about a directory it was never asked to use. - The poisoned retry (root). startServer assigned the module-level server BEFORE listening, and a bind failure never reset it — so when a wedged predecessor still held the recorded port (EADDRINUSE), the fallback startServer(0",
-  "published": "2026-07-23T15:04:43.746Z",
+  "notes": "3.45.0 shipped nineteen valuation models that were callable and chartable — and invisible. The overlay refs resolved if you typed them, but the picker never listed them (its catalog iterates a fixed category list that did not include pricing), and no terminal view showed the models at all. The engine existed; the UX did not. This release is the UX. - A PRICING MODELS view in the terminal rail (💠, beside Operating Model): every registered model run on the name, side by side — fair value, category, and vs-price for each model that values it; the stated reason for each that declines or cannot (a",
+  "published": "2026-07-23T15:17:55.405Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
