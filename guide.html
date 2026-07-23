@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>User Guide — Orrery</title>
+<title>User Guide — Open Trading Surface</title>
 <style>
   :root{--bg:#0b0e14;--panel:#131722;--border:#242938;--text:#d7dbe6;--muted:#8b93a7;--accent:#2f7bff;--r:12px}
   body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
@@ -29,27 +29,27 @@
   .warn{background:rgba(239,83,80,.07);border:1px solid rgba(239,83,80,.3);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
   footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;padding:30px 0;margin-top:44px}
 </style>
-<link rel="icon" type="image/svg+xml" href="assets/orrery-mark.svg">
-<meta property="og:title" content="Orrery — agent-native investment research terminal">
-<meta property="og:image" content="assets/orrery-wordmark.svg">
+<link rel="icon" type="image/svg+xml" href="assets/ots-mark.svg">
+<meta property="og:title" content="Open Trading Surface — agent-native investment research terminal">
+<meta property="og:image" content="assets/ots-wordmark.svg">
 <style>.brand{display:inline-flex!important;align-items:center;gap:9px}.brand .brandmark{width:26px;height:26px;border-radius:7px;display:block;flex:none}.hero-mark{display:block;margin:0 auto 22px;width:78px;height:78px;border-radius:18px;box-shadow:0 14px 44px rgba(47,123,255,.28)}</style>
 </head>
 <body>
 <header><div class="wrap">
-  <div class="brand"><img class="brandmark" src="assets/orrery-mark.svg" alt="">Orrery</div>
+  <div class="brand"><img class="brandmark" src="assets/ots-mark.svg" alt="">Open Trading Surface</div>
   <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav>
 </div></header>
 <div class="wrap">
   <h1>User Guide</h1>
-  <p class="lead">How Orrery works, how to set it up, and how to use every part of it. If you're new, start with the <a href="#quickstart">5-minute quickstart</a>, then dip into whichever feature you need.</p>
+  <p class="lead">How Open Trading Surface works, how to set it up, and how to use every part of it. If you're new, start with the <a href="#quickstart">5-minute quickstart</a>, then dip into whichever feature you need.</p>
   <div class="toc">
     <a href="#quickstart">★ 5-minute quickstart</a>
-    <a href="#how">How Orrery works</a>
+    <a href="#how">How Open Trading Surface works</a>
     <a href="#requirements">Requirements</a>
     <a href="#install">Installing</a>
     <a href="#keys">Configuring API keys</a>
     <a href="#first">First run &amp; the disclaimer</a>
-    <a href="#driving">Driving Orrery with the agent</a>
+    <a href="#driving">Driving Open Trading Surface with the agent</a>
     <a href="#charts">Charts &amp; the workbench</a>
     <a href="#screener">Screening stocks</a>
     <a href="#portfolio">Portfolios &amp; analytics</a>
@@ -68,7 +68,7 @@
   <h2 id="quickstart">★ 5-minute quickstart</h2>
   <ol>
     <li><b>Install</b> the plugin and restart your Claude session (details <a href="#install">below</a>).</li>
-    <li><b>Add your FMP key</b>: say <em>"open the Orrery terminal"</em>, go to the <b>⚙ Settings</b> tab, paste your key, press <b>Test</b>.</li>
+    <li><b>Add your FMP key</b>: say <em>"open the Open Trading Surface terminal"</em>, go to the <b>⚙ Settings</b> tab, paste your key, press <b>Test</b>.</li>
     <li><b>Accept the one-time disclaimer</b> when prompted.</li>
     <li><b>Try your first real task</b> — just ask the agent in plain language:
       <pre><code>"Analyze NVDA — chart it with the 50/200-day averages and RSI,
@@ -76,15 +76,15 @@
     </li>
     <li><b>Then explore one thing</b>: <em>"screen large-cap tech under 20× earnings ranked by momentum"</em>, or <em>"build an operating model for CAT and shock gross margin down 2 points."</em></li>
   </ol>
-  <div class="note">You don't click Orrery like a dashboard — you <b>tell the agent what you want</b> and it drives the terminal, charts, screens, and models for you. The sections below show what's possible and the phrasings that work.</div>
+  <div class="note">You don't click Open Trading Surface like a dashboard — you <b>tell the agent what you want</b> and it drives the terminal, charts, screens, and models for you. The sections below show what's possible and the phrasings that work.</div>
 
-  <h2 id="how">How Orrery works</h2>
+  <h2 id="how">How Open Trading Surface works</h2>
   <p>Two ideas explain everything:</p>
   <h3>1. It's a living world-model, not a data feed</h3>
-  <p>Orrery doesn't just fetch quotes. It maintains a connected chain: a <b>worldview</b> (macro, geopolitics, demographics) becomes <b>theses</b> with explicit, auditable probability estimates and an <b>evidence ledger</b>; theses compile into <b>screens</b> and paper <b>portfolios</b>; individual names are grounded in driver-based <b>operating models</b>. It persists between sessions and is continuously reassessed as evidence arrives. Everything you build compounds instead of resetting.</p>
+  <p>Open Trading Surface doesn't just fetch quotes. It maintains a connected chain: a <b>worldview</b> (macro, geopolitics, demographics) becomes <b>theses</b> with explicit, auditable probability estimates and an <b>evidence ledger</b>; theses compile into <b>screens</b> and paper <b>portfolios</b>; individual names are grounded in driver-based <b>operating models</b>. It persists between sessions and is continuously reassessed as evidence arrives. Everything you build compounds instead of resetting.</p>
   <h3>2. It's agent-native</h3>
   <p>The terminal is a <b>shared world-model</b>: everything you see, the agent can read and drive. You work by conversation — "add an anchored VWAP and mark the earnings gap," "what do the signals say," "record this as a thesis." The agent inspects the exact view you're looking at and acts on it. It's <b>plan-only</b>: it models, screens, and drafts, but never places a trade or moves money.</p>
-  <div class="warn"><b>Orrery is not investment advice.</b> Every output — including probabilities, models, and fair values — is a decision aid to verify independently. You bear full responsibility for all decisions.</div>
+  <div class="warn"><b>Open Trading Surface is not investment advice.</b> Every output — including probabilities, models, and fair values — is a decision aid to verify independently. You bear full responsibility for all decisions.</div>
 
   <h2 id="requirements">Requirements</h2>
   <ul>
@@ -95,26 +95,26 @@
 
   <h2 id="install">Installing</h2>
   <h3>Claude desktop (Cowork)</h3>
-  <p>Orrery is a <b>plugin</b>. Install it from the Customize menu:</p>
+  <p>Open Trading Surface is a <b>plugin</b>. Install it from the Customize menu:</p>
   <ol>
-    <li>Download the latest package — <a href="download/orrery.plugin"><code>orrery.plugin</code></a>.</li>
+    <li>Download the latest package — <a href="download/ots.plugin"><code>ots.plugin</code></a>.</li>
     <li>Open the <b>Cowork</b> tab, then open <b>Customize</b> in the left sidebar and go to the <b>Plugins</b> tab. (Customize is where plugins, skills, and connectors now live.)</li>
-    <li>Under <b>Personal plugins</b>, click the <b>+</b> button and add the <code>orrery.plugin</code> file you downloaded. Plugins you add yourself are stored locally on your computer.</li>
-    <li><b>Restart the session</b> so the plugin's local server starts. Orrery's skills then appear under the <code>/</code> menu, and its tools as <code>mcp__orrery__*</code>.</li>
-    <li><b>Start it:</b> in a Cowork chat, tell the agent <b>"open the Orrery terminal."</b> That boots Orrery's local engine and opens the terminal in your browser — the first thing to do after installing.</li>
+    <li>Under <b>Personal plugins</b>, click the <b>+</b> button and add the <code>ots.plugin</code> file you downloaded. Plugins you add yourself are stored locally on your computer.</li>
+    <li><b>Restart the session</b> so the plugin's local server starts. Open Trading Surface's skills then appear under the <code>/</code> menu, and its tools as <code>mcp__ots__*</code>.</li>
+    <li><b>Start it:</b> in a Cowork chat, tell the agent <b>"open the Open Trading Surface terminal."</b> That boots Open Trading Surface's local engine and opens the terminal in your browser — the first thing to do after installing.</li>
   </ol>
-  <div class="note">Nothing to launch manually — you never run a command yourself. Installing the plugin makes the tools available; saying <b>"open the Orrery terminal"</b> (or just "open Orrery") is what actually starts it.</div>
+  <div class="note">Nothing to launch manually — you never run a command yourself. Installing the plugin makes the tools available; saying <b>"open the Open Trading Surface terminal"</b> (or just "open Open Trading Surface") is what actually starts it.</div>
 
   <h2 id="keys">Configuring API keys</h2>
   <p>The easiest path is in the UI: open the terminal, click the <b>⚙ Settings</b> tab, paste your FMP key (and optionally FRED), and press <b>Test</b> to confirm live connectivity. You can also set <code>FMP_API_KEY</code> / <code>FRED_API_KEY</code> environment variables, which take precedence.</p>
-  <div class="note">Keys are stored on your machine in <code>~/.orrery/config.json</code> with file mode 600 and are never transmitted anywhere but the data providers themselves.</div>
+  <div class="note">Keys are stored on your machine in <code>~/.ots/config.json</code> with file mode 600 and are never transmitted anywhere but the data providers themselves.</div>
 
   <h2 id="first">First run &amp; the disclaimer</h2>
   <p>On first launch the terminal presents a one-time legal acknowledgment. You must read and accept it before using the application. A short disclaimer stays visible in the footer at all times, and the full terms live on the <a href="legal.html">Legal page</a>.</p>
-  <div class="warn"><b>Orrery is not investment advice.</b> Every output is a decision aid to be independently verified. You bear full responsibility for all investment decisions.</div>
+  <div class="warn"><b>Open Trading Surface is not investment advice.</b> Every output is a decision aid to be independently verified. You bear full responsibility for all investment decisions.</div>
 
-  <h2 id="driving">Driving Orrery with the agent</h2>
-  <p>Ask the agent to <em>"open the Orrery terminal."</em> Across the top are per-security tabs plus pinned tabs for <b>Portfolios</b>, <b>Screener</b>, <b>Watchlists</b>, and <b>Theses</b>, a <b>⚙ Settings</b> tab, and an <b>✉ Agent</b> button to leave the agent a message. Each security tab has a left rail: Stock Chart, Company Info, Financial Statements, Analyst Ratings, Peer Comps, Ownership, Transcripts, News, SEC Filings, Insider Trades, Operating Model, and Research Notes.</p>
+  <h2 id="driving">Driving Open Trading Surface with the agent</h2>
+  <p>Ask the agent to <em>"open the Open Trading Surface terminal."</em> Across the top are per-security tabs plus pinned tabs for <b>Portfolios</b>, <b>Screener</b>, <b>Watchlists</b>, and <b>Theses</b>, a <b>⚙ Settings</b> tab, and an <b>✉ Agent</b> button to leave the agent a message. Each security tab has a left rail: Stock Chart, Company Info, Financial Statements, Analyst Ratings, Peer Comps, Ownership, Transcripts, News, SEC Filings, Insider Trades, Operating Model, and Research Notes.</p>
   <p>You can navigate it yourself, but the fastest way is to ask. The agent can read what's on screen ("what does the analyst view say for this name?") and drive it ("switch to the cash-flow statement," "open the rebalance view"). Everything below works whether the terminal is open or not — the agent will open what it needs.</p>
 
   <h2 id="charts">Charts &amp; the workbench</h2>
@@ -269,7 +269,7 @@
     <tr><td>"Which drivers matter most?"</td><td>Returns the elasticity table (sensitivity of fair value to each driver).</td></tr>
   </table>
   <h3>The influence map — the outside world, wired in</h3>
-  <p>A model isn't just its internal drivers. The Operating Model view now carries an <b>influence map</b>: external <b>economic</b>, <b>policy</b>, <b>supply-chain</b> and <b>consumer/customer</b> factors, each linked to the internal drivers it moves by a <b>signed influence edge</b> (with a stated rationale you can audit). It's shown as a left-to-right diagram — factors → drivers → EPS &amp; fair value — with green edges that raise a driver and red that lower it, thickness scaled to sensitivity. Shock a factor (say tariffs +10pp) and Orrery <b>propagates</b> it through the edges into the drivers and reuses the valuation engine, returning the full factor → driver → outcome trace. Click any factor to isolate its path.</p>
+  <p>A model isn't just its internal drivers. The Operating Model view now carries an <b>influence map</b>: external <b>economic</b>, <b>policy</b>, <b>supply-chain</b> and <b>consumer/customer</b> factors, each linked to the internal drivers it moves by a <b>signed influence edge</b> (with a stated rationale you can audit). It's shown as a left-to-right diagram — factors → drivers → EPS &amp; fair value — with green edges that raise a driver and red that lower it, thickness scaled to sensitivity. Shock a factor (say tariffs +10pp) and Open Trading Surface <b>propagates</b> it through the edges into the drivers and reuses the valuation engine, returning the full factor → driver → outcome trace. Click any factor to isolate its path.</p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
     <tr><td>"Show CAT's influence map."</td><td>Opens the factor → driver → value diagram (seeds a sensible default factor set the first time).</td></tr>
@@ -289,11 +289,11 @@
   <div class="note">Influence edges start as structured estimates. <b>Calibrate from data</b> sets each factor's live reading from its FRED series and can fit sensitivities by OLS against the company's filings — but a fitted coefficient only replaces the default when the fit is trustworthy (enough aligned years, real variation, a real correlation); otherwise it's attached to the edge as auditable evidence and the prior is kept. Always verify against the business. The design generalizes: because a factor can later be another company's output, a market-wide view is just individual operating models linked to each other.</div>
 
   <h3>Going deep: segments, quarters, and the full three statements</h3>
-  <p>Spreadsheet models have done single-company fidelity for forty years; Orrery now carries that
+  <p>Spreadsheet models have done single-company fidelity for forty years; Open Trading Surface now carries that
   fidelity on top of what spreadsheets never had &mdash; graded assumptions, versioned tracks scored
   against price, and machine legibility. Three capabilities, each opt-in and fully back-compatible:</p>
   <p><b>Segment-level drivers.</b> A consolidated model cannot answer &ldquo;what if Cloud growth
-  halves?&rdquo;. Orrery assembles each company's disclosed <b>segment revenue history</b>, ties every
+  halves?&rdquo;. Open Trading Surface assembles each company's disclosed <b>segment revenue history</b>, ties every
   period to consolidated revenue (a residual becomes an explicit <i>unallocated</i> segment; an
   overshoot is flagged suspect, never scaled away), and detects <b>re-segmentations</b> as structural
   breaks. Drivers may then be <b>scoped</b> &mdash; <code>revenue_growth_pct@cloud</code> &mdash; and
@@ -327,7 +327,7 @@
   <div class="note">Honesty rules carry through: segment coverage is uneven below large caps and absence renders as absence; the quarterly EPS checkpoint is a derived read of the annual model, labelled as such; articulated mode refuses to run without an opening equity rather than fabricate a balance sheet.</div>
 
   <h2 id="provenance">Where a holding came from</h2>
-  <p>Orrery's premise is that a position traces back to a view. That only means something
+  <p>Open Trading Surface's premise is that a position traces back to a view. That only means something
   if the chain is <b>recorded</b> rather than reconstructed, so building a model portfolio
   from a thesis now snapshots the whole lineage: the thesis it came from, the
   <b>compiled screen exactly as it ran</b>, the run id, and every pick with the rank score
@@ -344,7 +344,7 @@
   <h3>The view above the thesis</h3>
   <p>A thesis rests on a reading of the world, so when you create one you cite the
   <b>worldview domains</b> it stands on — growth, inflation &amp; rates, geopolitics,
-  industrial policy, technology, demographics, energy, credit. Orrery snapshots what
+  industrial policy, technology, demographics, energy, credit. Open Trading Surface snapshots what
   each of those domains <em>said at the time</em>: its trend and summary.</p>
   <p>That snapshot is what makes <b>drift</b> visible. If you formed a thesis when
   inflation was <em>deteriorating</em> and that domain has since turned
@@ -358,7 +358,7 @@
   reports no lineage rather than guessing at one.</div>
 
   <h2 id="honesty">Honest numbers: grades, base rates &amp; implied expectations</h2>
-  <p>Every fitted estimate in Orrery carries an <b>evidence grade (A&ndash;D)</b> computed from real
+  <p>Every fitted estimate in Open Trading Surface carries an <b>evidence grade (A&ndash;D)</b> computed from real
   statistics &mdash; p-values, confidence intervals, sample size &mdash; and <b>capped by method</b>:
   a regression on a dozen annual points can never grade above B however clean it looks, a
   sentiment lexicon never above D, chart patterns never above C, while as-filed accounting can
@@ -412,7 +412,7 @@
   on realized gains &mdash; and the hurdle against doing nothing, which is free.</p>
 
   <h2 id="thesis">The thesis engine</h2>
-  <p>Turn a view into a maintained, probability-weighted thesis with an evidence ledger — and let the system propose its own from macro (FRED) signals. As evidence arrives, the probability moves and the change is logged. As theses resolve, Orrery scores its own calibration (Brier score, skill vs base rate).</p>
+  <p>Turn a view into a maintained, probability-weighted thesis with an evidence ledger — and let the system propose its own from macro (FRED) signals. As evidence arrives, the probability moves and the change is logged. As theses resolve, Open Trading Surface scores its own calibration (Brier score, skill vs base rate).</p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
     <tr><td>"Create a thesis: US energy-security capex supercycle; set it high-confidence; sectors Energy and Utilities overweight."</td><td>Records the thesis with an initial probability and tilts.</td></tr>
@@ -431,26 +431,26 @@
   </table>
 
   <h2 id="memory">Research notes &amp; memory</h2>
-  <p>Orrery has a shared memory: research notes tied to symbols, portfolios, or theses that persist between sessions, so you and the agent build on prior work instead of starting over. Ask the agent to "write your take on this name to research notes," or "what did we conclude about MSFT last month?"</p>
+  <p>Open Trading Surface has a shared memory: research notes tied to symbols, portfolios, or theses that persist between sessions, so you and the agent build on prior work instead of starting over. Ask the agent to "write your take on this name to research notes," or "what did we conclude about MSFT last month?"</p>
 
   <h2 id="feedback">Giving feedback</h2>
-  <p>Orrery is being shaped by the people who use it. The easiest way to report a bug, request a feature, or share an idea is to just tell the agent — <em>"report a bug: the rebalance view didn't load,"</em> or <em>"I have an idea: add options analytics."</em> It composes a ready-to-post GitHub report prefilled with your details and version for you to submit (it never posts on your behalf). You can also browse and follow every issue on the <a href="support.html">Support page</a>, join <a href="https://github.com/pauljbernard/orrery/discussions">Discussions</a>, and optionally enable a local-only usage journal ("turn on usage reporting") to attach to a report.</p>
+  <p>Open Trading Surface is being shaped by the people who use it. The easiest way to report a bug, request a feature, or share an idea is to just tell the agent — <em>"report a bug: the rebalance view didn't load,"</em> or <em>"I have an idea: add options analytics."</em> It composes a ready-to-post GitHub report prefilled with your details and version for you to submit (it never posts on your behalf). You can also browse and follow every issue on the <a href="support.html">Support page</a>, join <a href="https://github.com/pauljbernard/open-trading-surface/discussions">Discussions</a>, and optionally enable a local-only usage journal ("turn on usage reporting") to attach to a report.</p>
 
   <h2 id="updates">Updating</h2>
   <ul>
     <li><b>Check:</b> ask the agent to <code>check_for_updates</code>; the workspace cockpit also flags new versions automatically.</li>
-    <li><b>Apply:</b> download the new <code>orrery.plugin</code>, add it under <b>Customize → Plugins → Personal plugins</b> (it replaces the old version), and restart the session.</li>
+    <li><b>Apply:</b> download the new <code>ots.plugin</code>, add it under <b>Customize → Plugins → Personal plugins</b> (it replaces the old version), and restart the session.</li>
   </ul>
   <div class="note">Update checks are non-blocking and only request a version number — they never transmit your data. Your settings, portfolios, theses, and notes persist across updates.</div>
 
   <h2 id="uninstall">Uninstalling</h2>
   <ul>
-    <li>Open <b>Customize</b> → <b>Plugins</b> tab, find Orrery under Personal plugins, and choose <b>Uninstall</b>.</li>
-    <li>To also erase local data, delete the <code>~/.orrery/</code> directory (this removes your keys, portfolios, theses, notes, and models).</li>
+    <li>Open <b>Customize</b> → <b>Plugins</b> tab, find Open Trading Surface under Personal plugins, and choose <b>Uninstall</b>.</li>
+    <li>To also erase local data, delete the <code>~/.ots/</code> directory (this removes your keys, portfolios, theses, notes, and models).</li>
   </ul>
 
   <h2 id="data">Your data &amp; privacy</h2>
-  <p>Everything lives in <code>~/.orrery/</code> on your machine: keys, portfolios, watchlists, theses, notes, company models, alerts, an audit journal, and test reports. Nothing is uploaded to any server operated by the publisher. The only outbound calls are read-only requests to your chosen data providers (FMP, FRED, SEC EDGAR) and a version-number check to the update channel.</p>
+  <p>Everything lives in <code>~/.ots/</code> on your machine: keys, portfolios, watchlists, theses, notes, company models, alerts, an audit journal, and test reports. Nothing is uploaded to any server operated by the publisher. The only outbound calls are read-only requests to your chosen data providers (FMP, FRED, SEC EDGAR) and a version-number check to the update channel.</p>
 
   <h2 id="trouble">Troubleshooting</h2>
   <ul>

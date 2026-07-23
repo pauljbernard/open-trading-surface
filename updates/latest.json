@@ -1,13 +1,13 @@
 {
-  "version": "3.52.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.52.1.plugin",
-  "sha256": "e7e53c18feb5e77569a80d5388cd2d12960b5e599ae8813e3f7108ee14df2a70",
+  "version": "3.53.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.0.plugin",
+  "sha256": "dd70c53f7751ce967c616c889deefdea8089d9af4b1e3d790d6fd5bc0fd29724",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.52.1.plugin.asc",
-  "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.0.plugin.asc",
+  "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "Documentation release: the public pages now describe what shipped across 3.45.0–3.52.0. - A new flagship feature section on the landing page: the full-spectrum pricing engine (twenty models, every one chartable point-in-time), the Model of Models with its walk-forward correlation weights and recorded weightings, and the venture book — with a new architecture graphic (assets/pricing-engine.svg) drawn in the site's own visual language: the basket → per-stock correlation weights → the recorded register and the snapshot-fixed composite → the chart. - The charting section now lists pricing-model ov",
-  "published": "2026-07-23T17:11:34.613Z",
-  "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
+  "notes": "The application formerly published as \"Orrery\" is now OPEN TRADING SURFACE (\"OTS\"). The prior name is trademarked by another party; this release removes it from the application, the documentation, the site, and the repositories. The rename is a bridge release engineered so no existing install is stranded: - The product: plugin id ots, display name Open Trading Surface, package ots-<version>.plugin, rebranded terminal, docs, and marks. The full name is used wherever space allows; OTS in tight spaces. - Your data migrates itself. On first run, state moves from the legacy ~/.orrery to ~/.ots by C",
+  "published": "2026-07-23T17:41:13.409Z",
+  "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
