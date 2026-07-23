@@ -1,13 +1,13 @@
 {
-  "version": "3.49.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.49.0.plugin",
-  "sha256": "8514b3942da0daac129ded300b27f4847f6c527196001e68bda601b15cd326c2",
+  "version": "3.50.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.50.0.plugin",
+  "sha256": "b720035cce3c8164516a60a338f87697a99977b70f34f17d790e54d6e3231fec",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.49.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.50.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "A macro or data element on the chart is rarely expected to EQUAL the price, even when it shares the scale — the relationship is the object. Rather than tripling the catalog with derived refs, every overlay now offers three renderings of the same series, switched per overlay from its row in the picker: - value — the series as fetched (unchanged default); - Δ $ — price − series, in the symbol's dollars at each bar; - Δ % — (price − series) / |series| × 100, the premium convention. Computed at draw time against the charted symbol's own bars (as-of aligned, so a quarterly series differences correc",
-  "published": "2026-07-23T16:18:10.133Z",
+  "notes": "Companies like Tesla are priced on businesses that do not exist in their filed statements — robotaxi, humanoid robots, AI datacenters — ventures that demand enormous capital now for revenue later. Every filed-statement model is structurally blind to them, and the DCF actively PENALIZES them (their capex is FCF drag). The basket had no model that adequately describes this class of company. Now it does. - optionality.venture_book — a PERSISTENT per-symbol book of pre-revenue ventures, each defined by the analyst (TAM at scale, achievable share, margin at scale, capitalization multiple, probabili",
+  "published": "2026-07-23T16:41:04.243Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
