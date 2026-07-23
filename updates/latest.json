@@ -1,13 +1,13 @@
 {
-  "version": "3.47.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.47.0.plugin",
-  "sha256": "0bcdedddf1a5500d4aa1c5f47175886e65d73f0a6933dbf7dd35608d020a5f61",
+  "version": "3.47.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.47.1.plugin",
+  "sha256": "43720b27fcf755662621f8ab675231cda8cbc5a72c618bfe3a0afecce36912ed",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.47.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.47.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "The Operating Model panels (Model / Attribution / Interpretation) are replaced in the terminal by an analysis built on the full pricing basket: the WEIGHTED MODEL OF MODELS. The premise: the market prices every name on SOME frame — earnings power, asset value, growth cash flows, a multiple — and which frame it is using is readable from which model's value series TRACKS the price series. The weights are the finding; the blend is the model. - Walk-forward correlation weights, per stock, adaptive over time. At each quarterly date, each model's trailing-12-observation Pearson ρ of ln(model value) ",
-  "published": "2026-07-23T15:53:20.179Z",
+  "notes": "A line whose weights re-fit at every date is a different model at every point — not one consistent object you can read a level off. 3.47.0 charted the rolling walk-forward composite by default; this release makes the overlay ALWAYS a snapshot (Paul's rule, stated as such): - pricing:{SYM}:composite.momw now blends the panel under the LATEST RECORDED weight vector, held fixed across the whole series — one consistent model applied through time. First use on a name with no recording computes and records one automatically. - :YYYY-MM-DD holds the vector recorded at (or nearest before) that date — ",
+  "published": "2026-07-23T16:00:15.223Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
