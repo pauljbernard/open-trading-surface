@@ -1,13 +1,13 @@
 {
-  "version": "3.45.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.45.0.plugin",
-  "sha256": "2283045aa4bca8be48bcc62e7fbc10b619e1217351f1944a45ba32004392752a",
+  "version": "3.45.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.45.1.plugin",
+  "sha256": "1deca0516561cadd927c4bb8c8920960f430186f495abf95f5a5e2d6668622a5",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.45.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.45.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "Orrery already computed many valuations — a blended DCF here, a REIT capitalisation there, comps in one tool, a reverse-DCF in another — but each was wired by hand, none shared a shape, and most never reached the chart. This release makes valuation a SUBSYSTEM: one PricingModel interface, a registry that makes adding a model a single file, a context every model reads and none fetches around, and — the point — each model's result as a dated series that overlays on price through the same machinery as every other line. It is a HOST, not a judge: each model is presented in the industry's own terms",
-  "published": "2026-07-23T14:12:35.172Z",
+  "notes": "The first terminal session on 3.45.0 wedged the daemon: port accepting, nothing answering, for minutes at a time — reproduced in isolation and traced to a scaling defect that had nothing to do with the pricing engine and everything to do with success. The price-identity ledger, days-deep when its reader was written, is now tens of megabytes (the 3.42–3.43 S&P back-calculation plus the daily 8am recording), and load() was a SYNCHRONOUS whole-file JSON.parse on EVERY call. premium.decompose asks substantiatedFor for each member of each membership cohort, so one Interpretation pane on an S&P name",
+  "published": "2026-07-23T14:46:55.102Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
