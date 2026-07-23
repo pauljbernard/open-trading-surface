@@ -1,13 +1,13 @@
 {
-  "version": "3.50.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.50.0.plugin",
-  "sha256": "b720035cce3c8164516a60a338f87697a99977b70f34f17d790e54d6e3231fec",
+  "version": "3.51.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.51.0.plugin",
+  "sha256": "30bbe299c94d0727a0773921862a90f9627707460848739304211da6486acf59",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.50.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.51.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "Companies like Tesla are priced on businesses that do not exist in their filed statements — robotaxi, humanoid robots, AI datacenters — ventures that demand enormous capital now for revenue later. Every filed-statement model is structurally blind to them, and the DCF actively PENALIZES them (their capex is FCF drag). The basket had no model that adequately describes this class of company. Now it does. - optionality.venture_book — a PERSISTENT per-symbol book of pre-revenue ventures, each defined by the analyst (TAM at scale, achievable share, margin at scale, capitalization multiple, probabili",
-  "published": "2026-07-23T16:41:04.243Z",
+  "notes": "Judgment models need maintenance, and chat is the wrong tool for maintenance: the agent is where a strawman gets DRAFTED; a form is where a book gets KEPT. - A 🚀 Venture Book view in the terminal rail (per security): the book as an editable table — venture name, TAM, share %, margin %, multiple, probability, years, committed capex, capex contingency, and a notes line per venture for the basis of the judgments. Add and delete ventures, set the book-level discount rate (blank = the stated WACC+4pp default), Save with server-side validation that names the offending field inline, Revert to the sa",
+  "published": "2026-07-23T16:56:17.734Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
