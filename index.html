@@ -178,6 +178,21 @@
 
   <div class="feat">
     <div class="txt">
+      <h3>💠 A full-spectrum pricing engine — and a Model of Models</h3>
+      <p>Twenty valuation models behind one interface — every methodology the industry uses, each chartable through time — and on top of them, a <b>weighted Model of Models</b> that reads which valuation frame the market is actually tracking for each name.</p>
+      <ul>
+        <li><b>The whole spectrum</b>: DCF, FCFE, EPV, dividend discount, residual income and EVA; P/E, P/S and EV/EBITDA at the name's own trailing-median multiple; book, NAV, liquidation and replacement cost; seeded Monte Carlo and bull/base/bear; sum-of-the-parts; real options; platform economics</li>
+        <li><b>Every model is a line on the chart</b> — point-in-time reconstructions from filed statements only, no lookahead, side by side with price</li>
+        <li><b>The Model of Models</b>: each model earns a walk-forward correlation weight against the name's own price, per stock, adaptive over time — the weights are the reading, and their rotation is chartable as per-model weight series</li>
+        <li><b>Recorded weightings</b> — dated weight vectors saved per stock, so the composite replots under the weighting of any point in time; the chart line is always one consistent snapshot, never rolling weights</li>
+        <li><b>A venture book for the companies statements can't see</b> — pre-revenue businesses (robotaxi, humanoids, AI infrastructure) valued as probability-weighted expected values net of committed capital, maintained in a form-based editor alongside every other judgment model</li>
+      </ul>
+    </div>
+    <div class="shot"><img src="assets/pricing-engine.svg" alt="The pricing engine: twenty models, correlation weights, the model of models, on the chart"></div>
+  </div>
+
+  <div class="feat rev">
+    <div class="txt">
       <h3>📐 Company operating models</h3>
       <p>Every company can carry a driver-based model calibrated from its filings and consensus. Turn any event into an instant answer.</p>
       <ul><li>Revenue → EBIT → EPS → FCF, five years out</li><li>Blended exit-multiple + DCF fair value</li><li>Shock any driver — tariffs, contract wins, rate moves — and see the fair-value delta</li><li>A graphical <b>influence map</b> wiring economic, policy, supply-chain &amp; consumer factors to the drivers they move</li><li>Calibrate factor levels from FRED; fit sensitivities from filings — annually or on ~60 quarterly points</li><li><b>Segment-scoped drivers</b> ("what if Cloud growth halves?") with mix shift as a chartable output</li><li><b>Three-statement articulation</b>: the balance sheet rolls forward and ties in every projected year — or the model refuses to run</li><li>An elasticity table showing exactly what moves the stock</li></ul>
@@ -185,7 +200,7 @@
     <div class="shot"><img src="assets/model.png" alt="Operating model"></div>
   </div>
 
-  <div class="feat rev">
+  <div class="feat">
     <div class="txt">
       <h3>🧭 A thesis engine that keeps score</h3>
       <p>A maintained worldview feeds candidate theses with explicit, <b>auditable probability estimates</b> and an evidence ledger that updates them as the world changes — the system even proposes its own from FRED macro data.</p>
@@ -194,12 +209,13 @@
     <div class="shot"><img src="assets/thesis.png" alt="Thesis with probability and evidence ledger"></div>
   </div>
 
-  <div class="feat">
+  <div class="feat rev">
     <div class="txt">
       <h3>📈 A charting workbench that answers "why"</h3>
       <p>Price is where a question starts, not where it ends. Overlay the outside world on the chart, then trace any move back to the document behind it.</p>
       <ul>
-        <li><b>Overlay any series</b> — FRED economics and rates, commodities, indices, FX, company financial line items, SEC XBRL facts — on stacked right-hand axes or their own panes, with lead/lag shift and best-lag cross-correlation</li>
+        <li><b>Overlay any series</b> — FRED economics and rates, commodities, indices, FX, company financial line items, SEC XBRL facts, every pricing model's fair-value line, the Model of Models composite, and per-model weight series — on the price scale, stacked right-hand axes, or their own panes (the frame scrolls to hold them all), with lead/lag shift and best-lag cross-correlation</li>
+        <li><b>Every overlay carries its relationship to the price</b> — flip any series to Δ$ (price − series) or Δ% and the relative track renders on its own axis; a model line in Δ$ reads as the premium itself</li>
         <li><b>Events from eleven sources</b> as sentiment-colored markers — earnings, filings, insider trades, rating changes, transcripts, 13F flow, news, your own notes. <b>Hover to read one, click to open it</b>, and where you have an operating model each event tells you which driver it moves</li>
         <li><b>Auto-detected</b> trendlines, support/resistance zones and candlestick patterns, computed locally on the bars already loaded</li>
         <li><b>Replay without lookahead</b> — walk a name forward bar by bar with indicators, detections and even as-known-then fundamentals recomputed at the cursor</li>
@@ -209,7 +225,7 @@
     <div class="shot"><img src="assets/chart.png" alt="Charting workbench with overlays and event markers"></div>
   </div>
 
-  <div class="feat rev">
+  <div class="feat">
     <div class="txt">
       <h3>🧵 Every holding traces back to a view</h3>
       <p>Build a portfolio from a thesis and the whole chain is recorded, not reconstructed — so months later you can still answer why you own something.</p>
@@ -223,7 +239,7 @@
     <div class="shot"><img src="assets/thesis-mgmt.png" alt="Thesis linked to the model portfolio it produced"></div>
   </div>
 
-  <div class="feat">
+  <div class="feat rev">
     <div class="txt">
       <h3>💼 Institutional portfolio analytics</h3>
       <p>The measurement core professionals expect — verified against closed forms.</p>
@@ -232,7 +248,7 @@
     <div class="shot"><img src="assets/performance.png" alt="Portfolio performance dashboard"></div>
   </div>
 
-  <div class="feat rev">
+  <div class="feat">
     <div class="txt">
       <h3>🔍 Analyst-grade screening &amp; comps</h3>
       <p>Cross-sectional factor composites, an expression language, and relative-valuation tables — well beyond boolean filters.</p>

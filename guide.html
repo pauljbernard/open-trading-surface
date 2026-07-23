@@ -53,6 +53,7 @@
     <a href="#charts">Charts &amp; the workbench</a>
     <a href="#screener">Screening stocks</a>
     <a href="#portfolio">Portfolios &amp; analytics</a>
+    <a href="#pricing">Pricing engine &amp; Model of Models</a>
     <a href="#models">Company operating models</a>
     <a href="#thesis">The thesis engine</a>
     <a href="#watch">Watchlists, alerts &amp; calendar</a>
@@ -234,8 +235,33 @@
     <tr><td>"Propose target weights that cut risk without dropping expected return much, then a rebalance plan."</td><td>Runs the optimizer and produces buy/sell deltas (plan only).</td></tr>
   </table>
 
+  <h2 id="pricing">The pricing engine &amp; the Model of Models</h2>
+  <p>Twenty valuation models behind one interface — every methodology the industry uses, presented in the industry's own terms — plus a <b>Model of Models</b> that reads which valuation frame the market is actually tracking for each name. Two terminal views carry it: <b>💠 Pricing Models</b> (every model side by side) and <b>📐 Model of Models</b> (the correlation-weighted blend).</p>
+  <p style="text-align:center"><img src="assets/pricing-engine.svg" alt="Pricing engine architecture" style="max-width:760px;width:100%;border:1px solid var(--border);border-radius:12px"></p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Compare every pricing model on AAPL."</td><td>Runs the whole basket — intrinsic (DCF, FCFE, EPV, DDM, residual income, EVA), relative multiples at the name's own trailing median, asset models, Monte Carlo, scenarios, SOTP — each with its fair value vs price; models that decline say why.</td></tr>
+    <tr><td>"What frame is the market pricing TSLA on?"</td><td>The Model of Models: each model earns a walk-forward correlation weight against the name's own price (strictly as-of, no lookahead). The weights are the reading — and their year-over-year drift shows the rotation.</td></tr>
+    <tr><td>"Chart the DCF and EV/EBITDA lines against price."</td><td>Every model has a point-in-time series (filed statements only) — add from the chart picker's <i>Pricing engine</i> section, or by ref: <code>pricing:AAPL:intrinsic.dcf_fcff</code>.</td></tr>
+    <tr><td>"Replot the composite under January's weighting."</td><td>Weight vectors are recorded per stock per date; <code>pricing:SYM:composite.momw:2026-01-15</code> holds that day's recorded vector fixed across the whole series. The plain ref always uses the latest recorded snapshot — the plot is always one consistent weighting, never rolling.</td></tr>
+    <tr><td>"Show the rotation itself."</td><td>Per-model weight series — <code>pricing:SYM:weight.relative.pe</code> and friends — chart each model's weight through time in percent; membership is wherever the line is above zero.</td></tr>
+  </table>
+  <h3>Relative views: Δ$ and Δ%</h3>
+  <p>A macro series on the chart is rarely expected to <i>equal</i> the price — the relationship is the object. Every overlay's row in the picker offers three renderings: <b>value</b> (as fetched), <b>Δ$</b> (price − series), and <b>Δ%</b> ((price − series)/|series|). A model line flipped to Δ$ reads as the premium itself, through time.</p>
+  <h3>Judgment models &amp; the venture book</h3>
+  <p>Some of what the market prices does not exist in filed statements — pre-revenue ventures like robotaxi fleets, humanoid robots, AI infrastructure. The <b>🚀 Judgment Models</b> view maintains the inputs that only an analyst can supply:</p>
+  <table>
+    <tr><th>Model</th><th>You maintain</th></tr>
+    <tr><td>Venture book</td><td>Per-venture TAM, achievable share, margin at scale, probability, years, committed capital. Valued as probability-weighted PV net of committed capex — a venture whose spend exceeds its prize shows a negative EV, as information. Ask the agent for a strawman, then edit it in the table.</td></tr>
+    <tr><td>Real options</td><td>Opportunity value S, investment cost K, horizon T, volatility σ (defaults to the name's own).</td></tr>
+    <tr><td>Platform economics</td><td>Users, ARPU, contribution margin, capitalization multiple.</td></tr>
+    <tr><td>Qualitative scorecard</td><td>Four 0–100 analyst scores; the engine computes the weighting and invents no score of its own.</td></tr>
+    <tr><td>SOTP tilts</td><td>Per-segment EV/Sales multiples over the disclosed segments.</td></tr>
+  </table>
+  <p>Saved inputs persist per symbol with an edit history and activate the model everywhere — the pricing panel, comparisons, the composite. Every stored number is labelled analyst judgment. The pairing that matters: chart the Model of Models composite in Δ$ to measure the premium the <i>market</i> is granting for the unseen businesses — then write your own venture book and compare.</p>
+
   <h2 id="models">Company operating models</h2>
-  <p>Give any company a driver-based operating model calibrated from its filings and consensus, then turn any event into an instant EPS and fair-value delta. An elasticity table shows exactly which drivers move the stock.</p>
+  <p>Give any company a driver-based operating model calibrated from its filings and consensus, then turn any event into an instant EPS and fair-value delta. An elasticity table shows exactly which drivers move the stock. The operating model is the machinery beneath the pricing engine's intrinsic models — its drivers feed the DCF, FCFE, EPV and Monte Carlo lines — and in the terminal its former panels are superseded by the <a href="#pricing">Model of Models</a> view; the model itself remains fully operable through the agent.</p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
     <tr><td>"Build an operating model for CAT."</td><td>Calibrates revenue → EBIT → EPS → FCF, plus exit-multiple + DCF fair value.</td></tr>

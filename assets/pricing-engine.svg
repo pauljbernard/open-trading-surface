@@ -1,0 +1,109 @@
+<svg viewBox="0 0 860 560" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2f7bff"/>
+    </marker>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8b93a7"/>
+    </marker>
+  </defs>
+  <rect width="860" height="560" rx="14" fill="#0b0e14"/>
+
+  <!-- ===== column 1: the basket ===== -->
+  <text x="30" y="42" fill="#8b93a7" font-size="12" letter-spacing="1.5">THE BASKET — 20 MODELS, 8 CATEGORIES</text>
+  <g font-size="12.5">
+    <rect x="30" y="56" width="200" height="52" rx="9" fill="#131722" stroke="#242938"/>
+    <text x="44" y="78" fill="#d7dbe6" font-weight="600">Intrinsic</text>
+    <text x="44" y="96" fill="#8b93a7" font-size="11">DCF · FCFE · EPV · DDM · RIM · EVA</text>
+
+    <rect x="30" y="116" width="200" height="52" rx="9" fill="#131722" stroke="#242938"/>
+    <text x="44" y="138" fill="#d7dbe6" font-weight="600">Relative</text>
+    <text x="44" y="156" fill="#8b93a7" font-size="11">P/E · P/S · EV/EBITDA (own-history)</text>
+
+    <rect x="30" y="176" width="200" height="52" rx="9" fill="#131722" stroke="#242938"/>
+    <text x="44" y="198" fill="#d7dbe6" font-weight="600">Asset</text>
+    <text x="44" y="216" fill="#8b93a7" font-size="11">Book · NAV · Liquidation · Replace</text>
+
+    <rect x="30" y="236" width="200" height="52" rx="9" fill="#131722" stroke="#242938"/>
+    <text x="44" y="258" fill="#d7dbe6" font-weight="600">Probabilistic</text>
+    <text x="44" y="276" fill="#8b93a7" font-size="11">Monte Carlo (seeded) · Bull/Base/Bear</text>
+
+    <rect x="30" y="296" width="200" height="52" rx="9" fill="#131722" stroke="#242938"/>
+    <text x="44" y="318" fill="#d7dbe6" font-weight="600">Strategic &amp; Platform</text>
+    <text x="44" y="336" fill="#8b93a7" font-size="11">SOTP · Installed base</text>
+
+    <rect x="30" y="356" width="200" height="64" rx="9" fill="#131722" stroke="#2f7bff" stroke-dasharray="4 3"/>
+    <text x="44" y="378" fill="#d7dbe6" font-weight="600">Judgment models</text>
+    <text x="44" y="396" fill="#8b93a7" font-size="11">Venture book · Real options ·</text>
+    <text x="44" y="410" fill="#8b93a7" font-size="11">Qualitative scorecard — UX-maintained</text>
+  </g>
+  <text x="30" y="446" fill="#8b93a7" font-size="11">Each model: live value + a point-in-time</text>
+  <text x="30" y="462" fill="#8b93a7" font-size="11">series (filed statements only, no lookahead)</text>
+
+  <!-- arrows basket -> weights -->
+  <path d="M232 82 C 290 82 290 180 330 190" stroke="#8b93a7" fill="none" marker-end="url(#arrm)"/>
+  <path d="M232 142 C 285 142 290 195 330 205" stroke="#8b93a7" fill="none" marker-end="url(#arrm)"/>
+  <path d="M232 202 L 330 220" stroke="#8b93a7" fill="none" marker-end="url(#arrm)"/>
+  <path d="M232 262 C 285 262 290 245 330 235" stroke="#8b93a7" fill="none" marker-end="url(#arrm)"/>
+  <path d="M232 322 C 290 322 290 260 330 250" stroke="#8b93a7" fill="none" marker-end="url(#arrm)"/>
+  <path d="M232 388 C 295 388 295 275 330 262" stroke="#8b93a7" fill="none" marker-end="url(#arrm)"/>
+
+  <!-- ===== column 2: correlation weights ===== -->
+  <text x="340" y="150" fill="#8b93a7" font-size="12" letter-spacing="1.5">WALK-FORWARD WEIGHTS</text>
+  <rect x="335" y="164" width="215" height="150" rx="10" fill="#131722" stroke="#242938"/>
+  <text x="352" y="190" fill="#d7dbe6" font-size="12.5" font-weight="600">ρ( ln model , ln price )</text>
+  <text x="352" y="208" fill="#8b93a7" font-size="11">trailing window · strictly as-of</text>
+  <text x="352" y="226" fill="#8b93a7" font-size="11">per stock · anti-trackers → 0</text>
+  <!-- mini weight bars -->
+  <g>
+    <rect x="352" y="240" width="120" height="9" rx="2" fill="#2f7bff"/>
+    <rect x="352" y="255" width="96" height="9" rx="2" fill="#2f7bff" opacity=".75"/>
+    <rect x="352" y="270" width="66" height="9" rx="2" fill="#2f7bff" opacity=".5"/>
+    <rect x="352" y="285" width="34" height="9" rx="2" fill="#2f7bff" opacity=".3"/>
+    <text x="480" y="249" fill="#8b93a7" font-size="10">EV/EBITDA</text>
+    <text x="480" y="264" fill="#8b93a7" font-size="10">P/S</text>
+    <text x="480" y="279" fill="#8b93a7" font-size="10">DCF</text>
+    <text x="480" y="294" fill="#8b93a7" font-size="10">…</text>
+  </g>
+  <text x="340" y="336" fill="#8b93a7" font-size="11">"What frame is the market tracking</text>
+  <text x="340" y="352" fill="#8b93a7" font-size="11">for THIS name — and how is it rotating?"</text>
+
+  <!-- arrow weights -> register + momw -->
+  <path d="M552 214 L 612 178" stroke="#2f7bff" fill="none" stroke-width="1.6" marker-end="url(#arr)"/>
+  <path d="M552 264 L 612 300" stroke="#2f7bff" fill="none" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <!-- ===== column 3 top: the register ===== -->
+  <text x="616" y="118" fill="#8b93a7" font-size="12" letter-spacing="1.5">RECORDED WEIGHTINGS</text>
+  <rect x="612" y="132" width="218" height="86" rx="10" fill="#131722" stroke="#242938"/>
+  <text x="628" y="156" fill="#d7dbe6" font-size="12" font-weight="600">Dated weight vectors, per stock</text>
+  <text x="628" y="174" fill="#8b93a7" font-size="11">saved daily · membership travels</text>
+  <text x="628" y="190" fill="#8b93a7" font-size="11">with each snapshot · replot the</text>
+  <text x="628" y="206" fill="#8b93a7" font-size="11">series under any point in time</text>
+
+  <!-- ===== column 3 bottom: model of models ===== -->
+  <text x="616" y="262" fill="#8b93a7" font-size="12" letter-spacing="1.5">MODEL OF MODELS</text>
+  <rect x="612" y="276" width="218" height="104" rx="10" fill="#131722" stroke="#2f7bff"/>
+  <text x="628" y="302" fill="#d7dbe6" font-size="12.5" font-weight="600">Σ wᵢ · modelᵢ</text>
+  <text x="628" y="322" fill="#8b93a7" font-size="11">the chart line is always ONE</text>
+  <text x="628" y="338" fill="#8b93a7" font-size="11">snapshot's weights, held fixed —</text>
+  <text x="628" y="354" fill="#8b93a7" font-size="11">rolling weights only by explicit ask</text>
+  <text x="628" y="372" fill="#26a969" font-size="11">weights sum to 100% · membership = w &gt; 0</text>
+
+  <!-- arrows to chart -->
+  <path d="M721 384 L 721 428" stroke="#2f7bff" fill="none" stroke-width="1.6" marker-end="url(#arr)"/>
+  <path d="M440 318 C 440 420 520 442 588 448" stroke="#8b93a7" fill="none" marker-end="url(#arrm)"/>
+
+  <!-- ===== bottom: the chart ===== -->
+  <rect x="330" y="432" width="500" height="100" rx="10" fill="#131722" stroke="#242938"/>
+  <text x="348" y="456" fill="#d7dbe6" font-size="12.5" font-weight="600">The chart — every line, three renderings</text>
+  <!-- tiny price + composite squiggle -->
+  <polyline points="348,516 380,505 410,510 445,492 480,498 515,480 545,486 575,470" fill="none" stroke="#d7dbe6" stroke-width="1.6"/>
+  <polyline points="348,522 380,517 410,514 445,508 480,506 515,498 545,500 575,492" fill="none" stroke="#2f7bff" stroke-width="1.6" stroke-dasharray="5 3"/>
+  <text x="592" y="474" fill="#d7dbe6" font-size="10.5">price</text>
+  <text x="592" y="496" fill="#2f7bff" font-size="10.5">model of models (snapshot)</text>
+  <text x="592" y="514" fill="#8b93a7" font-size="10.5">+ per-model weight series (%)</text>
+  <text x="592" y="528" fill="#8b93a7" font-size="10.5">+ Δ$ / Δ% views vs price</text>
+
+  <!-- footer -->
+  <text x="30" y="536" fill="#8b93a7" font-size="10.5">Descriptive, not predictive — correlation says which frame tracked, not which will. Not investment advice.</text>
+</svg>
