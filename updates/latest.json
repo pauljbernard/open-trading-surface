@@ -1,13 +1,13 @@
 {
-  "version": "3.46.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.46.0.plugin",
-  "sha256": "2963df657d34123628964a61692a7234c9109c6beca55a76d9c33b08572ceb94",
+  "version": "3.46.1",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.46.1.plugin",
+  "sha256": "aef1d550936abedab8f66a843921f116e15ecd5c037782447c2ff5262dd63852",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.46.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.46.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "3.45.0 shipped nineteen valuation models that were callable and chartable — and invisible. The overlay refs resolved if you typed them, but the picker never listed them (its catalog iterates a fixed category list that did not include pricing), and no terminal view showed the models at all. The engine existed; the UX did not. This release is the UX. - A PRICING MODELS view in the terminal rail (💠, beside Operating Model): every registered model run on the name, side by side — fair value, category, and vs-price for each model that values it; the stated reason for each that declines or cannot (a",
-  "published": "2026-07-23T15:17:55.405Z",
+  "notes": "Setting a dozen pricing-model overlays into their own panes surfaced a layout defect the pane floors had always implied: mainH floors at 260px and every sub-pane at 90px, so with enough panes the stack is taller than the window — and the charts column simply CLIPPED. Panes past the fold rendered nowhere, silently; there was no scrollbar and no indication they existed. - The charts column scrolls inside the frame. #charts now takes an explicit viewport height and overflow-y: auto: when the pane stack fits, nothing changes; when it is taller, it scrolls. Pane minimums stay (a 9px lane is not a c",
+  "published": "2026-07-23T15:35:37.585Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
