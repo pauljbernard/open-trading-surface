@@ -1,13 +1,13 @@
 {
-  "version": "3.44.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.44.1.plugin",
-  "sha256": "6d09fedf66d499006f8ca4b9152812d5c83b723632dc640591fc882741527a02",
+  "version": "3.45.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.45.0.plugin",
+  "sha256": "2283045aa4bca8be48bcc62e7fbc10b619e1217351f1944a45ba32004392752a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.44.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.45.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "A live AMZN audit read Structure, Attribution and Interpretation side by side and found them numerically incoherent. The Interpretation pane made its OWN bandSeries call with its own deps; its statement fetch failed, so it derived a foundation of 124.47, said \"no R&D reported\", and called the investment phase unavailable — while the valuation stance strip directly above it, reading the /cm/band cache, showed 161.81 patient ×1.3 / phase heavy 33.5%. Two panels, one name, one moment, two answers — and neither said so. This release makes the shared surface structural: the pane that explains the m",
-  "published": "2026-07-23T02:17:13.355Z",
+  "notes": "Orrery already computed many valuations — a blended DCF here, a REIT capitalisation there, comps in one tool, a reverse-DCF in another — but each was wired by hand, none shared a shape, and most never reached the chart. This release makes valuation a SUBSYSTEM: one PricingModel interface, a registry that makes adding a model a single file, a context every model reads and none fetches around, and — the point — each model's result as a dated series that overlays on price through the same machinery as every other line. It is a HOST, not a judge: each model is presented in the industry's own terms",
+  "published": "2026-07-23T14:12:35.172Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

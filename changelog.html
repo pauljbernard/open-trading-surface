@@ -16,6 +16,15 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.45.0 — the pricing engine: every model, one interface, on the chart</h2>
+<ul>
+<li><b>One interface, one registry.</b> <code>server/pricing/</code> — every model is a plain module</li>
+<li><b>The full catalog.</b> Intrinsic: FCFF DCF, FCFE, Earnings Power Value, Dividend</li>
+<li><b>On the chart, for free.</b> A new series ref <code>pricing:{SYM}:{model_id}</code> resolves each</li>
+<li><b>Composite, honestly.</b> <code>get_pricing_composite</code> blends the panel (equal weight or a</li>
+<li><b>Input-driven models stay out of the way.</b> Real options, SOTP, the platform model and</li>
+<li><b>Tools.</b> <code>list_pricing_models</code>, <code>price_with_model</code>, <code>compare_pricing_models</code>,</li>
+</ul>
 <h2>3.44.1 — three panels, one computation</h2>
 <ul>
 <li><b>One shared band summary.</b> The <code>/cm/band</code> cache moved into <code>band-summary.js</code> (<code>getBandSummary</code>, 5-minute TTL, compact summary shape, bustable). <code>/cm/band</code>, <code>/cm/band-backfill</code> and <code>/cm/interpret</code> all consume it; <code>interpret()</code> takes the band as an injected dependency, its default seam IS the shared helper, and it never recomputes the band privately. Same discipline for cohorts: the interpret op injects the exact <code>cohortsFor</code> + <code>fmp</code> deps the <code>/cm/cohorts</code> op serves, so a "profile unavailable" gap cannot appear in Interpretation while Structure is rendering the profile. A gap in Interpretation is only honest if the input is genuinely unavailable to the whole terminal. Band-backfill busts both the band cache and the cached interpretation that spoke the pre-backfill band.</li>
