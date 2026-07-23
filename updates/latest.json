@@ -1,13 +1,13 @@
 {
-  "version": "3.53.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.2.plugin",
-  "sha256": "eeb2014a8595c152872eae2d7e80fdda3f989bf0d8b5fe514aeac7857e3e3d98",
+  "version": "3.53.3",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.3.plugin",
+  "sha256": "a0709ada4c7218e772fcded4ab7392678d99817f704e14349012fea8bfe23f23",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.3.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "\"Zero dependencies\" overstated it. The precise, true claims — now stated as such everywhere: the SHIPPED SERVER has zero RUNTIME npm dependencies (it runs on the Node standard library alone), and the charting engine is original code with no third-party charting library. Development and CI use ordinary tooling (esbuild, TypeScript, Playwright), the application requires Node itself, and market data comes from external providers under their own terms — none of which the old phrasing acknowledged. Docs-only; no code change.",
-  "published": "2026-07-23T17:48:39.496Z",
+  "notes": "Tagline refined: \"whose UNDERSTANDING compounds between sessions\" — the thing that accrues is not the labor but the model of the world it builds: theses, evidence, calibrations, weightings, books. Set in a smaller face so the longer line sits comfortably. Docs-only.",
+  "published": "2026-07-23T17:51:35.937Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
