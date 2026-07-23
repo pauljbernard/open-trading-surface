@@ -1,13 +1,13 @@
 {
-  "version": "3.48.0",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.48.0.plugin",
-  "sha256": "0d44afc54ae37534d00fd15534989b3ab7150c5439e064fa53b06efa89f42c3b",
+  "version": "3.49.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.49.0.plugin",
+  "sha256": "8514b3942da0daac129ded300b27f4847f6c527196001e68bda601b15cd326c2",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.48.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.49.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "The model of models' weights are not static — that is the point of them — and this release makes the rotation itself a first-class chartable object: how the market's frame for a given name changes, day by day as the register accrues and quarterly across the reconstructed past. - Per-model weight time series: pricing:{SYM}:weight.<model_id> charts one model's walk-forward weight in the model of models, in PERCENT on its own axis (never the price scale) — e.g. pricing:AAPL:weight.relative.ev_ebitda against pricing:AAPL:weight.intrinsic.dcf_fcff shows a name migrating between a multiples frame an",
-  "published": "2026-07-23T16:05:22.241Z",
+  "notes": "A macro or data element on the chart is rarely expected to EQUAL the price, even when it shares the scale — the relationship is the object. Rather than tripling the catalog with derived refs, every overlay now offers three renderings of the same series, switched per overlay from its row in the picker: - value — the series as fetched (unchanged default); - Δ $ — price − series, in the symbol's dollars at each bar; - Δ % — (price − series) / |series| × 100, the premium convention. Computed at draw time against the charted symbol's own bars (as-of aligned, so a quarterly series differences correc",
+  "published": "2026-07-23T16:18:10.133Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
