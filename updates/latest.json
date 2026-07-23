@@ -1,13 +1,13 @@
 {
-  "version": "3.53.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.0.plugin",
-  "sha256": "dd70c53f7751ce967c616c889deefdea8089d9af4b1e3d790d6fd5bc0fd29724",
+  "version": "3.53.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.1.plugin",
+  "sha256": "5e95bc2564c94926f52628c7b04c7372eedaf2da22b434232a35ea1656a4ac31",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "The application formerly published as \"Orrery\" is now OPEN TRADING SURFACE (\"OTS\"). The prior name is trademarked by another party; this release removes it from the application, the documentation, the site, and the repositories. The rename is a bridge release engineered so no existing install is stranded: - The product: plugin id ots, display name Open Trading Surface, package ots-<version>.plugin, rebranded terminal, docs, and marks. The full name is used wherever space allows; OTS in tight spaces. - Your data migrates itself. On first run, state moves from the legacy ~/.orrery to ~/.ots by C",
-  "published": "2026-07-23T17:41:13.409Z",
+  "notes": "\"Thinks between sessions\" claimed cognition the software does not perform: nothing runs while a session is closed. What is true — and what the rest of the page already says — is that the world-model PERSISTS and the work COMPOUNDS: models, theses, ledgers, weight registers and venture books are all there when you come back, deeper than you left them. The tagline now says exactly that: \"The investment research terminal whose work compounds between sessions.\" Docs-only; no code change.",
+  "published": "2026-07-23T17:46:50.242Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
