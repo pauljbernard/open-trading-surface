@@ -1,13 +1,13 @@
 {
-  "version": "3.47.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.47.1.plugin",
-  "sha256": "43720b27fcf755662621f8ab675231cda8cbc5a72c618bfe3a0afecce36912ed",
+  "version": "3.48.0",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.48.0.plugin",
+  "sha256": "0d44afc54ae37534d00fd15534989b3ab7150c5439e064fa53b06efa89f42c3b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.47.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.48.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "A line whose weights re-fit at every date is a different model at every point — not one consistent object you can read a level off. 3.47.0 charted the rolling walk-forward composite by default; this release makes the overlay ALWAYS a snapshot (Paul's rule, stated as such): - pricing:{SYM}:composite.momw now blends the panel under the LATEST RECORDED weight vector, held fixed across the whole series — one consistent model applied through time. First use on a name with no recording computes and records one automatically. - :YYYY-MM-DD holds the vector recorded at (or nearest before) that date — ",
-  "published": "2026-07-23T16:00:15.223Z",
+  "notes": "The model of models' weights are not static — that is the point of them — and this release makes the rotation itself a first-class chartable object: how the market's frame for a given name changes, day by day as the register accrues and quarterly across the reconstructed past. - Per-model weight time series: pricing:{SYM}:weight.<model_id> charts one model's walk-forward weight in the model of models, in PERCENT on its own axis (never the price scale) — e.g. pricing:AAPL:weight.relative.ev_ebitda against pricing:AAPL:weight.intrinsic.dcf_fcff shows a name migrating between a multiples frame an",
+  "published": "2026-07-23T16:05:22.241Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }

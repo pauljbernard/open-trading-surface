@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Orrery. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.48.0 — the rotation itself, charted</h2>
+<ul>
+<li><b>Per-model weight time series</b>: <code>pricing:{SYM}:weight.&lt;model_id&gt;</code> charts one</li>
+<li><b>The picker is unit-aware</b>: dollar-valued entries land on the price scale,</li>
+<li>The <code>/cm/momw</code> payload and <code>get_model_of_models</code> now include <code>weight_series</code></li>
+</ul>
 <h2>3.47.1 — the plot is always a snapshot</h2>
 <ul>
 <li><b><code>pricing:{SYM}:composite.momw</code></b> now blends the panel under the LATEST</li>
