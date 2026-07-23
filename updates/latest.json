@@ -1,13 +1,13 @@
 {
-  "version": "3.43.1",
-  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.43.1.plugin",
-  "sha256": "1cf8e397040345c352b4e41fd8a5c6938da036c646e3b1f323363c113cb25f2b",
+  "version": "3.43.2",
+  "download_url": "https://pauljbernard.github.io/orrery/download/orrery-3.43.2.plugin",
+  "sha256": "2de6dff7ec4ef1a4b5567c5b6793320e48be6e5ec679470cb0cc4250fc079daa",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.43.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/orrery/download/orrery-3.43.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/orrery/assets/orrery-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "The first live S&P run of backfill_valuation_bands surfaced two defects that fed each other: reconstructions came back far shallower than requested, and the sweep's skip criterion could not recognise them as finished — so it redid the same first 25 names on every call, remaining sat frozen at 474, and the resume note said \"29 of 503\" forever. Both fixed. - The depth cap: a 15-year request quietly produced ~9 points. Two silent truncations in the reconstruction chain. The PIT backfill clamped years to 12 without a word — and, far worse, fetched the price history at the provider DEFAULT window (",
-  "published": "2026-07-22T23:57:56.818Z",
+  "notes": "The chart invited overlaying two rival \"fair value\" lines and let them argue: model:SYM:fair_value — the LEGACY v1 blended fair value from the snapshot track, which includes the price-anchored exit-multiple leg — alongside the valuation band trio whose foundation is the PATIENT routed level. On TSLA those read $16.97 vs $71.71 on the same screen, with nothing saying they are DIFFERENT CONSTRUCTIONS of different things. A user rightly flagged the incoherence. This release is presentation-only: nothing is removed, both series stay resolvable — the legacy blend now says what it is, everywhere it ",
+  "published": "2026-07-23T01:18:36.864Z",
   "channel": "https://pauljbernard.github.io/orrery/updates/latest.json"
 }
