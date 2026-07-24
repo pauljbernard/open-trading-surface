@@ -1,13 +1,13 @@
 {
-  "version": "3.54.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.54.0.plugin",
-  "sha256": "0d4ce365f08937d505476ac819538cdd7b273a64e5cb9774175ae855c2e5d5bd",
+  "version": "3.55.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.55.0.plugin",
+  "sha256": "42e9d9878f1b575cebb168f06a6114a76a73461a14d1d8afde00c0da4bf2810f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.54.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.55.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The 2026-07-23 full application review produced a prioritized findings list; this release is Wave A — every finding where the fix is a correctness or honesty repair (P0.3, P0.5–P0.9, P1.3–P1.6, P3.3, P3.4). Wave B (structural: write serialization, route extraction, CI guards, scripted publish) follows. - One discount rate for the basket (P0.5). DCF, EPV, EVA, Monte Carlo and scenarios previously split between the flat operating-model wacc_pct driver and the floored-CAPM cost of equity — two models could disagree purely because they read different rates. The context now exposes a memoised disco",
-  "published": "2026-07-24T01:47:49.317Z",
+  "notes": "Wave B of the 2026-07-23 application review (P1.1, P1.2, P2.1–P2.3): the findings whose fix is structure — serialization, extraction, and guardrails — rather than a correctness repair. - Cross-process writes serialize (P1.1). The MCP server and the terminal daemon are separate processes writing the same stores; writeJson was atomic per write, but read-modify-write was not — two processes interleaving load→mutate→save silently discarded the loser's edit. store.update now runs the whole sequence under an O_EXCL advisory lock (<file>.lock), with crash-leftover locks stolen after a staleness horiz",
+  "published": "2026-07-24T02:16:11.890Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
