@@ -1,13 +1,13 @@
 {
-  "version": "3.56.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.56.0.plugin",
-  "sha256": "78d5af7a6584eca215ab0d91ed25387202f00dbb65b725fcf696441c1aeb0de3",
+  "version": "3.57.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.57.0.plugin",
+  "sha256": "411ae8609e78a818d95dc7d67c51daf0d32744653b1ae7109967f1508aa9d3c5",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.56.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.57.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The venture book grows up. What these models actually represent — for the class of company priced on its programs rather than its statements — is major capital investments and strategic initiatives: AI/datacenter buildouts, autonomy programs, launch systems. The strawman's single discounted payoff flattened everything that matters about them. Wave 1 of STRATEGIC-INITIATIVES-SPEC replaces it: - A dated cash-flow lattice per initiative. Explicit start date, horizon, and life treatment (finite, Gordon fade-to-perpetuity, or exit multiple). Every flow discounts FROM ITS DATE; valuing as of an earl",
-  "published": "2026-07-24T13:40:47.947Z",
+  "notes": "Wave 2 of STRATEGIC-INITIATIVES-SPEC: fundamental risk enters the machinery as structure, not adjectives. - Contingent capital. An outlay tied to a gate (contingent_on) spends only in the worlds where that gate passes — expected cost = amount × p, with equity-funding dilution scaled by the same contingency, since shares only issue if the spend happens. Committed capital (no tie) spends regardless, as before. A dangling gate reference is refused at write time with the valid gate ids named. - Shared risks. Declared ONCE per book, referenced by initiatives. A shared GATE (a capital raise closing,",
+  "published": "2026-07-24T14:15:37.214Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
