@@ -1,13 +1,13 @@
 {
-  "version": "3.61.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.61.1.plugin",
-  "sha256": "ff3ed258f45a054c63ee83e8664b00b0f18203494ff015baf38b5b0a274026cf",
+  "version": "3.62.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.62.0.plugin",
+  "sha256": "d6b32853ef36838d4b922af07deec5ef41e48e24bbdcbc295cec8accff75d937",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.61.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.62.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Precision weighting (3.61.0) exposed a stand-in choice that misfired: for chart dates BEFORE a strategic-initiative book's first snapshot, the replay stood in the EARLIEST snapshot. On TSLA that meant three years of \"history\" scored against a day-old migrated strawman the owner had already replaced — 315% tracking error and a 0.6% weight for the frame sitting $17 from the price. Pre-record dates have NO belief to replay; any choice is a stand-in. The stand-in is now the CURRENT book valued as-of those dates — what today's model implies the value WAS (the owner's direction from the start: \"calc",
-  "published": "2026-07-24T20:04:13.776Z",
+  "notes": "An owner observation on the live TSLA panel: the Pricing Models page headlined \"composite fair value \\$76.62 (equal weight), +308% vs price\" directly above its own 0% agreement score, while the Model of Models page showed a precision-weighted \\$267. An equal-weight average of sixteen different constructions spanning \\$4 to \\$354 is not a fair value — it is the BENCHMARK, the row every weighting method must beat (exactly its role in the experiment plan). - The Pricing Models headline is now the precision-weighted value — the same number, from the same computation, as the Model of Models view (t",
+  "published": "2026-07-24T20:26:41.497Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
