@@ -92,6 +92,9 @@
 
   <div class="note">Feedback and issue tracking are hosted publicly on GitHub, so bugs, requests, ideas, and their status are open for everyone to see and follow. The application source itself stays private. Open Trading Surface can also keep an <b>opt-in, local-only</b> usage journal (ask the agent to "turn on usage reporting") that never leaves your machine but can be exported to attach to a report.</div>
 
+  <h2>Automation (scheduled jobs)</h2>
+  <p style="color:var(--muted);font-size:14px">The plugin ships capabilities; <b>schedules are host-level</b> — installing OTS does not by itself install recurring jobs. Run <code>/ots:automate</code> after installing: it reads the plugin's automation registry (the canonical list of every scheduled job OTS ships — currently the Opportunity Surface daily batch and the daily ledger &amp; register recording) and walks your agent through creating the ones you choose as scheduled tasks on your machine. Registry-driven means future automations appear in <code>/ots:automate</code> automatically after an update. Every entry also carries a CLI/cron alternative for headless setups, and all automations are read-only over your configuration — they record and observe, never modify.</p>
+
   <h2>Verify your download (optional)</h2>
   <p style="color:var(--muted);font-size:14px">Every release ships a SHA-256 checksum so you can confirm your <code>ots.plugin</code> downloaded intact. Compare it against the published checksum:</p>
   <pre><code># compare against download/ots.plugin.sha256
@@ -121,8 +124,8 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
 </html><!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>3.63.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-24 21:40 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>3.64.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-24 22:19 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>

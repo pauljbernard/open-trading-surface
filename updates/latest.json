@@ -1,13 +1,13 @@
 {
-  "version": "3.63.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.63.0.plugin",
-  "sha256": "d4ac2f35e92e6684d6614f9bb7b545df59cba5e2d669e0f55de81075cd8d0f25",
+  "version": "3.64.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.64.0.plugin",
+  "sha256": "8ced61ae85e2a3f5c1f66168ce555466d6971ad1147aea99d698578bc9e655d0",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.63.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.64.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Wave 1 of OPPORTUNITY-SURFACE-SPEC, by owner direction: the infrastructure that computes the market heat map's cells — the % gap between each security's price and its precision-weighted model-of-models value — across the full NYSE + NASDAQ common-stock universe. - The universe (surface_refresh_universe): every actively-trading common stock on both exchanges with sector/industry/mcap metadata; ETFs, funds, and inactive listings excluded WITH COUNTS, never silently. - Two cadences, deliberately. Model values move on filings — quarterly forces — so the MODEL REFRESH is a rolling, RESUMABLE batch ",
-  "published": "2026-07-24T21:40:09.623Z",
+  "notes": "Installing the plugin installs capabilities; schedules are HOST-level — they live on the user's machine, not in the package. Until now that meant a fresh install had all the machinery and none of the automation. Closed, by owner direction, and closed for good: - The automation registry (server/automations.json, exposed via the new list_automations tool): the canonical list of every scheduled job OTS ships — id, suggested cron + human cadence, prerequisites, heavy-job heads-ups, a FULLY SELF-CONTAINED portable prompt, placeholder contracts, and a CLI/cron alternative for headless setups. Curren",
+  "published": "2026-07-24T22:19:29.078Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
