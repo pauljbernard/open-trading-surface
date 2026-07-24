@@ -1,13 +1,13 @@
 {
-  "version": "3.59.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.59.0.plugin",
-  "sha256": "b560da51a5c7a089bd6ecc63c95eff6bb2875f938fd5cce0ba9ddbdfa6d8a444",
+  "version": "3.60.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.60.0.plugin",
+  "sha256": "7c26eb2fe5f3a8baed8e65061785ab833b7f094a21432465a065b5020b36dd94",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.59.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.60.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Wave 4 of STRATEGIC-INITIATIVES-SPEC: initiatives now age honestly, and the book's predictive record is scored. - The maturation fade. As an initiative's revenue starts appearing in filed statements the operating model prices it — so the same future must not be counted twice (the classic SOTP failure). Each initiative can carry a dated, sourced realized record (annual run-rate showing up in filings); the fade removes the realized fraction from the contribution, disclosed on the row (\"30% of scale revenue realized in filings as of … — counted once, in the operating model\"), with the pre-fade va",
-  "published": "2026-07-24T14:40:17.724Z",
+  "notes": "The final wave of STRATEGIC-INITIATIVES-SPEC: the presentation a book of capital programs deserves. - The valuation waterfall. The Strategic Initiatives view now draws operating core (the composite, ex-add-ons, labelled) + each initiative's faded per-share value = total, against the current price. When no operating core is available the waterfall says it is incomplete rather than pretending the add-on is the whole company. - Tornado sensitivity. Per initiative (🌪 on the card): one-at-a-time conventional shocks — revenue and margin ±20%, horizon ±1 year, discount rate ±1pp, each unresolved gat",
+  "published": "2026-07-24T14:55:27.317Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
