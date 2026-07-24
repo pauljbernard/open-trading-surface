@@ -1,13 +1,13 @@
 {
-  "version": "3.61.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.61.0.plugin",
-  "sha256": "42c8099bc7a24004021bc247163fb44f0d51ad8443b818b9d492f9b23bf969bb",
+  "version": "3.61.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.61.1.plugin",
+  "sha256": "ff3ed258f45a054c63ee83e8664b00b0f18203494ff015baf38b5b0a274026cf",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.61.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.61.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "An owner decision, made looking at the live TSLA panel: the strategic- initiative frame sat $17 from the price and earned 5.6% weight while asset frames $285 away split 94%. That was registered weakness W5 (\"correlation ≠ closeness\") realized on screen — Pearson ρ scores co-movement of SHAPE and is blind to LEVEL, so a frame with the right level and a young history lost to frames with the wrong level and three years of co-drift. - The weight is now precision: w ∝ 1 / max(MSE, (2%)²) where MSE is the trailing-window mean squared ln-distance between model value and price — the frames CLOSEST to ",
-  "published": "2026-07-24T18:40:26.254Z",
+  "notes": "Precision weighting (3.61.0) exposed a stand-in choice that misfired: for chart dates BEFORE a strategic-initiative book's first snapshot, the replay stood in the EARLIEST snapshot. On TSLA that meant three years of \"history\" scored against a day-old migrated strawman the owner had already replaced — 315% tracking error and a 0.6% weight for the frame sitting $17 from the price. Pre-record dates have NO belief to replay; any choice is a stand-in. The stand-in is now the CURRENT book valued as-of those dates — what today's model implies the value WAS (the owner's direction from the start: \"calc",
+  "published": "2026-07-24T20:04:13.776Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
