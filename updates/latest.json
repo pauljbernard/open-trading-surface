@@ -1,13 +1,13 @@
 {
-  "version": "3.53.4",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.4.plugin",
-  "sha256": "75bf9cf7a0f6d45a11a00c9ae4ddafe5170ecb664f6f7996ac611d8345e4eb71",
+  "version": "3.54.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.54.0.plugin",
+  "sha256": "0d4ce365f08937d505476ac819538cdd7b273a64e5cb9774175ae855c2e5d5bd",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.4.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.54.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
-  "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
+  "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Two corrections from the full application review (P0.1, P0.2), plus a backup hardening (P0.4): - The disclaimer's defined term now names OPEN TRADING SURFACE. The rename sweep had missed the all-caps defined term in the agreement's opening sentence — the single most load-bearing string in the terms. It now reads \"BY DOWNLOADING, INSTALLING, OR USING OPEN TRADING SURFACE (ALSO 'OTS'; THE 'SOFTWARE', INCLUDING ANY VERSION OF THE SAME SOFTWARE PREVIOUSLY DISTRIBUTED UNDER A PRIOR NAME)…\" — covering legacy installs without reproducing the retired mark. The agreement gate hashes this text, so every",
-  "published": "2026-07-24T00:44:59.182Z",
+  "notes": "The 2026-07-23 full application review produced a prioritized findings list; this release is Wave A — every finding where the fix is a correctness or honesty repair (P0.3, P0.5–P0.9, P1.3–P1.6, P3.3, P3.4). Wave B (structural: write serialization, route extraction, CI guards, scripted publish) follows. - One discount rate for the basket (P0.5). DCF, EPV, EVA, Monte Carlo and scenarios previously split between the flat operating-model wacc_pct driver and the floored-CAPM cost of equity — two models could disagree purely because they read different rates. The context now exposes a memoised disco",
+  "published": "2026-07-24T01:47:49.317Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
