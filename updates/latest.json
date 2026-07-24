@@ -1,13 +1,13 @@
 {
-  "version": "3.64.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.64.0.plugin",
-  "sha256": "8ced61ae85e2a3f5c1f66168ce555466d6971ad1147aea99d698578bc9e655d0",
+  "version": "3.65.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.65.0.plugin",
+  "sha256": "a6cd47fdbce7b2808509f1bd6be39a5dbf35d5fc236a2414071880c5e1a4bca4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.64.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.65.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Installing the plugin installs capabilities; schedules are HOST-level — they live on the user's machine, not in the package. Until now that meant a fresh install had all the machinery and none of the automation. Closed, by owner direction, and closed for good: - The automation registry (server/automations.json, exposed via the new list_automations tool): the canonical list of every scheduled job OTS ships — id, suggested cron + human cadence, prerequisites, heavy-job heads-ups, a FULLY SELF-CONTAINED portable prompt, placeholder contracts, and a CLI/cron alternative for headless setups. Curren",
-  "published": "2026-07-24T22:19:29.078Z",
+  "notes": "The Opportunity Surface's initial full-universe fill (~5,200 NYSE+NASDAQ names, 10-12 hours, tens of thousands of provider calls) previously required a terminal: node scripts/surface-batch.js all. Now the fill is a daemon-resident background loop — started, stopped, and monitored through the tools, and it keeps running after the conversation that started it ends, because the loop lives in the long-lived daemon process, not the agent session: - surface.fillStart/fillStop/fillStatus — an in-process async loop over modelTick (budget per tick capped at 25, breathing pause between ticks so the daem",
+  "published": "2026-07-24T23:18:37.089Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
