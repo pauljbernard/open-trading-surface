@@ -1,13 +1,13 @@
 {
-  "version": "3.60.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.60.0.plugin",
-  "sha256": "7c26eb2fe5f3a8baed8e65061785ab833b7f094a21432465a065b5020b36dd94",
+  "version": "3.60.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.60.1.plugin",
+  "sha256": "6fd2f8f4cc7c2d28152af941212744da37a3587ad83bc14f08211d219e3121f2",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.60.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.60.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The final wave of STRATEGIC-INITIATIVES-SPEC: the presentation a book of capital programs deserves. - The valuation waterfall. The Strategic Initiatives view now draws operating core (the composite, ex-add-ons, labelled) + each initiative's faded per-share value = total, against the current price. When no operating core is available the waterfall says it is incomplete rather than pretending the add-on is the whole company. - Tornado sensitivity. Per initiative (🌪 on the card): one-at-a-time conventional shocks — revenue and margin ±20%, horizon ±1 year, discount rate ±1pp, each unresolved gat",
-  "published": "2026-07-24T14:55:27.317Z",
+  "notes": "An owner decision, made looking at the live TSLA panel: \"Model of Models should blend the initiative book. It is a model.\" The Wave-1 spec had excluded add-on models from BOTH blended surfaces. That was half right. The equal-weight composite still excludes them — an additive average of an increment with whole-company values double-counts the operating core, structurally. But the model of models does not sum values: it selects FRAMES by walk-forward correlation with the name's own price. For a company priced on its programs, the initiative book is precisely the candidate frame the market may be",
+  "published": "2026-07-24T16:48:58.381Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
