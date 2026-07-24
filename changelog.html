@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.63.0 — the Opportunity Surface batch: every NYSE + NASDAQ common stock</h2>
+<ul>
+<li><b>The universe</b> (<code>surface_refresh_universe</code>): every actively-trading</li>
+<li><b>Two cadences, deliberately.</b> Model values move on filings — quarterly</li>
+<li><b>The scrubber's substrate:</b> every recorded day is replayable</li>
+<li><b>Bulk fill:</b> <code>node scripts/surface-batch.js --universe</code>, then <code>--all</code></li>
+<li>New tools: surface_refresh_universe, run_surface_batch, get_surface,</li>
+</ul>
 <h2>3.62.0 — the Pricing panel headlines the earned number</h2>
 <ul>
 <li><b>The Pricing Models headline is now the precision-weighted value</b> — the</li>

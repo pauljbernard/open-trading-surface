@@ -1,13 +1,13 @@
 {
-  "version": "3.62.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.62.0.plugin",
-  "sha256": "d6b32853ef36838d4b922af07deec5ef41e48e24bbdcbc295cec8accff75d937",
+  "version": "3.63.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.63.0.plugin",
+  "sha256": "d4ac2f35e92e6684d6614f9bb7b545df59cba5e2d669e0f55de81075cd8d0f25",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.62.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.63.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "An owner observation on the live TSLA panel: the Pricing Models page headlined \"composite fair value \\$76.62 (equal weight), +308% vs price\" directly above its own 0% agreement score, while the Model of Models page showed a precision-weighted \\$267. An equal-weight average of sixteen different constructions spanning \\$4 to \\$354 is not a fair value — it is the BENCHMARK, the row every weighting method must beat (exactly its role in the experiment plan). - The Pricing Models headline is now the precision-weighted value — the same number, from the same computation, as the Model of Models view (t",
-  "published": "2026-07-24T20:26:41.497Z",
+  "notes": "Wave 1 of OPPORTUNITY-SURFACE-SPEC, by owner direction: the infrastructure that computes the market heat map's cells — the % gap between each security's price and its precision-weighted model-of-models value — across the full NYSE + NASDAQ common-stock universe. - The universe (surface_refresh_universe): every actively-trading common stock on both exchanges with sector/industry/mcap metadata; ETFs, funds, and inactive listings excluded WITH COUNTS, never silently. - Two cadences, deliberately. Model values move on filings — quarterly forces — so the MODEL REFRESH is a rolling, RESUMABLE batch ",
+  "published": "2026-07-24T21:40:09.623Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
