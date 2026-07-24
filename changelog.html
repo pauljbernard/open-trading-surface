@@ -16,6 +16,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.53.4 — the terms name the product, and history is history</h2>
+<ul>
+<li><b>The disclaimer's defined term now names OPEN TRADING SURFACE.</b> The rename</li>
+<li><b>Changelog history restored verbatim.</b> The rename sweep had mechanically</li>
+<li><b>The daily state backup no longer contains secrets.</b> config.json (API</li>
+</ul>
 <h2>3.53.3 — understanding, not work</h2>
 <ul>
 </ul>
@@ -31,6 +37,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <li><b>Your data migrates itself.</b> On first run, state moves from the legacy</li>
 <li><b>No install is stranded.</b> The update channel moves to</li>
 <li><b>After updating</b>: the plugin installs under its new identity — remove the</li>
+<li><b>Editorial note (2026-07-23):</b> entries below this one predate the rename and</li>
 </ul>
 <h2>3.52.1 — the site catches up with the terminal</h2>
 <ul>
@@ -605,7 +612,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 </ul>
 <h2>2.63.1</h2>
 <ul>
-<li><b>A disconnected terminal now says so.</b> The session token is baked into the page when it is served; if the server restarts and mints a new one, that page holds a dead token and every control-channel poll is rejected. The rejection was swallowed by a bare <code>.catch</code> and retried silently every 3s — producing a terminal that rendered views and updated prices while the agent could not see or drive it, with nothing on screen to say why. Rejected polls now raise a visible "Disconnected from Open Trading Surface" banner with a cache-busting Reload, because a plain refresh can return the same cached page with the same dead token (which is why refreshing appeared to do nothing).</li>
+<li><b>A disconnected terminal now says so.</b> The session token is baked into the page when it is served; if the server restarts and mints a new one, that page holds a dead token and every control-channel poll is rejected. The rejection was swallowed by a bare <code>.catch</code> and retried silently every 3s — producing a terminal that rendered views and updated prices while the agent could not see or drive it, with nothing on screen to say why. Rejected polls now raise a visible "Disconnected from Orrery" banner with a cache-busting Reload, because a plain refresh can return the same cached page with the same dead token (which is why refreshing appeared to do nothing).</li>
 <li><b><code>open_terminal</code> distinguishes the two causes.</b> A blank pane means a boot error; a normally-rendering page means an expired session. They are indistinguishable from the server side and are told apart by looking at the screen, so the tool now says that instead of guessing one.</li>
 </ul>
 <h2>2.63.0</h2>
@@ -931,7 +938,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 </ul>
 <h2>[2.27.1] — Fix: the CI UI check assumed a portfolio existed</h2>
 <ul>
-<li>The headless UI check drives the portfolio views, whose rail items only render once a portfolio exists — true on any machine that has used Open Trading Surface, false on a fresh CI runner, so the check's very first CI run failed on "rail item missing". The test now <b>seeds a throwaway portfolio through the real code path</b> when no store is provided, and explicitly selects it before driving the views. Failure output from the UI harness now surfaces the actual error line instead of the last three lines of a stack trace.</li>
+<li>The headless UI check drives the portfolio views, whose rail items only render once a portfolio exists — true on any machine that has used Orrery, false on a fresh CI runner, so the check's very first CI run failed on "rail item missing". The test now <b>seeds a throwaway portfolio through the real code path</b> when no store is provided, and explicitly selects it before driving the views. Failure output from the UI harness now surfaces the actual error line instead of the last three lines of a stack trace.</li>
 </ul>
 <h2>[2.27.0] — The strategy reaches the screen: graded visuals, honest rebalance costs, CI-verified UI</h2>
 <ul>
@@ -998,7 +1005,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 </ul>
 <h2>[2.21.1] — The breadcrumb reaches the top: worldview → thesis, with drift detection</h2>
 <ul>
-<li><b>A thesis now records the reading of the world it rests on.</b> <code>create_thesis</code> takes <code>worldview_domains</code>, and Open Trading Surface snapshots what each cited domain <b>said at the time</b> — its trend and summary — not just its name. This completes the chain: worldview → thesis → screen → portfolio, all four hops in the breadcrumb.</li>
+<li><b>A thesis now records the reading of the world it rests on.</b> <code>create_thesis</code> takes <code>worldview_domains</code>, and Orrery snapshots what each cited domain <b>said at the time</b> — its trend and summary — not just its name. This completes the chain: worldview → thesis → screen → portfolio, all four hops in the breadcrumb.</li>
 <li><b>Worldview drift is detected and surfaced.</b> A thesis formed when inflation was *deteriorating* stands on different ground once that domain turns *improving*, so the chain compares the snapshot against the current worldview and flags which domains have moved. Drift is not an error — it is the trigger to revisit the view. Stale domains (not refreshed recently) are reported <b>separately</b>, because not having looked is a different condition from having seen a change.</li>
 <li>The thesis view shows its upward lineage with each cited domain, its trend as cited, and an arrow to where it has since moved; <code>get_provenance {thesis}</code> returns the same upward chain plus the books that thesis produced.</li>
 <li><b>No guessing at the top either</b>: a thesis that cites no domains reports none rather than inferring which parts of the worldview "probably" applied — that is a judgment, not a lookup — and citing an unknown domain is rejected instead of silently dropped.</li>
@@ -1068,7 +1075,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <h2>[2.14.0] — Series-valued DSL + user-defined indicators (charting specs: shared foundation + C-foundation)</h2>
 <ul>
 <li><b>The shared foundation for the three charting specs</b>: the screener's expression DSL now has a SERIES-valued sibling (<code>expr-series.js</code>) that evaluates over a bar array. Identifiers bind to OHLCV (<code>open/high/low/close/volume/hlc3/ohlc4/time</code>); windowed builtins <code>sma/ema/wma/highest/lowest/stdev/sum/slope(x,n)</code>, <code>ref(x,k)</code>, <code>crossover/crossunder</code>, <code>barssince(cond)</code> join <code>abs/log/sqrt/min/max</code>; scalars broadcast against series; results are null-padded and null-poisoning. It reuses the existing tokenizer/grammar and inherits the caps (2,000 chars / 1,000 tokens) with <b>no eval, no loops, no recursion</b> — cost stays O(bars × window). Custom indicators, expressible detectors, and rule backtests all consume this one evaluator.</li>
-<li><b>User-defined indicators (Spec C engine)</b>: <code>define_indicator</code> compiles a <code>{name, params, plots:[{expr,style,pane,color}], description}</code> definition, validating every expression and requiring each non-bar identifier to be a declared parameter; definitions persist in <code>~/.ots/indicators.json</code> with the same atomic-write/survive-update guarantees as portfolios and theses, and mutations are journaled. Plus <code>list_custom_indicators</code>, <code>delete_custom_indicator</code>, and <code>eval_expression</code> for one-off agent computations (e.g. <code>sma(close / highest(high,200), 10)</code>) against any symbol. Compile failures return structured, self-correctable messages and never partially save.</li>
+<li><b>User-defined indicators (Spec C engine)</b>: <code>define_indicator</code> compiles a <code>{name, params, plots:[{expr,style,pane,color}], description}</code> definition, validating every expression and requiring each non-bar identifier to be a declared parameter; definitions persist in <code>~/.orrery/indicators.json</code> with the same atomic-write/survive-update guarantees as portfolios and theses, and mutations are journaled. Plus <code>list_custom_indicators</code>, <code>delete_custom_indicator</code>, and <code>eval_expression</code> for one-off agent computations (e.g. <code>sma(close / highest(high,200), 10)</code>) against any symbol. Compile failures return structured, self-correctable messages and never partially save.</li>
 <li>Not yet: on-chart rendering of custom indicators (the "Custom" library rail) — that is C-polish, sequenced after Specs A and B, and the tool descriptions say so plainly.</li>
 </ul>
 <h2>[2.13.0] — Forecast-attribution calculator in the Operating Model view</h2>
@@ -1091,7 +1098,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <h2>[2.10.0] — Operating-model attribution + self-healing daemon on upgrade</h2>
 <ul>
 <li><b>Any external series can now drive a company operating model, with forecast attribution.</b> New tools: <code>attach_series_factor</code> (wire any fred:/fmp:econ:/fmp:treasury:/index:/commodity:/financial/edgar series into the model as a factor, optionally linked to a driver), <code>set_factor_weight</code> (tunable weight multiplier per factor), and <code>forecast_and_attribute</code> — which projects each factor forward (trend/cagr/flat/scenario), propagates through the weighted influence edges, and attributes the multi-year EPS/fair-value forecast to the factors: a deterministic <b>contribution decomposition</b> with <b>computed weight shares</b> and a reconciliation residual, plus a multivariate <b>regression cross-check</b> (OLS betas / standardized betas / R² vs the structured sensitivities). Backed by <code>model-attribution.js</code> (forecasting, Gaussian-elimination OLS, attribution, regression — all unit-tested).</li>
-<li><b>The local server now self-heals on upgrade.</b> The persistent daemon records its plugin version + install path (in <code>server.json</code> and <code>/_health</code>); after an in-place update the MCP client detects a stale daemon from the prior build and <b>auto-retires and replaces it</b> (graceful shutdown, or by signalling its recorded pid for pre-guard daemons) — so you no longer have to delete <code>~/.ots/server.json</code> and restart to pick up a new version. Covered by a new daemon version-guard test.</li>
+<li><b>The local server now self-heals on upgrade.</b> The persistent daemon records its plugin version + install path (in <code>server.json</code> and <code>/_health</code>); after an in-place update the MCP client detects a stale daemon from the prior build and <b>auto-retires and replaces it</b> (graceful shutdown, or by signalling its recorded pid for pre-guard daemons) — so you no longer have to delete <code>~/.orrery/server.json</code> and restart to pick up a new version. Covered by a new daemon version-guard test.</li>
 </ul>
 <h2>[2.9.2] — Fix: Compare overlay drew nothing</h2>
 <ul>
@@ -1125,7 +1132,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <ul>
 <li>Reconciled the docs with the shipping product: removed the dead Claude Code marketplace install path everywhere (distribution is package-only), corrected the README tool list (was the stale 17-tool v1.3 set) to the real ~107 tools by area, de-duplicated the README key-configuration section, and added the operating-model <b>influence map</b> to the README and landing page.</li>
 <li><b>The public changelog is now generated from <code>CHANGELOG.md</code> at build</b> (it had drifted six releases behind at 2.3.0); added <code>scripts/docs-lint.js</code> (run by <code>release.sh</code>) that fails the build on a reintroduced marketplace path, broken internal links, or signature-verification instructions while releases are unsigned.</li>
-<li>Fixed release-integrity docs to match reality (GPG signing is temporarily paused → checksum-only; removed the stale signature and BAD-signature trap), corrected <code>RELEASING.md</code> topology (source lives in the private <code>ots-source</code>; distribution is a push to Pages with no tags/Releases), and documented the real terminal failure modes (the daemon "Load failed" fix, blank first-run tabs, and the slow-not-frozen screener) in <code>TROUBLESHOOTING.md</code>.</li>
+<li>Fixed release-integrity docs to match reality (GPG signing is temporarily paused → checksum-only; removed the stale signature and BAD-signature trap), corrected <code>RELEASING.md</code> topology (source lives in the private <code>orrery-source</code>; distribution is a push to Pages with no tags/Releases), and documented the real terminal failure modes (the daemon "Load failed" fix, blank first-run tabs, and the slow-not-frozen screener) in <code>TROUBLESHOOTING.md</code>.</li>
 </ul>
 <h2>[2.6.0] — Rich operating models: data-driven calibration (phase c)</h2>
 <ul>
@@ -1151,7 +1158,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 </ul>
 <h2>[2.3.3] — Terminal reliability</h2>
 <ul>
-<li><b>Fixed the terminal's "Load failed" bug</b>: the local web server that backs the terminal (Settings save, data tabs, charts) now runs as a <b>persistent detached daemon</b> with a stable port + token (<code>~/.ots/server.json</code>), so pages keep working when the plugin process is cycled by the host. Previously the server died with the plugin process, orphaning any open tab. Falls back to the legacy in-process server where a daemon can't be spawned (no regression).</li>
+<li><b>Fixed the terminal's "Load failed" bug</b>: the local web server that backs the terminal (Settings save, data tabs, charts) now runs as a <b>persistent detached daemon</b> with a stable port + token (<code>~/.orrery/server.json</code>), so pages keep working when the plugin process is cycled by the host. Previously the server died with the plugin process, orphaning any open tab. Falls back to the legacy in-process server where a daemon can't be spawned (no regression).</li>
 <li><b>⚙ tab is now labeled "Settings"</b> (was a bare gear icon); unreachable-server fetches show an actionable "reopen the terminal" message instead of "Load failed".</li>
 <li><b>Tests for the gaps this exposed</b>: Settings save round-trip (FMP/FRED/EDGAR) over HTTP, and a daemon-persistence suite proving a published page survives its publisher exiting.</li>
 </ul>
@@ -1166,12 +1173,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <li><b>Legal</b>: explicit non-affiliation with and non-endorsement of data providers (FMP/FRED/SEC EDGAR); no certification that provider data is fit for purpose.</li>
 <li><b>Docs</b>: a true feature <b>User Guide</b> (+ 5-minute quickstart), <code>TROUBLESHOOTING.md</code>, <code>ARCHITECTURE.md</code>, <code>CONTRIBUTING.md</code>; private source maps for decoding minified stack traces.</li>
 </ul>
-<h2>[2.3.1] — Rebrand to Open Trading Surface</h2>
+<h2>[2.3.1] — Rebrand to Orrery</h2>
 <ul>
 <li><b>Package-only distribution</b>: the released <code>.plugin</code> now ships the server bundled + minified (via esbuild) and the client chart files minified — runnable, but not the authored source. Release assets and history contain no source; source lives in a separate private repository.</li>
-<li><b>Licensing</b>: added a proprietary end-user license (<code>LICENSE</code>); the software is distributed as a package only, not as source — free to download and use (incl. commercial); no redistribution or derivative works; Licensor may change terms for future versions. Governing law: Texas. Added Open Trading Surface logo/iconography assets under <code>docs/assets/</code>.</li>
-<li><b>Renamed the entire project from Surface-StockChart to Open Trading Surface</b> — an ots is a mechanical model of the heavens, fitting for a terminal that builds a working model of the market. This touches the brand text, the plugin id (<code>surface-stockchart</code> → <code>ots</code>), the MCP server name (tools are now <code>mcp__ots__*</code>), the on-disk store directory (<code>~/.surface-stockchart</code> → <code>~/.ots</code>), environment-variable prefix (<code>STOCKCHART_*</code> → <code>ORRERY_*</code>), and the session token header (<code>x-scp-token</code> → <code>x-ots-token</code>). Docs, release pipeline, and issue templates all point at the <code>pauljbernard</code> org.</li>
-<li><b>Hardened <code>.gitignore</code></b> so secrets (<code>config.json</code>, <code>*.env</code>, <code>*.key</code>), all <code>~/.ots</code> runtime data stores, build artifacts (<code>*.plugin</code>, <code>dist/</code>), test reports, and local Claude Code state (<code>.claude/</code>) can never be pushed to the remote. Fixed an inert inline-comment rule that had left <code>config.json</code> unignored.</li>
+<li><b>Licensing</b>: added a proprietary end-user license (<code>LICENSE</code>); the software is distributed as a package only, not as source — free to download and use (incl. commercial); no redistribution or derivative works; Licensor may change terms for future versions. Governing law: Texas. Added Orrery logo/iconography assets under <code>docs/assets/</code>.</li>
+<li><b>Renamed the entire project from Surface-StockChart to Orrery</b> — an orrery is a mechanical model of the heavens, fitting for a terminal that builds a working model of the market. This touches the brand text, the plugin id (<code>surface-stockchart</code> → <code>orrery</code>), the MCP server name (tools are now <code>mcp__orrery__*</code>), the on-disk store directory (<code>~/.surface-stockchart</code> → <code>~/.orrery</code>), environment-variable prefix (<code>STOCKCHART_*</code> → <code>ORRERY_*</code>), and the session token header (<code>x-scp-token</code> → <code>x-orrery-token</code>). Docs, release pipeline, and issue templates all point at the <code>pauljbernard</code> org.</li>
+<li><b>Hardened <code>.gitignore</code></b> so secrets (<code>config.json</code>, <code>*.env</code>, <code>*.key</code>), all <code>~/.orrery</code> runtime data stores, build artifacts (<code>*.plugin</code>, <code>dist/</code>), test reports, and local Claude Code state (<code>.claude/</code>) can never be pushed to the remote. Fixed an inert inline-comment rule that had left <code>config.json</code> unignored.</li>
 </ul>
 <h2>[2.3.0] — Distribution &amp; legal</h2>
 <ul>

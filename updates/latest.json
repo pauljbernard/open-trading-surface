@@ -1,13 +1,13 @@
 {
-  "version": "3.53.3",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.3.plugin",
-  "sha256": "a0709ada4c7218e772fcded4ab7392678d99817f704e14349012fea8bfe23f23",
+  "version": "3.53.4",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.4.plugin",
+  "sha256": "75bf9cf7a0f6d45a11a00c9ae4ddafe5170ecb664f6f7996ac611d8345e4eb71",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.3.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.53.4.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "7FB300D842479AF641C8EEF9911D38948CBC401B",
   "min_node": "18",
-  "notes": "Tagline refined: \"whose UNDERSTANDING compounds between sessions\" — the thing that accrues is not the labor but the model of the world it builds: theses, evidence, calibrations, weightings, books. Set in a smaller face so the longer line sits comfortably. Docs-only.",
-  "published": "2026-07-23T17:51:35.937Z",
+  "notes": "Two corrections from the full application review (P0.1, P0.2), plus a backup hardening (P0.4): - The disclaimer's defined term now names OPEN TRADING SURFACE. The rename sweep had missed the all-caps defined term in the agreement's opening sentence — the single most load-bearing string in the terms. It now reads \"BY DOWNLOADING, INSTALLING, OR USING OPEN TRADING SURFACE (ALSO 'OTS'; THE 'SOFTWARE', INCLUDING ANY VERSION OF THE SAME SOFTWARE PREVIOUSLY DISTRIBUTED UNDER A PRIOR NAME)…\" — covering legacy installs without reproducing the retired mark. The agreement gate hashes this text, so every",
+  "published": "2026-07-24T00:44:59.182Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
