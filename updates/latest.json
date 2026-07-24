@@ -1,13 +1,13 @@
 {
-  "version": "3.60.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.60.1.plugin",
-  "sha256": "6fd2f8f4cc7c2d28152af941212744da37a3587ad83bc14f08211d219e3121f2",
+  "version": "3.61.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.61.0.plugin",
+  "sha256": "42c8099bc7a24004021bc247163fb44f0d51ad8443b818b9d492f9b23bf969bb",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.60.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.61.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "An owner decision, made looking at the live TSLA panel: \"Model of Models should blend the initiative book. It is a model.\" The Wave-1 spec had excluded add-on models from BOTH blended surfaces. That was half right. The equal-weight composite still excludes them — an additive average of an increment with whole-company values double-counts the operating core, structurally. But the model of models does not sum values: it selects FRAMES by walk-forward correlation with the name's own price. For a company priced on its programs, the initiative book is precisely the candidate frame the market may be",
-  "published": "2026-07-24T16:48:58.381Z",
+  "notes": "An owner decision, made looking at the live TSLA panel: the strategic- initiative frame sat $17 from the price and earned 5.6% weight while asset frames $285 away split 94%. That was registered weakness W5 (\"correlation ≠ closeness\") realized on screen — Pearson ρ scores co-movement of SHAPE and is blind to LEVEL, so a frame with the right level and a young history lost to frames with the wrong level and three years of co-drift. - The weight is now precision: w ∝ 1 / max(MSE, (2%)²) where MSE is the trailing-window mean squared ln-distance between model value and price — the frames CLOSEST to ",
+  "published": "2026-07-24T18:40:26.254Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
