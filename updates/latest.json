@@ -1,13 +1,13 @@
 {
-  "version": "3.57.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.57.0.plugin",
-  "sha256": "411ae8609e78a818d95dc7d67c51daf0d32744653b1ae7109967f1508aa9d3c5",
+  "version": "3.58.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.58.0.plugin",
+  "sha256": "c3bd8e90d014e05a218d62d6a70315d31c025d3e6cc535f0b7b92a96557578f2",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.57.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.58.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Wave 2 of STRATEGIC-INITIATIVES-SPEC: fundamental risk enters the machinery as structure, not adjectives. - Contingent capital. An outlay tied to a gate (contingent_on) spends only in the worlds where that gate passes — expected cost = amount × p, with equity-funding dilution scaled by the same contingency, since shares only issue if the spend happens. Committed capital (no tie) spends regardless, as before. A dangling gate reference is refused at write time with the valid gate ids named. - Shared risks. Declared ONCE per book, referenced by initiatives. A shared GATE (a capital raise closing,",
-  "published": "2026-07-24T14:15:37.214Z",
+  "notes": "Wave 3 of STRATEGIC-INITIATIVES-SPEC: the belief record. A maintained model is only as good as its memory of what was believed when — this release gives every initiative book one. - The journal. Every revision — an edit, a gate resolution, an event — appends a journal entry: per-initiative field diffs (from → to), the event that drove the change, the stated reason, and the author. Venture-book migrations journal themselves too. - Immutable snapshots. Each revision freezes the entire book (initiatives + shared risks) as an append-only snapshot; earlier snapshots are byte-stable under later edit",
+  "published": "2026-07-24T14:28:10.473Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
