@@ -1,13 +1,13 @@
 {
-  "version": "3.55.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.55.0.plugin",
-  "sha256": "42e9d9878f1b575cebb168f06a6114a76a73461a14d1d8afde00c0da4bf2810f",
+  "version": "3.56.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.56.0.plugin",
+  "sha256": "78d5af7a6584eca215ab0d91ed25387202f00dbb65b725fcf696441c1aeb0de3",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.55.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.56.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Wave B of the 2026-07-23 application review (P1.1, P1.2, P2.1–P2.3): the findings whose fix is structure — serialization, extraction, and guardrails — rather than a correctness repair. - Cross-process writes serialize (P1.1). The MCP server and the terminal daemon are separate processes writing the same stores; writeJson was atomic per write, but read-modify-write was not — two processes interleaving load→mutate→save silently discarded the loser's edit. store.update now runs the whole sequence under an O_EXCL advisory lock (<file>.lock), with crash-leftover locks stolen after a staleness horiz",
-  "published": "2026-07-24T02:16:11.890Z",
+  "notes": "The venture book grows up. What these models actually represent — for the class of company priced on its programs rather than its statements — is major capital investments and strategic initiatives: AI/datacenter buildouts, autonomy programs, launch systems. The strawman's single discounted payoff flattened everything that matters about them. Wave 1 of STRATEGIC-INITIATIVES-SPEC replaces it: - A dated cash-flow lattice per initiative. Explicit start date, horizon, and life treatment (finite, Gordon fade-to-perpetuity, or exit multiple). Every flow discounts FROM ITS DATE; valuing as of an earl",
+  "published": "2026-07-24T13:40:47.947Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
