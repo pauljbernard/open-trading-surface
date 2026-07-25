@@ -1,13 +1,13 @@
 {
-  "version": "3.67.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.67.0.plugin",
-  "sha256": "4b9f36c9ea0bc0581fd068b1c27fe78fd9c0f4ebaeebcb9d048b647849a5f1ae",
+  "version": "3.68.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.68.0.plugin",
+  "sha256": "7c6f8570c8b74accb267b9fc1c3505b61ecc714bf663de53c514818b7144e151",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.67.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.68.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner direction, hours after the Market tab shipped: the composite gap is one view of the surface — the capability is only complete when every valuation frame is its own heat map, in percent and absolute dollars, for any recorded day. Shipped as a lens system: - Per-model freezing: the model tick now stores every model's per-share live_fair_value (zero-weight frames included — weight is the composite's opinion of a frame, not the frame's right to be seen), and the daily mark freezes those values into the day file. Point-in-time rule: a past day replays what the models said THAT day; a model le",
-  "published": "2026-07-25T15:13:09.384Z",
+  "notes": "The scrubber had two days. Owner direction: reconstruct the trailing 30 days at daily resolution — with the owner's own framing as the contract: *\"the weights and configuration did not exist before today; this recalculation is different than the go-forward, which is dynamic.\"* - surface_fill {action: \"backfill\", days} — a runner mode (same one-job-per-machine lock as the fill) that fetches each covered name's real daily closes and writes day files for the trailing window: past PRICE against today's frozen model values (composite and per-model), mcap scaled by the price ratio (share count held ",
+  "published": "2026-07-25T21:19:47.561Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
