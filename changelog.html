@@ -16,6 +16,15 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.67.0 — heat-map lenses: every model, every unit, any recorded day</h2>
+<ul>
+<li><b>Per-model freezing</b>: the model tick now stores every model's per-share</li>
+<li><b>The lens selector</b> on the Market tab: Model of Models (default), plain</li>
+<li><b>Δ% / Δ$ unit toggle</b>: percentage gaps clamp at ±40% (valuation) or</li>
+<li><b>Calendar date selector</b> alongside the ‹ › scrubber: pick any date; it</li>
+<li>API/tools: <code>getSurface</code> and <code>get_surface</code> gain <code>model</code> and <code>unit</code></li>
+<li>Tests: frozen-value arithmetic in both units, zero-weight lens</li>
+</ul>
 <h2>3.66.0 — the Market tab: the heat map arrives in the terminal</h2>
 <ul>
 <li><b>The heat map</b> — a sector-grouped squarified treemap of every covered</li>

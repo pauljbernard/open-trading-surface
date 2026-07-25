@@ -1,13 +1,13 @@
 {
-  "version": "3.66.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.66.0.plugin",
-  "sha256": "51cf2c7289b4fce2fd209ae29bbdc8d46d2b5abb5a97fe4d7d0028b5e0f542c4",
+  "version": "3.67.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.67.0.plugin",
+  "sha256": "4b9f36c9ea0bc0581fd068b1c27fe78fd9c0f4ebaeebcb9d048b647849a5f1ae",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.66.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.67.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The first full-universe fill completed this morning (3,963 of 5,215 NYSE+ NASDAQ names valued, absences recorded with reasons), which unblocked the visualization the Opportunity Surface was built for. By owner direction, market-level analysis gets a top-level MARKET tab (pinned, idx -8) with its own left menu — extensible as further market views land. First view: - The heat map — a sector-grouped squarified treemap of every covered name for a recorded day: cell area = market cap, cell color = the gap between price and that name's precision-weighted model of models (±40% clamp; below-model gree",
-  "published": "2026-07-25T14:44:08.251Z",
+  "notes": "Owner direction, hours after the Market tab shipped: the composite gap is one view of the surface — the capability is only complete when every valuation frame is its own heat map, in percent and absolute dollars, for any recorded day. Shipped as a lens system: - Per-model freezing: the model tick now stores every model's per-share live_fair_value (zero-weight frames included — weight is the composite's opinion of a frame, not the frame's right to be seen), and the daily mark freezes those values into the day file. Point-in-time rule: a past day replays what the models said THAT day; a model le",
+  "published": "2026-07-25T15:13:09.384Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
