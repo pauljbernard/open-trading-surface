@@ -1,13 +1,13 @@
 {
-  "version": "3.71.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.71.0.plugin",
-  "sha256": "4ffc60a298702fee4afa94a3a423433eb43580da933c4736d0fe02336be631fd",
+  "version": "3.71.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.71.1.plugin",
+  "sha256": "90df87a96a3960c062c163b6fd8e8a92d0f86b368bd05860f1a18f2ab2412d02",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.71.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.71.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The iteration-two residue decomposed into two final defect classes, both now gated by identities rather than heuristics — and the owner called the endgame: clean up the full data set. - The scale-identity gate (GNTX/NXTT class, 5× tolerance): statement shares × price must roughly reproduce the market cap. Off by more than 5× either way means the statement's SCALE is untrustworthy — values served in thousands, phantom share counts, or a listing wearing another entity's financials (the EAI bond wearing Entergy Arkansas's income statement). Statement-based frames refuse with both numbers named. S",
-  "published": "2026-07-25T23:11:34.270Z",
+  "notes": "Caught live on the very first force start: modelTick's remaining_stale still used the TTL formula while candidate SELECTION used the clean-pass definition (fresh_since), so a forced full recompute reported ~0 remaining after its first tick and the runner declared \"complete\" after 25 names instead of 5,070. The completion signal now uses the SAME staleness definition as selection — a run and its stopping rule must share one notion of done. The start acknowledgment reports the honest universe count for a clean pass, and the regression test drives a two-name clean pass through both ticks to genui",
+  "published": "2026-07-25T23:22:41.269Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
