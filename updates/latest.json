@@ -1,13 +1,13 @@
 {
-  "version": "3.68.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.68.0.plugin",
-  "sha256": "7c6f8570c8b74accb267b9fc1c3505b61ecc714bf663de53c514818b7144e151",
+  "version": "3.69.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.69.0.plugin",
+  "sha256": "5b7900856a7770b6c27103ee608ba159faae95f686a2ab105f175fab721fa1df",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.68.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.69.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The scrubber had two days. Owner direction: reconstruct the trailing 30 days at daily resolution — with the owner's own framing as the contract: *\"the weights and configuration did not exist before today; this recalculation is different than the go-forward, which is dynamic.\"* - surface_fill {action: \"backfill\", days} — a runner mode (same one-job-per-machine lock as the fill) that fetches each covered name's real daily closes and writes day files for the trailing window: past PRICE against today's frozen model values (composite and per-model), mcap scaled by the price ratio (share count held ",
-  "published": "2026-07-25T21:19:47.561Z",
+  "notes": "The heat map's first full day put its 50 \"cheapest\" names between −95% and −100% — and the audit of those specimens (owner protocol: fix both extremes, work inward) found one root cause wearing three costumes: the engine trusted the statement's own per-share basis. GGAL's EPS of 1,422 is pesos read as dollars (reportedCurrency was fetched and ignored); DCX's statement share count is 8.5× off its listed count across reverse splits; WW's $105 \"EPS\" is a bankruptcy debt-cancellation windfall ($1.06B net income on $710M revenue) over a post-reorg share count. The fix is a convention, not a patch (",
+  "published": "2026-07-25T22:16:06.482Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
