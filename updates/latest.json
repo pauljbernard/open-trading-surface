@@ -1,13 +1,13 @@
 {
-  "version": "3.69.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.69.0.plugin",
-  "sha256": "5b7900856a7770b6c27103ee608ba159faae95f686a2ab105f175fab721fa1df",
+  "version": "3.70.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.70.0.plugin",
+  "sha256": "ec9d01ecddee9b4076f33adb11eb0df88ce3b82eae2fec5240983e62a3a0cb50",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.69.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.70.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The heat map's first full day put its 50 \"cheapest\" names between −95% and −100% — and the audit of those specimens (owner protocol: fix both extremes, work inward) found one root cause wearing three costumes: the engine trusted the statement's own per-share basis. GGAL's EPS of 1,422 is pesos read as dollars (reportedCurrency was fetched and ignored); DCX's statement share count is 8.5× off its listed count across reverse splits; WW's $105 \"EPS\" is a bankruptcy debt-cancellation windfall ($1.06B net income on $710M revenue) over a post-reorg share count. The fix is a convention, not a patch (",
-  "published": "2026-07-25T22:16:06.482Z",
+  "notes": "3.69.0 made the units coherent; the surviving extremes exposed four different diseases, each now gated where it lives (owner protocol: adjust the thresholds, then ship): - The regime gate (APVO class, threshold 25×): after the rebase, the residual green tail was names down 100-5,000× across the band window — cumulative reverse splits whose split-adjusted old prices are astronomical. A median over that history remembers the pre-collapse regime, so own-history multiple bands refuse when price traversed >25× within the window, naming the traversal. 25× spares legitimate multi-baggers (rarely >20×",
+  "published": "2026-07-25T22:49:43.135Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
