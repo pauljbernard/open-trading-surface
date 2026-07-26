@@ -1,13 +1,13 @@
 {
-  "version": "3.75.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.75.0.plugin",
-  "sha256": "b5b257549adb74f81a350bac7e853c86b456b1cacb2858d3339b0b425f3d413c",
+  "version": "3.76.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.76.0.plugin",
+  "sha256": "6bde806d08978b1c65995658b3540f7990d8cf85d79c60e7ab0d7c3512e58ffa",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.75.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.76.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner direction: chat commands are not parity. The terminal gains a pinned 🛍 Marketplace tab (idx −9): search and browse the catalog (served through the daemon — the hosting never appears in the pane), one-click install with the catalog sha256 verified SERVER-side and the merge semantics stated on the button itself (\"your existing files win\"), skip reasons echoed after every install, and the provenance ledger rendered in the pane — every import visible, append-only, imported records never masquerading as your own history. open_marketplace control op; marketplace_open in terminal state; /cm ga",
-  "published": "2026-07-26T20:57:59.894Z",
+  "notes": "Owner direction: the starter image needs versioning — and history is history on the shelf too. Published artifacts are IMMUTABLE and carry their version in the filename (<id <version>.otsimage); the catalog item's top level is the LATEST pointer and versions is the append-only history. import_image {id, version?} installs any published version by name (default latest), an unknown version refuses LISTING what exists, and each version verifies against its own sha256. browse_marketplace reports version + available_versions; export manifests record the pack version. The channel is republished with",
+  "published": "2026-07-26T21:37:55.529Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
