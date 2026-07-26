@@ -1,13 +1,13 @@
 {
-  "version": "3.76.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.76.1.plugin",
-  "sha256": "fec28905c3870afdb7a7b9d32a11796ef77b5cb723fa60ad4983eea96ea76957",
+  "version": "3.77.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.77.0.plugin",
+  "sha256": "d2a9fd921534a69bc1fb63f9f8ab6c7dc2f5b2eb35780273236e3df2c75d8f19",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.76.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.77.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner direction: the extremes taught us about defects; methodical review needs named slices. get_surface {symbols: [...]} returns exactly those cells regardless of rank — gap, lens value, top frame, coverage — with absences NAMED and a median/min/max mini-summary. Slices resolve from ANY cohort in the lattice too — get_surface {cohort} (indexes, sectors, size bands, factor screens, custom: anything that can be a screen can be reviewed), with gap quartiles and the TOP-FRAME MIX histogram over the whole slice (which frame carries each name — the adequacy question in one distribution), big cohort",
-  "published": "2026-07-26T21:43:39.473Z",
+  "notes": "Owner direction: refine model state across ALL securities, from multiple angles. get_surface {filter} applies predicates over the surface's OWN properties — top_frame, gap window (in the chosen unit), mcap window, min_models/min_points evidence, sector — alone over the whole surface or combined with any cohort/symbol slice. \"Everything carried by relative.ps above $5B\" or \"asset-frame gaps beyond +500%\" is now one call returning quartiles, frame mix, and the matched cells. Spiral analysis (extremes → defects) and cohort analysis (lattice slices) now share one instrument with filters as the thi",
+  "published": "2026-07-26T21:48:47.483Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
