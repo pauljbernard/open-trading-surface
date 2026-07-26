@@ -1,13 +1,13 @@
 {
-  "version": "3.76.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.76.0.plugin",
-  "sha256": "6bde806d08978b1c65995658b3540f7990d8cf85d79c60e7ab0d7c3512e58ffa",
+  "version": "3.76.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.76.1.plugin",
+  "sha256": "fec28905c3870afdb7a7b9d32a11796ef77b5cb723fa60ad4983eea96ea76957",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.76.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.76.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner direction: the starter image needs versioning — and history is history on the shelf too. Published artifacts are IMMUTABLE and carry their version in the filename (<id <version>.otsimage); the catalog item's top level is the LATEST pointer and versions is the append-only history. import_image {id, version?} installs any published version by name (default latest), an unknown version refuses LISTING what exists, and each version verifies against its own sha256. browse_marketplace reports version + available_versions; export manifests record the pack version. The channel is republished with",
-  "published": "2026-07-26T21:37:55.529Z",
+  "notes": "Owner direction: the extremes taught us about defects; methodical review needs named slices. get_surface {symbols: [...]} returns exactly those cells regardless of rank — gap, lens value, top frame, coverage — with absences NAMED and a median/min/max mini-summary. Slices resolve from ANY cohort in the lattice too — get_surface {cohort} (indexes, sectors, size bands, factor screens, custom: anything that can be a screen can be reviewed), with gap quartiles and the TOP-FRAME MIX histogram over the whole slice (which frame carries each name — the adequacy question in one distribution), big cohort",
+  "published": "2026-07-26T21:43:39.473Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
