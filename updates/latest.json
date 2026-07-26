@@ -1,13 +1,13 @@
 {
-  "version": "3.74.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.74.0.plugin",
-  "sha256": "6b5fe32e2eaf0efc1ece150b07b2cfdc06c9f8d23ec28ea24a0b2b11c3c59e81",
+  "version": "3.75.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.75.0.plugin",
+  "sha256": "b5b257549adb74f81a350bac7e853c86b456b1cacb2858d3339b0b425f3d413c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.74.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.75.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner direction, twice in one sitting: the hosting must be invisible — \"from the user's perspective it's just part of the system to browse or search packs and import the one they want\" — and there must be NO arbitrary-location distribution, which would undermine the authored-pack economics. - browse_marketplace: list and search the official catalog from inside the system (id, title, description, packs, author, size). First listing is live: the free STARTER IMAGE — full Opportunity Surface, seven strategic-initiative books, workspace configuration. - import_image {id}: install by marketplace id",
-  "published": "2026-07-26T19:59:08.090Z",
+  "notes": "Owner direction: chat commands are not parity. The terminal gains a pinned 🛍 Marketplace tab (idx −9): search and browse the catalog (served through the daemon — the hosting never appears in the pane), one-click install with the catalog sha256 verified SERVER-side and the merge semantics stated on the button itself (\"your existing files win\"), skip reasons echoed after every install, and the provenance ledger rendered in the pane — every import visible, append-only, imported records never masquerading as your own history. open_marketplace control op; marketplace_open in terminal state; /cm ga",
+  "published": "2026-07-26T20:57:59.894Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
