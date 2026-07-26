@@ -1,13 +1,13 @@
 {
-  "version": "3.71.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.71.1.plugin",
-  "sha256": "90df87a96a3960c062c163b6fd8e8a92d0f86b368bd05860f1a18f2ab2412d02",
+  "version": "3.72.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.72.0.plugin",
+  "sha256": "74f87bf21f66636c25909560a575c8ec5096647844043810cb355eb39412feee",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.71.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.72.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Caught live on the very first force start: modelTick's remaining_stale still used the TTL formula while candidate SELECTION used the clean-pass definition (fresh_since), so a forced full recompute reported ~0 remaining after its first tick and the runner declared \"complete\" after 25 names instead of 5,070. The completion signal now uses the SAME staleness definition as selection — a run and its stopping rule must share one notion of done. The start acknowledgment reports the honest universe count for a clean pass, and the regression test drives a two-name clean pass through both ticks to genui",
-  "published": "2026-07-25T23:22:41.269Z",
+  "notes": "The BE belief-dial review exposed three frame defects; all three are now engine behavior, each named for the specimen that caught it: - The ramp-input refusal: a logistic midpoint_yr beyond the lattice silently zeroed the sigmoid for the whole horizon and produced a plausible-looking $3.42 where a loud error belonged. Calendar-year-shaped values (>1900) refuse naming the YEARS-FROM-START convention; midpoints outside [0, horizon] refuse with the bound; bass p/q outside (0,1] refuse. Applies to margin_ramp too. - The circularity cap: a name volatile BECAUSE optionality is priced gets a high bet",
+  "published": "2026-07-26T14:15:59.239Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
