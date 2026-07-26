@@ -1,13 +1,13 @@
 {
-  "version": "3.72.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.72.0.plugin",
-  "sha256": "74f87bf21f66636c25909560a575c8ec5096647844043810cb355eb39412feee",
+  "version": "3.73.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.73.0.plugin",
+  "sha256": "858a610d6b5b5ba1efdbd8dd9e9e95226bf13d51ef18f634f925dbf0ee2cc39a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.72.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.73.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The BE belief-dial review exposed three frame defects; all three are now engine behavior, each named for the specimen that caught it: - The ramp-input refusal: a logistic midpoint_yr beyond the lattice silently zeroed the sigmoid for the whole horizon and produced a plausible-looking $3.42 where a loud error belonged. Calendar-year-shaped values (>1900) refuse naming the YEARS-FROM-START convention; midpoints outside [0, horizon] refuse with the bound; bass p/q outside (0,1] refuse. Applies to margin_ramp too. - The circularity cap: a name volatile BECAUSE optionality is priced gets a high bet",
-  "published": "2026-07-26T14:15:59.239Z",
+  "notes": "Owner direction: the plugin is the VM plus the base image; everything accreted after install — books, models, cohorts, records, the surface — is THE IMAGE, the digital twin that makes one instance different from another (the Smalltalk analogy, deliberately). Two problems, one capability: the daunting empty first run, and unshareable accumulated judgment. Layered PACKS, not a monolith: - Pack taxonomy (IMAGE-SPEC §1): reference (surface universe/models/ day files — the cold-start killer), model-books (SI books, company models — the marketplace good), configuration (cohorts, screens, watchlists,",
+  "published": "2026-07-26T19:43:15.844Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
