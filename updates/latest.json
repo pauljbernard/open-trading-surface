@@ -1,13 +1,13 @@
 {
-  "version": "3.86.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.86.0.plugin",
-  "sha256": "c4e55fdaa80a47ef6625bd64a10010165f94037065d84f070c5f9a6c1fe4697c",
+  "version": "3.87.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.87.0.plugin",
+  "sha256": "9872652089e32209ce13699dc4fcc6ea12ef019a422528cb7ced4ee26728fc5d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.86.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.87.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Thesis §IV states what an event's price impact IS: \"an event's total impact equals each model's sensitivity to the event, multiplied by that model's current weight for that particular stock.\" This release ships the honest computable version of that sentence (task #43), and the SI frame's inverse problem as a daily record (task #45) — the two remaining implementation gaps ahead of the horizon-bias estimator, whose primary observable both features feed. - EVENT-IMPACT ROUTING (server/event-impact.js, tool assess_event_impact): a structured event taxonomy bounded by what the twin can actually per",
-  "published": "2026-07-27T17:40:01.878Z",
+  "notes": "The 3.83.0–3.86.0 wave shipped the divergence ledger, the rerating hypothesis test, event-impact routing and the belief-dial series as chat tools. Owner principle: a capability does not exist until it has terminal parity. This release renders all four in the pane, through four new guarded /cm ops (divergence, rerating, event_impact, belief_dial) serving the SAME recorded payloads the tools read. - DIVERGENCE LEDGER RAIL VIEW (id: divergence, label \"Divergence Ledger\", on every security tab beside Model of Models / Pricing Models / Strategic Initiatives): the per-name append-only twin-vs-market",
+  "published": "2026-07-27T18:16:35.134Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
