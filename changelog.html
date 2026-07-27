@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.91.0 — Alert subscriptions: deliberate control over which alert types fire on which securities</h2>
+<ul>
+<li><b>THE SUBSCRIPTION MODEL (<code>server/alert-subscriptions.js</code>).</b> Three-layer</li>
+<li><b>GENERATION HONORS SUBSCRIPTIONS (<code>server/scan.js</code>).</b> Every</li>
+<li><b>ALERTS TAB UX (<code>server/terminal.js</code>).</b> The Watchlists→Alerts view</li>
+<li><b>TOOLS.</b> <code>get_alert_subscriptions {symbol?}</code> — the resolved view: what</li>
+<li><b>TESTS.</b> New suite <code>alert-subscriptions.test.js</code> (resolution</li>
+</ul>
 <h2>3.90.0 — Judgment-edit propagation, loading states everywhere, private-name reference inputs</h2>
 <ul>
 <li>**JUDGMENT-EDIT PROPAGATION (<code>server/propagation.js</code>, the TSLA</li>

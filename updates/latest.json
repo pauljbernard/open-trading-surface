@@ -1,13 +1,13 @@
 {
-  "version": "3.90.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.90.0.plugin",
-  "sha256": "df3072f8e36ce8a13192cc208635469c673bf516267aaa1f61e722ae1a7ee164",
+  "version": "3.91.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.91.0.plugin",
+  "sha256": "5313a1c540bc37a5b7dceef2676a3f0026ea29e4f8e580e3076d9b6e84556647",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.90.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.91.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Three owner-directed fixes: an edit must be visible the moment it lands, a slow view must say it is working, and a private name must be expressible without inventing a tape. - JUDGMENT-EDIT PROPAGATION (server/propagation.js, the TSLA observation: editing an SI book changed NOTHING on the Pricing Models page). Every judgment edit now PROPAGATES: set_strategic_initiatives, set_model_inputs, set_venture_book, resolve_initiative_gate, record_initiative_event with diffs — and their /cm twins — recompute the affected symbol's surface model-store entry SYNCHRONOUSLY (one name, ~1-2s, the same comput",
-  "published": "2026-07-27T21:23:33.298Z",
+  "notes": "Owner directive: the 3.89.0 judged-only flag was too restrictive and the full universe too open — the Alerts tab must let the owner search, filter and page the whole recorded universe and CHOOSE. - THE SUBSCRIPTION MODEL (server/alert-subscriptions.js). Three-layer resolution, most specific wins: (1) per-symbol overrides {symbol, type → on|off}; (2) scope rules {scope → on|off} where scope is a cohort id/name, a watchlist, the built-in judged set (SI books + owner-edited company models — the 3.89.0 strict definition) or all, with SPECIFICITY first (cohort/watchlist beats judged beats all) and ",
+  "published": "2026-07-27T22:23:39.955Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
