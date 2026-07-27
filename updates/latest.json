@@ -1,13 +1,13 @@
 {
-  "version": "3.84.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.84.0.plugin",
-  "sha256": "46244923eccffd124201d64b6835a7a8694d3dbcb2d7fa866c40719da7ddf4a6",
+  "version": "3.85.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.85.0.plugin",
+  "sha256": "b5097f62e5bd16e8be0e72691867779f2245ca12179618b792b302ca967cf1d0",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.84.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.85.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Thesis §V: a rerating is a shift in the MODEL MIXTURE — a company migrating from being priced on one frame to being priced on another — and it frequently occurs with little or no contemporaneous cash-flow news. \"When a price move cannot be explained within the current model mixture, but can be explained with shifted weights, the system has likely caught a rerating in progress. The residual stops being merely unexplained variance and becomes a structured hypothesis test over which weights moved.\" The alignment review (P1.4) called this the highest thesis-value-per-line item in the queue, assemb",
-  "published": "2026-07-27T16:38:38.402Z",
+  "notes": "Thesis §IV: the market prices every name on SOME frame — and for whole classes our mixture lacked the frame the market actually uses, so the residual there was frame-set misspecification, not discovery signal. This release adds the two missing frames the specimen classes demanded, and the honest refusals/classifications for the classes where no frame applies yet. - THE MID-CYCLE EARNINGS FRAME (relative.pe_midcycle, band metric pe_midcycle — the MU/memory class): cyclicals at cycle extremes are exactly where trailing frames refuse (per-share EPS traversing the regime gate) or mislead (trough ×",
+  "published": "2026-07-27T17:04:10.566Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
