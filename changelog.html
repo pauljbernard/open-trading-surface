@@ -16,6 +16,16 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.88.0 — Ingestion breadth: the external stream enters the intake, injection-hardened</h2>
+<ul>
+<li><b><code>server/ingest.js</code> — the intake classifier + queue.</b> The daemon polls</li>
+<li><b>CLASSIFICATION IS STRUCTURAL, NEVER SEMANTIC</b> (module-header design</li>
+<li><b>THE QUEUE</b>: append-only <code>&lt;statedir&gt;/ingest/queue.jsonl</code> — entries</li>
+<li><b>INJECTION HARDENING (test-enforced)</b>: a queue entry whose headline</li>
+<li><b>SURFACING</b>: the scan report gains an <code>ingest</code> section (last cycle,</li>
+<li><b>TUNING</b>: <code>INGEST_UNIVERSE_MODE</code>, <code>INGEST_MAX_ITEMS_PER_CYCLE</code>,</li>
+<li>New suite <code>ingest.test.js</code> (structural classification fixtures with</li>
+</ul>
 <h2>3.87.0 — UX parity for the four thesis instruments</h2>
 <ul>
 <li><b>DIVERGENCE LEDGER RAIL VIEW</b> (<code>id: divergence</code>, label "Divergence</li>

@@ -1,13 +1,13 @@
 {
-  "version": "3.87.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.87.0.plugin",
-  "sha256": "9872652089e32209ce13699dc4fcc6ea12ef019a422528cb7ced4ee26728fc5d",
+  "version": "3.88.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.88.0.plugin",
+  "sha256": "9cc72697ac9fe8990dd78525d3465f315b8373fe891fa97de2763320d9173307",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.87.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.88.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The 3.83.0–3.86.0 wave shipped the divergence ledger, the rerating hypothesis test, event-impact routing and the belief-dial series as chat tools. Owner principle: a capability does not exist until it has terminal parity. This release renders all four in the pane, through four new guarded /cm ops (divergence, rerating, event_impact, belief_dial) serving the SAME recorded payloads the tools read. - DIVERGENCE LEDGER RAIL VIEW (id: divergence, label \"Divergence Ledger\", on every security tab beside Model of Models / Pricing Models / Strategic Initiatives): the per-name append-only twin-vs-market",
-  "published": "2026-07-27T18:16:35.134Z",
+  "notes": "Thesis §II says the twin must \"continuously discover, evaluate, and reevaluate all available incoming information\" — and until now the innovations loop ate only filed statements reaching the frames on the weekly TTL. This release widens the intake to the external information stream WITHOUT ever letting external text act as instructions. - server/ingest.js — the intake classifier + queue. The daemon polls once per scan cycle (piggybacked on the daily repricing scan; opt-in on scanStart, only the daemon schedule and run_ingest opt in): news headlines, SEC filings lists, corporate events (earning",
+  "published": "2026-07-27T18:47:38.306Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
