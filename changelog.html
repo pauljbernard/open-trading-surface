@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.84.0 — the rerating hypothesis test (thesis gap 2)</h2>
+<ul>
+<li><b>THE TEST</b> (<code>server/pricing/rerating.js</code>, `testRerating(symbol,</li>
+<li><b>VERDICT SEMANTICS:</b> <code>rerating_in_progress</code> requires BOTH — the residual</li>
+<li><b>SCAN INTEGRATION:</b> every <code>top_frame_rotation</code> event now RUNS the test</li>
+<li><b>TOOL:</b> <code>test_rerating {symbol, window?}</code> — the on-demand form of the</li>
+<li>New suite <code>rerating.test.js</code> (128 suites + UI check): static-frames price migration →</li>
+</ul>
 <h2>3.83.0 — the divergence ledger + three disclosure debts (thesis gaps 1 + 3)</h2>
 <ul>
 <li><b>THE DIVERGENCE LEDGER</b> (<code>server/divergence.js</code>): append-only JSONL</li>

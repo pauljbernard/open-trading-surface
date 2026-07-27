@@ -1,13 +1,13 @@
 {
-  "version": "3.83.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.83.0.plugin",
-  "sha256": "cf5d52ebb49a6f8692eeb4d22620ece2cee172f57b5e4d91061ac4166bf918a5",
+  "version": "3.84.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.84.0.plugin",
+  "sha256": "46244923eccffd124201d64b6835a7a8694d3dbcb2d7fa866c40719da7ddf4a6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.83.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.84.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The thesis (§III subtlety 2, §VI) demands that when the twin absorbs an innovation and the market's reaction disagrees with the twin's assessment — in either direction — the disagreement is STORED as a first-class dated series, because divergences are the raw material for anticipating repricings when regimes rotate. Until now they were transient report rows keyed to nothing. Plus the three disclosure debts the alignment review named (P1.5, P1.6, and the missing in-repo TSLA analysis). - THE DIVERGENCE LEDGER (server/divergence.js): append-only JSONL per symbol under <statedir>/divergence/<SYM>",
-  "published": "2026-07-27T16:18:28.748Z",
+  "notes": "Thesis §V: a rerating is a shift in the MODEL MIXTURE — a company migrating from being priced on one frame to being priced on another — and it frequently occurs with little or no contemporaneous cash-flow news. \"When a price move cannot be explained within the current model mixture, but can be explained with shifted weights, the system has likely caught a rerating in progress. The residual stops being merely unexplained variance and becomes a structured hypothesis test over which weights moved.\" The alignment review (P1.4) called this the highest thesis-value-per-line item in the queue, assemb",
+  "published": "2026-07-27T16:38:38.402Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
