@@ -1,13 +1,13 @@
 {
-  "version": "3.80.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.80.0.plugin",
-  "sha256": "42191060714e3c719cc5035053ce5c27fda666c028432ebe4b293fe4b721ffbf",
+  "version": "3.81.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.81.0.plugin",
+  "sha256": "d4eda990b7d60d4d9b9b1499fa753537963f98b2fe45258655bceca345003a96",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.80.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.81.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner-ordered wave: a daemon-resident scheduled pass over the full recorded NYSE+NASDAQ Opportunity Surface (~5,070 names, ~4,045 covered daily) that detects, classifies and reports — PROPOSALS ONLY. The scan never edits books and never resolves gates (gate resolutions are owner-grade; that is a governance rule stated in every persisted report). - Three detection families (server/scan.js): (1) SI-NEED — names whose price the frames cannot rationalize: |momw gap| beyond SCAN_GAP_MIN_PCT with the evidence floor met, no SI book or a book whose live per-share value covers under SCAN_SI_COVERAGE_MI",
-  "published": "2026-07-27T03:04:47.894Z",
+  "notes": "Owner directive: the scan engine and its dated reports shipped in 3.80.0 with chat tools only — the terminal now renders the SAME recorded report. The Market tab (pinned idx -8) gains a second left-menu view beside the heat map: Repricing scan (state.mkt.view: 'scan'). - The pane computes nothing: every figure, ranking and proposal is read from /cm/repricing_report?full=1 (token header, same channel as the heat map), and the honesty strings the payload carries — ranked_by, classified_as, per-row proposals, the method line, the disclaimer — are surfaced verbatim; the disclaimer string renders u",
+  "published": "2026-07-27T03:41:47.883Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
