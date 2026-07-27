@@ -1,13 +1,13 @@
 {
-  "version": "3.78.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.78.0.plugin",
-  "sha256": "521da4aaf0bee3d906392aae5915c68f063064a090c32ff7cedadb39049a9d5b",
+  "version": "3.79.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.79.0.plugin",
+  "sha256": "64ff32133c895df0f6eb7aabd42e5a3c54c3e02ff08bc96c655dfeb77c1c95d3",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.78.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.79.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "From the DJIA adequacy review (owner-ordered wave 1 of the cohort pass): - relative.pe_normalized: prices the AFTER-TAX OPERATING line at the trailing median multiple — charges and one-times (JNJ talc, MMM settlements) hit net income but not this basis, so the frame mature earners deserve stops being poisoned. Enters every momw basket and earns weight through its track record, per house rules. - The divergence gate: the raw P/E band refuses when TTM net income strays beyond EARNINGS_DIVERGENCE_MAX_PCT (default 35%) from the after-tax operating line — and NAMES the normalized frame as the earni",
-  "published": "2026-07-26T22:32:35.463Z",
+  "notes": "From the MU strategic-initiatives audit (live SI value $303.77; overlay's last point $19.81 at a weeks-old filing date — systemic across every symbol and every judgment-input model): - The live now-point: every pricing:* overlay series now appends ONE live point dated today whose value comes from the CURRENT model store — the same number the surface day-file and get_model_of_models report — so the rightmost point always reflects current belief the moment a judgment input changes. The filing-dated grid history stays as-believed-then, untouched: history is history. Applies to per-model value ser",
+  "published": "2026-07-27T02:14:10.754Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
