@@ -1,13 +1,13 @@
 {
-  "version": "3.82.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.82.0.plugin",
-  "sha256": "d96ae2af842134ef0755096c478031036c779b1242741fa4ca9185ef9da8dfe0",
+  "version": "3.83.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.83.0.plugin",
+  "sha256": "cf5d52ebb49a6f8692eeb4d22620ece2cee172f57b5e4d91061ac4166bf918a5",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.82.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.83.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The two P0 findings of ARCHITECTURE-ALIGNMENT-REVIEW.md, owner-approved: protect the benchmark from a price echo, and protect the measurement record from its own cap. - P0.1 — price-anchored valuations no longer contaminate the equal-weight benchmark. An untilted SOTP defaults every segment multiple to the name's own current EV/Sales — derived from its own market price — so it reproduces the price by construction (the observed symptom: a SOTP row at exactly the price, 0.00% gap). That is the stated design for an input canvas and the cardinal sin inside an aggregate: the equal-weight composite ",
-  "published": "2026-07-27T15:19:25.392Z",
+  "notes": "The thesis (§III subtlety 2, §VI) demands that when the twin absorbs an innovation and the market's reaction disagrees with the twin's assessment — in either direction — the disagreement is STORED as a first-class dated series, because divergences are the raw material for anticipating repricings when regimes rotate. Until now they were transient report rows keyed to nothing. Plus the three disclosure debts the alignment review named (P1.5, P1.6, and the missing in-repo TSLA analysis). - THE DIVERGENCE LEDGER (server/divergence.js): append-only JSONL per symbol under <statedir>/divergence/<SYM>",
+  "published": "2026-07-27T16:18:28.748Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
