@@ -1,13 +1,13 @@
 {
-  "version": "3.88.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.88.0.plugin",
-  "sha256": "9cc72697ac9fe8990dd78525d3465f315b8373fe891fa97de2763320d9173307",
+  "version": "3.89.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.89.0.plugin",
+  "sha256": "5ef8b10d212c3ccee56d640547cd78ebaa77491302cb167c16241035b85aedc8",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.88.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.89.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Thesis §II says the twin must \"continuously discover, evaluate, and reevaluate all available incoming information\" — and until now the innovations loop ate only filed statements reaching the frames on the weekly TTL. This release widens the intake to the external information stream WITHOUT ever letting external text act as instructions. - server/ingest.js — the intake classifier + queue. The daemon polls once per scan cycle (piggybacked on the daily repricing scan; opt-in on scanStart, only the daemon schedule and run_ingest opt in): news headlines, SEC filings lists, corporate events (earning",
-  "published": "2026-07-27T18:47:38.306Z",
+  "notes": "Owner directive: reviewing per-name ledgers daily is impractical — new divergence activity must surface centrally so the owner knows WHERE to look. Three features, plus a judged-universe fix. - NEW-TODAY SEMANTICS IN THE SCAN (server/scan.js). Every run computes divergences_new and rerating_candidates_new — ledger entries appended since the PREVIOUS report run, cross-sectionally over every symbol and EVERY writer (scan writers, the SI journal writer, recorded event impacts — the diff reads the ledger, not the run's write list) — as first-class headline counts PLUS a named list {symbol, kind, s",
+  "published": "2026-07-27T19:55:13.487Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
