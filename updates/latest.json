@@ -1,13 +1,13 @@
 {
-  "version": "3.91.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.91.0.plugin",
-  "sha256": "5313a1c540bc37a5b7dceef2676a3f0026ea29e4f8e580e3076d9b6e84556647",
+  "version": "3.92.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.92.0.plugin",
+  "sha256": "07caa58917c818e8f9c7c7339055b46ac032809a897d920650e590b3b01fe0e8",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.91.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.92.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive: the 3.89.0 judged-only flag was too restrictive and the full universe too open — the Alerts tab must let the owner search, filter and page the whole recorded universe and CHOOSE. - THE SUBSCRIPTION MODEL (server/alert-subscriptions.js). Three-layer resolution, most specific wins: (1) per-symbol overrides {symbol, type → on|off}; (2) scope rules {scope → on|off} where scope is a cohort id/name, a watchlist, the built-in judged set (SI books + owner-edited company models — the 3.89.0 strict definition) or all, with SPECIFICITY first (cohort/watchlist beats judged beats all) and ",
-  "published": "2026-07-27T22:23:39.955Z",
+  "notes": "Owner directive: the feed panel was still organized around flat symbol/predicate price rules; it is reorganized around the typed-subscription world (the 3.91.0 registry) so it serves as THE attention-focusing instrument. - TYPE-FIRST FEED (terminal, Watchlists → Alerts → Feed). The sub-section leads with the typed notification stream: a header strip of per-type count CHIPS for the selected date range (rendered from the alert-types registry, clickable as filters, NEW counts highlighted), then the stream grouped by DAY (newest first, TODAY marked) then TYPE — each row carrying the type badge, th",
+  "published": "2026-07-27T23:04:12.267Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.92.0 — Alerts feed redesign: the typed stream is the attention-focusing instrument</h2>
+<ul>
+<li><b>TYPE-FIRST FEED (terminal, Watchlists → Alerts → Feed).</b> The sub-section</li>
+<li><b>PRICE RULES DEMOTED TO A TYPE.</b> The legacy create-alert row</li>
+<li><b>COHORT-FIRST SUBSCRIPTIONS (owner refinement, approved).</b> The</li>
+<li><b>FEED ENDPOINT (<code>/cm/alerts_feed</code>, token-guarded like every /cm op).</b> The</li>
+<li><b>Tests.</b> New suite <code>alerts-feed.test.js</code> (stream shape incl. the</li>
+</ul>
 <h2>3.91.0 — Alert subscriptions: deliberate control over which alert types fire on which securities</h2>
 <ul>
 <li><b>THE SUBSCRIPTION MODEL (<code>server/alert-subscriptions.js</code>).</b> Three-layer</li>
