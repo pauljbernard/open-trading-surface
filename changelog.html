@@ -16,6 +16,15 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.80.0 — the daily repricing scan</h2>
+<ul>
+<li><b>Three detection families</b> (<code>server/scan.js</code>): (1) <b>SI-NEED</b> —</li>
+<li><b>All thresholds are tuning constants</b> with written bases:</li>
+<li><b>Daemon-resident and data-triggered</b>: the daemon runs the scan once</li>
+<li><b>Reports are dated, append-only history</b> under the state dir</li>
+<li><b>Tools</b>: <code>run_repricing_scan {date?}</code> (on demand, routed to the</li>
+<li>New suite <code>repricing-scan.test.js</code> pins the whole contract on a</li>
+</ul>
 <h2>3.79.0 — the live now-point, and the as-believed-now replay</h2>
 <ul>
 <li><b>The live now-point</b>: every <code>pricing:*</code> overlay series now appends</li>

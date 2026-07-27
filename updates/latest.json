@@ -1,13 +1,13 @@
 {
-  "version": "3.79.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.79.0.plugin",
-  "sha256": "64ff32133c895df0f6eb7aabd42e5a3c54c3e02ff08bc96c655dfeb77c1c95d3",
+  "version": "3.80.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.80.0.plugin",
+  "sha256": "42191060714e3c719cc5035053ce5c27fda666c028432ebe4b293fe4b721ffbf",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.79.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.80.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "From the MU strategic-initiatives audit (live SI value $303.77; overlay's last point $19.81 at a weeks-old filing date — systemic across every symbol and every judgment-input model): - The live now-point: every pricing:* overlay series now appends ONE live point dated today whose value comes from the CURRENT model store — the same number the surface day-file and get_model_of_models report — so the rightmost point always reflects current belief the moment a judgment input changes. The filing-dated grid history stays as-believed-then, untouched: history is history. Applies to per-model value ser",
-  "published": "2026-07-27T02:14:10.754Z",
+  "notes": "Owner-ordered wave: a daemon-resident scheduled pass over the full recorded NYSE+NASDAQ Opportunity Surface (~5,070 names, ~4,045 covered daily) that detects, classifies and reports — PROPOSALS ONLY. The scan never edits books and never resolves gates (gate resolutions are owner-grade; that is a governance rule stated in every persisted report). - Three detection families (server/scan.js): (1) SI-NEED — names whose price the frames cannot rationalize: |momw gap| beyond SCAN_GAP_MIN_PCT with the evidence floor met, no SI book or a book whose live per-share value covers under SCAN_SI_COVERAGE_MI",
+  "published": "2026-07-27T03:04:47.894Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
