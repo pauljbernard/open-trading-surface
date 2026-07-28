@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Open Trading Surface — the investment research terminal whose understanding compounds between sessions</title>
-<meta name="description" content="An agent-native investment research terminal for Claude: charting, factor screening, portfolio analytics, company operating models, and a probability-weighted thesis engine.">
+<meta name="description" content="An agent-native investment research terminal for Claude: a price-discovery digital twin of the market — residual-field heat map, per-stock model mixtures, strategic-initiative books, a divergence ledger — plus charting, screening, portfolio analytics, and a probability-weighted thesis engine.">
 <style>
   :root{--bg:#0b0e14;--panel:#131722;--border:#242938;--text:#d7dbe6;--muted:#8b93a7;--accent:#2f7bff;--pos:#26a969;--neg:#ef5350;--r:14px}
   *{box-sizing:border-box}html{scroll-behavior:smooth}
@@ -98,7 +98,7 @@
     <div class="hero-brand">Open Trading Surface</div>
     <span class="kicker">An agent-native investment research terminal for Claude</span>
     <h1>The investment research terminal<br>whose understanding compounds between sessions.</h1>
-    <p class="lead">Open Trading Surface doesn't just fetch data — it maintains a living model of the world and hands the agent the controls. A worldview that becomes probability-weighted theses, driver-based company models, and portfolios, all on a surface the agent reads and drives, all on your machine.</p>
+    <p class="lead">Open Trading Surface doesn't just fetch data — it maintains a digital twin of the market and hands the agent the controls. The twin discovers an evidence-supported price for every covered name, reconciles it against the price the market discovered, and treats the gap — the residual — as the object of study. A worldview that becomes probability-weighted theses, driver-based company models, and portfolios, all on a surface the agent reads and drives, all on your machine.</p>
     <div class="cta">
       <a class="btn primary" href="download/ots.plugin">Download the plugin</a>
       <a class="btn ghost" href="#features">See what it does</a>
@@ -113,28 +113,29 @@
 </div>
 
 <section id="different"><div class="wrap">
-  <h2>Most terminals show you data. Open Trading Surface builds a model of the world.</h2>
-  <p class="sub">Two ideas make it unlike anything else you can install — and they compound the longer you use it.</p>
+  <h2>Most terminals show you data. Open Trading Surface models the market's price discovery.</h2>
+  <p class="sub">The market is a price discovery mechanism, not a forecast. Two ideas follow from taking that seriously — and they compound the longer you use it.</p>
 
   <div class="pillars">
     <div class="pillar">
       <div class="pic">🌍</div>
-      <h3>A living world-model, not a data feed</h3>
-      <p>Open Trading Surface maintains a structured <b>worldview</b> across macro, geopolitics, and demographics, turns it into <b>theses with explicit, auditable probability estimates</b> and an <b>evidence ledger</b> that revises the odds as reality changes, and grounds every name in a <b>driver-based operating model</b>. The model persists and compounds between sessions instead of resetting each time you open it.</p>
+      <h3>A price-discovery digital twin, not a data feed</h3>
+      <p>A market price is a clearing level, not a prediction — so the twin's job is <b>explanatory</b>: discover an <b>evidence-supported price</b> per name, reconcile it against the market's discovered price, and <b>attribute every element of the reconciliation</b>. The unexplained remainder — the residual — is tracked as a first-class quantity, because that's where discovery failures, regime signals, and reratings-in-progress live. A structured <b>worldview</b> still becomes <b>theses with auditable probability estimates</b>, and every name is grounded in a <b>driver-based operating model</b>; it all persists and compounds between sessions.</p>
       <ul>
-        <li><b>Worldview → theses → screens → portfolios</b> — one connected chain, not disconnected tabs</li>
-        <li><b>Probabilities that move</b> as evidence lands — logged, auditable, reversible</li>
-        <li><b>Company models</b> that turn any event into an EPS and fair-value delta</li>
-        <li><b>Point-in-time honest</b> — snapshots keep backtests free of hindsight</li>
+        <li><b>The residual field, mapped</b> — a market-wide heat map of price vs the evidence-supported composite across every covered NYSE+NASDAQ name, one recorded day at a time</li>
+        <li><b>A model mixture per stock</b> — walk-forward weights estimating which valuation frame the market is actually pricing a name on; the rotation itself is chartable</li>
+        <li><b>Divergences stored, not discarded</b> — a ledger of event-vs-reaction disagreements, a rerating hypothesis test over shifted weights, and per-event impact routed through the mixture</li>
+        <li><b>Worldview → thesis → screen → cohort → name</b> — one connected funnel, point-in-time honest, with snapshots that keep backtests free of hindsight</li>
       </ul>
     </div>
     <div class="pillar">
       <div class="pic">🤖</div>
       <h3>Agent-native by construction</h3>
-      <p>The terminal is a <b>shared world-model</b>: everything you see, the agent can <b>read and drive</b>. It isn't a dashboard a human clicks — it's an operating surface with 100+ introspectable tools, an <b>event inbox</b>, reusable <b>playbooks</b>, an audit <b>journal</b>, and <b>research memory</b>. Ask in plain language; the agent inspects the exact view you're looking at and acts on it.</p>
+      <p>The terminal is a <b>shared world-model</b>: everything you see, the agent can <b>read and drive</b>. It isn't a dashboard a human clicks — it's an operating surface with 230 introspectable tools, an <b>event inbox</b>, reusable <b>playbooks</b>, an audit <b>journal</b>, and <b>research memory</b>. The facts, judgments, and their provenance live in the twin; the agent reasons over them — it never has to be the information store. Ask in plain language; the agent inspects the exact view you're looking at and acts on it.</p>
       <ul>
         <li><b>inspect_* / control_*</b> — the agent reads state, rendered views, and raw data, and drives every surface</li>
         <li><b>Thinks between sessions</b> — inbox, morning brief, memory, and an API-budget governor</li>
+        <li><b>Governed by design</b> — tuning constants carry their bases, journals are append-only, automations only propose</li>
         <li><b>Plan-only</b> — it models, drafts, and proposes, and never places a trade</li>
       </ul>
     </div>
@@ -168,7 +169,22 @@
       <rect x="286" y="352" width="188" height="30" rx="15" fill="#0d1017" stroke="#39d0c8" stroke-opacity=".45"/>
       <text x="380" y="371" text-anchor="middle" fill="#9fe6df" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif" font-size="12.5" font-weight="600">↻ continuously reassessed</text>
     </svg>
-    <p class="loopcap">A worldview at the center — fed by <b>FRED</b> macro, <b>SEC</b> filings, and 13F flows — radiates into theses, company models, and portfolios, and the whole system is <b>reassessed as new evidence arrives</b>. That's the ots: a working model of the market in motion.</p>
+    <p class="loopcap">A worldview at the center — fed by <b>FRED</b> macro, <b>SEC</b> filings, and 13F flows — radiates into theses, company models, and portfolios, and the whole system is <b>reassessed as new evidence arrives</b>. That's the twin: a working model of the market in motion.</p>
+  </div>
+</div></section>
+
+<section id="twin"><div class="wrap">
+  <h2>The twin's instruments</h2>
+  <p class="sub">The assimilation loop made visible — where the evidence price, the market price, and the difference between them become working surfaces.</p>
+  <div class="grid">
+    <div class="card"><div class="ic">🗺️</div><h4>Residual heat map</h4><p>The Market tab renders price vs the precision-weighted model composite across every covered NYSE+NASDAQ name — per-model lenses, Δ% or Δ$, scrollable back one recorded trading day at a time. Gap movement is repricing, not dollar flow.</p></div>
+    <div class="card"><div class="ic">📡</div><h4>Repricing scan &amp; daily brief</h4><p>A daily scan classifies where models and prices disagree — names that need a strategic-initiative book, cheap tails routed to erosion review, data defects named as defects — and files a dated report you can slice by cohort.</p></div>
+    <div class="card"><div class="ic">📒</div><h4>Divergence ledger</h4><p>When the twin's read and the market's reaction disagree, the disagreement is stored — dated, signed, per name — because divergences are the raw material for anticipating repricings when regimes rotate. New activity bubbles up to the feed.</p></div>
+    <div class="card"><div class="ic">🔁</div><h4>Rerating test</h4><p>A structured hypothesis test over the model mixture: can a move the current weights cannot explain be explained by shifted weights? That's a rerating in progress — caught as arithmetic, not narrative.</p></div>
+    <div class="card"><div class="ic">🚀</div><h4>Strategic-initiative books &amp; the belief dial</h4><p>Capital programs and unmaterialized initiatives valued on dated cash-flow lattices with gates, a risk register, an append-only journal, and calibration scoring — plus a daily market-implied belief dial: the success odds today's price implies.</p></div>
+    <div class="card"><div class="ic">⚡</div><h4>Event impact</h4><p>News, transcripts, and filings enter an injection-hardened intake, and each event's estimated price impact is routed through the models it actually touches — absorbed into fundamentals whether or not the market reacted.</p></div>
+    <div class="card"><div class="ic">🧑‍💼</div><h4>Executive intelligence</h4><p>Key-executive rows open full profile pages — tenure and roster history, compensation, insider activity, career across companies, news mentions, and agent-authored reports — with roster changes detected daily and alertable.</p></div>
+    <div class="card"><div class="ic">🎛️</div><h4>Tuning registry</h4><p>Every operational constant in the system is registered with its value and its written basis — inspectable, adjustable, and honest about which numbers are measured and which are judgment.</p></div>
   </div>
 </div></section>
 
@@ -179,13 +195,14 @@
   <div class="feat">
     <div class="txt">
       <h3>💠 A full-spectrum pricing engine — and a Model of Models</h3>
-      <p>Twenty valuation models behind one interface — every methodology the industry uses, each chartable through time — and on top of them, a <b>weighted Model of Models</b> that reads which valuation frame the market is actually tracking for each name.</p>
+      <p>More than twenty valuation frames behind one interface — every methodology the industry uses, each chartable through time — and on top of them, a <b>weighted Model of Models</b>: an estimator of the <b>mixture of models the market is actually pricing each stock on</b>. Same event, different mixture, different impact — which is why a rate move crushes one name and glances off another on the same day.</p>
       <ul>
-        <li><b>The whole spectrum</b>: DCF, FCFE, EPV, dividend discount, residual income and EVA; P/E, P/S and EV/EBITDA at the name's own trailing-median multiple; book, NAV, liquidation and replacement cost; seeded Monte Carlo and bull/base/bear; sum-of-the-parts; real options; platform economics</li>
-        <li><b>Every model is a line on the chart</b> — point-in-time reconstructions from filed statements only, no lookahead, side by side with price</li>
-        <li><b>The Model of Models</b>: each model earns a walk-forward correlation weight against the name's own price, per stock, adaptive over time — the weights are the reading, and their rotation is chartable as per-model weight series</li>
+        <li><b>The whole spectrum</b>: DCF, FCFE, EPV, dividend discount, residual income and EVA; P/E, P/S and EV/EBITDA at the name's own trailing-median multiple; normalized and mid-cycle earnings; book, NAV, liquidation and replacement cost; seeded Monte Carlo and bull/base/bear; sum-of-the-parts; real options; platform economics; the strategic-initiative frame</li>
+        <li><b>Every model is a line on the chart</b> — point-in-time reconstructions from filed statements only, no lookahead, side by side with price — and frames that don't apply refuse with their reason stated, never a silent zero</li>
+        <li><b>The Model of Models</b>: each frame earns a walk-forward precision weight against the name's own price, per stock, adaptive over time — the weights are the reading, and their rotation is chartable as per-model weight series</li>
         <li><b>Recorded weightings</b> — dated weight vectors saved per stock, so the composite replots under the weighting of any point in time; the chart line is always one consistent snapshot, never rolling weights</li>
-        <li><b>A venture book for the companies statements can't see</b> — pre-revenue businesses (robotaxi, humanoids, AI infrastructure) valued as probability-weighted expected values net of committed capital, maintained in a form-based editor alongside every other judgment model</li>
+        <li><b>Strategic-initiative books for what statements can't see</b> — capital programs and pre-revenue ventures (robotaxi, humanoids, AI infrastructure) valued on dated cash-flow lattices with gates, ramps, a risk register, and probability-weighted value net of committed capital — every number journaled as authored judgment, maintained in a form-based editor</li>
+        <li><b>A modeling-gaps strip</b> on the Model of Models view — which frames refused and why, whether an SI book exists, and how much of the composite gap it covers</li>
       </ul>
     </div>
     <div class="shot"><img src="assets/pricing-engine.svg" alt="The pricing engine: twenty models, correlation weights, the model of models, on the chart"></div>
@@ -259,7 +276,9 @@
 
   <div class="grid">
     <div class="card"><div class="ic">📈</div><h4>Own charting engine</h4><p>~125 indicators, 39 drawing tools, every granularity, extended hours — no third-party charting library; the engine is original code. Overlay macro, commodity, financial &amp; SEC-filing series on stacked axes with lead/lag shift.</p></div>
-    <div class="card"><div class="ic">📅</div><h4>Surveillance</h4><p>Watchlists, edge-triggered alerts with playbooks, a catalyst calendar scoped to your names, a morning brief.</p></div>
+    <div class="card"><div class="ic">🔔</div><h4>Alerts, subscriptions &amp; calendar</h4><p>A type-first alert feed with per-type counts and click-through to each alert's evidence surface; cohort-first subscriptions that decide which alert types fire on which securities; and a unified calendar — typed alerts, SI gates, corporate events, ingest items, divergence entries — as a list or a month grid. Plus playbooks and a morning brief.</p></div>
+    <div class="card"><div class="ic">🛍</div><h4>Marketplace &amp; images</h4><p>Export and install shareable images — reference surfaces, authored model books, configuration packs — with immutable versioned artifacts, checksum verification, and a provenance ledger: imported records never masquerade as your own history. A free starter image bootstraps a fresh install to a working twin.</p></div>
+    <div class="card"><div class="ic">🧬</div><h4>Cohorts as lenses</h4><p>The peer groups every valuation is measured against — sector, size, index, factor screens, your own lists, or a thesis materialized into a living cohort. Slice the heat map, the repricing report, the alert feed, and the calendar by any of them.</p></div>
     <div class="card"><div class="ic">🤖</div><h4>Agent-native</h4><p>A workspace cockpit, an event inbox, research memory, an audit journal — the agent watches and drafts the work.</p></div>
     <div class="card"><div class="ic">🔐</div><h4>Private &amp; safe</h4><p>Runs locally, keys stay on your machine, security-reviewed, fully test-covered, and it never places a trade.</p></div>
   </div>

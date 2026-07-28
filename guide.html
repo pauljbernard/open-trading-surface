@@ -56,7 +56,13 @@
     <a href="#pricing">Pricing engine &amp; Model of Models</a>
     <a href="#models">Company operating models</a>
     <a href="#thesis">The thesis engine</a>
-    <a href="#watch">Watchlists, alerts &amp; calendar</a>
+    <a href="#market">The Market tab: heat map &amp; repricing scan</a>
+    <a href="#divergence">Divergence ledger, reratings &amp; event impact</a>
+    <a href="#cohorts">Cohorts</a>
+    <a href="#journeys">The four analyst journeys</a>
+    <a href="#watch">Alerts, subscriptions &amp; the calendar</a>
+    <a href="#executives">Executive profiles</a>
+    <a href="#marketplace">The marketplace &amp; images</a>
     <a href="#memory">Research notes &amp; memory</a>
     <a href="#feedback">Giving feedback</a>
     <a href="#updates">Updating</a>
@@ -80,8 +86,8 @@
 
   <h2 id="how">How Open Trading Surface works</h2>
   <p>Two ideas explain everything:</p>
-  <h3>1. It's a living world-model, not a data feed</h3>
-  <p>Open Trading Surface doesn't just fetch quotes. It maintains a connected chain: a <b>worldview</b> (macro, geopolitics, demographics) becomes <b>theses</b> with explicit, auditable probability estimates and an <b>evidence ledger</b>; theses compile into <b>screens</b> and paper <b>portfolios</b>; individual names are grounded in driver-based <b>operating models</b>. It persists between sessions and is continuously reassessed as evidence arrives. Everything you build compounds instead of resetting.</p>
+  <h3>1. It's a price-discovery digital twin, not a data feed</h3>
+  <p>The market is a price discovery mechanism, not a forecast — so Open Trading Surface doesn't try to out-predict it. It maintains a <b>digital twin</b> that discovers an <b>evidence-supported price</b> per name, reconciles it against the market's price, and treats the unexplained gap — the <b>residual</b> — as the object of study: mapped market-wide on the <a href="#market">heat map</a>, logged in the <a href="#divergence">divergence ledger</a>, and tested for <a href="#divergence">reratings</a>. Around that core runs the connected chain: a <b>worldview</b> (macro, geopolitics, demographics) becomes <b>theses</b> with explicit, auditable probability estimates and an <b>evidence ledger</b>; theses compile into <b>screens</b>, <b>cohorts</b> and paper <b>portfolios</b>; individual names are grounded in driver-based <b>operating models</b> and priced by a <b>mixture of valuation frames</b>. It persists between sessions and is continuously reassessed as evidence arrives. Everything you build compounds instead of resetting.</p>
   <h3>2. It's agent-native</h3>
   <p>The terminal is a <b>shared world-model</b>: everything you see, the agent can read and drive. You work by conversation — "add an anchored VWAP and mark the earnings gap," "what do the signals say," "record this as a thesis." The agent inspects the exact view you're looking at and acts on it. It's <b>plan-only</b>: it models, screens, and drafts, but never places a trade or moves money.</p>
   <div class="warn"><b>Open Trading Surface is not investment advice.</b> Every output — including probabilities, models, and fair values — is a decision aid to verify independently. You bear full responsibility for all decisions.</div>
@@ -114,7 +120,7 @@
   <div class="warn"><b>Open Trading Surface is not investment advice.</b> Every output is a decision aid to be independently verified. You bear full responsibility for all investment decisions.</div>
 
   <h2 id="driving">Driving Open Trading Surface with the agent</h2>
-  <p>Ask the agent to <em>"open the Open Trading Surface terminal."</em> Across the top are per-security tabs plus pinned tabs for <b>Portfolios</b>, <b>Screener</b>, <b>Watchlists</b>, and <b>Theses</b>, a <b>⚙ Settings</b> tab, and an <b>✉ Agent</b> button to leave the agent a message. Each security tab has a left rail: Stock Chart, Company Info, Financial Statements, Analyst Ratings, Peer Comps, Ownership, Transcripts, News, SEC Filings, Insider Trades, Operating Model, and Research Notes.</p>
+  <p>Ask the agent to <em>"open the Open Trading Surface terminal."</em> Across the top are per-security tabs plus pinned tabs for <b>📁 Portfolios</b>, <b>🔔 Alerts</b> (with Feed, Subscriptions, and Calendar sub-sections), <b>🧭 Theses</b>, <b>🧬 Cohorts</b>, <b>🌐 Market</b> (Heat map and Repricing scan), <b>🛍 Marketplace</b>, <b>🛟 Support</b> (guide, diagnostics, what's new, and learning — served from the same knowledge base the agent uses), a <b>⚙ Settings</b> tab, and an <b>✉ Agent</b> button to leave the agent a message. Each security tab has a left rail: Stock Chart, Company Information (with clickable executive profiles), Income Statement, Balance Sheet, Cash Flow, Ratios, Key Metrics, Analyst Ratings, Peer Comps, Ownership, Earnings Transcripts, News, SEC Filings, Insider Trades, <b>Model of Models</b>, <b>Pricing Models</b>, <b>Strategic Initiatives</b>, <b>Divergence Ledger</b>, and Research Notes.</p>
   <p>You can navigate it yourself, but the fastest way is to ask. The agent can read what's on screen ("what does the analyst view say for this name?") and drive it ("switch to the cash-flow statement," "open the rebalance view"). Everything below works whether the terminal is open or not — the agent will open what it needs.</p>
 
   <h2 id="charts">Charts &amp; the workbench</h2>
@@ -236,7 +242,7 @@
   </table>
 
   <h2 id="pricing">The pricing engine &amp; the Model of Models</h2>
-  <p>Twenty valuation models behind one interface — every methodology the industry uses, presented in the industry's own terms — plus a <b>Model of Models</b> that reads which valuation frame the market is actually tracking for each name. Two terminal views carry it: <b>💠 Pricing Models</b> (every model side by side) and <b>📐 Model of Models</b> (the correlation-weighted blend).</p>
+  <p>More than twenty valuation frames behind one interface — every methodology the industry uses, presented in the industry's own terms — plus a <b>Model of Models</b> that estimates the <b>mixture of frames the market is actually pricing each name on</b>. Two terminal views carry it: <b>💠 Pricing Models</b> (every model side by side) and <b>📐 Model of Models</b> (the precision-weighted blend, with the modeling-gaps strip: which frames refused and why, whether an SI book exists, and how much of the gap it covers).</p>
   <p style="text-align:center"><img src="assets/pricing-engine.svg" alt="Pricing engine architecture" style="max-width:760px;width:100%;border:1px solid var(--border);border-radius:12px"></p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
@@ -248,8 +254,8 @@
   </table>
   <h3>Relative views: Δ$ and Δ%</h3>
   <p>A macro series on the chart is rarely expected to <i>equal</i> the price — the relationship is the object. Every overlay's row in the picker offers three renderings: <b>value</b> (as fetched), <b>Δ$</b> (price − series), and <b>Δ%</b> ((price − series)/|series|). A model line flipped to Δ$ reads as the premium itself, through time.</p>
-  <h3>Judgment models &amp; the venture book</h3>
-  <p>Some of what the market prices does not exist in filed statements — pre-revenue ventures like robotaxi fleets, humanoid robots, AI infrastructure. The <b>🚀 Strategic Initiatives</b> view maintains the inputs that only an analyst can supply:</p>
+  <h3>Judgment models &amp; strategic-initiative books</h3>
+  <p>Some of what the market prices does not exist in filed statements — capital programs and pre-revenue ventures like robotaxi fleets, humanoid robots, AI infrastructure. The <b>🚀 Strategic Initiatives</b> view maintains full <b>SI books</b>: per-initiative dated cash-flow lattices with capital schedules and ramps, milestone <b>gates</b> with expected resolution dates, a <b>risk register</b> with shared risks, an append-only <b>event journal</b>, immutable snapshots, maturation fade, and calibration scoring — plus a <b>belief dial</b> that inverts the market price into the implied success odds, recorded as a daily series. Editor views include the tornado, waterfall, and probability cone. Alongside the books, the simpler judgment models take the inputs only an analyst can supply:</p>
   <table>
     <tr><th>Model</th><th>You maintain</th></tr>
     <tr><td>Venture book</td><td>Per-venture TAM, achievable share, margin at scale, probability, years, committed capital. Valued as probability-weighted PV net of committed capex — a venture whose spend exceeds its prize shows a negative EV, as information. Ask the agent for a strawman, then edit it in the table.</td></tr>
@@ -422,13 +428,58 @@
   </table>
   <div class="note">Probabilities are subjective, auditable estimates with a full evidence trail — not validated forecasts. Treat them as decision aids.</div>
 
-  <h2 id="watch">Watchlists, alerts &amp; calendar</h2>
-  <p>Keep names under surveillance: watchlists with a live monitor, edge-triggered alert rules (price, % move, RSI, 52-week, earnings-within-N-days) with playbooks, and a catalyst calendar (earnings/dividends/splits/economic) scoped to your names. A "morning brief" pulls it together.</p>
+  <h2 id="market">The Market tab: the heat map &amp; the repricing scan</h2>
+  <p>The <b>🌐 Market</b> tab is the twin's instrument panel — where the gap between the evidence-supported price and the market's price becomes visible across the whole market at once.</p>
+  <p><b>🗺️ Heat map.</b> A treemap of every covered NYSE+NASDAQ name's gap between price and its precision-weighted Model of Models — the <b>residual field</b>. Pick a per-model lens (any frame, or the composite), read it as Δ% or Δ$, scroll back one recorded trading day at a time with the day scrubber or calendar picker, and slice it to any cohort. Gap movement is repricing, not dollar flow. Reconstructed history days are labelled as reconstructions.</p>
+  <p><b>📡 Repricing scan.</b> A daily scan over the surface classifies where models and prices disagree and what to do about each class: names whose gap calls for a <b>strategic-initiative book</b>, cheap tails routed to erosion/regime review, <b>data defects</b> named as defects rather than opportunities, model-maintenance items, and new divergence-ledger activity. The view renders the dated report, filters by cohort, and every SI-need row clicks through to that name's Strategic Initiatives editor.</p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
-    <tr><td>"Add NVDA, AMD, AVGO to a 'Semis' watchlist and alert me if any breaks its 52-week high."</td><td>Creates the watchlist and arms the alert rules.</td></tr>
-    <tr><td>"What's on my calendar this week?" / "Give me a morning brief."</td><td>Upcoming catalysts for your names + a consolidated brief.</td></tr>
+    <tr><td>"Open the market heat map on the composite lens, Δ%."</td><td>Renders the residual field for the latest recorded day.</td></tr>
+    <tr><td>"Slice the surface to my Nasdaq-100 cohort."</td><td>Cuts the cells to the cohort's membership, with the members-vs-cells disclosure.</td></tr>
+    <tr><td>"Run the repricing scan and give me today's report."</td><td>Runs <code>run_repricing_scan</code> / reads <code>get_repricing_report</code> — SI-need, cheap-tail, defect and maintenance sections.</td></tr>
   </table>
+  <div class="note">The surface accrues from the daily batch (see <code>/ots:automate</code> on the <a href="support.html">Support page</a>); coverage and staleness are disclosed on the map rather than smoothed over.</div>
+
+  <h2 id="divergence">Divergence ledger, rerating test &amp; event impact</h2>
+  <p>The twin's discipline is that disagreement between its read and the market's is <b>stored, not discarded</b>:</p>
+  <ul>
+    <li><b>📒 Divergence Ledger</b> — a per-security rail view listing dated, signed divergences from every writer: events the market shrugged at, model moves the price ignored, band crossings. New ledger activity surfaces in the daily scan and the alert feed.</li>
+    <li><b>🔁 Rerating test</b> — asks whether a move the current model weights cannot explain resolves under <b>shifted</b> weights (<code>test_rerating</code>). A pass is a rerating hypothesis — a company migrating from one valuation frame to another — caught as arithmetic.</li>
+    <li><b>⚡ Event impact</b> — news, transcripts and filings enter an injection-hardened ingest queue, are classified structurally, and each event's estimated impact is routed through the frames it actually touches (<code>assess_event_impact</code>, <code>triage_event</code>). Events are absorbed into fundamentals whether or not the market reacted — the muted reaction is evidence about the regime, and the divergence is logged.</li>
+    <li><b>🎯 Belief dial</b> — for names with an SI book, the market-implied success probability (<code>get_belief_dial</code>), inverted from price daily, so belief has a time series you can chart against the journal.</li>
+  </ul>
+  <div class="note">External text (headlines, transcripts) is treated as untrusted display-only data throughout — it is fenced, never parsed into instructions, and never routes writes. Structured facts drive the loop.</div>
+
+  <h2 id="cohorts">Cohorts</h2>
+  <p>The <b>🧬 Cohorts</b> tab maintains the peer groups every valuation is measured against — sector, size, index, factor screens, and your own lists, with equal / cap / explicit weighting. Cohorts are <b>lenses, never conclusions</b>: the same groups drive Peer Comps, the price decomposition (substantiated value × cohort premium × idiosyncratic premium), the heat-map slice, the repricing report, the alert feed, and the calendar. A cohort detail view carries premium and coverage headers, a <b>modeling-gaps</b> read (the scan's SI-need / cheap-tail / defect rows cut to the membership), and <b>view on surface</b>. A thesis can <b>materialize</b> its screen into a living cohort whose membership re-evaluates as fundamentals change.</p>
+
+  <h2 id="journeys">The four analyst journeys</h2>
+  <p>The terminal is built so its core workflows are <b>seamless click paths</b> — no dead ends, no step that requires the chat agent (though the agent can drive every hop). The four audited journeys:</p>
+  <table>
+    <tr><th>Journey</th><th>The path</th></tr>
+    <tr><td><b>1. Thesis → screen → cohort → modeling</b></td><td>Select a thesis, run it as a screen (entered/exited diff included), materialize the screen into a cohort with one click, and open any result row directly on that name's Model of Models view.</td></tr>
+    <tr><td><b>2. Alerts → events → securities</b></td><td>Every feed and calendar row clicks through to its evidence surface — divergence and rerating alerts to the Divergence Ledger, gate alerts to Strategic Initiatives, scan alerts to the Repricing scan, price alerts to the chart.</td></tr>
+    <tr><td><b>3. Cohorts → securities &amp; the surface</b></td><td>Cohort member rows open Model of Models directly; "view on surface" slices the heat map to the membership, resolved server-side.</td></tr>
+    <tr><td><b>4. The modeling-gap lens</b></td><td>On a security: the modeling-gaps strip (refused frames with reasons, SI-book presence, gap coverage) with one click into the SI editor. On a cohort: the ranked gap list, each row opening that name's Strategic Initiatives editor — cohort → gap → judgment.</td></tr>
+  </table>
+
+  <h2 id="watch">Alerts, subscriptions &amp; the calendar</h2>
+  <p>The <b>🔔 Alerts</b> tab has three sub-sections, all fed by the same typed-alert machinery:</p>
+  <p><b>Feed</b> — the attention-focusing stream. Typed notifications (divergence activity, rerating candidates, SI gates approaching, band crossings, scan findings, executive changes, price-rule firings) grouped by day then type, with per-type count chips for the range, aggregated day summaries, the deciding subscription layer on hover, and click-through to each type's evidence surface. Classic price rules (price, % move, RSI, 52-week, earnings-within-N-days) live in a panel inside the feed, with playbooks.</p>
+  <p><b>Subscriptions</b> — deliberate control over <b>which alert types fire on which securities</b>, cohort-first: pick a cohort, toggle types on or off as standing rules new members inherit, set defaults, and drill into per-symbol overrides. Executive-change alerts seed on for the names you have judged; executive-news stays off until you ask.</p>
+  <p><b>Calendar</b> — one time axis for everything dated: typed alerts, SI gate expected resolutions (overdue flagged), corporate events (earnings/dividends/splits/economic releases), ingest intake items, divergence-ledger entries, and roster changes — as a list or a visual <b>month grid</b> with day drill-down, type filters, cohort/symbol slices, and click-through per row.</p>
+  <table>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Subscribe my Semis cohort to divergence and gate alerts."</td><td>Writes standing cohort-scope rules; new members inherit them.</td></tr>
+    <tr><td>"What fired this week, and why?"</td><td>The typed feed with counts, summaries, and the deciding layer per row.</td></tr>
+    <tr><td>"Show July as a calendar." / "Give me a morning brief."</td><td>The month grid with per-day type markers + a consolidated brief.</td></tr>
+  </table>
+
+  <h2 id="executives">Executive profiles</h2>
+  <p>Every Key Executives row in Company Information opens a full <b>profile page</b>: the provider record (title, pay, tenure), roster-change history as recorded (first seen, title changes, departures — with the honest caveat that earlier tenure is unobserved, not absent), compensation history, this person's insider-trade rows (deterministic name matching, rule stated on the page), career across companies cross-referenced from recorded rosters and Form-4 filings, a Wikipedia summary fetched on demand (exact-name match only — ambiguity is stored as ambiguity, never guessed), candidate news mentions (fenced, with the common-name caveat), and an <b>Analyst report</b> section rendering agent- or owner-authored research notes on the person. Roster changes (joins, departures, title and pay changes) are detected daily from structured fields and flow into the scan report, the calendar, and subscription-gated alerts.</p>
+
+  <h2 id="marketplace">The marketplace &amp; images</h2>
+  <p>The <b>🛍 Marketplace</b> tab browses and installs <b>images</b> — shareable packs of the twin's state: reference data (universe, recorded surface days), authored model books, and configuration. Installs are verified against the catalog checksum and recorded in a <b>provenance ledger</b>; imported records carry their origin and never masquerade as your own history. Versioned artifacts are immutable — a published version never changes; new versions append. The free <b>OTS Starter Image</b> (v1.0.0) bootstraps a fresh install with the full NYSE+NASDAQ surface, seven strategic-initiative books, and workspace configuration — no keys, no portfolios, no personal research. You can also <code>export_image</code> your own packs to share.</p>
 
   <h2 id="memory">Research notes &amp; memory</h2>
   <p>Open Trading Surface has a shared memory: research notes tied to symbols, portfolios, or theses that persist between sessions, so you and the agent build on prior work instead of starting over. Ask the agent to "write your take on this name to research notes," or "what did we conclude about MSFT last month?"</p>

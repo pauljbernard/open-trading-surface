@@ -111,17 +111,7 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
     <tr><td>—</td><td>Track the live tracker on GitHub for current items</td><td>info</td><td><span class="tag open">open</span></td></tr>
   </table>
 
-  <h2>Frequently asked</h2>
-  <details><summary>Where do I put my API keys?</summary><p>Open the terminal and click the <b>⚙ Settings</b> tab. Paste your FMP key (and optionally a free FRED key) and hit Test. Keys are stored locally in <code>~/.ots/config.json</code> (mode 600) and never transmitted anywhere but the data providers.</p></details>
-  <details><summary>Is this investment advice?</summary><p>No. Open Trading Surface is an informational research tool. Nothing it produces is advice or a recommendation. Data and computations may be inaccurate — you must verify everything and you bear full responsibility for your decisions. See the <a href="legal.html">disclaimer</a>.</p></details>
-  <details><summary>How do I update?</summary><p>Ask the agent to <code>check_for_updates</code>, or watch the workspace cockpit — it flags new versions. Then download the new <code>ots.plugin</code> and add it under <b>Customize → Plugins → Personal plugins</b>, and restart the session. See the <a href="guide.html#updates">guide</a>.</p></details>
-  <details><summary>Does it place trades?</summary><p>Never. It plans, models, and records — any transaction you enter is a bookkeeping entry only. It has no brokerage integration.</p></details>
-  <details><summary>What data does it use?</summary><p>Financial Modeling Prep (markets &amp; fundamentals), FRED (economic data), and SEC EDGAR (filings). You supply your own FMP and FRED keys.</p></details>
-
-  <footer><a href="index.html">Home</a> · <a href="legal.html">Legal &amp; Disclaimer</a> · <a href="changelog.html">Changelog</a></footer>
-</div>
-</body>
-</html><!-- RELEASE-INFO:START -->
+  <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
     <div><span class="rellbl">Current version</span><b>3.96.0</b></div>
@@ -131,130 +121,145 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
   <div class="relbox">
-    <h3 class="relver">2.61.0 <span class="reltitle">Peer groups become real: a bug fix, a Cohorts tab, cohort-driven comps, and weighted groups</span></h3>
+    <h3 class="relver">3.96.0 <span class="reltitle">Full executive reports</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
       <ul>
-        <li><b>A Cohorts tab (🧬).</b> The peer groups every valuation is measured against were reachable as tools and rendered as chips, but there was nowhere to <i>see or maintain</i> them — so the lattice was invisible as something a person owns rather than something the system asserts. The new pinned tab lists every cohort with its kind, membership source and provenance, creates cohorts from a symbol list, and deletes the ones you own (rule-based cohorts refuse, being derived rather than stored).</li>
-        <li>485 tests across 51 suites. New contract tests pin the Cohorts tab, its stable agent-addressable index, and the comps cohort chooser.</li>
+        <li><b>Tests</b>: new suite <code>exec-enrichment.test.js</code> (wiki honesty states with</li>
       </ul>
     </div>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
-        <li><b>The bug that made the whole lattice look empty.</b> <code>cohorts.js</code> called a provider endpoint that does not exist (<code>stock-screener</code> instead of <code>company-screener</code>), and the failure was swallowed by a <code>.catch(() =&gt; [])</code>. Every rule-based cohort silently resolved to <b>zero members</b>, so the decomposition reported <i>"0 of 0 members have a model"</i> — a refusal naming the wrong cause, which is worse than a crash. Fixed, and a provider failure now returns <code>membership is UNKNOWN, not empty</code> rather than pretending the group is empty.</li>
-        <li><b>Peer Comps is cohort-driven.</b> It used to build from whatever <code>stock-peers</code> returned — one fixed provider list, disconnected from the lattice, so groups curated for valuation had no effect on the comps table actually read. The peer set is now a <b>choice</b> among the cohorts the name belongs to, with the provider list as one option; membership date and resolution errors are disclosed on the table.</li>
-        <li><b>Weighted groups.</b> Some groups are flat — you are in Semiconductors or you are not. Others are <b>weighted</b>: an index is not a list, it is a list with proportions. Cohorts now declare <code>equal</code>, <code>cap</code> or <code>explicit</code> weighting; cap weights come free with the screener rows, explicit weights must cover every member (a missing weight is a hole in the definition, a zero weight is not membership). The premium reports <b>both</b> figures, because they answer different questions — equal-weighted describes the <i>typical member</i>, weighted describes the <i>group as an index experiences it</i>. On a test group of 12 small names at 1.5× and 2 giants at 4×, equal-weighted reads <b>1.50×</b> and index-weighted <b>3.52×</b>; the gap between them <i>is</i> the concentration.</li>
+        <li><b>PER-PERSON ENRICHMENT FETCH + CACHE</b> (<code>server/executives.js</code>), stored at</li>
+        <li><b>AGENT-REPORT SECTION.</b> The profile page renders research notes whose</li>
+        <li><b>PAGE ASSEMBLY.</b> The profile page renders in a fixed order: header chips</li>
       </ul>
     </div>
   </div>
   <div class="relbox">
-    <h3 class="relver">2.60.1 <span class="reltitle">Fix: the decomposition was reachable as a tool but invisible in the UI</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The whole point of the arc was missing from the Operating Model view.</b> The engine shipped, the tool shipped, and the view rendered cohort <i>membership</i> chips — so you could see that AAPL belongs to Technology, Mega cap and Megacap platforms, and nothing about what the model actually said against them. The bare −47% gap sat there unreframed, which is precisely what the decomposition exists to fix. Reported by a user looking at the view and finding <b>no appreciable improvement</b> — an accurate reading of what was in front of them.</li>
-        <li><b>What the price is made of</b> now renders directly beneath the fair-value range: <code>price = substantiated × total premium</code>, then a row per cohort giving members modeled, the <b>cohort premium</b> (what the market pays that whole group over fundamentals — the part that is not about this company), <b>this name vs cohort</b>, and the percentile of that reading in its own history. Absorbed and ineligible cohorts state why. The <b>robustness</b> spread across cohorts renders beneath, so a flattering comparison group stays visible rather than available.</li>
-        <li><b>A contract test now enforces the law I broke.</b> "A capability does not exist until it is discoverable in both renderings" — the test asserts the daemon exposes the route, the view fetches it, all three terms of the identity render, and the recorded negative result travels with them. Shipping an engine plus a tool satisfied neither half properly.</li>
-        <li>480 tests across 51 suites.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.60.0 <span class="reltitle">Value decomposition, camp 6: absolute or relative, but say which. VALUE-DECOMPOSITION-SPEC complete.</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b><code>set_exit_anchor</code></b> — anchor a model's exit multiple to its cohort's own median multiple instead of the catalog <code>18x</code>, which measured across 45 large caps is roughly half what the market pays and is precisely why every default-calibrated model concludes the same thing. The multiple is computed from member models' year-1 EPS — <b>self-contained, no external multiple feed</b> — and refuses below 12 modeled members.</li>
-        <li><b>Suggested, never applied.</b> Default behaviour is suggestion-only, following the <code>articulation_suggested</code> precedent, because this is the one change in the arc that alters what an existing model <i>concludes</i>. The payload states the tradeoff in full: an anchored model <b>can no longer disagree with the market about that cohort</b>, only about this company within it — an absolute valuation becomes a relative one.</li>
-        <li><b>Mutual exclusivity, enforced.</b> While anchored, the decomposition reports that cohort's reading as <code>absorbed</code> with a null premium: it is now inside the substantiated leg, and reporting it again as a separate multiplicative term would count the same market re-rating twice and make the identity false. The rest of the lattice is unaffected. <code>clear:true</code> returns to an absolute frame and restores the separate premium.</li>
-        <li><b>A measured band displaces an invented one.</b> An anchored <code>exit_multiple</code> takes the <b>actual cross-sectional dispersion of peer multiples</b> as its uncertainty band, replacing the assumed <code>BASE_SD</code> of 4 — and its provenance is upgraded from <i>catalog default</i> (grade D) to <i>consensus</i> (grade C), since it is an observed market fact even though using it as a forecast remains an assumption.</li>
-        <li><b>The frame is always stated.</b> <code>calibration_coherence</code> now reports either <code>frame.cohort_anchored</code> ("this is a RELATIVE valuation") or <code>frame.absolute</code> ("this asserts what the multiple SHOULD be, which is a claim about the market as well as the company"). The two are mutually exclusive and one is always present — a model can no longer be silent about which claim it is making.</li>
-        <li>6 further tests (26 in <code>premium.test.js</code>), 479 across 51 suites, 157 tools. <b>All seven camps of VALUE-DECOMPOSITION-SPEC are now built.</b></li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.59.0 <span class="reltitle">Value decomposition, camp 4: the negative results become part of the product</span></h3>
+    <h3 class="relver">3.95.0 <span class="reltitle">Executive drill-down + executive-change alerting</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
       <ul>
-        <li><b><code>get_research_studies</code></b> returns the running total of hypotheses tried against this data, so a new test knows it is the 8th and deflates accordingly. <b><code>record_study</code></b> lets you add your own — with a field for <i>what killed it</i>, because a recorded negative is worth more than an unrecorded positive.</li>
-        <li><b>Two new education modules</b>, both lint-bound to real tools: <i>"A significant result that wasn't"</i> carries the full autopsy and its lesson — <b>deflation corrects for how many rules you tried, not for how few independent things you observed</b> — and <i>"Why one comparison group is never enough"</i> carries the 1.07×–3.58× sector spread and the 33.6%/66.4% variance split that forced the lattice design.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-fix">Fixed</span>
-      <ul>
-        <li><b>A study register</b>, shipped with the software rather than kept as user data — because the failure mode of quantitative research is <i>rediscovery</i>: running the same analysis next quarter, getting the same artifact, and believing it because nobody wrote down that it had already been tested and had already died.</li>
+        <li>New <code>/cm/executives</code> op (token-guarded like every /cm op): roster + history</li>
+        <li>New suite <code>executives.test.js</code> (roster diff fixtures per change type, pay</li>
       </ul>
     </div>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
-        <li><b>Two findings ship.</b> The premium-vs-forward-returns study is recorded as an <b>ARTIFACT</b>, with the numbers that made it look real (slope −17.5, r² 0.046, p 0.0015, grade B, sign-consistent 5/5 slices, cluster t −8.2, <b>survived Šidák deflation at 0.009</b>) sitting beside the two checks that killed it (name-holdout producing <i>opposite</i> signs, +5.3 train vs −26.9 holdout; and collapse to p 0.29 on dropping five AI/semiconductor names). The sector-dispersion study is recorded as <b>CONFIRMED</b>, with the caveat that part of the spread is model misspecification rather than market pricing — which is an argument <i>for</i> cohort-relative reading, since comparing like with like cancels shared model error too.</li>
-        <li>156 tools, 8 education modules, 473 tests across 51 suites.</li>
+        <li><b>EXECUTIVE PROFILE DRILL-DOWN.</b> Every Key Executives row in Company</li>
+        <li><b>ROSTER SNAPSHOTS + STRUCTURAL CHANGE DETECTION</b> (<code>server/executives.js</code>).</li>
+        <li><b>EXECUTIVE NEWS TAGGING (ingest, display-only).</b> The intake gains</li>
       </ul>
     </div>
   </div>
   <div class="relbox">
-    <h3 class="relver">2.58.0 <span class="reltitle">Value decomposition, camp 3b: the decomposition becomes queryable</span></h3>
+    <h3 class="relver">3.94.0 <span class="reltitle">User-journey integration: the four analyst journeys as click paths</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
       <ul>
-        <li><b>Premium fields in the screener</b>, resolved through the panel: <code>substantiated</code>, <code>total_premium</code>, <code>idio_premium_min/max/median</code>, <code>robustness</code>, <code>n_cohorts</code>, <code>has_model</code>. A new <code>premium</code> stage, appended last so it never runs for a screen that does not ask for it — existing saved screens evaluate identically.</li>
-        <li>New <code>screener-premium.test.js</code> (7 tests). 473 tests across 51 suites.</li>
+        <li>Nothing new auto-edits anything: every added hop is a read or an</li>
+        <li>New suite <code>user-journeys.test.js</code> (read-time report slice on fixtures —</li>
       </ul>
     </div>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
-        <li><b>The anti-shopping law stops being an exhortation and becomes a query.</b> <code>where idio_premium_max &lt; 0.85</code> selects names cheap against <b>every</b> cohort they belong to, since the max is the least flattering reading. <code>where robustness &gt; 0.5</code> finds names whose relative valuation depends on which comparison group you picked. <code>where premium_driven_by = 'substantiated'</code> surfaces the TSLA case — a premium that moved because the model's own fair value collapsed on a filing, not because the market re-rated anything.</li>
-        <li><b>Baselines are computed once per query, not per row.</b> Each cohort's premium is resolved a single time and every row's reading derived from it — the panel exists precisely so that screening 500 names never means 500 model builds.</li>
-        <li><b>Coverage is disclosed on every result that touches the premium stage</b>, measured <i>before</i> the where-clause removes anything: <i>"188 of 312 candidates have no operating model and were EXCLUDED from every premium predicate — absence, not rejection."</i> Grade-D models are included with their grade visible rather than hidden, because most default-calibrated models are scaffolding and the panel must not launder that into a clean-looking ranking.</li>
-        <li><b>A null premium can never satisfy a predicate.</b> In plain JavaScript <code>null &lt; 0.85</code> is <i>true</i>, so an unmodelled name would otherwise sail through a cheapness filter and appear cheap. Both evaluation paths reject it — the structured-filter operator returns false for null, and the where-expression returns null against a <code>=== true</code> test — and a test now pins both, documenting the trap explicitly.</li>
+        <li><b>JOURNEY 1 — thesis → screen → cohort → security.</b> The thesis view gains</li>
+        <li><b>JOURNEY 3 — cohorts → securities, and onto the surface.</b> Cohort member</li>
+        <li><b>JOURNEY 4 — THE MODELING-GAP LENS.</b> (a) Security side: the Model of</li>
+        <li><b>JOURNEY 2 — completeness check (3.92.0/3.93.0 built this one).</b> The</li>
       </ul>
     </div>
   </div>
   <div class="relbox">
-    <h3 class="relver">2.57.0 <span class="reltitle">Value decomposition, camp 2: premium bands, without lookahead</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b><code>get_premium_band</code></b> — where a name's idiosyncratic premium sits in <b>its own history</b> against a cohort: percentile, p10/p25/p50/p75/p90, the window, and a plain reading ("at the top of its own range — priced further above its cohort than it usually is"). This is the treatment the premium legs deserve: the substantiated leg is a fundamental quantity and gets fundamental analysis, while the premiums are market-determined and get the statistical treatment a market series gets.</li>
-        <li><b>A stated, different floor.</b> 12 observations minimum, and it refuses below. The price-based valuation bands require 40 — but premiums are quarterly, so 40 would mean a decade. The lower bar is <b>stated rather than silently relaxed</b>, and the refusal points at <code>seed_premium_history</code> as the way to deepen it.</li>
-        <li><b>The percentile series does not look ahead.</b> <code>model:&lt;SYM&gt;:premium_idio_pct</code> ranks each point only against observations that <b>preceded</b> it — an expanding window. Ranking against the full history would leak the future into every past point and make the series look far more informative than it is. Tested directly: a monotonically rising premium ranks at 100 throughout, and a falling one at 0, because that is what an honest expanding rank says.</li>
-        <li><b>The distribution discloses its own composition</b>: how many observations are reconstructions seeded from backfills versus live decompositions, since a percentile built mostly from reconstructions inherits their limitations.</li>
-        <li>Percentiles now ride each <code>decompose_price</code> reading alongside the idiosyncratic premium, so "1.6× against this cohort" arrives with "which is the 90th percentile of its own history". Every band surface carries the recorded negative result. 7 further tests (20 in <code>premium.test.js</code>), 154 tools.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">2.56.0 <span class="reltitle">Value decomposition, camp 3a: the premium panel, and history without waiting three years</span></h3>
+    <h3 class="relver">3.93.0 <span class="reltitle">Unified calendar: everything the feed knows, on one time axis</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
       <ul>
-        <li><b>It discloses what it inherits</b>, in full: trailing-CAGR growth rather than consensus, judgment drivers carried back from today (hindsight), restatements indistinguishable from originals — plus a new one this camp introduces on its own, <b>survivorship bias</b>: today's cohort membership applied to past dates.</li>
-        <li>New <code>panel.test.js</code> (11 tests), most of them pinning what the module declines to do. 153 tools.</li>
+        <li>New suite <code>unified-calendar.test.js</code> (five-source aggregation with type</li>
       </ul>
     </div>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
-        <li><b><code>get_premium_panel</code></b> — the batch cross-section of substantiated value, price and premium that the screener and band machinery read, so nothing has to build models inline (evaluating a premium live across 500 names would mean 500 model builds per query). <b>Coverage is the headline, not a footnote</b>: names without a model are excluded <i>and counted</i>, never treated as failing a filter, because a panel that silently drops two thirds of its universe is worse than one that refuses.</li>
-        <li><b><code>seed_premium_history</code></b> — solves the sequencing problem that would have made premium bands useless. Bands need a dozen observations of a name's own history, which would otherwise take three years to accumulate. But the point-in-time backfill already reconstructs the <b>substantiated</b> leg historically — so a cohort's premium can be rebuilt at each past date from the backfills of its members, and the entire decomposition seeded retroactively.</li>
-        <li><b>Marked, never mistaken.</b> Every seeded row carries <code>seeded: true</code>, and a real snapshot <b>always wins</b> over a reconstruction on a shared date — a test asserts the live observation survives and the seeded one yields. A reconstruction can never be presented as a decomposition that was actually run at the time.</li>
-        <li><b>Refusals hold at every level</b>: no backfill on the name, and it refuses rather than inventing the substantiated leg; no date with at least 12 backfilled cohort members, and it refuses rather than publishing a median of four; a date short of the floor yields no baseline for that date rather than a thin one.</li>
+        <li>**THE UNIFIED OP (<code>/cm/unified_calendar</code>, token-guarded like every /cm</li>
+        <li><b>VISUAL MONTH GRID (terminal, Watchlists → Alerts → Calendar).</b> A month</li>
+        <li><b>LIST MODE STAYS.</b> The existing dated list is now a toggle (**List |</li>
+        <li><b>FILTER PARITY WITH THE FEED, BY CONSTRUCTION.</b> The type-chip strip is</li>
       </ul>
     </div>
   </div>
   <div class="relbox">
-    <h3 class="relver">2.55.0 <span class="reltitle">Value decomposition, camp 1: the gap was never an error</span></h3>
+    <h3 class="relver">3.92.0 <span class="reltitle">Alerts feed redesign: the typed stream is the attention-focusing instrument</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
       <ul>
-        <li><b>The denominator guard.</b> A premium moves because price moved or because the model's own fair value moved — TSLA's fell 173 → 55 on a single filing, mechanically tripling its premium. Every change now carries <code>driven_by</code> (price / substantiated / both) and flags a &gt;25% move in the substantiated leg as <b>a model event, not market enthusiasm</b>.</li>
-        <li>Four new chartable series — <code>model:&lt;SYM&gt;:substantiated</code>, <code>:premium_total</code>, <code>:premium_cohort</code>, <code>:premium_idio[:&lt;cohort&gt;]</code> — whose catalog labels state they are descriptive, not predictive. Every premium surface carries the <b>recorded negative result</b> from the 45-name study, permanently. New <code>premium.test.js</code> (13 tests).</li>
+        <li><b>Tests.</b> New suite <code>alerts-feed.test.js</code> (stream shape incl. the</li>
       </ul>
     </div>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
       <ul>
-        <li><b><code>decompose_price</code></b> — price splits into <b>substantiated value × cohort premium × idiosyncratic premium</b>, computed for <i>every</i> cohort the name belongs to. What the model used to report as one number called "the gap", and treat as error, is now two measurable quantities: how much of it is the whole market re-rating, and how much is this name specifically. On AAPL the distinction inverts the reading — total premium rose 1.28× → 1.60× while the idiosyncratic premium <b>fell</b> 0.70× → 0.61×: relative to peers it got <i>cheaper</i>, and all of the apparent re-rating was market-wide.</li>
-        <li><b><code>attribute_return</code></b> — the payoff of the identity. Because it is multiplicative, logs make it additive, so a move splits <b>exactly</b>: <i>"AAPL +48.8%: +18.9pp substantiated, +34.9pp cohort premium, −5.0pp idiosyncratic."</i> The residual is computed and <b>shown</b> rather than hidden, and a test asserts it rounds to zero.</li>
-        <li><b><code>get_cohort_premium</code></b> — what the market pays a whole group above fundamentals, with dispersion and an auditable member list. This is the term that was polluting every single-name gap: across 45 large caps it ran 1.84× (Jul 2024) → 2.61× (Jul 2026); across sectors, roughly 1.07× (Financials) to 3.58× (Energy).</li>
-        <li><b>Robustness makes cohort shopping visible rather than available.</b> The spread of the idiosyncratic reading across every membership is reported: tight, and the relative reading is not an artifact of which comparison group was picked; wide, and the payload says so in as many words.</li>
-        <li><b>Honest floors throughout</b>: a cohort premium is built only from members that actually have models, coverage is disclosed on every reading, and fewer than 12 modeled members <b>refuses</b> — absent, not zero, not imputed. Attribution refuses on a single snapshot rather than inventing a baseline.</li>
+        <li><b>TYPE-FIRST FEED (terminal, Watchlists → Alerts → Feed).</b> The sub-section</li>
+        <li><b>PRICE RULES DEMOTED TO A TYPE.</b> The legacy create-alert row</li>
+        <li><b>COHORT-FIRST SUBSCRIPTIONS (owner refinement, approved).</b> The</li>
+        <li><b>FEED ENDPOINT (<code>/cm/alerts_feed</code>, token-guarded like every /cm op).</b> The</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">3.91.0 <span class="reltitle">Alert subscriptions: deliberate control over which alert types fire on which securities</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>TESTS.</b> New suite <code>alert-subscriptions.test.js</code> (resolution</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>THE SUBSCRIPTION MODEL (<code>server/alert-subscriptions.js</code>).</b> Three-layer</li>
+        <li><b>GENERATION HONORS SUBSCRIPTIONS (<code>server/scan.js</code>).</b> Every</li>
+        <li><b>ALERTS TAB UX (<code>server/terminal.js</code>).</b> The Watchlists→Alerts view</li>
+        <li><b>TOOLS.</b> <code>get_alert_subscriptions {symbol?}</code> — the resolved view: what</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">3.90.0 <span class="reltitle">Judgment-edit propagation, loading states everywhere, private-name reference inputs</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>New suites <code>propagation.test.js</code> + <code>reference-inputs.test.js</code></b> (edit →</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>**JUDGMENT-EDIT PROPAGATION (<code>server/propagation.js</code>, the TSLA</li>
+        <li><b>LOADING INDICATORS EVERYWHERE (<code>server/terminal.js</code>).</b> ONE small</li>
+        <li>**PRIVATE-NAME REFERENCE INPUTS (<code>server/pricing/reference.js</code> + tool</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relbox">
+    <h3 class="relver">3.89.0 <span class="reltitle">Divergence bubble-up: new ledger activity surfaces centrally</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>NEW-TODAY SEMANTICS IN THE SCAN (<code>server/scan.js</code>).</b> Every run</li>
+        <li><b>New suite <code>divergence-bubbleup.test.js</code></b> — new-today diff</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>CENTRAL SURFACING IN THE TERMINAL (<code>server/terminal.js</code>).</b> The</li>
+        <li><b>NOTIFICATION VIA THE EXISTING ALERT MACHINERY (<code>server/alerts.js</code>).</b></li>
+        <li><b>3.88.0 INGEST JUDGED-UNIVERSE FIX (<code>server/ingest.js</code>).</b> The intake</li>
       </ul>
     </div>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
 
-  
+  <h2>Frequently asked</h2>
+  <details><summary>Where do I put my API keys?</summary><p>Open the terminal and click the <b>⚙ Settings</b> tab. Paste your FMP key (and optionally a free FRED key) and hit Test. Keys are stored locally in <code>~/.ots/config.json</code> (mode 600) and never transmitted anywhere but the data providers.</p></details>
+  <details><summary>Is this investment advice?</summary><p>No. Open Trading Surface is an informational research tool. Nothing it produces is advice or a recommendation. Data and computations may be inaccurate — you must verify everything and you bear full responsibility for your decisions. See the <a href="legal.html">disclaimer</a>.</p></details>
+  <details><summary>How do I update?</summary><p>Ask the agent to <code>check_for_updates</code>, or watch the workspace cockpit — it flags new versions. Then download the new <code>ots.plugin</code> and add it under <b>Customize → Plugins → Personal plugins</b>, and restart the session. See the <a href="guide.html#updates">guide</a>.</p></details>
+  <details><summary>Does it place trades?</summary><p>Never. It plans, models, and records — any transaction you enter is a bookkeeping entry only. It has no brokerage integration.</p></details>
+  <details><summary>What data does it use?</summary><p>Financial Modeling Prep (markets &amp; fundamentals), FRED (economic data), and SEC EDGAR (filings). You supply your own FMP and FRED keys.</p></details>
+  <details><summary>What can the agent actually do with it?</summary><p>Everything the terminal shows, the agent can read and drive — 230 introspectable tools spanning charting, screening, portfolios, the pricing engine and Model of Models, strategic-initiative books, the divergence ledger and rerating test, the market heat map and repricing scan, alerts/subscriptions/calendar, executive profiles, and the marketplace. It is plan-only: it never places a trade.</p></details>
+  <details><summary>What is the Marketplace, and is it safe to install from?</summary><p>The 🛍 Marketplace tab installs <b>images</b> — shareable packs of reference data, authored model books, and configuration (the free OTS Starter Image bootstraps a fresh install). Every install is verified against the catalog's SHA-256 and recorded in a local provenance ledger; imported records carry their origin and never mix silently with your own history. Images contain no keys and no personal data.</p></details>
+
+  <footer><a href="index.html">Home</a> · <a href="legal.html">Legal &amp; Disclaimer</a> · <a href="changelog.html">Changelog</a></footer>
+</div>
+</body>
+</html>
