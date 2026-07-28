@@ -1,13 +1,13 @@
 {
-  "version": "3.93.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.93.0.plugin",
-  "sha256": "0473c2537e1c4939c7f246abc11b17992541a15d41596e21cb072f5f03825944",
+  "version": "3.94.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.94.0.plugin",
+  "sha256": "2533bdbc8479ed9d117bdac5d2a5d078e98c7e7af249e3bbb815fb30e5a8953f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.93.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.94.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive: the Alerts-tab calendar must show EVERYTHING that populates the feed — typed alerts/notifications, SI gate expected resolutions, corporate events, ingest intake items, divergence-ledger entries — as both the existing LIST and a new VISUAL month-grid calendar, with day drill-down, date scrolling, filtering and sorting. - THE UNIFIED OP (/cm/unified_calendar, token-guarded like every /cm op). One aggregating GET serves the Calendar view for a bounded date range (default: the current month; a reversed or wider-than-a-year window refuses loudly), joining FIVE dated sources into on",
-  "published": "2026-07-27T23:35:34.700Z",
+  "notes": "Owner directive: (1) thesis → screen → cohort → security modeling, (2) alerts → events → securities, (3) cohorts → securities, and (4) the MODELING-GAP lens — focus on a security or a set of cohorts and see where the modeling is thin — must be seamless CLICK PATHS in the terminal: no dead ends, no journey step that requires the chat agent. USER-JOURNEYS.md at the repo root is the audited hop-by-hop map (what already worked, what this release closed). - JOURNEY 1 — thesis → screen → cohort → security. The thesis view gains 🧬 Materialize cohort (POST /th/materialize): the compiled screen's MEMB",
+  "published": "2026-07-28T00:39:11.541Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
