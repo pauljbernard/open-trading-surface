@@ -1,13 +1,13 @@
 {
-  "version": "4.0.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.0.0.plugin",
-  "sha256": "ba26f7903dc659785be8b034fd0ffb3a9130081ecdcbb0b009a72e95535b96f2",
+  "version": "4.0.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.0.1.plugin",
+  "sha256": "5c3acb34840db1205595a531c21dfe30d2221bf2540d121a029f163f1e6daebd",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.0.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.0.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's direction, verbatim in intent: *\"it is naive to believe that all models would be equally weighted. In practice that simply isn't the case\"*, and *\"some securities are solely valued on their strategic initiatives, while others like tesla have both strategic initiatives (a heavily weighted model) and traditional lines of business that are well reflected in their financial statements.\"* VALUATION-STRUCTURE-SPEC (filed at 0a8b8db with experiment E11) names the missing object: structure — the per-name statement of what KIND of composition applies *before* any weight is computed. This re",
-  "published": "2026-07-28T17:13:32.908Z",
+  "notes": "Live-observed on the first real census run: TSLA reported tracked_frame_today: strategic.sotp at distance 0.00%. SOTP defaults its segment multiple to the company's OWN EV/Sales, so it reproduces the price by construction (3.82.0, review finding P0.1) — and a frame that IS the price is trivially the frame closest to the price. \"The market tracks SOTP\" is a tautology wearing the clothes of a finding. This is the same circularity 3.82.0 removed from the equal-weight benchmark, resurfacing in a diagnostic shipped one release earlier. The lesson taken: the exclusion travels with the PROPERTY, not ",
+  "published": "2026-07-28T17:27:54.592Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
