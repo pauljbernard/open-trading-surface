@@ -1,13 +1,13 @@
 {
-  "version": "3.98.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.98.0.plugin",
-  "sha256": "49f7e6bc7e4010f95d130bd10fecccaf084704f8db6fd6d60d239f32022a73d6",
+  "version": "3.99.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.99.0.plugin",
+  "sha256": "2f705e0b17770e8111a8bd1ec09fc0835d01ed0b0d34f19207a7959ec9b8c15b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.98.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.99.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Live observation, SPCX (Space Exploration Technologies, IPO 2026-06-12): get_model_of_models returned weighted_fair_value: null with the priority line \"no model currently earns a weight for SPCX\" — while the frames were valuing the name that same instant (SI 23.74, book 9.35, NAV 9.35, replacement 4.52), the Strategic Initiatives view was showing a total, and the Pricing Models view was showing a benchmark. Three surfaces, three readings of one name at one instant. THE CAUSE, verified in the payload. Precision weighting scores each frame on trailing PAIRED (model value, price) observations and",
-  "published": "2026-07-28T15:34:24.906Z",
+  "notes": "Two live reports from the owner, verbatim: *\"the link on the company information page that is supposed to search and provide manual matching doesn't work\"*, and — asked what happens when he clicks the ⟳ Fetch/refresh enrichment control on an executive profile — *\"nothing at all\"*. WHAT THE DEAD CONTROL ACTUALLY WAS. The wiring was sound. In the EMITTED client script (the template literal is what the browser receives, so it is what was checked, not the source): cmPost exists at module scope and is in scope where the #exenrich handler calls it; #exenrich appears exactly once in the markup and on",
+  "published": "2026-07-28T16:42:36.225Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

@@ -114,12 +114,23 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>3.98.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-28 15:34 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>3.99.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-28 16:42 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">3.99.0 <span class="reltitle">the dead control, and the owner's own path to identity (minor)</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>works from <b>any</b> enrichment status — <code>ok</code>, <code>ambiguous</code>, <code>not_found</code>,</li>
+        <li><b>never overwrites the automatic verdict</b>: results are written to a separate</li>
+        <li><b>always records the proposal</b> in the append-only journal — including when</li>
+        <li><b>always renders an outcome</b>: the candidate list, or an explicit</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">3.98.0 <span class="reltitle">the unweighted benchmark, and three views that agree (minor)</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -202,22 +213,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><b>JOURNEY 3 — cohorts → securities, and onto the surface.</b> Cohort member</li>
         <li><b>JOURNEY 4 — THE MODELING-GAP LENS.</b> (a) Security side: the Model of</li>
         <li><b>JOURNEY 2 — completeness check (3.92.0/3.93.0 built this one).</b> The</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">3.93.0 <span class="reltitle">Unified calendar: everything the feed knows, on one time axis</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>New suite <code>unified-calendar.test.js</code> (five-source aggregation with type</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>**THE UNIFIED OP (<code>/cm/unified_calendar</code>, token-guarded like every /cm</li>
-        <li><b>VISUAL MONTH GRID (terminal, Watchlists → Alerts → Calendar).</b> A month</li>
-        <li><b>LIST MODE STAYS.</b> The existing dated list is now a toggle (**List |</li>
-        <li><b>FILTER PARITY WITH THE FEED, BY CONSTRUCTION.</b> The type-chip strip is</li>
       </ul>
     </div>
   </div>

@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>3.99.0 — the dead control, and the owner's own path to identity (minor)</h2>
+<ul>
+<li>works from <b>any</b> enrichment status — <code>ok</code>, <code>ambiguous</code>, <code>not_found</code>,</li>
+<li><b>never overwrites the automatic verdict</b>: results are written to a separate</li>
+<li><b>always records the proposal</b> in the append-only journal — including when</li>
+<li><b>always renders an outcome</b>: the candidate list, or an explicit</li>
+</ul>
 <h2>3.98.0 — the unweighted benchmark, and three views that agree (minor)</h2>
 <ul>
 <li><code>weighted_fair_value</code> <b>stays null</b> — an earned composite genuinely does not</li>
