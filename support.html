@@ -114,12 +114,29 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>3.97.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-28 15:00 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>3.98.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-28 15:34 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">3.98.0 <span class="reltitle">the unweighted benchmark, and three views that agree (minor)</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>Tests</b>: new suite <code>unweighted-benchmark.test.js</code> — the under-<code>min_obs</code></li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><code>weighted_fair_value</code> <b>stays null</b> — an earned composite genuinely does not</li>
+        <li><code>unweighted_fair_value: &lt;number|null&gt;</code>;</li>
+        <li><code>unweighted_vs_price_pct: &lt;number|null&gt;</code> — the gap computed once,</li>
+        <li>`unweighted_basis: { reason, observations_available, observations_required,</li>
+        <li><code>composite_status: 'earned' | 'unweighted_benchmark' | 'absent'</code> — a compact</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">3.97.0 <span class="reltitle">identity resolution as owner-grade judgment (minor)</span></h3>
   </div>
@@ -201,22 +218,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><b>VISUAL MONTH GRID (terminal, Watchlists → Alerts → Calendar).</b> A month</li>
         <li><b>LIST MODE STAYS.</b> The existing dated list is now a toggle (**List |</li>
         <li><b>FILTER PARITY WITH THE FEED, BY CONSTRUCTION.</b> The type-chip strip is</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">3.92.0 <span class="reltitle">Alerts feed redesign: the typed stream is the attention-focusing instrument</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>Tests.</b> New suite <code>alerts-feed.test.js</code> (stream shape incl. the</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>TYPE-FIRST FEED (terminal, Watchlists → Alerts → Feed).</b> The sub-section</li>
-        <li><b>PRICE RULES DEMOTED TO A TYPE.</b> The legacy create-alert row</li>
-        <li><b>COHORT-FIRST SUBSCRIPTIONS (owner refinement, approved).</b> The</li>
-        <li><b>FEED ENDPOINT (<code>/cm/alerts_feed</code>, token-guarded like every /cm op).</b> The</li>
       </ul>
     </div>
   </div>

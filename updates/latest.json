@@ -1,13 +1,13 @@
 {
-  "version": "3.97.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.97.0.plugin",
-  "sha256": "78249da72031c64f83bdc925f47982d9cc7a45780ff6f397d33a8d87607e137c",
+  "version": "3.98.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.98.0.plugin",
+  "sha256": "49f7e6bc7e4010f95d130bd10fecccaf084704f8db6fd6d60d239f32022a73d6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.97.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.98.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive: \"because identity is a loose search match, we might want to add functionality that first provides possible matches and allows the user to confirm them before they are added to the profile.\" THE PRINCIPLE. Automatic identity matching has exactly TWO failure modes: refusing a real match — 3.96.0 refused Gwynne Shotwell because the article drops her middle initial, and 3.96.2 canonicalised that one case while the next spelling variant would have refused all over again — or SILENTLY ADOPTING A WRONG ONE, attributing another human being's biography and Form-4 filings to this person",
-  "published": "2026-07-28T15:00:20.138Z",
+  "notes": "Live observation, SPCX (Space Exploration Technologies, IPO 2026-06-12): get_model_of_models returned weighted_fair_value: null with the priority line \"no model currently earns a weight for SPCX\" — while the frames were valuing the name that same instant (SI 23.74, book 9.35, NAV 9.35, replacement 4.52), the Strategic Initiatives view was showing a total, and the Pricing Models view was showing a benchmark. Three surfaces, three readings of one name at one instant. THE CAUSE, verified in the payload. Precision weighting scores each frame on trailing PAIRED (model value, price) observations and",
+  "published": "2026-07-28T15:34:24.906Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
