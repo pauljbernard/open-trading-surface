@@ -1,25 +1,32 @@
 {
  "format": "ots-marketplace/1",
- "updated": "2026-07-26T21:36:47.177411Z",
+ "updated": "2026-07-28T23:28:01.912Z",
  "items": [
   {
    "id": "ots-starter",
    "title": "OTS Starter Image",
-   "description": "Bootstrap a fresh install to a working digital twin: the full NYSE+NASDAQ Opportunity Surface (universe, precision-weighted model values, 24 recorded heat-map days), seven strategic-initiative books (TSLA + the Tranche-1 six: PLTR, LITE, BE, RVMD, CRDO, RKLB \u2014 every number journaled as authored judgment), and workspace configuration (cohorts, alerts). Contains NO keys, NO portfolios, NO personal research. Imported records carry origin provenance; your own history stays yours.",
-   "version": "1.0.0",
-   "image_id": "img-2026-07-26-70a8c71e",
+   "description": "Bootstrap a fresh install to a working digital twin: the full NYSE+NASDAQ Opportunity Surface (universe, precision-weighted model values, 26 recorded heat-map days through 2026-07-28), FIFTEEN strategic-initiative books — TSLA, the Tranche-1 six (PLTR, LITE, BE, RVMD, CRDO, RKLB), CAT and CSCO, the memory/HBM names (MU, STX, WDC, SNDK), and SPCX — every number journaled as authored judgment, with the private-name reference inputs those books need to be expressed per share, the owner valuation-structure classifications, and workspace configuration (cohorts, alerts, tuning registry, alert subscriptions). Contains NO keys, NO portfolios, NO personal research. Imported records carry origin provenance; your own history stays yours.",
+   "version": "1.1.0",
+   "image_id": "img-2026-07-28-62d46d8a",
    "packs": [
     "reference",
     "model-books",
     "configuration"
    ],
    "author": "Open Trading Surface (reference instance)",
-   "published": "2026-07-26T19:55:00.633073Z",
-   "sha256": "811908fb3ce7da4d6d0753adc2bbb043289c843999ff1d9afce493c3c3bc83a3",
-   "bytes": 6293347,
-   "url": "https://pauljbernard.github.io/open-trading-surface/marketplace/ots-starter-1.0.0.otsimage",
-   "notes": "Free. v1.0.0 \u2014 reference surface through 2026-07-26, Tranche-1 SI books at their initial grounded revision. Descriptive market data and authored judgment made explicit \u2014 not investment advice.",
-   "versions": []
+   "published": "2026-07-28T23:28:01.910Z",
+   "bytes": null,
+   "url": "https://pauljbernard.github.io/open-trading-surface/marketplace/ots-starter-1.1.0.otsimage",
+   "notes": "Free. v1.1.0 — reference surface through 2026-07-28 on plugin 4.3.2. FIRST image whose pack coverage is proven from the source rather than curated: every state store now has a pack decision and the manifest reports none skipped. Adds the eight books written since 1.0.0 (SPCX among them) plus reference-inputs.json, without which a private-name book arrives with no share count to express it per share and reads as absent. v1.0.0 remains installable. Descriptive market data and authored judgment made explicit — not investment advice.",
+   "versions": [
+    {
+     "version": "1.0.0",
+     "url": "https://pauljbernard.github.io/open-trading-surface/marketplace/ots-starter-1.0.0.otsimage",
+     "sha256": "811908fb3ce7da4d6d0753adc2bbb043289c843999ff1d9afce493c3c3bc83a3",
+     "bytes": 6293347,
+     "published": "2026-07-26T19:55:00.633073Z"
+    }
+   ]
   }
  ]
 }
