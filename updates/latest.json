@@ -1,13 +1,13 @@
 {
-  "version": "4.2.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.2.0.plugin",
-  "sha256": "772516816b893b14408f33f48e03715315c6d4014b133123e71289a1dfc655e2",
+  "version": "4.3.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.3.0.plugin",
+  "sha256": "1c03ee1e4445b632b50aa21168082423ff077a33b539c1bb0167417295b6d66b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.2.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.3.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Two things ship, and they are the same thing seen from two directions: an add-on book is an INCREMENT, and a number that treats it as a peer of whole-company frames is answering a different question than the one it is being read for. Phase 1 makes the two answers visible together. The dial fix is that same observation applied to an inversion that had been quietly using the wrong one for every SI-heavy name. 1. PHASE 1 — the structural constructions, behind a flag, with BOTH numbers reported (VALUATION-STRUCTURE-SPEC §3, §8 Phase 1) The flag. STRUCTURE_COMPOSITE_ENABLED, tuning registry, defaul",
-  "published": "2026-07-28T21:11:27.723Z",
+  "notes": "This release began as a question about method and ended as a release about silence. The through-line found by the end is that three of the four fixes below are the same defect wearing different clothes: the system possessed the information that something was wrong, and had no path by which to say it. A composite whose agreement with price was mechanical rather than earned, and no field that said which. A data image that stopped covering the state directory nine releases ago, and a manifest that named the omission only for files. A diagnostic engine with nine checks and none about the jobs the ",
+  "published": "2026-07-28T22:49:54.455Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

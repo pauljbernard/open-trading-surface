@@ -114,12 +114,15 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.2.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-28 21:11 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.3.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-28 22:49 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.3.0 <span class="reltitle">four ways the system knew something was wrong and could not say so</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.2.0 <span class="reltitle">valuation structure, Phase 1: both numbers side by side, and the belief dial finds its anchor</span></h3>
   </div>
@@ -170,23 +173,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><b>never overwrites the automatic verdict</b>: results are written to a separate</li>
         <li><b>always records the proposal</b> in the append-only journal — including when</li>
         <li><b>always renders an outcome</b>: the candidate list, or an explicit</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">3.98.0 <span class="reltitle">the unweighted benchmark, and three views that agree (minor)</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>Tests</b>: new suite <code>unweighted-benchmark.test.js</code> — the under-<code>min_obs</code></li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><code>weighted_fair_value</code> <b>stays null</b> — an earned composite genuinely does not</li>
-        <li><code>unweighted_fair_value: &lt;number|null&gt;</code>;</li>
-        <li><code>unweighted_vs_price_pct: &lt;number|null&gt;</code> — the gap computed once,</li>
-        <li>`unweighted_basis: { reason, observations_available, observations_required,</li>
-        <li><code>composite_status: 'earned' | 'unweighted_benchmark' | 'absent'</code> — a compact</li>
       </ul>
     </div>
   </div>
