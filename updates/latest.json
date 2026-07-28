@@ -1,13 +1,13 @@
 {
-  "version": "3.96.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.1.plugin",
-  "sha256": "7bad5a26bedcd66affe5206636be9467d5e4fbd9c6b898061bee6b3412e07ff2",
+  "version": "3.96.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.2.plugin",
+  "sha256": "4e2cada29e43c2e406b3f4c2f305a2aeb778d454411070b881495524986a0c6f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "FOURTH FIX, found live the day after 3.95.0 shipped: the executive-roster poll rides scanStart's external-poll gate ahead of the intake (so news tagging sees the freshest roster), but the on-demand run_ingest tool called ingest.runCycle DIRECTLY and skipped it — a roster cycle could only ever happen on the daemon schedule, and there was NO way to record a first baseline by hand. The scan said so honestly for a full day (\"no executive roster cycle has run yet\") while the capability sat unreachable. run_ingest now runs the same roster poll first, same order, same best-effort discipline: a roster",
-  "published": "2026-07-28T14:07:08.688Z",
+  "notes": "Live miss, reported from the SPCX roster: the profile for Gwynne E. Shotwell reported \"No Wikipedia page at the exact queried title\" while en.wikipedia.org/wiki/Gwynne_Shotwell plainly exists. The article is titled without the middle initial; the 3.96.0 lookup queried the recorded name verbatim, took the 404, and stored not_found. The module already computes a canonical name key that drops single-letter initials and honorifics — it is what the person slug and the career cross-reference are built on. The Wikipedia lookup simply was not using its own canonical form. It now tries the RECORDED tit",
+  "published": "2026-07-28T14:31:29.522Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
