@@ -1,6 +1,6 @@
 {
  "format": "ots-marketplace/1",
- "updated": "2026-07-28T23:28:01.912Z",
+ "updated": "2026-07-28T23:30:24.658Z",
  "items": [
   {
    "id": "ots-starter",
@@ -15,7 +15,7 @@
    ],
    "author": "Open Trading Surface (reference instance)",
    "published": "2026-07-28T23:28:01.910Z",
-   "bytes": null,
+   "bytes": 6899560,
    "url": "https://pauljbernard.github.io/open-trading-surface/marketplace/ots-starter-1.1.0.otsimage",
    "notes": "Free. v1.1.0 — reference surface through 2026-07-28 on plugin 4.3.2. FIRST image whose pack coverage is proven from the source rather than curated: every state store now has a pack decision and the manifest reports none skipped. Adds the eight books written since 1.0.0 (SPCX among them) plus reference-inputs.json, without which a private-name book arrives with no share count to express it per share and reads as absent. v1.0.0 remains installable. Descriptive market data and authored judgment made explicit — not investment advice.",
    "versions": [
@@ -26,7 +26,8 @@
      "bytes": 6293347,
      "published": "2026-07-26T19:55:00.633073Z"
     }
-   ]
+   ],
+   "sha256": "e6281dbf83806a8b9d895ea10967bdc9facbce464a81d2444ffcfc7c32296fb0"
   }
  ]
 }
