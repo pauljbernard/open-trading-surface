@@ -1,13 +1,13 @@
 {
-  "version": "3.96.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.2.plugin",
-  "sha256": "4e2cada29e43c2e406b3f4c2f305a2aeb778d454411070b881495524986a0c6f",
+  "version": "3.97.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.97.0.plugin",
+  "sha256": "78249da72031c64f83bdc925f47982d9cc7a45780ff6f397d33a8d87607e137c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.97.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Live miss, reported from the SPCX roster: the profile for Gwynne E. Shotwell reported \"No Wikipedia page at the exact queried title\" while en.wikipedia.org/wiki/Gwynne_Shotwell plainly exists. The article is titled without the middle initial; the 3.96.0 lookup queried the recorded name verbatim, took the 404, and stored not_found. The module already computes a canonical name key that drops single-letter initials and honorifics — it is what the person slug and the career cross-reference are built on. The Wikipedia lookup simply was not using its own canonical form. It now tries the RECORDED tit",
-  "published": "2026-07-28T14:31:29.522Z",
+  "notes": "Owner directive: \"because identity is a loose search match, we might want to add functionality that first provides possible matches and allows the user to confirm them before they are added to the profile.\" THE PRINCIPLE. Automatic identity matching has exactly TWO failure modes: refusing a real match — 3.96.0 refused Gwynne Shotwell because the article drops her middle initial, and 3.96.2 canonicalised that one case while the next spelling variant would have refused all over again — or SILENTLY ADOPTING A WRONG ONE, attributing another human being's biography and Form-4 filings to this person",
+  "published": "2026-07-28T15:00:20.138Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
