@@ -1,13 +1,13 @@
 {
-  "version": "4.3.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.3.2.plugin",
-  "sha256": "e1bd115ea27d31ff4fd39d837ecbbbbf19074611c64190cc75defbfb57962472",
+  "version": "4.4.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.4.0.plugin",
+  "sha256": "8c8ba6f93ed3584ddd75996b2ca5b25e61bc2972eaddbada1af1a72bca753f45",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.3.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.4.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Reported one release after 4.3.0 claimed to have fixed image coverage: the strategic initiatives were not reaching the images. Precisely: SPCX's book *does* travel — 1,876 lines of it, in strategic-initiatives.json, in the model-books pack. What did not travel is the thing that makes it expressible. reference-inputs.json was in no pack. Its own module header names the case: > \"PRIVATE-NAME REFERENCE INPUTS (3.90.0, owner-directed — the SPACEX case: > a book exists, and everything else is honestly absent because the name has no > tape).\" It holds shares_outstanding — *\"so the SI frame can expre",
-  "published": "2026-07-28T23:12:45.325Z",
+  "notes": "Asked plainly: *\"we should be able to run the model of model valuation time series over all S&P 500 stocks, and identify which ones are trading in price below that evaluation… without building special code.\"* You could not. grep momw server/screener.js returned zero. Every number this application exists to produce — the precision-weighted model of models, and every per-model fair value behind it — was recorded daily for ~4,000 names and was invisible to screens and cohorts. The one question the whole architecture is built to answer could not be asked of a screen at all. The diagnosis was half ",
+  "published": "2026-07-28T23:53:36.447Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
