@@ -1,13 +1,13 @@
 {
-  "version": "3.95.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.95.0.plugin",
-  "sha256": "fe6e29c5b1411ddd6fc99350dd688d7e2f4927368e6ef509f7ebc8cdf71d5e12",
+  "version": "3.96.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.0.plugin",
+  "sha256": "eba0ad3ab40e70c220bdc2bdc672818609884e8daae9787603f16d699eee123d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.95.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive: executive changes directly impact company outcomes — joins, leaves and fundamental profile changes are important events. This wave makes executives first-class: a person drill-down inside Company Information, a per-symbol roster snapshot store with structural change detection wired into the scan/calendar/alert planes, and a display-only executive-mention tag on the news intake. - EXECUTIVE PROFILE DRILL-DOWN. Every Key Executives row in Company Information is clickable and opens a person PROFILE sub-page within the company view (tab.sub = 'profile' — the existing view/sub mech",
-  "published": "2026-07-28T01:30:55.796Z",
+  "notes": "Owner directive: profile pages need a personal summary, career/resume, Wikipedia details and news — a fully detailed executive report. The honest architecture split holds throughout: the DAEMON fetches and caches structured and opaque-text sources with provenance and untrusted fencing (no semantic assembly server-side — the 3.88.0 invariant); the AGENT writes synthesized narrative reports into research notes; the profile page renders both. - PER-PERSON ENRICHMENT FETCH + CACHE (server/executives.js), stored at <statedir>/executives/people/<slug>.json where the slug is the normalized name key (",
+  "published": "2026-07-28T01:50:09.517Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
