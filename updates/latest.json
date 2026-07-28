@@ -1,13 +1,13 @@
 {
-  "version": "4.1.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.1.1.plugin",
-  "sha256": "64cc2c8b4dbf2a6928338f01e3fdd10e6f619e4e87c316742b7621896627443a",
+  "version": "4.1.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.1.2.plugin",
+  "sha256": "7a438e7027593dc7f42c24f931bb5215f7794c491bbf253fa5571205dd88f337",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.1.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.1.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's ruling, verbatim in intent: *\"it is naive to believe that all models would be equally weighted. In practice that simply isn't the case.\"* The equal-weight blend is a yardstick, never a published fair value. VALUATION-STRUCTURE-SPEC §5.1 already retired the 3.98.0 fallback in writing; this release retires it in code, and adds the regression test that would have caught the defect. THE DEFECT, OBSERVED LIVE ON ONE SCREEN. SPCX, price ~116.32, 2026-07-28: | panel | number | | Pricing Models | *\"Unweighted fair value (benchmark) 2.14\"*, *\"Equal-weight benchmark 2.14 (+5328.60% vs price)",
-  "published": "2026-07-28T19:04:15.839Z",
+  "notes": "Three defects, all observed live by the owner, all of the same family: a number that does not name its own basis, or a path that is under-served when no frame earns a weight. Two of them were on SPCX (IPO 2026-06-12) and one on CAT. None of them is a weighting problem; all three are disclosure problems, and two of them made one screen contradict the screen beside it. Not one earned composite moves in this release, and a golden digest proves it rather than asserting it. DEFECT 1 — THE LIVE VALUE COLUMN WAS BLANK WHERE NOTHING EARNED A WEIGHT What was seen. On SPCX the Model of Models table publ",
+  "published": "2026-07-28T19:43:34.680Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
