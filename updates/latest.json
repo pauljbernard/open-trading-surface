@@ -1,13 +1,13 @@
 {
-  "version": "4.0.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.0.1.plugin",
-  "sha256": "5c3acb34840db1205595a531c21dfe30d2221bf2540d121a029f163f1e6daebd",
+  "version": "4.1.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.1.0.plugin",
+  "sha256": "73c67825f775f014789a23aeaeb7c70b851a9dfab4b676bc0758a0462409e4d6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.0.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.1.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Live-observed on the first real census run: TSLA reported tracked_frame_today: strategic.sotp at distance 0.00%. SOTP defaults its segment multiple to the company's OWN EV/Sales, so it reproduces the price by construction (3.82.0, review finding P0.1) — and a frame that IS the price is trivially the frame closest to the price. \"The market tracks SOTP\" is a tautology wearing the clothes of a finding. This is the same circularity 3.82.0 removed from the equal-weight benchmark, resurfacing in a diagnostic shipped one release earlier. The lesson taken: the exclusion travels with the PROPERTY, not ",
-  "published": "2026-07-28T17:27:54.592Z",
+  "notes": "The owner's direction, verbatim: *\"the application has a configured FMP key, and wouldn't you think that adding the ability for a exposed as a route for census would make sense?\"* The census (VALUATION-STRUCTURE-SPEC §8, Phase 0) shipped at 4.0.0 as scripts/structure-census.js only. That breaks the house parity rule — the daemon holds the FMP key and the live state, so anything the script can do must be reachable from the agent plane and the terminal — and it did so in the most concrete way possible: the agent could not run the census at all this session, and could not work around it either, b",
+  "published": "2026-07-28T18:25:46.970Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
