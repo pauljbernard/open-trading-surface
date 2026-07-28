@@ -1,13 +1,13 @@
 {
-  "version": "4.1.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.1.0.plugin",
-  "sha256": "73c67825f775f014789a23aeaeb7c70b851a9dfab4b676bc0758a0462409e4d6",
+  "version": "4.1.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.1.1.plugin",
+  "sha256": "64cc2c8b4dbf2a6928338f01e3fdd10e6f619e4e87c316742b7621896627443a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.1.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.1.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's direction, verbatim: *\"the application has a configured FMP key, and wouldn't you think that adding the ability for a exposed as a route for census would make sense?\"* The census (VALUATION-STRUCTURE-SPEC §8, Phase 0) shipped at 4.0.0 as scripts/structure-census.js only. That breaks the house parity rule — the daemon holds the FMP key and the live state, so anything the script can do must be reachable from the agent plane and the terminal — and it did so in the most concrete way possible: the agent could not run the census at all this session, and could not work around it either, b",
-  "published": "2026-07-28T18:25:46.970Z",
+  "notes": "The owner's ruling, verbatim in intent: *\"it is naive to believe that all models would be equally weighted. In practice that simply isn't the case.\"* The equal-weight blend is a yardstick, never a published fair value. VALUATION-STRUCTURE-SPEC §5.1 already retired the 3.98.0 fallback in writing; this release retires it in code, and adds the regression test that would have caught the defect. THE DEFECT, OBSERVED LIVE ON ONE SCREEN. SPCX, price ~116.32, 2026-07-28: | panel | number | | Pricing Models | *\"Unweighted fair value (benchmark) 2.14\"*, *\"Equal-weight benchmark 2.14 (+5328.60% vs price)",
+  "published": "2026-07-28T19:04:15.839Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
