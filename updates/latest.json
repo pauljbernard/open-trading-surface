@@ -1,13 +1,13 @@
 {
-  "version": "3.96.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.0.plugin",
-  "sha256": "eba0ad3ab40e70c220bdc2bdc672818609884e8daae9787603f16d699eee123d",
+  "version": "3.96.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.1.plugin",
+  "sha256": "7bad5a26bedcd66affe5206636be9467d5e4fbd9c6b898061bee6b3412e07ff2",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-3.96.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive: profile pages need a personal summary, career/resume, Wikipedia details and news — a fully detailed executive report. The honest architecture split holds throughout: the DAEMON fetches and caches structured and opaque-text sources with provenance and untrusted fencing (no semantic assembly server-side — the 3.88.0 invariant); the AGENT writes synthesized narrative reports into research notes; the profile page renders both. - PER-PERSON ENRICHMENT FETCH + CACHE (server/executives.js), stored at <statedir>/executives/people/<slug>.json where the slug is the normalized name key (",
-  "published": "2026-07-28T01:50:09.517Z",
+  "notes": "FOURTH FIX, found live the day after 3.95.0 shipped: the executive-roster poll rides scanStart's external-poll gate ahead of the intake (so news tagging sees the freshest roster), but the on-demand run_ingest tool called ingest.runCycle DIRECTLY and skipped it — a roster cycle could only ever happen on the daemon schedule, and there was NO way to record a first baseline by hand. The scan said so honestly for a full day (\"no executive roster cycle has run yet\") while the capability sat unreachable. run_ingest now runs the same roster poll first, same order, same best-effort discipline: a roster",
+  "published": "2026-07-28T14:07:08.688Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
