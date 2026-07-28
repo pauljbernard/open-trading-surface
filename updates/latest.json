@@ -1,13 +1,13 @@
 {
-  "version": "4.3.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.3.0.plugin",
-  "sha256": "1c03ee1e4445b632b50aa21168082423ff077a33b539c1bb0167417295b6d66b",
+  "version": "4.3.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.3.1.plugin",
+  "sha256": "6a2e87ea44086daef3eff30cc5854dcefc7594b6dc83e8fc125f34eadd00e6a7",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.3.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.3.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "This release began as a question about method and ended as a release about silence. The through-line found by the end is that three of the four fixes below are the same defect wearing different clothes: the system possessed the information that something was wrong, and had no path by which to say it. A composite whose agreement with price was mechanical rather than earned, and no field that said which. A data image that stopped covering the state directory nine releases ago, and a manifest that named the omission only for files. A diagnostic engine with nine checks and none about the jobs the ",
-  "published": "2026-07-28T22:49:54.455Z",
+  "notes": "Found by running 4.3.0's own new check against a healthy machine. automation.daily_ledger reported *\"no momw weight vector has ever been recorded here\"* on an instance that had been recording vectors all day. The register is {symbols: {SYM: [{date, ...}]}}. The check walked the TOP level, got the single key symbols, found it was not an array, and concluded nothing had ever been written. So the one check whose entire job is to notice a job that stopped would have warned permanently — and a check that cries wolf forever is worse than no check, because it teaches the reader to ignore the one sign",
+  "published": "2026-07-28T23:01:26.558Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
