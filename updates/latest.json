@@ -1,13 +1,13 @@
 {
-  "version": "4.6.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.6.0.plugin",
-  "sha256": "5f44b7ac44422fadfc0665b246ae24c129891843ebe9d03b6b654228b0944239",
+  "version": "4.7.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.0.plugin",
+  "sha256": "0356f99e142b4e62ae43629d258059df1b2ee915d97a7b6008b0790efcc99e86",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.6.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "*\"Can we review the performance and see what is the root cause of the long response time.\"* The root cause The same statements are fetched from four independent places, and fmp.js had no cache — the Map at the top of the governor is a rate-limit bucket, not a store. | Caller | Fetches | How often | | pricing/context.js | income + balance + cashflow (annual, 2) | once per name | | pricing/reconstruct.js | the same three at limit ~40 | once per intrinsic frame (~6) | | series.js | a statement endpoint at limit 40 | once per band: series (~6 relative frames) | | pricing/basis.js | profile + incom",
-  "published": "2026-07-29T17:39:16.921Z",
+  "notes": "*\"Stock prices are actually a top down and bottoms up analysis activity… having insight into how the market is actually justifying a current price and deriving what assumptions come along with that provides us with a list of dependencies.\"* Every pricing surface OTS has shipped so far asks one question: what is this name worth if our assumptions hold. This is the other question — what must be believed for today's price to be fair — and it is deliberately not answered with one inverted number. One price is one equation and the assumptions are many, so infinitely many belief vectors reproduce it",
+  "published": "2026-07-29T22:07:16.454Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
