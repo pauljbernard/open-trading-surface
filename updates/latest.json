@@ -1,13 +1,13 @@
 {
-  "version": "4.5.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.2.plugin",
-  "sha256": "b3a88aec0de558b8227d34d8b616f0602a1e5b67aa3c0424dd81e01a25b40274",
+  "version": "4.5.3",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.3.plugin",
+  "sha256": "e2827b23b38bc1b3e7106ac870c955bf7ab4b9cc07dba77ea0a6fdad01beff8b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.3.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The Create button was not dead because of its name field. toast(...) appeared at 23 call sites in the client and was never written. Every one threw ReferenceError. Those calls sit on the success and failure paths of every cohort mutation — create, delete, edit members, add a symbol, remove a symbol, set a note. So the buttons did not merely fail to confirm: the throw aborted the handler, and on the success paths it aborted *before* the re-render that would have shown the change had landed. A whole tab's worth of controls read as broken, and had since those call sites landed. Why it survived. A",
-  "published": "2026-07-29T00:52:51.337Z",
+  "notes": "Two live defects, reported together. 1. A dangling reference blanked the view The heat map rendered exactly this and nothing else: > ⚠ no cohort \"coh_ay3fa4yq\" — list_cohorts shows 505 available A cohort id was persisted in saved client state, the cohort had since been deleted, the server refused correctly, and the client turned that refusal into a dead panel. The bug is not the refusal. The slice was gone; the surface was not. A persisted *pointer* to a deleted object is a filter the user can no longer have, not a fatal condition for the whole view. And it can't be fixed server-side — selecti",
+  "published": "2026-07-29T17:03:21.141Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
