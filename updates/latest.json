@@ -1,13 +1,13 @@
 {
-  "version": "4.5.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.0.plugin",
-  "sha256": "7933a89696d324fad07faf4baea8dc32cfe255895268f67d418104cf4483d93e",
+  "version": "4.5.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.1.plugin",
+  "sha256": "4e5fb84d3cb1616ffd4ca078757305dc8713ed05beaba0431dc97f974c578800",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Said plainly, after a needlessly complicated answer: *\"This segment of the UI is already a drop list box on the left side of the predicate. We just need to support either a value or a drop list box on the right hand side that includes all the same things as the other drop list box, for uniformity.\"* That was the right design and simpler than what I proposed back. 4.4.0 made the model values screenable but left \"price below its own model of models\" reachable only through the where expression box — a second, unrelated mechanism for what is obviously the same idea. A filter may now carry value_fi",
-  "published": "2026-07-29T00:16:32.112Z",
+  "notes": "Reported live: *\"the Preview Matches appears to work, the Create Cohort does not.\"* Both buttons sit in the predicate builder. Preview needs no name; Create read #coh-name from the row ABOVE the builder — the row that belongs to the \"Create from list\" path, beside the symbols box and its own Create button. So someone who opened the builder, wrote predicates and pressed Create was refused on account of a field that is not part of the panel they were working in. If the toast went unnoticed, the button simply looked dead. The builder now carries its own name input, in the same row as the buttons ",
+  "published": "2026-07-29T00:27:30.833Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
