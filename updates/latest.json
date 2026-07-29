@@ -1,13 +1,13 @@
 {
-  "version": "4.5.3",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.3.plugin",
-  "sha256": "e2827b23b38bc1b3e7106ac870c955bf7ab4b9cc07dba77ea0a6fdad01beff8b",
+  "version": "4.5.4",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.4.plugin",
+  "sha256": "11da887317e29c5339d91fa6c412dc9e99f55380290d453c971f5b0f3c7296fb",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.3.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.4.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Two live defects, reported together. 1. A dangling reference blanked the view The heat map rendered exactly this and nothing else: > ⚠ no cohort \"coh_ay3fa4yq\" — list_cohorts shows 505 available A cohort id was persisted in saved client state, the cohort had since been deleted, the server refused correctly, and the client turned that refusal into a dead panel. The bug is not the refusal. The slice was gone; the surface was not. A persisted *pointer* to a deleted object is a filter the user can no longer have, not a fatal condition for the whole view. And it can't be fixed server-side — selecti",
-  "published": "2026-07-29T17:03:21.141Z",
+  "notes": "4.5.3 bounded the census fetch so its spinner could not hang for ever, and did it by reaching for scrFetch, because that helper already had a timeout. scrFetch posts to /scr/ — the screener router. The census is a /cm/ op. So the screener answered exactly as it should: > ⚠ unknown screener op A routing bug wearing the costume of a timeout feature, and it replaced an infinite spinner with an immediate error. Not an improvement. cmFetch now carries its own optional timeout — AbortController, cleared on both the response and network-failure paths — and the census uses it. No helper is borrowed ac",
+  "published": "2026-07-29T17:22:37.278Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
