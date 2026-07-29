@@ -1,13 +1,13 @@
 {
-  "version": "4.5.4",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.4.plugin",
-  "sha256": "11da887317e29c5339d91fa6c412dc9e99f55380290d453c971f5b0f3c7296fb",
+  "version": "4.6.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.6.0.plugin",
+  "sha256": "5f44b7ac44422fadfc0665b246ae24c129891843ebe9d03b6b654228b0944239",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.4.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.6.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "4.5.3 bounded the census fetch so its spinner could not hang for ever, and did it by reaching for scrFetch, because that helper already had a timeout. scrFetch posts to /scr/ — the screener router. The census is a /cm/ op. So the screener answered exactly as it should: > ⚠ unknown screener op A routing bug wearing the costume of a timeout feature, and it replaced an infinite spinner with an immediate error. Not an improvement. cmFetch now carries its own optional timeout — AbortController, cleared on both the response and network-failure paths — and the census uses it. No helper is borrowed ac",
-  "published": "2026-07-29T17:22:37.278Z",
+  "notes": "*\"Can we review the performance and see what is the root cause of the long response time.\"* The root cause The same statements are fetched from four independent places, and fmp.js had no cache — the Map at the top of the governor is a rate-limit bucket, not a store. | Caller | Fetches | How often | | pricing/context.js | income + balance + cashflow (annual, 2) | once per name | | pricing/reconstruct.js | the same three at limit ~40 | once per intrinsic frame (~6) | | series.js | a statement endpoint at limit 40 | once per band: series (~6 relative frames) | | pricing/basis.js | profile + incom",
+  "published": "2026-07-29T17:39:16.921Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
