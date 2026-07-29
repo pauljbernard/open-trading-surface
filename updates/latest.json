@@ -1,13 +1,13 @@
 {
-  "version": "4.4.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.4.0.plugin",
-  "sha256": "8c8ba6f93ed3584ddd75996b2ca5b25e61bc2972eaddbada1af1a72bca753f45",
+  "version": "4.5.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.0.plugin",
+  "sha256": "7933a89696d324fad07faf4baea8dc32cfe255895268f67d418104cf4483d93e",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.4.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.5.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Asked plainly: *\"we should be able to run the model of model valuation time series over all S&P 500 stocks, and identify which ones are trading in price below that evaluation… without building special code.\"* You could not. grep momw server/screener.js returned zero. Every number this application exists to produce — the precision-weighted model of models, and every per-model fair value behind it — was recorded daily for ~4,000 names and was invisible to screens and cohorts. The one question the whole architecture is built to answer could not be asked of a screen at all. The diagnosis was half ",
-  "published": "2026-07-28T23:53:36.447Z",
+  "notes": "Said plainly, after a needlessly complicated answer: *\"This segment of the UI is already a drop list box on the left side of the predicate. We just need to support either a value or a drop list box on the right hand side that includes all the same things as the other drop list box, for uniformity.\"* That was the right design and simpler than what I proposed back. 4.4.0 made the model values screenable but left \"price below its own model of models\" reachable only through the where expression box — a second, unrelated mechanism for what is obviously the same idea. A filter may now carry value_fi",
+  "published": "2026-07-29T00:16:32.112Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
