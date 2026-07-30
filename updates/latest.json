@@ -1,13 +1,13 @@
 {
-  "version": "4.7.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.2.plugin",
-  "sha256": "dad10e8f11f634bd67e69e11150ddfdb92a5f752c95f307c7a7dba34560f37e3",
+  "version": "4.7.3",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.3.plugin",
+  "sha256": "8fef439b473349d7ef8afe345d64960f33ee8d0f7ecd15b5467d6be5e7a05eb9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.3.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Both found by putting the panel on screen and looking at it. Neither was caught by a green battery of 1,593 tests. A comment missing its second slash ate five table cells The candidate-row renderer carried a line reading / 4.7.1: WHAT THE RATIO IS AGAINST — one slash, not two. In the browser that opens a regex literal which runs to the next slash and swallows everything between, so five of the six <td> cells vanished and the table rendered one column wide: every candidate showed its name and its basis, and no weight, no frame value, no requirement. The 4.7.1 compile test passed it. That test g",
-  "published": "2026-07-30T22:00:14.728Z",
+  "notes": "Found the same way as 4.7.2: by putting the panel on screen and reading it. On TSLA the add-on row said: > ADD-ON BOOK — an increment. Measured against the residual — (price 308.85 > less base —) directly above the refusal explaining that it could not be measured, because the name has no structural base. An em-dash sentence asserting arithmetic nobody performed, on the one panel whose entire purpose is not to overstate what is known. The cause: the basis line keyed on the explains field alone, which is set from add-on-ness and says what the frame *would* be measured against — not whether it *w",
+  "published": "2026-07-30T22:49:02.495Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
