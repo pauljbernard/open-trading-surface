@@ -1,13 +1,13 @@
 {
-  "version": "4.7.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.1.plugin",
-  "sha256": "867cbe4a8ac607a2af7c438e997fffb3dfdc394adb0df669b99989f43c0f0f40",
+  "version": "4.7.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.2.plugin",
+  "sha256": "dad10e8f11f634bd67e69e11150ddfdb92a5f752c95f307c7a7dba34560f37e3",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "4.7.0 shipped a wrong number, and the gate that was supposed to catch it caught it — one release late. The defect An add-on book's live value is an increment on an operating base, not a standalone claim about the share price. On PLTR the base is 7.96 and the book 14.27, summing to 22.23 against a price of 123. enumerateCandidates computed price / live_fair_value for every frame, so the panel said the PLTR book \"requires 8.62x\" (123 ÷ 14.27). The increment only ever has to cover the price above the base: 115.04 ÷ 14.27 = 8.062x. The number was wrong, and the presentation was worse — an incremen",
-  "published": "2026-07-30T21:19:30.731Z",
+  "notes": "Both found by putting the panel on screen and looking at it. Neither was caught by a green battery of 1,593 tests. A comment missing its second slash ate five table cells The candidate-row renderer carried a line reading / 4.7.1: WHAT THE RATIO IS AGAINST — one slash, not two. In the browser that opens a regex literal which runs to the next slash and swallows everything between, so five of the six <td> cells vanished and the table rendered one column wide: every candidate showed its name and its basis, and no weight, no frame value, no requirement. The 4.7.1 compile test passed it. That test g",
+  "published": "2026-07-30T22:00:14.728Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
