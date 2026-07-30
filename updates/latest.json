@@ -1,13 +1,13 @@
 {
-  "version": "4.7.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.0.plugin",
-  "sha256": "0356f99e142b4e62ae43629d258059df1b2ee915d97a7b6008b0790efcc99e86",
+  "version": "4.7.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.1.plugin",
+  "sha256": "867cbe4a8ac607a2af7c438e997fffb3dfdc394adb0df669b99989f43c0f0f40",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "*\"Stock prices are actually a top down and bottoms up analysis activity… having insight into how the market is actually justifying a current price and deriving what assumptions come along with that provides us with a list of dependencies.\"* Every pricing surface OTS has shipped so far asks one question: what is this name worth if our assumptions hold. This is the other question — what must be believed for today's price to be fair — and it is deliberately not answered with one inverted number. One price is one equation and the assumptions are many, so infinitely many belief vectors reproduce it",
-  "published": "2026-07-29T22:07:16.454Z",
+  "notes": "4.7.0 shipped a wrong number, and the gate that was supposed to catch it caught it — one release late. The defect An add-on book's live value is an increment on an operating base, not a standalone claim about the share price. On PLTR the base is 7.96 and the book 14.27, summing to 22.23 against a price of 123. enumerateCandidates computed price / live_fair_value for every frame, so the panel said the PLTR book \"requires 8.62x\" (123 ÷ 14.27). The increment only ever has to cover the price above the base: 115.04 ÷ 14.27 = 8.062x. The number was wrong, and the presentation was worse — an incremen",
+  "published": "2026-07-30T21:19:30.731Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
