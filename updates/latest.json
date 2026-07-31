@@ -1,13 +1,13 @@
 {
-  "version": "4.9.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.0.plugin",
-  "sha256": "34ebf5bcd71448b7d7609c945a50754c7cf75b19549c62071afb841c50899dc4",
+  "version": "4.9.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.1.plugin",
+  "sha256": "4aa7e121936b877e027a521d3d45f4bbc3db2da74ff1e79ca88047012d91b2b3",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "PROFORMA-SPEC L1→L2, phase 1. Computed, not published — calibrate() still seeds the projection exactly as before and no published value moves. What was wrong calibrate() reads the latest annual statement for levels and uses up to three periods only as a *growth fallback* when consensus estimates cannot be used. No history is fitted. The window is not short — there is no window. Meanwhile model-data.js has been producing 64 quarters of per-driver history, with sources and coverage, the entire time. The data was in the building and the projection never read it. The default inverts Fit on every p",
-  "published": "2026-07-31T03:25:49.371Z",
+  "notes": "Both found by the owner reading the actual page. 114,948.1% The Model of Models gaps strip read, live on TSLA: > the SI frame carries 114948.1% of that gap (310.36 of 0.27 per share) Two defects, compounding. No materiality guard. The denominator was $0.27 against a $308.85 price — 0.09%. The bracketing box *directly above that line* exists to say precisely that this gap is the estimator, not a finding, because precision weighting drives the composite onto the price whenever the frames straddle it. So the divisor was the one quantity the panel had just finished warning the reader not to trust,",
+  "published": "2026-07-31T03:57:26.001Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
