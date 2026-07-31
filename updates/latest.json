@@ -1,13 +1,13 @@
 {
-  "version": "4.9.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.1.plugin",
-  "sha256": "4aa7e121936b877e027a521d3d45f4bbc3db2da74ff1e79ca88047012d91b2b3",
+  "version": "4.9.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.2.plugin",
+  "sha256": "9c95f83707df322787808481dff3c91dd78c5d1a06d11ce7de8d47031fbd41ca",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Both found by the owner reading the actual page. 114,948.1% The Model of Models gaps strip read, live on TSLA: > the SI frame carries 114948.1% of that gap (310.36 of 0.27 per share) Two defects, compounding. No materiality guard. The denominator was $0.27 against a $308.85 price — 0.09%. The bracketing box *directly above that line* exists to say precisely that this gap is the estimator, not a finding, because precision weighting drives the composite onto the price whenever the frames straddle it. So the divisor was the one quantity the panel had just finished warning the reader not to trust,",
-  "published": "2026-07-31T03:57:26.001Z",
+  "notes": "Three fixes the input-disclosure strip exposed on its first real reading. One of them corrects a claim I made twice and got wrong. The opex \"double subtraction\" was not a double subtraction I said in two consecutive turns that opex_pct = gm − ebit − D&A double-counts, and called it \"arithmetic, not opinion.\" It isn't. company-model.js:160 reads: js const opex = revenue * (at('opex_pct') / 100); // cash opex (calibration excludes D&A) The exclusion is deliberate — opex_pct is *cash* opex so the projection can model D&A off the asset base rather than as a revenue ratio, and line 161 adds it back",
+  "published": "2026-07-31T04:42:31.340Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
