@@ -1,13 +1,13 @@
 {
-  "version": "4.10.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.10.1.plugin",
-  "sha256": "50ab4225f03f7f62a6380fd5e4e4e82fafb41b45048a2716db634ccd31c5d2ff",
+  "version": "4.11.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.11.0.plugin",
+  "sha256": "b192ec3adaddecaec6538011df6d58ca471c56b72d36a4ae11b5f63b26fe2c6a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.10.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.11.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "4.10.0 shipped green: 1,647 tests, 0 failures. The first time it ran against real TSLA data it printed -83.36 per share on a company trading at 308.85, with revenue compounding to $2.07 trillion and cash reaching -$917 billion. Every defect below was invisible to a fixture. That is the entire argument for reading a number before letting it be anyone's headline. Three that were bugs The TTM anchor never engaged. fundamentalsTTM() returns a wrapper — {income, balance, cashflow} — and the branch tested .available on the wrapper, where it is undefined. So every projection silently used the annual ",
-  "published": "2026-07-31T13:45:16.958Z",
+  "notes": "Two structural changes from PROFORMA-SPEC §17, which is the owner's statement of what this system is for. Periods are quarters, out to 24 The engine projected annual periods. That was wrong three ways: an analyst builds the next quarter, then two, then three, out to six years; consensus and guidance are published quarterly, so an annual grid cannot consume them; and annual periods discard seasonality entirely. The growth driver has been year-over-year same-quarter since it was built (fmp:income-q yoy-same-quarter), so projecting each quarter off the quarter a year before it carries seasonality",
+  "published": "2026-07-31T15:17:05.981Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
