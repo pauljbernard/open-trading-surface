@@ -1,13 +1,13 @@
 {
-  "version": "4.12.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.12.0.plugin",
-  "sha256": "daeb781289527f0dfe75c515d2a4265407067c06c0b5f98d860a55ee302a8fcf",
+  "version": "4.13.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.13.0.plugin",
+  "sha256": "4bd176d3d2e58e627fc150ab0d4b05e9edce86d3bb9a4a7b3d328f38f3574cc7",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.12.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.13.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "No sign is preferred, and none is gated 4.11.1 flagged a driver whose recent reading and fitted level straddled zero as a \"sign flip\" needing scrutiny. That encoded a rule this release rejects outright: > *\"Companies can swing from making money to losing money and vice versa. This > is not a negative, it's a feature. It identifies the dependencies of their > business model... There is no rule that says negative or positive is wrong.\"* The gate is removed. The swing was never the problem — treating a margin as a black-box statistic was. EBIT is built, not assumed A fitted operating *margin* is ",
-  "published": "2026-07-31T17:52:47.968Z",
+  "notes": "§17.4 poses the open problem: how events across the economy, the industry, politics and the company's own operations revise the forward statements. That question is unanswerable without a record of what the statements said before. A revision cannot be attributed to a cause if the prior version was overwritten — all a reader can then see is that the number is different. So every projection computed is now retained as a dated snapshot, and the object of study is the series of pro formas rather than the latest one. Idempotence without rewrite The panel recomputes on every open. A snapshot whose c",
+  "published": "2026-07-31T22:07:44.905Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
