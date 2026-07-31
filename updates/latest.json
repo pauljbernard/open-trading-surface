@@ -1,13 +1,13 @@
 {
-  "version": "4.8.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.8.0.plugin",
-  "sha256": "d6ee1458421d432fa53a428e8bb00a92dabe3e824f52b929b9affa983f1f1cb9",
+  "version": "4.8.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.8.1.plugin",
+  "sha256": "32d311ac06ec13b05c6a7ad2869f1662a0d2fa65154512c484100495b240a226",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.8.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.8.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "PROFORMA-SPEC phase 0. Nothing published moves. Both anchors are computed and neither is adopted; every frame still reads exactly what it read yesterday. What was wrong server/pricing/context.js fetches statements with period: 'annual', and that one seam feeds the DCF, EVA, residual income, DDM, every asset frame, SOTP and the share count the initiative book uses. On 2026-07-30 TSLA priced off the fiscal year ended 2025-12-31 while the provider held Q2 2026, filed 2026-07-23 — a week old, not unavailable. Revenue was understated 9.3%: $94.827B against a true TTM of $103.619B. Operating income ",
-  "published": "2026-07-31T01:44:57.839Z",
+  "notes": "Two defects the first live anchor census exposed in its own reporting. Both were found by running it and reading the output, not by a test. Standing policy was indistinguishable from a detection generalAndAdministrativeExpenses, sellingAndMarketingExpenses and otherExpenses appeared in refused_lines on every one of 19 names — beside TSLA's genuine, detected D&A hole. A blanket house rule looked exactly like a finding about a specific company. They are now two channels: - refused — what was DETECTED in *this* name's data: a zero standing in for a missing value, or a line derived from one - omit",
+  "published": "2026-07-31T02:19:22.014Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
