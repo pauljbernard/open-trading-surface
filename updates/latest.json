@@ -1,13 +1,13 @@
 {
-  "version": "4.9.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.2.plugin",
-  "sha256": "9c95f83707df322787808481dff3c91dd78c5d1a06d11ce7de8d47031fbd41ca",
+  "version": "4.10.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.10.0.plugin",
+  "sha256": "f69cf7f9d283ea362eb95f8bc11fdc2c3262a07ab39779fdf9a30b740c37df98",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.10.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Three fixes the input-disclosure strip exposed on its first real reading. One of them corrects a claim I made twice and got wrong. The opex \"double subtraction\" was not a double subtraction I said in two consecutive turns that opex_pct = gm − ebit − D&A double-counts, and called it \"arithmetic, not opinion.\" It isn't. company-model.js:160 reads: js const opex = revenue * (at('opex_pct') / 100); // cash opex (calibration excludes D&A) The exclusion is deliberate — opex_pct is *cash* opex so the projection can model D&A off the asset base rather than as a revenue ratio, and line 161 adds it back",
-  "published": "2026-07-31T04:42:31.340Z",
+  "notes": "The retiring construction discounted each strategic initiative to a present value and added it to a price. An initiative could therefore never cost anything: the capital it consumes, the depreciation it creates, the working capital it ties up and the tax it pays all collapsed into one positive number. L3 through L6 of PROFORMA-SPEC replace that. The same initiative now emits revenue, cost, capex, depreciation and working capital in each period, and those lines are consolidated, taxed and depreciated exactly like the base business. The visible consequence, on a worked example with a 200 outlay ",
+  "published": "2026-07-31T05:28:37.114Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
