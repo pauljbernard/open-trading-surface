@@ -114,12 +114,15 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.11.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-31 15:17 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.11.1</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-31 15:39 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.11.1 <span class="reltitle">a rate divided by the wrong period</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.11.0 <span class="reltitle">quarters, and a term structure instead of a number</span></h3>
   </div>
@@ -164,17 +167,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
       <ul>
         <li><b><code>refused</code></b> — what was DETECTED in <i>this</i> name's data: a zero standing in for</li>
         <li><b><code>omitted_by_policy</code></b> — the standing rules applied identically to every name,</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.8.0 <span class="reltitle">the anchor: TTM from filed quarterlies, computed beside the annual one</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>a <b>zero standing in for a missing value</b> — detected against sibling periods,</li>
-        <li>a line <b>derived from a refused line</b> — the EBITDA case, prevented</li>
-        <li>a <b>component reported inconsistently</b> against its own aggregate</li>
-        <li>a <b>short, gapped or duplicated window</b> — a shorter sum labelled TTM is a</li>
       </ul>
     </div>
   </div>

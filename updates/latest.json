@@ -1,13 +1,13 @@
 {
-  "version": "4.11.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.11.0.plugin",
-  "sha256": "b192ec3adaddecaec6538011df6d58ca471c56b72d36a4ae11b5f63b26fe2c6a",
+  "version": "4.11.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.11.1.plugin",
+  "sha256": "bbe5299d18660c04bce923d13faf6a9b4b8f7c1869111946053b7799ad8ef7a7",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.11.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.11.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Two structural changes from PROFORMA-SPEC §17, which is the owner's statement of what this system is for. Periods are quarters, out to 24 The engine projected annual periods. That was wrong three ways: an analyst builds the next quarter, then two, then three, out to six years; consensus and guidance are published quarterly, so an annual grid cannot consume them; and annual periods discard seasonality entirely. The growth driver has been year-over-year same-quarter since it was built (fmp:income-q yoy-same-quarter), so projecting each quarter off the quarter a year before it carries seasonality",
-  "published": "2026-07-31T15:17:05.981Z",
+  "notes": "4.11.0 shipped green on 1,734 tests. Its first live TSLA reading found three defects, one of which was mine from that release and severe. The initiative rate was quadrupled revenue_at_scale is an annual figure — the initiative spec says so in words: *\"per initiative, on an annual grid\"*. The quarterly conversion applied the whole annual number to every quarter, so every initiative contributed four times its book. On TSLA the first projected quarter carried $37.5B of initiative revenue against $67B of total revenue — more than half the company, in a quarter where almost nothing had ramped. By 2",
+  "published": "2026-07-31T15:39:22.605Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
