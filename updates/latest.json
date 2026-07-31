@@ -1,13 +1,13 @@
 {
-  "version": "4.10.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.10.0.plugin",
-  "sha256": "f69cf7f9d283ea362eb95f8bc11fdc2c3262a07ab39779fdf9a30b740c37df98",
+  "version": "4.10.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.10.1.plugin",
+  "sha256": "50ab4225f03f7f62a6380fd5e4e4e82fafb41b45048a2716db634ccd31c5d2ff",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.10.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.10.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The retiring construction discounted each strategic initiative to a present value and added it to a price. An initiative could therefore never cost anything: the capital it consumes, the depreciation it creates, the working capital it ties up and the tax it pays all collapsed into one positive number. L3 through L6 of PROFORMA-SPEC replace that. The same initiative now emits revenue, cost, capex, depreciation and working capital in each period, and those lines are consolidated, taxed and depreciated exactly like the base business. The visible consequence, on a worked example with a 200 outlay ",
-  "published": "2026-07-31T05:28:37.114Z",
+  "notes": "4.10.0 shipped green: 1,647 tests, 0 failures. The first time it ran against real TSLA data it printed -83.36 per share on a company trading at 308.85, with revenue compounding to $2.07 trillion and cash reaching -$917 billion. Every defect below was invisible to a fixture. That is the entire argument for reading a number before letting it be anyone's headline. Three that were bugs The TTM anchor never engaged. fundamentalsTTM() returns a wrapper — {income, balance, cashflow} — and the branch tested .available on the wrapper, where it is undefined. So every projection silently used the annual ",
+  "published": "2026-07-31T13:45:16.958Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
