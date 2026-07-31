@@ -114,12 +114,23 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.7.3</b></div>
-    <div><span class="rellbl">Published</span><b>2026-07-30 22:49 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.8.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-07-31 01:44 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.8.0 <span class="reltitle">the anchor: TTM from filed quarterlies, computed beside the annual one</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>a <b>zero standing in for a missing value</b> — detected against sibling periods,</li>
+        <li>a line <b>derived from a refused line</b> — the EBITDA case, prevented</li>
+        <li>a <b>component reported inconsistently</b> against its own aggregate</li>
+        <li>a <b>short, gapped or duplicated window</b> — a shorter sum labelled TTM is a</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.7.3 <span class="reltitle">a row that claimed a measurement nobody made</span></h3>
   </div>
@@ -140,9 +151,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">4.5.3 <span class="reltitle">a deleted cohort killed the heat map; the census hard-coded its set and could hang (patch)</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.5.2 <span class="reltitle">toast() was called 23 times and defined nowhere (patch)</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->

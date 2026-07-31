@@ -1,13 +1,13 @@
 {
-  "version": "4.7.3",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.3.plugin",
-  "sha256": "8fef439b473349d7ef8afe345d64960f33ee8d0f7ecd15b5467d6be5e7a05eb9",
+  "version": "4.8.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.8.0.plugin",
+  "sha256": "d6ee1458421d432fa53a428e8bb00a92dabe3e824f52b929b9affa983f1f1cb9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.7.3.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.8.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Found the same way as 4.7.2: by putting the panel on screen and reading it. On TSLA the add-on row said: > ADD-ON BOOK — an increment. Measured against the residual — (price 308.85 > less base —) directly above the refusal explaining that it could not be measured, because the name has no structural base. An em-dash sentence asserting arithmetic nobody performed, on the one panel whose entire purpose is not to overstate what is known. The cause: the basis line keyed on the explains field alone, which is set from add-on-ness and says what the frame *would* be measured against — not whether it *w",
-  "published": "2026-07-30T22:49:02.495Z",
+  "notes": "PROFORMA-SPEC phase 0. Nothing published moves. Both anchors are computed and neither is adopted; every frame still reads exactly what it read yesterday. What was wrong server/pricing/context.js fetches statements with period: 'annual', and that one seam feeds the DCF, EVA, residual income, DDM, every asset frame, SOTP and the share count the initiative book uses. On 2026-07-30 TSLA priced off the fiscal year ended 2025-12-31 while the provider held Q2 2026, filed 2026-07-23 — a week old, not unavailable. Revenue was understated 9.3%: $94.827B against a true TTM of $103.619B. Operating income ",
+  "published": "2026-07-31T01:44:57.839Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
