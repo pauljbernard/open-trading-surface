@@ -1,13 +1,13 @@
 {
-  "version": "4.8.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.8.1.plugin",
-  "sha256": "32d311ac06ec13b05c6a7ad2869f1662a0d2fa65154512c484100495b240a226",
+  "version": "4.9.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.0.plugin",
+  "sha256": "34ebf5bcd71448b7d7609c945a50754c7cf75b19549c62071afb841c50899dc4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.8.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.9.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Two defects the first live anchor census exposed in its own reporting. Both were found by running it and reading the output, not by a test. Standing policy was indistinguishable from a detection generalAndAdministrativeExpenses, sellingAndMarketingExpenses and otherExpenses appeared in refused_lines on every one of 19 names — beside TSLA's genuine, detected D&A hole. A blanket house rule looked exactly like a finding about a specific company. They are now two channels: - refused — what was DETECTED in *this* name's data: a zero standing in for a missing value, or a line derived from one - omit",
-  "published": "2026-07-31T02:19:22.014Z",
+  "notes": "PROFORMA-SPEC L1→L2, phase 1. Computed, not published — calibrate() still seeds the projection exactly as before and no published value moves. What was wrong calibrate() reads the latest annual statement for levels and uses up to three periods only as a *growth fallback* when consensus estimates cannot be used. No history is fitted. The window is not short — there is no window. Meanwhile model-data.js has been producing 64 quarters of per-driver history, with sources and coverage, the entire time. The data was in the building and the projection never read it. The default inverts Fit on every p",
+  "published": "2026-07-31T03:25:49.371Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
