@@ -1,13 +1,13 @@
 {
-  "version": "4.11.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.11.1.plugin",
-  "sha256": "bbe5299d18660c04bce923d13faf6a9b4b8f7c1869111946053b7799ad8ef7a7",
+  "version": "4.12.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.12.0.plugin",
+  "sha256": "daeb781289527f0dfe75c515d2a4265407067c06c0b5f98d860a55ee302a8fcf",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.11.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.12.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "4.11.0 shipped green on 1,734 tests. Its first live TSLA reading found three defects, one of which was mine from that release and severe. The initiative rate was quadrupled revenue_at_scale is an annual figure — the initiative spec says so in words: *\"per initiative, on an annual grid\"*. The quarterly conversion applied the whole annual number to every quarter, so every initiative contributed four times its book. On TSLA the first projected quarter carried $37.5B of initiative revenue against $67B of total revenue — more than half the company, in a quarter where almost nothing had ramped. By 2",
-  "published": "2026-07-31T15:39:22.605Z",
+  "notes": "No sign is preferred, and none is gated 4.11.1 flagged a driver whose recent reading and fitted level straddled zero as a \"sign flip\" needing scrutiny. That encoded a rule this release rejects outright: > *\"Companies can swing from making money to losing money and vice versa. This > is not a negative, it's a feature. It identifies the dependencies of their > business model... There is no rule that says negative or positive is wrong.\"* The gate is removed. The swing was never the problem — treating a margin as a black-box statistic was. EBIT is built, not assumed A fitted operating *margin* is ",
+  "published": "2026-07-31T17:52:47.968Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
