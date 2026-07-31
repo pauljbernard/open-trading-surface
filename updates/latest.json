@@ -1,13 +1,13 @@
 {
-  "version": "4.14.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.14.0.plugin",
-  "sha256": "2ab2d6bf1888a74a1af7da838e9f5b8f657a90fb88fdb75e4bbcf1177c479cd9",
+  "version": "4.15.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.15.0.plugin",
+  "sha256": "3338ee2d5186597ad600572f9d745846c1bd63b10712c8c7032bb78503cf7654",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.14.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.15.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Every series this system charts ended at now Price history ends at now. Pricing-model lines are reconstructed point-in-time and end at now. Even the initiative cone, which looks forward-ish, walks *backward* from today reconstructing what the book implied on each past date. That is a strange absence in a system whose entire thesis is that a price is a claim about future earnings — and whose pro forma produces twenty-four dated quarters that existed only as rows in a table no chart could show. Nine forward lines, plus the term structure: revenue · revenue_initiative · ebit · fcff · capex · brea",
-  "published": "2026-07-31T23:02:36.665Z",
+  "notes": "A single deterministic projection produces one figure, and one figure cannot express what is actually known. Project far enough out and the spread of plausible outcomes swamps the point estimate — which is why practice moved to Monte Carlo, scenario analysis and probability-weighted outcomes rather than pretending a deterministic forecast stays meaningful for decades. get_proforma_distribution returns percentiles, not a scalar. Four decisions, each of which could have been made badly The dispersion comes from the filings. Every driver is redrawn around its own fitted level using its own measur",
+  "published": "2026-07-31T23:26:58.123Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
