@@ -1,13 +1,13 @@
 {
-  "version": "4.34.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.34.2.plugin",
-  "sha256": "487b934368fb778a3783ec45e79d7c4eb383050f799ef808cb0bc9866f8b8940",
+  "version": "4.35.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.35.0.plugin",
+  "sha256": "bb5c79d2f71ac5b201b7aa25d4eb0c5d3acd6dbf496fb8b7b97cdb954016bf79",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.34.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.35.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "With 4.34.1 installed, the correlation estimator ran on real filings for the first time and produced a real matrix: six names, six drivers, pair correlations from 20 to 41 aligned observations. The chain still refused. The chain read corr.pooled_rho. The estimator publishes mean_cross_name_rho. So the read was undefined, and the book simulation's honest refusal — *\"no cross-name correlation supplied ... picking a number here would invent the single quantity the book simulation exists to measure\"* — described a missing measurement when what was missing was a field. That is the fourth instance o",
-  "published": "2026-08-01T23:03:49.690Z",
+  "notes": "The chain completed end to end on live names for the first time. It also produced numbers that cannot be right, and the most serious one looked like prudence. Expected shortfall of 1,024% at the 99th percentile. Book minimum of −9,641 per share. A long equity position cannot lose more than the capital in it. Equity is a residual claim with limited liability: when the projection says the enterprise is worth less than its debt, the equity is worth zero, not minus nine thousand. Nothing anywhere in the pricing engine floored it — there was no mention of limited liability in the codebase at all — ",
+  "published": "2026-08-01T23:21:48.717Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
