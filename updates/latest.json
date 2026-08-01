@@ -1,13 +1,13 @@
 {
-  "version": "4.20.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.20.0.plugin",
-  "sha256": "53e1e64bbaffee94cbd875ec68b34829630706d0a6d44d9e37026adcb5179ee9",
+  "version": "4.21.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.21.0.plugin",
+  "sha256": "91f25cbfd666d1475bde7437db2044406d99466676f4f19fd49adc0f1bbe1de8",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.20.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.21.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Both fixes in this release are corrections to 4.19.0, and they belong together because the pair is the lesson. The terminal strike no longer capitalises the build Each duration in the term structure strikes its own terminal value where it stops. That terminal was struck on the trailing four quarters of free cash flow as projected — and mid-build those quarters carry the capital programme. TSLA's 2027–2029 strikes sat on FCFF of −13.6bn, −18.2bn, −7.1bn, so the perpetuity capitalised the construction forever: seven of ten durations priced negative, and the 16-quarter row reported a terminal at ",
-  "published": "2026-08-01T02:33:39.224Z",
+  "notes": "The harness was counting suites that asserted nothing This is the finding that matters most in this release, and it was found by accident while wiring a new test file. run-all.js executes each suite as node test <file> and reads # pass N. Most suites call node:test's test() at module scope, so N is the assertion count. Six pro forma suites instead built an array of { name, fn } and exported it, expecting some runner to consume it. Nothing did. node test merely imported them, node:test reported the file itself as one passing test, and the battery recorded # pass 1 as a green suite. | suite | as",
+  "published": "2026-08-01T03:00:37.593Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
