@@ -1,13 +1,13 @@
 {
-  "version": "4.21.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.21.0.plugin",
-  "sha256": "91f25cbfd666d1475bde7437db2044406d99466676f4f19fd49adc0f1bbe1de8",
+  "version": "4.22.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.22.0.plugin",
+  "sha256": "ac45cdc6f312d9393bc18295377a5b6c41508f5548d162eba23e355c4e88bca3",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.21.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.22.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The harness was counting suites that asserted nothing This is the finding that matters most in this release, and it was found by accident while wiring a new test file. run-all.js executes each suite as node test <file> and reads # pass N. Most suites call node:test's test() at module scope, so N is the assertion count. Six pro forma suites instead built an array of { name, fn } and exported it, expecting some runner to consume it. Nothing did. node test merely imported them, node:test reported the file itself as one passing test, and the battery recorded # pass 1 as a green suite. | suite | as",
-  "published": "2026-08-01T03:00:37.593Z",
+  "notes": "4.21.0 would not load on the owner's machine, and the diagnosis found nothing. That is recorded here as an open defect rather than dressed up as a fix. Every check available was run against the published 4.21.0 artifact: | check | result | | file list vs 4.20.0 | identical (26 files; only bundle, changelog, KB differ) | | SHA-256 vs manifest | matches | | GPG signatures | 2 Good | | unpack + load under node | ok | | MCP initialize | ok | | MCP tools/list | 244 tools, zero stderr | | terminal page inline scripts | both parse | | inversion on a TSLA-shaped fixture | 153 ms | So the package is no",
+  "published": "2026-08-01T09:57:43.488Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
