@@ -1,13 +1,13 @@
 {
-  "version": "4.32.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.32.1.plugin",
-  "sha256": "8ade0f9a2e01f421eb6741ab4a6d83fb0c3bba3db6d5015f84b351922bbb0b44",
+  "version": "4.33.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.33.0.plugin",
+  "sha256": "e5cf614cfc29baabef4361129fcd39c64ef676300148f87f60283a7066a0c400",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.32.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.33.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Publishing 4.32.0, the additive publisher was invoked with no arguments. Its defaults pointed at a stale build directory holding the *previous* release's artifacts, and at a publish clone one commit behind origin. It built a perfectly valid commit that would have republished 4.31.0 as though it were new — and the zero-deletions check passed cheerfully, because that check is structural, about deletion, and knows nothing whatsoever about *which version* is being published. A correct check, passing correctly, on a question nobody had asked. Nothing was pushed; it was caught because the change lis",
-  "published": "2026-08-01T17:53:30.652Z",
+  "notes": "A transitive walk of the require graph from server/index.js found 13 orphans out of 187 modules, and nine of them were the work of the last seven releases. Cohort correlation, the joint book simulation, the portfolio bridge, bottom-up beta, Black-Litterman, expected shortfall, discovery records, the learning loop — every one had a passing test suite, and not one could be reached by anything a user could invoke. Panels 4 and 5 of the architecture were a library sitting beside the product. The part that matters more than the incident: there was a test meant to prevent exactly this. Its own comme",
+  "published": "2026-08-01T20:31:50.411Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
