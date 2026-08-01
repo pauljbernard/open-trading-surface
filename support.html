@@ -114,12 +114,23 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.32.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-01 17:37 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.32.1</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-01 17:53 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.32.1 <span class="reltitle">three guards on the publisher</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>G0 — no default paths.</b> Both arguments are required. The root cause was not</li>
+        <li><b>G1 — the clone must be at origin.</b> A commit built on a stale tree reverts</li>
+        <li><b>G2 — the version must increase.</b> Republishing the same version means the</li>
+        <li><b>G3 — the manifest must describe the artifact.</b> Version, <code>download_url</code> and</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.32.0 <span class="reltitle">the loop closes</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -175,21 +186,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li>A supplied covariance with no source is labelled <b>an assumption</b>.</li>
         <li><b>Per-path values are required</b> — a covariance assembled from per-name</li>
         <li>A name without a usable price is <b>refused</b>, not defaulted.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.25.0 <span class="reltitle">the first joint distribution: a book is not its names</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>From filings, never from prices.</b> A price covariance answers *"have these</li>
-        <li><b>Shocks, not levels.</b> Correlating levels mostly recovers that two companies</li>
-        <li><b>It refuses more than it reports:</b> below 3 names, 12 observations per name or</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
-      <ul>
-        <li><b>Amplitude removed before pooling</b> — the mechanical form of "pool the</li>
       </ul>
     </div>
   </div>

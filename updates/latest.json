@@ -1,13 +1,13 @@
 {
-  "version": "4.32.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.32.0.plugin",
-  "sha256": "3f902eec55e82523c5f087c678c62ef8f1ae4c9760118d2a7c3f0a6b83fe064b",
+  "version": "4.32.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.32.1.plugin",
+  "sha256": "8ade0f9a2e01f421eb6741ab4a6d83fb0c3bba3db6d5015f84b351922bbb0b44",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.32.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.32.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Panel 5 of the architecture, and the one that had never closed. Every component of the learning loop already existed. The divergence ledger records where the twin disagrees with the market. Brier scoring exists for thesis probabilities. Evidence attaches to theses. Discovery records carry falsifiers. And nothing joined them up: no realised outcome had ever updated a prior. \"Update Models\" was a box on a diagram and a manual act in practice. What closes it is the one measurement that makes the rest safe: Is our stated confidence honest? 4.30.0 gave every Black-Litterman view a confidence_sd *me",
-  "published": "2026-08-01T17:37:14.211Z",
+  "notes": "Publishing 4.32.0, the additive publisher was invoked with no arguments. Its defaults pointed at a stale build directory holding the *previous* release's artifacts, and at a publish clone one commit behind origin. It built a perfectly valid commit that would have republished 4.31.0 as though it were new — and the zero-deletions check passed cheerfully, because that check is structural, about deletion, and knows nothing whatsoever about *which version* is being published. A correct check, passing correctly, on a question nobody had asked. Nothing was pushed; it was caught because the change lis",
+  "published": "2026-08-01T17:53:30.652Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
