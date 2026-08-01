@@ -1,13 +1,13 @@
 {
-  "version": "4.33.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.33.0.plugin",
-  "sha256": "e5cf614cfc29baabef4361129fcd39c64ef676300148f87f60283a7066a0c400",
+  "version": "4.34.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.34.0.plugin",
+  "sha256": "67cb149262d8568f2976f313b65ee3fdfb57f317a75594659fc9f45559244d63",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.33.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.34.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A transitive walk of the require graph from server/index.js found 13 orphans out of 187 modules, and nine of them were the work of the last seven releases. Cohort correlation, the joint book simulation, the portfolio bridge, bottom-up beta, Black-Litterman, expected shortfall, discovery records, the learning loop — every one had a passing test suite, and not one could be reached by anything a user could invoke. Panels 4 and 5 of the architecture were a library sitting beside the product. The part that matters more than the incident: there was a test meant to prevent exactly this. Its own comme",
-  "published": "2026-08-01T20:31:50.411Z",
+  "notes": "Yesterday I reported the Panel 4/5 gap as closed because the modules were on the require graph. They still had no MCP tool and no terminal view, so neither the agent nor the person could obtain any of it. An HTTP endpoint existed; the capability was dead in every sense anyone cares about. Being reachable from server/index.js and being *obtainable by someone who wants the answer* are different properties, and only the second one matters. The guard I wrote proved the necessary condition and I described it as though it were sufficient — which is, precisely, the same error as the seam test that ve",
+  "published": "2026-08-01T20:53:58.549Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
