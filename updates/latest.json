@@ -1,13 +1,13 @@
 {
-  "version": "4.29.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.29.0.plugin",
-  "sha256": "b2d2d44d00a55cf788eadfad852e73cb19c640645eb3bf8c9a355034eb3019b8",
+  "version": "4.30.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.30.0.plugin",
+  "sha256": "88d6626f57ab78856a6b52505ed21d3e751272a5c770e4aecb289ade81a2bab6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.29.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.30.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The architecture puts two distributions side by side and measures the divergence. We had one distribution and one scalar — a full probability distribution of our own modelled value, compared against a single market price. \"Measure divergence of distributions\" was therefore \"measure distance from a point\", which cannot produce three of the five things the design says it measures: probability of outperformance, tail risk, and confidence all require a distribution on *both* sides. The options route is specified and refused Where a liquid chain exists, the risk-neutral density is the second deriva",
-  "published": "2026-08-01T16:35:45.926Z",
+  "notes": "In 4.26.0 I refused to hand model values to the optimiser as expected returns without an explicit \"price converges to modelled value\" assumption, because model / price − 1 is the size of a disagreement, not a forecast. The instinct was right. The construction was wrong. I offered a binary — refuse, or assert — when practice has had a third answer since 1990. Black-Litterman takes the market as the prior and our disagreement as a view with a confidence, blending the two by relative precision: E[R] = [(τΣ)⁻¹ + PᵀΩ⁻¹P]⁻¹ [(τΣ)⁻¹Π + PᵀΩ⁻¹Q] Π = λ·Σ·w_market It never asks anyone to assert convergen",
+  "published": "2026-08-01T16:55:16.870Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

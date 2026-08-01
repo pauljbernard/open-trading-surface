@@ -114,12 +114,23 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.29.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-01 16:35 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.30.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-01 16:55 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.30.0 <span class="reltitle">Black-Litterman: a view with a confidence, not an assertion</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>A view without a stated confidence is refused</b> as an assertion — the whole</li>
+        <li><b>The prior must come from market capitalisation.</b> A prior built from our own</li>
+        <li><b>A singular covariance is refused, never pseudo-inverted</b> — weights from</li>
+        <li><b>τ is disclosed</b>, because the posterior is sensitive to it and a reader</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.29.0 <span class="reltitle">the market-implied distribution: the right-hand curve</span></h3>
   </div>
@@ -195,9 +206,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><b>Dormant, not deleted. Refuted candidates kept.</b> Deleting either leaves the</li>
       </ul>
     </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.22.0 <span class="reltitle">the release gate tests the artifact it ships</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
