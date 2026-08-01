@@ -1,13 +1,13 @@
 {
-  "version": "4.26.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.26.0.plugin",
-  "sha256": "01e97b7da1e9aa5656c81ebc13513345ac385ab459da1c196332ac247f1c3010",
+  "version": "4.27.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.27.0.plugin",
+  "sha256": "e8c366a2cc63694c3af48a3252f69fa400a9875736f366361b14fda0fba3db80",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.26.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.27.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "… Valuation → Monte Carlo → Probability Distribution → Portfolio Optimization ↑ this arrow did not exist optimizer.js built its covariance from 378 days of daily price returns and took expected returns from historical means. No model distribution reached it. So the portfolio layer was optimising a book of valuations using the market's own covariance and the market's own past — the two things those valuations exist to disagree with. pricing/book-to-portfolio.js turns the book simulation into the two objects an optimiser needs, and optimizer.js now accepts a supplied covariance with its source r",
-  "published": "2026-08-01T14:50:02.903Z",
+  "notes": "The owner's standing rule for any defect or edge case: what do institutional, CFA-class practitioners do in the same circumstances? For the ERP the answer is unambiguous. Practice offers three bases — historical, survey, and implied (forward-looking, backed out of the index level and expected cash flows) — and for a *current* cost of capital the implied premium is what is used, because historical premia are backward-looking, noisy, and move the wrong way: falling during crises and rising in good times, the opposite of how the price of risk behaves. We used a hardcoded 5.0%, which is neither. D",
+  "published": "2026-08-01T16:03:49.096Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
