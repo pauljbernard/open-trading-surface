@@ -1,13 +1,13 @@
 {
-  "version": "4.30.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.30.0.plugin",
-  "sha256": "88d6626f57ab78856a6b52505ed21d3e751272a5c770e4aecb289ade81a2bab6",
+  "version": "4.31.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.31.0.plugin",
+  "sha256": "30462547bb50a8c7f8274289c851322c1c09115ca9a2cd9705ec0d42f457c98c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.30.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.31.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "In 4.26.0 I refused to hand model values to the optimiser as expected returns without an explicit \"price converges to modelled value\" assumption, because model / price − 1 is the size of a disagreement, not a forecast. The instinct was right. The construction was wrong. I offered a binary — refuse, or assert — when practice has had a third answer since 1990. Black-Litterman takes the market as the prior and our disagreement as a view with a confidence, blending the two by relative precision: E[R] = [(τΣ)⁻¹ + PᵀΩ⁻¹P]⁻¹ [(τΣ)⁻¹Π + PᵀΩ⁻¹Q] Π = λ·Σ·w_market It never asks anyone to assert convergen",
-  "published": "2026-08-01T16:55:16.870Z",
+  "notes": "The risk box asked for VaR, CVaR, drawdowns and risk budgets. We had percentiles and a single max-weight cap. VaR is not a coherent risk measure It fails subadditivity: VaR(A+B) can exceed VaR(A) + VaR(B), which asserts that diversification increased risk. That failure is not pathological — it appears whenever losses are lumpy, which is the case anyone computes VaR for. Expected shortfall is the mean loss *beyond* the threshold, so it cannot ignore the tail it defines. Basel III moved the trading book from VaR to expected shortfall in 2016 for exactly this reason. ES is the headline here; VaR ",
+  "published": "2026-08-01T17:12:45.526Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
