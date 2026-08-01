@@ -1,13 +1,13 @@
 {
-  "version": "4.31.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.31.0.plugin",
-  "sha256": "30462547bb50a8c7f8274289c851322c1c09115ca9a2cd9705ec0d42f457c98c",
+  "version": "4.32.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.32.0.plugin",
+  "sha256": "3f902eec55e82523c5f087c678c62ef8f1ae4c9760118d2a7c3f0a6b83fe064b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.31.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.32.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The risk box asked for VaR, CVaR, drawdowns and risk budgets. We had percentiles and a single max-weight cap. VaR is not a coherent risk measure It fails subadditivity: VaR(A+B) can exceed VaR(A) + VaR(B), which asserts that diversification increased risk. That failure is not pathological — it appears whenever losses are lumpy, which is the case anyone computes VaR for. Expected shortfall is the mean loss *beyond* the threshold, so it cannot ignore the tail it defines. Basel III moved the trading book from VaR to expected shortfall in 2016 for exactly this reason. ES is the headline here; VaR ",
-  "published": "2026-08-01T17:12:45.526Z",
+  "notes": "Panel 5 of the architecture, and the one that had never closed. Every component of the learning loop already existed. The divergence ledger records where the twin disagrees with the market. Brier scoring exists for thesis probabilities. Evidence attaches to theses. Discovery records carry falsifiers. And nothing joined them up: no realised outcome had ever updated a prior. \"Update Models\" was a box on a diagram and a manual act in practice. What closes it is the one measurement that makes the rest safe: Is our stated confidence honest? 4.30.0 gave every Black-Litterman view a confidence_sd *me",
+  "published": "2026-08-01T17:37:14.211Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

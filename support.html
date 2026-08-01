@@ -114,12 +114,23 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.31.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-01 17:12 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.32.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-01 17:37 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.32.0 <span class="reltitle">the loop closes</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Scoring before the horizon.</b> The most tempting corruption of a learning</li>
+        <li><b>Thin history.</b> Below twelve resolutions the factor is itself a guess: it</li>
+        <li><b>An absurd factor.</b> Errors more than four times the claimed uncertainty mean</li>
+        <li><b>Directional bias is reported separately.</b> Being consistently too bullish is</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.31.0 <span class="reltitle">expected shortfall, risk budgets, and one refusal</span></h3>
   </div>
@@ -179,17 +190,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-rm">Removed</span>
       <ul>
         <li><b>Amplitude removed before pooling</b> — the mechanical form of "pool the</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.24.0 <span class="reltitle">the layered cascade: the pipeline actually connects</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>World generation</b>: a content hash over each domain's <code>last_updated</code>, so a</li>
-        <li><b>Refresh is idempotent</b> on an unchanged world — otherwise "generic" is a</li>
-        <li><b>A per-name read never writes the shared layer</b> — otherwise the cascade</li>
-        <li><b>An unmapped sector is refused</b>, not mapped to everything. The information is</li>
       </ul>
     </div>
   </div>
