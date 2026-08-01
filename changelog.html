@@ -16,6 +16,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>4.26.0 — the last rung: the joint distribution reaches the portfolio</h2>
+<ul>
+<li>The <b>covariance source travels with the result</b>. Two optimisations over the</li>
+<li>A supplied covariance with no source is labelled <b>an assumption</b>.</li>
+<li><b>Per-path values are required</b> — a covariance assembled from per-name</li>
+<li>A name without a usable price is <b>refused</b>, not defaulted.</li>
+<li><b>The price path is unchanged.</b> This adds an option, not a default.</li>
+</ul>
 <h2>4.25.0 — the first joint distribution: a book is not its names</h2>
 <ul>
 <li><b>From filings, never from prices.</b> A price covariance answers *"have these</li>

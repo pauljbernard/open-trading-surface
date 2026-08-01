@@ -114,12 +114,28 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.25.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-01 14:23 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.26.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-01 14:50 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.26.0 <span class="reltitle">the last rung: the joint distribution reaches the portfolio</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>The price path is unchanged.</b> This adds an option, not a default.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>The <b>covariance source travels with the result</b>. Two optimisations over the</li>
+        <li>A supplied covariance with no source is labelled <b>an assumption</b>.</li>
+        <li><b>Per-path values are required</b> — a covariance assembled from per-name</li>
+        <li>A name without a usable price is <b>refused</b>, not defaulted.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.25.0 <span class="reltitle">the first joint distribution: a book is not its names</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -184,9 +200,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">4.19.0 <span class="reltitle">the financing layer</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.18.0 <span class="reltitle">the fan</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->

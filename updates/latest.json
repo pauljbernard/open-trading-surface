@@ -1,13 +1,13 @@
 {
-  "version": "4.25.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.25.0.plugin",
-  "sha256": "31ccb622a09262e4d034dc5b462181063e6630199010028c3cbddcc1e25b4744",
+  "version": "4.26.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.26.0.plugin",
+  "sha256": "01e97b7da1e9aa5656c81ebc13513345ac385ab459da1c196332ac247f1c3010",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.25.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.26.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Every distribution this system produced was a MARGINAL. proforma-sim correlates one company's drivers with each other and knows nothing about any other company, so a portfolio of ten names was being assessed on ten independent readings. Optimising over independent marginals understates concentration risk exactly when it matters, because the correlations that break a book are the ones that only appear in bad states. A book of ten names that each look fine alone can be one bet. Cross-name correlation, from filings uncertainty.js has described this since it was written — *\"POOL THE CORRELATION ST",
-  "published": "2026-08-01T14:23:08.573Z",
+  "notes": "… Valuation → Monte Carlo → Probability Distribution → Portfolio Optimization ↑ this arrow did not exist optimizer.js built its covariance from 378 days of daily price returns and took expected returns from historical means. No model distribution reached it. So the portfolio layer was optimising a book of valuations using the market's own covariance and the market's own past — the two things those valuations exist to disagree with. pricing/book-to-portfolio.js turns the book simulation into the two objects an optimiser needs, and optimizer.js now accepts a supplied covariance with its source r",
+  "published": "2026-08-01T14:50:02.903Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
