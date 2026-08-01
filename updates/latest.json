@@ -1,13 +1,13 @@
 {
-  "version": "4.16.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.16.0.plugin",
-  "sha256": "da1b1be563bac235d7d80361a2565229264397450df1a578b30edc8fa936da76",
+  "version": "4.17.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.17.0.plugin",
+  "sha256": "21cce129bba866cff56212904cdf390ee9877fa803497396c23d57778df9db11",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.16.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.17.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Both of these passed every test and disclosed themselves accurately. That is what made them hard to see. The seasonal seed reached nothing 4.11.0 projects each quarter off the quarter a year before it, so it needs the four filed quarters — not just their total. The TTM assembly was taught to carry them. It was taught wrong. The quarters field was added to the continuity-failure return, and later to the balance-sheet return, but never once to the successful FLOW return — which is the only path a seasonal seed could ever come from. So every live pro forma ran de-seasonalised. And it *said so*, a",
-  "published": "2026-08-01T00:35:53.604Z",
+  "notes": "4.13.0 made the pro forma a series and could name which line moved. It could not say why, and admitted it in its own payload: *\"a move with no cause attached is DRIFT.\"* event → the pro forma LINES it bears on, and the NAMES it reaches → those pro formas recompute → the revision is recorded WITH the cause apply_proforma_event writes, deliberately — every other pro forma read is a GET. Attaching provenance to a revision is the entire point. Four rules, each with a failure mode that looks like success Invalidation is targeted. An event touches only the lines its kind declares. Recomputing everyt",
+  "published": "2026-08-01T01:01:01.675Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
