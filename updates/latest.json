@@ -1,13 +1,13 @@
 {
-  "version": "4.35.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.35.0.plugin",
-  "sha256": "bb5c79d2f71ac5b201b7aa25d4eb0c5d3acd6dbf496fb8b7b97cdb954016bf79",
+  "version": "4.36.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.36.0.plugin",
+  "sha256": "360ba4e245014fe156316e0a5640bc0b794ebb004c5b50c496694d9b40d7e7c6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.35.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.36.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The chain completed end to end on live names for the first time. It also produced numbers that cannot be right, and the most serious one looked like prudence. Expected shortfall of 1,024% at the 99th percentile. Book minimum of −9,641 per share. A long equity position cannot lose more than the capital in it. Equity is a residual claim with limited liability: when the projection says the enterprise is worth less than its debt, the equity is worth zero, not minus nine thousand. Nothing anywhere in the pricing engine floored it — there was no mention of limited liability in the codebase at all — ",
-  "published": "2026-08-01T23:21:48.717Z",
+  "notes": "Chasing CRDO — the name carrying 98.7% of the first live book's risk on an equal-weighted 16.7% position, with a measured view confidence of 1,145%. My first hypothesis was wrong and worth recording as such: I assumed the projection was extrapolating a driver's linear trend without bound, which for revenue growth would say growth accelerates forever. It does not. Revenue growth already fades from the latest rate to terminal growth across the horizon, and proforma.js says why — holding fitted growth flat \"is the single most common way these models produce absurd numbers.\" That guard works. The ",
+  "published": "2026-08-01T23:41:58.826Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
