@@ -1,13 +1,13 @@
 {
-  "version": "4.23.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.23.0.plugin",
-  "sha256": "d7cadd50c15fbb7f19a484594b0139a0a2f0e148febbbbb20fc7a177f4a3198c",
+  "version": "4.24.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.24.0.plugin",
+  "sha256": "e3e5af04fbac87c3a8e34a83baf2394a50475c9959368e3f59f06175426aa096",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.23.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.24.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "DISCOVERY-SPEC — the formal process > *\"discovery needs to be a formal supported process.\"* The inversion could return DISCOVERY — no horizon reaches the price, certainty about the whole book does not reach it, no driver reaches it from inside its own record — and then it stopped. A verdict that names a question and provides no way to pursue it is a dead end wearing the costume of a finding. The governing constraint, and every mechanism is shaped by it: a discovery is never closed by moving a number until the model agrees with the price. There is no write path from this layer into any valuatio",
-  "published": "2026-08-01T11:20:11.195Z",
+  "notes": "A wiring audit — file paths and line numbers, not impressions — found that this was two disconnected chains described as one pipeline: | chain | path | | judgment | worldview → thesis → screener → portfolio | | quantitative | filings → driver-fit → proforma → momw → surface | They touched at exactly one place. grep worldview server/pricing/ returned zero hits across all 23 files. The world model was write-only with respect to every valuation, and between it and the company model there was no industry rung at all. The macro client never reached the valuation security-block.riskFreePct() resolve",
+  "published": "2026-08-01T13:18:49.719Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

@@ -114,12 +114,23 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.23.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-01 11:20 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.24.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-01 13:18 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.24.0 <span class="reltitle">the layered cascade: the pipeline actually connects</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>World generation</b>: a content hash over each domain's <code>last_updated</code>, so a</li>
+        <li><b>Refresh is idempotent</b> on an unchanged world — otherwise "generic" is a</li>
+        <li><b>A per-name read never writes the shared layer</b> — otherwise the cascade</li>
+        <li><b>An unmapped sector is refused</b>, not mapped to everything. The information is</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.23.0 <span class="reltitle">discovery becomes a process, and three defects the live read exposed</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -172,9 +183,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><code>inflation_regime</code> moves terminal growth and the discount rate <b>together</b>,</li>
       </ul>
     </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.16.0 <span class="reltitle">two bugs that were telling the truth</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
