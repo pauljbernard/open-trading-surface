@@ -1,13 +1,13 @@
 {
-  "version": "4.34.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.34.0.plugin",
-  "sha256": "67cb149262d8568f2976f313b65ee3fdfb57f317a75594659fc9f45559244d63",
+  "version": "4.34.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.34.1.plugin",
+  "sha256": "a0d0c299efb8fe6ee6afcc89e2f5645ca7e8a48a0dbad2d7773cc13ee9e33b13",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.34.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.34.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Yesterday I reported the Panel 4/5 gap as closed because the modules were on the require graph. They still had no MCP tool and no terminal view, so neither the agent nor the person could obtain any of it. An HTTP endpoint existed; the capability was dead in every sense anyone cares about. Being reachable from server/index.js and being *obtainable by someone who wants the answer* are different properties, and only the second one matters. The guard I wrote proved the necessary condition and I described it as though it were sufficient — which is, precisely, the same error as the seam test that ve",
-  "published": "2026-08-01T20:53:58.549Z",
+  "notes": "The first live run of construct_portfolio on the six SI-book names refused cleanly and correctly: only 0 of 6 names had enough driver history PLTR: no driver had 12 usable observations CRDO: no driver had 12 usable observations … and so on, all six That reads as a fact about the COMPANIES. It was a shape mismatch in the caller. quarterlyDriverHistory returns an envelope — { symbol, period, history, yoy, coverage, refusals, note } — with the driver series nested under .history and .yoy. The chain handed the whole envelope to the correlation estimator, so every driver lookup returned undefined a",
+  "published": "2026-08-01T21:19:51.179Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
