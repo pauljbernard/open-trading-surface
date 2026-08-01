@@ -1,13 +1,13 @@
 {
-  "version": "4.19.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.19.0.plugin",
-  "sha256": "819f5dbd1d9e7a43029f72671b1c2ebe3bccbfb36ec53ec95e75e1ac07bf5829",
+  "version": "4.20.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.20.0.plugin",
+  "sha256": "53e1e64bbaffee94cbd875ec68b34829630706d0a6d44d9e37026adcb5179ee9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.19.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.20.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A pro forma funds its own plan. Until now this engine held debt flat, issued no equity, let the cash balance run to −$38.8bn on TSLA, and called that a disclosure. The owner's correction names the distinction the layer turns on: > *\"future scenarios always presume money will come from future cash flows, > raising equity, and or borrowing money (debt), cash technical never goes to > zero but debt and debt service could increase, or equity to be dilluted.\"* > … *\"cash flow can however certainly go negative.\"* The flow is an outcome; the balance is a constraint. Cash *flow* is free to go negative",
-  "published": "2026-08-01T01:54:44.867Z",
+  "notes": "Both fixes in this release are corrections to 4.19.0, and they belong together because the pair is the lesson. The terminal strike no longer capitalises the build Each duration in the term structure strikes its own terminal value where it stops. That terminal was struck on the trailing four quarters of free cash flow as projected — and mid-build those quarters carry the capital programme. TSLA's 2027–2029 strikes sat on FCFF of −13.6bn, −18.2bn, −7.1bn, so the perpetuity capitalised the construction forever: seven of ten durations priced negative, and the 16-quarter row reported a terminal at ",
+  "published": "2026-08-01T02:33:39.224Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
