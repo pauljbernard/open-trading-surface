@@ -1,13 +1,13 @@
 {
-  "version": "4.22.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.22.0.plugin",
-  "sha256": "ac45cdc6f312d9393bc18295377a5b6c41508f5548d162eba23e355c4e88bca3",
+  "version": "4.23.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.23.0.plugin",
+  "sha256": "d7cadd50c15fbb7f19a484594b0139a0a2f0e148febbbbb20fc7a177f4a3198c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.22.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.23.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "4.21.0 would not load on the owner's machine, and the diagnosis found nothing. That is recorded here as an open defect rather than dressed up as a fix. Every check available was run against the published 4.21.0 artifact: | check | result | | file list vs 4.20.0 | identical (26 files; only bundle, changelog, KB differ) | | SHA-256 vs manifest | matches | | GPG signatures | 2 Good | | unpack + load under node | ok | | MCP initialize | ok | | MCP tools/list | 244 tools, zero stderr | | terminal page inline scripts | both parse | | inversion on a TSLA-shaped fixture | 153 ms | So the package is no",
-  "published": "2026-08-01T09:57:43.488Z",
+  "notes": "DISCOVERY-SPEC — the formal process > *\"discovery needs to be a formal supported process.\"* The inversion could return DISCOVERY — no horizon reaches the price, certainty about the whole book does not reach it, no driver reaches it from inside its own record — and then it stopped. A verdict that names a question and provides no way to pursue it is a dead end wearing the costume of a finding. The governing constraint, and every mechanism is shaped by it: a discovery is never closed by moving a number until the model agrees with the price. There is no write path from this layer into any valuatio",
+  "published": "2026-08-01T11:20:11.195Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
