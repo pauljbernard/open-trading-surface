@@ -1,13 +1,13 @@
 {
-  "version": "4.15.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.15.0.plugin",
-  "sha256": "3338ee2d5186597ad600572f9d745846c1bd63b10712c8c7032bb78503cf7654",
+  "version": "4.16.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.16.0.plugin",
+  "sha256": "da1b1be563bac235d7d80361a2565229264397450df1a578b30edc8fa936da76",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.15.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.16.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A single deterministic projection produces one figure, and one figure cannot express what is actually known. Project far enough out and the spread of plausible outcomes swamps the point estimate — which is why practice moved to Monte Carlo, scenario analysis and probability-weighted outcomes rather than pretending a deterministic forecast stays meaningful for decades. get_proforma_distribution returns percentiles, not a scalar. Four decisions, each of which could have been made badly The dispersion comes from the filings. Every driver is redrawn around its own fitted level using its own measur",
-  "published": "2026-07-31T23:26:58.123Z",
+  "notes": "Both of these passed every test and disclosed themselves accurately. That is what made them hard to see. The seasonal seed reached nothing 4.11.0 projects each quarter off the quarter a year before it, so it needs the four filed quarters — not just their total. The TTM assembly was taught to carry them. It was taught wrong. The quarters field was added to the continuity-failure return, and later to the balance-sheet return, but never once to the successful FLOW return — which is the only path a seasonal seed could ever come from. So every live pro forma ran de-seasonalised. And it *said so*, a",
+  "published": "2026-08-01T00:35:53.604Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
