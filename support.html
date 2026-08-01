@@ -114,12 +114,23 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.27.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-01 16:03 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.28.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-01 16:17 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.28.0 <span class="reltitle">bottom-up beta: the first real consumer of the industry rung</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Nothing is silently substituted.</b> Both betas are returned with the</li>
+        <li><b>Fewer than four usable peers is a refusal.</b> Below that there is no precision</li>
+        <li><b>The subject is excluded from its own peer set</b> — otherwise its own beta</li>
+        <li><b>A beta outside [0.05, 4.0] is rejected and named</b>: that is a broken</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.27.0 <span class="reltitle">the equity risk premium, resolved by professional practice</span></h3>
   </div>
@@ -197,9 +208,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><b>The wall:</b> nothing the inversion computes feeds back into the valuation. A</li>
       </ul>
     </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.20.0 <span class="reltitle">two signs, one computed and one asserted</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->

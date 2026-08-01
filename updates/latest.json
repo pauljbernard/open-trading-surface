@@ -1,13 +1,13 @@
 {
-  "version": "4.27.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.27.0.plugin",
-  "sha256": "e8c366a2cc63694c3af48a3252f69fa400a9875736f366361b14fda0fba3db80",
+  "version": "4.28.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.28.0.plugin",
+  "sha256": "1dea4933e14e99c634ca0ae6997ad98a00c687ce74017b93826d58cd8103fa35",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.27.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.28.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's standing rule for any defect or edge case: what do institutional, CFA-class practitioners do in the same circumstances? For the ERP the answer is unambiguous. Practice offers three bases — historical, survey, and implied (forward-looking, backed out of the index level and expected cash flows) — and for a *current* cost of capital the implied premium is what is used, because historical premia are backward-looking, noisy, and move the wrong way: falling during crises and rising in good times, the opposite of how the price of risk behaves. We used a hardcoded 5.0%, which is neither. D",
-  "published": "2026-08-01T16:03:49.096Z",
+  "notes": "The security block had already conceded the defect in its own disclosure: *\"beta is the provider's, computed against an index over an unstated window, and is a measure of covariance not of business risk.\"* Practice does not use a regression beta for valuation where a peer set exists: 1. take the peers' levered (regression) betas 2. UNLEVER each at ITS OWN D/E and tax rate βU = βL / (1 + (1−t)·D/E) 3. take the MEDIAN of the unlevered betas 4. RE-LEVER at the subject's structure βL = βU · (1 + (1−t)·D/E) Averaging is the point, and it is not stylistic. One regression beta is a single noisy estim",
+  "published": "2026-08-01T16:17:50.348Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
