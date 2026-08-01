@@ -1,13 +1,13 @@
 {
-  "version": "4.18.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.18.0.plugin",
-  "sha256": "625fabcb787aaffd6463a44892b4f885ce1f6f833e304783985648f442ff5085",
+  "version": "4.19.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.19.0.plugin",
+  "sha256": "819f5dbd1d9e7a43029f72671b1c2ebe3bccbfb36ec53ec95e75e1ac07bf5829",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.18.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.19.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The distribution as a forward series. 4.15.0 answered \"how wide is the answer\"; this answers \"how wide is it at each future quarter\", which is the shape a reader actually reasons with — a band that widens with distance, because the far quarters are where the assumptions compound. Twenty-one new chart refs: revenue, ebit and fcff at p5 / p10 / p25 / p50 / p75 / p90 / p95. Overlay p10, p50 and p90 for the fan. On a worked example the p10-to-p90 width runs 21 at one quarter, 52 at three years, 76 at six. Percentiles of a line are not the line of a percentile The single thing worth getting right h",
-  "published": "2026-08-01T01:15:04.945Z",
+  "notes": "A pro forma funds its own plan. Until now this engine held debt flat, issued no equity, let the cash balance run to −$38.8bn on TSLA, and called that a disclosure. The owner's correction names the distinction the layer turns on: > *\"future scenarios always presume money will come from future cash flows, > raising equity, and or borrowing money (debt), cash technical never goes to > zero but debt and debt service could increase, or equity to be dilluted.\"* > … *\"cash flow can however certainly go negative.\"* The flow is an outcome; the balance is a constraint. Cash *flow* is free to go negative",
+  "published": "2026-08-01T01:54:44.867Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
