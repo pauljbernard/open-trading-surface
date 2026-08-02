@@ -1,13 +1,13 @@
 {
-  "version": "4.40.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.40.0.plugin",
-  "sha256": "b7ab150b7b77794d1e84bf92399b285b95c3df0f6d2d8be80814b2aef2881453",
+  "version": "4.41.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.41.0.plugin",
+  "sha256": "bd98402930d4066f679ad825bd695f87bde199c3b5f4be0b3a9482d175217b9e",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.40.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.41.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: *\"we also need to embue yourself a better means to transfer state from one thread to another so we don't have this issue next time, and future users who might download the application don't have this issue.\"* The trigger, told plainly against the incident: publishing 4.39.0, a fresh session inherited an excellent hand-written handoff that carried all of the *design* state and none of the *operational* state. It searched for the signing keys with a filename glob that did not match (ots-release-private-key.asc, orrery-release-private-key.asc), found only the public keys, and concluded in ",
-  "published": "2026-08-02T03:19:11.834Z",
+  "notes": "Owner, looking at the Economy panel: *\"each of the variables/attributes has only one data element. That can represent the here and now, but it doesn't allow us to vary those values over the future periods that will be used by pro formas.\"* Correct, and it was a UX corner I cut. The whole premise of the layer is that a variable is a time series on the pro forma's own grid — *\"an inflation level is a fact about today; an inflation series is what a six-year projection consumes.\"* The container (economy.js), the routes, and the MCP tools always stored and accepted a full per-period series. But the",
+  "published": "2026-08-02T03:46:02.389Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
