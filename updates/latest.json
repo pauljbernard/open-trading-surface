@@ -1,13 +1,13 @@
 {
-  "version": "4.48.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.48.0.plugin",
-  "sha256": "de784323ed7d163e6553062094d0425e2f4b6036d390e9bcdd0fae561f3007ea",
+  "version": "4.49.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.49.0.plugin",
+  "sha256": "689aff6623d0e3a8749cfcb6c91cb9ae04621bc5f06d40f6bc7003377b004031",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.48.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.49.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The stock-layer cleanup begins, governed by the one rule this rung established: a fitted driver is a measurement, an industry variable is a prior, and a measurement is never silently displaced by a prior. - 1a — the prior discloses. proforma-input.js attaches, per name, every mapped driver's fit beside its sector prior with the gap stated (disclosure.industry_priors): revenue growth ↔ industry_revenue_growth_pct, operating margin ↔ industry_operating_margin_pct, capex ↔ industry_capex_intensity_pct. The immediate payoff is the case that got nothing before: a thin-history name whose fit REFUSED",
-  "published": "2026-08-02T22:46:44.349Z",
+  "notes": "Owner: *\"having a 'Sector' top level tab with subnavigation that allows us to navigate amongst multiple sectors would be the way to go from a UX perspective.\"* Done. The industry rung leaves the Economy tab's sub-view and becomes a pinned 🏭 Sectors tab with sector subnavigation: the census strip (each sector with its variables-set count), per-sector variables as per-period series with sparklines and provenance, and the identities-vs-economy readings. The Inheritance toggles stay in the Economy tab — one adoption console. Terminal state reports sectors_open / sectors_selected for the agent con",
+  "published": "2026-08-02T22:49:28.544Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
