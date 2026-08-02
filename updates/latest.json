@@ -1,13 +1,13 @@
 {
-  "version": "4.39.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.39.0.plugin",
-  "sha256": "12e60786f9d1dbdf13c1dc2c1f7ef374fd7be5a15678499f3560f21bee166647",
+  "version": "4.40.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.40.0.plugin",
+  "sha256": "b7ab150b7b77794d1e84bf92399b285b95c3df0f6d2d8be80814b2aef2881453",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.39.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.40.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: *\"there should be an economic model\"* — and, correcting the first draft of the spec: *\"The economy is primarily a container for variables. However, those are not a single set of variables. They are a set of time series variables that map to the same periodicity of the pro formas. They are centrally modeled. Then they are inherited by everything downstream, but can be overridden.\"* server/economy.js shipped last commit as a container with nothing reaching it — an orphan the moment it landed, which is precisely the state the 4.33.0 reachability guard exists to forbid, and the guard was re",
-  "published": "2026-08-02T02:33:55.175Z",
+  "notes": "Owner: *\"we also need to embue yourself a better means to transfer state from one thread to another so we don't have this issue next time, and future users who might download the application don't have this issue.\"* The trigger, told plainly against the incident: publishing 4.39.0, a fresh session inherited an excellent hand-written handoff that carried all of the *design* state and none of the *operational* state. It searched for the signing keys with a filename glob that did not match (ots-release-private-key.asc, orrery-release-private-key.asc), found only the public keys, and concluded in ",
+  "published": "2026-08-02T03:19:11.834Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
