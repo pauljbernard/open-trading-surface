@@ -1,13 +1,13 @@
 {
-  "version": "4.42.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.42.0.plugin",
-  "sha256": "6d35db9b65193e1e8f31e05e8494a52277942e3b4baaf1694b2ec3fa8e13733e",
+  "version": "4.43.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.43.0.plugin",
+  "sha256": "961e48f26d1e947d6be90a555fb6290e9dccd5b84b0166ebddc383a9b20dcd12",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.42.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.43.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The economy stops merely disclosing and starts — *gated* — being inherited by the valuation. This is the first change in the layer that *could* move a published number, so it ships under the rule that governs everything else: disclosure precedes adjustment, always. Grounded against the live code, which had drifted from the spec's original sketch and was better than it: blocks/cost-of-equity.js already accepts an ERP input and already discloses when it falls back to DEFAULT_ERP_PCT = 4.45, so the seam was half-built. Phase 1a adds: - ECONOMY_INHERITANCE_ENABLED (tuning, default 0). At 0 the gat",
-  "published": "2026-08-02T21:07:44.786Z",
+  "notes": "Owner, mid-flight: *\"just don't hard code values, make sure they are configurable in the UX and via the MCP interfaces.\"* Correct, and it caught me about to commit the exact anti-pattern this layer exists to end. Phase 1b — adopting the economy's ERP into the cost of equity — was on its way to being a hardcoded default flip in the release. That is the implicit-economy problem in a new costume: a judgment baked into code where nobody can see or change it per instance. Reverted. Adoption is now a configurable toggle, and it lives in both interfaces: - UX — a new Inheritance view in the Economy p",
+  "published": "2026-08-02T21:28:52.666Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

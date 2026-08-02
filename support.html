@@ -114,12 +114,26 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.42.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-02 21:07 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.43.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-02 21:28 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.43.0 <span class="reltitle">the adoption is a TOGGLE, not a hardcoded flip (ECONOMY-INHERITANCE-SPEC Phase 1b)</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>UX</b> — a new <b>Inheritance</b> view in the Economy panel: the ON/OFF toggle, and</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>MCP</b> — <code>set_economy_inheritance {enabled}</code> (and the generic <code>tuning</code> tool);</li>
+        <li>The flag <code>ECONOMY_INHERITANCE_ENABLED</code> <b>defaults to 0</b> and stays there in the</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.42.0 <span class="reltitle">the economy reaches a valuation, gated (ECONOMY-INHERITANCE-SPEC Phase 1a)</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -154,9 +168,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">4.36.0 <span class="reltitle">a median describing a company that no longer exists</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.35.0 <span class="reltitle">limited liability, and a view carrying no view</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
