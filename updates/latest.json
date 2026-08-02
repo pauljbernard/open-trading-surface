@@ -1,13 +1,13 @@
 {
-  "version": "4.38.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.38.0.plugin",
-  "sha256": "9b4368222ce8fb791d3d56833778ac67c2ed57f36a404fa65d5033598f8c8962",
+  "version": "4.39.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.39.0.plugin",
+  "sha256": "12e60786f9d1dbdf13c1dc2c1f7ef374fd7be5a15678499f3560f21bee166647",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.38.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.39.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: *\"It feels that you are hard coding many assumptions for things that should be variables.\"* Measured rather than conceded, it was worse than the impression. A tuning registry already exists — added on owner direction in 3.78.0, its own header reading *\"every judgment constant the engine carries, NAMED, documented, and overridable — literals promoted to configuration ... what a desk's risk function will demand and what per-cohort calibration needs.\"* Across 4.19.0 → 4.37.0 I registered nothing in it. Fifteen constants went in as literals: MIN_RESOLVED 12, MAX_WIDEN 4.0, REGIME_MADS 1.5, ",
-  "published": "2026-08-02T00:49:17.519Z",
+  "notes": "Owner: *\"there should be an economic model\"* — and, correcting the first draft of the spec: *\"The economy is primarily a container for variables. However, those are not a single set of variables. They are a set of time series variables that map to the same periodicity of the pro formas. They are centrally modeled. Then they are inherited by everything downstream, but can be overridden.\"* server/economy.js shipped last commit as a container with nothing reaching it — an orphan the moment it landed, which is precisely the state the 4.33.0 reachability guard exists to forbid, and the guard was re",
+  "published": "2026-08-02T02:33:55.175Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
