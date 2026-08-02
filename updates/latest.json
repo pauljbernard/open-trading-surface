@@ -1,13 +1,13 @@
 {
-  "version": "4.45.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.45.0.plugin",
-  "sha256": "ba36cf31caf74e83264ace36bee09827fbb5727d3cc5f4fdaa809259de168f1e",
+  "version": "4.46.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.46.0.plugin",
+  "sha256": "fa19ae27b7635bf61a2c21f59f2774633880a1756d4c8ed5f1815374b76ad760",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.45.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.46.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The most consequential identity in the economy finally reaches the number it constrains. terminal_growth_pct has defaulted to 2.5 checked against nothing since the pro forma engine was built — because there was nothing to check it against. Now there is: nominal GDP growth (real + inflation), per period, from the economy container — the cap practice uses (Damodaran: a firm cannot outgrow the economy in perpetuity; it would eventually *become* the economy). The mechanics honor both standing disciplines: - The projection stays pure. proforma-input.js (the impure builder) attaches a by-period ceil",
-  "published": "2026-08-02T22:06:07.568Z",
+  "notes": "The top rung finally moves the bottom one. Economy pro formas (§4) exist as first-class objects, and — gated — each simulation path draws the scenario first, then prices the company in the world it drew. - Scenarios in the container (setScenario / deleteScenario / validateScenarios): each a complete alternate filling — every base variable, its full series, the same grid — with a name and an owner-grade probability. The §4 refusals are enforced: a scenario missing a variable refuses (absent would silently inherit the base — a blend nobody chose); a differing grid refuses; a probability is requi",
+  "published": "2026-08-02T22:16:50.876Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
