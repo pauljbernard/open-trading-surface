@@ -1,13 +1,13 @@
 {
-  "version": "4.50.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.50.0.plugin",
-  "sha256": "3f56823d95022422c30374fc1da5c5113741c62284db2c0e789cb2f46da325e0",
+  "version": "4.51.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.51.0.plugin",
+  "sha256": "f2aa2e0267144aa429a3d8939af81afb72729e198ec139153aba9a2a8fcf51ab",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.50.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.51.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: FMP publishes *available-sectors* and *available-industries* — *\"we need to rationally handle both … this is how the industry thinks about this layer … industry unsurprisingly is closer to our idea of 'sectors' but that's ok, both are important distinctions.\"* - The taxonomy is DERIVED, never curated. refreshTaxonomy pulls both key sets from FMP's /stable endpoints and caches them with their fetch date; a set against an unknown key refuses, naming near misses; an empty provider response refuses to overwrite a good cache; before the first fetch, keys are accepted with a disclosed unvalid",
-  "published": "2026-08-02T23:05:16.940Z",
+  "notes": "Owner: *\"by design it must understand each industry's specifics, as well as what might be common across industries (out of the box) so we can consistently model what the best securities analysts in each sector model, and then we also want to make sure that the user can override and input additional dependencies as might be required.\"* And the bar: *\"each sector has experts, and this is where we can really differentiate by making sure our sectors are expert level models in each category.\"* server/industry-dependencies.js — a DEPENDENCY is one claim: this driver, in this industry, moves with tha",
+  "published": "2026-08-02T23:24:59.096Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

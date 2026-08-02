@@ -114,12 +114,26 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.50.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-02 23:05 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.51.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-02 23:24 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.51.0 <span class="reltitle">expert-level sector models as dependencies (INDUSTRY-DEPENDENCY-SPEC Phase 2a)</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>OWNER</b>: override any elasticity, REMOVE one, or ADD dependencies the</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>COMMON</b> (out of the box): the cross-industry baseline — revenue ↔ real GDP</li>
+        <li><b>TEMPLATES</b> (out of the box, per FMP sector and industry): the analyst</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.50.0 <span class="reltitle">two levels, from the industry's own classification (owner direction)</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -171,20 +185,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
       <ul>
         <li><b>1c — the risk-free centralises.</b> With the toggle on, the economy's</li>
         <li><b>1d — cost of debt gains its first market input.</b> `kd = risk-free + BBB</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.43.0 <span class="reltitle">the adoption is a TOGGLE, not a hardcoded flip (ECONOMY-INHERITANCE-SPEC Phase 1b)</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>UX</b> — a new <b>Inheritance</b> view in the Economy panel: the ON/OFF toggle, and</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>MCP</b> — <code>set_economy_inheritance {enabled}</code> (and the generic <code>tuning</code> tool);</li>
-        <li>The flag <code>ECONOMY_INHERITANCE_ENABLED</code> <b>defaults to 0</b> and stays there in the</li>
       </ul>
     </div>
   </div>
