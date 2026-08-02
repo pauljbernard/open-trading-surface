@@ -1,13 +1,13 @@
 {
-  "version": "4.51.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.51.0.plugin",
-  "sha256": "f2aa2e0267144aa429a3d8939af81afb72729e198ec139153aba9a2a8fcf51ab",
+  "version": "4.52.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.52.0.plugin",
+  "sha256": "7c2745668c901f91292d26379facd78bbc4d0e7286035949dd63de2173af3f0b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.51.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.52.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: *\"by design it must understand each industry's specifics, as well as what might be common across industries (out of the box) so we can consistently model what the best securities analysts in each sector model, and then we also want to make sure that the user can override and input additional dependencies as might be required.\"* And the bar: *\"each sector has experts, and this is where we can really differentiate by making sure our sectors are expert level models in each category.\"* server/industry-dependencies.js — a DEPENDENCY is one claim: this driver, in this industry, moves with tha",
-  "published": "2026-08-02T23:24:59.096Z",
+  "notes": "Owner: *\"We need to make it feel to the user more like a spreadsheet model with some rows prefilled but editable and having the ability to add new rows and or customizations. right now it reads like editorial for each sector and industry.\"* Correct — the templates resolved into read-only prose cards, and the only edit path was MCP. The Sectors tab's dependency section is now a grid: prefilled template rows with the elasticity editable in place (a save appears on change), an + Add row with driver/source selectors built from served catalogs, and a delete per row — every change recorded as an OWN",
+  "published": "2026-08-02T23:44:18.875Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
