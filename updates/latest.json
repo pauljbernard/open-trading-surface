@@ -1,13 +1,13 @@
 {
-  "version": "4.37.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.37.0.plugin",
-  "sha256": "ad7a12532425f9b4bfa74e3bbe81f72eb621dbb9485805208d8050bf28a66277",
+  "version": "4.38.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.38.0.plugin",
+  "sha256": "9b4368222ce8fb791d3d56833778ac67c2ed57f36a404fa65d5033598f8c8962",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.37.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.38.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The live payload reported rho_used: -0.0112 at the top level and rho_market: 0 inside the bridge. One quantity, two values, one response, and nothing to say which of them produced the distribution underneath. simulateBook clamps the correlation to [0,1] and said nothing about it. The clamp is correct — the one-factor loading is sqrt(rho)·market + sqrt(1-rho)·own, and a negative rho has no square root. The defect is the silence, because the clamp *moved the answer*: at rho 0 the joint book is identical to the independent book, so the entire diversification reading — the thing the joint simulati",
-  "published": "2026-08-02T00:33:04.554Z",
+  "notes": "Owner: *\"It feels that you are hard coding many assumptions for things that should be variables.\"* Measured rather than conceded, it was worse than the impression. A tuning registry already exists — added on owner direction in 3.78.0, its own header reading *\"every judgment constant the engine carries, NAMED, documented, and overridable — literals promoted to configuration ... what a desk's risk function will demand and what per-cohort calibration needs.\"* Across 4.19.0 → 4.37.0 I registered nothing in it. Fifteen constants went in as literals: MIN_RESOLVED 12, MAX_WIDEN 4.0, REGIME_MADS 1.5, ",
+  "published": "2026-08-02T00:49:17.519Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
