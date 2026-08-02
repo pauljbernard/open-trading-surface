@@ -1,13 +1,13 @@
 {
-  "version": "4.49.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.49.0.plugin",
-  "sha256": "689aff6623d0e3a8749cfcb6c91cb9ae04621bc5f06d40f6bc7003377b004031",
+  "version": "4.50.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.50.0.plugin",
+  "sha256": "3f56823d95022422c30374fc1da5c5113741c62284db2c0e789cb2f46da325e0",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.49.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.50.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: *\"having a 'Sector' top level tab with subnavigation that allows us to navigate amongst multiple sectors would be the way to go from a UX perspective.\"* Done. The industry rung leaves the Economy tab's sub-view and becomes a pinned 🏭 Sectors tab with sector subnavigation: the census strip (each sector with its variables-set count), per-sector variables as per-period series with sparklines and provenance, and the identities-vs-economy readings. The Inheritance toggles stay in the Economy tab — one adoption console. Terminal state reports sectors_open / sectors_selected for the agent con",
-  "published": "2026-08-02T22:49:28.544Z",
+  "notes": "Owner: FMP publishes *available-sectors* and *available-industries* — *\"we need to rationally handle both … this is how the industry thinks about this layer … industry unsurprisingly is closer to our idea of 'sectors' but that's ok, both are important distinctions.\"* - The taxonomy is DERIVED, never curated. refreshTaxonomy pulls both key sets from FMP's /stable endpoints and caches them with their fetch date; a set against an unknown key refuses, naming near misses; an empty provider response refuses to overwrite a good cache; before the first fetch, keys are accepted with a disclosed unvalid",
+  "published": "2026-08-02T23:05:16.940Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

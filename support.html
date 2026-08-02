@@ -114,12 +114,22 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.49.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-02 22:49 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.50.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-02 23:05 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.50.0 <span class="reltitle">two levels, from the industry's own classification (owner direction)</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The taxonomy is DERIVED, never curated.</b> <code>refreshTaxonomy</code> pulls both key</li>
+        <li><b>Both levels are containers.</b> SECTOR (coarse) and INDUSTRY (fine — the</li>
+        <li><b>UX</b>: the Sectors tab gains a level toggle (Sectors | Industries), the key</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.49.0 <span class="reltitle">Sectors becomes a top-level tab (owner UX direction)</span></h3>
   </div>
@@ -175,16 +185,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
       <ul>
         <li><b>MCP</b> — <code>set_economy_inheritance {enabled}</code> (and the generic <code>tuning</code> tool);</li>
         <li>The flag <code>ECONOMY_INHERITANCE_ENABLED</code> <b>defaults to 0</b> and stays there in the</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.42.0 <span class="reltitle">the economy reaches a valuation, gated (ECONOMY-INHERITANCE-SPEC Phase 1a)</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b><code>ECONOMY_INHERITANCE_ENABLED</code></b> (tuning, <b>default 0</b>). At 0 the gated wire</li>
-        <li><b><code>server/economy-inheritance.js</code></b> — the gated wire (<code>forValuation</code>, empty</li>
-        <li>The subtle mechanic made visible: where the minimum-equity-premium **floor</li>
       </ul>
     </div>
   </div>
