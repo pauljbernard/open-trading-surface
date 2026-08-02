@@ -1,13 +1,13 @@
 {
-  "version": "4.52.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.52.0.plugin",
-  "sha256": "7c2745668c901f91292d26379facd78bbc4d0e7286035949dd63de2173af3f0b",
+  "version": "4.53.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.53.0.plugin",
+  "sha256": "81c294307c60e5f4cd631118b016fa05818af1aa87927454fd6cee0aa9f25f9f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.52.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.53.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: *\"We need to make it feel to the user more like a spreadsheet model with some rows prefilled but editable and having the ability to add new rows and or customizations. right now it reads like editorial for each sector and industry.\"* Correct — the templates resolved into read-only prose cards, and the only edit path was MCP. The Sectors tab's dependency section is now a grid: prefilled template rows with the elasticity editable in place (a save appears on change), an + Add row with driver/source selectors built from served catalogs, and a delete per row — every change recorded as an OWN",
-  "published": "2026-08-02T23:44:18.875Z",
+  "notes": "Two owner directions in one stroke. First: *\"we aren't seeing what the sectors are incrementally adding as new dependencies, which ones are increments to existing ones that are inherited, and which ones are overrides.\"* Every resolved dependency row now carries its lineage (the whole chain of layers that touched it) and a vs inherited classification rendered as its own grid column: *baseline (common)*, *+ added by <layer>*, *↺ from → to (Δ, was <layer>)* — and removals are tombstones, struck-through rows showing what was removed, by whom, and what it displaced — never a silent absence. A chang",
+  "published": "2026-08-02T23:49:14.490Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
