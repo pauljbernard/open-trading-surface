@@ -1,13 +1,13 @@
 {
-  "version": "4.46.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.46.0.plugin",
-  "sha256": "fa19ae27b7635bf61a2c21f59f2774633880a1756d4c8ed5f1815374b76ad760",
+  "version": "4.47.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.47.0.plugin",
+  "sha256": "87ed04394957f98b2fb478600c27cd160505b5121bd8d125e30915731984a5fe",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.46.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.47.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The top rung finally moves the bottom one. Economy pro formas (§4) exist as first-class objects, and — gated — each simulation path draws the scenario first, then prices the company in the world it drew. - Scenarios in the container (setScenario / deleteScenario / validateScenarios): each a complete alternate filling — every base variable, its full series, the same grid — with a name and an owner-grade probability. The §4 refusals are enforced: a scenario missing a variable refuses (absent would silently inherit the base — a blend nobody chose); a differing grid refuses; a probability is requi",
-  "published": "2026-08-02T22:16:50.876Z",
+  "notes": "Owner: *\"work down the hierarchy to the next lower level\"* — and the mapping settled first: worldview = World Model (narrative, deferred to a later pass), the economy container = Macroeconomics (done), so the next rung down is Industry — the one genuinely hollow layer. industry-model.js is a qualitative conditioning stamp; the economy's override chain has an industry *level* with nothing behind it; and the company layer cannot inherit through a rung that does not exist. server/industry.js — the economy's shape one rung down, keyed by sector (the 4.24.0 constraint stands: generic by constructio",
+  "published": "2026-08-02T22:39:22.829Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
