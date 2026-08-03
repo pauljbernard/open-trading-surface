@@ -114,12 +114,27 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.76.2</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-03 21:19 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.77.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-03 22:16 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.77.0 <span class="reltitle">model values become screener vocabulary, and the green rule becomes a screen (owner directive)</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>NEW <code>index</code> stage (free, before the enrichment cap): <code>sp500_member</code>,</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><code>run_screen</code> description now catalogs the whole surface stage (composite,</li>
+        <li><code>momw_gap_pct</code> registered as an alias of <code>gap_pct</code> — one computation, two</li>
+        <li><code>model_spread_ln</code> (population SD of ln per-model fair value; the spec's</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.76.2 <span class="reltitle">chip tooltips: the abbreviation gets its full story (owner UX)</span></h3>
   </div>
@@ -140,9 +155,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">4.74.0 <span class="reltitle">the fair value gets its fan (owner: "there should be [a dispersion] if we were doing it correctly")</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.73.2 <span class="reltitle">the fan refuses what it cannot draw; the band rides its base (owner live-run defects)</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
