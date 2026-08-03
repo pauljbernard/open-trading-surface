@@ -1,13 +1,13 @@
 {
-  "version": "4.75.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.75.0.plugin",
-  "sha256": "3411005394ac845cb7f297984476f548474810eb61b279e06bb92558d243e155",
+  "version": "4.75.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.75.1.plugin",
+  "sha256": "5d0e7f1724ec6483fc3e1c4c74008a6c7a9e5c600e8b1af1d914db16fc17151d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.75.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.75.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "STATEMENT-SUBSTRATE-SPEC Phase 3's presentation flip, behind DERIVATION_HEADLINE_ENABLED (default 0, never hardcoded). The precision blend scores frames by trailing closeness to the PRICE — so when frames straddle it the blend lands on it mechanically, an echo, not an opinion; the bracketing banner has been confessing this since 4.3.0. At 1: the Model of Models presentation demotes the blend to the MARKET-TRACKING BLEND (diagnostic — the weights are the reading, as ever) and the FAIR VALUE is the DERIVATION: the pro forma valued off the vertical, with its term structure and simulated distribut",
-  "published": "2026-08-03T18:36:43.758Z",
+  "notes": "A chart saved during 4.74.0's one-release window carried proforma:SYM:per_share — which the transform stripper still ate, so the overlay errored (\"no forward series … unknown forward line ''\") and its fan variant drew orphaned. The exact old ref shapes now ALIAS to proforma:SYM:fair_value (and :pNN) before the transform stripper runs; every other :per_share use remains the transform, untouched. A rename is a dated decision; a stranded saved layout is a defect.",
+  "published": "2026-08-03T19:26:31.270Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
