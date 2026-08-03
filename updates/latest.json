@@ -1,13 +1,13 @@
 {
-  "version": "4.76.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.76.0.plugin",
-  "sha256": "7b08c0c41545d9acfbf96437bb6ad47da6e71391f44b6c195282569da7f4dbf6",
+  "version": "4.76.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.76.1.plugin",
+  "sha256": "01dc36ab87886429becbe2f7770f8d920daea6250b4ec4d7a62d6afab37686d1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.76.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.76.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The lens dropdown on the Market heat map outgrew a native select exactly as the chart pickers did. It is now the SAME modal shell — lens-family nav on the left (Composite, Diagnostics, Intrinsic, Relative, Asset, Optionality, with counts), a searchable single-select list in the middle (one lens = one cross-sectional coloring of the market, by construction), and a config pane on the right stating each lens's basis and this-day coverage BEFORE selection commits via Apply. Cancel/Esc/✕/backdrop discard, per the house dialog semantics. The pane also states the roadmap honestly: fundamental-field l",
-  "published": "2026-08-03T20:23:06.346Z",
+  "notes": "The valuation-band trios (P/E, P/S, EV/EBITDA) and the model band-trio quick-add still used the pre-4.72 silent staged toggle — clicking gave no feedback and no config, which read as \"not selectable.\" Group rows now SELECT into the config column like everything else: the panel lists the set's refs and offers ＋ Add all / ✕ Remove all (taking effect on OK), with the note that each staged member is then individually configurable from Displayed. One interaction grammar, now genuinely everywhere.",
+  "published": "2026-08-03T21:10:19.845Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
