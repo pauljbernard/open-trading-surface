@@ -1,13 +1,13 @@
 {
-  "version": "4.74.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.74.0.plugin",
-  "sha256": "9e10e3d55151bb94d59ec3dafc37aec687ff06b8c17472fe2af3f6fed2d27e73",
+  "version": "4.74.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.74.1.plugin",
+  "sha256": "5bd3473e2eb3f59573c3ff7fa064d5912339ec4df0af3962d27da21294b47af6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.74.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.74.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Correct — and now there is. The per-share fair value always HAD a distribution: every simulated path prices a complete duration term structure under its drawn world (scenario draws, economy and industry dispersion, elasticity shifts, gate Bernoullis, all inside). It simply was never charted. New ref proforma:{SYM}:per_share — the FAIR-VALUE PATH, the value struck at each duration (each point a complete valuation: explicit quarters to there plus a terminal value struck there) — with :pNN percentile bands across paths at each duration, accumulated by DURATION QUARTERS rather than index so drawn ",
-  "published": "2026-08-03T17:22:12.686Z",
+  "notes": "proforma:SYM:per_share never resolved — the chart chip read *\"unknown forward line ''\"* — because :per_share is a TRANSFORM suffix (:ttm :per_share :yoy …) and the transform stripper ate the line id whole, leaving an empty line on a bare proforma:SYM:. The fair-value path is now proforma:{SYM}:fair_value (with :fair_value:pNN bands); simulateSeries accepts both ids for direct callers. The lesson recorded in place: a ref grammar must never collide with its own suffix grammar.",
+  "published": "2026-08-03T18:26:34.243Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
