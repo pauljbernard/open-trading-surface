@@ -1,13 +1,13 @@
 {
-  "version": "4.54.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.54.0.plugin",
-  "sha256": "c737757cee3886581e5f9aa3243ca7c8c0f2582e88ab03c013162d0796277fcd",
+  "version": "4.55.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.55.0.plugin",
+  "sha256": "a0c10acf9c71ab849c6ab660dedd7444af44f5831b94684f4fecd4e9956c2600",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.54.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.55.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: *\"what I see is not time series for each driver/source. I see one value.. I'm not seeing a time series of pro formas out into the future nor the monte carlo functionality that I would expect at each layer.\"* Correct on both counts, and the spec now records the correction with the reason: the first cut carried elasticities as scalars, violating the layer principle — and the economics: sensitivities are regime-dependent (a deposit beta early-cycle is not its late-cycle self; the semis GDP beta depends on the inventory cycle). - Every elasticity is now a per-period SERIES on the pro forma ",
-  "published": "2026-08-03T00:02:42.700Z",
+  "notes": "Owner: *\"do we have the ability to display them as overlays in the stock charts?\"* — and, on seeing the list: *\"time to clean up the macro/data time series list... we have a lot of elements from the prior models.\"* - New chart refs: economy:<variable>[:<SYM>] (the container's per-period path, optionally resolved through the override chain for a name) and industry:<key>:<variable> (any FMP sector or industry key, the finer level checked first). Both render as FORWARD series — quarter-end dated points, forward:true, the projected-not-observed basis — exactly the proforma-series discipline, so th",
+  "published": "2026-08-03T00:18:41.774Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
