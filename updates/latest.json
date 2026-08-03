@@ -1,13 +1,13 @@
 {
-  "version": "4.65.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.65.0.plugin",
-  "sha256": "86177b25856b0989f1f116feda929c5ac03584d838cb3e1d98db5a2547d6e413",
+  "version": "4.66.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.66.0.plugin",
+  "sha256": "0cf9c7575368a0c367177592cbde438ab514fe83ce3017ba274c96dab817ee40",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.65.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.66.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The freshness warning on the Pricing Models panel named its remedy — run_surface_batch {symbols:[X]} — but offered no way to act on it from the page: a warning that tells you to go find an agent is half a disclosure. The banner now carries a Recompute now button: the same forced-recompute path the MCP tool takes (surface.modelTick with exact symbols, thin over the module via the new /cm/recompute_model route), followed by a cache-busted re-render. One click takes a name from generation-marked stale to computed under the current container-stack state — the vertical stamp on the fresh payload sh",
-  "published": "2026-08-03T14:17:23.900Z",
+  "notes": "The owner's review of the page's editorial notations found the payload prose already swept — no string on the momw payload still claims the pre-vertical world (an agent audit of the full live TSLA payload confirmed zero obsolete claims; the historical notes — W5, the 3.61.0 weighting decision, spec §15 — are accurate records of dated decisions and stay). The staleness was BY OMISSION: the page predates the vertical and showed none of it. Two additions, both read verbatim off payloads the server already carries: The vertical stamp renders. The 4.64.0 vertical block (economy container version + ",
+  "published": "2026-08-03T14:28:00.673Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
