@@ -1,13 +1,13 @@
 {
-  "version": "4.55.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.55.0.plugin",
-  "sha256": "a0c10acf9c71ab849c6ab660dedd7444af44f5831b94684f4fecd4e9956c2600",
+  "version": "4.56.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.56.0.plugin",
+  "sha256": "cb8aa1f82ec09eb5305d2d6f315ee403b29589cd2e25faa5c6ba1a10616270ea",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.55.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.56.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: *\"do we have the ability to display them as overlays in the stock charts?\"* — and, on seeing the list: *\"time to clean up the macro/data time series list... we have a lot of elements from the prior models.\"* - New chart refs: economy:<variable>[:<SYM>] (the container's per-period path, optionally resolved through the override chain for a name) and industry:<key>:<variable> (any FMP sector or industry key, the finer level checked first). Both render as FORWARD series — quarter-end dated points, forward:true, the projected-not-observed basis — exactly the proforma-series discipline, so th",
-  "published": "2026-08-03T00:18:41.774Z",
+  "notes": "Owner: *\"how does the monte carlo part of economy charting and monte carlo part of sector/industry get visually represented?\"* Until now: only at the company rung (the simulated pro forma fan). Now each rung's uncertainty charts as what it actually IS: - :pNN — the analytic fan. economy:<var>:pNN and industry:<key>:<var>:pNN chart value ± z·dispersion per period from the variable's own STATED per-period dispersion — the assumption's own width, widening out the horizon exactly as stated. The label distinguishes it from the simulated company fan, and a variable carrying no dispersion REFUSES — a",
+  "published": "2026-08-03T00:29:51.064Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
