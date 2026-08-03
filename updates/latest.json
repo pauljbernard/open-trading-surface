@@ -1,13 +1,13 @@
 {
-  "version": "4.53.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.53.0.plugin",
-  "sha256": "81c294307c60e5f4cd631118b016fa05818af1aa87927454fd6cee0aa9f25f9f",
+  "version": "4.54.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.54.0.plugin",
+  "sha256": "c737757cee3886581e5f9aa3243ca7c8c0f2582e88ab03c013162d0796277fcd",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.53.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.54.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Two owner directions in one stroke. First: *\"we aren't seeing what the sectors are incrementally adding as new dependencies, which ones are increments to existing ones that are inherited, and which ones are overrides.\"* Every resolved dependency row now carries its lineage (the whole chain of layers that touched it) and a vs inherited classification rendered as its own grid column: *baseline (common)*, *+ added by <layer>*, *↺ from → to (Δ, was <layer>)* — and removals are tombstones, struck-through rows showing what was removed, by whom, and what it displaced — never a silent absence. A chang",
-  "published": "2026-08-02T23:49:14.490Z",
+  "notes": "Owner: *\"what I see is not time series for each driver/source. I see one value.. I'm not seeing a time series of pro formas out into the future nor the monte carlo functionality that I would expect at each layer.\"* Correct on both counts, and the spec now records the correction with the reason: the first cut carried elasticities as scalars, violating the layer principle — and the economics: sensitivities are regime-dependent (a deposit beta early-cycle is not its late-cycle self; the semis GDP beta depends on the inventory cycle). - Every elasticity is now a per-period SERIES on the pro forma ",
+  "published": "2026-08-03T00:02:42.700Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
