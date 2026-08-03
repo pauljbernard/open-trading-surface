@@ -1,13 +1,13 @@
 {
-  "version": "4.76.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.76.1.plugin",
-  "sha256": "01dc36ab87886429becbe2f7770f8d920daea6250b4ec4d7a62d6afab37686d1",
+  "version": "4.76.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.76.2.plugin",
+  "sha256": "786c767a7b9b47e6bb7615233256f0d80be73a0359f7a12ac2b548494fa026e2",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.76.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.76.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The valuation-band trios (P/E, P/S, EV/EBITDA) and the model band-trio quick-add still used the pre-4.72 silent staged toggle — clicking gave no feedback and no config, which read as \"not selectable.\" Group rows now SELECT into the config column like everything else: the panel lists the set's refs and offers ＋ Add all / ✕ Remove all (taking effect on OK), with the note that each staged member is then individually configurable from Displayed. One interaction grammar, now genuinely everywhere.",
-  "published": "2026-08-03T21:10:19.845Z",
+  "notes": "The overlay chips above the chart abbreviate to the symbol (\"ZTS\") — with nine overlays up, unreadable. Hovering a chip now shows the full series label, the exact ref, the axis mode, any lead/lag shift and fan setting, and the error text where one exists.",
+  "published": "2026-08-03T21:19:17.100Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
