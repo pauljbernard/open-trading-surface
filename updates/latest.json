@@ -1,13 +1,13 @@
 {
-  "version": "4.71.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.71.0.plugin",
-  "sha256": "c61fcfe6a947182166a2d12872b71a58afeeb984ea7e6207c436ad97d79ed90f",
+  "version": "4.72.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.72.0.plugin",
+  "sha256": "cee71c519092d9748503f961fb4d773a07577a1ef61245572d82adcc10d4075d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.71.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.72.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The 4.70.0 series-modal nav scrolled to a section while everything else stayed visible — so selecting 🟢 Displayed still showed the whole catalog beneath it, which defeated the point. The nav is now a FILTER, exactly like the indicators rail: every section (Displayed, each catalog category, Statement fields, Valuation bands) registers as a filterable unit; selecting a nav item shows ONLY that section, \"All categories\" restores the full pane, the selected item highlights, and a selection made before the async catalog loads is applied to its sections when they arrive.",
-  "published": "2026-08-03T15:59:32.925Z",
+  "notes": "Both modal pickers gain a configuration column, per the owner's organizing principle: the left column navigates categories, the middle lists the series, and the RIGHT column configures whichever one is selected — \"that will get all the time series displays for both areas highly consistent and scalable.\" Series modal: clicking a row (catalog, search result, or Displayed) SELECTS it; the config column shows its label/ref/unit and either ＋ Add to chart (with the category's implied axis mode as default) or, for displayed series, the full control set that used to crowd every Displayed row — axis mo",
+  "published": "2026-08-03T16:08:37.282Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
