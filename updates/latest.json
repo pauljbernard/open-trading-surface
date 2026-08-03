@@ -1,13 +1,13 @@
 {
-  "version": "4.74.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.74.1.plugin",
-  "sha256": "5bd3473e2eb3f59573c3ff7fa064d5912339ec4df0af3962d27da21294b47af6",
+  "version": "4.75.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.75.0.plugin",
+  "sha256": "3411005394ac845cb7f297984476f548474810eb61b279e06bb92558d243e155",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.74.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.75.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "proforma:SYM:per_share never resolved — the chart chip read *\"unknown forward line ''\"* — because :per_share is a TRANSFORM suffix (:ttm :per_share :yoy …) and the transform stripper ate the line id whole, leaving an empty line on a bare proforma:SYM:. The fair-value path is now proforma:{SYM}:fair_value (with :fair_value:pNN bands); simulateSeries accepts both ids for direct callers. The lesson recorded in place: a ref grammar must never collide with its own suffix grammar.",
-  "published": "2026-08-03T18:26:34.243Z",
+  "notes": "STATEMENT-SUBSTRATE-SPEC Phase 3's presentation flip, behind DERIVATION_HEADLINE_ENABLED (default 0, never hardcoded). The precision blend scores frames by trailing closeness to the PRICE — so when frames straddle it the blend lands on it mechanically, an echo, not an opinion; the bracketing banner has been confessing this since 4.3.0. At 1: the Model of Models presentation demotes the blend to the MARKET-TRACKING BLEND (diagnostic — the weights are the reading, as ever) and the FAIR VALUE is the DERIVATION: the pro forma valued off the vertical, with its term structure and simulated distribut",
+  "published": "2026-08-03T18:36:43.758Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
