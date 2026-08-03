@@ -1,13 +1,13 @@
 {
-  "version": "4.78.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.78.0.plugin",
-  "sha256": "817196a783773786cad6f9e997ce9b3e2b502ecf50da6a635a8a01e25ff5792d",
+  "version": "4.79.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.79.0.plugin",
+  "sha256": "77f156cb6b331e6e30c7a306a296757cf26e2082744f9208d704f846584cfbd7",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.78.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.79.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The two-way audit (chartable-not-screenable and the reverse) found ~1,200 chartable series per symbol against 114 screener fields. The four cheapest, highest-value closures, in the order of their cost: - Container stage (free): econ_<variable> for all 9 economy container variables (universe constants, for value_field/derive conditioning) and ind_<variable> joined by the row's own sector/industry through the container's coarse→fine resolution. Fields GENERATED from the two VARIABLES registries — the list cannot drift. Unresolvable = null, fails filters. - Surface history (free): momw_chg_30d_pc",
-  "published": "2026-08-03T22:57:24.929Z",
+  "notes": "The field vocabulary passed 130 entries (surface, container, pf, band percentiles…) and the builder's two native dropdowns — the left-hand field and the right-hand field when the mode selects field — stopped scaling, the same judgment that moved the chart pickers (4.72.0) and the heat-map lens (4.76.0) to the modal shell. Both sides now pick through one field-picker modal: single-select, nav of STAGES (which is also the cost structure — free stages named as free, paid as paid), searchable list, config pane stating the stage's cost and the field's role before selection commits; Apply commits, C",
+  "published": "2026-08-03T23:20:12.369Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
