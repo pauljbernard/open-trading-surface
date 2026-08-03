@@ -1,13 +1,13 @@
 {
-  "version": "4.77.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.77.0.plugin",
-  "sha256": "29a75d68a3e01960c4f222f587b433fdbaca53e6137b733fdd17d812e08ce60d",
+  "version": "4.77.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.77.1.plugin",
+  "sha256": "586dc2c135a9d6ae5305fb1bc72ef665b31e9e722afdd7b12a468b3cdb999be7",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.77.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.77.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner asked for momw and the other pricing-model results as screener fields. Most had shipped in 4.4.0/4.5.0 (momw_value, gap_pct, one m_* field per registered model) — but the agent-facing run_screen catalog never mentioned the surface stage, so an agent reading the tool description concluded the fields did not exist and fell back to a job that rewrites a static member list nightly. The defect was documentation as much as code: a capability that the catalog omits is, to every agent consumer, absent. - run_screen description now catalogs the whole surface stage (composite, gap, coverage, b",
-  "published": "2026-08-03T22:16:18.850Z",
+  "notes": "4.77.0 added an index enrichment stage (sp500_member, nasdaq100_member, dow_member) because the audit — reading the run_screen catalog — concluded no index-membership capability existed. It did: in_index, a universe-stage membership predicate that intersects constituent sets before anything is paid for, shipped earlier and was ALSO missing from the catalog. The same documentation defect that motivated 4.77.0 claimed 4.77.0 itself as a victim, and the lesson lands twice: a capability the catalog omits is absent to every agent consumer, and the fix is the catalog — never a second implementation.",
+  "published": "2026-08-03T22:27:02.714Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
