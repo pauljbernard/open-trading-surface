@@ -1,13 +1,13 @@
 {
-  "version": "4.79.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.79.0.plugin",
-  "sha256": "77f156cb6b331e6e30c7a306a296757cf26e2082744f9208d704f846584cfbd7",
+  "version": "4.80.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.80.0.plugin",
+  "sha256": "b83a20045b22ca3aa0cfe2bb1b1362b060da1b23bf2f6431593685c581241856",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.79.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.80.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The field vocabulary passed 130 entries (surface, container, pf, band percentiles…) and the builder's two native dropdowns — the left-hand field and the right-hand field when the mode selects field — stopped scaling, the same judgment that moved the chart pickers (4.72.0) and the heat-map lens (4.76.0) to the modal shell. Both sides now pick through one field-picker modal: single-select, nav of STAGES (which is also the cost structure — free stages named as free, paid as paid), searchable list, config pane stating the stage's cost and the field's role before selection commits; Apply commits, C",
-  "published": "2026-08-03T23:20:12.369Z",
+  "notes": "run_surface_batch and surface_fill take a cohort (id or name, any cohort in the lattice including screen-derived). Membership is resolved AT BATCH TIME — and for a fill, RE-RESOLVED ON EVERY TICK — so a rules-based cohort prices what its rule matches now: names entering the rule join the queue mid-fill, names leaving stop being ticked. The scope restricts the queue; staleness, ranking and the budget apply unchanged (a scoped refresh, not a forced one — symbols remains the forced audit path and wins where both are given). The resolution is disclosed on every result (members, in-universe, outsid",
+  "published": "2026-08-03T23:36:02.846Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
