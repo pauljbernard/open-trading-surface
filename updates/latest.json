@@ -1,13 +1,13 @@
 {
-  "version": "4.58.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.58.0.plugin",
-  "sha256": "1cc971d68976e9d8f3588092d7559203894234ac182e1f0814265025d44a3eb0",
+  "version": "4.59.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.59.0.plugin",
+  "sha256": "2e423fe0662e672d8add5a075fff022cf828d19443f46483612a77843e264d50",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.58.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.59.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner, overlaying the economy risk-free on RKLB: *\"Its not plotting a time series across any historical time ranges, and its not plotting into the future, nor is a fan-out style monte carlo plot being displayed.\"* All three named a real gap: - Forward rendering was broken for EVERY forward series. The overlay aligner mapped points onto the price bars' dates, and its after-the-close fold collapsed ALL future points onto the last candle — a 24-quarter container path became one orange dot, and the pro forma forward refs suffered the same. Fixed centrally: future points now render at their REAL da",
-  "published": "2026-08-03T01:15:29.723Z",
+  "notes": "Owner: *\"shouldn't to fan out or not fan out be a switch in the selector line?\"* Yes. Two changes: - The fan switch. An overlay whose container carries per-period dispersion now offers fan: off | p10–p90 | p5–p95 directly on its row in the Active overlays list (fan_available rides the resolve payload — offered only where width is actually stated, never invented). Flipping it draws the band around the base line — same axis, same color, thin edges — by fetching the ref's own :pNN variants, so the chart and the resolver cannot disagree about what a fan is. Persisted with the layout; raw view only",
+  "published": "2026-08-03T01:32:19.194Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

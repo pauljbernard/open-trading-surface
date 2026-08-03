@@ -114,12 +114,21 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>4.58.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-03 01:15 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>4.59.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-03 01:32 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">4.59.0 <span class="reltitle">the fan is a switch on the overlay row (owner UX direction)</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The fan switch.</b> An overlay whose container carries per-period dispersion</li>
+        <li><b>Fan geometry.</b> Refs differing only by <code>:pNN</code> / <code>:scenario:*</code> now SHARE</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">4.58.0 <span class="reltitle">forward series actually render forward (the orange-dot defect)</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -171,20 +180,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">4.52.0 <span class="reltitle">the dependency model becomes a spreadsheet, not an editorial</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">4.51.0 <span class="reltitle">expert-level sector models as dependencies (INDUSTRY-DEPENDENCY-SPEC Phase 2a)</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>OWNER</b>: override any elasticity, REMOVE one, or ADD dependencies the</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>COMMON</b> (out of the box): the cross-industry baseline — revenue ↔ real GDP</li>
-        <li><b>TEMPLATES</b> (out of the box, per FMP sector and industry): the analyst</li>
-      </ul>
-    </div>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
