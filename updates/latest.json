@@ -1,13 +1,13 @@
 {
-  "version": "4.57.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.57.0.plugin",
-  "sha256": "63e14f0bc67cadda24638433d98515922a38fd22a1b1665fb7ef1efe2a1f8154",
+  "version": "4.58.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.58.0.plugin",
+  "sha256": "1cc971d68976e9d8f3588092d7559203894234ac182e1f0814265025d44a3eb0",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.57.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.58.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The defect behind the owner's report (\"I'm seeing a lot of old model of model time series but not the economy refs\"): the Macro/Data picker carried its OWN hardcoded copies of the series lists — macro quick-picks, company financials, model conclusions, tracked-EPS rows — so the 4.55.0 catalog cleanup and the 4.56.0 MC refs never reached the menu. A curated copy rots; this one rotted in a single release. Owner: *\"can we fix this via a more centralized approach?\"* Done: the entire Macro/Data menu now renders from the served catalog (/series/catalog, one fetch) — every category in the server's or",
-  "published": "2026-08-03T00:37:04.900Z",
+  "notes": "Owner, overlaying the economy risk-free on RKLB: *\"Its not plotting a time series across any historical time ranges, and its not plotting into the future, nor is a fan-out style monte carlo plot being displayed.\"* All three named a real gap: - Forward rendering was broken for EVERY forward series. The overlay aligner mapped points onto the price bars' dates, and its after-the-close fold collapsed ALL future points onto the last candle — a 24-quarter container path became one orange dot, and the pro forma forward refs suffered the same. Fixed centrally: future points now render at their REAL da",
+  "published": "2026-08-03T01:15:29.723Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
