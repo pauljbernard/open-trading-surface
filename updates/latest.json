@@ -1,13 +1,13 @@
 {
-  "version": "4.64.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.64.0.plugin",
-  "sha256": "949220b8f1137d266fabf50b3efbf28dae228327bdb476c0c918ec5656ca84ed",
+  "version": "4.65.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.65.0.plugin",
+  "sha256": "86177b25856b0989f1f116feda929c5ac03584d838cb3e1d98db5a2547d6e413",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.64.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.65.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A deep audit of the pricing models, strategic initiatives and the model of models found the vertical stack built but the old approach still standing — and one defect that mattered more than all of it. P0 — the dead wire. proforma-input.js keyed the ENTIRE industry rung off ctx.profile, a key buildContext has never returned (the profile rides the async fundamentals() seam as f.profile). Sector resolved to null on every live call: priors never resolved, the simulator's dependency rows and industry variables were never attached, the disclosure was always null — the Phase 2b elasticity chain and t",
-  "published": "2026-08-03T13:22:44.723Z",
+  "notes": "The freshness warning on the Pricing Models panel named its remedy — run_surface_batch {symbols:[X]} — but offered no way to act on it from the page: a warning that tells you to go find an agent is half a disclosure. The banner now carries a Recompute now button: the same forced-recompute path the MCP tool takes (surface.modelTick with exact symbols, thin over the module via the new /cm/recompute_model route), followed by a cache-busted re-render. One click takes a name from generation-marked stale to computed under the current container-stack state — the vertical stamp on the fresh payload sh",
+  "published": "2026-08-03T14:17:23.900Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
