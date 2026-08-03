@@ -1,13 +1,13 @@
 {
-  "version": "4.69.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.69.0.plugin",
-  "sha256": "781405594d831cf0d2249c5c0be8838cc718a6b8832c56a3d44ecbba5484ceb7",
+  "version": "4.70.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.70.0.plugin",
+  "sha256": "c923319e390d93241c0f109b86d46925ade8e0e3688599f755229cb33bf55fc3",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.69.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.70.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The indicator library is just as long as the series catalog, so it gets the SAME presentation the 4.68.0 series picker got: backdrop, centered modal, search promoted to the header beside the ✕, Esc / backdrop-click to close. The rail-and-list layout it already had becomes the modal body and fills the shell instead of capping at a dropdown height. One shell, two long lists — the pattern is now the house style for any picker that outgrows a dropdown.",
-  "published": "2026-08-03T15:43:01.934Z",
+  "notes": "What is on the chart must never be buried beneath the catalog it came from. Both modal pickers now pin the DISPLAYED set: the series modal renders \"Displayed series — on the chart now\" (with all row controls: mode, view, fan, shift, remove) at the TOP of the pane with a 🟢 Displayed entry FIRST in the category nav; the indicators modal gains a 🟢 Displayed rail category with its count, the current-instances block renames to \"Displayed indicators — on the chart now\" and stays pinned at the top of every mode, searchable. Removal now splices by INSTANCE rather than loop index — a search-filtered ",
+  "published": "2026-08-03T15:49:03.896Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
