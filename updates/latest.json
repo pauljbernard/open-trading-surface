@@ -1,13 +1,13 @@
 {
-  "version": "4.73.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.73.0.plugin",
-  "sha256": "a1ca2d096cac3e579dfa7da39f4317e933b5cbf4aa3609a18d6cd7e8b70b948e",
+  "version": "4.73.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.73.1.plugin",
+  "sha256": "4199ad90704f622496d53e41d060c231165b8a1af923a442409832ef1c16ca98",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.73.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.73.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The two modal pickers closed themselves mid-flow — adding a series closed the dialog, removing one closed it, the band trio closed it — and every action took effect immediately. Both dialogs now behave like dialogs: EVERY action (add, remove, axis mode, view, fan, lead/lag, hide/show, parameters) mutates a STAGED copy; nothing reaches the chart or the saved layout until OK; Cancel — or Esc, the ✕, or a backdrop click — discards the staging wholesale. A footer on each dialog carries the two buttons and says so: \"Changes are staged — nothing reaches the chart until OK.\" Mechanics: the series mod",
-  "published": "2026-08-03T16:24:34.212Z",
+  "notes": "The 4.73.0 staged commit pushed NEW overlays as skeletons and rebuilt — but the fetch lived in addOverlay, which staging bypasses, so a newly staged series committed with zero points and hung on the loading watermark forever. OK now fetches every point-less overlay (chaining the fan fetch where staged), then saves, rebuilds once, and surfaces per-series errors as toasts. Found by the owner running it live — the discipline the repo exists to encode, again.",
+  "published": "2026-08-03T16:47:47.259Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
