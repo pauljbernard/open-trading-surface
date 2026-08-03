@@ -1,13 +1,13 @@
 {
-  "version": "4.73.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.73.2.plugin",
-  "sha256": "bea482c0acb5dd2dffa4bf25e4623417bfcb298c583b0c95848aa0b6ca14ef74",
+  "version": "4.74.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.74.0.plugin",
+  "sha256": "9e10e3d55151bb94d59ec3dafc37aec687ff06b8c17472fe2af3f6fed2d27e73",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.73.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.74.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner staged the momw composite with a p5–p95 fan and lead/lag and got \"a double line, and the fan out is not being displayed.\" Root cause: the resolver SILENTLY ABSORBED :pNN on pricing refs — pricing:TSLA:composite.momw:p5 returned the BASE series, so six identical \"percentiles\" rendered as a zero-height fan (invisible) plus a duplicate edge line, drawn UNSHIFTED while the base carried the lead/lag (the double). Three fixes: (1) the pricing head now REFUSES :pNN with the truth attached — per-lens fair-value distributions arrive with STATEMENT-SUBSTRATE-SPEC Phase 4; until then the base c",
-  "published": "2026-08-03T17:02:03.551Z",
+  "notes": "Correct — and now there is. The per-share fair value always HAD a distribution: every simulated path prices a complete duration term structure under its drawn world (scenario draws, economy and industry dispersion, elasticity shifts, gate Bernoullis, all inside). It simply was never charted. New ref proforma:{SYM}:per_share — the FAIR-VALUE PATH, the value struck at each duration (each point a complete valuation: explicit quarters to there plus a terminal value struck there) — with :pNN percentile bands across paths at each duration, accumulated by DURATION QUARTERS rather than index so drawn ",
+  "published": "2026-08-03T17:22:12.686Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
