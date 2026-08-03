@@ -1,13 +1,13 @@
 {
-  "version": "4.68.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.68.0.plugin",
-  "sha256": "b27ac6413de69d70f98d03149f9101d2dc14cac25408ea86005bd9ef614fb0d9",
+  "version": "4.69.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.69.0.plugin",
+  "sha256": "781405594d831cf0d2249c5c0be8838cc718a6b8832c56a3d44ecbba5484ceb7",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.68.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.69.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Two defects, one of them structural. The visible one: the catalog's metadata keys (_expr, _bands, _transforms) leaked into the picker as a bare \"_TRANSFORMS\" heading over empty \"＋\" rows — documentation entries rendered as if they were chartable refs. Fixed: keys starting with _ are never categories; _transforms now renders as suffix chips on the doc line with each transform's description as its tooltip. The structural one, in the owner's words: *\"the drop down Macro/data list is so long that a drop down drill-down style list doesn't scale.\"* The picker is now a MODAL — backdrop, centered (min(",
-  "published": "2026-08-03T15:34:09.361Z",
+  "notes": "The indicator library is just as long as the series catalog, so it gets the SAME presentation the 4.68.0 series picker got: backdrop, centered modal, search promoted to the header beside the ✕, Esc / backdrop-click to close. The rail-and-list layout it already had becomes the modal body and fills the shell instead of capping at a dropdown height. One shell, two long lists — the pattern is now the house style for any picker that outgrows a dropdown.",
+  "published": "2026-08-03T15:43:01.934Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
