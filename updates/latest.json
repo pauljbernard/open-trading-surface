@@ -1,13 +1,13 @@
 {
-  "version": "4.61.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.61.0.plugin",
-  "sha256": "87409c96c12096851953d62e4fb27b28645e1e31d5b0b6ded2f13172cb6bbf64",
+  "version": "4.62.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.62.0.plugin",
+  "sha256": "3cda8dc6e8f4e767c0d9da7d7b9e053be9cf02c15d2e735dad3a115501d85a60",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.61.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.62.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: *\"I like how the economy indicators are displayed first, that sort of follows our top down approach; the next set of overlays should be the Sector/Industry indicator time series and they should also work in the same way as the economic indicators.\"* The top-down order was already structural (the catalog drives the picker and industry sits second). This release makes the behavior identical too, via ONE implementation rather than a copy: the history splice is extracted into a shared helper, industry.js gains its own HISTORY map in the economy's shape, and industry refs now carry the same ",
-  "published": "2026-08-03T01:47:33.544Z",
+  "notes": "The simulator's longest-standing stated deferral — *\"company drivers are NOT conditional on the drawn scenario\"* — closes, behind its own toggle. With INDUSTRY_DEPENDENCIES_ENABLED (default 0, per-instance, never hardcoded) AND scenarios drawing: per path, the drawn scenario's per-period DEVIATIONS from the base container path, times the name's resolved elasticity series (common → templates → owner, the chain disclosed), shift the affected drivers for that path — a Semiconductors name (GDP elasticity 2.5) now widens more under a recession draw than a Regulated Electric name (≈0), because its i",
+  "published": "2026-08-03T11:54:42.690Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
