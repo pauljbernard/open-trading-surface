@@ -1,13 +1,13 @@
 {
-  "version": "4.70.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.70.0.plugin",
-  "sha256": "c923319e390d93241c0f109b86d46925ade8e0e3688599f755229cb33bf55fc3",
+  "version": "4.71.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.71.0.plugin",
+  "sha256": "c61fcfe6a947182166a2d12872b71a58afeeb984ea7e6207c436ad97d79ed90f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.70.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.71.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "What is on the chart must never be buried beneath the catalog it came from. Both modal pickers now pin the DISPLAYED set: the series modal renders \"Displayed series — on the chart now\" (with all row controls: mode, view, fan, shift, remove) at the TOP of the pane with a 🟢 Displayed entry FIRST in the category nav; the indicators modal gains a 🟢 Displayed rail category with its count, the current-instances block renames to \"Displayed indicators — on the chart now\" and stays pinned at the top of every mode, searchable. Removal now splices by INSTANCE rather than loop index — a search-filtered ",
-  "published": "2026-08-03T15:49:03.896Z",
+  "notes": "The 4.70.0 series-modal nav scrolled to a section while everything else stayed visible — so selecting 🟢 Displayed still showed the whole catalog beneath it, which defeated the point. The nav is now a FILTER, exactly like the indicators rail: every section (Displayed, each catalog category, Statement fields, Valuation bands) registers as a filterable unit; selecting a nav item shows ONLY that section, \"All categories\" restores the full pane, the selected item highlights, and a selection made before the async catalog loads is applied to its sections when they arrive.",
+  "published": "2026-08-03T15:59:32.925Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
