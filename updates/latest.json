@@ -1,13 +1,13 @@
 {
-  "version": "4.59.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.59.0.plugin",
-  "sha256": "2e423fe0662e672d8add5a075fff022cf828d19443f46483612a77843e264d50",
+  "version": "4.60.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.60.0.plugin",
+  "sha256": "cddce1da8f50851df3631422266aad652dd748dabe0d8a7096ef928c83c270d0",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.59.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.60.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: *\"shouldn't to fan out or not fan out be a switch in the selector line?\"* Yes. Two changes: - The fan switch. An overlay whose container carries per-period dispersion now offers fan: off | p10–p90 | p5–p95 directly on its row in the Active overlays list (fan_available rides the resolve payload — offered only where width is actually stated, never invented). Flipping it draws the band around the base line — same axis, same color, thin edges — by fetching the ref's own :pNN variants, so the chart and the resolver cannot disagree about what a fan is. Persisted with the layout; raw view only",
-  "published": "2026-08-03T01:32:19.194Z",
+  "notes": "Owner, overlaying the ERP: *\"apparently you didn't fix the history for all of the economic indicators.\"* Correct — the 4.58.0 splice engaged only when the container's source_ref was itself a fred: series, so the risk-free worked and everything else silently rendered forward-only. The HISTORY map now lives in economy.js beside the catalogue — which series is the honest past of a quantity is a property of the VARIABLE, not of whichever caller charts it: DGS10, DFF, BAA10Y (×100 to bps), THREEFYTP10 (ACM term premium), PCEPILFE YoY (matching the container's stated PCE basis), GDPC1 YoY, GDPPOT Yo",
+  "published": "2026-08-03T01:44:29.175Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
