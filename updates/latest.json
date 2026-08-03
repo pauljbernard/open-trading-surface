@@ -1,13 +1,13 @@
 {
-  "version": "4.56.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.56.0.plugin",
-  "sha256": "cb8aa1f82ec09eb5305d2d6f315ee403b29589cd2e25faa5c6ba1a10616270ea",
+  "version": "4.57.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.57.0.plugin",
+  "sha256": "63e14f0bc67cadda24638433d98515922a38fd22a1b1665fb7ef1efe2a1f8154",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.56.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.57.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner: *\"how does the monte carlo part of economy charting and monte carlo part of sector/industry get visually represented?\"* Until now: only at the company rung (the simulated pro forma fan). Now each rung's uncertainty charts as what it actually IS: - :pNN — the analytic fan. economy:<var>:pNN and industry:<key>:<var>:pNN chart value ± z·dispersion per period from the variable's own STATED per-period dispersion — the assumption's own width, widening out the horizon exactly as stated. The label distinguishes it from the simulated company fan, and a variable carrying no dispersion REFUSES — a",
-  "published": "2026-08-03T00:29:51.064Z",
+  "notes": "The defect behind the owner's report (\"I'm seeing a lot of old model of model time series but not the economy refs\"): the Macro/Data picker carried its OWN hardcoded copies of the series lists — macro quick-picks, company financials, model conclusions, tracked-EPS rows — so the 4.55.0 catalog cleanup and the 4.56.0 MC refs never reached the menu. A curated copy rots; this one rotted in a single release. Owner: *\"can we fix this via a more centralized approach?\"* Done: the entire Macro/Data menu now renders from the served catalog (/series/catalog, one fetch) — every category in the server's or",
+  "published": "2026-08-03T00:37:04.900Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
