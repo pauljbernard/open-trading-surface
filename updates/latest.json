@@ -1,13 +1,13 @@
 {
-  "version": "4.62.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.62.0.plugin",
-  "sha256": "3cda8dc6e8f4e767c0d9da7d7b9e053be9cf02c15d2e735dad3a115501d85a60",
+  "version": "4.63.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.63.0.plugin",
+  "sha256": "b72b95ce2e59169d799a2e1d787e9248295666f47472aabc5832b4c649663d1d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.62.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.63.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The simulator's longest-standing stated deferral — *\"company drivers are NOT conditional on the drawn scenario\"* — closes, behind its own toggle. With INDUSTRY_DEPENDENCIES_ENABLED (default 0, per-instance, never hardcoded) AND scenarios drawing: per path, the drawn scenario's per-period DEVIATIONS from the base container path, times the name's resolved elasticity series (common → templates → owner, the chain disclosed), shift the affected drivers for that path — a Semiconductors name (GDP elasticity 2.5) now widens more under a recession draw than a Regulated Electric name (≈0), because its i",
-  "published": "2026-08-03T11:54:42.690Z",
+  "notes": "An audit of the top-down design named four places the stochastic cascade was partial. All four close here, each behind its own default-0 toggle, each stream-guarded (off = not one PRNG call, proven byte-identical): Per-period driver paths (the structural one). The projection engine now consumes an optional shift_pp_by_period map per driver — keyed by the same period labels the economy grid uses — at every quarter: growth, margins, capex, tax, working capital. A recession that bites in 2027 bites the 2027 quarters; quarters beyond the scenario grid are unshifted (the scenario says nothing past ",
+  "published": "2026-08-03T12:50:49.962Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
