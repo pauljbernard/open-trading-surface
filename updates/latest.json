@@ -1,13 +1,13 @@
 {
-  "version": "4.86.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.86.0.plugin",
-  "sha256": "6482878bd388195c9fd0bade14d7babbad6acece1360dc6b22377f3ee9b989d4",
+  "version": "4.87.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.87.0.plugin",
+  "sha256": "cc629c1a2f993532dca6454281ab6bd9ae3f361670eea67237565a157f250235",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.86.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.87.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive: *\"for the portfolio management function we support buy, sell, deposit, withdraw, dividend, and fee — but we don't support all of the corporate actions that can affect the portfolio.\"* This release completes the vocabulary (LEDGER-COMPLETENESS-SPEC §9, a dated amendment): every corporate action is a deterministic transform inside the ONE lot engine (server/portfolio.js costBasis), works under all five cost-basis methods, records first as a dated event, and REFUSES valuation naming exactly the missing field where owner input is required — no silent default, ever. The self-test t",
-  "published": "2026-08-04T22:14:34.925Z",
+  "notes": "Three owner directives, one arc. The transaction modal (directive: *\"rather than being a simple data entry row, we instead have a dedicated modal dialog box that allows the user to select which transaction or corporate action is being transacted with its own form\"*): the terminal's entry row is replaced by a dialog — step 1 a type picker grouped Cash / Trades / Income / Corporate actions, step 2 that type's OWN form with labels, hints, today-defaulted date, symbol suggestions and a spec-ID lot picker built from the portfolio's open lots. The choices and field specs are GENERATED from the engin",
+  "published": "2026-08-04T22:39:22.564Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
