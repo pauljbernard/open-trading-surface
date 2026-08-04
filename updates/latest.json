@@ -1,13 +1,13 @@
 {
-  "version": "4.88.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.88.0.plugin",
-  "sha256": "077c451910a945cc28156ab5eb24dfbe09be3b7f1b6a641e378e3f37a4c7ebbb",
+  "version": "4.89.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.89.0.plugin",
+  "sha256": "142d09277892d8971c56e2e01ab24c0fac3442cb84d44a2978fb1cc145af29c1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.88.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.89.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner bug (2026-08-04): *\"when a portfolio is created under the Portfolios tab, and changes occur in its constituency, I would expect the corresponding Cohort under the Cohorts tab to always be synchronized. Currently it doesn't appear that it is.\"* Live evidence: portfolio Interesting had grown while the custom cohort interesting — a stored copy promoted from a watchlist on 2026-07-21 — sat frozen at IBM+TSLA. This resolves PORTFOLIO-ANALYSIS-SPEC §10's owner-acknowledged lineage gap, and resolves it structurally, not procedurally: a stored membership copy that requires propagation is the",
-  "published": "2026-08-04T23:10:40.404Z",
+  "notes": "The owner directive: below Research Notes on each security, a Perspectives panel — the server collects all the data it has access to for that name, passes what is necessary to an LLM, and asks for an assessment grounded in the classic value disciplines (margin of safety, investment vs speculation, earnings power over story, balance-sheet strength, owner earnings, the market quotation as servant not guide, an explicit refusal to predict) — with the hard rule that the source books and their authors are never named in the output, enforced in code: a violating draft is retried once with a sharpene",
+  "published": "2026-08-04T23:35:31.112Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
