@@ -1,13 +1,13 @@
 {
-  "version": "4.84.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.84.0.plugin",
-  "sha256": "e4cd6a469351414bf6d9475ba7c40ad0ef6689e92944dd0bd8e13df6158767a0",
+  "version": "4.85.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.85.0.plugin",
+  "sha256": "401a3ae6899259737a76580224fe89d69c8a97ca3b45ee0124c20ff401fa9fae",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.84.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.85.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive: implement Tier 1 of the portfolio-practice gap analysis (research/PORTFOLIO-PRACTICE-GAP-ANALYSIS.md) — the four gaps that can make today's numbers misleading — as one arc. LEDGER-COMPLETENESS-SPEC.md fixes the design as law. The live evidence on both sides of the comparison: the Interesting ledger's deposit/buy/sell-only vocabulary, which understates a dividend-paying book's TWR by its entire income stream and makes fees invisible; and the SPY price proxy, whose excess-return readings were systematically flattered by the ~1.3–1.5%/yr of dividends a price series excludes — dis",
-  "published": "2026-08-04T21:16:02.151Z",
+  "notes": "Owner directive: implement Tier 2 of the portfolio-practice gap analysis (research/PORTFOLIO-PRACTICE-GAP-ANALYSIS.md gaps 5, 6, 7) as one arc. Institutional practice pairs Brinson-Fachler with factor/risk-based attribution, reports ex-ante risk beside ex-post statistics, and keeps a stress page for the book; the report had none of the three. PORTFOLIO-ANALYSIS-SPEC §13 fixes the design as law: one new pure engine (server/pf-risk.js) consuming the EXISTING factor plane (server/factor-model.js — the ETF-proxy model, reused never re-derived, and it says on every payload that it is not a commerci",
+  "published": "2026-08-04T21:37:55.024Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
