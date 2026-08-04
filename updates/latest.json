@@ -1,13 +1,13 @@
 {
-  "version": "4.80.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.80.0.plugin",
-  "sha256": "b83a20045b22ca3aa0cfe2bb1b1362b060da1b23bf2f6431593685c581241856",
+  "version": "4.80.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.80.1.plugin",
+  "sha256": "512b4d32e17dad4f7018a7cf147a481d3b1c617ff55513e855acaabe2302883e",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.80.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.80.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "run_surface_batch and surface_fill take a cohort (id or name, any cohort in the lattice including screen-derived). Membership is resolved AT BATCH TIME — and for a fill, RE-RESOLVED ON EVERY TICK — so a rules-based cohort prices what its rule matches now: names entering the rule join the queue mid-fill, names leaving stop being ticked. The scope restricts the queue; staleness, ranking and the budget apply unchanged (a scoped refresh, not a forced one — symbols remains the forced audit path and wins where both are given). The resolution is disclosed on every result (members, in-universe, outsid",
-  "published": "2026-08-03T23:36:02.846Z",
+  "notes": "The first cohort-scoped repricing of the S&P greens exposed, in one screen, what no unit test had: (A) merger-step growth seeds — AMCR's recent YoY of 55.9% (the Berry acquisition, 10.6 MADs from a fitted level of 0.78%) seeded the fade and compounded to an $823 \"value\" on a $46 stock; (B) a 10³ provider unit error — ES's latest-quarter netDebt of 27.686 TRILLION (fit level 14.17B, 3830 MADs) subtracted raw from EV to −$73,487/share; (C) financials failing INCIDENTALLY on whichever FCFF driver an insurer happens not to file (AFL: no D&A line), with the few that parsed valued on an industrial t",
+  "published": "2026-08-04T01:01:57.652Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
