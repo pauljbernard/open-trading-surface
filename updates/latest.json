@@ -1,13 +1,13 @@
 {
-  "version": "4.83.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.83.0.plugin",
-  "sha256": "3625049c6d1b3d8d97939645fa4fd3217e30533461e43f509eace47f6a000932",
+  "version": "4.84.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.84.0.plugin",
+  "sha256": "e4cd6a469351414bf6d9475ba7c40ad0ef6689e92944dd0bd8e13df6158767a0",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.83.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.84.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive: the portfolios subsystem did not support the full range of cost basis accounting, and it needs to — \"we need to support all of the methods.\" The ledger had exactly one lot-consumption rule, FIFO, and it was a silent default: no payload said which method produced a realized number, and no recorded sale could say otherwise. Worse, the codebase carried two derivations — derive() realized P&L on a weighted-average pool while lots() computed FIFO — two routes to a realized number that quietly disagreed on any partial sale. COST-BASIS-SPEC.md fixes the design as law and this release",
-  "published": "2026-08-04T20:32:34.948Z",
+  "notes": "Owner directive: implement Tier 1 of the portfolio-practice gap analysis (research/PORTFOLIO-PRACTICE-GAP-ANALYSIS.md) — the four gaps that can make today's numbers misleading — as one arc. LEDGER-COMPLETENESS-SPEC.md fixes the design as law. The live evidence on both sides of the comparison: the Interesting ledger's deposit/buy/sell-only vocabulary, which understates a dividend-paying book's TWR by its entire income stream and makes fees invisible; and the SPY price proxy, whose excess-return readings were systematically flattered by the ~1.3–1.5%/yr of dividends a price series excludes — dis",
+  "published": "2026-08-04T21:16:02.151Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
