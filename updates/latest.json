@@ -1,13 +1,13 @@
 {
-  "version": "4.80.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.80.1.plugin",
-  "sha256": "512b4d32e17dad4f7018a7cf147a481d3b1c617ff55513e855acaabe2302883e",
+  "version": "4.81.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.81.0.plugin",
+  "sha256": "cde43847e79a752125fd819975e409c0e9a140e3b66cbec14c1bdf733b33d14d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.80.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.81.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The first cohort-scoped repricing of the S&P greens exposed, in one screen, what no unit test had: (A) merger-step growth seeds — AMCR's recent YoY of 55.9% (the Berry acquisition, 10.6 MADs from a fitted level of 0.78%) seeded the fade and compounded to an $823 \"value\" on a $46 stock; (B) a 10³ provider unit error — ES's latest-quarter netDebt of 27.686 TRILLION (fit level 14.17B, 3830 MADs) subtracted raw from EV to −$73,487/share; (C) financials failing INCIDENTALLY on whichever FCFF driver an insurer happens not to file (AFL: no D&A line), with the few that parsed valued on an industrial t",
-  "published": "2026-08-04T01:01:57.652Z",
+  "notes": "Owner directive #42, phase 1. A new portfolio-analysis layer (PORTFOLIO-ANALYSIS-SPEC.md) reads a portfolio or a cohort the way an institution reads a book: TWR and MWR against the index.sp500 benchmark (proxied by SPY, and the proxy is named where the benchmark is defined, never hidden), equal and cap weighted syntheses printed beside the actual ledger reading, Brinson-Fachler attribution with Carino linking, and risk statistics that refuse — with the sentence naming the distorted equity base — rather than print a 1,482% volatility. Two tools carry it (get_portfolio_report, export_portfolio_r",
+  "published": "2026-08-04T17:09:42.445Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
