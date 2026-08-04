@@ -1,13 +1,13 @@
 {
-  "version": "4.81.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.81.1.plugin",
-  "sha256": "6e7c305083d5ef6ac74af568cc387b19a4fdd93f3c4986c33611a02a78528fea",
+  "version": "4.82.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.82.0.plugin",
+  "sha256": "4a0221c8e4813114ef9143cb69fea31bfe1089aeaa447b1a0a1b3519a4d417a9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.81.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.82.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner direction: the terminal's Export PDF button no longer writes the report into the server's state directory and prints a file path — it requests the new GET /pf/report.pdf route and the browser performs an ordinary file download (application/pdf, attachment; filename \"<subject <date>.pdf\"), with nothing written to disk on the way. A refusal answers as plain text with a 4xx status, so the sentence reaches the user verbatim instead of being saved as a broken .pdf. The MCP tool export_portfolio_report keeps its agent-facing contract unchanged: same assembly, written to <statedir>/reports, pat",
-  "published": "2026-08-04T17:41:14.915Z",
+  "notes": "Owner direction: produce a more professional online and downloadable report. The visual language of the portfolio report was researched against institutional factsheet practice (BlackRock/Morningstar tear-sheet conventions) and fixed as law in a dated PORTFOLIO-ANALYSIS-SPEC §5 amendment. The chart-selection rule is the law's center: a pie/donut is admissible only for a part-of-whole with at most five non-aggregate slices and no negative weight — otherwise horizontal bars, Morningstar's own fallback convention; \"Other (N)\" and \"Cash\" aggregates do not count against the five, and a negative any",
+  "published": "2026-08-04T18:12:22.374Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
