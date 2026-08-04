@@ -1,13 +1,13 @@
 {
-  "version": "4.81.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.81.0.plugin",
-  "sha256": "cde43847e79a752125fd819975e409c0e9a140e3b66cbec14c1bdf733b33d14d",
+  "version": "4.81.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.81.1.plugin",
+  "sha256": "6e7c305083d5ef6ac74af568cc387b19a4fdd93f3c4986c33611a02a78528fea",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.81.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.81.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive #42, phase 1. A new portfolio-analysis layer (PORTFOLIO-ANALYSIS-SPEC.md) reads a portfolio or a cohort the way an institution reads a book: TWR and MWR against the index.sp500 benchmark (proxied by SPY, and the proxy is named where the benchmark is defined, never hidden), equal and cap weighted syntheses printed beside the actual ledger reading, Brinson-Fachler attribution with Carino linking, and risk statistics that refuse — with the sentence naming the distorted equity base — rather than print a 1,482% volatility. Two tools carry it (get_portfolio_report, export_portfolio_r",
-  "published": "2026-08-04T17:09:42.445Z",
+  "notes": "Owner direction: the terminal's Export PDF button no longer writes the report into the server's state directory and prints a file path — it requests the new GET /pf/report.pdf route and the browser performs an ordinary file download (application/pdf, attachment; filename \"<subject <date>.pdf\"), with nothing written to disk on the way. A refusal answers as plain text with a 4xx status, so the sentence reaches the user verbatim instead of being saved as a broken .pdf. The MCP tool export_portfolio_report keeps its agent-facing contract unchanged: same assembly, written to <statedir>/reports, pat",
+  "published": "2026-08-04T17:41:14.915Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
