@@ -1,13 +1,13 @@
 {
-  "version": "4.82.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.82.0.plugin",
-  "sha256": "4a0221c8e4813114ef9143cb69fea31bfe1089aeaa447b1a0a1b3519a4d417a9",
+  "version": "4.83.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.83.0.plugin",
+  "sha256": "3625049c6d1b3d8d97939645fa4fd3217e30533461e43f509eace47f6a000932",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.82.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.83.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner direction: produce a more professional online and downloadable report. The visual language of the portfolio report was researched against institutional factsheet practice (BlackRock/Morningstar tear-sheet conventions) and fixed as law in a dated PORTFOLIO-ANALYSIS-SPEC §5 amendment. The chart-selection rule is the law's center: a pie/donut is admissible only for a part-of-whole with at most five non-aggregate slices and no negative weight — otherwise horizontal bars, Morningstar's own fallback convention; \"Other (N)\" and \"Cash\" aggregates do not count against the five, and a negative any",
-  "published": "2026-08-04T18:12:22.374Z",
+  "notes": "Owner directive: the portfolios subsystem did not support the full range of cost basis accounting, and it needs to — \"we need to support all of the methods.\" The ledger had exactly one lot-consumption rule, FIFO, and it was a silent default: no payload said which method produced a realized number, and no recorded sale could say otherwise. Worse, the codebase carried two derivations — derive() realized P&L on a weighted-average pool while lots() computed FIFO — two routes to a realized number that quietly disagreed on any partial sale. COST-BASIS-SPEC.md fixes the design as law and this release",
+  "published": "2026-08-04T20:32:34.948Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
