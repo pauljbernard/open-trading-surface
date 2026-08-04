@@ -1,13 +1,13 @@
 {
-  "version": "4.89.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.89.0.plugin",
-  "sha256": "142d09277892d8971c56e2e01ab24c0fac3442cb84d44a2978fb1cc145af29c1",
+  "version": "4.90.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.90.0.plugin",
+  "sha256": "410aeaf9cdc63df2be7d26f190d14109fbcc585ba69aaa2bffc1a7232387435e",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.89.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.90.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner directive: below Research Notes on each security, a Perspectives panel — the server collects all the data it has access to for that name, passes what is necessary to an LLM, and asks for an assessment grounded in the classic value disciplines (margin of safety, investment vs speculation, earnings power over story, balance-sheet strength, owner earnings, the market quotation as servant not guide, an explicit refusal to predict) — with the hard rule that the source books and their authors are never named in the output, enforced in code: a violating draft is retried once with a sharpene",
-  "published": "2026-08-04T23:35:31.112Z",
+  "notes": "Three owner directives on the day-old Perspectives feature, verbatim: *\"this is a rather important feature, so I want to make sure that the prompt used to generate this is editable and persisted\"*; *\"the prompt version will have to be stored with the report, so that they don't get out of sync with newer prompts that might have been created\"*; *\"we should also capture a snapshot of the data that was sent to the LLM as well, in the analysis event history along with the prompt.\"* One arc: the analysis event becomes provenance-complete — prompt version + data snapshot + model + output — a fully re",
+  "published": "2026-08-04T23:52:57.385Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
