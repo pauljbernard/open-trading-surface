@@ -1,13 +1,13 @@
 {
-  "version": "5.1.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.1.0.plugin",
-  "sha256": "ad0ba6d42cc639282918b04d32efa2e2f3566a39582bdfaa6402baff9a1af8e6",
+  "version": "5.2.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.2.0.plugin",
+  "sha256": "2235c4e3941d1d10b71a543e4687cf91293d57d4b5754fdd221c92a7569a17fe",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.1.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.2.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The finding, owner machine, 2026-08-05. The cohort-refresh pass shipped in 5.0.0 planned 498 targets, and 476 of them were peer.<SYM> — peer groups nobody created. The journal dates them precisely: 476 peer_created entries between 23:11 and 01:11 on 2026-07-21/22, interleaved with 999 model saved entries. A peer group is materialised by the one comparables capability, and *anything* that asks \"what do I compare this name to\" goes through it — opening Peer Comps, yes, but also building a model, running a decomposition, computing base rates. So the schedule was spending real provider calls, ever",
-  "published": "2026-08-05T20:31:29.216Z",
+  "notes": "The owner's problem, verbatim: *\"The Graham and Dodd model criteria these days almost always results in no securities being selected, and often because of the diversity of businesses and accounting practices in various industries when it does find things they are distressed businesses. We need to come up with a modern version of it that recognizes the complexity of accounting that exists today, and the reality of how the markets currently value securities, that keeps to the spirit of Graham and Dodd.\"* The diagnosis (MODERN-DEFENSIVE-SPEC.md §1). The instruments broke, not the principles. Book",
+  "published": "2026-08-05T22:06:42.178Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
