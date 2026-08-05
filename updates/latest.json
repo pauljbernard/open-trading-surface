@@ -1,13 +1,13 @@
 {
-  "version": "4.97.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.97.0.plugin",
-  "sha256": "b5d27bdbe70795eb173e2ed1913e3a8835b8af72853c6a727fc46775ceb0298e",
+  "version": "4.98.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.98.0.plugin",
+  "sha256": "b5529021ea440b489e00c2e3e5956772301026cdae8380a0a3953be6332a87f4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.97.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.98.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive (2026-08-05), verbatim: *\"The Perspectives capability currently defaults to one vendor and one default model. We need the ability to select from: Anthropic, OpenAI, Google, AWS Bedrock, Grok or OpenAI-compatible — while at the same time introspecting the vendor to get the latest list of available models via an API call from which the user can select based upon whichever vendor they have selected. For clarity, I do NOT want to support multiple vendors simultaneously. What this will also mean is that in addition to keeping the history of the input, prompt and response, we will al",
-  "published": "2026-08-05T14:03:28.697Z",
+  "notes": "Owner UX directives (2026-08-05), verbatim: *\"I would also remove the 'Agent' tab and its associated popup dialog box. It's vestigial.\"* · *\"We can remove the top level 'Support' tab and have that panel be accessible as another menu item under the Administration tab.\"* · *\"Lets structure the top-down approach panels under one single top level tab called 'macro-economic': 1. Thesis (currently misspelled as 'Theses'), Economy, Sectors — each with their own left-hand menu item. (Again this is to lean up the extent of top level tabs.)\"* The top bar goes from eleven pinned entries to seven: 🔔 Aler",
+  "published": "2026-08-05T15:03:47.361Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
