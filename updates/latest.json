@@ -1,13 +1,13 @@
 {
-  "version": "4.92.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.92.0.plugin",
-  "sha256": "74d84f2d8a372d3f6fb46f189d2e4c8b9ed2cd7491c6c3b8d718ff985ba7727c",
+  "version": "4.93.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.93.0.plugin",
+  "sha256": "6f56cae221df16b179230fecfaa79268e5a5183b054b2e81c9206a3bb2ef9a37",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.92.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.93.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive (2026-08-04): review the captures of a competitor screener's field taxonomy (GuruFocus), *\"add to the dialog any that are missing that we can implement, and identify which ones we cannot implement at this time as later work.\"* The screening capability — which lives inside Cohorts, because a cohort IS a screen — now speaks ~250 fields, and the whole expansion is governed by a three-way classification law (SCREENER-VOCABULARY-SPEC.md): implement now (verified empirically — every endpoint family was probed live against the key's plan before its family shipped; earnings-surprises 4",
-  "published": "2026-08-05T01:27:07.366Z",
+  "notes": "Owner directive (2026-08-04): *\"currently, the custom & examples [section] which is where custom screens would appear, supports add, delete, but not update — we need to make sure we can update each custom one as well.\"* The saved-screen lifecycle completes (SCREENER-VOCABULARY-SPEC §8): create / update / duplicate / delete, and the same verbs reach the predicate-built cohorts that live beside them. Update, through the one path. update_screen (tool), POST /scr/update (route), updateScreen (engine) edit a custom screen in place. The merged record goes through the SAME validation path as save (bu",
+  "published": "2026-08-05T01:55:55.219Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
