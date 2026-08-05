@@ -1,13 +1,13 @@
 {
-  "version": "5.0.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.0.0.plugin",
-  "sha256": "8c71f45b7d1d0361b6566b2233f2a11a4c8339471cf601b82108f3558292e073",
+  "version": "5.0.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.0.1.plugin",
+  "sha256": "621a767b6f8046e1d8112420ee5b93483e3e8cca3dc0aa9707204f08f9e01333",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.0.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.0.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The incident, owner machine, 2026-08-05. The saved screen \"Graham Defensive — ranked\" was edited at 16:35 to exclude Financial Services as its *first* predicate — the 4.99.0 sector-appropriateness break, shipped an hour earlier. The cohort deriving from it, \"Graham Defensive — closest\", went on serving its pre-update membership: 12 names, 9 of them financials. A rule-based cohort caches the membership it resolved, and nothing invalidated that cache when the screen underneath it changed. The owner read a financial-dominated list off a screen whose first predicate excludes financials, and there ",
-  "published": "2026-08-05T19:21:19.620Z",
+  "notes": "The report, owner machine, 2026-08-05: *\"the delete button on individual cohorts doesn't work.\"* It worked. The row came back. The click fired, the handler was bound, POST /cm/cohort_delete went out, the daemon deleted the cohort and answered 200, and the client did the right thing next: it re-rendered, which means it re-read GET /cm/cohort_list. That read is what undid the delete. The cause: two of three list-time creation paths never learned that a deletion is a decision. Three things create cohorts while the catalog is being *read* — seedInventory() (the shipped sectors, size bands, indexes",
+  "published": "2026-08-05T19:49:12.304Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
