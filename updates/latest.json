@@ -1,13 +1,13 @@
 {
-  "version": "5.3.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.3.0.plugin",
-  "sha256": "e2dcacf26dba6aa32b1e73059dd7b60330bb5b91221c5c7139d789d738467989",
+  "version": "5.4.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.4.0.plugin",
+  "sha256": "d410e277b66ab4a4e3d4e5f75bf9511c248e57ec846745024bbcd20d61769d04",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.3.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.4.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Three owner follow-ups to 5.2.0, verbatim: *\"this should be implemented as a screen/cohort\"*, *\"for a cohort name I would call it 'Modernized G & D'\"*, and *\"we should update the LLM prompt for the Perspectives analysis prompt.\"* The screen and the cohort already existed; what they lacked was his name for the one that matters. 5.2.0 shipped three preset screens and three shipped cohorts generated from one instrument registry, each pointing at its screen BY NAME so membership re-resolves from the rule. The CORE variant — the operating-company form, the one the criteria were originally stated fo",
-  "published": "2026-08-05T22:31:59.832Z",
+  "notes": "The owner's words: *\"Our Cohort 'build from predicate' dialog box (for both the left hand side and right hand side) has been entirely 'fundamental' in nature. However, if you review our charting Indicators dialog you find a full complement of additional categories and indicators within those categories. Our ability to filter securities should include those as well.\"* Two hand-maintained lists described the same idea, and they had drifted. The chart workbench shipped a full professional indicator taxonomy — ten categories, 125 indicators, each with its own parameters. The screen's field catalog",
+  "published": "2026-08-05T23:20:11.306Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
