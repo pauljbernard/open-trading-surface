@@ -1,13 +1,13 @@
 {
-  "version": "4.96.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.96.0.plugin",
-  "sha256": "a51b06654a69543c2d6d3d9d45a7cc2bfaa82b973a78fd06b6d7e50642757066",
+  "version": "4.97.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.97.0.plugin",
+  "sha256": "b5d27bdbe70795eb173e2ed1913e3a8835b8af72853c6a727fc46775ceb0298e",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.96.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.97.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner UX directive (2026-08-05): one top-level Administration tab; Settings and Processes stop being top-level tabs and become panels behind a left-hand menu — room for the customizations and utility capabilities that are visited to configure, not to research. The registry is the extension point (server/terminal.js). ADMIN_PANELS — settings (⚙) and processes (🔄) — drives the left rail (the Market-tab rail pattern) and the content dispatch (ADMIN_RENDER): a future utility panel is ONE registry entry plus ONE renderer, nothing else to wire. The selected panel persists in state.admin.panel like ",
-  "published": "2026-08-05T13:30:05.955Z",
+  "notes": "Owner directive (2026-08-05), verbatim: *\"The Perspectives capability currently defaults to one vendor and one default model. We need the ability to select from: Anthropic, OpenAI, Google, AWS Bedrock, Grok or OpenAI-compatible — while at the same time introspecting the vendor to get the latest list of available models via an API call from which the user can select based upon whichever vendor they have selected. For clarity, I do NOT want to support multiple vendors simultaneously. What this will also mean is that in addition to keeping the history of the input, prompt and response, we will al",
+  "published": "2026-08-05T14:03:28.697Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
