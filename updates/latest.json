@@ -1,13 +1,13 @@
 {
-  "version": "4.94.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.94.0.plugin",
-  "sha256": "4e04e22b84638868ff01cba041622fe3dc5e99f6dda8cbb9a0b701af7b5730c6",
+  "version": "4.95.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.95.0.plugin",
+  "sha256": "401445376480db9cb3c2ae43d0d9d0027dd04d258cbfe6f0c659c620ed6bd188",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.94.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.95.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive (2026-08-04): enable the eleven later-work screener field families the SCREENER-VOCABULARY-SPEC register marked *\"enabled by a batch/compute pass over data we already have.\"* Every one of them was deferred for the same reason — computing it at screen time meant long-history fetches per name per screen — and they all fall to the same move (SCREENER-VOCABULARY-SPEC §9): each name gets ONE panel, built by a resumable batch in the surface modelTick shape, and every screen afterwards answers from a local read. The cost moved to the batch; the expensive flag on these fields is honest",
-  "published": "2026-08-05T02:35:26.984Z",
+  "notes": "Owner directive (2026-08-04), two messages, one arc: a new top-level Processes tab showing the current state of the periodic batches — the list, when they last ran, whether they completed, a means to retry/start and to pause/halt, and their frequency; scope limited to batches scheduled within the agent that relate to OTS. And the status law, verbatim: green = ran successfully, not overdue; red = overdue or failed, halted; yellow = running, not complete yet. Spec: PROCESSES-SPEC.md. The registry is derived, never curated (server/processes.js). Processes come from the automation registry (surfac",
+  "published": "2026-08-05T03:12:06.412Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
