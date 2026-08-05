@@ -1,13 +1,13 @@
 {
-  "version": "4.91.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.91.0.plugin",
-  "sha256": "c5366443397b1e3845f5f34301006838f0a7652471206cc73e985213acee4780",
+  "version": "4.92.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.92.0.plugin",
+  "sha256": "74d84f2d8a372d3f6fb46f189d2e4c8b9ed2cd7491c6c3b8d718ff985ba7727c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.91.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.92.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive, verbatim: *\"a spider diagram showing how the company is characterized along various vectors… we wouldn't use GF Value as that's something proprietary, but we can use the attribution that the books prioritize.\"* The Perspectives report now carries a characterization radar — and the axis set is engine structure, not prompt content (PERSPECTIVES-SPEC §10): six axes fixed in code (VECTOR_AXES), derived from the canonical defensive/enterprising investor tests — financial_strength (current ratio, debt posture), earnings_stability, earnings_power, growth_record, dividend_record, marg",
-  "published": "2026-08-05T00:07:45.887Z",
+  "notes": "Owner directive (2026-08-04): review the captures of a competitor screener's field taxonomy (GuruFocus), *\"add to the dialog any that are missing that we can implement, and identify which ones we cannot implement at this time as later work.\"* The screening capability — which lives inside Cohorts, because a cohort IS a screen — now speaks ~250 fields, and the whole expansion is governed by a three-way classification law (SCREENER-VOCABULARY-SPEC.md): implement now (verified empirically — every endpoint family was probed live against the key's plan before its family shipped; earnings-surprises 4",
+  "published": "2026-08-05T01:27:07.366Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
