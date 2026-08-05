@@ -1,13 +1,13 @@
 {
-  "version": "5.0.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.0.1.plugin",
-  "sha256": "621a767b6f8046e1d8112420ee5b93483e3e8cca3dc0aa9707204f08f9e01333",
+  "version": "5.1.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.1.0.plugin",
+  "sha256": "ad0ba6d42cc639282918b04d32efa2e2f3566a39582bdfaa6402baff9a1af8e6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.0.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.1.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The report, owner machine, 2026-08-05: *\"the delete button on individual cohorts doesn't work.\"* It worked. The row came back. The click fired, the handler was bound, POST /cm/cohort_delete went out, the daemon deleted the cohort and answered 200, and the client did the right thing next: it re-rendered, which means it re-read GET /cm/cohort_list. That read is what undid the delete. The cause: two of three list-time creation paths never learned that a deletion is a decision. Three things create cohorts while the catalog is being *read* — seedInventory() (the shipped sectors, size bands, indexes",
-  "published": "2026-08-05T19:49:12.304Z",
+  "notes": "The finding, owner machine, 2026-08-05. The cohort-refresh pass shipped in 5.0.0 planned 498 targets, and 476 of them were peer.<SYM> — peer groups nobody created. The journal dates them precisely: 476 peer_created entries between 23:11 and 01:11 on 2026-07-21/22, interleaved with 999 model saved entries. A peer group is materialised by the one comparables capability, and *anything* that asks \"what do I compare this name to\" goes through it — opening Peer Comps, yes, but also building a model, running a decomposition, computing base rates. So the schedule was spending real provider calls, ever",
+  "published": "2026-08-05T20:31:29.216Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
