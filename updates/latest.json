@@ -1,13 +1,13 @@
 {
-  "version": "4.98.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.98.1.plugin",
-  "sha256": "b30e4a698e000ebe1df694ddd4ad341ca394ae8a6ec823361fd88d0a13dd62f5",
+  "version": "4.99.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.99.0.plugin",
+  "sha256": "157b602b1339251d75b3e8347d6fe849e4bf553e63c195ec9bd15abbc9aaa4f9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.98.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.99.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Live defect on 4.98.0, owner machine, 2026-08-05: Perspectives configured with vendor anthropic and model claude-opus-5, an assessment run on MTB, and the panel reporting *\"The run finished without a stored report — check the agent journal, or press Refresh to rerun.\"* get_perspectives surfaced the real error: model API returned no content: {\"model\":\"claude-opus-5\", … \"content\":[{\"type\":\"thinking\",\"thinking\":\"\",\"signature\":\"CAIS5kAKhwEIEBgC…. The model had answered. The Anthropic parser read content[0].text; an extended-thinking model returns a thinking block (and may return redacted_thinking)",
-  "published": "2026-08-05T15:57:52.761Z",
+  "notes": "How this was found: by reading live output. The house rule — *run the thing live and read the output against the numbers printed beside it* — working through a new instrument. A model-written Perspectives assessment of M&T Bank, produced by the 4.89.0–4.97.0 machinery against our own data bundle, audited that bundle and reported four defects. Every one reproduced. No unit test had found any of them, because each is a disagreement *between* sources that no single derivation ever sees. The finding. The saved screen \"Graham Defensive — strict\" reported exactly one member — MTB, a bank — and it cl",
+  "published": "2026-08-05T16:56:25.149Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
