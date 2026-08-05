@@ -1,13 +1,13 @@
 {
-  "version": "4.95.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.95.0.plugin",
-  "sha256": "401445376480db9cb3c2ae43d0d9d0027dd04d258cbfe6f0c659c620ed6bd188",
+  "version": "4.95.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.95.1.plugin",
+  "sha256": "1351dd454b5fbb79763a9976c45ab36197c9388539e0551317be936816e058a3",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.95.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.95.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive (2026-08-04), two messages, one arc: a new top-level Processes tab showing the current state of the periodic batches — the list, when they last ran, whether they completed, a means to retry/start and to pause/halt, and their frequency; scope limited to batches scheduled within the agent that relate to OTS. And the status law, verbatim: green = ran successfully, not overdue; red = overdue or failed, halted; yellow = running, not complete yet. Spec: PROCESSES-SPEC.md. The registry is derived, never curated (server/processes.js). Processes come from the automation registry (surfac",
-  "published": "2026-08-05T03:12:06.412Z",
+  "notes": "Live defect (2026-08-04, on 4.95.0 the day it shipped): the new Processes tab hung at \"Loading processes…\" precisely while batches ran — the one moment it exists for. GET /cm/processes never answered during a running batch while the MCP get_processes tool (a different process) answered fine, which named the fault: event-loop starvation in the daemon. The batch ticks and the repricing scan run on the same event loop that serves /cm/*, and their long synchronous stretches never let a pending connection be accepted. Reproduced live before the fix: with the three batches started, every probe of /c",
+  "published": "2026-08-05T12:28:06.144Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
