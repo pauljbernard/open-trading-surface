@@ -1,13 +1,13 @@
 {
-  "version": "5.2.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.2.0.plugin",
-  "sha256": "2235c4e3941d1d10b71a543e4687cf91293d57d4b5754fdd221c92a7569a17fe",
+  "version": "5.3.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.3.0.plugin",
+  "sha256": "e2dcacf26dba6aa32b1e73059dd7b60330bb5b91221c5c7139d789d738467989",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.2.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.3.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's problem, verbatim: *\"The Graham and Dodd model criteria these days almost always results in no securities being selected, and often because of the diversity of businesses and accounting practices in various industries when it does find things they are distressed businesses. We need to come up with a modern version of it that recognizes the complexity of accounting that exists today, and the reality of how the markets currently value securities, that keeps to the spirit of Graham and Dodd.\"* The diagnosis (MODERN-DEFENSIVE-SPEC.md §1). The instruments broke, not the principles. Book",
-  "published": "2026-08-05T22:06:42.178Z",
+  "notes": "Three owner follow-ups to 5.2.0, verbatim: *\"this should be implemented as a screen/cohort\"*, *\"for a cohort name I would call it 'Modernized G & D'\"*, and *\"we should update the LLM prompt for the Perspectives analysis prompt.\"* The screen and the cohort already existed; what they lacked was his name for the one that matters. 5.2.0 shipped three preset screens and three shipped cohorts generated from one instrument registry, each pointing at its screen BY NAME so membership re-resolves from the rule. The CORE variant — the operating-company form, the one the criteria were originally stated fo",
+  "published": "2026-08-05T22:31:59.832Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
