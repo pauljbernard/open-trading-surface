@@ -1,13 +1,13 @@
 {
-  "version": "4.90.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.90.0.plugin",
-  "sha256": "410aeaf9cdc63df2be7d26f190d14109fbcc585ba69aaa2bffc1a7232387435e",
+  "version": "4.91.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.91.0.plugin",
+  "sha256": "c5366443397b1e3845f5f34301006838f0a7652471206cc73e985213acee4780",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.90.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.91.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Three owner directives on the day-old Perspectives feature, verbatim: *\"this is a rather important feature, so I want to make sure that the prompt used to generate this is editable and persisted\"*; *\"the prompt version will have to be stored with the report, so that they don't get out of sync with newer prompts that might have been created\"*; *\"we should also capture a snapshot of the data that was sent to the LLM as well, in the analysis event history along with the prompt.\"* One arc: the analysis event becomes provenance-complete — prompt version + data snapshot + model + output — a fully re",
-  "published": "2026-08-04T23:52:57.385Z",
+  "notes": "Owner directive, verbatim: *\"a spider diagram showing how the company is characterized along various vectors… we wouldn't use GF Value as that's something proprietary, but we can use the attribution that the books prioritize.\"* The Perspectives report now carries a characterization radar — and the axis set is engine structure, not prompt content (PERSPECTIVES-SPEC §10): six axes fixed in code (VECTOR_AXES), derived from the canonical defensive/enterprising investor tests — financial_strength (current ratio, debt posture), earnings_stability, earnings_power, growth_record, dividend_record, marg",
+  "published": "2026-08-05T00:07:45.887Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
