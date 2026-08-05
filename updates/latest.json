@@ -1,13 +1,13 @@
 {
-  "version": "4.93.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.93.0.plugin",
-  "sha256": "6f56cae221df16b179230fecfaa79268e5a5183b054b2e81c9206a3bb2ef9a37",
+  "version": "4.94.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.94.0.plugin",
+  "sha256": "4e04e22b84638868ff01cba041622fe3dc5e99f6dda8cbb9a0b701af7b5730c6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.93.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.94.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Owner directive (2026-08-04): *\"currently, the custom & examples [section] which is where custom screens would appear, supports add, delete, but not update — we need to make sure we can update each custom one as well.\"* The saved-screen lifecycle completes (SCREENER-VOCABULARY-SPEC §8): create / update / duplicate / delete, and the same verbs reach the predicate-built cohorts that live beside them. Update, through the one path. update_screen (tool), POST /scr/update (route), updateScreen (engine) edit a custom screen in place. The merged record goes through the SAME validation path as save (bu",
-  "published": "2026-08-05T01:55:55.219Z",
+  "notes": "Owner directive (2026-08-04): enable the eleven later-work screener field families the SCREENER-VOCABULARY-SPEC register marked *\"enabled by a batch/compute pass over data we already have.\"* Every one of them was deferred for the same reason — computing it at screen time meant long-history fetches per name per screen — and they all fall to the same move (SCREENER-VOCABULARY-SPEC §9): each name gets ONE panel, built by a resumable batch in the surface modelTick shape, and every screen afterwards answers from a local read. The cost moved to the batch; the expensive flag on these fields is honest",
+  "published": "2026-08-05T02:35:26.984Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
