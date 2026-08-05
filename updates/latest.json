@@ -1,13 +1,13 @@
 {
-  "version": "4.99.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.99.1.plugin",
-  "sha256": "1bc90d46bf5fbf394318036f6da8c2876fd068cd899b321a84b99279d6baca71",
+  "version": "5.0.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.0.0.plugin",
+  "sha256": "8c71f45b7d1d0361b6566b2233f2a11a4c8339471cf601b82108f3558292e073",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-4.99.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.0.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Live defect, owner machine, 2026-08-05. On the Cohorts tab — which is where saved screens live, screens having become cohorts in 4.93.0 — *\"the edit and delete buttons next to each of the custom factor screens is displayed way off to the right, requiring the user to scroll way off to the right to use them. The page has lost its 'width' that would align that section with the right hand side of the other sections.\"* The cause was one line of CSS, and it was right. table.grid td{…;white-space:nowrap} is correct for a grid of numbers: a figure must never break mid-number. Every cell in every grid ",
-  "published": "2026-08-05T17:56:30.019Z",
+  "notes": "The incident, owner machine, 2026-08-05. The saved screen \"Graham Defensive — ranked\" was edited at 16:35 to exclude Financial Services as its *first* predicate — the 4.99.0 sector-appropriateness break, shipped an hour earlier. The cohort deriving from it, \"Graham Defensive — closest\", went on serving its pre-update membership: 12 names, 9 of them financials. A rule-based cohort caches the membership it resolved, and nothing invalidated that cache when the screen underneath it changed. The owner read a financial-dominated list off a screen whose first predicate excludes financials, and there ",
+  "published": "2026-08-05T19:21:19.620Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
