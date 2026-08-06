@@ -1,13 +1,13 @@
 {
-  "version": "5.10.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.10.0.plugin",
-  "sha256": "5d17e44165b88d74e980193a757036f4e9cdbb4a95b9d1a8611676c249f2d567",
+  "version": "5.11.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.11.0.plugin",
+  "sha256": "30cfaa6366f030f52bcc10b68f5889ac048a0b74e35f5e73d8ef514a76554705",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.10.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.11.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Wave 2 of EVENT-PROCESSING-SPEC.md. Wave 0 shipped the disclosure and started the record. Wave 1 shipped the language and deliberately had nothing to run it on. This one runs it: a rule store, a daily evaluation tick, per-subject state that survives the tick boundary, and the migration of the nine hand-written alert types onto the engine. It still proposes nothing. A Wave-2 rule fires, writes a typed event and notifies; what a firing *causes* — the action vocabulary, the paper book, the proposed transaction — is Wave 3, and a test reads the module graph of all five new modules to prove this wa",
-  "published": "2026-08-06T21:35:35.980Z",
+  "notes": "An owner-directed insertion between Wave 2 and Wave 3 of EVENT-PROCESSING-SPEC.md. Three releases built a condition language, a rule store and a daily evaluation tick over a log that almost nothing wrote into — and the Wave-2 alert migration had to refuse two of the nine legacy types *precisely because nothing published the kinds they needed*. A complex-event-processing engine with no producers is a very careful way of evaluating silence. This release makes things publish. The owner's words set the scope: *\"nothing right now publishes events. What will need to publish events is 1) new news and",
+  "published": "2026-08-06T22:21:08.843Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
