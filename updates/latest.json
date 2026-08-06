@@ -1,13 +1,13 @@
 {
-  "version": "5.5.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.5.1.plugin",
-  "sha256": "78c371d2911134bcf172fe9ac288da1ab17e9b4585a7a6b9d3e755ed0700b641",
+  "version": "5.6.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.6.0.plugin",
+  "sha256": "3c2ab04dc50814ea1a0e0c7d66b650559dbf08e82cfdd9074bff813af72ce3ea",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.5.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.6.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's words: *\"What you built doesn't appear to match what we had in the data/macro categories, which also doesn't match what we have for cohorts predicates. We appear to be missing things and are not being consistent.\"* A correction to 5.5.0. He was right about the layout, and the cause was one inherited class. The merged dialog was built on the retired indicator library's element, which carried both .menu.big and .menu.series-modal. The two selectors have equal specificity; .menu.big's max-width:700px is declared first and nothing here overrode it. So width:min(920px,94vw) clamped to 7",
-  "published": "2026-08-06T01:25:18.047Z",
+  "notes": "The owner's words: *\"look at the selector dialogs in the code and you'll see there are inconsistencies … the dialogs should be nearly identical if not identical across all the places in the system where we do such selection, and should be a well organized set of categories and fundamental, technical and model driven attribution superset.\"* 5.5.0 merged the chart's two doors and 5.5.1 measured the result. Both were right and neither was enough, because the problem was never *that* dialog. Six surfaces in this system ask a person to choose something, and every one of them was an independent impl",
+  "published": "2026-08-06T03:04:20.423Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
