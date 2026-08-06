@@ -1,13 +1,13 @@
 {
-  "version": "5.4.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.4.0.plugin",
-  "sha256": "d410e277b66ab4a4e3d4e5f75bf9511c248e57ec846745024bbcd20d61769d04",
+  "version": "5.5.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.5.0.plugin",
+  "sha256": "9ca64e5452a5e245a4e91b7fe7cc057942ccfa29a2ce00e4aab6f50310d468cf",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.4.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.5.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's words: *\"Our Cohort 'build from predicate' dialog box (for both the left hand side and right hand side) has been entirely 'fundamental' in nature. However, if you review our charting Indicators dialog you find a full complement of additional categories and indicators within those categories. Our ability to filter securities should include those as well.\"* Two hand-maintained lists described the same idea, and they had drifted. The chart workbench shipped a full professional indicator taxonomy — ten categories, 125 indicators, each with its own parameters. The screen's field catalog",
-  "published": "2026-08-05T23:20:11.306Z",
+  "notes": "The owner's words: *\"for the cohorts 'build from predicates' we combined both fundamental and technical predicates into one consolidated dialog. I would like to do the same change on the charting screen. Currently we have a modal dialog for Macro/Data and a separate dialog for technical indicators. Let's combine them into one dialog like we did for the cohorts area to be consistent. That would mean we move the indicators to the Macro/Data dialog... and we rename a single top level tab for that as just 'Indicators'.\"* The chart asked one question behind two doors. \"What do I want to see on this",
+  "published": "2026-08-06T00:08:55.370Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
