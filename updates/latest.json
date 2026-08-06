@@ -1,13 +1,13 @@
 {
-  "version": "5.8.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.8.0.plugin",
-  "sha256": "982c64a6e8cae4df1ffb2ee31ba8a9975a79e2b0c58d72f6a98e4e1ee4b4367b",
+  "version": "5.9.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.9.0.plugin",
+  "sha256": "496a10034fe025a9c7119a3714c28fdd16cea379024969aea305bef553154fb1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.8.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.9.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Wave 0 of EVENT-PROCESSING-SPEC.md. The spec written yesterday describes a Complex Event Processing engine and a portfolio-level strategy backtester across seven waves. This release ships the *first* one, and it deliberately contains no engine at all: no condition language, no rule evaluation, no actions, no paper book, no backtest. What it ships instead is the thing that has to exist before any of that is honest — the disclosure of what could be reconstructed, and the beginning of the record that will one day make more of it reconstructable. One half of this was urgent in a way nothing else i",
-  "published": "2026-08-06T19:03:16.386Z",
+  "notes": "Wave 1 of EVENT-PROCESSING-SPEC.md. Yesterday's release shipped the disclosure and the record and deliberately contained no engine. This one ships the language — and it is still not the engine. There is no rule store, no tick loop, no action vocabulary, no paper book and no backtester. What exists now is the thing all of those will be written in: a condition tree whose leaves are the predicates this system already speaks, whose internal nodes are the temporal operators Complex Event Processing actually requires, and whose every leg carries its point-in-time verdict before anything is believed.",
+  "published": "2026-08-06T19:55:30.676Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
