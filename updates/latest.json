@@ -1,13 +1,13 @@
 {
-  "version": "5.5.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.5.0.plugin",
-  "sha256": "9ca64e5452a5e245a4e91b7fe7cc057942ccfa29a2ce00e4aab6f50310d468cf",
+  "version": "5.5.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.5.1.plugin",
+  "sha256": "78c371d2911134bcf172fe9ac288da1ab17e9b4585a7a6b9d3e755ed0700b641",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.5.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.5.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's words: *\"for the cohorts 'build from predicates' we combined both fundamental and technical predicates into one consolidated dialog. I would like to do the same change on the charting screen. Currently we have a modal dialog for Macro/Data and a separate dialog for technical indicators. Let's combine them into one dialog like we did for the cohorts area to be consistent. That would mean we move the indicators to the Macro/Data dialog... and we rename a single top level tab for that as just 'Indicators'.\"* The chart asked one question behind two doors. \"What do I want to see on this",
-  "published": "2026-08-06T00:08:55.370Z",
+  "notes": "The owner's words: *\"What you built doesn't appear to match what we had in the data/macro categories, which also doesn't match what we have for cohorts predicates. We appear to be missing things and are not being consistent.\"* A correction to 5.5.0. He was right about the layout, and the cause was one inherited class. The merged dialog was built on the retired indicator library's element, which carried both .menu.big and .menu.series-modal. The two selectors have equal specificity; .menu.big's max-width:700px is declared first and nothing here overrode it. So width:min(920px,94vw) clamped to 7",
+  "published": "2026-08-06T01:25:18.047Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
