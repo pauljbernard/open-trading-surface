@@ -1,13 +1,13 @@
 {
-  "version": "5.7.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.7.0.plugin",
-  "sha256": "0cfe189c9fed7e0e588163d226e1e6224736b2e8f627c995da257c54015e748d",
+  "version": "5.8.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.8.0.plugin",
+  "sha256": "982c64a6e8cae4df1ffb2ee31ba8a9975a79e2b0c58d72f6a98e4e1ee4b4367b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.7.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.8.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's words: *\"Currently on the Cohorts page you have dozens of notes and warnings displayed. That obscures the primary purpose of the page. From a user interface design perspective what should happen is that an icon should be displayed that indicates that warnings exist. The user then can click on that icon and see a popup that displays the warnings and notifications, in this way it won't overwhelm the display.\"* He was right, and the remedy has a trap in it. This house's first law is disclosure, and 5.0.0 exists precisely because a cohort list was read on 2026-08-05 showing twelve name",
-  "published": "2026-08-06T12:49:41.619Z",
+  "notes": "Wave 0 of EVENT-PROCESSING-SPEC.md. The spec written yesterday describes a Complex Event Processing engine and a portfolio-level strategy backtester across seven waves. This release ships the *first* one, and it deliberately contains no engine at all: no condition language, no rule evaluation, no actions, no paper book, no backtest. What it ships instead is the thing that has to exist before any of that is honest — the disclosure of what could be reconstructed, and the beginning of the record that will one day make more of it reconstructable. One half of this was urgent in a way nothing else i",
+  "published": "2026-08-06T19:03:16.386Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
