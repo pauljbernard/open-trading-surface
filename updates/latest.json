@@ -1,13 +1,13 @@
 {
-  "version": "5.9.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.9.0.plugin",
-  "sha256": "496a10034fe025a9c7119a3714c28fdd16cea379024969aea305bef553154fb1",
+  "version": "5.10.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.10.0.plugin",
+  "sha256": "5d17e44165b88d74e980193a757036f4e9cdbb4a95b9d1a8611676c249f2d567",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.9.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.10.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Wave 1 of EVENT-PROCESSING-SPEC.md. Yesterday's release shipped the disclosure and the record and deliberately contained no engine. This one ships the language — and it is still not the engine. There is no rule store, no tick loop, no action vocabulary, no paper book and no backtester. What exists now is the thing all of those will be written in: a condition tree whose leaves are the predicates this system already speaks, whose internal nodes are the temporal operators Complex Event Processing actually requires, and whose every leg carries its point-in-time verdict before anything is believed.",
-  "published": "2026-08-06T19:55:30.676Z",
+  "notes": "Wave 2 of EVENT-PROCESSING-SPEC.md. Wave 0 shipped the disclosure and started the record. Wave 1 shipped the language and deliberately had nothing to run it on. This one runs it: a rule store, a daily evaluation tick, per-subject state that survives the tick boundary, and the migration of the nine hand-written alert types onto the engine. It still proposes nothing. A Wave-2 rule fires, writes a typed event and notifies; what a firing *causes* — the action vocabulary, the paper book, the proposed transaction — is Wave 3, and a test reads the module graph of all five new modules to prove this wa",
+  "published": "2026-08-06T21:35:35.980Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
