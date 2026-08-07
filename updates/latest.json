@@ -1,13 +1,13 @@
 {
-  "version": "5.19.3",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.3.plugin",
-  "sha256": "2398190fa6c8ef51dcc12bbf91057cc3c4ee9ba9cf6d476dfcf7dc265e80c1a7",
+  "version": "5.19.4",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.4.plugin",
+  "sha256": "6498d133093ff3d1ac69af8d2e3dac9aabd1ad6f2095897d38f8febf655a934f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.3.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.4.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner could not use the terminal. Floating panels drew their chrome perfectly — title bars, the four control buttons, borders, the focus highlight, correct titles, a correct taskbar with all eight entries, the new scrollbars on both axes — and every panel body was dark and empty. No spinner, no error. Thirty-five derived assertions were green, including one that had asserted since 5.19.0 that a panel body renders exactly once across open → focus → drag → minimize → restore. The root cause, and it is not the scroller The scroller was the obvious suspect and it is innocent — this client has ",
-  "published": "2026-08-07T22:10:23.178Z",
+  "notes": "Two defects the owner read off his own screen. Neither is a wrong number. Both are the same class as 5.19.2 and 5.19.3 — things a green derived assertion could not see, because no assertion was phrased as what a person looking at the screen would see. The workspace bar sat above the wrong region, and had to be scrolled > *\"the part of the screen I've attached as an image currently extends across the entire width of the left hand side menu and the floating panel area, and its horizontally scrollable. What should be the case, is that it sits just above the float panel area and there is likely no",
+  "published": "2026-08-07T22:41:50.778Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

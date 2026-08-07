@@ -114,12 +114,22 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.19.3</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-07 22:10 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.19.4</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-07 22:41 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.19.4 <span class="reltitle">the bar that spanned the wrong region, and the menu that looked like it never cleared</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>which view the focused panel is showing</b> — <code>.focused</code>, accent background plus an inset accent bar, on <b>EXACTLY ONE</b> node, derived from <code>state.workspace.focused</code>. It goes to the most specific reachable node, so an expanded category hands it to its matching item;</li>
+        <li><b>which views have open panels</b> — <code>.railn</code>, a quiet count pill. <b>A COUNT, not a dot</b>, because decision §21.3 makes two panels of one view ordinary and a dot cannot report three;</li>
+        <li><b>a focused panel on ANOTHER security says which</b>, because <code>active_symbol</code> is the focused panel's security while the rail acts on <code>context_symbol</code>.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.19.3 <span class="reltitle">the panels drew their frames and nothing else</span></h3>
   </div>
@@ -184,9 +194,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.17.1 <span class="reltitle">the panel that never came back</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.17.0 <span class="reltitle">the backtest results surface</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
