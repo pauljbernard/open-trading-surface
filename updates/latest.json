@@ -1,13 +1,13 @@
 {
-  "version": "5.19.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.1.plugin",
-  "sha256": "76feb7bbcbd782c36343cf619676c15d48105e5ac8458356dcfcc0dac4beda62",
+  "version": "5.19.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.2.plugin",
+  "sha256": "27568f784d3fc44b45e059a50e647697d20814fd65ad31e93b699e1cd251fc10",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.19.0's own discipline, applied to 5.19.0. The house rule is *run the thing live and read the output against the numbers printed beside it*, and it earned its keep again: driving the SHIPPED 5.19.0 client with the owner's OWN recorded six-tab state produced five findings, two of them serious. None of the eighteen derived assertions could see any of them — in every case both halves were individually correct and it was the SEAM between them that was wrong. That is exactly the class of defect a live read finds and a unit test does not. 1. THE COVER DID NOT LIFT (serious). .covering was added *an",
-  "published": "2026-08-07T20:55:35.593Z",
+  "notes": "5.19.1 was the discipline applied to a DOM harness. This one is the discipline applied to a SCREEN. Twenty-nine derived assertions were green. The workspace on the owner's actual monitor was three 760 × 520 panels stacked in the top-left corner of a 5772 × 2178 frame, with the panel he was working in — a 2900 × 2048 chart — invisible underneath them. A DOM harness has whatever frame the harness declares, and that is the whole lesson. Then the owner, verbatim: *\"the MDI pane lacks horizontal and vertical scrolling and as such panes can become inaccessible outside the range of access in terms of",
+  "published": "2026-08-07T21:37:38.824Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
