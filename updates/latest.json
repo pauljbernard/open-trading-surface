@@ -1,13 +1,13 @@
 {
-  "version": "5.17.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.1.plugin",
-  "sha256": "d43d1873145885aea034302c6a0f557586a869331a248c9b50c984ea4a6fd337",
+  "version": "5.17.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.2.plugin",
+  "sha256": "db55b9602c79d06438d3658ed5623b25c5a2da0f4f93d4870981bf360317967b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "**The owner opened Administration → Conditions and it showed *\"Reading the leaf vocabulary…\"* forever. Two defects met there. Both are fixed, and both fixes are structural rather than local, because the local fix is a line and the class is the thing that will happen again. The one that hung it: a placeholder written one line too late.** renderContentCnd called the vocabulary loader and *then* wrote its loading div. That is harmless while the loader is asynchronous — and it is not asynchronous once the vocabulary is cached. On a second visit, or on a first visit after the Rules panel (which pri",
-  "published": "2026-08-07T15:27:39.394Z",
+  "notes": "An audit of the batch layer found four P0 defects. All four are fixed here, and two of them were reproducible on the shipped code. This is a correctness release: no cadence changed, no budget changed, no constant moved, nothing was scheduled or unscheduled. The decisions the audit raised — the model TTL, the enrichment budget, whether a batch interlock refuses or discloses, whether the daemon is still the right host for the heavy work — are the owner's, and they belong to the process-layer spec arc that follows, because each of them moves a published number and needs its own dated methodology ",
+  "published": "2026-08-07T16:44:07.436Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
