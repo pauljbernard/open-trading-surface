@@ -1,13 +1,13 @@
 {
-  "version": "5.14.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.14.0.plugin",
-  "sha256": "1a3e5b001554c5a05cc7123740f69145db950e0ad727ad3799371bcd68a1cbac",
+  "version": "5.14.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.14.1.plugin",
+  "sha256": "57c2ada0c84f9100b705f1a2466372fd04f7dc30d6953d49ac2b2e7b66aff8da",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.14.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.14.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The wave the whole arc was built toward, and the one where a system most easily fools its owner. The spec names cross-sectional no-lookahead as *\"genuinely hard and easy to get subtly wrong\"*, so the standing posture of this release is stated once and obeyed everywhere: bias toward refusing over producing a number. A backtest that declines to run is a result; a backtest that quietly used tomorrow's data is a lie that will be believed. This is Wave 5 of EVENT-PROCESSING-SPEC.md, with its Wave 6 folded in, because shipping a return statistic before the machinery that deflates it is the exact mul",
-  "published": "2026-08-07T01:54:08.777Z",
+  "notes": "A backtest run's payload, its summary, its trial record and every tool speak run_id; the run store keys on id. 5.14.0 set only the first, so the store minted a second identifier at the write and get_backtest_run on the id a run had just reported refused by name — a refusal that was true about the store and false about the world, which is the worst kind. The two are now one string, for completed runs and for refused ones alike, because a refusal is a result and is stored like one. A regression test asserts the identity across both paths. Found the same way every real defect in this project has ",
+  "published": "2026-08-07T01:59:19.105Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
