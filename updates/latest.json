@@ -1,13 +1,13 @@
 {
-  "version": "5.17.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.0.plugin",
-  "sha256": "3ce02f960fde16c1a06d1cd9ab8cada596ae1fb9a1005df8c61fe831f3f17a60",
+  "version": "5.17.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.1.plugin",
+  "sha256": "d43d1873145885aea034302c6a0f557586a869331a248c9b50c984ea4a6fd337",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The backtester and the drop-top-names re-run produce the most decision-relevant output in this system, and until now it reached the owner only through a PDF and a tool payload. There was no panel to sit in and explore. The sharpest example is the counterfactual: on the live test strategy it showed that a +53.36% result was two names — without AAPL only 35.1% of the return survives, and without AAPL *and* MSFT it is −7.70% — and that finding arrived as a download. A finding that arrives as a download is a finding nobody sits with. This is the second of the two bundled UX releases; 5.16.0 was th",
-  "published": "2026-08-07T14:31:09.639Z",
+  "notes": "**The owner opened Administration → Conditions and it showed *\"Reading the leaf vocabulary…\"* forever. Two defects met there. Both are fixed, and both fixes are structural rather than local, because the local fix is a line and the class is the thing that will happen again. The one that hung it: a placeholder written one line too late.** renderContentCnd called the vocabulary loader and *then* wrote its loading div. That is harmless while the loader is asynchronous — and it is not asynchronous once the vocabulary is cached. On a second visit, or on a first visit after the Rules panel (which pri",
+  "published": "2026-08-07T15:27:39.394Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
