@@ -1,13 +1,13 @@
 {
-  "version": "5.14.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.14.1.plugin",
-  "sha256": "57c2ada0c84f9100b705f1a2466372fd04f7dc30d6953d49ac2b2e7b66aff8da",
+  "version": "5.15.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.15.0.plugin",
+  "sha256": "376276cae25a5376f37bf2b65b708cc7ee1645221e7a818c660720856858a88b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.14.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.15.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A backtest run's payload, its summary, its trial record and every tool speak run_id; the run store keys on id. 5.14.0 set only the first, so the store minted a second identifier at the write and get_backtest_run on the id a run had just reported refused by name — a refusal that was true about the store and false about the world, which is the worst kind. The two are now one string, for completed runs and for refused ones alike, because a refusal is a result and is stored like one. A regression test asserts the identity across both paths. Found the same way every real defect in this project has ",
-  "published": "2026-08-07T01:59:19.105Z",
+  "notes": "A backtest whose result comes from one name is not a strategy — it is a story about that name. This release builds the counterfactual that says which one you have: the same strategy, replayed over the same window, with the top contributor removed from the universe. It is the last item EVENT-PROCESSING-SPEC.md deferred out of Wave 5, and the owner has now taken the four decisions it was waiting on. It is the honest complement to the deflation, and the two ask different questions. The deflation asks \"how many things did you try?\" This asks \"how much of it was one lucky name?\" In this house the s",
+  "published": "2026-08-07T03:05:47.119Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
