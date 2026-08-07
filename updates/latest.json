@@ -1,13 +1,13 @@
 {
-  "version": "5.15.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.15.0.plugin",
-  "sha256": "376276cae25a5376f37bf2b65b708cc7ee1645221e7a818c660720856858a88b",
+  "version": "5.16.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.16.0.plugin",
+  "sha256": "24504efe814f99d24ccacbe1908bea882648c34cc162f47b785de967939b4688",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.15.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.16.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A backtest whose result comes from one name is not a strategy — it is a story about that name. This release builds the counterfactual that says which one you have: the same strategy, replayed over the same window, with the top contributor removed from the universe. It is the last item EVENT-PROCESSING-SPEC.md deferred out of Wave 5, and the owner has now taken the four decisions it was waiting on. It is the honest complement to the deflation, and the two ask different questions. The deflation asks \"how many things did you try?\" This asks \"how much of it was one lucky name?\" In this house the s",
-  "published": "2026-08-07T03:05:47.119Z",
+  "notes": "Six releases built an engine that writes events, fires rules and walks strategies. None of it was visible. An audit of the client against the code found three gaps of exactly the same shape — a payload that existed, that was tested, and that had no surface — and this release closes them. It is the first of two the owner asked for; the second, the backtest results surface, is separate. It adds no engine capability whatsoever. No new producer, no new predicate, no new action verb, no change to the tick, the loop, the backtester or the deflation. Every number on all three panels comes from a read",
+  "published": "2026-08-07T13:19:37.255Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
