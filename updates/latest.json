@@ -1,13 +1,13 @@
 {
-  "version": "5.17.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.2.plugin",
-  "sha256": "db55b9602c79d06438d3658ed5623b25c5a2da0f4f93d4870981bf360317967b",
+  "version": "5.18.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.18.0.plugin",
+  "sha256": "691dc627326dc01ba49ac82328df4e02c5f52395764d6ac9d1778404e8b95628",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.18.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "An audit of the batch layer found four P0 defects. All four are fixed here, and two of them were reproducible on the shipped code. This is a correctness release: no cadence changed, no budget changed, no constant moved, nothing was scheduled or unscheduled. The decisions the audit raised — the model TTL, the enrichment budget, whether a batch interlock refuses or discloses, whether the daemon is still the right host for the heavy work — are the owner's, and they belong to the process-layer spec arc that follows, because each of them moves a published number and needs its own dated methodology ",
-  "published": "2026-08-07T16:44:07.436Z",
+  "notes": "Wave 0 of research/CAPABILITY-ROADMAP.md, and the finding is not the one the roadmap expected. Three producers on the owner's machine ran successfully and wrote nothing: the dated cohort membership ledger held 0 cohorts and 0 observations, the unified event log held 0 events across 0 days, and universe-archive held two frozen months while reporting \"has never recorded a run.\" Not one of them was broken. Every one was a CADENCE WITH NO CLOCK, and the release is about making that class of silence structurally impossible rather than patching this instance of it. The correction that comes first. r",
+  "published": "2026-08-07T18:46:51.393Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
