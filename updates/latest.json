@@ -1,13 +1,13 @@
 {
-  "version": "5.16.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.16.0.plugin",
-  "sha256": "24504efe814f99d24ccacbe1908bea882648c34cc162f47b785de967939b4688",
+  "version": "5.17.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.0.plugin",
+  "sha256": "3ce02f960fde16c1a06d1cd9ab8cada596ae1fb9a1005df8c61fe831f3f17a60",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.16.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.17.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Six releases built an engine that writes events, fires rules and walks strategies. None of it was visible. An audit of the client against the code found three gaps of exactly the same shape — a payload that existed, that was tested, and that had no surface — and this release closes them. It is the first of two the owner asked for; the second, the backtest results surface, is separate. It adds no engine capability whatsoever. No new producer, no new predicate, no new action verb, no change to the tick, the loop, the backtester or the deflation. Every number on all three panels comes from a read",
-  "published": "2026-08-07T13:19:37.255Z",
+  "notes": "The backtester and the drop-top-names re-run produce the most decision-relevant output in this system, and until now it reached the owner only through a PDF and a tool payload. There was no panel to sit in and explore. The sharpest example is the counterfactual: on the live test strategy it showed that a +53.36% result was two names — without AAPL only 35.1% of the return survives, and without AAPL *and* MSFT it is −7.70% — and that finding arrived as a download. A finding that arrives as a download is a finding nobody sits with. This is the second of the two bundled UX releases; 5.16.0 was th",
+  "published": "2026-08-07T14:31:09.639Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
