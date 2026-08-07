@@ -1,13 +1,13 @@
 {
-  "version": "5.18.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.18.0.plugin",
-  "sha256": "691dc627326dc01ba49ac82328df4e02c5f52395764d6ac9d1778404e8b95628",
+  "version": "5.19.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.0.plugin",
+  "sha256": "a7eb71d3e0b641e87a0f26e08ed82c0049b41b4afaa461f77ca24c40b5f016e7",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.18.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Wave 0 of research/CAPABILITY-ROADMAP.md, and the finding is not the one the roadmap expected. Three producers on the owner's machine ran successfully and wrote nothing: the dated cohort membership ledger held 0 cohorts and 0 observations, the unified event log held 0 events across 0 days, and universe-archive held two frozen months while reporting \"has never recorded a run.\" Not one of them was broken. Every one was a CADENCE WITH NO CLOCK, and the release is about making that class of silence structurally impossible rather than patching this instance of it. The correction that comes first. r",
-  "published": "2026-08-07T18:46:51.393Z",
+  "notes": "The owner, 2026-08-07: *\"rather than being able to display on one active right hand side panel … I would prefer for the right hand side to be a MDI multi floating panel workspace where any number of tabs can be open as floating panels … When 'reduced' the tab is retained and the panel is invisible.\"* Read literally that is a windowing change. It is not. The consequential part is that a panel PINS its security, and everything hard in this release descends from it. Waves 1–3 of TERMINAL-WORKSPACE-SPEC.md ship together; Waves 4–5 are specified and not built, and §24.6 says so by name. ⚠ CONTRACT ",
+  "published": "2026-08-07T20:42:37.998Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
