@@ -1,13 +1,13 @@
 {
-  "version": "5.13.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.13.0.plugin",
-  "sha256": "e97ade84bc17d8856c56853a7afd0514711cf14e2e98e3b72a5d686ba9db0ab0",
+  "version": "5.14.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.14.0.plugin",
+  "sha256": "1a3e5b001554c5a05cc7123740f69145db950e0ad727ad3799371bcd68a1cbac",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.13.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.14.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A firing now COMPETES. Wave 3 made a rule cause one proposal; it could not make several proposals interact, because what makes them interact is a POLICY — how much of the book one name may take, how many names may be held at once, what happens when more candidates signal than fit, what the uninvested cash earns, and when the whole thing is brought back to its targets. This release is Wave 4 of EVENT-PROCESSING-SPEC.md: the strategy object, the completed sizing union, the constraint set, the ranking law, the cash policy and the daily loop that turns a day's firings into a managed paper book. No",
-  "published": "2026-08-07T00:51:10.952Z",
+  "notes": "The wave the whole arc was built toward, and the one where a system most easily fools its owner. The spec names cross-sectional no-lookahead as *\"genuinely hard and easy to get subtly wrong\"*, so the standing posture of this release is stated once and obeyed everywhere: bias toward refusing over producing a number. A backtest that declines to run is a result; a backtest that quietly used tomorrow's data is a lie that will be believed. This is Wave 5 of EVENT-PROCESSING-SPEC.md, with its Wave 6 folded in, because shipping a return statistic before the machinery that deflates it is the exact mul",
+  "published": "2026-08-07T01:54:08.777Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
