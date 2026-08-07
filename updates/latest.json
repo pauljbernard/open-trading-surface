@@ -1,13 +1,13 @@
 {
-  "version": "5.19.4",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.4.plugin",
-  "sha256": "6498d133093ff3d1ac69af8d2e3dac9aabd1ad6f2095897d38f8febf655a934f",
+  "version": "5.19.5",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.5.plugin",
+  "sha256": "7efbcced479e44058488662527eca9c7681fce1de64ff1f339ad0570db2d3074",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.4.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.5.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Two defects the owner read off his own screen. Neither is a wrong number. Both are the same class as 5.19.2 and 5.19.3 — things a green derived assertion could not see, because no assertion was phrased as what a person looking at the screen would see. The workspace bar sat above the wrong region, and had to be scrolled > *\"the part of the screen I've attached as an image currently extends across the entire width of the left hand side menu and the floating panel area, and its horizontally scrollable. What should be the case, is that it sits just above the float panel area and there is likely no",
-  "published": "2026-08-07T22:41:50.778Z",
+  "notes": "Three things the owner read off his own screen. Two are defects. The third is not, and establishing that is the most important result in this release — \"fixing\" it as reported would have deleted eleven panels he opened himself. 1. Dragging a panel snapped it back — because drag has never worked > *\"when I select a panel and try to move it, it snaps back to it initial position.\"* wsDragStart captured the pointer on p.el, the panel, while pointermove / pointerup / pointercancel were bound to the title bar, which is that panel's child. Pointer capture RETARGETS every later event of that pointer t",
+  "published": "2026-08-07T23:21:15.081Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
