@@ -1,13 +1,13 @@
 {
-  "version": "5.19.8",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.8.plugin",
-  "sha256": "f6905ffa58a8849db96ab4609d463379cc8d121f1ac78a3b966e1c181f70a0ae",
+  "version": "5.19.9",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.9.plugin",
+  "sha256": "01fff341376f516be2826557f8be10fd7e47ee6de96ebea9fb6720d78d6d3ecb",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.8.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.9.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Writing the documentation for 5.19.7 turned up four defects, and not one of them is a wrong number. Three are a wrong *statement* about something, and that is the class this house treats as more dangerous, because a wrong number can be seen. 1. The Administration tooltip had rotted where nothing could catch it The tab's tooltip read *\"Settings, Processes, and Support\"*. That was written at 4.98.0, when ADMIN_PANELS held exactly those three. The registry then grew to eleven panels in four group headings, and the sentence did not move — so Reach, Conditions, Rules, Strategies, Events, Firings, R",
-  "published": "2026-08-08T01:48:54.282Z",
+  "notes": "The Opportunity Surface fill has been running for hours at a time for months. Nobody had ever asked what it *costs*, because nothing recorded it. Asked directly, the answer was ~594,000 HTTP requests for one full-universe pass — and the reason is not the provider, the plan or the network. The per-symbol model build issued 112 requests for 19 distinct URLs, including 22 identical profile?symbol=KO fetches in a single build, because the share-count rebase runs once per model across a 23-model registry. Two fixes, both pure waste, neither of them a bulk endpoint. And one discipline binding both: ",
+  "published": "2026-08-08T14:31:33.100Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
