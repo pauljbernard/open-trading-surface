@@ -16,6 +16,7 @@
   h1{font-size:32px;margin:36px 0 8px}.lead{color:var(--muted);margin:0 0 22px}
   h2{font-size:22px;margin:34px 0 8px;border-top:1px solid var(--border);padding-top:26px}
   h3{font-size:17px;margin:22px 0 6px}
+  h4{font-size:15px;margin:18px 0 4px}
   p,li{font-size:15px}li{color:var(--text);margin:5px 0}
   code{font:13px ui-monospace,Menlo,monospace;background:#0d1017;border:1px solid var(--border);border-radius:5px;padding:1px 6px}
   pre{background:#0d1017;border:1px solid var(--border);border-radius:10px;padding:14px 18px;overflow:auto;font:13px/1.55 ui-monospace,Menlo,monospace;color:#c8d0e0}
@@ -25,8 +26,13 @@
   th{color:var(--muted)}
   .toc{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:14px 20px;margin:20px 0;columns:2}
   .toc a{display:block;padding:3px 0;font-size:14px}
+  .toc .tocgrp{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin:12px 0 4px;break-inside:avoid}
+  .toc .tocgrp:first-child{margin-top:0}
   .note{background:rgba(47,123,255,.08);border:1px solid rgba(47,123,255,.3);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
   .warn{background:rgba(239,83,80,.07);border:1px solid rgba(239,83,80,.3);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
+  figure{margin:20px 0}
+  figure img{display:block;width:100%;border:1px solid var(--border);border-radius:var(--r)}
+  figcaption{color:var(--muted);font-size:13px;margin-top:8px}
   footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;padding:30px 0;margin-top:44px}
 </style>
 <link rel="icon" type="image/svg+xml" href="assets/ots-mark.svg">
@@ -41,25 +47,57 @@
 </div></header>
 <div class="wrap">
   <h1>User Guide</h1>
-  <p class="lead">How Open Trading Surface works, how to set it up, and how to use every part of it. If you're new, start with the <a href="#quickstart">5-minute quickstart</a>, then dip into whichever feature you need.</p>
+  <p class="lead">How Open Trading Surface works, how to set it up, and how to use every part of it. If you're new, start with the <a href="#quickstart">5-minute quickstart</a>, then dip into whichever feature you need. If you last used it before the panel workspace arrived, read <a href="#workspace">The terminal is a workspace</a> first — the way you move around has changed.</p>
   <div class="toc">
+    <div class="tocgrp">Getting started</div>
     <a href="#quickstart">★ 5-minute quickstart</a>
     <a href="#how">How Open Trading Surface works</a>
     <a href="#requirements">Requirements</a>
     <a href="#install">Installing</a>
     <a href="#keys">Configuring API keys</a>
     <a href="#first">First run &amp; the disclaimer</a>
-    <a href="#driving">Driving Open Trading Surface with the agent</a>
+    <a href="#automate">Automations &amp; scheduling</a>
+
+    <div class="tocgrp">Using the terminal</div>
+    <a href="#workspace">The terminal is a workspace</a>
+    <a href="#driving">Driving it with the agent</a>
+    <a href="#admin">Administration</a>
+    <a href="#processes">Processes</a>
+    <a href="#coherence">One selector, two-tier disclosure</a>
+
+    <div class="tocgrp">Research</div>
     <a href="#charts">Charts &amp; the workbench</a>
     <a href="#screener">Screening stocks</a>
-    <a href="#portfolio">Portfolios &amp; analytics</a>
+    <a href="#defensive">Modernized G &amp; D</a>
+    <a href="#cohorts">Cohorts</a>
     <a href="#pricing">Pricing engine &amp; Model of Models</a>
     <a href="#models">Company operating models</a>
+    <a href="#substrate">Pro forma statements &amp; the substrate</a>
+    <a href="#containers">The economy &amp; industry containers</a>
+    <a href="#perspectives">Perspectives</a>
     <a href="#thesis">The thesis engine</a>
     <a href="#market">The Market tab: heat map &amp; repricing scan</a>
     <a href="#divergence">Divergence ledger, reratings &amp; event impact</a>
-    <a href="#cohorts">Cohorts</a>
-    <a href="#journeys">The four analyst journeys</a>
+    <a href="#honesty">Honest numbers: grades, base rates &amp; expectations</a>
+
+    <div class="tocgrp">Portfolios</div>
+    <a href="#portfolio">Portfolios &amp; the transaction ledger</a>
+    <a href="#costbasis">Cost basis &amp; tax lots</a>
+    <a href="#performance">Performance, attribution &amp; risk</a>
+    <a href="#report">The PDF report</a>
+    <a href="#provenance">Where a holding came from</a>
+
+    <div class="tocgrp">Event processing</div>
+    <a href="#reach">Reach: what can honestly be backtested</a>
+    <a href="#events">Typed events</a>
+    <a href="#conditions">The condition language</a>
+    <a href="#rules">Rules &amp; the tick</a>
+    <a href="#actions">Actions &amp; the paper book</a>
+    <a href="#strategies">Strategies</a>
+    <a href="#backtest">The backtester &amp; deflation</a>
+    <a href="#observability">Events, Firings, Runs &amp; Backtests</a>
+
+    <div class="tocgrp">Everything else</div>
     <a href="#watch">Alerts, subscriptions &amp; the calendar</a>
     <a href="#executives">Executive profiles</a>
     <a href="#marketplace">The marketplace &amp; images</a>
@@ -74,29 +112,34 @@
   <h2 id="quickstart">★ 5-minute quickstart</h2>
   <ol>
     <li><b>Install</b> the plugin and restart your Claude session (details <a href="#install">below</a>).</li>
-    <li><b>Add your FMP key</b>: say <em>"open the Open Trading Surface terminal"</em>, go to the <b>⚙ Settings</b> tab, paste your key, press <b>Test</b>.</li>
+    <li><b>Add your FMP key</b>: say <em>"open the Open Trading Surface terminal"</em>, click <b>🛠 Administration</b> in the top strip, pick <b>Settings</b> from the left menu, paste your key, press <b>Test</b>.</li>
     <li><b>Accept the one-time disclaimer</b> when prompted.</li>
     <li><b>Try your first real task</b> — just ask the agent in plain language:
       <pre><code>"Analyze NVDA — chart it with the 50/200-day averages and RSI,
  then give me the fundamental picture and what the bulls and bears would say."</code></pre>
     </li>
-    <li><b>Then explore one thing</b>: <em>"screen large-cap tech under 20× earnings ranked by momentum"</em>, or <em>"build an operating model for CAT and shock gross margin down 2 points."</em></li>
+    <li><b>Then explore one thing</b>: <em>"screen large-cap tech under 20× earnings ranked by momentum"</em>, or <em>"open a chart on AAPL and a chart on MSFT side by side."</em></li>
+    <li><b>Turn on the batches</b> when you're ready for the twin to accrue: run <code>/ots:automate</code> and pick the scheduled jobs you want (see <a href="#automate">Automations</a>).</li>
   </ol>
-  <div class="note">You don't click Open Trading Surface like a dashboard — you <b>tell the agent what you want</b> and it drives the terminal, charts, screens, and models for you. The sections below show what's possible and the phrasings that work.</div>
+  <div class="note">You don't click Open Trading Surface like a dashboard — you <b>tell the agent what you want</b> and it drives the terminal, panels, charts, screens, and models for you. The sections below show what's possible and the phrasings that work.</div>
 
   <h2 id="how">How Open Trading Surface works</h2>
-  <p>Two ideas explain everything:</p>
+  <p>Two ideas explain everything, and a third explains its character.</p>
   <h3>1. It's a price-discovery digital twin, not a data feed</h3>
-  <p>The market is a price discovery mechanism, not a forecast — so Open Trading Surface doesn't try to out-predict it. It maintains a <b>digital twin</b> that discovers an <b>evidence-supported price</b> per name, reconciles it against the market's price, and treats the unexplained gap — the <b>residual</b> — as the object of study: mapped market-wide on the <a href="#market">heat map</a>, logged in the <a href="#divergence">divergence ledger</a>, and tested for <a href="#divergence">reratings</a>. Around that core runs the connected chain: a <b>worldview</b> (macro, geopolitics, demographics) becomes <b>theses</b> with explicit, auditable probability estimates and an <b>evidence ledger</b>; theses compile into <b>screens</b>, <b>cohorts</b> and paper <b>portfolios</b>; individual names are grounded in driver-based <b>operating models</b> and priced by a <b>mixture of valuation frames</b>. It persists between sessions and is continuously reassessed as evidence arrives. Everything you build compounds instead of resetting.</p>
+  <p>The market is a price discovery mechanism, not a forecast — so Open Trading Surface doesn't try to out-predict it. It maintains a <b>digital twin</b> that discovers an <b>evidence-supported price</b> per name, reconciles it against the market's price, and treats the unexplained gap — the <b>residual</b> — as the object of study: mapped market-wide on the <a href="#market">heat map</a>, logged in the <a href="#divergence">divergence ledger</a>, and tested for <a href="#divergence">reratings</a>. Around that core runs the connected chain: a <b>worldview</b> (macro, geopolitics, demographics) becomes <b>theses</b> with explicit, auditable probability estimates and an <b>evidence ledger</b>; theses compile into <b>screens</b>, <b>cohorts</b> and paper <b>portfolios</b>; individual names are grounded in driver-based <b>operating models</b>, an articulated <b>pro forma statement set</b>, and a <b>mixture of valuation frames</b>. It persists between sessions and is continuously reassessed as evidence arrives. Everything you build compounds instead of resetting.</p>
   <h3>2. It's agent-native</h3>
-  <p>The terminal is a <b>shared world-model</b>: everything you see, the agent can read and drive. You work by conversation — "add an anchored VWAP and mark the earnings gap," "what do the signals say," "record this as a thesis." The agent inspects the exact view you're looking at and acts on it. It's <b>plan-only</b>: it models, screens, and drafts, but never places a trade or moves money.</p>
-  <div class="warn"><b>Open Trading Surface is not investment advice.</b> Every output — including probabilities, models, and fair values — is a decision aid to verify independently. You bear full responsibility for all decisions.</div>
+  <p>The terminal is a <b>shared world-model</b>: everything you see, the agent can read and drive. You work by conversation — "open a chart on AAPL beside MSFT," "what do the signals say," "record this as a thesis." The agent inspects the exact panel you're looking at and acts on it. It's <b>plan-only</b>: it models, screens, and drafts, but never places a trade or moves money.</p>
+  <h3>3. It refuses rather than defaults</h3>
+  <p>This is the property that distinguishes it, and it is deliberate. Where a number cannot be honestly computed, Open Trading Surface <b>says so by name</b> instead of substituting a plausible one — which input is missing, on which leg, and what would fix it. Where a new layer would move a number you have already read, it <b>discloses before it adjusts</b>: both values side by side, the delta named, and the change recorded as a <b>dated methodology break</b>. And it will tell you <a href="#reach">what it could honestly backtest</a> rather than producing a flattering number over a window it does not have the record for. Empty results, red process lights and refusal sentences are not failures of the product — they are the product working.</p>
+  <div class="warn"><b>Open Trading Surface is not investment advice.</b> Every output — including probabilities, models, fair values, characterizations and paper-book proposals — is a decision aid to verify independently. You bear full responsibility for all decisions.</div>
 
   <h2 id="requirements">Requirements</h2>
   <ul>
     <li><b>Node.js 18 or newer</b> — the plugin's local server has zero runtime npm dependencies (Node's standard library only; build and test tooling is separate).</li>
     <li><b>A Financial Modeling Prep API key</b> — for market and fundamental data.</li>
-    <li><b>Optional: a free FRED API key</b> — unlocks the macro signal engine and system-proposed theses. <a href="https://fred.stlouisfed.org/docs/api/api_key.html">Register free</a>.</li>
+    <li><b>Optional: a free FRED API key</b> — unlocks the macro signal engine, system-proposed theses, and the cash-yield series a strategy accrues against. <a href="https://fred.stlouisfed.org/docs/api/api_key.html">Register free</a>.</li>
+    <li><b>Optional: an AI vendor key</b> — enables <a href="#perspectives">Perspectives</a>, the per-security written assessment. Without one, every Perspectives operation refuses in one sentence and nothing is sent anywhere.</li>
+    <li><b>Optional: an SEC EDGAR contact string</b> — EDGAR requires a contact header; set it in Settings if filing fetches return 403.</li>
   </ul>
 
   <h2 id="install">Installing</h2>
@@ -112,30 +155,162 @@
   <div class="note">Nothing to launch manually — you never run a command yourself. Installing the plugin makes the tools available; saying <b>"open the Open Trading Surface terminal"</b> (or just "open Open Trading Surface") is what actually starts it.</div>
 
   <h2 id="keys">Configuring API keys</h2>
-  <p>The easiest path is in the UI: open the terminal, click the <b>⚙ Settings</b> tab, paste your FMP key (and optionally FRED), and press <b>Test</b> to confirm live connectivity. You can also set <code>FMP_API_KEY</code> / <code>FRED_API_KEY</code> environment variables, which take precedence.</p>
-  <div class="note">Keys are stored on your machine in <code>~/.ots/config.json</code> with file mode 600 and are never transmitted anywhere but the data providers themselves.</div>
+  <p>The easiest path is in the UI: open the terminal, click <b>🛠 Administration</b> in the top strip, and pick <b>Settings</b> from the left menu. That one panel holds every credential the system uses:</p>
+  <ul>
+    <li><b>FMP</b> — market and fundamental data. Paste and press <b>Test</b> to confirm live connectivity.</li>
+    <li><b>FRED</b> — free macro series.</li>
+    <li><b>SEC EDGAR contact</b> — e.g. <code>Your Name your@email.com</code>. EDGAR rejects anonymous requests.</li>
+    <li><b>AI vendor</b> — pick one of <b>Anthropic, OpenAI, Google, AWS Bedrock, Grok</b> or an <b>OpenAI-compatible</b> endpoint, then fill only the fields that vendor declares. <b>Fetch models</b> asks the vendor's own live endpoint for its model list (model names are never hardcoded), and <b>Test connection</b> makes one minimal call and prints the vendor's answer or its error verbatim.</li>
+  </ul>
+  <p>You can also set <code>FMP_API_KEY</code> / <code>FRED_API_KEY</code> / <code>OTS_AI_API_KEY</code> environment variables, which take precedence over the stored file.</p>
+  <div class="note">Keys are stored on your machine in <code>~/.ots/config.json</code> with file mode 600 and are never transmitted anywhere but the data providers themselves. <b>Exactly one AI vendor is configured at a time</b> — saving a different one <em>replaces</em> the configuration rather than parking the old key beside it. There is no simultaneous-vendor mode and no automatic failover, deliberately.</div>
+  <p>The Settings panel also holds the <a href="#perspectives">Perspectives prompt editor</a>.</p>
 
   <h2 id="first">First run &amp; the disclaimer</h2>
   <p>On first launch the terminal presents a one-time legal acknowledgment. You must read and accept it before using the application. A short disclaimer stays visible in the footer at all times, and the full terms live on the <a href="legal.html">Legal page</a>.</p>
   <div class="warn"><b>Open Trading Surface is not investment advice.</b> Every output is a decision aid to be independently verified. You bear full responsibility for all investment decisions.</div>
 
-  <h2 id="driving">Driving Open Trading Surface with the agent</h2>
-  <p>Ask the agent to <em>"open the Open Trading Surface terminal."</em> Across the top are per-security tabs plus pinned tabs for <b>🔔 Alerts</b> (with Feed, Subscriptions, and Calendar sub-sections), <b>📁 Portfolios</b>, <b>🧬 Cohorts</b>, <b>🌐 Market</b> (Heat map and Repricing scan), <b>🛍 Marketplace</b>, <b>🌎 Macro-economic</b> (a left-hand menu over <b>Thesis</b>, <b>Economy</b> and <b>Sectors</b>), and <b>🛠 Administration</b> (a left-hand menu over <b>Settings</b>, <b>Processes</b> and <b>Support</b> — guide, diagnostics, what's new, and learning, served from the same knowledge base the agent uses). Each security tab has a left rail: Stock Chart, Company Information (with clickable executive profiles), Income Statement, Balance Sheet, Cash Flow, Ratios, Key Metrics, Analyst Ratings, Peer Comps, Ownership, Earnings Transcripts, News, SEC Filings, Insider Trades, <b>Model of Models</b>, <b>Pricing Models</b>, <b>Strategic Initiatives</b>, <b>Divergence Ledger</b>, and Research Notes.</p>
-  <p>You can navigate it yourself, but the fastest way is to ask. The agent can read what's on screen ("what does the analyst view say for this name?") and drive it ("switch to the cash-flow statement," "open the rebalance view"). Everything below works whether the terminal is open or not — the agent will open what it needs.</p>
+  <h2 id="automate">Automations &amp; scheduling</h2>
+  <p>The twin accrues by running batches. The plugin ships the capabilities, but <b>scheduled tasks live on your machine</b>, so installing the plugin does not install them. Run <code>/ots:automate</code> and the agent walks the registry with you: for each automation it shows the title, what it does, the suggested cadence, and a heads-up for the heavy ones, then creates only the tasks you choose.</p>
+  <ul>
+    <li><b>Surface batch</b> — weekdays after the US close; records the day's surface. The very first universe fill is a one-off ~10–12 hour job (resumable, and you can start it in the daemon and check progress), after which the daily task keeps it fresh.</li>
+    <li><b>Daily ledger</b> — weekdays before the open.</li>
+    <li>Other jobs — the enrichment batch, cohort refresh and the repricing scan — ride inside those schedules or run inside the daemon.</li>
+  </ul>
+  <p>Whatever you install, <b>Administration → Processes</b> is where you see whether it actually ran. If your environment has no scheduling capability, <code>/ots:automate</code> gives you the command-line equivalent for the automations that have one, and says plainly which have no headless equivalent.</p>
+  <div class="note">Automations are read-only over your configuration. They never modify strategic-initiative books, pricing models, watchlists or settings; everything they record is descriptive market data.</div>
 
-  <h2 id="charts">Charts &amp; the workbench</h2>
-  <p>The charting workbench is a full technical-analysis surface with its own engine — ~125 indicators, 39 drawing tools, all timeframes and extended hours, compare overlays, and event markers (earnings/dividends/splits/insider trades). Open one with a request, then refine it in words.</p>
+  <h2 id="workspace">The terminal is a workspace</h2>
+  <p>The right-hand area of the terminal is no longer one active view — it is an <b>MDI floating panel workspace</b>. You can open any number of panels, arrange them freely, and reduce them without closing them.</p>
+  <figure>
+    <img src="assets/workspace.png" alt="The terminal workspace with six panels tiled three across and two down on a single security, each panel carrying its own title bar with duplicate, minimize, maximize and close controls, and a taskbar of open panels along the bottom edge.">
+    <figcaption>Six panels on one name, tiled. The strip at the top is the launcher; the left menu opens panels; the bar along the bottom is the taskbar of everything open.</figcaption>
+  </figure>
+
+  <h3>The one rule everything follows: a panel pins its security</h3>
+  <p>A panel is opened against <b>a security and a lens</b>, and neither changes for its life. "AAPL · Chart" stays AAPL forever. Changing the lens means opening another panel; changing the security means opening another panel. There is no gesture and no agent call that retargets a live panel at a different name.</p>
+  <p>That single decision is what makes cross-security comparison possible everywhere — three Model of Models panels on three names, read against each other, on one screen.</p>
+  <figure>
+    <img src="assets/cross-security.png" alt="Three Model of Models panels open simultaneously on AAPL, MSFT and NVDA, each reaching a different valuation verdict, arranged across the workspace.">
+    <figcaption>The same lens on three names at once. Each panel is bound to its security, so nothing you do to one changes what another is showing.</figcaption>
+  </figure>
+  <p>The one exception: a panel whose security no longer resolves shows a refusal and offers a picker so you can deliberately retarget a panel that is showing nothing.</p>
+
+  <h3>Where things are now</h3>
+  <table>
+    <tr><th>Part of the screen</th><th>What it does</th></tr>
+    <tr><td><b>The top strip</b></td><td>A <b>launcher</b>, not a mode switch. Each entry is a <b>security context</b>. Clicking one chooses which security the left menu will open next — it does not hide, show, close or open any panel. The strip is the union of contexts you added and the securities of every open panel. Alongside them sit the pinned tabs: <b>🔔 Alerts</b>, <b>📁 Portfolios</b>, <b>🧬 Cohorts</b>, <b>🌐 Market</b>, <b>🛍 Marketplace</b>, <b>🌎 Macro-economic</b> and <b>🛠 Administration</b>.</td></tr>
+    <tr><td><b>The left menu (rail)</b></td><td>Opens panels. Clicking a rail item opens a new floating panel on the current context. It marks exactly one item as <b>focused</b> — the view the focused panel is showing — and puts a quiet <b>count</b> beside any view that has open panels for this security.</td></tr>
+    <tr><td><b>The workspace bar</b></td><td>Sits directly above the panel area (not across the rail) and wraps rather than scrolling. Carries <b>⊞ Tile · ⊟ Cascade · ▤ Stack · ⊙ Gather · ▬ All · ▣ Restore all</b>, the panel and reduced counts, and any workspace notices.</td></tr>
+    <tr><td><b>The taskbar</b></td><td>Along the bottom of the workspace: <b>every open panel</b>, in open order, not just the minimized ones. Click to summon; middle-click or the hover <b>✕</b> to close; right-click for the panel menu.</td></tr>
+    <tr><td><b>A panel's title bar</b></td><td>The drag handle, carrying <b>⧉</b> duplicate, <b>▬</b> minimize, <b>▣</b> maximize (<b>❐</b> when it is maximized) and <b>✕</b> close, plus a <b>⋯</b> menu with duplicate, close others, bring to front and send to back. Double-click maximizes and restores.</td></tr>
+  </table>
+
+  <h3>Opening, duplicating and closing</h3>
+  <ul>
+    <li><b>Opening a panel that already exists focuses the existing one</b> rather than making a second — clicking a rail item twice is navigation, not a request for a duplicate.</li>
+    <li><b>To get a second instance</b>, use the <b>⧉</b> control on the panel's title bar, <b>Duplicate</b> in its menu, or <b>Alt-click</b> the rail item. A duplicate inherits the source panel's state and then diverges.</li>
+    <li><b>Chart grids follow the same rule</b>: a grid's identity is its ordered set of securities plus its layout, so re-opening the same set at the same layout focuses the grid you already have.</li>
+    <li><b>Closing a security context</b> with open panels asks by count — <em>"Close 3 panels bound to AAPL?"</em> — and offers to remove the context and keep the panels.</li>
+  </ul>
+
+  <h3>Minimizing, arranging and never losing a panel</h3>
+  <ul>
+    <li><b>A reduced panel is still open.</b> Minimizing hides pixels and nothing else: the node, its scroll position and its loaded data all survive, and restoring re-fetches nothing. The taskbar entry is the proof.</li>
+    <li><b>Tile, Cascade, Stack and Gather are one-shot actions, never modes.</b> They arrange the panels once, write the geometry, and are finished — a panel afterwards is ordinary geometry you can immediately drag. If tiling cannot give every panel a cell at its declared minimum size, it <b>refuses with the numbers</b> rather than producing unreadable boxes.</li>
+    <li><b>Gather</b> pulls every visible panel back inside the viewport, shrinks oversized ones (never below their minimum) and reports every shrink.</li>
+    <li><b>A panel is never unreachable.</b> The workspace scrolls both axes over a canvas that grows to hold panels dragged past the edge; placement is always computed against what is currently on screen; and clicking a taskbar entry <b>summons</b> — restore, raise and bring into view in one action. If no scroll position could reach a panel's title bar, the panel is moved to you and the terminal says so.</li>
+    <li><b>Nothing is silently dropped.</b> A restored layout referencing a view or security that no longer resolves opens a <b>refusal panel in that panel's saved geometry</b>, naming what is missing.</li>
+  </ul>
+  <div class="note"><b>If a panel seems stuck:</b> it is probably maximized. A maximized panel is pinned to the viewport, so its record can move while the screen does not — that is what a "snap back" used to be. Maximized panels now show it (an accent title bar and a <b>❐</b> control), and any drag or resize <b>leaves maximized first</b>, restoring under your cursor. Ask the agent to <code>unmaximize_panel</code> if you want to be certain of the end state; <code>maximize_panel</code> is a toggle and cannot promise one.</div>
+
+  <h3>Per-panel chart state</h3>
+  <p>Two chart panels on the same name are ordinary, so chart state <b>diverges fully per panel — including drawings</b>. It is made safe by inherit-then-diverge: a new chart panel with no record of its own reads the existing symbol-scoped record and immediately writes a copy to its own key, so your existing drawings land on the first panel you open <em>and on every later one</em>, nothing is orphaned, and the original record is never deleted or written to by a panel. A standalone chart (a published chart URL) goes on reading exactly what it always read. A drawing that cannot be migrated is <b>refused by name</b>, never silently dropped.</p>
+
+  <h3>The pinned surfaces</h3>
+  <p>Administration, Portfolios, Alerts, Cohorts, Market, Marketplace and Macro-economic are <b>full-pane covers</b>, not panels. While one covers the workspace the taskbar stays visible and dimmed, and clicking an entry returns you to the workspace with that panel focused. The workspace is occluded, not destroyed: geometry, z-order, scroll positions and loaded data all survive and nothing is re-fetched.</p>
+
+  <h3>What the workspace does not do (yet)</h3>
+  <p>Stated plainly so you don't go looking: there are <b>no named saved layouts</b> on the server (what exists is export/import of the whole arrangement in one round trip, plus one-slot "restore previous arrangement" and "reopen closed panel" undos); <b>no keyboard shortcut set</b> beyond arrow-key nudging of a focused title bar; <b>no screen-reader pass</b>; <b>no docking, snapping or tabbed panel groups</b>; <b>no tear-off OS windows</b>; <b>no cross-panel crosshair</b> (the ⌖ Link control links the cells of one grid only); and <b>no per-window workspaces</b> — two browser tabs share one saved workspace and the last to save wins, which is <em>disclosed</em> on the workspace bar rather than prevented.</p>
+
+  <h2 id="driving">Driving it with the agent</h2>
+  <p>You can navigate the terminal yourself, but the fastest way is to ask. The agent can read what's on screen and drive it.</p>
   <table>
     <tr><th>You say</th><th>What happens</th></tr>
-    <tr><td>"Chart AAPL daily with the 50 and 200-day moving averages, RSI, and MACD."</td><td>Opens an interactive chart with those overlays and oscillators.</td></tr>
-    <tr><td>"Add an anchored VWAP from the last earnings date and mark the gap."</td><td>The agent adds the drawing/overlay to the chart you're looking at.</td></tr>
+    <tr><td>"Open a chart on AAPL and one on MSFT, side by side."</td><td>Opens two chart panels and tiles them.</td></tr>
+    <tr><td>"Put the Model of Models for AAPL, MSFT and NVDA on screen at once."</td><td>Three bound panels, arranged.</td></tr>
+    <tr><td>"I've lost the statements panel."</td><td><code>summon_panel</code> — restore, raise and bring into view, guaranteed.</td></tr>
+    <tr><td>"Tidy this up." / "Minimize everything but the chart."</td><td>Gather / tile / minimize-all through the workspace verbs.</td></tr>
+    <tr><td>"What's open right now?"</td><td>Reads the workspace state: every panel, its security, its view, its geometry, and whether it is on screen.</td></tr>
+  </table>
+  <div class="note"><b>For agents and power users — a contract change worth knowing.</b> <code>active_symbol</code> now means <b>the security of the focused panel</b> (what you are actually looking at), falling back to the strip's selection when nothing is focused. The strip's selection — the security the left menu will open next — is <code>context_symbol</code>. Both are always present, they may legitimately differ, and every payload carries <code>active_symbol_means</code> saying which of the two it currently is. Older verbs (<code>set_view</code>, <code>select_security</code>, <code>add_tab</code>, <code>remove_tab</code>…) still answer, each marking itself deprecated, stating what it actually did, and naming its successor.</div>
+
+  <h2 id="admin">Administration</h2>
+  <p>The utility and engine surfaces live under one pinned tab — <b>🛠 Administration</b> — behind a left-hand menu, grouped so the list reads rather than merely scanning. There are <b>eleven panels in four groups</b>:</p>
+  <table>
+    <tr><th>Group</th><th>Panels</th></tr>
+    <tr><td><b>Machine</b></td><td><b>Settings</b> (all API keys and the Perspectives prompt editor) · <b>Processes</b> (the batches on this machine) · <b>Support</b> (guide, diagnostics, what's new and learning, served from the same knowledge base the agent uses)</td></tr>
+    <tr><td><b>Event processing — what can be known</b></td><td><b>Reach</b> · <b>Conditions</b></td></tr>
+    <tr><td><b>Event processing — what is watched</b></td><td><b>Rules</b> · <b>Strategies</b></td></tr>
+    <tr><td><b>Event processing — what happened</b></td><td><b>Events</b> · <b>Firings</b> · <b>Runs</b> · <b>Backtests</b></td></tr>
+  </table>
+  <p>The ordering is the reading order: what could be known, what can be asked, what is being watched, what is being held because of it — then what actually happened, what a rule has actually done, what a strategy did today, and what a replay of the past concluded.</p>
+  <div class="note">Settings, Processes and Support were once top-level tabs; Thesis, Economy and Sectors were three more. Settings/Processes/Support are now Administration panels, and Thesis/Economy/Sectors are panels under <b>🌎 Macro-economic</b>. Old links and old agent verbs migrate to the right panel rather than breaking.</div>
+
+  <h2 id="processes">Processes</h2>
+  <p><b>Administration → Processes</b> is the board for every batch this installation runs. Each row carries a status light with the reason for it, the cadence, when it last ran, when it is next due, and Start / Pause controls.</p>
+  <figure>
+    <img src="assets/processes.png" alt="The Processes board listing the scheduled batches, each with a coloured status light, a plain-language reason, its cadence, last run and next due time, and Start or Pause controls — with several rows showing red for overdue or unscheduled jobs.">
+    <figcaption>The process board, including its honest red rows. A job with no schedule anywhere on the machine reads red and says exactly that.</figcaption>
+  </figure>
+  <h3>The status law</h3>
+  <ul>
+    <li><b>Green</b> — the last run succeeded (or partially succeeded, with what was skipped named) and the job is not overdue.</li>
+    <li><b>Yellow</b> — running right now, with live progress; not complete yet.</li>
+    <li><b>Red</b> — paused by you (the reason says so), <em>or</em> the last run failed or was halted, <em>or</em> the job is overdue against its own cadence, <em>or</em> it has never run at all. Never-ran is red, not grey: an unasked question is not a pass.</li>
+  </ul>
+  <h3>What runs</h3>
+  <p>The registry is derived from the code rather than hand-maintained. It currently declares the surface batch, the screener enrichment batch, the daily repricing scan, the cohort refresh, the daily ledger, the monthly universe snapshot (the survivorship archive), the <a href="#rules">event-engine tick</a>, the <a href="#strategies">strategy loop</a>, the monthly point-in-time snapshot, and the legacy alert evaluation.</p>
+  <div class="note"><b>An example of the house rule in action.</b> The legacy alert evaluation ships on the board declared <b>unscheduled</b> — nothing on the machine runs it, and its row says so in a sentence rather than showing a stale green light. Naming a gap is the disclosure; closing it is a separate decision.</div>
+  <p>Pausing is authoritative and journaled: a paused process reads red as "halted by owner" until you Resume. A red light is information, not a trigger — nothing on this board edits books, models or configuration.</p>
+
+  <h2 id="coherence">One selector, two-tier disclosure</h2>
+  <p>Two small things do most of the work of making the interface coherent.</p>
+  <h3>One selector, one taxonomy</h3>
+  <p>Every dialog in the system that asks you to choose something — a screen field, a cohort predicate, a chart indicator, a lens, a security, a transaction type, a rule's rank field — opens <b>the same component</b>. Same geometry, same search box, same keyboard (Esc closes, Enter commits, ↑/↓ walk the rows), same "no matches anywhere" sentence. Where a dialog deliberately behaves differently — single-select and Apply, versus a multi-stage basket and OK — the footer says which gesture it is using, so you are never guessing.</p>
+  <p>Everything selectable sits in <b>one category taxonomy</b>: <em>fundamental · technical · model &amp; attribution · macro &amp; data · market &amp; flows · identity &amp; classification</em>. Membership is <b>derived</b> from the underlying registries — screen fields, chart indicators, the series catalog, the pricing-model registry, model factors — rather than authored, so a field that becomes available becomes selectable, and an orphaned category fails the build.</p>
+  <h3>Two-tier disclosure</h3>
+  <p>The rule: <b>if hiding it could cause a number on screen to be read wrongly, it stays on the row. If it only explains or attributes, it moves behind one icon.</b></p>
+  <ul>
+    <li><b>On the row</b> — the freshness chip (live / cached with its age / ⚠ stale), a refusal meaning a number is <em>absent</em> rather than zero, an invalidation, a coverage caveat that bounds what a count means, and the reason a status light is red.</li>
+    <li><b>Behind the icon</b> — explanation, provenance, methodology, hygiene and lineage notes, and long descriptions. The icon <b>states its count and its highest severity</b>, and an empty set shows no icon at all rather than a zero badge.</li>
+  </ul>
+  <p>Nothing is truncated behind the icon: the full text renders with no line clamp, and the popup is keyboard-dismissible with focus returned to the icon that opened it.</p>
+
+  <h2 id="charts">Charts &amp; the workbench</h2>
+  <p>The charting workbench is a full technical-analysis surface with its own engine — ~125 indicators, 39 drawing tools, all timeframes and extended hours, compare overlays, and event markers. Open one with a request, then refine it in words. Inside the terminal it is a panel; you can also open a standalone chart page.</p>
+  <figure>
+    <img src="assets/chart-workbench.png" alt="The charting workbench showing candlesticks with moving averages, a lower oscillator pane, drawing tools in the left toolbar and sentiment-coloured event markers along the price series.">
+    <figcaption>The workbench. Indicators, overlays, drawings and event markers are all addressable by the agent.</figcaption>
+  </figure>
+  <table>
+    <tr><th>You say</th><th>What happens</th></tr>
+    <tr><td>"Chart AAPL daily with the 50 and 200-day moving averages, RSI, and MACD."</td><td>Opens a chart panel with those overlays and oscillators.</td></tr>
+    <tr><td>"Add an anchored VWAP from the last earnings date and mark the gap."</td><td>The agent adds the drawing/overlay to the panel you're looking at.</td></tr>
     <tr><td>"Switch to weekly, log scale, and compare against MSFT and the SP500."</td><td>Reconfigures timeframe/scale and adds normalized compare lines.</td></tr>
     <tr><td>"What do the signals say?"</td><td>Reads the live 12-signal technical battery + key levels off the chart.</td></tr>
   </table>
-  <div class="note">Charts are served from a localhost URL; the API key stays server-side. A standalone file copy is also saved — that copy embeds the key, so treat it like a credential.</div>
+  <div class="note">Charts are served from a localhost URL; the API key stays server-side. A standalone file copy is also saved — that copy embeds the key, so treat it like a credential. Inside the workspace, an embedded chart holds no long-lived connection however many chart panels you open, so a screen full of charts does not starve the terminal of sockets.</div>
+
+  <h3>Chart grids</h3>
+  <figure>
+    <img src="assets/chart-grid.png" alt="A four-up chart grid panel: four securities charted on a shared date window with a linked crosshair, each cell carrying its own indicators.">
+    <figcaption>A 4-up grid with synchronized ranges. The grid is one panel; its identity is the ordered set of securities plus the layout.</figcaption>
+  </figure>
+  <p>Pan or zoom one cell and the others follow. The crosshair relay resolves to its owning panel, so it never leaks into a different grid. Ask for <em>"a 4-up grid of AAPL, MSFT, JNJ and KO"</em> and re-asking focuses the grid you already have; Alt-click the menu item (or ask for a duplicate) to get a second one.</p>
 
   <h3>Overlaying macro, commodity, financial &amp; filing series</h3>
-  <p>The chart isn't limited to price. The <b>🌐 Macro/Data</b> menu overlays any external time series — economic (FRED), commodity/energy prices, per-company financial-statement line items, or SEC EDGAR XBRL facts — directly on the chart so you can compare and test predictive relationships. Each overlay renders either on its <b>own stacked right-hand axis</b> (so different units line up honestly) or in a <b>separate pane</b>, your choice per series, and can be <b>shifted forward or back</b> in bars to line a leading indicator up against price. Ask the agent to <em>"find the best lead/lag"</em> and it runs a cross-correlation (<code>analyze_lead_lag</code>) to tell you which lag aligns them best and how strongly.</p>
+  <p>The chart isn't limited to price. The <b>Indicators</b> dialog overlays any external time series — economic (FRED), commodity/energy prices, per-company financial-statement line items, or SEC EDGAR XBRL facts — directly on the chart so you can compare and test predictive relationships. Each overlay renders either on its <b>own stacked right-hand axis</b> (so different units line up honestly) or in a <b>separate pane</b>, your choice per series, and can be <b>shifted forward or back</b> in bars to line a leading indicator up against price. Ask the agent to <em>"find the best lead/lag"</em> and it runs a cross-correlation (<code>analyze_lead_lag</code>) to tell you which lag aligns them best and how strongly.</p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
     <tr><td>"Overlay the 10-year Treasury yield and WTI crude on this chart."</td><td>Adds each as its own right-hand axis (refs like <code>fred:DGS10</code>, <code>commodity:CLUSD</code>).</td></tr>
@@ -144,130 +319,109 @@
   </table>
   <div class="note">Overlays align to the price dates by as-of (forward-fill), so a monthly or quarterly series steps correctly against daily bars. Lead/lag shifts and correlations are analytical aids — verify the economic logic; correlation is not causation.</div>
 
+  <h3>Relative views: Δ$ and Δ%</h3>
+  <p>A macro series on the chart is rarely expected to <i>equal</i> the price — the relationship is the object. Every overlay's row in the picker offers three renderings: <b>value</b> (as fetched), <b>Δ$</b> (price − series), and <b>Δ%</b> ((price − series)/|series|). A model line flipped to Δ$ reads as the premium itself, through time.</p>
+
   <h3>Replay without lookahead, and rule backtesting</h3>
-  <p><b>Replay</b> walks a chart forward bar by bar from any start date. The no-lookahead guarantee is structural, not a promise: the chart is <b>windowed to the cursor</b>, so indicators, the 12-signal battery, auto-detections and event markers all recompute from bars at or before the cursor and simply cannot see the future. Fundamentals get the honest treatment most tools skip — analyst targets and DCF lines are <b>as-known-now</b>, so during replay they are <b>suppressed and labelled</b> unless one of your point-in-time snapshots covers the cursor date, in which case the values you actually observed then are drawn and marked <em>as-known-then</em>. Ask the agent to run a name forward and narrate what a disciplined analyst would have concluded at each step.</p>
-  <p><b>Rule backtesting</b> takes entry/exit rules in the series DSL (or describe them and the agent writes them) and returns the trade list, equity curve, hit rate, average win/loss, profit factor, exposure, max drawdown and a buy-and-hold comparison, with costs in basis points per side.</p>
-  <table>
-    <tr><th>You say</th><th>What it does</th></tr>
-    <tr><td>"Replay this from Jan 2024 and tell me what you would have seen."</td><td>Starts replay at that date; everything recomputes to the cursor as you step.</td></tr>
-    <tr><td>"Backtest: buy when the 12/26 EMA crosses up, sell on the cross down."</td><td>Runs <code>backtest_rule</code> and reports trades, hit rate and drawdown with caveats.</td></tr>
-  </table>
-  <div class="note">A single-symbol rule backtest is a <b>hypothesis check, not strategy validation</b>. Costs are modelled per side; slippage, borrow, taxes and survivorship are not — and rules chosen by looking at the same sample are an upper bound. Note a level rule (<code>close &gt; 50</code>) is a state that re-enters after each exit; use <code>crossover</code>/<code>crossunder</code> for edge-triggered entries.</div>
+  <p><b>Replay</b> walks a chart forward bar by bar from any start date. The no-lookahead guarantee is structural, not a promise: the chart is <b>windowed to the cursor</b>, so indicators, the 12-signal battery, auto-detections and event markers all recompute from bars at or before the cursor and simply cannot see the future. Fundamentals get the honest treatment most tools skip — analyst targets and DCF lines are <b>as-known-now</b>, so during replay they are <b>suppressed and labelled</b> unless one of your point-in-time snapshots covers the cursor date, in which case the values you actually observed then are drawn and marked <em>as-known-then</em>.</p>
+  <p><b>Rule backtesting</b> takes entry/exit rules in the series DSL (or describe them and the agent writes them) and returns the trade list, equity curve, hit rate, average win/loss, profit factor, exposure, max drawdown and a buy-and-hold comparison, with costs in basis points per side. Every rule backtest reserves the most recent ~25% of bars as a <b>holdout</b> and scores both windows — the split happens inside the engine, so nobody can request the flattering half alone.</p>
+  <div class="note">A single-symbol rule backtest is a <b>hypothesis check, not strategy validation</b>. Costs are modelled per side; slippage, borrow, taxes and survivorship are not — and rules chosen by looking at the same sample are an upper bound. Note a level rule (<code>close &gt; 50</code>) is a state that re-enters after each exit; use <code>crossover</code>/<code>crossunder</code> for edge-triggered entries. For portfolio-level testing, see <a href="#backtest">the backtester</a>.</div>
 
   <h3>Indicators you define yourself</h3>
-  <p>Beyond the built-in library you can define your own indicator from a formula and use it exactly
-  like a built-in. Ask for it in words — <em>"define an indicator called vol_ratio that is the 10-day
-  average volume over the 50-day average volume"</em> — and it appears in the chart's indicator library
-  under <b>Custom</b>, with the same add / edit-parameters / hide / remove controls as everything else.
-  Definitions persist, so they are there in your next session.</p>
-  <p>Formulas are written over the bar fields (<code>open</code>, <code>high</code>, <code>low</code>,
-  <code>close</code>, <code>volume</code>) with windowed functions — <code>sma</code>, <code>ema</code>,
-  <code>wma</code>, <code>highest</code>, <code>lowest</code>, <code>stdev</code>, <code>sum</code>,
-  <code>slope</code>, <code>ref</code>, <code>crossover</code>, <code>crossunder</code>,
-  <code>barssince</code> — plus any parameters you declare, which then become editable inputs on the
-  chart. An indicator can plot several series, and a plot marked as a lower pane gets its own lane.</p>
-  <table>
-    <tr><th>You say</th><th>What it does</th></tr>
-    <tr><td>"Define an indicator: 20-day high minus 20-day low, divided by close."</td><td>Creates it and makes it addable (<code>define_indicator</code>).</td></tr>
-    <tr><td>"What custom indicators do I have?"</td><td>Lists your definitions (<code>list_custom_indicators</code>).</td></tr>
-    <tr><td>"Put vol_ratio on the chart with n=30."</td><td>Adds it with that parameter value.</td></tr>
-    <tr><td>"Delete the vol_ratio indicator."</td><td>Removes the definition (<code>delete_custom_indicator</code>).</td></tr>
-  </table>
-  <div class="note">The formula language has no loops, no assignment and no access to anything outside
-  the bars — it is evaluated on the server, never <code>eval</code>-ed in your browser, and the chart
-  sends bars it already holds, so a custom indicator costs no extra API calls. The same expressions
-  drive rule backtesting, so an idea you can plot is an idea you can test.</div>
+  <p>Beyond the built-in library you can define your own indicator from a formula and use it exactly like a built-in. Ask for it in words — <em>"define an indicator called vol_ratio that is the 10-day average volume over the 50-day average volume"</em> — and it appears in the indicator library under <b>Custom</b>, with the same add / edit-parameters / hide / remove controls as everything else. Definitions persist.</p>
+  <p>Formulas are written over the bar fields (<code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>) with windowed functions — <code>sma</code>, <code>ema</code>, <code>wma</code>, <code>highest</code>, <code>lowest</code>, <code>stdev</code>, <code>sum</code>, <code>slope</code>, <code>ref</code>, <code>crossover</code>, <code>crossunder</code>, <code>barssince</code> — plus any parameters you declare, which then become editable inputs on the chart.</p>
+  <div class="note">The formula language has no loops, no assignment and no access to anything outside the bars — it is evaluated on the server, never <code>eval</code>-ed in your browser, and the chart sends bars it already holds, so a custom indicator costs no extra API calls. The same expressions drive rule backtesting, so an idea you can plot is an idea you can test.</div>
 
   <h3>Auto-detected trendlines, zones &amp; patterns</h3>
-  <p>The <b>🔎 Detect</b> menu runs pattern recognition locally on the bars already loaded — no extra API calls. Toggle <b>Trendlines</b> (fitted through pivots, scored by touches, recency and violations), <b>S/R zones</b> (volume-weighted pivot clusters), <b>Candlestick patterns</b> (~40 recognizers), and <b>Geometric patterns</b> (double tops/bottoms, head &amp; shoulders, triangles, channels), with a minimum-confidence slider. Detections render as ordinary chart drawings but tagged <code>auto</code> — dashed and tinted by direction — so they never mix with your own drawings and can be cleared separately from them.</p>
-  <p>Crucially they are <b>structured objects, not pixels</b>: each carries chart coordinates, a confidence score, a direction, a status (<em>forming / confirmed / invalidated</em>) and a plain-language narrative. So the agent can read exactly what you are looking at and act on it — "draw the trendline it found," "is that head &amp; shoulders confirmed yet?" — and anything the agent detects appears in your chart for you to edit or delete.</p>
-  <table>
-    <tr><th>You say</th><th>What it does</th></tr>
-    <tr><td>"Find the trendlines and support zones on this chart."</td><td>Runs those categories and draws them as dashed auto-detections.</td></tr>
-    <tr><td>"What patterns are forming, and how confident?"</td><td>Reads back type, confidence, direction and status for each detection.</td></tr>
-    <tr><td>"Clear the detections but keep my drawings."</td><td>Removes only the <code>auto</code>-tagged layer.</td></tr>
-  </table>
+  <p>The <b>🔎 Detect</b> menu runs pattern recognition locally on the bars already loaded — no extra API calls. Toggle <b>Trendlines</b> (fitted through pivots, scored by touches, recency and violations), <b>S/R zones</b> (volume-weighted pivot clusters), <b>Candlestick patterns</b> (~40 recognizers), and <b>Geometric patterns</b> (double tops/bottoms, head &amp; shoulders, triangles, channels), with a minimum-confidence slider. Detections render as ordinary chart drawings but tagged <code>auto</code> — dashed and tinted by direction — so they never mix with your own drawings and can be cleared separately.</p>
+  <p>Crucially they are <b>structured objects, not pixels</b>: each carries chart coordinates, a confidence score, a direction, a status (<em>forming / confirmed / invalidated</em>) and a plain-language narrative, so the agent can read exactly what you are looking at and act on it.</p>
   <div class="note">Detections are structured estimates from price geometry, not predictions — <em>forming</em> means the confirmation trigger (neckline, breakout) has not happened yet. Confirm against context before acting.</div>
 
   <h3>Events &amp; sentiment on the chart</h3>
-  <p>The <b>📅 Events</b> menu now covers <b>every</b> source, not just earnings and dividends: earnings (beat/miss), dividends, splits, insider buys/sells, SEC filings, earnings-call transcripts, institutional 13F ownership flow, analyst rating changes, quarterly financial releases, news, and your own research notes. Each is a separate toggle, and every marker is <b>sentiment-colored</b> — green for positive (insider buy, upgrade, EPS beat, net institutional buying, positive news), red for negative — with busy days collapsed into a single <code>N×</code> cluster so a long range stays readable. Turn on <b>Show events pane</b> for a dedicated lane charting <b>net event sentiment per bar</b>, and the <b>🔬 Analysis</b> panel now lists recent events with their sentiment plus a weighted composite score.</p>
-  <table>
-    <tr><th>You say</th><th>What it does</th></tr>
-    <tr><td>"Put insider trades, analyst rating changes and filings on the chart."</td><td>Toggles those event sources as sentiment-colored markers.</td></tr>
-    <tr><td>"Show me everything that happened on this name and the net tone."</td><td>Returns the unified event stream with a sentiment composite (<code>get_events</code>).</td></tr>
-    <tr><td>"Add the events pane so I can see sentiment over time."</td><td>Adds the net-event-sentiment lane under the price chart.</td></tr>
-    <tr><td>"Open the filing behind that marker."</td><td>Jumps to the event in its own view (<code>control_chart select_event</code>).</td></tr>
-  </table>
-
-  <h4>Interrogating a marker</h4>
-  <p><b>Hover</b> any marker to see what it is — label, date, detail and sentiment. Where several
-  events land on the same bar the marker collapses to <b>N&times;</b> and the tooltip lists them.
-  <b>Click</b> it and the terminal switches that security to the view which owns the source —
-  filings to <b>SEC Filings</b>, ratings to <b>Analyst Ratings</b>, insider to <b>Insider Trades</b>,
-  and likewise for transcripts, news, ownership, notes and financial releases — then highlights the
-  dated row. So a spike on the chart takes two seconds to trace back to the document that caused it,
-  rather than a hunt through a list.</p>
-
-  <h4>Which driver does this event move?</h4>
-  <p>If the security has an <a href="#models">operating model</a>, every event also carries a
-  <b>model link</b>: the tooltip tells you which internal driver it bears on, and clicking offers a
-  jump straight to the Operating Model view. The link is drawn two ways — by <b>event type</b>
-  (reported results and filed statements reset the growth and margin baseline, guidance moves growth,
-  street ratings feed the exit multiple and discount rate), and by <b>matching the headline against
-  the factors your model actually carries</b>. So if your model has a tariff factor wired to gross
-  margin, a tariff headline links through that edge to <code>gross_margin_pct</code>.</p>
-  <div class="note">The link is only ever drawn through edges your model really has — a model with no
-  tariff factor produces no tariff link, and nothing is inferred beyond the wiring you built. It points
-  you at the driver to re-examine; it does not re-estimate the driver for you. Agents get the same
-  thing as <code>model_link</code> on every event from <code>get_events</code>.</div>
-  <div class="note">Event sentiment is a <b>heuristic</b> read per event type (insider P/S, grade-rank moves, EPS vs estimate, net 13F flow, a news lexicon, note kind) — a fast orientation aid, not a verdict. Read the underlying event before acting on it.</div>
+  <p>The <b>📅 Events</b> menu covers every source: earnings (beat/miss), dividends, splits, insider buys/sells, SEC filings, earnings-call transcripts, institutional 13F ownership flow, analyst rating changes, quarterly financial releases, news, and your own research notes. Each is a separate toggle, and every marker is <b>sentiment-colored</b>, with busy days collapsed into a single <code>N×</code> cluster. Turn on <b>Show events pane</b> for a lane charting <b>net event sentiment per bar</b>.</p>
+  <p><b>Hover</b> any marker to read it; <b>click</b> it and the terminal opens the view that owns the source — filings to SEC Filings, ratings to Analyst Ratings, insider to Insider Trades — with the dated row highlighted. If the security has an <a href="#models">operating model</a>, every event also carries a <b>model link</b> naming which driver it bears on, drawn only through edges your model really has.</p>
+  <div class="note">Chart event sentiment is a <b>heuristic</b> read per event type — a fast orientation aid, not a verdict. Read the underlying event before acting on it. Note the deliberate contrast with the <a href="#events">typed event log</a>, which withholds sentiment entirely: the chart's colouring is presentation, not a fact recorded about the event.</div>
 
   <h2 id="screener">Screening stocks</h2>
-  <p>The screener does cross-sectional factor ranking (percentile or winsorized z-score, sector-neutral), an expression language for custom filters and derived fields, quality/health scores (Piotroski, Altman), 12-1 momentum, 13F crowding, and point-in-time-honest factor backtests.</p>
+  <p>The screener does cross-sectional factor ranking (percentile or winsorized z-score, sector-neutral), an expression language for custom filters and derived fields, quality/health scores (Piotroski, Altman), 12-1 momentum, 13F crowding, and point-in-time-honest factor backtests — over a vocabulary of <b>several hundred fields</b> (roughly 250 in the catalog before the later expansions, plus the enrichment families, plus 148 technical readings).</p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
     <tr><td>"Screen large-cap tech under 20× earnings, ranked by momentum, sector-neutral."</td><td>Builds and runs the screen, returns a ranked table.</td></tr>
     <tr><td>"Add a filter: free-cash-flow yield &gt; 4% and Piotroski ≥ 7."</td><td>Uses the expression DSL to refine the universe.</td></tr>
+    <tr><td>"What fields can I screen on?"</td><td><code>list_screen_fields</code> — the catalog, plus the register of what is deferred and what is not planned.</td></tr>
     <tr><td>"Save this as 'Quality Compounders' and tell me who entered or left since last run."</td><td>Persists the screen and reports membership deltas over time.</td></tr>
   </table>
 
-  <h2 id="portfolio">Portfolios &amp; analytics</h2>
-  <p>Track what you own and measure it like a professional: time-weighted vs money-weighted returns, Carino-linked Brinson attribution, ex-ante factor risk, a mean-variance optimizer, FIFO tax lots, broker-CSV import, and dividend reconciliation. Positions are derived from a transaction ledger (nothing is an opaque balance).</p>
-  <table>
-    <tr><th>You say</th><th>What it does</th></tr>
-    <tr><td>"Create a portfolio 'Core' and record: bought 100 AAPL at 180, deposited 50k."</td><td>Sets up the ledger and derives positions, cost basis, cash, weights.</td></tr>
-    <tr><td>"Import my broker CSV and reconcile any missing dividends."</td><td>Imports transactions and flags/records dividends.</td></tr>
-    <tr><td>"Show performance vs SPY, and attribute my active return by sector."</td><td>TWR/MWR, risk stats, and Brinson allocation/selection/interaction.</td></tr>
-    <tr><td>"Propose target weights that cut risk without dropping expected return much, then a rebalance plan."</td><td>Runs the optimizer and produces buy/sell deltas (plan only).</td></tr>
-  </table>
+  <h3>What the vocabulary says about itself</h3>
+  <ul>
+    <li><b>Every field carries its stage, its source block and its cost.</b> Stages whose per-name cost is a multiple of the rest are marked <b>expensive</b> and the dialog warns before selection commits — honest cost, not silent slowness. Eleven field families had that cost moved into a nightly <b>enrichment batch</b> instead, so they are free at screen time; a name with no built panel carries null and the run states the coverage.</li>
+    <li><b>Refusal over zero.</b> A missing input yields null plus a named reason, never a fabricated zero — a name with six years of statements refuses a ten-year growth rate saying so; a loss-maker has no Graham number. Because the DSL poisons nulls, a refused field satisfies no predicate in either direction rather than quietly passing.</li>
+    <li><b>Contradiction refuses.</b> Where the provider serves the same field in two blocks and they disagree beyond a threshold, the field refuses for that row naming both values and both blocks, and the run reports its field integrity.</li>
+    <li><b>Deferred work is shown, not hidden.</b> Fields that are implementable but not built are listed under <b>Not yet available</b> with the obstacle named. Fields that are proprietary composites of another vendor are <b>not planned</b>, on principle: a number whose derivation cannot be disclosed cannot sit in a system whose law is disclosure.</li>
+    <li><b>The technical vocabulary is derived from the chart.</b> 125 chartable indicators yield 148 screenable readings; the 7 with no honest scalar are registered as excluded with the obstacle stated. An indicator that becomes chartable without becoming screenable — or without being registered as excluded — fails the build.</li>
+  </ul>
+
+  <h2 id="defensive">Modernized G &amp; D</h2>
+  <p>Graham's defensive criteria, retranslated instrument by instrument. The diagnosis behind it is not that the criteria are too strict but that <b>the instruments now adversely select</b>: a price-to-book gate in an intangible economy is close to a filter for asset-heavy, low-return, structurally declining businesses, because those are the only firms whose capital base still shows up on the balance sheet at something near economic size.</p>
+  <ul>
+    <li><b>A two-sided margin of safety.</b> A name must be materially below the system's own substantiated-value composite <em>and</em> offer a required annual return on normalized cash earnings. Clearing one side and failing the other is an <b>exclusion with the failing side named</b> — the margin of safety is both, never either.</li>
+    <li><b>No hard multiple cap anywhere.</b> Price is capped against <em>demonstrated earning power</em>, and growth that exists only in a forecast is refused. The prohibition on forecast-based gates is derived from the field catalog, so a new estimate field joins the ban automatically.</li>
+    <li><b>Accounting-quality gates</b> — accruals, five-year cash conversion, goodwill as a share of equity, stock-based compensation against revenue, and capitalized-versus-expensed divergence. A null on an integrity flag <b>excludes</b>; it never passes as "no problem found."</li>
+    <li><b>The reciprocal law.</b> Coverage ratios are undefined exactly where a company is safest, so the gates use fixed-charge burden and debt-to-FCF years instead of sentinel values.</li>
+    <li><b>Sector variants, because that is Graham's own practice</b> — he applied separate standards to utilities and financial enterprises. There is an operating-company core (the one that carries the name <b>Modernized G &amp; D</b>), a regulated-utility variant, a REIT variant, and a financials variant that <b>ships refusing</b>: it creates no screen and no cohort, because the served balance sheet has no deposits line, no loans line and no capital ratios, and the refusal is the honest finding.</li>
+    <li><b>The strict Graham screen is preserved, unchanged</b>, as the barometer. A screen whose empty result is informative should never be tuned until it returns something.</li>
+  </ul>
+  <p>Ask the agent to list your screens and cohorts to find them; each shipped cohort points at its screen by name, so membership re-resolves from the rule rather than freezing a list.</p>
+  <div class="warn"><b>Read an empty result correctly.</b> On its first live run every variant returned <b>zero members</b>, and every shipped description says so: the count is a statement about prices at that moment rather than about the instruments, the hurdle is demonstrably attainable, and <b>nothing was tuned to produce a list</b>. Before reading an empty result as a finding about prices, check <a href="#processes">surface coverage</a> — on a fresh install the value side reads a recorded surface day, and if none has been recorded there is nothing to be cheap against.</div>
+
+  <h2 id="cohorts">Cohorts</h2>
+  <figure>
+    <img src="assets/cohorts.png" alt="The Cohorts tab listing peer groups with their kind, member counts, premium and coverage headers, and freshness disclosures on each row.">
+    <figcaption>Cohorts are lenses, never conclusions — the same groups drive comps, the price decomposition, the heat-map slice, the repricing report, the alert feed and the calendar.</figcaption>
+  </figure>
+  <p>The <b>🧬 Cohorts</b> tab maintains the peer groups every valuation is measured against — sector, size, index, factor screens, and your own lists, with equal / cap / explicit weighting. A cohort detail view carries premium and coverage headers, a <b>modeling-gaps</b> read, and <b>view on surface</b>. A thesis can <b>materialize</b> its screen into a living cohort whose membership re-evaluates as fundamentals change.</p>
+  <p>A <b>portfolio-linked cohort</b> derives its membership at read time from the linked portfolio's open positions, so there is no stored list to fall out of sync — the resolution <em>is</em> the sync. These cohorts cannot be edited or deleted directly; the refusal names the derivation.</p>
+  <div class="note">Cohorts built from live listings are <b>survivorship-biased</b> and say so in every response. A monthly membership snapshot accrues toward a genuinely point-in-time universe, forward from first use — which is exactly what the <a href="#reach">Reach</a> panel reports on and what a cohort-scoped historical backtest refuses without.</div>
 
   <h2 id="pricing">The pricing engine &amp; the Model of Models</h2>
-  <p>More than twenty valuation frames behind one interface — every methodology the industry uses, presented in the industry's own terms — plus a <b>Model of Models</b> that estimates the <b>mixture of frames the market is actually pricing each name on</b>. Two terminal views carry it: <b>💠 Pricing Models</b> (every model side by side) and <b>📐 Model of Models</b> (the precision-weighted blend, with the modeling-gaps strip: which frames refused and why, whether an SI book exists, and how much of the gap it covers).</p>
-  <p style="text-align:center"><img src="assets/pricing-engine.svg" alt="Pricing engine architecture" style="max-width:760px;width:100%;border:1px solid var(--border);border-radius:12px"></p>
+  <p>More than twenty valuation frames behind one interface — every methodology the industry uses, presented in the industry's own terms — plus a <b>Model of Models</b> that estimates the <b>mixture of frames the market is actually pricing each name on</b>. Two panels carry it: <b>💠 Pricing Models</b> (every model side by side) and <b>📐 Model of Models</b> (the precision-weighted blend, with the modeling-gaps strip).</p>
+  <figure>
+    <img src="assets/model-of-models.png" alt="The Model of Models panel: each valuation frame listed with its fair value, its walk-forward weight and its distance from price, above the precision-weighted composite, with declined frames stating their reasons.">
+    <figcaption>The weights are the reading. A frame that cannot value this name declines with its reason rather than contributing a silent zero.</figcaption>
+  </figure>
+  <p style="text-align:center"><img src="assets/pricing-engine.svg" alt="Diagram of the pricing engine: twenty valuation models feeding correlation weights, producing the model of models composite, plotted on the chart" style="max-width:760px;width:100%;border:1px solid var(--border);border-radius:12px"></p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
     <tr><td>"Compare every pricing model on AAPL."</td><td>Runs the whole basket — intrinsic (DCF, FCFE, EPV, DDM, residual income, EVA), relative multiples at the name's own trailing median, asset models, Monte Carlo, scenarios, SOTP — each with its fair value vs price; models that decline say why.</td></tr>
     <tr><td>"What frame is the market pricing TSLA on?"</td><td>The Model of Models: each model earns a walk-forward correlation weight against the name's own price (strictly as-of, no lookahead). The weights are the reading — and their year-over-year drift shows the rotation.</td></tr>
     <tr><td>"Chart the DCF and EV/EBITDA lines against price."</td><td>Every model has a point-in-time series (filed statements only) — add from the chart picker's <i>Pricing engine</i> section, or by ref: <code>pricing:AAPL:intrinsic.dcf_fcff</code>.</td></tr>
-    <tr><td>"Replot the composite under January's weighting."</td><td>Weight vectors are recorded per stock per date; <code>pricing:SYM:composite.momw:2026-01-15</code> holds that day's recorded vector fixed across the whole series. The plain ref always uses the latest recorded snapshot — the plot is always one consistent weighting, never rolling.</td></tr>
-    <tr><td>"Show the rotation itself."</td><td>Per-model weight series — <code>pricing:SYM:weight.relative.pe</code> and friends — chart each model's weight through time in percent; membership is wherever the line is above zero.</td></tr>
+    <tr><td>"Replot the composite under January's weighting."</td><td>Weight vectors are recorded per stock per date; <code>pricing:SYM:composite.momw:2026-01-15</code> holds that day's recorded vector fixed across the whole series.</td></tr>
+    <tr><td>"Show the rotation itself."</td><td>Per-model weight series — <code>pricing:SYM:weight.relative.pe</code> and friends — chart each model's weight through time in percent.</td></tr>
   </table>
-  <h3>Relative views: Δ$ and Δ%</h3>
-  <p>A macro series on the chart is rarely expected to <i>equal</i> the price — the relationship is the object. Every overlay's row in the picker offers three renderings: <b>value</b> (as fetched), <b>Δ$</b> (price − series), and <b>Δ%</b> ((price − series)/|series|). A model line flipped to Δ$ reads as the premium itself, through time.</p>
+
+  <h3>Valuation structure: what kind of thing is this company?</h3>
+  <p>It is naive to treat every frame as an equal peer, and it is wrong to blend an add-on book as a peer of a whole-company frame when it is an <em>increment</em>. So each name carries a declared <b>valuation structure</b>, exactly one in force at a time, dated and attributed:</p>
+  <ul>
+    <li><b>Operating</b> — the value is in the financials; the composite is the blend of base frames valuing today. This is the great majority of the universe.</li>
+    <li><b>Hybrid</b> — a real operating business <em>plus</em> material initiatives. The composite is base <b>plus</b> add-on books, not an average of them, and the double-count hazard (relative frames price the whole company at a multiple the market set while already paying for the programs) is disclosed by name.</li>
+    <li><b>Initiative-principal</b> — the programs <em>are</em> the company. Book value and liquidation are artifacts of an accounting basis rather than a base, so asset frames are excluded from composition and marked as not-a-base with the reason. Every such payload carries an unconditional statement that confidence is materially weaker than for an operating name.</li>
+  </ul>
+  <p>Classification is evidence-proposed and owner-overridable, and carries the condition under which it should be re-proposed. In the shipped default the structural composite is <b>computed and disclosed beside</b> the incumbent composite rather than replacing the published headline — disclosure precedes adjustment.</p>
+
   <h3>Judgment models &amp; strategic-initiative books</h3>
-  <p>Some of what the market prices does not exist in filed statements — capital programs and pre-revenue ventures like robotaxi fleets, humanoid robots, AI infrastructure. The <b>🚀 Strategic Initiatives</b> view maintains full <b>SI books</b>: per-initiative dated cash-flow lattices with capital schedules and ramps, milestone <b>gates</b> with expected resolution dates, a <b>risk register</b> with shared risks, an append-only <b>event journal</b>, immutable snapshots, maturation fade, and calibration scoring — plus a <b>belief dial</b> that inverts the market price into the implied success odds, recorded as a daily series. Editor views include the tornado, waterfall, and probability cone. Alongside the books, the simpler judgment models take the inputs only an analyst can supply:</p>
+  <p>Some of what the market prices does not exist in filed statements — capital programs and pre-revenue ventures like robotaxi fleets, humanoid robots, AI infrastructure. The <b>🎯 Strategic Initiatives</b> panel maintains full <b>SI books</b>: per-initiative dated cash-flow lattices with capital schedules and ramps, milestone <b>gates</b> with expected resolution dates, a <b>risk register</b>, an append-only <b>event journal</b>, immutable snapshots, maturation fade, and calibration scoring — plus a <b>belief dial</b> that inverts the market price into the implied success odds, recorded as a daily series. Editor views include the tornado, waterfall, and probability cone. Alongside the books, simpler judgment models take the inputs only an analyst can supply:</p>
   <table>
     <tr><th>Model</th><th>You maintain</th></tr>
-    <tr><td>Venture book</td><td>Per-venture TAM, achievable share, margin at scale, probability, years, committed capital. Valued as probability-weighted PV net of committed capex — a venture whose spend exceeds its prize shows a negative EV, as information. Ask the agent for a strawman, then edit it in the table.</td></tr>
+    <tr><td>Venture book</td><td>Per-venture TAM, achievable share, margin at scale, probability, years, committed capital. Valued as probability-weighted PV net of committed capex — a venture whose spend exceeds its prize shows a negative EV, as information.</td></tr>
     <tr><td>Real options</td><td>Opportunity value S, investment cost K, horizon T, volatility σ (defaults to the name's own).</td></tr>
     <tr><td>Platform economics</td><td>Users, ARPU, contribution margin, capitalization multiple.</td></tr>
     <tr><td>Qualitative scorecard</td><td>Four 0–100 analyst scores; the engine computes the weighting and invents no score of its own.</td></tr>
     <tr><td>SOTP tilts</td><td>Per-segment EV/Sales multiples over the disclosed segments.</td></tr>
   </table>
-  <p>Saved inputs persist per symbol with an edit history and activate the model everywhere — the pricing panel, comparisons, the composite. Every stored number is labelled analyst judgment. The pairing that matters: chart the Model of Models composite in Δ$ to measure the premium the <i>market</i> is granting for the unseen businesses — then write your own venture book and compare.</p>
+  <p>Saved inputs persist per symbol with an edit history and activate the model everywhere. Every stored number is labelled analyst judgment. The pairing that matters: chart the composite in Δ$ to measure the premium the <i>market</i> is granting for the unseen businesses — then write your own venture book and compare.</p>
 
   <h2 id="models">Company operating models</h2>
-  <p>Give any company a driver-based operating model calibrated from its filings and consensus, then turn any event into an instant EPS and fair-value delta. An elasticity table shows exactly which drivers move the stock. The operating model is the machinery beneath the pricing engine's intrinsic models — its drivers feed the DCF, FCFE, EPV and Monte Carlo lines — and in the terminal its former panels are superseded by the <a href="#pricing">Model of Models</a> view; the model itself remains fully operable through the agent.</p>
+  <p>Give any company a driver-based operating model calibrated from its filings and consensus, then turn any event into an instant EPS and fair-value delta. An elasticity table shows exactly which drivers move the stock. The operating model is the machinery beneath the pricing engine's intrinsic models — its drivers feed the DCF, FCFE, EPV and Monte Carlo lines — and in the terminal its panels are superseded by the <a href="#pricing">Model of Models</a> view; the model itself remains fully operable through the agent.</p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
     <tr><td>"Build an operating model for CAT."</td><td>Calibrates revenue → EBIT → EPS → FCF, plus exit-multiple + DCF fair value.</td></tr>
@@ -275,150 +429,73 @@
     <tr><td>"Which drivers matter most?"</td><td>Returns the elasticity table (sensitivity of fair value to each driver).</td></tr>
   </table>
   <h3>The influence map — the outside world, wired in</h3>
-  <p>A model isn't just its internal drivers. The Operating Model view now carries an <b>influence map</b>: external <b>economic</b>, <b>policy</b>, <b>supply-chain</b> and <b>consumer/customer</b> factors, each linked to the internal drivers it moves by a <b>signed influence edge</b> (with a stated rationale you can audit). It's shown as a left-to-right diagram — factors → drivers → EPS &amp; fair value — with green edges that raise a driver and red that lower it, thickness scaled to sensitivity. Shock a factor (say tariffs +10pp) and Open Trading Surface <b>propagates</b> it through the edges into the drivers and reuses the valuation engine, returning the full factor → driver → outcome trace. Click any factor to isolate its path.</p>
+  <p>A model isn't just its internal drivers. The <b>influence map</b> wires external <b>economic</b>, <b>policy</b>, <b>supply-chain</b> and <b>consumer/customer</b> factors to the internal drivers they move by a <b>signed influence edge</b> with a stated, auditable rationale. It renders left-to-right — factors → drivers → EPS &amp; fair value — with green edges that raise a driver and red that lower it, thickness scaled to sensitivity. Shock a factor and Open Trading Surface <b>propagates</b> it through the edges into the drivers and reuses the valuation engine, returning the full factor → driver → outcome trace.</p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
     <tr><td>"Show CAT's influence map."</td><td>Opens the factor → driver → value diagram (seeds a sensible default factor set the first time).</td></tr>
     <tr><td>"Raise tariffs 10 points on CAT — what happens to fair value?"</td><td>Propagates the tariff shock into gross margin and re-runs the model, with the trace.</td></tr>
-    <tr><td>"Link consumer confidence to revenue growth for this name and set the sensitivity."</td><td>Adds or re-weights a signed influence edge you can then shock.</td></tr>
-    <tr><td>"Calibrate CAT's factors from data."</td><td>Pulls each factor's <b>current level from FRED</b> (rates, inflation, confidence…) and, on request, <b>fits sensitivities by regression</b> of the company's historical gross margin and revenue growth on the aligned factor history.</td></tr>
+    <tr><td>"Calibrate CAT's factors from data."</td><td>Pulls each factor's current level from FRED and, on request, fits sensitivities by regression against the company's own history.</td></tr>
   </table>
+  <div class="note">Influence edges start as structured estimates. A fitted coefficient only replaces the default when the fit is trustworthy (enough aligned years, real variation, a real correlation); otherwise it is attached to the edge as auditable evidence and the prior is kept. The regression cross-check can mislead under collinearity or short history — treat disagreement as a prompt to re-examine the edge, not proof either way.</div>
+
   <h3>Forecast attribution &amp; weighting</h3>
-  <p>Any external series can be a model dependency — economic, commodity, index, financial line item, or EDGAR fact — and the model will tell you <b>what actually carries the forecast</b>. <b>Run forecast &amp; attribution</b> projects every series-backed factor forward (trend, CAGR, flat, or a scenario), propagates each through its weighted influence edges, and decomposes the multi-year fair-value / EPS forecast into <b>per-factor contributions with computed weight shares</b> (ranked bars, plus a reconciliation residual for interaction effects). A <b>regression cross-check</b> runs an OLS of each calibratable driver on its linked factors and compares the betas to your structured sensitivities — so you can see where the data agrees with the model and where it doesn't. Each factor carries a <b>tunable weight</b> (1 = as-calibrated) to amplify, damp, or mute a dependency without touching the calibration.</p>
-  <table>
-    <tr><th>You say</th><th>What it does</th></tr>
-    <tr><td>"Make CAT depend on WTI and the 10-year, then attribute the 5-year forecast."</td><td>Attaches the series as factors, projects them, and ranks each one's contribution to fair value.</td></tr>
-    <tr><td>"Halve the weight on oil and re-run."</td><td>Sets the tunable weight and recomputes the attribution and shares.</td></tr>
-    <tr><td>"Does the regression back up these sensitivities?"</td><td>Returns OLS betas / standardized betas / R² next to the structured edges, with sign agreement.</td></tr>
-  </table>
-  <div class="note">Attribution is a decision aid, not a forecast guarantee: contributions are marginal (one factor at a time) so they won't sum exactly to the total — the residual is reported. The regression cross-check can mislead under collinearity or short history; treat disagreement as a prompt to re-examine the edge, not proof either way.</div>
-  <div class="note">Influence edges start as structured estimates. <b>Calibrate from data</b> sets each factor's live reading from its FRED series and can fit sensitivities by OLS against the company's filings — but a fitted coefficient only replaces the default when the fit is trustworthy (enough aligned years, real variation, a real correlation); otherwise it's attached to the edge as auditable evidence and the prior is kept. Always verify against the business. The design generalizes: because a factor can later be another company's output, a market-wide view is just individual operating models linked to each other.</div>
+  <p>Any external series can be a model dependency, and the model will tell you <b>what actually carries the forecast</b>. <b>Run forecast &amp; attribution</b> projects every series-backed factor forward, propagates each through its weighted influence edges, and decomposes the multi-year fair-value / EPS forecast into <b>per-factor contributions with computed weight shares</b> (ranked bars, plus a reconciliation residual for interaction effects). Each factor carries a <b>tunable weight</b> (1 = as-calibrated) to amplify, damp, or mute a dependency without touching the calibration.</p>
+  <div class="note">Attribution is a decision aid, not a forecast guarantee: contributions are marginal (one factor at a time) so they won't sum exactly to the total — the residual is reported.</div>
 
   <h3>Going deep: segments, quarters, and the full three statements</h3>
-  <p>Spreadsheet models have done single-company fidelity for forty years; Open Trading Surface now carries that
-  fidelity on top of what spreadsheets never had &mdash; graded assumptions, versioned tracks scored
-  against price, and machine legibility. Three capabilities, each opt-in and fully back-compatible:</p>
-  <p><b>Segment-level drivers.</b> A consolidated model cannot answer &ldquo;what if Cloud growth
-  halves?&rdquo;. Open Trading Surface assembles each company's disclosed <b>segment revenue history</b>, ties every
-  period to consolidated revenue (a residual becomes an explicit <i>unallocated</i> segment; an
-  overshoot is flagged suspect, never scaled away), and detects <b>re-segmentations</b> as structural
-  breaks. Drivers may then be <b>scoped</b> &mdash; <code>revenue_growth_pct@cloud</code> &mdash; and
-  the projection blends growth by the segment mix, with <b>mix shift as an output</b> you can chart
-  (<code>model:GOOG:mix:cloud</code>). Influence edges can target a scoped driver, so a supply-chain
-  cause moves Cloud while Search stands untouched, and scoped fits are graded on the segment's own
-  reported growth.</p>
-  <p><b>Quarterly frequency.</b> Annual fits cap near 15 points; quarterly gives ~60, which honestly
-  earns the <b>A</b> evidence grade that annual data structurally cannot. Seasonality is treated as
-  structure, never signal: all quarterly fits use <b>year-over-year same-quarter</b> changes, and
-  sequential Q4-vs-Q3 is never regressed. The model's track record also accrues quarterly: each
-  dated model snapshot becomes a <b>next-quarter EPS checkpoint</b> (the annual conclusion converted
-  through the company's own seasonal EPS mix &mdash; a reported fact) scored against the print within
-  weeks, with MAE, bias and a leaning &mdash; a scoreboard that fills in four times faster.</p>
-  <p><b>Three-statement articulation.</b> Setting any of <code>payout_ratio_pct</code>,
-  <code>buyback_pct_fcf</code> or <code>target_leverage</code> switches a model into articulated
-  mode: earnings roll into equity, capex &minus; D&amp;A into fixed assets, FCF less dividends and
-  buybacks into cash, and <b>interest is recomputed from average net debt</b> &mdash; so a leveraged
-  company's operating deltas compound through the balance sheet. Buybacks retire <b>real dollars</b>
-  (EPS moves through the share count, not a multiplier) and target leverage works through <b>capital
-  return</b>, never fictional instant repayment. The tie &mdash; assets = liabilities + equity &mdash;
-  is <b>enforced in every projected year</b>: a model that cannot tie refuses to run and names the gap.</p>
-  <table>
-    <tr><th>You say</th><th>What it does</th></tr>
-    <tr><td>"Pull GOOG's segments and wire them into the model."</td><td>Ties disclosed segment history to consolidated revenue, seeds the mix and per-segment growth defaults from reported facts (never overwriting your assumptions).</td></tr>
-    <tr><td>"What if Cloud growth halves?"</td><td>Shocks <code>revenue_growth_pct@cloud</code> only; fair value moves by the segment-weighted amount and the mix path updates.</td></tr>
-    <tr><td>"Calibrate quarterly."</td><td>Fits factor sensitivities on ~60 YoY same-quarter points under the A ceiling, with quarter-grain break detection.</td></tr>
-    <tr><td>"How has the model scored against the last few prints?"</td><td>Returns the quarterly scoreboard: implied vs reported EPS per quarter, MAE and bias.</td></tr>
-    <tr><td>"Model AAPL with a 25% payout and buybacks at 70% of FCF."</td><td>Runs the articulated projection: balance sheet rolls forward, interest follows net debt, shares fall by dollars actually spent &mdash; and every year ties.</td></tr>
-  </table>
+  <p><b>Segment-level drivers.</b> Open Trading Surface assembles each company's disclosed <b>segment revenue history</b>, ties every period to consolidated revenue (a residual becomes an explicit <i>unallocated</i> segment; an overshoot is flagged suspect, never scaled away), and detects <b>re-segmentations</b> as structural breaks. Drivers may then be <b>scoped</b> — <code>revenue_growth_pct@cloud</code> — and the projection blends growth by the segment mix, with <b>mix shift as an output</b> you can chart.</p>
+  <p><b>Quarterly frequency.</b> Annual fits cap near 15 points; quarterly gives ~60, which honestly earns the <b>A</b> evidence grade that annual data structurally cannot. Seasonality is treated as structure, never signal: all quarterly fits use <b>year-over-year same-quarter</b> changes. Each dated model snapshot becomes a <b>next-quarter EPS checkpoint</b> scored against the print within weeks.</p>
+  <p><b>Three-statement articulation.</b> Setting a payout ratio, a buyback share of FCF or a target leverage switches a model into articulated mode: earnings roll into equity, capex − D&amp;A into fixed assets, FCF less dividends and buybacks into cash, and <b>interest is recomputed from average net debt</b>. Buybacks retire <b>real dollars</b>. The tie — assets = liabilities + equity — is <b>enforced in every projected year</b>: a model that cannot tie refuses to run and names the gap.</p>
   <div class="note">Honesty rules carry through: segment coverage is uneven below large caps and absence renders as absence; the quarterly EPS checkpoint is a derived read of the annual model, labelled as such; articulated mode refuses to run without an opening equity rather than fabricate a balance sheet.</div>
 
-  <h2 id="provenance">Where a holding came from</h2>
-  <p>Open Trading Surface's premise is that a position traces back to a view. That only means something
-  if the chain is <b>recorded</b> rather than reconstructed, so building a model portfolio
-  from a thesis now snapshots the whole lineage: the thesis it came from, the
-  <b>compiled screen exactly as it ran</b>, the run id, and every pick with the rank score
-  that earned it a place and the weight it received.</p>
-  <p>Open a portfolio and you will see the <b>breadcrumb</b> above it —
-  <em>Thesis &rsaquo; Screen &rsaquo; Book</em> — with each hop clickable, and the thesis view
-  links forward to the book it produced. Ask the agent <em>"why do I own these names?"</em> and
-  <code>get_provenance</code> returns the same chain.</p>
-  <p>Two details worth knowing. The links are by <b>id</b>, not name: renaming a portfolio or
-  retitling a thesis no longer breaks the chain, and a rename is surfaced rather than hidden.
-  And the screen spec is a snapshot, because a compiled screen is a function of the thesis's
-  <em>current</em> tilts — re-deriving it after you edit the thesis would answer "what would
-  this screen for today", not "why do I own this".</p>
-  <h3>The view above the thesis</h3>
-  <p>A thesis rests on a reading of the world, so when you create one you cite the
-  <b>worldview domains</b> it stands on — growth, inflation &amp; rates, geopolitics,
-  industrial policy, technology, demographics, energy, credit. Open Trading Surface snapshots what
-  each of those domains <em>said at the time</em>: its trend and summary.</p>
-  <p>That snapshot is what makes <b>drift</b> visible. If you formed a thesis when
-  inflation was <em>deteriorating</em> and that domain has since turned
-  <em>improving</em>, the breadcrumb flags it — the ground under the thesis moved,
-  which is exactly when a view deserves rereading. Stale domains (not refreshed
-  lately) are flagged separately, because not having looked is different from
-  having seen a change.</p>
-  <div class="note">Books built before this existed can be reconstructed by name-matching, but
-  they are labelled <b>inferred</b> and carry <b>no screen spec</b> — none was ever stored, and
-  inventing one would misrepresent an audit trail. A portfolio you created by hand honestly
-  reports no lineage rather than guessing at one.</div>
+  <h2 id="substrate">Pro forma statements &amp; the substrate</h2>
+  <figure>
+    <img src="assets/statements.png" alt="A financial statements panel showing an income statement across several annual periods with derived margins and growth rates in the terminal's tabular style.">
+    <figcaption>Filed history and projected periods on one grid. The statements are where every layer of the stack actually converges.</figcaption>
+  </figure>
+  <p>Beneath the valuation frames sits a <b>driver-based three-statement pro forma</b>: normalized historicals on the left, forecast periods to the right, statements that articulate, and valuation computed off the projection. Its layers, in order:</p>
+  <ul>
+    <li><b>Normalize filed history</b> — splits, currency, discontinued operations and non-recurring items separated, with a "clean" series kept beside the "as-reported" one and the difference disclosed.</li>
+    <li><b>Fit</b> per-driver history into drivers, then <b>forecast</b> the base-business drivers.</li>
+    <li><b>Bring strategic initiatives in as period contributions</b> — statement lines per period, not a discounted lump, so the discounting happens once, at the entity level.</li>
+    <li><b>Assemble and articulate</b> the three statements with a hard balance-sheet tie; a projection that doesn't tie refuses.</li>
+    <li><b>Set the horizon past the last material ramp</b>, not merely to it — taking a terminal value while a programme is still ramping capitalizes a mid-ramp cash flow into perpetuity.</li>
+    <li><b>Discount at one WACC</b> — these are one entity's cash flows, so they take one discount rate.</li>
+  </ul>
+  <p>The assembled object is the <b>substrate</b>: a grid of quarter labels (filed and projected on one calendar), the statements themselves, a stamp of the layers that produced them (economy state, industry chain, driver fits, initiative book generation, financing policy), and an as-of date. It is <b>point-in-time by construction</b>: a substrate struck at a past date contains only filings whose <em>filing</em> date precedes it, and where the economy container has no snapshot at that date the current one is used and <b>stamped as anachronistic</b> rather than silently substituted.</p>
+  <div class="note"><b>What this means when you read a valuation today.</b> The substrate object exists and is readable (<code>get_substrate</code>), and it is what the direction of the system is toward: models as independent lenses over <em>one</em> statement set — each free to disagree about what the statements are worth, none free to disagree about what they say. That migration is staged, and in the shipped default the precision-weighted composite still carries the headline. As with every layer here, the change will arrive as a disclosed, dated methodology break rather than a silent one.</div>
+  <p>Simulation is the intended run mode: one draw from the joint driver distribution produces one articulated statement path that all readouts then read, with gates becoming Bernoulli draws rather than probability multipliers. Quarterly periodicity out to 24 quarters, a duration set, versioned pro forma snapshots and event-to-line revision are specified and <b>not yet built</b>.</p>
 
-  <h2 id="honesty">Honest numbers: grades, base rates &amp; implied expectations</h2>
-  <p>Every fitted estimate in Open Trading Surface carries an <b>evidence grade (A&ndash;D)</b> computed from real
-  statistics &mdash; p-values, confidence intervals, sample size &mdash; and <b>capped by method</b>:
-  a regression on a dozen annual points can never grade above B however clean it looks, a
-  sentiment lexicon never above D, chart patterns never above C, while as-filed accounting can
-  reach A. The influence map draws each link with the confidence its evidence earns: solid and
-  weighted for A/B fits, dashed for weak ones, sparse dots for catalog estimates never fitted
-  against data. Confidence degrades with the evidence automatically, rather than depending on
-  anyone remembering a caveat.</p>
-  <p><b>Base rates</b> (<code>get_base_rates</code>) judge a forecast against what comparable
-  companies actually did: the cohort distribution, where your number sits in it, the share that
-  <em>sustained</em> that level for your horizon, and the empirical <b>fade curve</b> a flat-line
-  model quietly assumes away. <b>Implied expectations</b> (<code>get_implied_expectations</code>)
-  run the valuation backwards &mdash; what must be true for today's price to be fair &mdash; and state
-  the answer against the cohort: <em>"the price requires 21% growth; 4% of comparable companies
-  delivered that."</em> That gap is where research time goes.</p>
-  <div class="note">Cohorts are built from live listings, so they are survivorship-biased and say
-  so in every response. A monthly membership snapshot now accrues automatically toward a genuinely
-  point-in-time universe, forward from first use.</div>
+  <h2 id="containers">The economy &amp; industry containers</h2>
+  <p>Under <b>🌎 Macro-economic</b> sit three panels: <b>Thesis</b>, <b>Economy</b> and <b>Sectors</b> — a belief about the world, the economy that prices it, and the industries that carry it.</p>
+  <h3>The economy is a container, not a forecaster</h3>
+  <p>It does not forecast, does not opine, and computes nothing a valuation could not compute for itself given the values. Its job is that <b>there is one place the values live</b>. The admission test for a variable is narrow: <em>does it change a number in a valuation?</em> — the real growth rate, inflation, the policy rate, the ten-year risk-free, the BBB credit spread, the equity risk premium, potential growth, the effective tax rate.</p>
+  <p>Variables are <b>series on the pro forma's own period grid</b>, not a row of current values, so inheritance downstream is a lookup rather than an interpolation, and a grid mismatch is a refusal rather than a coercion. <b>Scenarios</b> are a complete alternate filling of the container with probabilities that must sum to one — a scenario is not a stress test.</p>
+  <div class="note"><b>Why this exists.</b> Every valuation already contained an implicit economy model — an equity risk premium compiled into a cost-of-equity block, a risk-free fetched per name, a terminal growth rate defaulting to a bare number — one that was never stated, never versioned, and could not be changed without editing code. Making it explicit is the point. Adoption is staged per input and <b>disclosure first</b>: consumers compute both values side by side and report the pair, the delta, and the resulting valuation delta per name, with the published headline byte-identical until the switch is thrown — and then it is a <b>dated methodology break</b>, because the number changed when a scattered implicit economy became one explicit one, not when the world did.</div>
+  <h3>The industry rung</h3>
+  <p><b>Sectors</b> is the same shape one rung down. Classification is the provider's, and the legal key sets are derived from the provider rather than curated, because a curated list rots. Resolution runs coarse to fine, the finer winning — sector container, then industry container, then company override — with the whole chain disclosed. Variables are industry-native quantities that do not exist at the economy level: industry revenue growth, operating margin, capex intensity, beta, credit spread.</p>
+  <p>The governing rule: <b>a fitted driver is a measurement; an industry variable is a prior; a measurement is never silently displaced by a prior</b> — not with every toggle on. The visible payoff is the case that previously got nothing: a thin-history name whose driver fit refuses now shows the industry prior as a disclosed, sourced, provenance-stamped option — refusal plus an honest alternative, never a silent default.</p>
+  <p>On top of the containers sits a <b>dependency layer</b>: one dependency is one claim — <em>this driver, in this industry, moves with that variable, by this much</em> — with elasticities as time series on the pro forma grid (a scalar is accepted as shorthand for a flat series and stamped as such, because "flat" is a stated shape, never a hidden assumption). Three layers: a common template, per-industry templates written the way sector analysts model them with their basis stated, and your own overrides, which require a reason. <b>Templates never claim measurement</b> — a payload calls a template a template — and dependencies condition drawn scenario worlds without shifting the deterministic base projection at any setting.</p>
 
-  <h3>The backtester stops flattering you</h3>
-  <p>Every rule backtest now reserves the most recent ~25% of bars as a <b>holdout</b> and scores
-  both windows &mdash; the split happens inside the engine, so no one can request the flattering half
-  alone. A holdout return collapsing to a fraction of in-sample is named as the signature of an
-  overfit rule. Every backtest also runs a <b>two-sided t-test of the mean per-trade return against
-  zero</b>, and a <b>search ledger</b> counts every distinct rule you have tried on the symbol and
-  <b>&Scaron;id&aacute;k-deflates that p-value</b> by the size of your search: the best of 20 rules
-  looking good is a property of 20, not of the rule &mdash; a nominal p=0.03 after 10 tries deflates
-  to &asymp;0.26, and the result says so. Fewer than three closed trades means no p at all, with the
-  reason stated &mdash; never a fabricated significance.</p>
-
-  <h3>Attention &amp; sizing</h3>
-  <p>The <b>re-underwrite queue</b> (<code>get_reunderwrite_queue</code>) scans your holdings and
-  watchlists and pushes the names that deserve attention: structural breaks, new events bearing on
-  a driver the position depends on, worldview drift, a model that has run persistently high or low,
-  or a position never underwritten at all &mdash; <em>held on memory alone</em>. An entry is a prompt
-  to re-underwrite, never a signal to trade. <b>Sizing</b> (<code>propose_sizing</code>) maps the
-  two things the product measures into a weight: the evidence grade <em>caps</em> size (an edge you
-  don't understand is one you can't hold through drawdown) and the expectations read sets the
-  multiplier within the cap. Weights scale down to fit and never up, the do-nothing row is always
-  present, and the mapping is disclosed in full.</p>
-
-  <h3>Arguing the other side, and keeping score</h3>
-  <p>A thesis cannot graduate to <b>active</b> until it carries a recorded <b>challenge</b>
-  (<code>challenge_thesis</code>) &mdash; the strongest opposing case argued from the same data. A token
-  objection is rejected; forcing past the gate is allowed but permanently logged. The
-  <b>risk register</b> (<code>get_risk_register</code>) lists active convictions nobody has argued
-  against. <b>Decision records</b> (<code>record_decision</code>) require an expectation, a horizon
-  and a <b>falsifier</b> &mdash; the observable that would prove the decision wrong &mdash; and the
-  <b>scorecard</b> (<code>get_decision_scorecard</code>) grades decisions rather than returns,
-  singling out <em>right for the wrong reason</em> as the dangerous column: it pays you to keep a
-  broken process. Rebalance plans now state their <b>full cost</b> &mdash; trading cost, estimated tax
-  on realized gains &mdash; and the hurdle against doing nothing, which is free.</p>
+  <h2 id="perspectives">Perspectives</h2>
+  <p><b>🔭 Perspectives</b> is a per-security, model-written assessment. Configure a key for one AI vendor (see <a href="#keys">Configuring API keys</a>) and the panel collects what the server already holds for that name, passes what is necessary to the model, and asks for an assessment grounded in classical value discipline.</p>
+  <p>The report comes back as prose in structured sections — business and earning power; balance sheet; valuation against substantiated value; temperament; risks — ending with an overall <b>defensive / enterprising / speculative</b> characterization, a <b>six-axis characterization chart</b> (financial strength, earnings stability, earnings power, growth record, dividend record, margin of safety), and the house disclaimer.</p>
+  <h3>How it behaves</h3>
+  <ul>
+    <li><b>First look runs it; later looks don't.</b> The first display for a name with no history runs the analysis automatically. Every later display returns the newest stored report instantly and calls nothing. Only the explicit <b>Refresh</b> action (or <code>run_perspective</code>) spends credits again, and both say so on their face.</li>
+    <li><b>History is never overwritten.</b> A rerun <em>prepends</em>. Every past report stays readable, with the vendor and model that produced it, forever — switching vendors never rewrites history.</li>
+    <li><b>The prompt is yours, and versioned.</b> Edit it in Settings; saving <b>appends a new version</b> and never mutates an old one. Reverting appends the old text as a new version. Each report pins the prompt version it used, and a past report offers <b>view prompt used</b>.</li>
+    <li><b>The data is pinned too.</b> The exact string sent to the model is stored with the report, with its digest, and a past report offers <b>view data sent</b>. It is returned only on an explicit per-report request, never in the display payload.</li>
+    <li><b>Refusals travel into the bundle verbatim.</b> A block that refuses upstream enters as its refusal sentence — the model should see the honesty, not a gap — and is instructed to treat a stated absence as information.</li>
+    <li><b>The no-mention rule is enforced in code, not by the prompt.</b> The assessment must stand on its reasoning without invoking authority, so the output is post-checked for the names of the books and authors it draws on. A hit gets one sharpened retry; a second hit is <b>redacted</b>, with the redaction count stored on the record. Because the prompt is editable, the check lives in code and runs on every output regardless of what the prompt says.</li>
+    <li><b>A score is never invented.</b> If the characterization block is missing, malformed, out of range or missing a stated basis, the report is stored <em>without</em> a chart plus a sentence naming what was wrong — never clamped or partially accepted.</li>
+  </ul>
+  <div class="note">Older reports display honestly rather than being backfilled: reports written before the prompt was versioned say <em>"prompt: unversioned"</em>, reports written before the characterization existed say <em>"no characterization recorded"</em>, and reports written before the vendor was recorded say so and show the old provider field. Asserting a record was written under a vendor id that did not exist when it was written would be a fabrication.</div>
+  <div class="note">Vendor errors surface <b>verbatim</b> — a bad credential shows the vendor's own message, an endpoint with no model-list route says so and invites a typed model id, and no credential shows one sentence naming both places to configure one plus the guarantee that nothing is sent anywhere. There is no simultaneous-vendor mode, no automatic failover, no scheduled auto-rerun, no ensemble, and no cost estimation: the panel says a run spends credits and does not pretend to price them.</div>
+  <div class="warn">A perspective is a <b>model-generated interpretation of recorded data</b>. It characterizes; it never instructs. It is not investment advice and it may be wrong.</div>
 
   <h2 id="thesis">The thesis engine</h2>
-  <p>Turn a view into a maintained, probability-weighted thesis with an evidence ledger — and let the system propose its own from macro (FRED) signals. As evidence arrives, the probability moves and the change is logged. As theses resolve, Open Trading Surface scores its own calibration (Brier score, skill vs base rate).</p>
+  <p>Turn a view into a maintained, probability-weighted thesis with an evidence ledger — and let the system propose its own from macro (FRED) signals. As evidence arrives, the probability moves and the change is logged. As theses resolve, Open Trading Surface scores its own calibration (Brier score, skill vs base rate). The <b>Thesis</b> panel lives under <b>🌎 Macro-economic</b>.</p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
     <tr><td>"Create a thesis: US energy-security capex supercycle; set it high-confidence; sectors Energy and Utilities overweight."</td><td>Records the thesis with an initial probability and tilts.</td></tr>
@@ -426,63 +503,293 @@
     <tr><td>"Compile this thesis into a screen and build a paper model portfolio."</td><td>Turns tilts into a screen spec and a model portfolio.</td></tr>
     <tr><td>"How well-calibrated have my probabilities been?"</td><td>Reports calibration once enough theses have resolved (else says so honestly).</td></tr>
   </table>
+  <p>A thesis cannot graduate to <b>active</b> until it carries a recorded <b>challenge</b> — the strongest opposing case argued from the same data. A token objection is rejected; forcing past the gate is allowed but permanently logged. The <b>risk register</b> lists active convictions nobody has argued against.</p>
   <div class="note">Probabilities are subjective, auditable estimates with a full evidence trail — not validated forecasts. Treat them as decision aids.</div>
 
   <h2 id="market">The Market tab: the heat map &amp; the repricing scan</h2>
   <p>The <b>🌐 Market</b> tab is the twin's instrument panel — where the gap between the evidence-supported price and the market's price becomes visible across the whole market at once.</p>
-  <p><b>🗺️ Heat map.</b> A treemap of every covered NYSE+NASDAQ name's gap between price and its precision-weighted Model of Models — the <b>residual field</b>. Pick a per-model lens (any frame, or the composite), read it as Δ% or Δ$, scroll back one recorded trading day at a time with the day scrubber or calendar picker, and slice it to any cohort. Gap movement is repricing, not dollar flow. Reconstructed history days are labelled as reconstructions.</p>
-  <p><b>📡 Repricing scan.</b> A daily scan over the surface classifies where models and prices disagree and what to do about each class: names whose gap calls for a <b>strategic-initiative book</b>, cheap tails routed to erosion/regime review, <b>data defects</b> named as defects rather than opportunities, model-maintenance items, and new divergence-ledger activity. The view renders the dated report, filters by cohort, and every SI-need row clicks through to that name's Strategic Initiatives editor.</p>
-  <table>
-    <tr><th>You say</th><th>What it does</th></tr>
-    <tr><td>"Open the market heat map on the composite lens, Δ%."</td><td>Renders the residual field for the latest recorded day.</td></tr>
-    <tr><td>"Slice the surface to my Nasdaq-100 cohort."</td><td>Cuts the cells to the cohort's membership, with the members-vs-cells disclosure.</td></tr>
-    <tr><td>"Run the repricing scan and give me today's report."</td><td>Runs <code>run_repricing_scan</code> / reads <code>get_repricing_report</code> — SI-need, cheap-tail, defect and maintenance sections.</td></tr>
-  </table>
-  <div class="note">The surface accrues from the daily batch (see <code>/ots:automate</code> on the <a href="support.html">Support page</a>); coverage and staleness are disclosed on the map rather than smoothed over.</div>
+  <p><b>🗺️ Heat map.</b> A treemap of every covered NYSE+NASDAQ name's gap between price and its precision-weighted Model of Models — the <b>residual field</b>. Pick a per-model lens, read it as Δ% or Δ$, scroll back one recorded trading day at a time, and slice it to any cohort. Gap movement is repricing, not dollar flow. Reconstructed history days are labelled as reconstructions.</p>
+  <p><b>📡 Repricing scan.</b> A daily scan classifies where models and prices disagree and what to do about each class: names whose gap calls for a <b>strategic-initiative book</b>, cheap tails routed to erosion/regime review, <b>data defects</b> named as defects rather than opportunities, model-maintenance items, and new divergence-ledger activity. Every SI-need row clicks through to that name's Strategic Initiatives editor.</p>
+  <div class="note">The surface accrues from the daily batch (see <a href="#automate">Automations</a>); coverage and staleness are disclosed on the map rather than smoothed over.</div>
 
   <h2 id="divergence">Divergence ledger, rerating test &amp; event impact</h2>
   <p>The twin's discipline is that disagreement between its read and the market's is <b>stored, not discarded</b>:</p>
   <ul>
-    <li><b>📒 Divergence Ledger</b> — a per-security rail view listing dated, signed divergences from every writer: events the market shrugged at, model moves the price ignored, band crossings. New ledger activity surfaces in the daily scan and the alert feed.</li>
-    <li><b>🔁 Rerating test</b> — asks whether a move the current model weights cannot explain resolves under <b>shifted</b> weights (<code>test_rerating</code>). A pass is a rerating hypothesis — a company migrating from one valuation frame to another — caught as arithmetic.</li>
-    <li><b>⚡ Event impact</b> — news, transcripts and filings enter an injection-hardened ingest queue, are classified structurally, and each event's estimated impact is routed through the frames it actually touches (<code>assess_event_impact</code>, <code>triage_event</code>). Events are absorbed into fundamentals whether or not the market reacted — the muted reaction is evidence about the regime, and the divergence is logged.</li>
-    <li><b>🎯 Belief dial</b> — for names with an SI book, the market-implied success probability (<code>get_belief_dial</code>), inverted from price daily, so belief has a time series you can chart against the journal.</li>
+    <li><b>📒 Divergence Ledger</b> — a per-security panel listing dated, signed divergences from every writer: events the market shrugged at, model moves the price ignored, band crossings.</li>
+    <li><b>🔁 Rerating test</b> — asks whether a move the current model weights cannot explain resolves under <b>shifted</b> weights. A pass is a rerating hypothesis — a company migrating from one valuation frame to another — caught as arithmetic.</li>
+    <li><b>⚡ Event impact</b> — news, transcripts and filings enter an injection-hardened ingest queue, are classified structurally, and each event's estimated impact is routed through the frames it actually touches. Events are absorbed into fundamentals whether or not the market reacted — the muted reaction is evidence about the regime, and the divergence is logged.</li>
+    <li><b>🎯 Belief dial</b> — for names with an SI book, the market-implied success probability, inverted from price daily, so belief has a time series you can chart against the journal.</li>
   </ul>
   <div class="note">External text (headlines, transcripts) is treated as untrusted display-only data throughout — it is fenced, never parsed into instructions, and never routes writes. Structured facts drive the loop.</div>
 
-  <h2 id="cohorts">Cohorts</h2>
-  <p>The <b>🧬 Cohorts</b> tab maintains the peer groups every valuation is measured against — sector, size, index, factor screens, and your own lists, with equal / cap / explicit weighting. Cohorts are <b>lenses, never conclusions</b>: the same groups drive Peer Comps, the price decomposition (substantiated value × cohort premium × idiosyncratic premium), the heat-map slice, the repricing report, the alert feed, and the calendar. A cohort detail view carries premium and coverage headers, a <b>modeling-gaps</b> read (the scan's SI-need / cheap-tail / defect rows cut to the membership), and <b>view on surface</b>. A thesis can <b>materialize</b> its screen into a living cohort whose membership re-evaluates as fundamentals change.</p>
+  <h2 id="honesty">Honest numbers: grades, base rates &amp; implied expectations</h2>
+  <p>Every fitted estimate carries an <b>evidence grade (A–D)</b> computed from real statistics — p-values, confidence intervals, sample size — and <b>capped by method</b>: a regression on a dozen annual points can never grade above B however clean it looks, a sentiment lexicon never above D, chart patterns never above C, while as-filed accounting can reach A. The influence map draws each link with the confidence its evidence earns. Confidence degrades with the evidence automatically, rather than depending on anyone remembering a caveat.</p>
+  <p><b>Base rates</b> judge a forecast against what comparable companies actually did: the cohort distribution, where your number sits in it, the share that <em>sustained</em> that level for your horizon, and the empirical <b>fade curve</b> a flat-line model quietly assumes away. <b>Implied expectations</b> run the valuation backwards — what must be true for today's price to be fair — and state the answer against the cohort: <em>"the price requires 21% growth; 4% of comparable companies delivered that."</em></p>
+  <h3>The top-down half</h3>
+  <p>The bottom-up and top-down prices do not have to agree, and the deliverable is not a second price — it is a <b>dependency list with probabilities, wired to events</b>. The honesty constraint is stated up front: <b>a price constrains a surface, not a point</b>. Price is one number; growth, margin, reinvestment and duration are four, and infinitely many vectors reproduce the same price — so solving each driver separately while holding the others at <em>our</em> assumptions yields four conditional statements about our own model, not "the market's assumptions." What ships today reports the requirement as a <b>price-over-frame ratio</b> with candidate structures and their determinacy; the driver-level inversion inside the intrinsic frames is <b>not yet built</b>, and that gap is stated rather than glossed.</p>
+  <h3>Attention &amp; sizing</h3>
+  <p>The <b>re-underwrite queue</b> scans your holdings and watchlists and pushes the names that deserve attention: structural breaks, new events bearing on a driver the position depends on, worldview drift, a model that has run persistently high or low, or a position never underwritten at all — <em>held on memory alone</em>. An entry is a prompt to re-underwrite, never a signal to trade. <b>Sizing</b> maps the two things the product measures into a weight: the evidence grade <em>caps</em> size, and the expectations read sets the multiplier within the cap. Weights scale down to fit and never up, the do-nothing row is always present, and the mapping is disclosed in full.</p>
+  <h3>Keeping score</h3>
+  <p><b>Decision records</b> require an expectation, a horizon and a <b>falsifier</b> — the observable that would prove the decision wrong — and the <b>scorecard</b> grades decisions rather than returns, singling out <em>right for the wrong reason</em> as the dangerous column: it pays you to keep a broken process. Rebalance plans state their <b>full cost</b> — trading cost, estimated tax on realized gains — and the hurdle against doing nothing, which is free.</p>
 
-  <h2 id="journeys">The four analyst journeys</h2>
-  <p>The terminal is built so its core workflows are <b>seamless click paths</b> — no dead ends, no step that requires the chat agent (though the agent can drive every hop). The four audited journeys:</p>
+  <h2 id="portfolio">Portfolios &amp; the transaction ledger</h2>
+  <p>Track what you own and measure it like a professional. Positions are <b>derived from a transaction ledger</b> — nothing is an opaque balance, and the ledger is immutable: a methodology change never edits a transaction, it re-derives what the recorded transactions mean.</p>
+  <figure>
+    <img src="assets/portfolio-holdings.png" alt="The portfolio holdings view listing each open position with shares, average cost, market value, weight and unrealized profit and loss.">
+    <figcaption>Holdings, derived from the ledger. The cost-basis method that produced these numbers is stated on the page.</figcaption>
+  </figure>
   <table>
-    <tr><th>Journey</th><th>The path</th></tr>
-    <tr><td><b>1. Thesis → screen → cohort → modeling</b></td><td>Select a thesis, run it as a screen (entered/exited diff included), materialize the screen into a cohort with one click, and open any result row directly on that name's Model of Models view.</td></tr>
-    <tr><td><b>2. Alerts → events → securities</b></td><td>Every feed and calendar row clicks through to its evidence surface — divergence and rerating alerts to the Divergence Ledger, gate alerts to Strategic Initiatives, scan alerts to the Repricing scan, price alerts to the chart.</td></tr>
-    <tr><td><b>3. Cohorts → securities &amp; the surface</b></td><td>Cohort member rows open Model of Models directly; "view on surface" slices the heat map to the membership, resolved server-side.</td></tr>
-    <tr><td><b>4. The modeling-gap lens</b></td><td>On a security: the modeling-gaps strip (refused frames with reasons, SI-book presence, gap coverage) with one click into the SI editor. On a cohort: the ranked gap list, each row opening that name's Strategic Initiatives editor — cohort → gap → judgment.</td></tr>
+    <tr><th>You say</th><th>What it does</th></tr>
+    <tr><td>"Create a portfolio 'Core' and record: bought 100 AAPL at 180, deposited 50k."</td><td>Sets up the ledger and derives positions, cost basis, cash, weights.</td></tr>
+    <tr><td>"Import my broker CSV and reconcile any missing dividends."</td><td>Imports transactions and flags candidates for you to record.</td></tr>
+    <tr><td>"Show performance vs SPY, and attribute my active return by sector."</td><td>TWR/MWR, risk stats, and Brinson allocation/selection/interaction.</td></tr>
+    <tr><td>"Propose target weights that cut risk without dropping expected return much, then a rebalance plan."</td><td>Runs the optimizer and produces buy/sell deltas (plan only).</td></tr>
   </table>
+
+  <h3>The transaction vocabulary</h3>
+  <p>Beyond deposit, withdraw, buy, sell and split, the ledger speaks the whole income and corporate-action vocabulary, each as a deterministic transform inside the one lot engine:</p>
+  <ul>
+    <li><b>Income</b> — <code>dividend</code>, <code>dividend_reinvest</code> (which opens a real lot at the reinvest price), <code>interest</code>, <code>fee</code>, <code>withholding</code>.</li>
+    <li><b>Corporate actions</b> — <code>split</code> (including reverse splits with cash-in-lieu), <code>stock_dividend</code>, <code>return_of_capital</code>, <code>rights_issue</code>, <code>symbol_change</code>, <code>corporate_action</code> for spinoffs and mergers (with the boot rule for mixed cash-and-stock consideration), <code>tender_offer</code>, <code>liquidation</code>, <code>worthless</code> and <code>delisting</code>.</li>
+  </ul>
+  <p>Two laws worth knowing. <b>Income is not price P&amp;L</b>: dividends, interest and withholding aggregate separately and enter position P&amp;L as income, never blended into price appreciation. And <b>a recorded income event must be possible</b>: a dividend on a symbol the ledger never held on or before that date refuses at record time.</p>
+  <p><b>Delisting</b> is the instructive one: it transforms nothing — your lots and basis are untouched — but the position becomes <b>unpriceable</b>, and every valuation of the book refuses <em>naming the delisting date</em> until you resolve it with a sale, a tender, or a <code>worthless</code> record. That is refusal-over-default applied to your own money.</p>
+  <div class="note"><b>Detection assists, never corrects.</b> Your ledger is compared against provider split history in both directions, and missing dividends are detected — but every finding is <b>flagged for investigation</b>, never applied. A flag is a question, not an edit.</div>
+
+  <h2 id="costbasis">Cost basis &amp; tax lots</h2>
+  <p>Five methods, from <b>one lot engine</b> — there is no second derivation path anywhere in the system:</p>
+  <table>
+    <tr><th>Method</th><th>What it consumes</th></tr>
+    <tr><td><b>FIFO</b> (default)</td><td>Oldest lot first.</td></tr>
+    <tr><td><b>LIFO</b></td><td>Newest lot first.</td></tr>
+    <tr><td><b>HIFO</b></td><td>Highest unit cost first, ties broken oldest-first.</td></tr>
+    <tr><td><b>Average cost</b></td><td>Every sold share prices at the pooled average basis; shares and holding periods are consumed FIFO. Open lots then display the pooled average, so basis is conserved.</td></tr>
+    <tr><td><b>Specific identification</b></td><td>Exactly the lots the sale names, and nothing else. The engine never picks lots for you.</td></tr>
+  </table>
+  <p>Every realized event records its shares, proceeds, basis, P&amp;L, open and close dates, days held, term, the method used, and the buy and sell transaction ids. <b>Term</b> is long when shares were held <em>more</em> than a year: a sale 365 days after the buy is short, 366 is long. That boundary is deliberately not tunable.</p>
+  <h3>Performance does not move when you change method</h3>
+  <p>Performance is flow-based, so TWR and MWR are <b>method-invariant</b>: the daily equity series reads transactions and prices, and basis never enters it. Changing the method moves the <em>composition</em> of realized versus unrealized — and the short/long-term tax split — but their <b>sum</b>, your cash, total equity and the equity curve do not move by one byte. That is why a method change is safe to make: the published performance record cannot shift underneath a methodology choice.</p>
+  <p>Set it with <code>set_cost_basis_method</code> or the terminal's method selector. The change is journaled and <b>returns the before-and-after realized short- and long-term totals</b>, so you read the effect before you believe it. A sale may also carry a per-sale override.</p>
+  <h3>What it refuses</h3>
+  <ul>
+    <li>An unknown method, naming the five valid ones.</li>
+    <li>A specific-ID sale naming a lot that does not exist, or a lot with insufficient shares at that date, <b>naming the shortfall</b> — it never fills from an unnamed lot.</li>
+    <li>Specific-ID picks that do not cover the sale exactly, or a specific-ID sale that names no lots.</li>
+    <li>A method change the recorded ledger cannot honor — and the method is left unchanged.</li>
+  </ul>
+  <p>Validation runs twice: when you record the transaction (the candidate ledger is derived whole before the transaction is accepted) and again at derive time, because an imported ledger can carry a bad specific-ID.</p>
+  <div class="warn"><b>Not built, and named so its absence reads as a decision:</b> wash-sale adjustment, tax-rate application, jurisdiction rules and after-tax return series. The layer states realized short- and long-term dollars; it computes no tax owed. Also out of scope: multi-currency ledgers, options, bonds and derivatives, and any GIPS compliance claim.</div>
+
+  <h2 id="performance">Performance, attribution &amp; risk</h2>
+  <figure>
+    <img src="assets/portfolio-performance.png" alt="The portfolio performance view showing an equity curve against its benchmark, a period returns table and a panel of risk statistics.">
+    <figcaption>The equity curve against a total-return benchmark, the period table, and the risk statistics.</figcaption>
+  </figure>
+  <ul>
+    <li><b>Returns</b> — a daily series, <b>TWR</b> by geometric linking (flow-adjusted) and <b>MWR</b> by XIRR. Fees create a real distinction, so <b>gross and net of fee both print</b> wherever performance prints: net-of-fee TWR is the actual equity curve, gross adds explicit fee transactions back to the daily flows.</li>
+    <li><b>Risk</b> — volatility, Sharpe, Sortino, max drawdown, VaR and CVaR at 95%, beta, alpha, tracking error, information ratio, and up/down capture, against the benchmark.</li>
+    <li><b>Attribution</b> — <b>Brinson-Fachler by sector</b> (allocation, selection, interaction), single-period and Carino-linked monthly, plus a <b>factor lens</b> from a liquid-ETF factor model. The factor lens prints <b>beside, never instead of</b> Brinson, and when the two disagree beyond a threshold the report says so — the disagreement <em>is</em> the finding.</li>
+    <li><b>Contribution</b> — per-position contribution to return, which also ranks the report's drill-down order.</li>
+    <li><b>Ex-ante risk</b> — forecast volatility and tracking error, contribution to risk by Euler decomposition, concentration (HHI, effective N, top weights), and a stress table. Labelled <b>ex-ante</b>, with the estimator on the payload; the ex-post risk table stays its own table. A decomposition that does not sum is not a decomposition, so the engine throws rather than printing one.</li>
+    <li><b>The period table</b> — 1M, 3M, YTD, 1Y, 3Y, 5Y and since-inception, plus calendar years, portfolio versus benchmark versus excess, annualized where a row spans a year or more. A window longer than the ledger honestly reads since-inception and says so.</li>
+  </ul>
+  <h3>The benchmark, and a dated methodology break</h3>
+  <p>The benchmark is <b>total-return</b>: declared dividends reinvested on their ex-dates. Before, it used the tracking ETF's price series — disclosed, but a price series excludes roughly 1.3–1.5% a year of dividends, so every excess-return reading was systematically <b>flattered</b> by about that much. Honest disclosure of a flattering construction is still a flattering construction.</p>
+  <p>Replacing it <b>moved the published excess-return series downward</b>, so every payload and page that defines the benchmark carries the sentence <em>"TR benchmark since 4.84.0; prior reports used a price proxy."</em> Where dividend history is unavailable the builder falls back to the price series and the disclosure says price-only, with the bias named. Where the benchmark is proxied by a tracking ETF rather than reconstructed from full membership, <b>the report names the proxy</b> — refusing to disclose a proxy is the defect; the proxy itself is honest practice.</p>
+  <div class="note"><b>No other published number moved.</b> Net TWR is the same equity curve it always was; gross TWR, income, the period table and the reconciliation are new disclosures, not adjustments.</div>
+  <h3>The reconciliation that must sum</h3>
+  <p>Every report window prints a client-statement reconciliation:</p>
+  <pre><code>opening value + contributions − withdrawals + income − fees ± market change = closing value</code></pre>
+  <p>The closing value is derived from the daily equity series and the right-hand side is derived independently from the raw ledger and prices — two routes to the same number. <b>A residue beyond one cent throws, naming the residue.</b> So a reconciliation table you can see is, by construction, a balanced one; if it cannot balance, the report refuses rather than printing. Return of capital gets its own line, because it is neither income nor a contribution. Trade commissions live inside market change; the fees line is explicit fee transactions — and the table says so.</p>
+  <figure>
+    <img src="assets/portfolio-allocation.png" alt="The portfolio allocation view showing composition by sector and by position with weights and concentration measures.">
+    <figcaption>Allocation and concentration — the inputs the ex-ante risk panel decomposes.</figcaption>
+  </figure>
+
+  <h2 id="report">The PDF report</h2>
+  <p>The Report view assembles a full institutional tear-sheet and offers <b>Export PDF</b>. The subject can be a <b>portfolio</b> (full treatment, with flows) or a <b>cohort</b> treated as a synthetic buy-and-hold book — and a synthetic book never presents a money-weighted return, because money-weighting a book with no money is not a number. The cover discloses which kind it read.</p>
+  <p>Contents, in order:</p>
+  <ol>
+    <li><b>Cover</b> — the lead number (window or since-inception TWR versus benchmark) dominating the page, a composition donut with total equity in the center, the KPI strip, the subject kind, the cost-basis method, and the benchmark with any proxy named.</li>
+    <li><b>Performance</b> — equity curve versus benchmark, the period table, the risk statistics, the gross/net-of-fee line, and the cash-flow reconciliation for the window.</li>
+    <li><b>Attribution</b> — Brinson bars by sector, the allocation/selection/interaction table, linked monthly effects, and the factor panel beside them.</li>
+    <li><b>Risk &amp; stress</b> — ex-ante forecast volatility and tracking error, contribution to risk, concentration, and the stress table.</li>
+    <li><b>Holdings</b> — one row per <em>open</em> position with weight, return, contribution and a valuation percentile; this is the drill-down index. Fully closed names appear in a compact <b>Realized</b> section with method, term and short/long subtotals — a closed position is not a holding, so it never ranks the drill-down order.</li>
+    <li><b>Per-position pages</b>, in contribution order — identity strip, the vertical (valuation percentile, own-history band p10–p90, divergence entries), analyst context and catalysts, your thesis note quoted with its date <em>or</em> the honest sentence that none is on file, pros and cons each naming their source, and a <b>descriptive</b> positioning reading with the reasoning shown.</li>
+  </ol>
+  <p>Two routes, one assembly. <b>From the terminal</b>, Export PDF streams the bytes over HTTP as an ordinary browser download and writes nothing to disk; a refusal answers as plain text so the sentence reaches you verbatim rather than being saved as a broken PDF. <b>From the agent</b>, <code>export_portfolio_report</code> writes the file into your state directory and returns the path plus a page inventory — and never auto-opens it. <code>get_portfolio_report</code> returns the same data model as JSON.</p>
+  <div class="note">The PDF writer is <b>zero-dependency</b>: PDF 1.4, built-in fonts, vector graphics only, page tree and cross-reference table assembled by hand. No raster, no external fonts, no library. It formats; it never computes. A pie or donut is admissible only for a part-of-whole with at most five non-aggregate slices and no negative weight — otherwise it falls back to horizontal bars, because a part-of-whole picture cannot carry a sign. Comparisons use paired bars on one shared zero axis, never dual axes.</div>
+  <div class="note"><b>What the report refuses, and why.</b> Attribution refuses below a constituent-mapping coverage floor. Ex-ante risk refuses below a minimum observation count, <b>naming the count</b> — a young ledger refuses honestly; nothing is wrong except youth. The factor panel refuses when fitted loadings cover too little of the book, with the coverage number. Economy-scenario stress rows <b>always refuse</b>, because the chain from a saved economy scenario to a per-position spot price does not exist in this system and asserting a pass-through would put an opinion where a measurement belongs. Drill-downs are capped at 40 positions, with the overflow named in the holdings table as "not drilled" rather than silently dropped. And no output is advice: hold/add/trim language is a description of what the vertical says, with the reasoning shown, under the standing disclaimer.</div>
+
+  <h2 id="provenance">Where a holding came from</h2>
+  <p>A position should trace back to a view. That only means something if the chain is <b>recorded</b> rather than reconstructed, so building a model portfolio from a thesis snapshots the whole lineage: the thesis it came from, the <b>compiled screen exactly as it ran</b>, the run id, and every pick with the rank score that earned it a place and the weight it received.</p>
+  <p>Open a portfolio and you'll see the <b>breadcrumb</b> — <em>Thesis › Screen › Book</em> — each hop clickable, and the thesis links forward to the book it produced. Ask <em>"why do I own these names?"</em> and the same chain comes back.</p>
+  <p>Links are by <b>id</b>, not name, so renaming never breaks the chain. The screen spec is a snapshot, because a compiled screen is a function of the thesis's <em>current</em> tilts — re-deriving it after you edit the thesis would answer "what would this screen for today", not "why do I own this".</p>
+  <h3>The view above the thesis</h3>
+  <p>When you create a thesis you cite the <b>worldview domains</b> it stands on — growth, inflation &amp; rates, geopolitics, industrial policy, technology, demographics, energy, credit — and Open Trading Surface snapshots what each of those said at the time. That snapshot is what makes <b>drift</b> visible: if you formed a thesis when inflation was <em>deteriorating</em> and it has since turned <em>improving</em>, the breadcrumb flags it. Stale domains are flagged separately, because not having looked is different from having seen a change.</p>
+  <div class="note">Books built before this existed can be reconstructed by name-matching, but they are labelled <b>inferred</b> and carry <b>no screen spec</b> — none was ever stored, and inventing one would misrepresent an audit trail. A portfolio you created by hand honestly reports no lineage rather than guessing at one.</div>
+
+  <h2 id="reach">Reach: what can honestly be backtested</h2>
+  <p><b>Administration → Reach</b> answers one question before you ask any other: <em>what could this installation honestly backtest, and over what span?</em> It ships deliberately <b>before</b> the engine that uses it, so the limits are visible before expectations form.</p>
+  <figure>
+    <img src="assets/reach.png" alt="The Reach panel listing predicate families with the history that exists for each, how far back a backtest could honestly run, and refusal sentences naming the missing point-in-time record.">
+    <figcaption>Reach. Where the record does not exist, the answer is a refusal naming what is missing and what would fix it — not a number.</figcaption>
+  </figure>
+  <p>Every number on it is a live read of your own stores. It is the panel to consult before writing a <a href="#conditions">condition</a> — which is why the two sit one click apart, the disclosure ordering made physical.</p>
+  <div class="note"><b>Why a record cannot be conjured after the fact.</b> Several things this system needs can only accrue <em>forward</em>: the dated cohort-membership ledger (whether a name was in a cohort on a given date), the monthly universe snapshot, and the point-in-time panel archive. What is not accruing today cannot be backtested tomorrow — so the honest thing is to say so, start the clock, and refuse windows that fall before it.</div>
+
+  <h2 id="events">Typed events</h2>
+  <p>Everything the engine reasons over is a <b>typed event</b> in one vocabulary, published as <code>plane.family.name</code> and built from the producers' own exported lists rather than a hand-maintained catalog. Recording an unregistered kind throws.</p>
+  <h3>The two timestamps</h3>
+  <p>Every event carries <b>when it happened</b> and <b>when it was first knowable to us</b>. A 10-K filed in February covering the year ended December happened on 31 December and became knowable in February. A backtest at a given bar may only see events that were knowable by that bar's close; a chart or a report that wants the economic date reads the other one. Where a producer genuinely cannot establish knowability it writes none <em>and</em> marks the event unreconstructable, and the backtester treats that as never knowable — it refuses rather than dating a quarter by its period end.</p>
+  <figure>
+    <img src="assets/events.png" alt="The Events panel showing a paged feed of typed events, each row carrying its event kind, both timestamps with the gap between them labelled, and its identifying predicates.">
+    <figcaption>The event feed. Both timestamps on every row, with the divergence labelled rather than signed.</figcaption>
+  </figure>
+  <h3>What writes events</h3>
+  <ul>
+    <li><b>News</b> — with <b>factual, checkable predicates only</b>: publisher, published-at, symbols, the title verbatim as opaque bytes you can match with <code>contains</code>, the URL, and a near-duplicate collapse that names every collapsed publisher on the survivor. Sentiment, importance, materiality, category, relevance and entity extraction are <b>withheld by name, with reasons</b> — a lexicon score is our guess about a headline, not a fact about it, and a predicate we cannot substantiate must not exist.</li>
+    <li><b>Data change</b>, detected at the point of retrieval against a watermark rather than a cache. A period we had not held is a <em>filing</em>; a value that <em>moved</em> for a period we already held is a <b>restatement</b>, as its own kind; a provider rescale collapses to one bulk restatement carrying its count. A restatement arriving with an unchanged filing date is stamped with the <em>retrieval</em> instant, because the filing date would put a value in the past that nobody could have known then.</li>
+    <li><b>The security stream</b> and <b>cohort membership</b> — including the dated ledger that lets you ask whether a name was in a cohort on a given date, which nothing in this system could answer before it existed.</li>
+  </ul>
+  <p>The feed pages from the newest day file <b>backwards</b> rather than sweeping a range, because the log has no retention policy by design and a surface built on a range read would get slower every day the engine ran. The counts describe <b>the page</b> and say so. A filter matching nothing stops at a bounded number of files and returns its cursor with <code>exhausted: false</code> — because "no more matches" and "I stopped looking" are different answers.</p>
+
+  <h2 id="conditions">The condition language</h2>
+  <p><b>Administration → Conditions</b> is where you compose what you want watched. A condition is canonical JSON with a text sugar that round-trips, composed through the same <a href="#coherence">one selector</a> over the same taxonomy the screener uses. It joins the cross-sectional predicate language to the temporal series language with real CEP operators:</p>
+  <ul>
+    <li><b>Boolean composition</b> — <code>all</code>, <code>any</code>, <code>not</code>.</li>
+    <li><b>Sequence</b> — <code>then</code>, which <b>requires</b> a <code>within</code> window: an unbounded sequence is a partial match that never expires, and a partial that never expires is a memory leak wearing a semantic.</li>
+    <li><b>Windows</b> — <code>sliding</code>, <code>tumbling</code>, and <code>session</code> (which needs the quiet span that closes it).</li>
+    <li><b>Aggregation</b> — <code>count</code> and <code>agg</code> over a window.</li>
+    <li><b>Sustained / N-of-M</b> — <code>sustained … for</code>, the honest form for a noisy level condition.</li>
+    <li><b>Negation with timeout</b> — <code>absent … after … within</code>: the thing that did <em>not</em> happen after an anchor, firing at the timeout's expiry.</li>
+    <li><b>Triggers</b> — <code>edge</code>, <code>level</code> and <code>exit</code>, so you can say whether you mean the crossing, the state, or the leaving of it.</li>
+  </ul>
+  <p><b>Durations carry their clock.</b> <code>20d</code> is twenty <em>trading</em> days; <code>20c</code> is twenty <em>calendar</em> days. A bare number is a parse error that names both — the ambiguity is not resolved for you.</p>
+  <p>Each condition is checked against the <a href="#reach">reach report</a> and shows its <b>point-in-time verdict beside it</b>. A leg with no point-in-time value <b>refuses by name</b>, naming the leg, the rule and the plane.</p>
+
+  <h2 id="rules">Rules &amp; the tick</h2>
+  <p><b>Administration → Rules.</b> A rule is a <b>named, versioned condition with a subject scope</b> resolved live. Roughly: a condition asks a question; a rule asks it of particular names, on a schedule, and remembers.</p>
+  <ul>
+    <li><b>Editing is classified.</b> An edit that moves the condition's fingerprint bumps the rule version and <b>resets the per-subject state</b> (archived to the log). A metadata edit — renaming, retagging — <b>inherits</b> it, because renaming a rule must not re-arm it on every name it watches.</li>
+    <li><b>The tick is calendar-triggered, not data-triggered</b>, and that is deliberate: an "absent within N" fires on a day when <em>nothing happened</em>, so a tick that only ran when data arrived would miss exactly the days a timer expires. A tick that ran and fired nothing records a <b>success saying so</b>; a missed tick reads red with the weekdays missed and the timers that were live across them.</li>
+    <li><b>The engine runs as a declared process</b> with the green/yellow/red law, pause and resume, and a resumable pending list — see <a href="#processes">Processes</a>.</li>
+    <li><b>A firing writes one event</b> with both timestamps and notifies. It does nothing else on its own; consequences are <a href="#actions">actions</a>.</li>
+    <li><b>The accrual record includes the non-firings</b> — a row per evaluation, with coverage counted in <b>days</b>, not rows.</li>
+  </ul>
+  <p>Your existing classic alerts can be migrated to rules. Seven of the nine legacy types moved; two were <b>refused by name</b> rather than approximated — one because the event kind it needs does not exist, one because the kind exists and nothing writes it, so the rule could never fire — and both were left running on the old path rather than silently dropped.</p>
+
+  <h2 id="actions">Actions &amp; the paper book</h2>
+  <p>A firing can cause something. Nine typed verbs are published as one registry that both the tool surface and the terminal picker derive from:</p>
+  <table>
+    <tr><th>Verb</th><th>What it does</th></tr>
+    <tr><td><code>propose_buy</code> · <code>propose_sell</code> · <code>propose_size</code></td><td>Write a <b>proposed</b> transaction into a paper book.</td></tr>
+    <tr><td><code>flag</code></td><td>Records a flag with a severity and surfaces it in the feed. No book effect.</td></tr>
+    <tr><td><code>annotate</code></td><td>Writes a research note through the one note store.</td></tr>
+    <tr><td><code>notify</code></td><td>Delivers the firing to the agent inbox — the explicit form of what a noisy rule does implicitly, so a rule can be silent by default and loud on one branch.</td></tr>
+    <tr><td><code>run_playbook</code></td><td>Queues a stored playbook.</td></tr>
+    <tr><td><code>emit</code></td><td>Writes a further typed event (with a cascade depth cap that refuses by name).</td></tr>
+    <tr><td><code>set_state</code></td><td>Sets a named per-subject state.</td></tr>
+  </table>
+  <p>Actions attach to the <b>rule</b>, not to its condition. That is not a detail: the condition's fingerprint is the per-subject state key, so folding an action into it would mean that retagging a proposal re-arms the rule on every name it watches. An action edit therefore <b>inherits</b> state.</p>
+  <h3>The paper book — proposals only</h3>
+  <p>The only consequence that touches a book is a <b>proposed transaction in a paper book</b>: a real ledger, in a separate file, appended through the same builder your real trades go through, so the one lot engine validates a proposal exactly as it validates a real trade. It is measured by the <em>existing</em> report machinery — no performance code was written for it — and gated by the same reconciliation. There is <b>one book per strategy</b>, because comparisons need independence.</p>
+  <div class="warn"><b>There is no execute verb, no order verb, and no promote path anywhere in this system.</b> That is not a policy that could be relaxed; it is enforced structurally in four places: a different file with an executable guard; a write path that resolves targets only inside the paper store and <b>refuses a real portfolio by name</b> (a bare "not found" would read like a typo and invite a retry); only the pure functions of the portfolio engine reachable, with a test that fails the build on any store-writing verb, any execute/order/broker verb, and any promote path; and <code>paper: true</code> stamped at the write and marked on every payload. The PDF cover prints <b>PAPER BOOK — PROPOSALS ONLY</b>.</div>
+  <p>A size that cannot be computed <b>skips</b> and records the binding constraint rather than defaulting. A <code>propose_sell</code> on a name the book does not hold refuses by name — there are no short lots in this engine.</p>
+
+  <h2 id="strategies">Strategies</h2>
+  <p><b>Administration → Strategies.</b> A strategy is where firings stop being independent and start <b>competing</b> — for cash, for slots, for the sector budget, and for the liquidity the tape will bear. A stated policy settles it instead of iteration order.</p>
+  <p>A strategy binds a <b>universe</b>, a <b>rule set with roles</b> (entry · exit · adjust · veto — the role belongs to the <em>strategy</em>, so one rule can be one strategy's entry and another's veto), a <b>policy</b>, and <b>one paper book</b>.</p>
+  <h3>Sizing</h3>
+  <p>Seven methods, each stating its budget basis: <code>fixed_cash</code>, <code>fixed_pct</code>, <code>equal_weight</code>, <code>grade_ceiling</code>, <code>risk_parity</code> (inverse-vol weights scaled against the book's target volatility and capped at fully invested, because this engine does not lever), <code>atr_risk</code> (a fixed fraction of equity put at risk across concurrent positions) and <code>from_targets</code> (the strategy's stored targets through the rebalance planner, read and never re-derived).</p>
+  <div class="note">A stop distance used by <code>atr_risk</code> is a <b>sizing input, not an order</b>. This engine places nothing and there is no stop-loss verb; the ATR distance is the denominator of the risk budget and nothing else. A rule that wants to exit on that level says so as an exit condition.</div>
+  <h3>Constraints</h3>
+  <p>Constraints compose, and <b>the binding one names itself</b>, with every other that would also have bound listed beside it. Ceilings <em>shrink</em> and say so; floors and counts <b>refuse</b>. A minimum position size is a refusal, not a rounding. A name with no sector is refused when a sector cap is set. An average-daily-volume cap refuses the <em>order</em> rather than inventing a partial fill.</p>
+  <h3>Ranking, cash, and the daily loop</h3>
+  <p>A rank field is <b>required</b> — if the strategy does not say how to rank its candidates, the answer is hash iteration order. Nulls rank last, and exact ties are broken by a declared rule that says so on the row. Cash yields the three-month bill accrued actual/360 where a FRED key is configured, and <b>zero where it is not, with the source disclosed either way</b>.</p>
+  <p>The loop walks each day in this order:</p>
+  <ol>
+    <li>Corporate actions</li>
+    <li><b>Cash accrual, before any trade</b></li>
+    <li>The knowability cut</li>
+    <li>Vetoes</li>
+    <li><b>Exits before entries</b> — an exit frees cash <em>and</em> a slot</li>
+    <li>Rank</li>
+    <li>Size and constrain</li>
+    <li>Fill at the bar close, with costs booked per side as a fee</li>
+    <li>Rebalance</li>
+    <li>Mark, and reconcile — which throws above a one-cent residue and has no flag to skip it</li>
+  </ol>
+  <p>The loop is driven by an <b>injected clock</b> and reads the wall clock nowhere inside its walk. That is the single most important structural decision in the layer, because <a href="#backtest">the backtester replays this same loop</a> rather than reimplementing it — and two implementations would make every backtest number a claim about code the live book never ran.</p>
+  <div class="note"><b>Editing a strategy is a methodology break, not a reset.</b> An edit that changes how positions are formed (universe, rules, policy) bumps the strategy version and writes a <b>dated methodology break</b> — and does <em>not</em> reset the book. A rule's per-subject state is a claim about a condition and means nothing under new semantics; a book is a <em>record</em> of proposals actually made at prices that actually printed, and resetting it would delete the only out-of-sample evidence the strategy has. A performance window spanning a break says so, because an equity curve across a policy change is two measurements.</div>
+
+  <h2 id="backtest">The backtester &amp; deflation</h2>
+  <p>The standing posture is stated before anything runs: <b>bias toward refusing over producing a number.</b> A backtest that declines to run is a result; a backtest that quietly used tomorrow's data is a lie that will be believed.</p>
+  <p><b>A backtest is not a simulator.</b> It is the same daily loop the live book runs, driven by a replay clock, writing real ledger records through the same builder into a paper book <em>of its own</em> — never the strategy's live forward record, which is the out-of-sample evidence hindsight cannot manufacture — reconciled on every replayed day, and measured by the existing report engine. The backtester computes no return, no Sharpe, no drawdown and no attribution of its own.</p>
+  <h3>What it refuses, and why</h3>
+  <ul>
+    <li><b>A cohort-, screen- or universe-scoped historical run</b> with no dated membership ledger covering the window — naming the missing ledger. An explicit list of names runs instead, with the caller's own selection bias disclosed as the caller's own.</li>
+    <li><b>Any predicate leg with no point-in-time value</b>, naming the leg, the rule and the plane.</li>
+    <li><b>Ranking by a screen field.</b> The screener reads <em>current</em> values, and ranking a 2019 candidate set by 2026 fundamentals is not a subtle bias — it is the answer. Permitted: signal time, a seeded random, and expressions over price.</li>
+    <li><b>A window spanning a judgment re-fit</b>, by default; opting in stamps the generations spanned on every result.</li>
+    <li><b>A tape that does not reach the date you asked for</b> — rather than narrowing your window silently. (A bar limit is not a start date; that was found by running it, not by a test.)</li>
+  </ul>
+  <p>The one cross-sectional hazard the tape <em>can</em> answer is answered: a name whose first bar postdates a given day is excluded from that day's cross-section and counted.</p>
+  <h3>Multiple testing, made unavoidable</h3>
+  <p><b>Every run registers its trial before it reports.</b> A run that registered only on success would count the winners and forget the losers. Every result carries its <b>trial count</b> on the face of it, and the <b>Deflated Sharpe Ratio</b> is computed per observation; below a minimum trial count the engine reports a Šidák correction instead and <b>says which it used</b> rather than fabricating one.</p>
+  <p>Runs can be pruned (dry-run by default). <b>The trial record cannot</b> — there is no prune verb, no cap and no retention window on it anywhere, and the asymmetry is the point.</p>
+  <h3>"How much of it was one name?"</h3>
+  <p>A backtest whose result comes from one name is not a strategy; it is a story about that name. So the <b>drop-top-names re-run</b> replays the same strategy over the same window with the top contributor removed <em>from the universe</em>, and reports whether the result survives. It is the honest complement to the deflation: that one asks how many things you tried, this one asks how much of it was one lucky name.</p>
+  <ul>
+    <li><b>One name by default</b>, cumulative to three, with a <b>floor of two surviving names</b> refused by name and enforced at the engine, so no call can reach a one-name counterfactual. A surviving universe below the strategy's maximum position count is disclosed rather than refused.</li>
+    <li><b>Ranked by contribution to return</b>, by absolute magnitude with the sign on every row — because dropping a <em>loser</em> improves the result, which is exactly why absolute magnitude is the ranking. The closed-lot ranking prints beside it, and the two can legitimately disagree when a position is still open on the last day.</li>
+    <li><b>Contribution to risk is offered and refused by name</b> — partly because the re-run already reports it: the Sharpe and drawdown deltas <em>are</em> the dropped name's realised risk contribution, measured rather than decomposed.</li>
+    <li><b>A drop re-run is not a trial.</b> It registers as a derived record linked to its parent and does not increment the deflation's count — counting it would mean that the more carefully you checked a result, the worse its deflated statistic read. It cannot launder a search either: a run is admitted as derived only when it is structurally a subset re-run of a registered parent, and every other case is downgraded to a full trial and says so.</li>
+  </ul>
+  <div class="note"><b>What this actually found.</b> On the reference test strategy over 2019–2024, the reported result was <b>+53.36%</b> with a Sharpe of 0.54 and a maximum drawdown of −26.55%, reconciled to zero residue on all 1,510 days. Dropping the single top contributor left <b>+18.74%</b> — about a third of it retained. Dropping the top two left <b>−7.70%</b>: the three remaining names lost money over six years while the headline said a 53% gain. That is the entire argument for this feature.</div>
+
+  <h2 id="observability">Events, Firings, Runs &amp; Backtests</h2>
+  <p>Four panels make the engine visible. They add <b>no engine capability</b> — every payload behind them already existed and was already tested. They are the surfaces that were missing.</p>
+  <h3>Events</h3>
+  <p>A browsable stream of the typed event log, described under <a href="#events">Typed events</a>. Every row carries both timestamps with the divergence shown as a gap, the reconstructability verdict, and identifying predicates that are the registry's own declared payload keys. The filter is the one selector over the registry's vocabulary — publish a new event kind and it appears in the picker with no client edit.</p>
+  <h3>Firings</h3>
+  <p>The firings <b>and the non-firings</b>, which is what the accrual record was designed for. It keeps <b>three states apart</b>:</p>
+  <ul>
+    <li><b>Evaluated and fired</b></li>
+    <li><b>Evaluated and did not fire</b></li>
+    <li><b>Never evaluated</b> — which is not a zero but an <em>unasked question</em>, and is reported as UNKNOWN rather than empty when no scope was supplied</li>
+  </ul>
+  <p>Coverage counts <b>days</b> at every level including per subject — 40 names over 3 days is 120 rows and <b>three days</b>. The live per-subject state shows open partials and live timers, so a sequence rule mid-flight is legible, and each firing joins to the typed event carrying its two timestamps.</p>
+  <h3>Runs</h3>
+  <p>The strategy loop's most recent day, laid out in the loop's own order. A day where nothing happened prints <b>"RAN, NOTHING FIRED"</b> — a recorded success, and a different answer from silence. A strategy with no stored day renders <b>NO RECORD</b>. An empty panel and a day walked in full are opposite facts that would otherwise look identical.</p>
+  <h3>Backtests</h3>
+  <p>The results surface. It computes nothing — every figure is read off the run store, the paper book's own ledger, the existing report and the search ledger. Three properties the renderer cannot drop:</p>
+  <ul>
+    <li><b>The trial count travels with every row, including a refused one.</b> A record with no trial block is marked unrenderable, and the refusal prints <em>instead of</em> the performance table, the curve and the blotter, behind the same gate — so a result without its trial count is structurally unavailable.</li>
+    <li><b>A derived run is never a peer.</b> The list is a <b>tree</b>: drop re-runs nest under the run they check, with the not-a-trial sentence on the row. Listing them beside the runs that <em>did</em> register trials would contradict on the page the law the payload states.</li>
+    <li><b>The readings come from the payload</b> — COLLAPSED / REVERSED / survives, printed verbatim, with no threshold arithmetic in the client.</li>
+  </ul>
+  <p>A detail page runs markers → honesty block → counterfactual → numbers: the deflation with which statistic was used, the concentration, every refusal with its leg, the caller's own selection bias, the generations spanned, the reconciliation residue, the holdout; then the drop table with both rankings and the sentence saying why they can disagree, the cost stated before it runs and the floor and cap refusing before anything replays; then the equity curve against the benchmark (an inline vector chart, no library — and where the report refused, the loop's own reconciled marks with <b>no benchmark line</b> said rather than drawn), the period table, the blotter, and the cash-yield source.</p>
 
   <h2 id="watch">Alerts, subscriptions &amp; the calendar</h2>
   <p>The <b>🔔 Alerts</b> tab has three sub-sections, all fed by the same typed-alert machinery:</p>
-  <p><b>Feed</b> — the attention-focusing stream. Typed notifications (divergence activity, rerating candidates, SI gates approaching, band crossings, scan findings, executive changes, price-rule firings) grouped by day then type, with per-type count chips for the range, aggregated day summaries, the deciding subscription layer on hover, and click-through to each type's evidence surface. Classic price rules (price, % move, RSI, 52-week, earnings-within-N-days) live in a panel inside the feed, with playbooks.</p>
-  <p><b>Subscriptions</b> — deliberate control over <b>which alert types fire on which securities</b>, cohort-first: pick a cohort, toggle types on or off as standing rules new members inherit, set defaults, and drill into per-symbol overrides. Executive-change alerts seed on for the names you have judged; executive-news stays off until you ask.</p>
-  <p><b>Calendar</b> — one time axis for everything dated: typed alerts, SI gate expected resolutions (overdue flagged), corporate events (earnings/dividends/splits/economic releases), ingest intake items, divergence-ledger entries, and roster changes — as a list or a visual <b>month grid</b> with day drill-down, type filters, cohort/symbol slices, and click-through per row.</p>
-  <table>
-    <tr><th>You say</th><th>What it does</th></tr>
-    <tr><td>"Subscribe my Semis cohort to divergence and gate alerts."</td><td>Writes standing cohort-scope rules; new members inherit them.</td></tr>
-    <tr><td>"What fired this week, and why?"</td><td>The typed feed with counts, summaries, and the deciding layer per row.</td></tr>
-    <tr><td>"Show July as a calendar." / "Give me a morning brief."</td><td>The month grid with per-day type markers + a consolidated brief.</td></tr>
-  </table>
+  <p><b>Feed</b> — the attention-focusing stream. Typed notifications (divergence activity, rerating candidates, SI gates approaching, band crossings, scan findings, executive changes, price-rule firings) grouped by day then type, with per-type count chips, aggregated day summaries, the deciding subscription layer on hover, and click-through to each type's evidence surface. Classic price rules live in a panel inside the feed, with playbooks.</p>
+  <p><b>Subscriptions</b> — deliberate control over <b>which alert types fire on which securities</b>, cohort-first: pick a cohort, toggle types on or off as standing rules new members inherit, set defaults, and drill into per-symbol overrides.</p>
+  <p><b>Calendar</b> — one time axis for everything dated: typed alerts, SI gate expected resolutions (overdue flagged), corporate events, ingest intake items, divergence-ledger entries, and roster changes — as a list or a visual <b>month grid</b> with day drill-down, type filters, cohort/symbol slices, and click-through per row.</p>
+  <div class="note">The classic alert machinery and the <a href="#rules">rule engine</a> coexist deliberately. Seven of the nine legacy alert types have a rule equivalent you can migrate to; the other two were refused by name rather than approximated, and continue to run on the old path.</div>
 
   <h2 id="executives">Executive profiles</h2>
-  <p>Every Key Executives row in Company Information opens a full <b>profile page</b>: the provider record (title, pay, tenure), roster-change history as recorded (first seen, title changes, departures — with the honest caveat that earlier tenure is unobserved, not absent), compensation history, this person's insider-trade rows (deterministic name matching, rule stated on the page), career across companies cross-referenced from recorded rosters and Form-4 filings, a Wikipedia summary fetched on demand (exact-name match only — ambiguity is stored as ambiguity, never guessed), candidate news mentions (fenced, with the common-name caveat), and an <b>Analyst report</b> section rendering agent- or owner-authored research notes on the person. Roster changes (joins, departures, title and pay changes) are detected daily from structured fields and flow into the scan report, the calendar, and subscription-gated alerts.</p>
+  <p>Every Key Executives row in Company Information opens a full <b>profile page</b>: the provider record (title, pay, tenure), roster-change history as recorded (first seen, title changes, departures — with the honest caveat that earlier tenure is unobserved, not absent), compensation history, this person's insider-trade rows (deterministic name matching, rule stated on the page), career across companies cross-referenced from recorded rosters and Form-4 filings, a Wikipedia summary fetched on demand (exact-name match only — ambiguity is stored as ambiguity, never guessed), candidate news mentions (fenced, with the common-name caveat), and an <b>Analyst report</b> section rendering agent- or owner-authored notes. Roster changes are detected daily and flow into the scan report, the calendar, and subscription-gated alerts.</p>
 
   <h2 id="marketplace">The marketplace &amp; images</h2>
-  <p>The <b>🛍 Marketplace</b> tab browses and installs <b>images</b> — shareable packs of the twin's state: reference data (universe, recorded surface days), authored model books, and configuration. Installs are verified against the catalog checksum and recorded in a <b>provenance ledger</b>; imported records carry their origin and never masquerade as your own history. Versioned artifacts are immutable — a published version never changes; new versions append. The free <b>OTS Starter Image</b> (v1.0.0) bootstraps a fresh install with the full NYSE+NASDAQ surface, seven strategic-initiative books, and workspace configuration — no keys, no portfolios, no personal research. You can also <code>export_image</code> your own packs to share.</p>
+  <p>The <b>🛍 Marketplace</b> tab browses and installs <b>images</b> — shareable packs of the twin's state: reference data (universe, recorded surface days), authored model books, and configuration. Installs are verified against the catalog checksum and recorded in a <b>provenance ledger</b>; imported records carry their origin and never masquerade as your own history. Versioned artifacts are immutable — a published version never changes; new versions append. The free <b>OTS Starter Image</b> bootstraps a fresh install with the full NYSE+NASDAQ surface, strategic-initiative books, and workspace configuration — no keys, no portfolios, no personal research. You can also export your own packs to share.</p>
 
   <h2 id="memory">Research notes &amp; memory</h2>
-  <p>Open Trading Surface has a shared memory: research notes tied to symbols, portfolios, or theses that persist between sessions, so you and the agent build on prior work instead of starting over. Ask the agent to "write your take on this name to research notes," or "what did we conclude about MSFT last month?"</p>
+  <p>Open Trading Surface has a shared memory: research notes tied to symbols, portfolios, or theses that persist between sessions, so you and the agent build on prior work instead of starting over. Ask the agent to "write your take on this name to research notes," or "what did we conclude about MSFT last month?" Notes are also read by the <a href="#report">PDF report</a>'s per-position pages and can be written by a rule's <code>annotate</code> action.</p>
+  <figure>
+    <img src="assets/news.png" alt="The News panel for a security showing a dated list of headlines with publisher and link, rendered as untrusted display-only text.">
+    <figcaption>News as it reaches you — and, underneath, as typed events carrying only predicates that can be checked.</figcaption>
+  </figure>
 
   <h2 id="feedback">Giving feedback</h2>
   <p>Open Trading Surface is being shaped by the people who use it. The easiest way to report a bug, request a feature, or share an idea is to just tell the agent — <em>"report a bug: the rebalance view didn't load,"</em> or <em>"I have an idea: add options analytics."</em> It composes a ready-to-post GitHub report prefilled with your details and version for you to submit (it never posts on your behalf). You can also browse and follow every issue on the <a href="support.html">Support page</a>, join <a href="https://github.com/pauljbernard/open-trading-surface/discussions">Discussions</a>, and optionally enable a local-only usage journal ("turn on usage reporting") to attach to a report.</p>
@@ -492,23 +799,30 @@
     <li><b>Check:</b> ask the agent to <code>check_for_updates</code>; the workspace cockpit also flags new versions automatically.</li>
     <li><b>Apply:</b> download the new <code>ots.plugin</code>, add it under <b>Customize → Plugins → Personal plugins</b> (it replaces the old version), and restart the session.</li>
   </ul>
-  <div class="note">Update checks are non-blocking and only request a version number — they never transmit your data. Your settings, portfolios, theses, and notes persist across updates.</div>
+  <div class="note">Update checks are non-blocking and only request a version number — they never transmit your data. Your settings, portfolios, theses, notes, panels and workspace arrangement persist across updates. After an upgrade, if a browser tab is still running JavaScript from the older build, the terminal discloses it rather than behaving strangely.</div>
 
   <h2 id="uninstall">Uninstalling</h2>
   <ul>
     <li>Open <b>Customize</b> → <b>Plugins</b> tab, find Open Trading Surface under Personal plugins, and choose <b>Uninstall</b>.</li>
-    <li>To also erase local data, delete the <code>~/.ots/</code> directory (this removes your keys, portfolios, theses, notes, and models).</li>
+    <li>Remove any scheduled tasks <code>/ots:automate</code> created (they are named <code>ots-&lt;automation id&gt;</code>) — uninstalling the plugin does not remove host-level schedules.</li>
+    <li>To also erase local data, delete the <code>~/.ots/</code> directory (this removes your keys, portfolios, theses, notes, models, event log and paper books).</li>
   </ul>
 
   <h2 id="data">Your data &amp; privacy</h2>
-  <p>Everything lives in <code>~/.ots/</code> on your machine: keys, portfolios, watchlists, theses, notes, company models, alerts, an audit journal, and test reports. Nothing is uploaded to any server operated by the publisher. The only outbound calls are read-only requests to your chosen data providers (FMP, FRED, SEC EDGAR) and a version-number check to the update channel.</p>
+  <p>Everything lives in <code>~/.ots/</code> on your machine: keys, portfolios, watchlists, theses, notes, company models, alerts, rules, strategies, paper books, the event log, the trial record, an audit journal, and test reports. Nothing is uploaded to any server operated by the publisher. The only outbound calls are read-only requests to your chosen data providers (FMP, FRED, SEC EDGAR), a version-number check to the update channel, and — <em>only</em> if you configure a key and run a <a href="#perspectives">Perspective</a> — a request to the AI vendor you chose. Your workspace arrangement lives in your browser's local storage.</p>
 
   <h2 id="trouble">Troubleshooting</h2>
   <ul>
     <li><b>Tools don't appear:</b> restart the Claude session after installing; the MCP server starts on session load.</li>
-    <li><b>"No API key configured":</b> add your FMP key in the ⚙ Settings tab and press Test.</li>
+    <li><b>"No API key configured":</b> add your FMP key under <b>🛠 Administration → Settings</b> and press Test.</li>
+    <li><b>A panel won't move:</b> it is probably maximized — see <a href="#workspace">the workspace section</a>. Ask the agent to <code>unmaximize_panel</code>.</li>
+    <li><b>A panel has vanished:</b> it hasn't. Click its entry on the taskbar — that summons it, and moves it to you if no scroll position could reach it.</li>
+    <li><b>A batch shows red on the Processes board:</b> read the reason on the row. Overdue, failed, halted by you and never-run are different states and each says which it is.</li>
+    <li><b>A backtest refuses:</b> that is a result. The sentence names the missing record; <a href="#reach">Reach</a> tells you what would be needed and from when.</li>
+    <li><b>A screen returns nothing:</b> check surface coverage first — several instruments read a recorded surface day, and a fresh install has none until the batches have run.</li>
     <li><b>Charts show no live data when opened from a saved file:</b> by design, saved files never embed your key; open the live terminal URL the agent provides for live data.</li>
-    <li><b>SEC filing fetch returns 403:</b> set an EDGAR contact in ⚙ Settings (e.g. "Your Name your@email.com").</li>
+    <li><b>SEC filing fetch returns 403:</b> set an EDGAR contact in Administration → Settings (e.g. "Your Name your@email.com").</li>
+    <li><b>Perspectives shows a vendor error:</b> that text is the vendor's own, verbatim. Check the credential and the model id in Settings, and use <b>Fetch models</b> to ask the vendor what it actually offers.</li>
     <li><b>Something looks wrong:</b> ask the agent to <code>run_test_suite</code>, and <a href="support.html">open an issue</a>.</li>
   </ul>
 

@@ -114,12 +114,31 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.19.6</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-08 00:08 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.19.7</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-08 01:16 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.19.7 <span class="reltitle">the documentation caught up with the software</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b><code>docs/guide.html</code></b> — rewritten and roughly doubled. New sections covering the workspace end to end (the panel-pins-its-security rule, opening/duplicating/closing, minimizing and arranging, per-panel chart state, the pinned surfaces, what it does <b>not</b> do yet, and driving it from the agent); Administration and the process status law; the one selector and two-tier disclosure; chart grids and relative views; valuation structure; the pro forma substrate; the economy and industry containers; the transaction vocabulary, cost basis and the reconciliation that must sum; and the whole event-processing arc — reach, typed events with their two timestamps, the condition language, rules and the tick, actions and the paper book, strategies, and the backtester with its refusals and its deflation.</li>
+        <li><b>Fifteen new screenshots</b>, captured this session from the live 5.19.6 terminal: <code>workspace</code>, <code>chart-workbench</code>, <code>chart-grid</code>, <code>cross-security</code>, <code>statements</code>, <code>model-of-models</code>, <code>portfolio-holdings</code>, <code>portfolio-performance</code>, <code>portfolio-allocation</code>, <code>cohorts</code>, <code>news</code>, <code>events</code>, <code>conditions</code>, <code>processes</code>, <code>reach</code>.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b><code>docs/index.html</code></b> — rewritten. The three standing rules stated up front (<i>a missing input produces a refusal, never a zero</i>; <i>disclosure precedes adjustment</i>; <i>it shows you its own limits</i>), then the workspace as the organising idea rather than a feature list: any number of panels freely arranged, the charting workbench, cross-security comparison on one time axis, the statement substrate, Perspectives with its provenance pinned, the event engine and paper strategies, the backtester that declines rather than flatters, the portfolio analytics, and the screening vocabulary with the Modernized G &amp; D standard.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
+      <ul>
+        <li><b>Five superseded images removed</b> from the source tree — <code>attribution.png</code>, <code>chart.png</code>, <code>model.png</code>, <code>performance.png</code>, <code>settings.png</code>, all dated 2026-07-17 and none of them still referenced by any page.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.19.6 <span class="reltitle">the drag that committed perfectly and was invisible</span></h3>
   </div>
@@ -164,34 +183,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
       <ul>
         <li><b>Nothing is silently dropped.</b> A restored panel whose view no longer exists opens as a <b>REFUSAL PANEL in its saved geometry</b>, naming what is missing, what would fix it, and its successor — taken from a data table beside the registry, not a branch in the restore code.</li>
         <li><b>Carried by the migration:</b> the three duplicated retired-index migration blocks — at load, in <code>renderRail</code> and in <code>renderContent</code> — collapse into ONE table and one <code>migrateActive()</code>. The build now fails if that table appears twice.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.18.0 <span class="reltitle">the clocks start</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b><code>pit-snapshot</code> — new, monthly, and the owner's decision is BOTH LAYERS UNIVERSE-WIDE.</b> THIN (membership, price, sector, industry, exchange, market cap for every name in the cached NYSE+NASDAQ universe; membership IS the presence of the row) and RICH (enrichment panel fields, surface model output, industry percentile ranks), both over the ENTIRE universe rather than the analysed names, with <b>absence recorded as data</b> in three states kept apart: <code>held</code>, <code>absent</code> carrying the producer's own reason verbatim, and <code>never</code>. The reasoning is recorded on every manifest — a screen backtest asks what the screen would have FOUND, which requires records for names nobody was looking at; an analysed-only archive makes that question circular and cannot be reconstructed later. <b>It makes no provider calls</b>: it reads local stores, and a missing universe cache is a REFUSAL BY NAME rather than a fetch. The monthly cadence carries its arithmetic on the record — it matches the rate the underlying stores actually change (panels rebuild on a 30-day window over quarterly filings, so weekly would record the same bytes four times), it clears the 60-day accrual floor and the two-snapshot minimum inside one quarter, it holds storage near 100 MB/year at FULL panel coverage against ~440 MB/year weekly, and it shares a clock with the universe archive so the two join by month without interpolation.</li>
-        <li><b><code>universe-archive</code> gets the scheduler it never had</b>, and the opportunistic freeze now records its own run naming itself as opportunistic — a process whose work happens through a door it does not know about reports the opposite of the truth.</li>
-        <li><b><code>cohorts.writeCache</code> returns the ledger outcome instead of discarding it inside an empty catch.</b> A working producer and one failing on every cohort were indistinguishable on every path; now each cohort's row carries what the ledger did and the pass summary adds them up. <b>A pass that resolved cohorts with real memberships and observed nothing cannot record <code>success</code>.</b> A cohort that resolved to an EMPTY membership is counted separately and named, because refusing to persist an empty list is correct behaviour and a warning that fires on it is a warning nobody reads.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b><code>cohort-refresh</code> gets a daemon fallback clock</b> at the hour the automation registry already declares, which fires only when no pass was recorded that local day, so an installed host task satisfies it and the fallback never runs. It honours the pause flag, never starts on top of a live pass, and runs at the default scope, so the 5.1.0 peer exclusion holds and the provider spend is the one already approved.</li>
-        <li><b>The enrichment batch counts archived vintages the same way</b> and downgrades its own outcome when it built panels and archived none.</li>
-        <li><b>Every process row now states WHO OWNS ITS CLOCK</b> — daemon, host, or none — and a host-owned row names the case this code cannot distinguish: a task never installed and a task failing leave identical evidence.</li>
-        <li><b><code>backfill_event_log</code></b> is the door <code>event-producers.backfill()</code> never had. Dry-run by default, idempotent through the append-only dedupe, non-destructive, carrying both timestamps from each source record.</li>
-        <li><b>The run-summary cap moved 300 → 400 and NAMES its truncation.</b> A silent slice cut a shipped sentence mid-number at "…; 21", which reads as a complete thought and is not one.</li>
-        <li><b><code>strategy.js</code> required <code>./screens</code>, a module that does not exist</b>, inside a try/catch — so every screen-scoped strategy was save-time valid and resolved to ZERO SYMBOLS behind a swallowed <code>MODULE_NOT_FOUND</code>, with a refusal naming a module rather than a screen. Two defects were stacked: fixing only the require would have left <code>scr.get</code> undefined on the screener, so the correct accessor is <code>getScreen</code>.</li>
-        <li>**<code>pf.<i></code> resolved to a silent empty set in the alert layer.</i>* <code>cohorts.get()</code> succeeds for a portfolio cohort whose <code>definition</code> is <code>{portfolio_id}</code> with no stored membership by design, so the lookup returned a non-null result with zero members: every alert filtered out, a subscription validated that could never match, and <code>inScope()</code> false for every symbol forever. It now derives live from the ledger, and a book that cannot be read REFUSES — a scope that cannot be resolved is not an empty scope.</li>
-        <li>The repricing scan's run summary printed <b><code>scanned 2026-08-06 — [object Object]</code></b> on every machine for four months; <code>headline</code> is a count object and the ledger concatenated it. A scan that found nothing now says so, which is a result.</li>
-        <li>The halted-tick refusal read <code>…restarting.). the tick was HALTED…</code>; the spliced clause is capitalised at the splice rather than in the <code>TICK_GATE</code> table, because those strings are read mid-sentence elsewhere.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
-      <ul>
-        <li><b><code>check_alerts</code> is DECLARED in the process registry as UNSCHEDULED and reads permanently RED.</b> Nothing schedules it — not the automation registry, not a daemon timer, not a host task — so the two alert types the 5.10.0 migration deliberately protected have never fired, and until now the registry did not carry the job at all, so its absence was invisible rather than red. The status law puts <code>unscheduled</code> ABOVE the run history: a job nothing schedules that was once run by hand would otherwise read green off that run. <b>Whether it gets a clock or is retired remains the owner's decision; this makes the decision visible rather than making it.</b></li>
       </ul>
     </div>
   </div>

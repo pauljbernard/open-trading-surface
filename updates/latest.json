@@ -1,13 +1,13 @@
 {
-  "version": "5.19.6",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.6.plugin",
-  "sha256": "4b5d15bfb470a160906908260ad8853e63550ebfab0b2364170bbf1e80c27998",
+  "version": "5.19.7",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.7.plugin",
+  "sha256": "9491e292837f2a7f11b4e8122323dac300cb9011886944c392d74b4222b7bbc9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.6.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.7.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner came back after 5.19.5 with the same sentence — *\"when I select a panel and try to move it, it snaps back to it initial position\"* — and a diagnosis worth testing before anything was written. The hypothesis, and why falsifying it changed the fix > *\"I may be mistaken but I think the system is interpreting (Tile, cascade, etc) as fixed arrangements rather than a reset invocation along those arrangement. Because when I try to drag and move the window to another location it snaps back.\"* That is a good theory: if ⊞ Tile / ⊟ Cascade / ▥ Stack set a persistent mode, every later paint woul",
-  "published": "2026-08-08T00:08:26.880Z",
+  "notes": "A documentation release. No server code changed, no engine capability was added or removed, and no number this system publishes moves. What changed is the public account of what the software *is* — which had drifted far enough that the site was describing a product two months behind the one that ships. What the site said, and what the software does The landing page and the guide were last rewritten against a build in which the terminal was a tab strip — one active view at a time, switched by clicking. Since 5.19.0 the right-hand pane is an MDI floating panel workspace: any number of panels, fr",
+  "published": "2026-08-08T01:16:31.676Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
