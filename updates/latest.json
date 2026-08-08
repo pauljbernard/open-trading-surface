@@ -1,13 +1,13 @@
 {
-  "version": "5.19.5",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.5.plugin",
-  "sha256": "7efbcced479e44058488662527eca9c7681fce1de64ff1f339ad0570db2d3074",
+  "version": "5.19.6",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.6.plugin",
+  "sha256": "4b5d15bfb470a160906908260ad8853e63550ebfab0b2364170bbf1e80c27998",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.5.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.6.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Three things the owner read off his own screen. Two are defects. The third is not, and establishing that is the most important result in this release — \"fixing\" it as reported would have deleted eleven panels he opened himself. 1. Dragging a panel snapped it back — because drag has never worked > *\"when I select a panel and try to move it, it snaps back to it initial position.\"* wsDragStart captured the pointer on p.el, the panel, while pointermove / pointerup / pointercancel were bound to the title bar, which is that panel's child. Pointer capture RETARGETS every later event of that pointer t",
-  "published": "2026-08-07T23:21:15.081Z",
+  "notes": "The owner came back after 5.19.5 with the same sentence — *\"when I select a panel and try to move it, it snaps back to it initial position\"* — and a diagnosis worth testing before anything was written. The hypothesis, and why falsifying it changed the fix > *\"I may be mistaken but I think the system is interpreting (Tile, cascade, etc) as fixed arrangements rather than a reset invocation along those arrangement. Because when I try to drag and move the window to another location it snaps back.\"* That is a good theory: if ⊞ Tile / ⊟ Cascade / ▥ Stack set a persistent mode, every later paint woul",
+  "published": "2026-08-08T00:08:26.880Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

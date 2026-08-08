@@ -114,12 +114,15 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.19.5</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-07 23:21 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.19.6</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-08 00:08 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.19.6 <span class="reltitle">the drag that committed perfectly and was invisible</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.19.5 <span class="reltitle">the drag that never ran, the charts that could not get a socket, and the count that was not accumulating</span></h3>
   </div>
@@ -191,9 +194,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><b><code>check_alerts</code> is DECLARED in the process registry as UNSCHEDULED and reads permanently RED.</b> Nothing schedules it — not the automation registry, not a daemon timer, not a host task — so the two alert types the 5.10.0 migration deliberately protected have never fired, and until now the registry did not carry the job at all, so its absence was invisible rather than red. The status law puts <code>unscheduled</code> ABOVE the run history: a job nothing schedules that was once run by hand would otherwise read green off that run. <b>Whether it gets a clock or is retired remains the owner's decision; this makes the decision visible rather than making it.</b></li>
       </ul>
     </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.17.2 <span class="reltitle">the log that could be made to lie</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
