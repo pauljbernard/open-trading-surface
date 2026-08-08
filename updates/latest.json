@@ -1,13 +1,13 @@
 {
-  "version": "5.19.9",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.9.plugin",
-  "sha256": "01fff341376f516be2826557f8be10fd7e47ee6de96ebea9fb6720d78d6d3ecb",
+  "version": "5.19.10",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.10.plugin",
+  "sha256": "086931160f685aac1434d5f1e741d6f2f13a997b313600bb16870e5c76b7756b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.9.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.10.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The Opportunity Surface fill has been running for hours at a time for months. Nobody had ever asked what it *costs*, because nothing recorded it. Asked directly, the answer was ~594,000 HTTP requests for one full-universe pass — and the reason is not the provider, the plan or the network. The per-symbol model build issued 112 requests for 19 distinct URLs, including 22 identical profile?symbol=KO fetches in a single build, because the share-count rebase runs once per model across a 23-model registry. Two fixes, both pure waste, neither of them a bulk endpoint. And one discipline binding both: ",
-  "published": "2026-08-08T14:31:33.100Z",
+  "notes": "The 5.19.9 daemon restart killed a running surface fill. The record did not notice, and for the next ten minutes the fill could be neither stopped nor started. running: true, pid: 34105, ticks: 36, computed: 359, remaining_stale: 2442, updated: \"2026-08-08T14:38:40.957Z\", <- frozen stop_requested: true, <- filed, never honoured heartbeat_age_s: 240 556 781 <- monotonically growing stop could not be honoured, because the loop that would honour it was dead. start refused with already_running: true, because the guard trusted the record. Behind both shut doors, 2,442 stale names. The tool's own de",
+  "published": "2026-08-08T15:20:58.029Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

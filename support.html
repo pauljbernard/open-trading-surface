@@ -114,12 +114,32 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.19.9</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-08 14:31 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.19.10</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-08 15:20 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.19.10 <span class="reltitle">the stale record that was a lock</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>Host scope is explicit.</b> <code>hostname</code> is stamped on every new record. A record that positively says it was written elsewhere does not get its pid tested and says so on the payload; an <i>absent</i> hostname is unknown rather than foreign, so the check still bites on the records already on disk.</li>
+        <li><b><code>start</code></b> refuses only against a <b>live</b> heartbeat and <b>takes over</b> a dead one, retiring the old record rather than silently overwriting it and disclosing <code>took_over_from</code> — the dead loop's pid, start time, last heartbeat, ticks and computed count — on both the reply and the new record. The queue resumes from the stalest names; nothing it computed is recomputed.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The in-process flag outranks everything.</b> A mid-tick gap in our own heartbeat is not death.</li>
+        <li><b>A dead pid is proof of death</b> — orphaned at second one, no threshold involved.</li>
+        <li><b>A live pid is not proof of life and never extends liveness.</b> Pids are recycled; a live pid only fails to <i>shorten</i> the window. Asserted in both directions, because getting it backwards trades a ten-minute stall for a permanent one.</li>
+        <li><b>A read never writes.</b> <code>fillStatus</code> is pure, and a derived test fails the build if <code>writeFill</code> ever appears inside it — a panel refresh must not be able to destroy a record a live process is keeping.</li>
+        <li><b><code>stop</code></b> against a dead loop <b>retires the record</b> and says plainly that <i>nothing was stopped, because nothing was running</i>, keeping every counter the dead loop accrued.</li>
+        <li><b>The daemon retires at boot what it cannot possibly own.</b> It knows it just started, so a loop recorded as in-flight before that instant is not one of its own. Conservative by construction: it retires only what the one reading calls orphaned, so a fill legitimately running in the no-daemon fallback process — live pid, fresh heartbeat — is never touched.</li>
+        <li><b>The ledger stops losing crashed runs.</b> <code>processes.retireOrphans()</code> records each as a <b><code>failed</code></b> run carrying its last progress, <code>statusOf</code> reads an orphan red <i>before</i> the ledger catches up, and <code>processes.start</code> no longer takes over an orphan in silence.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.19.9 <span class="reltitle">five of every six requests were for bytes we already had</span></h3>
   </div>
@@ -173,9 +193,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.19.3 <span class="reltitle">the panels drew their frames and nothing else</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.19.2 <span class="reltitle">the workspace on a 49-inch screen</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->

@@ -16,6 +16,18 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.19.10 — the stale record that was a lock</h2>
+<ul>
+<li><b>The in-process flag outranks everything.</b> A mid-tick gap in our own heartbeat is not death.</li>
+<li><b>A dead pid is proof of death</b> — orphaned at second one, no threshold involved.</li>
+<li><b>A live pid is not proof of life and never extends liveness.</b> Pids are recycled; a live pid only fails to *shorten* the window. Asserted in both directions, because getting it backwards trades a ten-minute stall for a permanent one.</li>
+<li><b>Host scope is explicit.</b> <code>hostname</code> is stamped on every new record. A record that positively says it was written elsewhere does not get its pid tested and says so on the payload; an *absent* hostname is unknown rather than foreign, so the check still bites on the records already on disk.</li>
+<li><b>A read never writes.</b> <code>fillStatus</code> is pure, and a derived test fails the build if <code>writeFill</code> ever appears inside it — a panel refresh must not be able to destroy a record a live process is keeping.</li>
+<li><b><code>start</code></b> refuses only against a <b>live</b> heartbeat and <b>takes over</b> a dead one, retiring the old record rather than silently overwriting it and disclosing <code>took_over_from</code> — the dead loop's pid, start time, last heartbeat, ticks and computed count — on both the reply and the new record. The queue resumes from the stalest names; nothing it computed is recomputed.</li>
+<li><b><code>stop</code></b> against a dead loop <b>retires the record</b> and says plainly that *nothing was stopped, because nothing was running*, keeping every counter the dead loop accrued.</li>
+<li><b>The daemon retires at boot what it cannot possibly own.</b> It knows it just started, so a loop recorded as in-flight before that instant is not one of its own. Conservative by construction: it retires only what the one reading calls orphaned, so a fill legitimately running in the no-daemon fallback process — live pid, fresh heartbeat — is never touched.</li>
+<li><b>The ledger stops losing crashed runs.</b> <code>processes.retireOrphans()</code> records each as a <b><code>failed</code></b> run carrying its last progress, <code>statusOf</code> reads an orphan red *before* the ledger catches up, and <code>processes.start</code> no longer takes over an orphan in silence.</li>
+</ul>
 <h2>5.19.9 — five of every six requests were for bytes we already had</h2>
 <ul>
 </ul>
