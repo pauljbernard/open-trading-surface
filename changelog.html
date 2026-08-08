@@ -16,6 +16,15 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.19.8 — four claims the code did not honour</h2>
+<ul>
+<li><b>Economy</b> — every phase built (4.39.0–4.46.0). <b>Not built:</b> multiple peer economies, the generic rung engine.</li>
+<li><b>Economy inheritance</b> — 1a/1b/1c/1d built (4.42.0–4.44.0). At flag 0 <code>forValuation()</code> returns <code>{}</code> before any economy read, so the cost of equity is <b>byte-identical</b> to the incumbent while the disclosure computes the delta anyway.</li>
+<li><b>Industry container</b> — phases 0 and 1 built (4.47.0, 4.48.0, 4.50.0).</li>
+<li><b>Industry dependency</b> — 2a and 2b built (4.51.0, 4.62.0). <b>2c, the fitting program, is not:</b> every elasticity is a template or an owner assertion, none carries <code>fitted</code> provenance, and industry dispersion is therefore an honest zero width.</li>
+<li><b>Valuation structure</b> — phases 0 and 1 built (4.0.0, 4.2.0). <b>Phase 2 is blocked by design on an E11 verdict that has not been filed.</b> Phase 3's UX is partial.</li>
+<li><b>Statement substrate</b> — Phase 0 (4.67.0) and Phase 3 (4.75.0) built. <b>Phases 1, 2, 4 and 5 are not, and the honest reading is stronger: NOTHING CONSUMES THE SUBSTRATE.</b> Its only three call sites are the tool, the route and the test.</li>
+</ul>
 <h2>5.19.7 — the documentation caught up with the software</h2>
 <ul>
 <li><b><code>docs/index.html</code></b> — rewritten. The three standing rules stated up front (*a missing input produces a refusal, never a zero*; *disclosure precedes adjustment*; *it shows you its own limits*), then the workspace as the organising idea rather than a feature list: any number of panels freely arranged, the charting workbench, cross-security comparison on one time axis, the statement substrate, Perspectives with its provenance pinned, the event engine and paper strategies, the backtester that declines rather than flatters, the portfolio analytics, and the screening vocabulary with the Modernized G &amp; D standard.</li>

@@ -114,12 +114,25 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.19.7</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-08 01:16 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.19.8</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-08 01:48 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.19.8 <span class="reltitle">four claims the code did not honour</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Economy</b> — every phase built (4.39.0–4.46.0). <b>Not built:</b> multiple peer economies, the generic rung engine.</li>
+        <li><b>Economy inheritance</b> — 1a/1b/1c/1d built (4.42.0–4.44.0). At flag 0 <code>forValuation()</code> returns <code>{}</code> before any economy read, so the cost of equity is <b>byte-identical</b> to the incumbent while the disclosure computes the delta anyway.</li>
+        <li><b>Industry container</b> — phases 0 and 1 built (4.47.0, 4.48.0, 4.50.0).</li>
+        <li><b>Industry dependency</b> — 2a and 2b built (4.51.0, 4.62.0). <b>2c, the fitting program, is not:</b> every elasticity is a template or an owner assertion, none carries <code>fitted</code> provenance, and industry dispersion is therefore an honest zero width.</li>
+        <li><b>Valuation structure</b> — phases 0 and 1 built (4.0.0, 4.2.0). <b>Phase 2 is blocked by design on an E11 verdict that has not been filed.</b> Phase 3's UX is partial.</li>
+        <li><b>Statement substrate</b> — Phase 0 (4.67.0) and Phase 3 (4.75.0) built. <b>Phases 1, 2, 4 and 5 are not, and the honest reading is stronger: NOTHING CONSUMES THE SUBSTRATE.</b> Its only three call sites are the tool, the route and the test.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.19.7 <span class="reltitle">the documentation caught up with the software</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -163,28 +176,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.19.1 <span class="reltitle">the live read, and the five things it found</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.19.0 <span class="reltitle">the pane becomes a workspace</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><code>active_symbol_means</code> — which of the two it currently is, in words;</li>
-        <li><code>context_symbol</code> — the strip selection, i.e. what the LEFT MENU will open next;</li>
-        <li><code>context_differs</code> — true when the focused panel and the strip disagree, with <code>context_note</code> naming both;</li>
-        <li><code>focused_panel</code> — the panel id.</li>
-        <li><b>A panel is a bound view.</b> Opened against a security and a lens; neither changes for its life. No verb, no gesture and no agent call retargets a live panel. That bind is what makes eight panels readable and what lets AAPL sit beside MSFT.</li>
-        <li><b>A reduced panel is still open.</b> Minimizing sets <code>display:none</code> and does nothing else: the DOM node, the scroll offset, the rendered DOM and the loaded data all survive, restoring issues no fetch, and the taskbar entry is the proof. A minimize that discards is a close with a friendlier name.</li>
-        <li><b>The top strip is now a LAUNCHER.</b> A strip entry is a security CONTEXT; clicking one chooses what the left menu opens and changes no open panel. Because the behaviour of the one control the owner said "makes sense" is what changed, the click <b>visibly marks every panel bound to that security</b> — a click that produces no visible result is how a user concludes the software is broken. The strip is the UNION of your contexts and the securities of open panels, and <code>✕</code> on an entry with bound panels asks BY COUNT and offers to keep them.</li>
-        <li><b>Hand-rolled, zero dependencies:</b> drag (transform-only, one geometry read at pointerdown, <code>pointer-events:none</code> on bodies so a chart iframe cannot swallow the drag), resize from four edges and four corners, z-order, constrain-to-frame, maximize/restore, cascade and tile. <b>Tile REFUSES BY NAME</b> rather than producing unreadable boxes — <i>"cannot tile 9 panels in 1180×720: a cell would be 393×240 and AAPL · Chart 1D needs 520×360; 4 would fit"</i> — which is the refuse-rather-than-default law applied to geometry.</li>
-        <li><b>The performance budget is structural.</b> <code>renderAll()</code> no longer calls the content dispatcher in a security context at all: it paints chrome, and <b>a panel body renders EXACTLY ONCE, at open</b>. Focusing, dragging, resizing or re-ordering a panel cannot reach any body, and a derived test proves it.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
-      <ul>
-        <li><b>Nothing is silently dropped.</b> A restored panel whose view no longer exists opens as a <b>REFUSAL PANEL in its saved geometry</b>, naming what is missing, what would fix it, and its successor — taken from a data table beside the registry, not a branch in the restore code.</li>
-        <li><b>Carried by the migration:</b> the three duplicated retired-index migration blocks — at load, in <code>renderRail</code> and in <code>renderContent</code> — collapse into ONE table and one <code>migrateActive()</code>. The build now fails if that table appears twice.</li>
-      </ul>
-    </div>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
