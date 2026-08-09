@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.20.3 — the controls were under the resize strips</h2>
+<ul>
+<li>The <b>5.19.6 guard already declines</b> to start a drag on a control, and <code>wsBindGesture</code> captures only *after* <code>start(ev)</code> returns anything other than <code>false</code>. No capture is taken.</li>
+<li><b>Measured in a real browser with trusted clicks</b>, on a rig carrying the shipped rules and the shipped construction: a click at the <b>centre</b> of all five controls produced <code>pointerdown → mousedown → click → the handler ran</code>.</li>
+</ul>
 <h2>5.20.2 — the adopter list that rotted twice, and a wait that says what it is waiting for</h2>
 <ul>
 <li>Several suites replace <code>server/fmp.js</code> at the require seam with a <b>fake</b> carrying only what they need; <code>withMemo</code> is not one of those functions, so calling it directly threw. <code>server/memo-scope.js</code> is now the one door, falling back to a pass-through that costs <b>requests</b> and cannot change an <b>answer</b>.</li>

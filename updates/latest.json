@@ -1,13 +1,13 @@
 {
-  "version": "5.20.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.2.plugin",
-  "sha256": "4d3e67e653988df77c169342b95dd2dc1cb033ff0d24e3b4dea9d60acc04fa97",
+  "version": "5.20.3",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.3.plugin",
+  "sha256": "e0401c333800dcd477f3188a3e0e9d58e3e72fb2857ab75b08e38c1dc8f52380",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.3.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, verbatim: *\"Pricing models panel displays 'running every registered model' for a very long time. Is there any opportunity to improve the performance?\"* MEASURED: 227 PROVIDER REQUESTS WHERE 12 WERE NEEDED Driving the real /cm/pricing handler against a deterministic provider, one name: | | requests | distinct URLs | | as 5.20.1 issued it | 227 | 19 | | this release | 11 | 11 | The duplication on MU: 45 identical profile?symbol=MU, 42 identical quarterly income statements, 42 identical quarterly balance sheets, 36 deep quarterly income statements, 24 price-history reads. It is not a s",
-  "published": "2026-08-09T21:59:50.928Z",
+  "notes": "The owner, verbatim: *\"the upper right hand corner control icons for each of the floating panels don't appear to be working.\"* Nine panels open, on 5.20.2. THE HYPOTHESIS WAS 5.19.5's OWN FIX SEEN FROM THE OTHER SIDE, AND IT WAS WRONG The reading going in: 5.19.5 made a pointerdown anywhere in the title bar capture the pointer to the title bar, so a control would never see its own click. It is not that, and establishing it is what found the real cause. - The 5.19.6 guard already declines to start a drag on a control, and wsBindGesture captures only *after* start(ev) returns anything other than",
+  "published": "2026-08-09T22:31:18.275Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
