@@ -16,6 +16,16 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.19.11 — thirteen refusals nobody re-asked, and a screen that could not see what it could not see</h2>
+<ul>
+<li><b>A sweep, not a per-cohort retry.</b> A per-cohort retry runs *inside* the storm: the whole point of a 429 is that the next call is likelier to fail than the last. The sweep runs minutes of real work later — the cheapest possible backoff, and it costs no timer.</li>
+<li><b>Exactly one.</b> A loop that retried until it succeeded would turn a provider outage into an unbounded pass. It is additionally bounded by count; a storm that refused more than that is an outage, and re-asking two hundred times spends the key to confirm what the first two hundred refusals already said.</li>
+<li><b>Pause is honoured</b> at the same boundary as the main loop, and a halted pass does not sweep at all — that would be work the halt was pressed to stop.</li>
+<li><b>A cohort refused twice is a different fact.</b> The first refusal is consistent with weather; the second, minutes later, is evidence about the cohort or about a provider that is still down. Both readings are kept, the counts ride the one sentence every surface prints, and a refusal that survives the sweep moves the run record off <code>success</code>.</li>
+<li>it distinguishes <b>fetched-and-genuinely-absent</b> from <b>the-fetch-failed</b> — the provider answers an uncovered symbol with HTTP 200 and an empty array, so only a transport error or a non-2xx status is recorded;</li>
+<li>it carries the <b>HTTP status</b>, so a 429 (spend, retryable) reads differently from a 403 (entitlement, permanent);</li>
+<li>it carries the <b>stage</b>, so a failure that changes *who is in the answer* is told apart from one that changes only a displayed column.</li>
+</ul>
 <h2>5.19.10 — the stale record that was a lock</h2>
 <ul>
 <li><b>The in-process flag outranks everything.</b> A mid-tick gap in our own heartbeat is not death.</li>

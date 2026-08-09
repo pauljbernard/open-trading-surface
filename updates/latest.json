@@ -1,13 +1,13 @@
 {
-  "version": "5.19.10",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.10.plugin",
-  "sha256": "086931160f685aac1434d5f1e741d6f2f13a997b313600bb16870e5c76b7756b",
+  "version": "5.19.11",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.11.plugin",
+  "sha256": "69116130e164ff56721500c143dd7ec23c29bf395622d9ce2f76e98151819297",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.10.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.11.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The 5.19.9 daemon restart killed a running surface fill. The record did not notice, and for the next ten minutes the fill could be neither stopped nor started. running: true, pid: 34105, ticks: 36, computed: 359, remaining_stale: 2442, updated: \"2026-08-08T14:38:40.957Z\", <- frozen stop_requested: true, <- filed, never honoured heartbeat_age_s: 240 556 781 <- monotonically growing stop could not be honoured, because the loop that would honour it was dead. start refused with already_running: true, because the guard trusted the record. Behind both shut doors, 2,442 stale names. The tool's own de",
-  "published": "2026-08-08T15:20:58.029Z",
+  "notes": "A cohort-refresh pass refused 13 of 34 cohorts. Every one of the thirteen was a provider HTTP failure — twelve 429s inside a four-second window, plus one 502. Not enrichment, not ranks, not renamed fields, not deleted screens. The refusal itself was correct, and is unchanged: *\"membership is UNKNOWN, not empty.\"* Everything downstream of it was not, and the five defects are one family — a system that knew a thing and had no way to say it. 1. A refused cohort was never retried pending exists for a halted pass. A cohort refused by a transient provider error was recorded and forgotten until the n",
+  "published": "2026-08-09T01:24:48.965Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

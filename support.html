@@ -114,12 +114,26 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.19.10</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-08 15:20 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.19.11</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-09 01:24 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.19.11 <span class="reltitle">thirteen refusals nobody re-asked, and a screen that could not see what it could not see</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>A sweep, not a per-cohort retry.</b> A per-cohort retry runs <i>inside</i> the storm: the whole point of a 429 is that the next call is likelier to fail than the last. The sweep runs minutes of real work later — the cheapest possible backoff, and it costs no timer.</li>
+        <li><b>Exactly one.</b> A loop that retried until it succeeded would turn a provider outage into an unbounded pass. It is additionally bounded by count; a storm that refused more than that is an outage, and re-asking two hundred times spends the key to confirm what the first two hundred refusals already said.</li>
+        <li><b>Pause is honoured</b> at the same boundary as the main loop, and a halted pass does not sweep at all — that would be work the halt was pressed to stop.</li>
+        <li><b>A cohort refused twice is a different fact.</b> The first refusal is consistent with weather; the second, minutes later, is evidence about the cohort or about a provider that is still down. Both readings are kept, the counts ride the one sentence every surface prints, and a refusal that survives the sweep moves the run record off <code>success</code>.</li>
+        <li>it distinguishes <b>fetched-and-genuinely-absent</b> from <b>the-fetch-failed</b> — the provider answers an uncovered symbol with HTTP 200 and an empty array, so only a transport error or a non-2xx status is recorded;</li>
+        <li>it carries the <b>HTTP status</b>, so a 429 (spend, retryable) reads differently from a 403 (entitlement, permanent);</li>
+        <li>it carries the <b>stage</b>, so a failure that changes <i>who is in the answer</i> is told apart from one that changes only a displayed column.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.19.10 <span class="reltitle">the stale record that was a lock</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -190,9 +204,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><b>a focused panel on ANOTHER security says which</b>, because <code>active_symbol</code> is the focused panel's security while the rail acts on <code>context_symbol</code>.</li>
       </ul>
     </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.19.3 <span class="reltitle">the panels drew their frames and nothing else</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
