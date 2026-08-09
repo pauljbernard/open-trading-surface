@@ -16,6 +16,11 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.20.2 — the adopter list that rotted twice, and a wait that says what it is waiting for</h2>
+<ul>
+<li>Several suites replace <code>server/fmp.js</code> at the require seam with a <b>fake</b> carrying only what they need; <code>withMemo</code> is not one of those functions, so calling it directly threw. <code>server/memo-scope.js</code> is now the one door, falling back to a pass-through that costs <b>requests</b> and cannot change an <b>answer</b>.</li>
+<li><code>server/serve.js</code> <b>returned</b> the <code>/cm</code> route's promise from inside its <code>try</code>, so a rejection escaped the catch and <b>no response was ever written</b> — an open socket and a spinning panel, latent since the route was extracted. Fixed with an <code>await</code>, and pinned.</li>
+</ul>
 <h2>5.20.1 — the window that was never established (and the nine calls a panel paid for a pack it never reads)</h2>
 <ul>
 </ul>

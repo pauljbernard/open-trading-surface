@@ -1,13 +1,13 @@
 {
-  "version": "5.20.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.1.plugin",
-  "sha256": "4fd219ddf7ea146be2e978ee0a42bce00ee596cff6c3f8e1eb2fc52e2ec0b9c5",
+  "version": "5.20.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.2.plugin",
+  "sha256": "4d3e67e653988df77c169342b95dd2dc1cb033ff0d24e3b4dea9d60acc04fa97",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, on a daemon already carrying the 5.19.5 guard: a freshly loaded chart panel drew its whole chrome — toolbar, timeframe strip, footer — and an empty canvas, with the two date inputs reading 08/09/2026 to 08/09/2026. *\"The charts did eventually populate but they do take a long time to refresh... Question is why is the date defaulting to the same from and to date.\"* THE GUARD WAS ON THE DOORS AND THE DEFECT WAS IN THE ROOM 5.19.5 refuses a zero-width or inverted window at every door — the two date inputs, the grid relay, set_dates, set_interval — and it never fired, because the window ",
-  "published": "2026-08-09T20:48:22.090Z",
+  "notes": "The owner, verbatim: *\"Pricing models panel displays 'running every registered model' for a very long time. Is there any opportunity to improve the performance?\"* MEASURED: 227 PROVIDER REQUESTS WHERE 12 WERE NEEDED Driving the real /cm/pricing handler against a deterministic provider, one name: | | requests | distinct URLs | | as 5.20.1 issued it | 227 | 19 | | this release | 11 | 11 | The duplication on MU: 45 identical profile?symbol=MU, 42 identical quarterly income statements, 42 identical quarterly balance sheets, 36 deep quarterly income statements, 24 price-history reads. It is not a s",
+  "published": "2026-08-09T21:59:50.928Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

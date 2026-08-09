@@ -114,12 +114,21 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.20.1</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-09 20:48 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.20.2</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-09 21:59 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.20.2 <span class="reltitle">the adopter list that rotted twice, and a wait that says what it is waiting for</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>Several suites replace <code>server/fmp.js</code> at the require seam with a <b>fake</b> carrying only what they need; <code>withMemo</code> is not one of those functions, so calling it directly threw. <code>server/memo-scope.js</code> is now the one door, falling back to a pass-through that costs <b>requests</b> and cannot change an <b>answer</b>.</li>
+        <li><code>server/serve.js</code> <b>returned</b> the <code>/cm</code> route's promise from inside its <code>try</code>, so a rejection escaped the catch and <b>no response was ever written</b> — an open socket and a spinning panel, latent since the route was extracted. Fixed with an <code>await</code>, and pinned.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.20.1 <span class="reltitle">the window that was never established (and the nine calls a panel paid for a pack it never reads)</span></h3>
   </div>
@@ -206,9 +215,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><b>Five superseded images removed</b> from the source tree — <code>attribution.png</code>, <code>chart.png</code>, <code>model.png</code>, <code>performance.png</code>, <code>settings.png</code>, all dated 2026-07-17 and none of them still referenced by any page.</li>
       </ul>
     </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.19.6 <span class="reltitle">the drag that committed perfectly and was invisible</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
