@@ -1,13 +1,13 @@
 {
-  "version": "5.20.3",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.3.plugin",
-  "sha256": "e0401c333800dcd477f3188a3e0e9d58e3e72fb2857ab75b08e38c1dc8f52380",
+  "version": "5.20.4",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.4.plugin",
+  "sha256": "bf9f2024ffdc2538f333c3c292b049897bb77fa0704a3b260319feff616e35af",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.3.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.4.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, verbatim: *\"the upper right hand corner control icons for each of the floating panels don't appear to be working.\"* Nine panels open, on 5.20.2. THE HYPOTHESIS WAS 5.19.5's OWN FIX SEEN FROM THE OTHER SIDE, AND IT WAS WRONG The reading going in: 5.19.5 made a pointerdown anywhere in the title bar capture the pointer to the title bar, so a control would never see its own click. It is not that, and establishing it is what found the real cause. - The 5.19.6 guard already declines to start a drag on a control, and wsBindGesture captures only *after* start(ev) returns anything other than",
-  "published": "2026-08-09T22:31:18.275Z",
+  "notes": "The owner, after 5.20.3 shipped, after closing his stale tab and reloading a clean single-tab page: *\"I just tried each of them for the MU pricing model panel and none of them worked.\"* THREE RELEASES ANSWERED THIS AND NONE OF THEM FIXED IT — AND THE REASON IS THE SAME EACH TIME | release | diagnosis | how it was proven | | 5.19.6 | the drag guard captures the pointer away from the button | a harness with a hand-faked ev.target | | 5.20.3 | .wsgrip hit-tests above the in-flow title bar | a rig carrying the shipped CSS and the shipped construction — §37.5 says so in as many words | Each was cor",
+  "published": "2026-08-09T23:19:17.429Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
