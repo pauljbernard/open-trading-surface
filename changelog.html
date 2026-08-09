@@ -16,6 +16,9 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.20.1 — the window that was never established (and the nine calls a panel paid for a pack it never reads)</h2>
+<ul>
+</ul>
 <h2>5.20.0 — a sign test is not a floor, and a threshold that can only fire one way</h2>
 <ul>
 <li>It does <b>not</b> rebase the historical per-share series. Every model's <code>series()</code> still divides by the filed statement share count, never rebased to listed shares and never scale-checked per point, while <code>basis.js</code>'s whole doctrine is that per-share value should be <code>aggregate(t) × FX(t) ÷ TODAY'S LISTED SHARES</code>. Fixing that re-derives every grid point in the system and every precision weight computed from them. It is a larger dated break than this one and it is <b>named rather than done</b> (<code>OPPORTUNITY-SURFACE-SPEC</code> §9.8).</li>
