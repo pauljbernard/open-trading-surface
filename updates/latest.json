@@ -1,13 +1,13 @@
 {
-  "version": "5.19.11",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.11.plugin",
-  "sha256": "69116130e164ff56721500c143dd7ec23c29bf395622d9ce2f76e98151819297",
+  "version": "5.20.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.0.plugin",
+  "sha256": "9017c08e840fe78fc5cd23189cf63c94cb9c3115fae882a2c95b6c50feaac37a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.19.11.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A cohort-refresh pass refused 13 of 34 cohorts. Every one of the thirteen was a provider HTTP failure — twelve 429s inside a four-second window, plus one 502. Not enrichment, not ranks, not renamed fields, not deleted screens. The refusal itself was correct, and is unchanged: *\"membership is UNKNOWN, not empty.\"* Everything downstream of it was not, and the five defects are one family — a system that knew a thing and had no way to say it. 1. A refused cohort was never retried pending exists for a halted pass. A cohort refused by a transient provider error was recorded and forgotten until the n",
-  "published": "2026-08-09T01:24:48.965Z",
+  "notes": "THIS RELEASE MOVES TWO PUBLISHED NUMBERS. It is a DATED METHODOLOGY BREAK, not a quiet fix. Disclosure precedes adjustment: OPPORTUNITY-SURFACE-SPEC §9 states, dated to this release, what every changed number meant before and what it means now, and every payload that carries a moved number carries the old one beside it. Evidence base: research/DATA-DEFECT-ROOTCAUSE.md. Healthcare's published sector mean gap was +211.93% and Real Estate's was +113.79%. Measured on the same recorded day, over the cells that clear the evidence floor, the medians are +10.39% and −4.35%. A reader who saw the old nu",
+  "published": "2026-08-09T17:35:03.500Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

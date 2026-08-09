@@ -114,12 +114,27 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.19.11</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-09 01:24 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.20.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-09 17:35 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.20.0 <span class="reltitle">a sign test is not a floor, and a threshold that can only fire one way</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>It sets no new colour, moves no cadence, no budget and no schedule, and adds no engine capability.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>It does <b>not</b> rebase the historical per-share series. Every model's <code>series()</code> still divides by the filed statement share count, never rebased to listed shares and never scale-checked per point, while <code>basis.js</code>'s whole doctrine is that per-share value should be <code>aggregate(t) × FX(t) ÷ TODAY'S LISTED SHARES</code>. Fixing that re-derives every grid point in the system and every precision weight computed from them. It is a larger dated break than this one and it is <b>named rather than done</b> (<code>OPPORTUNITY-SURFACE-SPEC</code> §9.8).</li>
+        <li>It does <b>not</b> rename <code>vintage_thin</code>, and does not fix the 200-character truncation that cuts a <code>vehicle_unmodeled</code> reason mid-word.</li>
+        <li><b>It was not opened in a browser.</b> The two client changes — the yield note on a process row and the evidence marker in the treemap tooltip — are asserted by derived tests over the shipped source and were not seen rendered.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.19.11 <span class="reltitle">thirteen refusals nobody re-asked, and a screen that could not see what it could not see</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -194,16 +209,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.19.5 <span class="reltitle">the drag that never ran, the charts that could not get a socket, and the count that was not accumulating</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.19.4 <span class="reltitle">the bar that spanned the wrong region, and the menu that looked like it never cleared</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>which view the focused panel is showing</b> — <code>.focused</code>, accent background plus an inset accent bar, on <b>EXACTLY ONE</b> node, derived from <code>state.workspace.focused</code>. It goes to the most specific reachable node, so an expanded category hands it to its matching item;</li>
-        <li><b>which views have open panels</b> — <code>.railn</code>, a quiet count pill. <b>A COUNT, not a dot</b>, because decision §21.3 makes two panels of one view ordinary and a dot cannot report three;</li>
-        <li><b>a focused panel on ANOTHER security says which</b>, because <code>active_symbol</code> is the focused panel's security while the rail acts on <code>context_symbol</code>.</li>
-      </ul>
-    </div>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
