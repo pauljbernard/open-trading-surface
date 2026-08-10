@@ -114,12 +114,38 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.20.6</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-10 01:06 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.21.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-10 02:54 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.21.0 <span class="reltitle">the economic calendar, and the rate that was measured before it was assumed</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li><b>Macro-economic → Calendar</b> — one <code>MACRO_PANELS</code> row and one renderer, <code>open_macro {panel:'calendar'}</code> working with <b>no new verb</b>. Density is handled by <b>aggregation with a published denominator, never a cap that hides</b>: daily and weekly show everything, a monthly cell prints its full count with ranked chips and a real <code>+N more</code>, and the annual view shows <b>density and anchors and says that is what it is.</b> A derived test drives one window through all four projections and fails the build if the counts disagree.</li>
+        <li><b>The merge.</b> <code>unified-calendar</code>'s source 3 <b>reads the store</b> instead of becoming the fifth caller of FMP's <code>economic-calendar</code>, so the <code>economic</code> native type — <b>the only one whose <code>target</code> was <code>null</code>, since 3.93.0</b> — now has a destination, and the same event id appears on both surfaces. <code>get_calendar</code> keeps every FMP key and only adds.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>FRED: 914 dated occurrences over 170 distinct releases</b>, across 31 days.</li>
+        <li><b>FMP: 100 US medium/high-impact rows</b> for the same month.</li>
+        <li><b>The matcher links 22 of 100.</b> Ten refused as ambiguous, 68 kept as unmatched, <b>every accepted link correct by inspection.</b></li>
+        <li><b><code>server/econ-archive.js</code> — the point-in-time consensus archive.</b> Append-only JSONL under <code>store.withLock</code> <b>from its first line</b>, and it lives <b>beside <code>pit.js</code>, never inside it</b>, because that module's <i>"IT MAKES NO PROVIDER CALLS"</i> is load-bearing — it is what lets <code>pit-snapshot</code> refuse by name rather than fetch. Consensus-before-print is only recordable <b>before</b> the print: once a number prints, every provider rewrites the row, and ALFRED — which does serve vintages of the actual — <b>has no consensus at any price</b>. Every release that prints before this file exists is a permanent hole.</li>
+        <li><b>The <code>econ-calendar-pull</code> process, twice on weekdays</b>, with its own daemon clock. One pull a day is not a cheaper version of it: the dominant US release time is 08:30 ET, so <b>an evening-only pull structurally cannot record a consensus before a print.</b> The <code>yield</code> block carries the closed verdict vocabulary and the <code>not_this_process</code> table in which a provider 429 is not this process, a missing key is not this process, and <b>an occurrence that could not be LINKED IS this process and is never excused.</b></li>
+        <li><b>Seven tools and four ctl verbs</b>, with <code>ctlState()</code> publishing what the panel shows — including whether it is in FMP-only degraded mode.</li>
+        <li>§8.1 estimated <i>"a few thousand"</i> dated occurrences a <b>year</b>. Measured: <b>914 in one month</b> — roughly 11,000 a year. Every density decision matters more, not less.</li>
+        <li>§2.5 says <code>economy.MEASURED</code> maps seven container variables onto FRED ids. <b>It maps three.</b> The other four live in <code>economy.HISTORY</code>, and the anchor join is over the union of both maps, naming both.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
+      <ul>
+        <li><b><code>server/econ-calendar.js</code></b> — the entity, the store, the two-lane matcher with its ambiguity refusal, the four zoom levels, the drill-down, the chart-jump resolution, and the <code>RELEASE_KINDS</code> vocabulary. Nothing is dropped and nothing is guessed: <code>linked</code> / <code>fred_only</code> / <code>fmp_only</code> / <code>unmatched</code>, each with what it can and cannot do.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.20.6 <span class="reltitle">one nesting behaviour, declared by whoever owns the children</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -197,20 +223,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li>It does <b>not</b> rebase the historical per-share series. Every model's <code>series()</code> still divides by the filed statement share count, never rebased to listed shares and never scale-checked per point, while <code>basis.js</code>'s whole doctrine is that per-share value should be <code>aggregate(t) × FX(t) ÷ TODAY'S LISTED SHARES</code>. Fixing that re-derives every grid point in the system and every precision weight computed from them. It is a larger dated break than this one and it is <b>named rather than done</b> (<code>OPPORTUNITY-SURFACE-SPEC</code> §9.8).</li>
         <li>It does <b>not</b> rename <code>vintage_thin</code>, and does not fix the 200-character truncation that cuts a <code>vehicle_unmodeled</code> reason mid-word.</li>
         <li><b>It was not opened in a browser.</b> The two client changes — the yield note on a process row and the evidence marker in the treemap tooltip — are asserted by derived tests over the shipped source and were not seen rendered.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.19.11 <span class="reltitle">thirteen refusals nobody re-asked, and a screen that could not see what it could not see</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>A sweep, not a per-cohort retry.</b> A per-cohort retry runs <i>inside</i> the storm: the whole point of a 429 is that the next call is likelier to fail than the last. The sweep runs minutes of real work later — the cheapest possible backoff, and it costs no timer.</li>
-        <li><b>Exactly one.</b> A loop that retried until it succeeded would turn a provider outage into an unbounded pass. It is additionally bounded by count; a storm that refused more than that is an outage, and re-asking two hundred times spends the key to confirm what the first two hundred refusals already said.</li>
-        <li><b>Pause is honoured</b> at the same boundary as the main loop, and a halted pass does not sweep at all — that would be work the halt was pressed to stop.</li>
-        <li><b>A cohort refused twice is a different fact.</b> The first refusal is consistent with weather; the second, minutes later, is evidence about the cohort or about a provider that is still down. Both readings are kept, the counts ride the one sentence every surface prints, and a refusal that survives the sweep moves the run record off <code>success</code>.</li>
-        <li>it distinguishes <b>fetched-and-genuinely-absent</b> from <b>the-fetch-failed</b> — the provider answers an uncovered symbol with HTTP 200 and an empty array, so only a transport error or a non-2xx status is recorded;</li>
-        <li>it carries the <b>HTTP status</b>, so a 429 (spend, retryable) reads differently from a 403 (entitlement, permanent);</li>
-        <li>it carries the <b>stage</b>, so a failure that changes <i>who is in the answer</i> is told apart from one that changes only a displayed column.</li>
       </ul>
     </div>
   </div>
