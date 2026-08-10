@@ -114,12 +114,36 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.26.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-10 19:53 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.26.1</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-10 20:39 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.26.1 <span class="reltitle">the guard that manufactured a measurement</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><code>index.js</code> / <code>routes/cm.js</code> — an absent <code>effectiveTaxRateTTM</code> became a **tax</li>
+        <li><code>model-scope.js</code> — an absent per-share value became <b>$0.00</b>, in a block whose</li>
+        <li><code>rule-actions.js</code> — an absent quote price **marked a paper-book position at</li>
+        <li><code>backtest-store.js</code> — an absent <code>keep_per_strategy</code> became <b>keep 0</b>, a prune</li>
+        <li><code>search-ledger.js</code> — an absent Sharpe was recorded as **0.0 in the trial record</li>
+        <li><code>strategy-loop.js</code> — an absent <code>days</code> became <b>1</b>, narrowing a walk to a day.</li>
+        <li><code>econ-calendar.js</code> — <code>link_calendar_event</code> with a null <code>release_id</code> was</li>
+        <li><b><code>server/num.js</code> is the ONE numeric admission door</b>, deciding by <b>TYPE</b></li>
+        <li>**A derived law fails the build on any finiteness test applied to a</li>
+        <li><b>The boundary moved.</b> The defect lived in <code>scripts/</code>, and every derived law</li>
+        <li><b>The judgment reader is a pure function</b> separated from every write, and the</li>
+        <li><b><code>--template</code> ships</b>, and the fetch emits one automatically, so the shape can</li>
+        <li><b>A raw-fetch fingerprint is now required.</b> A judgment is an assertion about a</li>
+        <li>The backtest equity curve now <b>drops an absent point</b> instead of plotting it</li>
+        <li><b>The measurement is still not taken</b>, and nothing was fabricated to fill the</li>
+        <li><b>The bare <code>isFinite</code> family is only half closed</b>, by decision: ~120 sites use</li>
+        <li><b>It has never been opened in a browser.</b></li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.26.0 <span class="reltitle">the vintages we were already paying for, and the contact you could not test</span></h3>
   </div>
@@ -198,21 +222,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><code>expandable[]</code> — the parents that declare children, <b>derived from the registry that rail iterates</b>, each saying <code>static</code> or <code>provider</code>.</li>
         <li><code>expanded</code> / <code>expanded_record</code>, with an <b>absent</b> key distinguished from <code>null</code>.</li>
         <li>and <code>control_terminal set_rail_expanded {rail?, category, expanded?}</code> — a fact the payload publishes that the agent cannot change is a half-built contract. Expanding a <b>leaf</b> refuses <b>by name</b> and lists the parents that do nest.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.20.5 <span class="reltitle">the file and the program were two different texts</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>5.20.5 has not been opened in a browser</b> — the only connected Chrome is remote and cannot reach the owner's loopback. What was done, and what no previous release did, is load the <b>shipped document</b> into a real DOM, reproduce the defect there, and watch it disappear.</li>
-        <li><code>\uXXXX</code> and <code>\xXX</code> are deliberately <b>not</b> policed: they cook to a printable character on purpose.</li>
-        <li>No operation, verb, geometry, panel record or stylesheet rule changes. The owner's arrangement is untouched.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
-      <ul>
-        <li><b>The template literal is not removed.</b> Authoring the client in its own <code>.js</code> file read at emit time is the structurally strongest fix and the stated direction; moving 18,000 lines was judged too large for the release that fixes the button.</li>
       </ul>
     </div>
   </div>
