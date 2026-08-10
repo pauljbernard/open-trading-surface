@@ -1,13 +1,13 @@
 {
-  "version": "5.28.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.28.0.plugin",
-  "sha256": "3e0b08fc1bfa29aeb946f99d79b32a546bd06a470e8942a0c76f2830afd091de",
+  "version": "5.29.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.29.0.plugin",
+  "sha256": "d07879756d5e33c5b71b4b461ac79d1caedd16162c486248114a32589ca734d6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.28.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.29.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "> ⚠ THIS RELEASE MOVES PUBLISHED NUMBERS. READ THIS BEFORE COMPARING ANY EDGAR READING TO ONE YOU TOOK LAST WEEK. > > server/series.js dropped filed on the floor. Every EDGAR series in > this system was dated by period end and was treated as knowable weeks or > months before the filing that published it existed — while the FMP branch > eleven lines above it did the opposite and *said so*, in a disclosure > that reads: *\"this series appears known up to several weeks before it was > published. Treat any lead it shows as suspect.\"* > > The EDGAR branch was silently the exact failure its neighbour",
-  "published": "2026-08-10T21:50:25.543Z",
+  "notes": "He refused derived forward dates and proposed this instead. *\"I don't want to derive forward date. Either we know them (have a reliable source), or we leave them out.\"* — and then: *\"Instead of guessing at forward date, we can simply provide a user mechanism to add events to the calendar and to associate them with either the time series data set from edgar, fred or to the stock itself… We just need to make sure when we mouse over those events in the chart overlay or in the calendar, its clear that the event is either externally sourced (and from where) or user custom entered.\"* A derived forwa",
+  "published": "2026-08-10T23:33:47.510Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
