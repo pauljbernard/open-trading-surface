@@ -114,12 +114,30 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.21.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-10 02:54 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.22.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-10 03:57 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.22.0 <span class="reltitle">the lane was firing and had nothing to reach, and the calendar became a calendar</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>The warm-up covers <b>every release dated in the window</b>, in a <b>declared order</b> — link candidates first (they decide the rate), then the rest by release id. 5.21.0 inherited <code>Set</code> insertion order, so the outcome depended on which provider row arrived first.</li>
+        <li><b><code>CAL_SERIES_WARMUP_BUDGET</code> (300)</b> replaces the literal, sized to <b>converge in one pull</b>: FRED carries ~300 releases, the cache is per release, a warm entry is skipped free, and FRED's own 120/min bucket waits rather than failing — so a cold installation spends ~150 s of throttling once and nothing after. Uncapped was rejected: an unbounded loop against a provider is not a fix.</li>
+        <li><b>A cold cache is named as THIS PROCESS'S shortfall</b> in the <code>yield</code> block, separately for each cost. It is neither a provider failure nor a configuration fact and may not be excused as either.</li>
+        <li><b><code>lane_available</code> rides every verdict</b>, every occurrence and link record carries <code>series_lane: warm|cold</code>, and <code>link_coverage.series_lane</code> rides every pull and every panel read. <b>Below 100% the rate is a floor, not a measurement, and the panel says so Tier 1.</b></li>
+        <li><b><code>via_series</code> was being thrown away</b> — the lane read <code>sr.series_id</code> off a cached FRED row whose id field is <code>id</code>, so <b>every</b> live series-lane link recorded <code>null</code>.</li>
+        <li><b>Supersession is not a conflict, and the difference is the evidence.</b> A conflict is two derivations reading the same evidence and disagreeing, and it must refuse. A cold-derived link that a warm pull disagrees with saw strictly less of what FRED publishes: it is <b>superseded and recorded</b>, cold → warm only.</li>
+        <li><b>The store can hold the third link state.</b> <code>link</code> was only ever <code>linked</code> or <code>unmatched</code>, so <code>fmp_only</code> was structurally zero — a state the spec names and the store could not hold, with a different remedy (<code>search_series</code> vs <code>link_calendar_event</code>).</li>
+        <li><b>ANNUAL</b> — twelve month mini-grids, every day a cell, density carried by <b>intensity rather than text</b>, anchor days ringed, today outlined; a month name opens the month, a day cell opens the day. A year is on the order of eleven thousand occurrences: <b>this view shows SHAPE, and the density sentence says so.</b></li>
+        <li><b>MONTHLY</b> — a real seven-column month grid with the leading blanks computed from the first weekday. Every cell carries its <b>full count</b>, up to four ranked chips and a real <b>+N more</b> that opens the day.</li>
+        <li><b>WEEKLY</b> — seven day columns with the occurrences under each, time, consensus and actual, and the anchor strip beneath.</li>
+        <li><b>DAILY</b> — everything, in full, in release order, in the table that is the right shape for one day.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.21.0 <span class="reltitle">the economic calendar, and the rate that was measured before it was assumed</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -210,21 +228,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.20.1 <span class="reltitle">the window that was never established (and the nine calls a panel paid for a pack it never reads)</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.20.0 <span class="reltitle">a sign test is not a floor, and a threshold that can only fire one way</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>It sets no new colour, moves no cadence, no budget and no schedule, and adds no engine capability.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>It does <b>not</b> rebase the historical per-share series. Every model's <code>series()</code> still divides by the filed statement share count, never rebased to listed shares and never scale-checked per point, while <code>basis.js</code>'s whole doctrine is that per-share value should be <code>aggregate(t) × FX(t) ÷ TODAY'S LISTED SHARES</code>. Fixing that re-derives every grid point in the system and every precision weight computed from them. It is a larger dated break than this one and it is <b>named rather than done</b> (<code>OPPORTUNITY-SURFACE-SPEC</code> §9.8).</li>
-        <li>It does <b>not</b> rename <code>vintage_thin</code>, and does not fix the 200-character truncation that cuts a <code>vehicle_unmodeled</code> reason mid-word.</li>
-        <li><b>It was not opened in a browser.</b> The two client changes — the yield note on a process row and the evidence marker in the treemap tooltip — are asserted by derived tests over the shipped source and were not seen rendered.</li>
-      </ul>
-    </div>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->

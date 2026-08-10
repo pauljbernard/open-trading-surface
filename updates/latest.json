@@ -1,13 +1,13 @@
 {
-  "version": "5.21.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.21.0.plugin",
-  "sha256": "f7565c6e7a823d83e57a522ca40ccea44fa08cd54bc8358ac2557261f7f6d902",
+  "version": "5.22.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.22.0.plugin",
+  "sha256": "3c390e4693483f150fea02d9d24d4fc7c77660b81ad943f0e73de8b1bb1ee669",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.21.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.22.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: *\"a new panel that allows me and the agent to access a 'calendar' of economic events at the annual, monthly, weekly and or daily level; and the ability to drill down on and jump to the chart of that data element being released or already has been released for historical events.\"* THE FIRST RESULT IS A MEASUREMENT, AND IT CAME IN LOW ECONOMIC-CALENDAR-SPEC §21 closed by naming the one thing nobody knew: *\"the link match rate is entirely unmeasured … no one knows today whether FMP's US event names link to FRED releases at 90% or at 40%, and that number should be measured on a recorded",
-  "published": "2026-08-10T02:54:31.679Z",
+  "notes": "THE HYPOTHESIS HAD TO BE FALSIFIED BEFORE THE CAUSE APPEARED The first live pull ran on the owner's machine and reported 246 occurrences in the weekly window at a 6.8% link rate — linked: 5, fred_only: 172, fmp_only: 0, unmatched: 69 — against the 22% measured on the recorded July window before 5.21.0 was written. Three unmatched rows were sub-series of the Employment Situation release and printed their best score: Unemployment Rate (Jul) → 0.25, U-6 Unemployment Rate → 0.2, Participation Rate → 0.25. FRED has UNRATE, titled literally *\"Unemployment Rate\"*. That is an exact string match and sc",
+  "published": "2026-08-10T03:57:24.431Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
