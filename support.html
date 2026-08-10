@@ -114,12 +114,15 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.23.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-10 14:48 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.24.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-10 17:39 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.24.0 <span class="reltitle">one identity, one boundary, one door</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.23.0 <span class="reltitle">the chart button asks where, and a security pane answers</span></h3>
   </div>
@@ -217,15 +220,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
       <ul>
         <li>The <b>5.19.6 guard already declines</b> to start a drag on a control, and <code>wsBindGesture</code> captures only <i>after</i> <code>start(ev)</code> returns anything other than <code>false</code>. No capture is taken.</li>
         <li><b>Measured in a real browser with trusted clicks</b>, on a rig carrying the shipped rules and the shipped construction: a click at the <b>centre</b> of all five controls produced <code>pointerdown → mousedown → click → the handler ran</code>.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.20.2 <span class="reltitle">the adopter list that rotted twice, and a wait that says what it is waiting for</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>Several suites replace <code>server/fmp.js</code> at the require seam with a <b>fake</b> carrying only what they need; <code>withMemo</code> is not one of those functions, so calling it directly threw. <code>server/memo-scope.js</code> is now the one door, falling back to a pass-through that costs <b>requests</b> and cannot change an <b>answer</b>.</li>
-        <li><code>server/serve.js</code> <b>returned</b> the <code>/cm</code> route's promise from inside its <code>try</code>, so a rejection escaped the catch and <b>no response was ever written</b> — an open socket and a spinning panel, latent since the route was extracted. Fixed with an <code>await</code>, and pinned.</li>
       </ul>
     </div>
   </div>
