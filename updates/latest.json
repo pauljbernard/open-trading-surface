@@ -1,13 +1,13 @@
 {
-  "version": "5.27.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.27.0.plugin",
-  "sha256": "05188bc428735c9dd068356bf3077dcb334c51208f65d5f1609b3c9720387ff9",
+  "version": "5.28.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.28.0.plugin",
+  "sha256": "3e0b08fc1bfa29aeb946f99d79b32a546bd06a470e8942a0c76f2830afd091de",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.27.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.28.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE ONE SENTENCE A disclosure no reader carries is a comment. server/series.js has emitted dated_by on every FMP financial series for releases — *\"PERIOD END — no filing date was available, so this series appears known up to several weeks before it was published. Treat any lead it shows as suspect.\"* — and not one reader carried it. resolve_series projected six fields; the chart overlay projected five; the return panel projected none. The sentence was computed, returned over the wire, and dropped one line later on both planes. Phase 5 (next release) is a dated methodology break that puts a sec",
-  "published": "2026-08-10T21:23:03.846Z",
+  "notes": "> ⚠ THIS RELEASE MOVES PUBLISHED NUMBERS. READ THIS BEFORE COMPARING ANY EDGAR READING TO ONE YOU TOOK LAST WEEK. > > server/series.js dropped filed on the floor. Every EDGAR series in > this system was dated by period end and was treated as knowable weeks or > months before the filing that published it existed — while the FMP branch > eleven lines above it did the opposite and *said so*, in a disclosure > that reads: *\"this series appears known up to several weeks before it was > published. Treat any lead it shows as suspect.\"* > > The EDGAR branch was silently the exact failure its neighbour",
+  "published": "2026-08-10T21:50:25.543Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

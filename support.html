@@ -114,12 +114,28 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.27.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-10 21:23 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.28.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-10 21:50 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.28.0 <span class="reltitle">knowability: a DATED METHODOLOGY BREAK on every EDGAR series</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>**FRED, price, index, model, container and expression series are</li>
+        <li><b>FMP statement series are BYTE-IDENTICAL too.</b> That branch has dated its</li>
+        <li><b><code>cleanPoints</code> widens by exactly one field, on opt-in.</b> Nineteen of twenty</li>
+        <li><b>The correction can only ever REMOVE foresight.</b> A filing date is never</li>
+        <li><b>IT HAS NEVER BEEN OPENED IN A BROWSER.</b></li>
+        <li><b>The <code>end</code>-only dedup is disclosed and unfixed</b> (above), as is the</li>
+        <li><b>§10.5's broader vintage refusal is designed and NOT taken.</b> A</li>
+        <li>**<code>fmp:</code> financial series still date their POINTS by the filing date while</li>
+        <li><b>No FRED observation has a <code>knowable_at</code>.</b> §3.4 says it is the release</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.27.0 <span class="reltitle">the disclosure that reached nobody, and two deferrals closed by measurement</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -197,32 +213,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><b>MONTHLY</b> — a real seven-column month grid with the leading blanks computed from the first weekday. Every cell carries its <b>full count</b>, up to four ranked chips and a real <b>+N more</b> that opens the day.</li>
         <li><b>WEEKLY</b> — seven day columns with the occurrences under each, time, consensus and actual, and the anchor strip beneath.</li>
         <li><b>DAILY</b> — everything, in full, in release order, in the table that is the right shape for one day.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.21.0 <span class="reltitle">the economic calendar, and the rate that was measured before it was assumed</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>Macro-economic → Calendar</b> — one <code>MACRO_PANELS</code> row and one renderer, <code>open_macro {panel:'calendar'}</code> working with <b>no new verb</b>. Density is handled by <b>aggregation with a published denominator, never a cap that hides</b>: daily and weekly show everything, a monthly cell prints its full count with ranked chips and a real <code>+N more</code>, and the annual view shows <b>density and anchors and says that is what it is.</b> A derived test drives one window through all four projections and fails the build if the counts disagree.</li>
-        <li><b>The merge.</b> <code>unified-calendar</code>'s source 3 <b>reads the store</b> instead of becoming the fifth caller of FMP's <code>economic-calendar</code>, so the <code>economic</code> native type — <b>the only one whose <code>target</code> was <code>null</code>, since 3.93.0</b> — now has a destination, and the same event id appears on both surfaces. <code>get_calendar</code> keeps every FMP key and only adds.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>FRED: 914 dated occurrences over 170 distinct releases</b>, across 31 days.</li>
-        <li><b>FMP: 100 US medium/high-impact rows</b> for the same month.</li>
-        <li><b>The matcher links 22 of 100.</b> Ten refused as ambiguous, 68 kept as unmatched, <b>every accepted link correct by inspection.</b></li>
-        <li><b><code>server/econ-archive.js</code> — the point-in-time consensus archive.</b> Append-only JSONL under <code>store.withLock</code> <b>from its first line</b>, and it lives <b>beside <code>pit.js</code>, never inside it</b>, because that module's <i>"IT MAKES NO PROVIDER CALLS"</i> is load-bearing — it is what lets <code>pit-snapshot</code> refuse by name rather than fetch. Consensus-before-print is only recordable <b>before</b> the print: once a number prints, every provider rewrites the row, and ALFRED — which does serve vintages of the actual — <b>has no consensus at any price</b>. Every release that prints before this file exists is a permanent hole.</li>
-        <li><b>The <code>econ-calendar-pull</code> process, twice on weekdays</b>, with its own daemon clock. One pull a day is not a cheaper version of it: the dominant US release time is 08:30 ET, so <b>an evening-only pull structurally cannot record a consensus before a print.</b> The <code>yield</code> block carries the closed verdict vocabulary and the <code>not_this_process</code> table in which a provider 429 is not this process, a missing key is not this process, and <b>an occurrence that could not be LINKED IS this process and is never excused.</b></li>
-        <li><b>Seven tools and four ctl verbs</b>, with <code>ctlState()</code> publishing what the panel shows — including whether it is in FMP-only degraded mode.</li>
-        <li>§8.1 estimated <i>"a few thousand"</i> dated occurrences a <b>year</b>. Measured: <b>914 in one month</b> — roughly 11,000 a year. Every density decision matters more, not less.</li>
-        <li>§2.5 says <code>economy.MEASURED</code> maps seven container variables onto FRED ids. <b>It maps three.</b> The other four live in <code>economy.HISTORY</code>, and the anchor join is over the union of both maps, naming both.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
-      <ul>
-        <li><b><code>server/econ-calendar.js</code></b> — the entity, the store, the two-lane matcher with its ambiguity refusal, the four zoom levels, the drill-down, the chart-jump resolution, and the <code>RELEASE_KINDS</code> vocabulary. Nothing is dropped and nothing is guessed: <code>linked</code> / <code>fred_only</code> / <code>fmp_only</code> / <code>unmatched</code>, each with what it can and cannot do.</li>
       </ul>
     </div>
   </div>
