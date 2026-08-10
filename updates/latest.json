@@ -1,13 +1,13 @@
 {
-  "version": "5.24.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.24.0.plugin",
-  "sha256": "a3cac8fdbf444b1e99990bd29c0a9e122edf895d8b9b99bb0227a2d1f2bdaecb",
+  "version": "5.25.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.25.0.plugin",
+  "sha256": "56c0878a4368337b31d7e1894d106c8b8fbc903a0472eaa1d31788795f8728ac",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.24.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.25.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "PHASE 0 OF SERIES-SPEC — AND IT MOVES NO NUMBER, WHICH IS PROVEN RATHER THAN ASSERTED The owner approved the whole SERIES-SPEC arc. This is the first release of it, and its defining property is that it changes no entity, touches no surface and moves no published number. That claim is worth nothing unless something can falsify it, so: > series.parseRef is BYTE-IDENTICAL over a 32-ref corpus against the 5.23.0 > implementation read out of git — and A DRIFT FIXTURE PROVES THE COMPARISON CAN > FAIL. A byte-identity harness that cannot fail proves nothing (5.19.9). ONE SERIES IDENTITY — server/seri",
-  "published": "2026-08-10T17:39:46.761Z",
+  "notes": "PHASES 1 AND 2 OF SERIES-SPEC — AND THEY MOVE NO NUMBER, PROVEN RATHER THAN ASSERTED This release changes what a person can FIND. It changes nothing a person can READ, and that claim is worth nothing unless something can falsify it: > Every catalog category except economic is BYTE-IDENTICAL to 5.24.0 for > three symbols. NOT ONE REF WAS REMOVED. parseRef is byte-identical over a > 13-ref corpus, the non-macro half of search() over six queries, and the > MOVED chartability verdict over 29 (series × window) comparisons against the > 5.24.0 implementation loaded out of a pristine checkout — WITH ",
+  "published": "2026-08-10T19:00:10.551Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
