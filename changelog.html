@@ -16,6 +16,15 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.30.0 — the same events on the chart, under the same provenance</h2>
+<ul>
+<li><b>A twelfth event source, <code>UE</code>.</b> It inherits the legend, the all-on/off row,</li>
+<li><b>Provenance on EVERY marker, first, above the label.</b> <code>server/events.js</code></li>
+<li><b>A row with no provenance says so</b> — *source not stated by the producer* —</li>
+<li><b>An event associated with a SERIES draws wherever that series is overlaid</b>,</li>
+<li><b>Clicking one opens the calendar drill-down</b> on its chain — the chain id</li>
+<li><b><code>CHART_MARKERS_SHIPPED</code> flips</b>, and the *not yet available* sentence stops</li>
+</ul>
 <h2>5.29.0 — the owner's own calendar events, merged under visible provenance</h2>
 <ul>
 </ul>

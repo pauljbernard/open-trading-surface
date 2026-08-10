@@ -114,12 +114,25 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.29.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-10 23:33 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.30.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-10 23:45 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.30.0 <span class="reltitle">the same events on the chart, under the same provenance</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>A twelfth event source, <code>UE</code>.</b> It inherits the legend, the all-on/off row,</li>
+        <li><b>Provenance on EVERY marker, first, above the label.</b> <code>server/events.js</code></li>
+        <li><b>A row with no provenance says so</b> — <i>source not stated by the producer</i> —</li>
+        <li><b>An event associated with a SERIES draws wherever that series is overlaid</b>,</li>
+        <li><b>Clicking one opens the calendar drill-down</b> on its chain — the chain id</li>
+        <li><b><code>CHART_MARKERS_SHIPPED</code> flips</b>, and the <i>not yet available</i> sentence stops</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.29.0 <span class="reltitle">the owner's own calendar events, merged under visible provenance</span></h3>
   </div>
@@ -197,9 +210,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.24.0 <span class="reltitle">one identity, one boundary, one door</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.23.0 <span class="reltitle">the chart button asks where, and a security pane answers</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->

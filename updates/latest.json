@@ -1,13 +1,13 @@
 {
-  "version": "5.29.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.29.0.plugin",
-  "sha256": "d07879756d5e33c5b71b4b461ac79d1caedd16162c486248114a32589ca734d6",
+  "version": "5.30.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.30.0.plugin",
+  "sha256": "a30d2350f1590fdaf13989dd4667502986493b89bacefb7340c3e873db740a29",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.29.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.30.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "He refused derived forward dates and proposed this instead. *\"I don't want to derive forward date. Either we know them (have a reliable source), or we leave them out.\"* — and then: *\"Instead of guessing at forward date, we can simply provide a user mechanism to add events to the calendar and to associate them with either the time series data set from edgar, fred or to the stock itself… We just need to make sure when we mouse over those events in the chart overlay or in the calendar, its clear that the event is either externally sourced (and from where) or user custom entered.\"* A derived forwa",
-  "published": "2026-08-10T23:33:47.510Z",
+  "notes": "Phase 6b, and the end of the series arc. 5.29.0 put the owner's own events in the calendar and said, on every associated row, that the chart marker was not yet shipped. It is shipped. - A twelfth event source, UE. It inherits the legend, the all-on/off row, the clustering, the marker layer and the tooltip — no new UI, which is the test a new source has to pass. (§19.5 called it the thirteenth on the assumption that a series-marker source would land first; it has not, so the number is corrected rather than carried.) - Provenance on EVERY marker, first, above the label. server/events.js now decl",
+  "published": "2026-08-10T23:45:11.126Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
