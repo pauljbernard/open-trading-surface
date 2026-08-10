@@ -1,13 +1,13 @@
 {
-  "version": "5.25.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.25.0.plugin",
-  "sha256": "56c0878a4368337b31d7e1894d106c8b8fbc903a0472eaa1d31788795f8728ac",
+  "version": "5.26.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.26.0.plugin",
+  "sha256": "3143d158aec64a29a7e81e6d5516bcd204d92e6af5798fd88447329176b60fe2",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.25.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.26.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "PHASES 1 AND 2 OF SERIES-SPEC — AND THEY MOVE NO NUMBER, PROVEN RATHER THAN ASSERTED This release changes what a person can FIND. It changes nothing a person can READ, and that claim is worth nothing unless something can falsify it: > Every catalog category except economic is BYTE-IDENTICAL to 5.24.0 for > three symbols. NOT ONE REF WAS REMOVED. parseRef is byte-identical over a > 13-ref corpus, the non-macro half of search() over six queries, and the > MOVED chartability verdict over 29 (series × window) comparisons against the > 5.24.0 implementation loaded out of a pristine checkout — WITH ",
-  "published": "2026-08-10T19:00:10.551Z",
+  "notes": "THE FIRST RESULT IS A MEASUREMENT, TAKEN BEFORE ANY CODE — AND IT HELD SERIES-SPEC §9.5.1 set one gate on the EDGAR vintage store: one live companyconcept call, with the instruction that if the response carried one vintage per period the store is not built and §9.5 is recorded as corrected. The call was made, through this system's own governed door: | Company · concept | rows | distinct (start,end) | with >1 vintage | max | values differ | | AAPL RevenueFromContractWithCustomerExcludingAssessedTax | 117 | 57 | 46 | 4 | 0 | | GE NetIncomeLoss | 398 | 127 | 115 | 7 | 37 | The inference held. EDG",
+  "published": "2026-08-10T19:53:40.653Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

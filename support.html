@@ -114,12 +114,15 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.25.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-10 19:00 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.26.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-10 19:53 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.26.0 <span class="reltitle">the vintages we were already paying for, and the contact you could not test</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.25.0 <span class="reltitle">the picker stops having a list</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -210,21 +213,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-rm">Removed</span>
       <ul>
         <li><b>The template literal is not removed.</b> Authoring the client in its own <code>.js</code> file read at emit time is the structurally strongest fix and the stated direction; moving 18,000 lines was judged too large for the release that fixes the button.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.20.4 <span class="reltitle">the measurement nobody had taken, and the stack that was an accident</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li><b>The z collision is a proven defect and not a proven cause.</b> Panels cascade downward, so a lower panel does not cover an upper panel's title bar; the tie would produce dead controls only where two panels actually overlap at the cluster. Whether that is what he hit is exactly what the new hit test measures.</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The interceptor is not named.</b> This release establishes that nothing in the emitted stylesheet <i>can</i> cover a control — the only boxes in <code>[100, 999]</code> are panels, and within a panel the cluster outranks every grip — and it makes his page report the answer. The next reading is a measurement rather than a fourth hypothesis.</li>
-        <li><b>5.20.4 has not been opened in a browser.</b> The only connected Chrome is remote and cannot reach the owner's loopback; the sandbox that could serve the page has no inbound route (tested).</li>
-        <li>Nothing about the owner's arrangement changes, and his workspace was read <b>read-only</b> throughout.</li>
       </ul>
     </div>
   </div>
