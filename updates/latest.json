@@ -1,13 +1,13 @@
 {
-  "version": "5.26.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.26.1.plugin",
-  "sha256": "466b89d8e3367a81e45dcbea2b19586937caca7c455a5d836682ef3afcf23c73",
+  "version": "5.27.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.27.0.plugin",
+  "sha256": "05188bc428735c9dd068356bf3077dcb334c51208f65d5f1609b3c9720387ff9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.26.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.27.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "WHAT HAPPENED The owner ran the FRED search-quality measurement (SERIES-SPEC §17.5). The fetch worked — research/FRED-SEARCH-QUALITY-RAW.json holds twenty real query responses and FRED's results are visibly good (*core inflation* returns CPIAUCSL, CPILFESL, CORESTICKM159SFRBATL, PCEPILFE; *jobless claims* returns ICSA, IC4WSA, ICNSA). He was handed a judgment template carrying null for every query, on the stated belief that the script would refuse an unjudged query by name. It did not. scripts/measure-fred-search.js:118 read js if (!Number.isFinite(Number(n))) { and Number(null) is 0, which is",
-  "published": "2026-08-10T20:39:53.520Z",
+  "notes": "THE ONE SENTENCE A disclosure no reader carries is a comment. server/series.js has emitted dated_by on every FMP financial series for releases — *\"PERIOD END — no filing date was available, so this series appears known up to several weeks before it was published. Treat any lead it shows as suspect.\"* — and not one reader carried it. resolve_series projected six fields; the chart overlay projected five; the return panel projected none. The sentence was computed, returned over the wire, and dropped one line later on both planes. Phase 5 (next release) is a dated methodology break that puts a sec",
+  "published": "2026-08-10T21:23:03.846Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
