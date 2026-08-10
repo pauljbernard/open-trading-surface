@@ -1,13 +1,13 @@
 {
-  "version": "5.20.5",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.5.plugin",
-  "sha256": "7c5c37678f550fdb0599e2739aceb738e301b81bcf78fe5aa54185f3fbd99e39",
+  "version": "5.20.6",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.6.plugin",
+  "sha256": "93d5165d73e81efe059b8ec306ab1c97cba3048cac8ea55a1e0b79e6f05d2918",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.5.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.6.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, on a clean single-tab 5.20.4 page with two chart panels open: the five title-bar controls do nothing when clicked. The fifth release about the same five buttons, and the first one that names the character. FOUR RELEASES HAD ALREADY ELIMINATED EVERYTHING EXCEPT THE ANSWER | eliminated | by what | reading | | occlusion | 5.20.4's document.elementsFromPoint hit test, run in his browser on his document | every control reachable: true, blocked: [], dead_pct: 0 | | the operation, the store write, the paint | driving control_terminal {minimize_panel} against his live page | the panel visib",
-  "published": "2026-08-10T00:08:20.365Z",
+  "notes": "The owner, 2026-08-09: *\"you'll also notice that under financial statements submenus behave as expand and collapse which is correct. however thesis submenu display at the same level but at the end of the list. what should happen is that Thesis submenus should also expand and collapse like what we see under financial statements.\"* He is describing the symptom of a structural fact: the left rail had two mechanisms, and only one of them could nest. WHY THE TWO RAILS NESTED DIFFERENTLY The per-security rail nests because a registry entry declares what is under it — js { id: 'fin', label: 'Financia",
+  "published": "2026-08-10T01:06:44.601Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

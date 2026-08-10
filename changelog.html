@@ -16,6 +16,16 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.20.6 — one nesting behaviour, declared by whoever owns the children</h2>
+<ul>
+<li><b>Portfolios</b> *did* nest, correctly, and was never reported — with its own <code>.cat.open</code>, its own <code>.items</code> box and its own caret, keyed on the <b>selection</b>. A second implementation of one behaviour is the thing this house does not keep. It now declares <code>children</code>.</li>
+<li><b>Alerts</b> and <b>Market</b> are flat lists with nothing under them; they route through the same function so a child set declared next year nests with nothing for its author to remember.</li>
+<li><b>Administration is NOT unified with nesting, and that is a decision.</b> Eleven panels in four <b>group headings</b> is a *different mechanism*: a heading is a divider over <b>peers</b>, a nested child is one click <b>deeper</b> under a parent that is itself a destination. Administration has the first and no instance of the second, so merging them would put chevrons on eleven panels with nothing under them. The day one declares children it will nest, through the same function, with no rail change.</li>
+<li><code>rail</code> — which of the six rails is rendered, from the <b>same <code>RAILS</code> table <code>renderRail</code> dispatches on</b>, so the payload cannot disagree with the paint. A <code>null</code> id is a real entry: Cohorts and Marketplace <b>have</b> no rail.</li>
+<li><code>expandable[]</code> — the parents that declare children, <b>derived from the registry that rail iterates</b>, each saying <code>static</code> or <code>provider</code>.</li>
+<li><code>expanded</code> / <code>expanded_record</code>, with an <b>absent</b> key distinguished from <code>null</code>.</li>
+<li>and <code>control_terminal set_rail_expanded {rail?, category, expanded?}</code> — a fact the payload publishes that the agent cannot change is a half-built contract. Expanding a <b>leaf</b> refuses <b>by name</b> and lists the parents that do nest.</li>
+</ul>
 <h2>5.20.5 — the file and the program were two different texts</h2>
 <ul>
 <li><b>5.20.5 has not been opened in a browser</b> — the only connected Chrome is remote and cannot reach the owner's loopback. What was done, and what no previous release did, is load the <b>shipped document</b> into a real DOM, reproduce the defect there, and watch it disappear.</li>
