@@ -114,12 +114,15 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.22.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-10 03:57 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.23.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-10 14:48 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.23.0 <span class="reltitle">the chart button asks where, and a security pane answers</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.22.0 <span class="reltitle">the lane was firing and had nothing to reach, and the calendar became a calendar</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -225,9 +228,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><code>server/serve.js</code> <b>returned</b> the <code>/cm</code> route's promise from inside its <code>try</code>, so a rejection escaped the catch and <b>no response was ever written</b> — an open socket and a spinning panel, latent since the route was extracted. Fixed with an <code>await</code>, and pinned.</li>
       </ul>
     </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.20.1 <span class="reltitle">the window that was never established (and the nine calls a panel paid for a pack it never reads)</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
