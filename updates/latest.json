@@ -1,13 +1,13 @@
 {
-  "version": "5.20.4",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.4.plugin",
-  "sha256": "bf9f2024ffdc2538f333c3c292b049897bb77fa0704a3b260319feff616e35af",
+  "version": "5.20.5",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.5.plugin",
+  "sha256": "7c5c37678f550fdb0599e2739aceb738e301b81bcf78fe5aa54185f3fbd99e39",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.4.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.20.5.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, after 5.20.3 shipped, after closing his stale tab and reloading a clean single-tab page: *\"I just tried each of them for the MU pricing model panel and none of them worked.\"* THREE RELEASES ANSWERED THIS AND NONE OF THEM FIXED IT — AND THE REASON IS THE SAME EACH TIME | release | diagnosis | how it was proven | | 5.19.6 | the drag guard captures the pointer away from the button | a harness with a hand-faked ev.target | | 5.20.3 | .wsgrip hit-tests above the in-flow title bar | a rig carrying the shipped CSS and the shipped construction — §37.5 says so in as many words | Each was cor",
-  "published": "2026-08-09T23:19:17.429Z",
+  "notes": "The owner, on a clean single-tab 5.20.4 page with two chart panels open: the five title-bar controls do nothing when clicked. The fifth release about the same five buttons, and the first one that names the character. FOUR RELEASES HAD ALREADY ELIMINATED EVERYTHING EXCEPT THE ANSWER | eliminated | by what | reading | | occlusion | 5.20.4's document.elementsFromPoint hit test, run in his browser on his document | every control reachable: true, blocked: [], dead_pct: 0 | | the operation, the store write, the paint | driving control_terminal {minimize_panel} against his live page | the panel visib",
+  "published": "2026-08-10T00:08:20.365Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

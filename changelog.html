@@ -16,6 +16,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.20.5 — the file and the program were two different texts</h2>
+<ul>
+<li><b>5.20.5 has not been opened in a browser</b> — the only connected Chrome is remote and cannot reach the owner's loopback. What was done, and what no previous release did, is load the <b>shipped document</b> into a real DOM, reproduce the defect there, and watch it disappear.</li>
+<li><code>\uXXXX</code> and <code>\xXX</code> are deliberately <b>not</b> policed: they cook to a printable character on purpose.</li>
+<li><b>The template literal is not removed.</b> Authoring the client in its own <code>.js</code> file read at emit time is the structurally strongest fix and the stated direction; moving 18,000 lines was judged too large for the release that fixes the button.</li>
+<li>No operation, verb, geometry, panel record or stylesheet rule changes. The owner's arrangement is untouched.</li>
+</ul>
 <h2>5.20.4 — the measurement nobody had taken, and the stack that was an accident</h2>
 <ul>
 <li><b>The interceptor is not named.</b> This release establishes that nothing in the emitted stylesheet *can* cover a control — the only boxes in <code>[100, 999]</code> are panels, and within a panel the cluster outranks every grip — and it makes his page report the answer. The next reading is a measurement rather than a fourth hypothesis.</li>

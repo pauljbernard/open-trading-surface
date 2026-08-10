@@ -114,12 +114,27 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.20.4</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-09 23:19 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.20.5</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-10 00:08 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.20.5 <span class="reltitle">the file and the program were two different texts</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>5.20.5 has not been opened in a browser</b> — the only connected Chrome is remote and cannot reach the owner's loopback. What was done, and what no previous release did, is load the <b>shipped document</b> into a real DOM, reproduce the defect there, and watch it disappear.</li>
+        <li><code>\uXXXX</code> and <code>\xXX</code> are deliberately <b>not</b> policed: they cook to a printable character on purpose.</li>
+        <li>No operation, verb, geometry, panel record or stylesheet rule changes. The owner's arrangement is untouched.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
+      <ul>
+        <li><b>The template literal is not removed.</b> Authoring the client in its own <code>.js</code> file read at emit time is the structurally strongest fix and the stated direction; moving 18,000 lines was judged too large for the release that fixes the button.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.20.4 <span class="reltitle">the measurement nobody had taken, and the stack that was an accident</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -204,9 +219,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><b>The ledger stops losing crashed runs.</b> <code>processes.retireOrphans()</code> records each as a <b><code>failed</code></b> run carrying its last progress, <code>statusOf</code> reads an orphan red <i>before</i> the ledger catches up, and <code>processes.start</code> no longer takes over an orphan in silence.</li>
       </ul>
     </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.19.9 <span class="reltitle">five of every six requests were for bytes we already had</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
