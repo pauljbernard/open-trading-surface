@@ -1,13 +1,13 @@
 {
-  "version": "5.32.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.32.0.plugin",
-  "sha256": "691a9447ea8701cd5643d99139e9bf684c6d756198f115f1588de961346ae949",
+  "version": "5.33.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.33.0.plugin",
+  "sha256": "50f6daf0d8ce7b0ba43c3c2a90bf8bc33c573f4e189a213c65bbb67b8f570088",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.32.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.33.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner asked for it plainly: *\"I would like to have a bear, neutral and bull lens... per-security prompt overrides and a library of named prompts... the ability to capture a report as a research note... and a richer context bundle.\"* All of it ships here, together with the four defects the survey of the incumbent assembler found and the fifth the build found in itself. THREE LENSES — BEAR, NEUTRAL, BULL — AS THREE INDEPENDENT FULL TEXTS. A lens is a rule about where the burden of proof sits, never an instruction to reach a conclusion; each is expected to conclude against itself whenever the",
-  "published": "2026-08-11T17:52:48.354Z",
+  "notes": "Two things the owner asked for, and the survey each of them forced. \"IN THE PORTFOLIO PANEL WHEN WE DISPLAY ANY PORTFOLIO, LETS ADD THE ABILITY TO SORT ON EACH COLUMN.\" *Any portfolio* turned out to mean nineteen tables across eight views, and not one of them sorted. A sort per table is the curated list this house says rots — it is how three tables end up sorting and two silently do not — so a table now declares its columns and the sort arrives with the declaration, and the build fails on any portfolio renderer that emits a heading without coming through the one door. COLUMN TYPE IS DERIVED FR",
+  "published": "2026-08-11T21:43:22.982Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
