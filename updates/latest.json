@@ -1,13 +1,13 @@
 {
-  "version": "5.38.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.38.1.plugin",
-  "sha256": "c3beb802ed8f5c90a653be18962f9b4651d4af8f1bca63f47ba615707eccd716",
+  "version": "5.39.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.39.0.plugin",
+  "sha256": "bb1756689da9516fb34738e103db9657c4ce73e06cf8922d60e9a6df2f59d679",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.38.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.39.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Found by driving the 5.38.0 plan over a faithful copy of the owner's own two records rather than by reading it. migrate_thesis_model reported, for American Fortress, will_fold: 4 and — three lines later, in the same row — cannot_be_retrofitted including falsification criteria. Both sentences were produced by the same plan and the second was false by the time the reader finished the paragraph it was in: the reading was computed against the record AS IT STANDS while the fold this plan proposes was about to carry four criteria into it. cannot_be_retrofitted is now read against the post-fold proje",
-  "published": "2026-08-12T15:20:13.516Z",
+  "notes": "The owner, 2026-08-12: *\"The visual presentation of the Thesis panel look like one long growing page as various steps are undertaken. This is a very poor user experience and bad UX design and the menu design is poorly structured… At the top level we have Thesis candidate creation, analysis, review and confirmation/rejection… once a thesis has been selected (very much like a PR review in the SDLC coding world), we have a Thesis, that becomes part of the inventory of thesis we have decided we are going to manage… A thesis doesn't necessarily have a well defined screen. The creation of a screen i",
+  "published": "2026-08-12T16:39:40.083Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
