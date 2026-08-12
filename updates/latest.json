@@ -1,13 +1,13 @@
 {
-  "version": "5.37.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.37.0.plugin",
-  "sha256": "9108e0fb0623e382d18b2afbd2221754ca206800b8b8f3e5cecc826af1dc1cb8",
+  "version": "5.38.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.38.0.plugin",
+  "sha256": "4f42812a7b472a77bf3accb7d7e06bb9ec6a62ef0d9eb410557240b32878f0c3",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.37.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.38.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner ran thesis discovery for the first time and got nothing. The disclosure was correct and it stays. The design behind it did not survive his ruling: > *\"the result of nothing is that the feature is poorly designed. The notion that you > would never have any thesis about the market and its opportunities means its not > working.\"* > *\"I cannot imagine statistically or otherwise a case where there would be no > 'thesis' whatsoever.\"* > *\"there can be cases where a thesis could be 'imaginative' or low probability, but > there will always be potential ideas. The objective of the feature is ",
-  "published": "2026-08-12T14:01:17.530Z",
+  "notes": "The owner: *\"that may mean we have to retrofit one or both of the existing thesis and their associated screens, and cohorts to synchronize them.\"* Two theses live on this installation and the gap between them is symmetric. American Fortress (hand-built, macro, active) carries the whole OPERATIONAL half: eleven sector tilts and seven factor tilts that compile into a real screen, a confidence, a probability with a history, an evidence ledger, and a live linked cohort. Its discovery_reading.present is false — no falsifiers, no named companies, no scores, no horizon class. The Transformer Bottlene",
+  "published": "2026-08-12T15:08:19.251Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
