@@ -1,13 +1,13 @@
 {
-  "version": "5.38.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.38.0.plugin",
-  "sha256": "4f42812a7b472a77bf3accb7d7e06bb9ec6a62ef0d9eb410557240b32878f0c3",
+  "version": "5.38.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.38.1.plugin",
+  "sha256": "c3beb802ed8f5c90a653be18962f9b4651d4af8f1bca63f47ba615707eccd716",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.38.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.38.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: *\"that may mean we have to retrofit one or both of the existing thesis and their associated screens, and cohorts to synchronize them.\"* Two theses live on this installation and the gap between them is symmetric. American Fortress (hand-built, macro, active) carries the whole OPERATIONAL half: eleven sector tilts and seven factor tilts that compile into a real screen, a confidence, a probability with a history, an evidence ledger, and a live linked cohort. Its discovery_reading.present is false — no falsifiers, no named companies, no scores, no horizon class. The Transformer Bottlene",
-  "published": "2026-08-12T15:08:19.251Z",
+  "notes": "Found by driving the 5.38.0 plan over a faithful copy of the owner's own two records rather than by reading it. migrate_thesis_model reported, for American Fortress, will_fold: 4 and — three lines later, in the same row — cannot_be_retrofitted including falsification criteria. Both sentences were produced by the same plan and the second was false by the time the reader finished the paragraph it was in: the reading was computed against the record AS IT STANDS while the fold this plan proposes was about to carry four criteria into it. cannot_be_retrofitted is now read against the post-fold proje",
+  "published": "2026-08-12T15:20:13.516Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
