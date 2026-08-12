@@ -1,13 +1,13 @@
 {
-  "version": "5.35.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.35.0.plugin",
-  "sha256": "7ad4b5ec2c38cf970c0bb1bd9e05a0f086c343e81bd24a9414ec4ef57f919193",
+  "version": "5.36.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.36.0.plugin",
+  "sha256": "070186ca595665bc8613940a169723a3f324042dd0ad84a786c10b7c29c7d757",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.35.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.36.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE FIRST REAL RUN OF THE THREE-LENS FEATURE FAILED, AND THE REASON IS THE SUBJECT OF THIS RELEASE. Every release since Perspectives shipped closed by saying no live model call had ever been made from the session that built it. On 2026-08-11 the owner ran the bear lens on SPCX and the panel refused: *\"the response carried only thinking blocks and no text; the vendor reported stop_reason max_tokens — the whole max_tokens budget (currently 8192) went to reasoning before any prose was written.\"* THE REFUSAL WAS RIGHT AND IT IS NOT WEAKENED HERE — it named the vendor's own stop reason, the budget,",
-  "published": "2026-08-12T02:11:20.559Z",
+  "notes": "5.35.0 shipped the token-budget fix and the defect survived it. The owner ran the bear lens again — daemon and client both confirmed at 5.35.0 — and got the identical failure with the new number: *\"the response carried only thinking blocks and no text; the vendor reported stop_reason max_tokens — the whole max_tokens budget (currently 14000) went to reasoning before any prose was written.\"* The arithmetic settled it before any code was read: had budget_tokens: 8000 bound, reasoning would have stopped at 8,000 and 6,000 tokens of prose would exist. Consuming all 14,000 means the bound did not b",
+  "published": "2026-08-12T03:05:20.935Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

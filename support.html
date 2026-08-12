@@ -114,12 +114,29 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.35.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-12 02:11 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.36.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-12 03:05 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.36.0 <span class="reltitle">the bound that was sent and rejected, and the report written in parts</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>The shapes are <b>declared in order</b> (<code>enabled</code> → <code>adaptive</code> → <code>unstated</code>); a 400</li>
+        <li><b>A fallback never shrinks the ceiling.</b> <code>max_tokens</code> is carried across every</li>
+        <li>A shape that cannot bound reasoning <b>says so</b>; <code>output_config.effort</code> is named</li>
+        <li><b>Every refusal now reports the request that was actually sent</b> — the exact body</li>
+        <li>The section plan is <b>derived from the resolved prompt's own declared structure</b></li>
+        <li><b>One system prompt for the whole run</b> so the cached prefix reaches the bundle at</li>
+        <li><b>A partial result is a recorded state</b>: sections that arrived are kept, sections</li>
+        <li>One <code>bundle_digest</code> and one prompt version for the run; the **six axes are scored</li>
+        <li>The wait states what it is waiting for — both ends of the fraction or neither.</li>
+        <li><b>Thesis discovery shares the seam and states why it does not split</b>: its answer is</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.35.0 <span class="reltitle">the whole token budget went to reasoning, and prompts are now editable in one place</span></h3>
   </div>
@@ -171,22 +188,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.29.0 <span class="reltitle">the owner's own calendar events, merged under visible provenance</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.28.0 <span class="reltitle">knowability: a DATED METHODOLOGY BREAK on every EDGAR series</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>**FRED, price, index, model, container and expression series are</li>
-        <li><b>FMP statement series are BYTE-IDENTICAL too.</b> That branch has dated its</li>
-        <li><b><code>cleanPoints</code> widens by exactly one field, on opt-in.</b> Nineteen of twenty</li>
-        <li><b>The correction can only ever REMOVE foresight.</b> A filing date is never</li>
-        <li><b>IT HAS NEVER BEEN OPENED IN A BROWSER.</b></li>
-        <li><b>The <code>end</code>-only dedup is disclosed and unfixed</b> (above), as is the</li>
-        <li><b>§10.5's broader vintage refusal is designed and NOT taken.</b> A</li>
-        <li>**<code>fmp:</code> financial series still date their POINTS by the filing date while</li>
-        <li><b>No FRED observation has a <code>knowable_at</code>.</b> §3.4 says it is the release</li>
-      </ul>
-    </div>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
