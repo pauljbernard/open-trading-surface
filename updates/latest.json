@@ -1,13 +1,13 @@
 {
-  "version": "5.42.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.42.0.plugin",
-  "sha256": "48fb04317211739a9e2b6c1228e5716e0f253bcb5d9f18d9b1342796da4d79d1",
+  "version": "5.43.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.43.0.plugin",
+  "sha256": "e353adf4b8ae0a0aa2ec956a57f752ae2a2fac7444d576758f245b587f5f926f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.42.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.43.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Two owner-directed UX changes, both about what is on the screen rather than what a number says. The fit-versus-scroll rule, which supersedes what 5.41.0 chose The owner: *\"the answer to that would be when you do automatic layout such as tile, cascade, etc. then we can use the vertical scroll bars... when anyone resizes manually then resize and drop the scroll bar.\"* 5.41.0 made fit primary and scroll an escape hatch. That is right when the height is one a person chose and wrong when it is one a tiling arithmetic chose. CONTENT ADAPTS TO A SIZE THE OWNER CHOSE, AND SCROLLS IN A SIZE THE MACHINE",
-  "published": "2026-08-12T19:50:10.426Z",
+  "notes": "The owner: *\"Currently, charts can display analyst rating changes, but what it doesn't do is provide the ability to slice it by firm. if we select Analyst rating changes in the Event selector I think a really great enhancement would be to display a dialog that displays all the firms, or \"all\" which allows us to overlay all of the changes or just the changes from a particular source. This would allow us to see very clearly who is good and has been accurate and who has not.\"* The ratings layer drew all of them or none of them, and on a well covered name that is a wall: AAPL's grade stream is 1,7",
+  "published": "2026-08-12T21:42:59.307Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
