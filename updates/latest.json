@@ -1,13 +1,13 @@
 {
-  "version": "5.40.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.40.0.plugin",
-  "sha256": "ec222c92606be8556c1f40b17f2470ef6e4b65ecb6cd1b02788460b9b64c1564",
+  "version": "5.41.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.41.0.plugin",
+  "sha256": "27c7c8bf453982e0cba0b4c115e6842247c43eedfaf4b5f14b14297cbd8cb2f2",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.40.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.41.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner clicked Run discovery and, four minutes later, got a refusal ending \"whether anything was recorded is answered by the run list, which is read from the store.\" He read the run list. Nothing was there. The measurement corrected the diagnosis before any code was written. The run he abandoned is tdr_zy0xpldw7i: started 16:49:00.056Z, finished 16:56:45.274Z — 465,213 ms, against a 240,000 ms client bound — and it stored five candidates, every one complete at 21 of 21 parts, writing its record 225 seconds after the browser hung up. The server-side run survived the client disconnect intact.",
-  "published": "2026-08-12T17:57:54.316Z",
+  "notes": "The owner: *\"we have a bug in the chart panel. you'll notice that the vertical scroll is not appearing when the vertical potentially visible surface is greater than the panel size. some of the panels clearly have cut off time series at the bottom of the panels with no horizontal scroll bar, or alternatively the contents should have been resized vertically to fit which I suspect is the preferred solution.\"* The hypothesis going in did not survive, and testing it is what found the cause. The reading was that the pane heights are computed once at boot and never recomputed, which would explain the",
+  "published": "2026-08-12T18:54:44.716Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
