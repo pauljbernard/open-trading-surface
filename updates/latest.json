@@ -1,13 +1,13 @@
 {
-  "version": "5.34.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.34.0.plugin",
-  "sha256": "3e07d6810056d6e9f42eba0c26fb6bd61dd488e19b6e348bc5ec0f66136e0429",
+  "version": "5.35.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.35.0.plugin",
+  "sha256": "7ad4b5ec2c38cf970c0bb1bd9e05a0f086c343e81bd24a9414ec4ef57f919193",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.34.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.35.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER'S ASK: AN AI THESIS-DISCOVERY AGENT THAT PROPOSES CANDIDATES HE REVIEWS AND SELECTIVELY CONVERTS INTO TRACKED THESES — WITH MANUAL, FORM-BASED CREATION KEPT EXACTLY AS IT IS. A run reads this installation's own evidence and nothing else — sixteen declared blocks, no open web search — and proposes candidates into a review queue. It creates no thesis: conversion is a separate gesture, it records lineage rather than endorsement, and a converted thesis is born watching. Reachable at Macro-economic → Thesis → 🧪 Candidates and ▶ Discover, as two children of the existing rail entry — no ne",
-  "published": "2026-08-12T00:54:45.570Z",
+  "notes": "THE FIRST REAL RUN OF THE THREE-LENS FEATURE FAILED, AND THE REASON IS THE SUBJECT OF THIS RELEASE. Every release since Perspectives shipped closed by saying no live model call had ever been made from the session that built it. On 2026-08-11 the owner ran the bear lens on SPCX and the panel refused: *\"the response carried only thinking blocks and no text; the vendor reported stop_reason max_tokens — the whole max_tokens budget (currently 8192) went to reasoning before any prose was written.\"* THE REFUSAL WAS RIGHT AND IT IS NOT WEAKENED HERE — it named the vendor's own stop reason, the budget,",
+  "published": "2026-08-12T02:11:20.559Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
