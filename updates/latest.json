@@ -1,13 +1,13 @@
 {
-  "version": "5.39.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.39.0.plugin",
-  "sha256": "bb1756689da9516fb34738e103db9657c4ce73e06cf8922d60e9a6df2f59d679",
+  "version": "5.40.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.40.0.plugin",
+  "sha256": "ec222c92606be8556c1f40b17f2470ef6e4b65ecb6cd1b02788460b9b64c1564",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.39.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.40.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-12: *\"The visual presentation of the Thesis panel look like one long growing page as various steps are undertaken. This is a very poor user experience and bad UX design and the menu design is poorly structured… At the top level we have Thesis candidate creation, analysis, review and confirmation/rejection… once a thesis has been selected (very much like a PR review in the SDLC coding world), we have a Thesis, that becomes part of the inventory of thesis we have decided we are going to manage… A thesis doesn't necessarily have a well defined screen. The creation of a screen i",
-  "published": "2026-08-12T16:39:40.083Z",
+  "notes": "The owner clicked Run discovery and, four minutes later, got a refusal ending \"whether anything was recorded is answered by the run list, which is read from the store.\" He read the run list. Nothing was there. The measurement corrected the diagnosis before any code was written. The run he abandoned is tdr_zy0xpldw7i: started 16:49:00.056Z, finished 16:56:45.274Z — 465,213 ms, against a 240,000 ms client bound — and it stored five candidates, every one complete at 21 of 21 parts, writing its record 225 seconds after the browser hung up. The server-side run survived the client disconnect intact.",
+  "published": "2026-08-12T17:57:54.316Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
