@@ -1,13 +1,13 @@
 {
-  "version": "5.41.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.41.0.plugin",
-  "sha256": "27c7c8bf453982e0cba0b4c115e6842247c43eedfaf4b5f14b14297cbd8cb2f2",
+  "version": "5.42.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.42.0.plugin",
+  "sha256": "48fb04317211739a9e2b6c1228e5716e0f253bcb5d9f18d9b1342796da4d79d1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.41.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.42.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: *\"we have a bug in the chart panel. you'll notice that the vertical scroll is not appearing when the vertical potentially visible surface is greater than the panel size. some of the panels clearly have cut off time series at the bottom of the panels with no horizontal scroll bar, or alternatively the contents should have been resized vertically to fit which I suspect is the preferred solution.\"* The hypothesis going in did not survive, and testing it is what found the cause. The reading was that the pane heights are computed once at boot and never recomputed, which would explain the",
-  "published": "2026-08-12T18:54:44.716Z",
+  "notes": "Two owner-directed UX changes, both about what is on the screen rather than what a number says. The fit-versus-scroll rule, which supersedes what 5.41.0 chose The owner: *\"the answer to that would be when you do automatic layout such as tile, cascade, etc. then we can use the vertical scroll bars... when anyone resizes manually then resize and drop the scroll bar.\"* 5.41.0 made fit primary and scroll an escape hatch. That is right when the height is one a person chose and wrong when it is one a tiling arithmetic chose. CONTENT ADAPTS TO A SIZE THE OWNER CHOSE, AND SCROLLS IN A SIZE THE MACHINE",
+  "published": "2026-08-12T19:50:10.426Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
