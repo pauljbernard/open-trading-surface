@@ -33,6 +33,13 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.45.0 — Sharadar, rebuilt against the publisher; and §29 as a dated correction</h2>
+<ul>
+<li><b>An unrecognised key is not refused.</b> No key, an empty key and a well-formed</li>
+<li><b>An unsupported filter is silently ignored.</b> <code>reportperiod.gte</code> returned the</li>
+<li><b>An unknown dimension returns zero rows rather than an error</b>, so the closed</li>
+<li><b>403 is ambiguous</b> between no key, an invalid key and an unsubscribed table,</li>
+</ul>
 <h2>5.44.0 — Sharadar, the point-in-time fundamentals source, and nothing reads it</h2>
 <ul>
 <li><b>The ambiguity is disclosed rather than resolved.</b> What was measured is that an invalid key</li>

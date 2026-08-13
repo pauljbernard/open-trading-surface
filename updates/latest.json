@@ -1,13 +1,13 @@
 {
-  "version": "5.44.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.44.0.plugin",
-  "sha256": "045a0eb70cf2628ced053a9d4e3af47e602c6d3418fde507c4331d32438c919c",
+  "version": "5.45.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.45.0.plugin",
+  "sha256": "cb4bec4ffaaa0c8e2eb6d19c8bba009269022a892f4a42f834c970c77b9d424f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.44.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.45.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The knowability contract has existed since 5.28.0 and this system has had no fundamentals source that honours it. FMP publishes \"as reported\" in the *formatting* sense — the company's own line labels — and serves statements as revised; server/pit.js exists because of exactly that. The EDGAR projection keeps the latest-filed value. So *what was this number on that date* has had a contract, an aligner and a disclosure vocabulary, and no answer. server/sharadar.js is the connector for Nasdaq Data Link's SHARADAR/SF1, and its one load-bearing property was measured from the vendor's own metadata be",
-  "published": "2026-08-13T11:58:22.960Z",
+  "notes": "5.44.0 was pointed at the wrong vendor. It shipped the Sharadar connector against Nasdaq Data Link (data.nasdaq.com/api/v3/datatables/SHARADAR/SF1) — the historical distribution channel for this data, not the publisher. Sharadar runs its own API at api.sharadar.com. The owner's key is a sharadar.com key; sent to Nasdaq Data Link it was rejected, and NDL answers HTTP 429 for an unrecognised key, so a wrong-host error arrived wearing a rate limit's clothes. Two diagnoses were made on that false premise and both were wrong. SERIES-SPEC §29 is left standing under a superseded banner rather than re",
+  "published": "2026-08-13T13:48:14.227Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
