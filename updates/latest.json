@@ -1,13 +1,13 @@
 {
-  "version": "5.45.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.45.0.plugin",
-  "sha256": "cb4bec4ffaaa0c8e2eb6d19c8bba009269022a892f4a42f834c970c77b9d424f",
+  "version": "5.46.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.46.0.plugin",
+  "sha256": "1251389963b6b579e0a76e560705283278bcb8ea2df494be6084c9011dbf06b6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.45.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.46.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.44.0 was pointed at the wrong vendor. It shipped the Sharadar connector against Nasdaq Data Link (data.nasdaq.com/api/v3/datatables/SHARADAR/SF1) — the historical distribution channel for this data, not the publisher. Sharadar runs its own API at api.sharadar.com. The owner's key is a sharadar.com key; sent to Nasdaq Data Link it was rejected, and NDL answers HTTP 429 for an unrecognised key, so a wrong-host error arrived wearing a rate limit's clothes. Two diagnoses were made on that false premise and both were wrong. SERIES-SPEC §29 is left standing under a superseded banner rather than re",
-  "published": "2026-08-13T13:48:14.227Z",
+  "notes": "LOCAL-STORE-SPEC Phases 3, 0 and 1. Phase 3 shipped FIRST, on the document's own recommendation and the owner's decision, because it is not a feature: it is a debt against terms already in force. The attribution (Phase 3) FRED's API terms require *\"This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis\"* displayed prominently. Sharadar's licence §6 requires *\"Data from Sharadar.com\"*, hyperlinked, in any public display of its data. Neither appeared anywhere in this tree, and that is now a MEASUREMENT rather than an assertion: the release's neg",
+  "published": "2026-08-13T16:38:23.056Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
