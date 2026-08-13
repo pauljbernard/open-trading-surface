@@ -1,13 +1,13 @@
 {
-  "version": "5.49.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.49.0.plugin",
-  "sha256": "de4302a0b9c1413be262672f87b67ecd56ceac40e1554a5b27874db3bfc9f2d0",
+  "version": "5.50.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.50.0.plugin",
+  "sha256": "6a1dff816ce8ba5c4068acc21b9be29c1b5aa7a7fd9997c349b30fbab7c56bfc",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.49.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.50.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "server/backtest-strategy.js has refused every as-filed fundamental leg of a historical backtest since 5.14.0, and the sentence it printed ended: > *\"WHAT WOULD FIX IT: an AS-FILED archive keyed on fillingDate, and a field > reader that consults it. Neither exists.\"* The archive has existed since 5.26.0 and a second one since 5.47.0. The first clause was false and the second was true. This release makes the sentence true by building the reader — and it narrows the refusal rather than deleting it. Nothing that completed before this release produces a different number, and that is proven rather t",
-  "published": "2026-08-13T20:22:08.323Z",
+  "notes": "> *\"selecting save settings is not actually saving the settings, if I open the > chart for the same security again, it resets back to the system defaults.\"* Then, minutes later and unprompted: > *\"let me change my prior statement… to 'it doesn't always save and recover, > but sometimes seems to in an unpredictable manner.'\"* The correction is the more useful half. A save that never works and a save that works sometimes have different causes, and it was treated as the primary evidence. The save was always real. Measured over twelve openings in a real Chromium against the shipped store, the reco",
+  "published": "2026-08-13T20:56:40.899Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
