@@ -1,13 +1,13 @@
 {
-  "version": "5.46.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.46.0.plugin",
-  "sha256": "1251389963b6b579e0a76e560705283278bcb8ea2df494be6084c9011dbf06b6",
+  "version": "5.47.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.47.0.plugin",
+  "sha256": "36f0e05169a8722fccb715e4902027dd08b3dccf5605b023be676451c0cd9a5a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.46.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.47.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "LOCAL-STORE-SPEC Phases 3, 0 and 1. Phase 3 shipped FIRST, on the document's own recommendation and the owner's decision, because it is not a feature: it is a debt against terms already in force. The attribution (Phase 3) FRED's API terms require *\"This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis\"* displayed prominently. Sharadar's licence §6 requires *\"Data from Sharadar.com\"*, hyperlinked, in any public display of its data. Neither appeared anywhere in this tree, and that is now a MEASUREMENT rather than an assertion: the release's neg",
-  "published": "2026-08-13T16:38:23.056Z",
+  "notes": "LOCAL-STORE-SPEC Phase 2. The first phase in which a vendor's own bytes land on this machine and stay there — so the disciplines that had been theoretical start biting, and three of them bit inside the session that built it. The second source, declared sharadar_fundamentals joins the registry: the vendor's 112 columns under the vendor's own names, the vendor's own primary key, and its one declared rename — the vendor's column is literally date and means the FILING date, so it is stored as filing_date carrying vendor_column: 'date'. The collision is resolved in the declaration and nowhere else,",
+  "published": "2026-08-13T17:52:14.662Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
