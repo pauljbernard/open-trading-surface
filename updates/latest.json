@@ -1,13 +1,13 @@
 {
-  "version": "5.47.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.47.0.plugin",
-  "sha256": "36f0e05169a8722fccb715e4902027dd08b3dccf5605b023be676451c0cd9a5a",
+  "version": "5.48.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.48.0.plugin",
+  "sha256": "5c67335232b7b0eeca2563f16c40ece7e52c6fa9646a4f3fc5e15302f4e6b9e9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.47.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.48.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "LOCAL-STORE-SPEC Phase 2. The first phase in which a vendor's own bytes land on this machine and stay there — so the disciplines that had been theoretical start biting, and three of them bit inside the session that built it. The second source, declared sharadar_fundamentals joins the registry: the vendor's 112 columns under the vendor's own names, the vendor's own primary key, and its one declared rename — the vendor's column is literally date and means the FILING date, so it is stored as filing_date carrying vendor_column: 'date'. The collision is resolved in the declaration and nowhere else,",
-  "published": "2026-08-13T17:52:14.662Z",
+  "notes": "Two things the owner could see on his own screen. One of them was a number disagreeing with the chart it sat on top of. The header is the chart's own last bar > *\"the price at top of charts is not updated to reflect the actual current > price either for the current day or the most recent price when realtime is > selected.\"* His TSLA 1-minute header read 327.51 / −5.30 (−1.59%) over a series whose own last-price axis label read 336.17. Three figures, three sources, and only one of them about the chart in front of him: the price and change came from the FMP quote endpoint, the OHLC from the cros",
+  "published": "2026-08-13T18:36:44.375Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
