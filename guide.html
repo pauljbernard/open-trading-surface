@@ -13,6 +13,16 @@
   header .wrap{display:flex;align-items:center;height:60px}
   .brand{font-weight:800}.brand span{color:var(--accent)}
   header nav{margin-left:auto;font-size:14px;color:var(--muted)}header nav a{color:var(--muted);margin-left:18px}
+  /* The header is a fixed 60px row. On a phone the brand wraps to three lines and spills past
+     it — true on guide/changelog/support before the Event processing link existed, and newly
+     true on legal because a fifth nav item squeezed the brand. Measured, then fixed here:
+     below 700px the bar grows and the nav takes its own line. */
+  @media(max-width:700px){
+    header .wrap{height:auto;min-height:60px;flex-wrap:wrap;align-items:center;padding-top:9px;padding-bottom:9px;gap:4px}
+    .brand{flex:0 0 auto;font-size:15px}
+    header nav{margin-left:0;width:100%;line-height:2}
+    header nav a{margin-left:0;margin-right:16px;display:inline-block}
+  }
   h1{font-size:32px;margin:36px 0 8px}.lead{color:var(--muted);margin:0 0 22px}
   h2{font-size:22px;margin:34px 0 8px;border-top:1px solid var(--border);padding-top:26px}
   h3{font-size:17px;margin:22px 0 6px}
@@ -43,7 +53,7 @@
 <body>
 <header><div class="wrap">
   <div class="brand"><img class="brandmark" src="assets/ots-mark.svg" alt="">Open Trading Surface</div>
-  <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav>
+  <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav>
 </div></header>
 <div class="wrap">
   <h1>User Guide</h1>
@@ -88,6 +98,7 @@
     <a href="#provenance">Where a holding came from</a>
 
     <div class="tocgrp">Event processing</div>
+    <a href="events.html">→ The full event-processing guide</a>
     <a href="#reach">Reach: what can honestly be backtested</a>
     <a href="#events">Typed events</a>
     <a href="#conditions">The condition language</a>
@@ -629,6 +640,8 @@
   <p>When you create a thesis you cite the <b>worldview domains</b> it stands on — growth, inflation &amp; rates, geopolitics, industrial policy, technology, demographics, energy, credit — and Open Trading Surface snapshots what each of those said at the time. That snapshot is what makes <b>drift</b> visible: if you formed a thesis when inflation was <em>deteriorating</em> and it has since turned <em>improving</em>, the breadcrumb flags it. Stale domains are flagged separately, because not having looked is different from having seen a change.</p>
   <div class="note">Books built before this existed can be reconstructed by name-matching, but they are labelled <b>inferred</b> and carry <b>no screen spec</b> — none was ever stored, and inventing one would misrepresent an audit trail. A portfolio you created by hand honestly reports no lineage rather than guessing at one.</div>
 
+  <div class="note"><b>The eight sections that follow are the walking tour.</b> The <a href="events.html">full event-processing guide</a> is the reference: the architecture diagram, the complete event vocabulary with <b>which kinds are live, which are written only on demand and which 21 are dormant and can never fire</b>, the condition grammar, every backtest refusal, and a worked end-to-end strategy.</div>
+
   <h2 id="reach">Reach: what can honestly be backtested</h2>
   <p><b>Administration → Reach</b> answers one question before you ask any other: <em>what could this installation honestly backtest, and over what span?</em> It ships deliberately <b>before</b> the engine that uses it, so the limits are visible before expectations form.</p>
   <figure>
@@ -650,7 +663,7 @@
   <ul>
     <li><b>News</b> — with <b>factual, checkable predicates only</b>: publisher, published-at, symbols, the title verbatim as opaque bytes you can match with <code>contains</code>, the URL, and a near-duplicate collapse that names every collapsed publisher on the survivor. Sentiment, importance, materiality, category, relevance and entity extraction are <b>withheld by name, with reasons</b> — a lexicon score is our guess about a headline, not a fact about it, and a predicate we cannot substantiate must not exist.</li>
     <li><b>Data change</b>, detected at the point of retrieval against a watermark rather than a cache. A period we had not held is a <em>filing</em>; a value that <em>moved</em> for a period we already held is a <b>restatement</b>, as its own kind; a provider rescale collapses to one bulk restatement carrying its count. A restatement arriving with an unchanged filing date is stamped with the <em>retrieval</em> instant, because the filing date would put a value in the past that nobody could have known then.</li>
-    <li><b>The security stream</b> and <b>cohort membership</b> — including the dated ledger that lets you ask whether a name was in a cohort on a given date, which nothing in this system could answer before it existed.</li>
+    <li><b>The security stream</b> and <b>cohort membership</b> — including the dated ledger that lets you ask whether a name was in a cohort on a given date, which nothing in this system could answer before it existed. The security stream's twelve kinds are written <b>on demand only</b>, by the <code>get_events</code> handler, with no schedule behind them — <a href="events.html#ondemand">the full guide names them</a>.</li>
   </ul>
   <p>The feed pages from the newest day file <b>backwards</b> rather than sweeping a range, because the log has no retention policy by design and a surface built on a range read would get slower every day the engine ran. The counts describe <b>the page</b> and say so. A filter matching nothing stops at a bounded number of files and returns its cursor with <code>exhausted: false</code> — because "no more matches" and "I stopped looking" are different answers.</p>
 
@@ -826,7 +839,7 @@
     <li><b>Something looks wrong:</b> ask the agent to <code>run_test_suite</code>, and <a href="support.html">open an issue</a>.</li>
   </ul>
 
-  <footer><a href="index.html">Home</a> · <a href="legal.html">Legal &amp; Disclaimer</a> · <a href="support.html">Support &amp; Issues</a></footer>
+  <footer><a href="index.html">Home</a> · <a href="events.html">Event processing</a> · <a href="legal.html">Legal &amp; Disclaimer</a> · <a href="support.html">Support &amp; Issues</a></footer>
 </div>
 </body>
 </html>

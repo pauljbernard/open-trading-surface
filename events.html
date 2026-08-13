@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Event processing — Open Trading Surface</title>
+<meta name="description" content="A working guide to the Open Trading Surface event-processing subsystem: typed events, the condition language, rules and the tick, actions and the paper book, strategies, and a backtester built to refuse rather than flatter. Verified against the shipped code.">
+<style>
+  :root{--bg:#0b0e14;--panel:#131722;--border:#242938;--text:#d7dbe6;--muted:#8b93a7;--accent:#2f7bff;--pos:#26a969;--amber:#f5b544;--neg:#ef5350;--r:12px}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px}
+  header{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(11,14,20,.85);backdrop-filter:blur(10px);z-index:10}
+  header .wrap{display:flex;align-items:center;height:60px}
+  .brand{font-weight:800}.brand span{color:var(--accent)}
+  header nav{margin-left:auto;font-size:14px;color:var(--muted)}header nav a{color:var(--muted);margin-left:18px}
+  /* The header is a fixed 60px row. On a phone the brand wraps to three lines and spills past
+     it — true on guide/changelog/support before the Event processing link existed, and newly
+     true on legal because a fifth nav item squeezed the brand. Measured, then fixed here:
+     below 700px the bar grows and the nav takes its own line. */
+  @media(max-width:700px){
+    header .wrap{height:auto;min-height:60px;flex-wrap:wrap;align-items:center;padding-top:9px;padding-bottom:9px;gap:4px}
+    .brand{flex:0 0 auto;font-size:15px}
+    header nav{margin-left:0;width:100%;line-height:2}
+    header nav a{margin-left:0;margin-right:16px;display:inline-block}
+  }
+  header nav a.here{color:var(--text)}
+  h1{font-size:32px;margin:36px 0 8px}.lead{color:var(--muted);margin:0 0 22px}
+  h2{font-size:22px;margin:34px 0 8px;border-top:1px solid var(--border);padding-top:26px}
+  h3{font-size:17px;margin:22px 0 6px}
+  h4{font-size:15px;margin:18px 0 4px}
+  p,li{font-size:15px}li{color:var(--text);margin:5px 0}
+  code{font:13px ui-monospace,Menlo,monospace;background:#0d1017;border:1px solid var(--border);border-radius:5px;padding:1px 6px}
+  pre{background:#0d1017;border:1px solid var(--border);border-radius:10px;padding:14px 18px;overflow:auto;font:13px/1.55 ui-monospace,Menlo,monospace;color:#c8d0e0}
+  pre code{background:none;border:none;padding:0}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted)}
+  .toc{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:14px 20px;margin:20px 0;columns:2}
+  .toc a{display:block;padding:3px 0;font-size:14px}
+  .toc .tocgrp{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin:12px 0 4px;break-inside:avoid}
+  .toc .tocgrp:first-child{margin-top:0}
+  .note{background:rgba(47,123,255,.08);border:1px solid rgba(47,123,255,.3);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
+  .warn{background:rgba(239,83,80,.07);border:1px solid rgba(239,83,80,.3);border-radius:10px;padding:12px 16px;font-size:14px;margin:16px 0}
+  figure{margin:20px 0}
+  figcaption{color:var(--muted);font-size:13px;margin-top:8px}
+  footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;padding:30px 0;margin-top:44px}
+  /* --- page-specific, same colour system --- */
+  .trap{background:rgba(239,83,80,.07);border:1px solid rgba(239,83,80,.35);border-radius:var(--r);padding:18px 22px;margin:24px 0}
+  .trap h3{margin:0 0 10px;font-size:17px;color:#ff8a86}
+  .trap ol{margin:0;padding-left:20px}
+  .trap li{margin:9px 0;font-size:14.5px}
+  .trap li b{color:var(--text)}
+  .pill{display:inline-block;font:600 11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+        letter-spacing:.5px;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap;vertical-align:1px}
+  .pill.live{color:#7ee0ac;background:rgba(38,169,105,.14);border:1px solid rgba(38,169,105,.45)}
+  .pill.ondemand{color:#f3c66b;background:rgba(245,181,68,.12);border:1px solid rgba(245,181,68,.45)}
+  .pill.dormant{color:#ff9a96;background:rgba(239,83,80,.12);border:1px solid rgba(239,83,80,.45)}
+  .states{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 6px}
+  .state{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:15px 17px}
+  .state.live{border-color:rgba(38,169,105,.45)}
+  .state.ondemand{border-color:rgba(245,181,68,.45)}
+  .state.dormant{border-color:rgba(239,83,80,.45)}
+  .state h4{margin:9px 0 5px;font-size:14.5px}
+  .state p{margin:0;font-size:13.5px;color:var(--muted)}
+  .state .n{font-size:26px;font-weight:800;letter-spacing:-.5px;line-height:1.1}
+  .state.live .n{color:#7ee0ac}.state.ondemand .n{color:#f3c66b}.state.dormant .n{color:#ff9a96}
+  @media(max-width:760px){.states{grid-template-columns:1fr}
+    /* the per-column widths are sized for a desk. Below that they cannot all be honoured —
+       a fixed 190px column in a 390px viewport leaves the last one a negative width — so the
+       columns size themselves and the table scrolls rather than pushing the page sideways. */
+    table.kinds{table-layout:auto;display:block;overflow-x:auto}
+    table.kinds th,table.kinds td{width:auto!important;min-width:150px}}
+  /* Long kind lists must WRAP. A nowrap rule here pushed the table to 4192px (measured), and
+     auto layout to 1512px, because the sum of the columns' intrinsic widths exceeds the prose
+     column. So: fixed layout, and the two dense reference tables get the wider band below. */
+  table td code,table th code{overflow-wrap:anywhere}
+  table.kinds{table-layout:fixed}
+  td .pill{margin-right:0}
+  .kindlist{font:12.5px/1.9 ui-monospace,Menlo,monospace;color:#c8d0e0;margin:8px 0 0}
+  .kindlist span{display:inline-block;background:#0d1017;border:1px solid var(--border);border-radius:5px;padding:1px 7px;margin:0 5px 5px 0}
+  .dormantlist span{border-color:rgba(239,83,80,.4);color:#ffb3b0}
+  .ondemandlist span{border-color:rgba(245,181,68,.4);color:#f5d79a}
+  /* the diagram: breaks out of the prose column, scrolls rather than smearing */
+  .dwrap{margin:22px 0 8px}
+  .dframe{border:1px solid var(--border);border-radius:var(--r);background:#fff;overflow:auto;-webkit-overflow-scrolling:touch;max-height:82vh}
+  .dframe img{display:block;width:100%;min-width:840px;height:auto}
+  .dmeta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:baseline;color:var(--muted);font-size:13px;margin-top:10px}
+  .dmeta .grow{flex:1 1 260px}
+  @media(min-width:1180px){
+    /* break the diagram out of the 900px prose column and centre it on the viewport */
+    .dwrap{width:min(1440px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%)}
+    /* the two dense reference tables get the same band — four columns of monospace
+       identifiers do not fit 856px without breaking a token mid-word */
+    .widetable{width:min(1240px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%)}
+  }
+</style>
+<link rel="icon" type="image/svg+xml" href="assets/ots-mark.svg">
+<meta property="og:title" content="Event processing — Open Trading Surface">
+<meta property="og:image" content="assets/ots-wordmark.svg">
+<style>.brand{display:inline-flex!important;align-items:center;gap:9px}.brand .brandmark{width:26px;height:26px;border-radius:7px;display:block;flex:none}</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="brand"><img class="brandmark" src="assets/ots-mark.svg" alt="">Open Trading Surface</div>
+  <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a class="here" href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Event processing — a working guide</h1>
+  <p class="lead">The event-processing subsystem lets you write standing conditions over events, prices, fundamentals and cohort membership; attach consequences to them; compose those into a strategy that manages a <b>paper book</b>; and replay that strategy over history under a set of refusals designed to stop it flattering you. This page is the deep guide; the <a href="guide.html#reach">User Guide</a> covers the same layers at a walking pace.</p>
+
+  <div class="warn"><b>What it is not.</b> There is no <code>execute</code> verb, no order verb, no broker connection and no <code>promote_paper_book</code> anywhere in this system. Every consequence lands in a paper book — a separate store whose write path cannot address one of your real portfolios and refuses one by name. The owner books a trade by booking a trade.</div>
+
+  <div class="trap">
+    <h3>Read this before you write a rule</h3>
+    <ol>
+      <li><b>21 of the 101 registered event kinds are DORMANT.</b> They resolve in the registry, they compile, they save — and <b>no code path writes them</b>. A rule matching one ticks every weekday and is <b>structurally incapable of firing</b>. They are <code>filing.break.*</code> (5), <code>filing.roster.*</code> (4), <code>model.proforma.*</code> (11) and <code>book.note.added</code> (1) — <a href="#dormant">named in full in §2.3</a>.</li>
+      <li><b>Twelve kinds are written only by the <code>get_events</code> tool handler.</b> The <code>SECURITY_STREAM_MAP</code> family — earnings, dividends, splits, SEC filings, transcripts, insider buys and sells, financials, and the rating and ownership changes — has <b>no schedule behind it</b>. A rule on <code>estimate.rating.changed</code> fires only if something calls <code>get_events</code> for that symbol. <a href="#ondemand">§2.2b</a>.</li>
+    </ol>
+    <p style="margin:12px 0 0;font-size:14px;color:var(--muted)">Everything else on <a href="#live">the live list</a> is written by a producer riding a fetch or a scheduled process. The distinction is carried on every table on this page: <span class="pill live">live</span> <span class="pill ondemand">on demand</span> <span class="pill dormant">dormant</span>.</p>
+  </div>
+
+  <p>Everything below is verified against the shipped code. Where the specification (<code>EVENT-PROCESSING-SPEC.md</code>) and the code disagree, this guide follows the code and says so.</p>
+
+  <div class="toc">
+    <div class="tocgrp">The picture</div>
+    <a href="#architecture">The architecture, in one diagram</a>
+
+    <div class="tocgrp">1 &middot; Building one</div>
+    <a href="#create">How to create a strategy, end to end</a>
+    <a href="#book">1.1 The paper book</a>
+    <a href="#rules">1.2 The rules</a>
+    <a href="#actions">1.3 Actions</a>
+    <a href="#strategy">1.4 The strategy</a>
+    <a href="#forward">1.5 Running it forward</a>
+    <a href="#looporder">1.6 The daily loop's order</a>
+
+    <div class="tocgrp">2 &middot; What can trigger a rule</div>
+    <a href="#planes">2.1 The seven planes</a>
+    <a href="#live">2.2 LIVE — a producer writes these</a>
+    <a href="#ondemand">2.2b ON DEMAND — <code>get_events</code> only</a>
+    <a href="#dormant">2.3 DORMANT — nothing writes these</a>
+    <a href="#absent">2.4 What is deliberately absent</a>
+    <a href="#nonevent">2.5 Non-event predicates</a>
+
+    <div class="tocgrp">3 &middot; Conditions</div>
+    <a href="#first">3.1 The rules you will hit first</a>
+    <a href="#examples">3.2–3.7 Worked conditions</a>
+    <a href="#grammar">3.8 The grammar</a>
+    <a href="#pit">3.9 The point-in-time gate</a>
+
+    <div class="tocgrp">4 &middot; The backtester</div>
+    <a href="#backtest">4.1 What it actually does</a>
+    <a href="#preflight">4.2 What it refuses</a>
+    <a href="#trials">4.3 Trial registration</a>
+    <a href="#dsr">4.4 The Deflated Sharpe Ratio</a>
+    <a href="#holdout">4.5 The holdout</a>
+    <a href="#drop">4.6 The drop-top-names re-run</a>
+    <a href="#measured">4.7 The measured example</a>
+    <a href="#reading">4.8 Reading the result</a>
+
+    <div class="tocgrp">5–6 &middot; Worked &amp; absent</div>
+    <a href="#worked">A worked end-to-end example</a>
+    <a href="#notexist">What does not exist</a>
+    <a href="#appendix">Appendix — the tool surface</a>
+  </div>
+
+  <h2 id="architecture">The architecture, in one diagram</h2>
+  <p>Seven bands, read top to bottom: the event plane and its producers, the condition layer, the rule layer and the tick, the action layer, the paper book, the strategy layer, and the backtester with its deflation. <b>Refusal paths are drawn in their own visual language</b> — they are not error handling, they are the design.</p>
+  <div class="dwrap">
+    <div class="dframe">
+      <img src="diagrams/event-processing-architecture.svg" width="1680" height="3416"
+           alt="Architecture of the Open Trading Surface event-processing subsystem, in seven bands: the event plane with its producers and the seven planes; the condition layer with leaf kinds and the point-in-time gate; the rule layer with the versioned condition, the subject scope and the daily tick; the action layer with its nine verbs; the paper book; the strategy layer with sizing, constraints and ranking; and the backtester with its preflight refusals, trial registration, deflation, holdout and drop-top-names re-run. Refusal points are marked distinctly throughout.">
+    </div>
+    <div class="dmeta">
+      <span class="grow">Scroll the frame to read it at full size &mdash; 1680 &times; 3416.</span>
+      <a href="diagrams/event-processing-architecture.svg">Open the diagram full size (SVG) &#8599;</a>
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted)">The diagram carries its own three-state legend and it says the same thing in slightly different words: its <b>CONDITIONAL</b> is this page's <span class="pill live">live</span> plus <span class="pill ondemand">on demand</span> together — a writer exists, but it only runs if a key, a process or a gesture does. Where the diagram says CONDITIONAL, the <a href="#live">live table's</a> <em>door that must open</em> column names the specific key, process or gesture; the twelve with no schedule at all are broken out separately in <a href="#ondemand">§2.2b</a>. <b>DORMANT</b> means the same in both.</p>
+
+  <h2 id="create">1 &middot; How to create a strategy, end to end</h2>
+  <p>Five objects, in this order. Each step refuses at the desk rather than at 3&nbsp;a.m. inside a tick.</p>
+  <pre><code>paper book  →  rule(s)  →  strategy  →  daily loop (forward)  →  backtest (historical)</code></pre>
+
+  <h3 id="book">1.1 Create the paper book</h3>
+<pre><code>create_paper_book {
+  "name": "Modernized G&amp;D (paper)",
+  "strategy": "Modernized G&amp;D",
+  "initial_cash": 250000,
+  "date": "2024-01-02",
+  "cost_basis_method": "fifo"
+}</code></pre>
+  <table>
+    <tr><th style="width:190px">argument</th><th>notes</th></tr>
+    <tr><td><code>name</code></td><td>how a rule's <code>book</code> addresses it and how the report titles it. Refused if a real portfolio already carries that name.</td></tr>
+    <tr><td><code>strategy</code></td><td><b>one book per strategy.</b> A second book for a strategy that already has one is refused, naming the first. Defaults to the book name.</td></tr>
+    <tr><td><code>initial_cash</code></td><td>booked as a deposit through the one lot engine (default 0)</td></tr>
+    <tr><td><code>date</code></td><td>the opening deposit date. <b>Set it before the earliest bar a rule may fire on</b> — a ledger whose first buy precedes its own deposit produces a negative equity base, and the report says so.</td></tr>
+    <tr><td><code>cost_basis_method</code></td><td><code>fifo</code> (default) &middot; <code>lifo</code> &middot; <code>hifo</code> &middot; <code>average</code> &middot; <code>specific</code></td></tr>
+  </table>
+  <p>You can skip this step: <code>create_strategy</code> will create a book for you if you give it <code>book_name</code> and <code>initial_cash</code>.</p>
+
+  <h3 id="rules">1.2 Create the rules</h3>
+  <p>A rule is a <b>named, versioned condition with a subject scope</b>, optionally carrying actions.</p>
+<pre><code>create_rule {
+  "name": "GD entry — 50-day cross in a cheap cohort",
+  "text": "WHEN in(cohort \"Modernized G &amp; D\") AND crossover(close, sma(close, 50)) AND pctl(evToEbitda, within=cohort) &lt; 40",
+  "scope": { "cohort": "Modernized G &amp; D" },
+  "note": "entry leg"
+}</code></pre>
+<pre><code>create_rule {
+  "name": "GD exit — 15% off the 60-day high",
+  "text": "WHEN close &lt; highest(close, 60) * 0.85",
+  "scope": { "cohort": "Modernized G &amp; D" }
+}</code></pre>
+  <table>
+    <tr><th style="width:190px">argument</th><th>notes</th></tr>
+    <tr><td><code>name</code></td><td>unique; it is how the firing, the event and the process log refer to the rule</td></tr>
+    <tr><td><code>text</code> <em>or</em> <code>condition</code></td><td>the sugar, or the canonical JSON. The canonical JSON is what is stored; the sugar is regenerated from it on every write.</td></tr>
+    <tr><td><code>scope</code></td><td><b>REQUIRED.</b> <code>{"symbols":["AAPL","MSFT"]}</code> &middot; <code>{"cohort":"&lt;id or name&gt;"}</code> &middot; <code>{"universe":true}</code>. Resolved <b>live at every tick</b>, never cached. A scope resolving past <code>RULE_TICK_MAX_SUBJECTS</code> (200) is refused <b>whole</b>, not truncated.</td></tr>
+    <tr><td><code>actions</code></td><td>what a firing causes — see §1.3. May also be written in <code>text</code> after <code>=&gt;</code>.</td></tr>
+    <tr><td><code>book</code></td><td>the paper book a <code>propose_*</code> action writes into. A propose action with no book is refused <b>at save</b>.</td></tr>
+    <tr><td><code>enabled</code></td><td>default true. A disabled rule is skipped by the tick and says it was skipped.</td></tr>
+    <tr><td><code>playbook</code>, <code>note</code></td><td>carried verbatim onto every notification</td></tr>
+  </table>
+  <p>Test it before you rely on it — this writes <b>nothing</b>: no event, no accrual row, no state, no notification, and the fire count does not move.</p>
+<pre><code>test_rule { "rule": "GD entry — 50-day cross in a cheap cohort", "symbol": "MTB", "bars": 500 }</code></pre>
+  <p>The reply carries the firings it <em>would</em> record, the ones the debounce would suppress, the open sequence partials, the live <code>absent</code> timers, the per-leg point-in-time verdict, and — separately — the <b>historical firings that predate the rule</b>, reported as the record the tape already carried rather than as notifications.</p>
+  <div class="note"><b>The version law, because it decides whether your rule fires tomorrow.</b> The per-subject state key is <code>rule_id | condition fingerprint | rule_version | SUBJECT</code>. An edit that moves the <em>fingerprint</em> (the condition) bumps <code>rule_version</code> and <b>resets</b> the per-subject state, archiving what it drops as <code>book.rule.reset</code>. An edit that does not — name, note, scope, playbook, enabled, <b>actions</b> — <b>inherits</b> the state. Renaming a rule must not re-arm it; retagging a proposal must not re-arm it on every name it watches.</div>
+
+  <h3 id="actions">1.3 Attach actions (optional)</h3>
+  <p>Nine verbs, from one registry. <code>list_action_verbs</code> prints it live.</p>
+  <table>
+    <tr><th style="width:170px">verb</th><th style="width:80px">category</th><th>what it does</th></tr>
+    <tr><td><code>propose_buy</code></td><td>book</td><td>appends a PROPOSED buy, sized by the declared <code>size</code></td></tr>
+    <tr><td><code>propose_sell</code></td><td>book</td><td>appends a PROPOSED sell; <code>qty</code> = <code>"all"</code> | <code>{pct}</code> | <code>{shares}</code></td></tr>
+    <tr><td><code>propose_size</code></td><td>book</td><td>appends the DELTA trade moving the position to <code>target_pct</code> of total equity</td></tr>
+    <tr><td><code>flag</code></td><td>record</td><td>a label + one of five disclosure severities (<code>note</code>, <code>caveat</code>, <code>warning</code>, <code>refusal</code>, <code>provenance</code>)</td></tr>
+    <tr><td><code>annotate</code></td><td>record</td><td>writes a research note through <code>notes.add</code> — the one note store, unchanged</td></tr>
+    <tr><td><code>notify</code></td><td>record</td><td>delivers to the agent inbox as <code>alert_fired</code></td></tr>
+    <tr><td><code>run_playbook</code></td><td>record</td><td>resolves through <code>playbooks.applicable()</code>, unchanged</td></tr>
+    <tr><td><code>emit</code></td><td>record</td><td>writes a <code>book.*</code> event back into the log which a <b>later tick</b> may match</td></tr>
+    <tr><td><code>set_state</code></td><td>record</td><td>writes the per-subject named state a <code>{"state":…}</code> leaf reads</td></tr>
+  </table>
+<pre><code>update_rule {
+  "rule": "GD entry — 50-day cross in a cheap cohort",
+  "book": "Modernized G&amp;D (paper)",
+  "actions": [
+    { "action": "propose_buy", "size": { "kind": "fixed_pct", "pct": 4 }, "tag": "gd-entry" },
+    { "action": "flag", "label": "GD entry signalled", "severity": "note" }
+  ]
+}</code></pre>
+  <p>Or in the sugar, which <code>create_rule</code> also accepts:</p>
+<pre><code>WHEN rsi(14) &lt; 30 THEN crossover(close, ema(close,20)) WITHIN 10d =&gt; PROPOSE BUY size=fixed_pct(2) tag="oversold-reversion"</code></pre>
+  <p>Bounds: <code>ACTIONS_MAX_PER_FIRING</code> = 8 (refused at save, with the count); <code>CASCADE_MAX_DEPTH</code> = 3 for <code>emit</code> chains; <code>PAPER_BOOK_MAX_POSITIONS</code> = 60 (a <em>store</em> bound, not a strategy policy). An <code>emit</code> may only write on the <code>book</code> plane, and a rule that emits a kind it also <b>matches</b> is refused by static analysis at save time — that is a rule that fires itself forever.</p>
+
+  <h3 id="strategy">1.4 Create the strategy</h3>
+<pre><code>create_strategy {
+  "name": "Modernized G&amp;D",
+  "universe": { "kind": "cohort", "ref": "Modernized G &amp; D" },
+  "rules": [
+    { "rule": "GD entry — 50-day cross in a cheap cohort", "role": "entry", "priority": 0 },
+    { "rule": "GD exit — 15% off the 60-day high",         "role": "exit"  }
+  ],
+  "policy": {
+    "rank_entries_by": "fcfYield",
+    "sizing": { "kind": "fixed_pct", "pct": 4 },
+    "max_positions": 20,
+    "max_weight_pct": 8,
+    "max_sector_pct": 30,
+    "cash_floor_pct": 5,
+    "min_position_pct": 0.5,
+    "cash_yield": { "source": "tbill", "series": "DTB3" },
+    "rebalance": { "cadence": "quarterly", "drift_tolerance_pct": 5 },
+    "costs": { "cost_bps": 10, "slippage_bps": 0, "adv_participation_max_pct": 10 }
+  },
+  "book": "Modernized G&amp;D (paper)"
+}</code></pre>
+  <p><b>Universe kinds</b> — <code>explicit</code> (a symbol list), <code>cohort</code>, <code>screen</code>, <code>universe</code>. The <code>universe</code> kind parses and saves but <b><code>resolveUniverse</code> refuses it at run time</b> with its reasons, so in practice you have three.</p>
+  <p><b>Roles</b> — <code>entry</code> &middot; <code>exit</code> &middot; <code>adjust</code> &middot; <code>veto</code>. The role belongs to the <b>strategy</b>, so the same rule can be one strategy's entry and another's veto.</p>
+  <p><b><code>rank_entries_by</code> is required.</b> On any day where more candidates signal than fit, something decides which get the cash and the slots. If the strategy does not say, the answer is hash iteration order. Legal forms:</p>
+  <ul>
+    <li>any expression over the screen's field vocabulary — <code>"fcfYield"</code>, <code>"-pe"</code>, <code>"fcfYield * 2 - debtToEquity"</code></li>
+    <li><code>"signal_time"</code> — earliest signal first, the honest first-come rule</li>
+    <li><code>"random(&lt;seed&gt;)"</code> — a declared, reproducible draw</li>
+  </ul>
+  <p><b>Policy defaults</b> (from <code>policyDefaults()</code>): <code>max_positions</code> 20 &middot; <code>max_weight_pct</code> from <code>sizing.MAX_SINGLE_PCT</code> &middot; <code>max_sector_pct</code> <code>null</code> (unconstrained) &middot; <code>min_position_pct</code> 0.5 &middot; <code>cash_floor_pct</code> 5 &middot; <code>cash_yield</code> <code>{source:"tbill", series:"DTB3"}</code> &middot; <code>rebalance</code> <code>{cadence:"never", drift_tolerance_pct:5}</code> &middot; <code>costs</code> <code>{cost_bps:10, slippage_bps:0, adv_participation_max_pct:10}</code> &middot; <code>ordering</code> <code>"exits_then_entries"</code> &middot; <code>sizing</code> <code>null</code> &middot; <code>targets</code> <code>null</code> &middot; <code>rank_entries_by</code> <code>null</code> <b>(refuses)</b>.</p>
+  <p>Rebalance cadences: <code>never</code> &middot; <code>monthly</code> &middot; <code>quarterly</code> &middot; <code>annual</code> &middot; <code>on_drift</code>.</p>
+  <p><b>Sizing</b> — seven arms, each stating its <em>budget basis</em>, i.e. a share of <b>what</b>:</p>
+  <table>
+    <tr><th style="width:150px">arm</th><th>budget basis</th><th style="width:120px">needs a strategy?</th></tr>
+    <tr><td><code>fixed_cash</code></td><td>a stated dollar amount</td><td>no</td></tr>
+    <tr><td><code>fixed_pct</code></td><td>a share of TOTAL EQUITY, fully marked at the fill bar</td><td>no</td></tr>
+    <tr><td><code>equal_weight</code></td><td>total equity ÷ the declared slot count</td><td>no</td></tr>
+    <tr><td><code>grade_ceiling</code></td><td>a share of equity capped by <code>sizing.js</code>'s own ceilings</td><td>no</td></tr>
+    <tr><td><code>risk_parity</code></td><td>the book's <b>target portfolio volatility</b>, inverse-vol weights scaled against <code>pf-risk.js</code>'s own covariance</td><td><b>yes</b></td></tr>
+    <tr><td><code>atr_risk</code></td><td>a fixed fraction of equity <b>put at risk</b> — <code>shares = (risk_pct% × equity) / (atr_mult × ATR)</code></td><td><b>yes</b></td></tr>
+    <tr><td><code>from_targets</code></td><td>the strategy's stored <code>policy.targets</code>, through <code>analytics.rebalancePlan</code></td><td><b>yes</b></td></tr>
+  </table>
+  <p>The last three refuse <b>by name</b> on a paper book that belongs to no strategy: a budget shared across positions has no meaning without something that owns the positions. <code>list_sizing_methods</code> prints the union and the constraint set live.</p>
+  <p><b>Constraints</b> compose in this order, and when one binds the payload names it <em>plus every other that would also have bound</em>:</p>
+<pre><code>max_positions → max_weight_pct → max_sector_pct → cash_floor_pct
+              → cash_available → min_position_pct → adv_participation_max_pct</code></pre>
+  <p><code>max_weight_pct</code> and <code>max_sector_pct</code> are <b>ceilings</b> — they shrink the order and name themselves. The rest <b>refuse</b>. A candidate whose sector is unknown while a sector cap is set is refused, not treated as unconstrained. <code>min_position_pct</code> is a refusal, not a rounding.</p>
+  <div class="note"><b>The strategy edit law, and it differs from a rule's.</b> A <em>forming</em> edit (universe, rules, policy) moves the formation fingerprint, bumps <code>strategy_version</code> and writes a <b>dated methodology break</b> (<code>book.strategy.policy_changed</code>) — and <b>does not reset the book</b>. A rule's partial match is a claim about a condition and means nothing under new semantics; a book is a record of proposals actually made at prices that actually printed. An equity curve that spans a break is more than one measurement, and every payload covering such a window says so. A cosmetic edit (name, note, enabled) inherits.</div>
+
+  <h3 id="forward">1.5 Run it forward</h3>
+  <p>The daemon runs <code>event-engine</code> (the rule tick) once per weekday and <code>strategy-loop</code> after it. Both are declared processes with pause/resume through <code>control_process</code>. The manual doors:</p>
+<pre><code>run_rule_tick {}
+run_strategy_loop { "strategy": "Modernized G&amp;D", "days": 1 }</code></pre>
+  <p>The tick <b>runs on empty days by design</b>: an <code>absent … within N</code> fires at the <em>expiry</em> of its window, on a day when nothing happened, so a data-triggered engine would be silent on the one day it was needed. A tick that ran and fired nothing records a <b>success saying so, in those words</b> — which is a different answer from silence, and silence reads red past <code>EVENT_ENGINE_TICK_GRACE_HOURS</code> (6).</p>
+  <p>The loop is idempotent on the live path: a day already processed is not re-walked, because re-walking it would double every fill, every dividend and every interest accrual.</p>
+  <p>Read what happened:</p>
+<pre><code>get_strategy_run { "strategy": "Modernized G&amp;D" }   // the most recent day, in the loop's own order
+get_rule_history { "rule": "GD entry — 50-day cross in a cheap cohort" }
+get_rule_evaluations { "rule": "GD entry — 50-day cross in a cheap cohort", "fired": false }
+get_paper_book { "book": "Modernized G&amp;D (paper)" }
+get_event_feed { "plane": ["book"], "limit": 50 }</code></pre>
+  <p><code>get_rule_evaluations</code> is the <b>forward-accrual record</b>: one dated row per (rule, subject) evaluated, <em>including the non-firings</em>, because the non-firings are the data — a record of only the fires cannot compute a hit rate, a base rate or a false-positive count. Its coverage counts <b>days, not rows</b>: a rule ticking over 40 names for 3 days has 120 rows and three days of record.</p>
+
+  <h3 id="looporder">1.6 The daily loop's order, which is the contract</h3>
+<pre><code> 1  corporate actions and dividends dated t   (a split applied after the signal prices it in pre-split units)
+ 2  cash accrues, before any trade            (interest on the opening balance is earned whatever the day does)
+ 3  the knowability cut + the mark            (bars ≤ t, events observed_at ≤ close(t), and nothing else)
+ 4  veto rules                                (removes a subject from ENTRY, and is RECORDED)
+ 5  exit rules, on held names                 (BEFORE entries — an exit frees cash AND a slot)
+ 6  entry candidates collected, then RANKED
+ 7  size + constrain, in rank order           (each miss records skipped_capacity with its binding constraint)
+ 8  fills at the bar CLOSE                    (cost_bps per side booked as a `fee` transaction)
+ 9  rebalance, if t is a rebalance date       (through analytics.rebalancePlan — read, not re-derived)
+10  mark and RECONCILE                        (analytics.reconcile THROWS above one cent; no flag skips it)</code></pre>
+  <p>Also handled at step 3b: a name whose <b>first bar postdates t</b> is excluded from that day's cross-section and the exclusion is counted. Held names are never excluded — a position cannot be held in a name that had not listed.</p>
+
+  <h2 id="whattrigger">2 &middot; What events can trigger a rule</h2>
+  <p><code>server/event-registry.js</code> builds <b>101 kinds across 37 families and 7 planes</b>, every family derived from a vocabulary its own producer publishes. A kind is always <code>plane.family.name</code>, three segments. A trailing <code>*</code> in an event leaf matches one segment: <code>filing.break.*</code>, <code>model.*.*</code>.</p>
+
+  <div class="states">
+    <div class="state live"><div class="n">68</div><h4><span class="pill live">live</span> a producer writes these</h4><p>Written by a producer riding a fetch that was already happening, or by a scheduled process. The <b>door that must open</b> is named on every row.</p></div>
+    <div class="state ondemand"><div class="n">12</div><h4><span class="pill ondemand">on demand</span> <code>get_events</code> only</h4><p>The <code>SECURITY_STREAM_MAP</code> family. <b>No schedule stands behind it.</b> A rule on one of these fires only if something calls <code>get_events</code> for that symbol.</p></div>
+    <div class="state dormant"><div class="n">21</div><h4><span class="pill dormant">dormant</span> nothing writes these</h4><p>Registered, compilable, saveable — and <b>structurally incapable of firing</b>. Do not write a rule against one.</p></div>
+  </div>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:4px">68 + 12 + 21 = 101, the derived total. The three counts are the whole registry; nothing is in two of them and nothing is in none.</p>
+
+  <div class="note"><b>Divergence from the spec.</b> <code>EVENT-PROCESSING-SPEC.md</code> §18 records the registry as <em>"75 kinds across 27 families"</em>. That was true at 5.8.0. The registry has since absorbed the data-change kinds (5.11.0), the action and strategy kinds (5.12.0/5.13.0), the economic-release kinds (5.21.0) and the user-calendar kinds (5.29.0). <b>101 / 37 is the derived number today</b> — <code>require('./server/event-registry').build()</code> reports it, and no list needs editing to keep it true.</div>
+
+  <h3 id="planes">2.1 The seven planes</h3>
+  <p>The plane answers <em>how do we know this</em>, which is the question the backtester refuses on. It is deliberately <b>not</b> a browsing category.</p>
+  <table>
+    <tr><th style="width:110px">plane</th><th>what</th><th style="width:180px">default reconstructability</th></tr>
+    <tr><td><code>tape</code></td><td>daily OHLCV bars and everything derived from them</td><td><b>yes</b></td></tr>
+    <tr><td><code>filing</code></td><td>as-filed statements, corporate actions, dividends, splits, insider forms, roster changes</td><td><b>gated</b> — only where a filing date exists</td></tr>
+    <tr><td><code>estimate</code></td><td>analyst estimates, ratings, targets, ownership aggregates</td><td><b>no</b> — served as-revised, no vintage</td></tr>
+    <tr><td><code>model</code></td><td>our own output: momw fair value, gap, band percentile, residual, E11</td><td><b>recorded_days</b> — and only within one judgment generation</td></tr>
+    <tr><td><code>membership</code></td><td>cohort, index, universe and portfolio membership</td><td><b>forward_only</b></td></tr>
+    <tr><td><code>external</code></td><td>FRED and macro series, provider news</td><td><b>no</b> — we read the current vintage</td></tr>
+    <tr><td><code>book</code></td><td>the owner's ledger, research notes, rule firings, the paper book</td><td><b>yes</b></td></tr>
+  </table>
+
+  <h3 id="live">2.2 <span class="pill live">live</span> — a producer writes these</h3>
+  <p>A rule written against any of these can fire, <b>provided the door that produces them is being opened</b>. Not one producer adds a polling loop; every one rides a fetch that was already happening.</p>
+  <div class="widetable"><table class="kinds">
+    <tr><th style="width:27%">kinds</th><th style="width:19%">producer</th><th style="width:21%">the door that must open</th><th>matchable payload fields</th></tr>
+    <tr><td><code>external.news.item</code></td><td><code>event-producers.recordNewsItems</code></td><td><code>get_news</code>, or the ingest cycle (which rides the repricing scan)</td><td><code>title</code> (verbatim, opaque — match with <code>contains</code>), <code>publisher</code>, <code>published_at</code>, <code>url</code>, <code>symbols</code>, <code>symbol_count</code>, <code>text_chars</code>/<code>has_text</code>, <code>story_key</code>, <code>publisher_count</code>, <code>publishers</code>, <code>also_titled</code></td></tr>
+    <tr><td><code>filing.ingest.*</code> — 14 classes: <code>periodic_report</code>, <code>current_report</code>, <code>securities_offering</code>, <code>insider_form4</code>, <code>ownership_stake</code>, <code>proxy_statement</code>, <code>filing</code>, <code>earnings_reported</code>, <b><code>earnings_scheduled</code></b>, <code>dividend_declaration</code>, <code>split_announced</code>, <code>transcript_available</code>, <code>news_item</code>, <code>unknown_source</code></td><td><code>ingest.runCycle</code> → <code>recordIngestItems</code></td><td>the repricing scan's cycle, or <code>run_ingest</code></td><td><code>source_id</code>, <code>intake_source</code>, <code>taxonomy_kind</code>, <code>basis</code>, <code>headline</code>, <code>url</code>, <code>tags</code></td></tr>
+    <tr><td><code>filing.statement.filed</code>, <code>.restated</code>, <code>.bulk_restated</code></td><td><code>data-change.observeStatements</code></td><td><code>get_financial_statements</code>, <code>edgar.companyConcept</code></td><td><code>statement</code>, <code>period</code>, <code>period_end</code>, <code>field</code>, <code>old_value</code>, <code>new_value</code>, <code>change</code>, <code>change_pct</code>, <code>filing_date</code>, <code>observed_before</code>, <code>source_plane</code></td></tr>
+    <tr><td><code>external.series.observation</code>, <code>.revised</code></td><td><code>data-change.observeSeries</code></td><td><code>fred.series</code> — the one door every FRED read passes through (needs a FRED key)</td><td><code>series_id</code>, <code>period</code>, <code>value</code>, <code>prior_period</code>, <code>prior_value</code>, <code>change</code>, <code>change_pct</code>, <code>units</code></td></tr>
+    <tr><td><code>estimate.field.moved</code></td><td><code>data-change.observeFields</code></td><td><code>get_company_profile</code>, <code>get_analyst_data</code></td><td><code>field</code>, <code>panel</code>, <code>old_value</code>, <code>new_value</code>, <code>change_pct</code>, <code>categorical</code>, <code>observed_before</code></td></tr>
+    <tr><td><code>model.*</code> — 16 kinds via <code>SCAN_MAP</code> (<code>model.coverage.gained</code>/<code>.lost</code>/<code>.refused_regime</code>/<code>.evidence_floor_crossed</code>, <code>model.frame.rotated</code>/<code>.value_step</code>/<code>.divergence_gate_changed</code>, <code>model.band.percentile_crossed</code>, <code>model.gap.moved</code>/<code>.rich_unrationalized</code>/<code>.cheap_tail</code>, <code>model.risk.shared_concentration</code>, <code>model.initiative.ramp_diverged</code>, <code>model.defect.vintage_thin</code>/<code>.basis_suspect</code>/<code>.vehicle_unmodeled</code>) plus <code>filing.shares.discontinuity</code></td><td><code>scan.js</code> → <code>recordScanRun</code></td><td>the <code>repricing-scan</code> process</td><td><code>detail</code>, <code>proposal</code></td></tr>
+    <tr><td><code>model.divergence.*</code> — 5 kinds</td><td><code>divergence.record</code></td><td>any divergence-ledger write</td><td><code>classification</code>, <code>signed_pct</code>, <code>basis</code></td></tr>
+    <tr><td><code>membership.cohort.entered</code>, <code>.exited</code></td><td><code>membership-ledger.observe</code></td><td><code>cohorts.writeCache</code>, i.e. the <code>cohort-refresh</code> process</td><td><code>cohort_id</code>, <code>cohort_name</code>, <code>cohort_kind</code></td></tr>
+    <tr><td><code>membership.universe.snapshot_taken</code>, <code>_refused</code></td><td><code>screener.js</code>, <code>pit.js</code></td><td>the <code>universe-archive</code> and <code>pit-snapshot</code> processes</td><td><code>month</code>, <code>exchanges</code>, <code>count</code>, <code>reason</code></td></tr>
+    <tr><td><code>external.release.printed</code>, <code>.rescheduled</code>, <code>.missed</code></td><td><code>econ-calendar.js</code></td><td>the <code>econ-calendar-pull</code> process (needs a FRED key)</td><td><code>event_id</code>, <code>release_id</code>, <code>release_name</code>, <code>reference_period</code>, <code>consensus_at_print</code>, <code>actual_as_printed</code>, <code>surprise</code>, <code>surprise_pct</code>, <code>series_ids</code></td></tr>
+    <tr><td><code>book.calendar.event_asserted</code>, <code>_amended</code>, <code>_retracted</code></td><td><code>user-event.js</code></td><td><code>add_calendar_event</code> / <code>update_calendar_event</code> / <code>delete_calendar_event</code></td><td><code>chain_id</code>, <code>record_id</code>, <code>date</code>, <code>title</code>, <code>association_kind</code>, <code>association_ref</code>, <code>time_source</code>, <code>admission</code></td></tr>
+    <tr><td><code>book.rule.fired</code></td><td><code>alerts.js</code> <b>and</b> <code>rule-engine.js</code></td><td>any firing</td><td><code>rule_id</code>, <code>rule_name</code>, <code>rule_version</code>, <code>fingerprint</code>, <code>trigger</code>, <code>sugar</code>, <code>why</code>, <code>inputs</code>, <code>playbook</code> — or, from the legacy path, <code>rule_type</code>, <code>value</code>, <code>detail</code></td></tr>
+    <tr><td><code>book.rule.reset</code>, <code>book.rule.refused</code></td><td><code>rules.js</code>, <code>rule-engine.js</code></td><td>a fingerprint-moving edit; a cap being hit</td><td><code>rule_id</code>, versions, fingerprints, <code>cap</code>, <code>count</code>, <code>reason</code></td></tr>
+    <tr><td><code>book.proposal.buy</code>, <code>.sell</code>, <code>.size</code>, <code>book.strategy.skipped_capacity</code>, <code>book.action.refused</code>, <code>.flagged</code>, <code>.annotated</code>, <code>book.state.set</code></td><td><code>rule-actions.js</code> (and <code>strategy-loop.js</code> for buy/sell/skipped)</td><td>a firing with actions; a strategy loop day</td><td><code>book_id</code>, <code>tx_id</code>, <code>symbol</code>, <code>shares</code>, <code>price</code>, <code>size_kind</code>, <code>size_basis</code>, <code>binding</code>, <code>reason</code>, <code>label</code>, <code>severity</code>, <code>name</code>, <code>value</code></td></tr>
+    <tr><td><code>book.position.opened</code>, <code>.closed</code></td><td><code>rule-actions.js</code> <b><code>emit</code> only</b></td><td>a rule that emits them</td><td><code>rule_id</code>, <code>rule_name</code>, <code>emitted_by</code>, <code>cascade_depth</code>, <code>why</code></td></tr>
+    <tr><td><code>book.strategy.policy_changed</code></td><td><code>strategy.js</code></td><td>a forming strategy edit</td><td><code>strategy_id</code>, versions, fingerprints, <code>changed</code>, <code>book_id</code>, <code>reason</code></td></tr>
+    <tr><td><code>book.strategy.reconcile_failed</code></td><td><code>strategy-loop.js</code></td><td>a reconciliation residue above one cent</td><td><code>strategy_id</code>, <code>book_id</code>, <code>reason</code></td></tr>
+  </table></div>
+  <div class="note"><b>Read the two-timestamp rule before you write an event leaf.</b> Matching uses <code>observed_at</code> — an event becomes true on the first bar at or after it became <em>knowable to us</em>, not on the date it happened. An event whose <code>observed_at</code> is <code>null</code> is <b>never</b> knowable and is excluded rather than dated by its occurrence.</div>
+
+  <h3 id="ondemand">2.2b <span class="pill ondemand">on demand</span> — twelve kinds written only by <code>get_events</code></h3>
+  <div class="warn">
+    <p style="margin:0 0 8px"><b>These twelve are the <code>SECURITY_STREAM_MAP</code> family, produced by <code>event-producers.recordSecurityStream</code>. Their one door is the <code>get_events</code> tool handler, and no schedule stands behind it.</b></p>
+    <p style="margin:0">A rule on <code>estimate.rating.changed</code> is not dead — it is <b>conditional on something calling <code>get_events</code> for that symbol</b>. If nothing does, the rule ticks every weekday and never fires, and the reason is not in the rule. If you rely on one of these, make the call part of the routine that the rule depends on.</p>
+  </div>
+  <p class="kindlist ondemandlist">
+    <span>filing.earnings.reported</span><span>filing.dividend.paid</span><span>filing.split.effective</span><span>filing.sec.filed</span><span>filing.transcript.published</span><span>filing.insider.bought</span><span>filing.insider.sold</span><span>filing.financials.released</span><span>estimate.rating.upgraded</span><span>estimate.rating.downgraded</span><span>estimate.rating.changed</span><span>estimate.ownership.changed</span>
+  </p>
+  <p>Matchable payload fields: <code>label</code>, <code>detail</code>, <code>stream_source</code>, <code>sentiment</code> + <code>sentiment_basis</code> (only where derived from a structured numeric), <code>url</code>.</p>
+
+  <h3 id="dormant">2.3 <span class="pill dormant">dormant</span> — registered, and nothing writes them</h3>
+  <div class="warn">
+    <p style="margin:0"><b>Twenty-one of the 101 kinds resolve in the registry and no code path records them.</b> A rule matching one of these compiles, saves, ticks every weekday and is <b>structurally incapable of firing</b>. Do not write a rule against them.</p>
+  </div>
+  <div class="widetable"><table class="kinds">
+    <tr><th style="width:40%">kinds</th><th style="width:8%">count</th><th style="width:20%">declared producer</th><th>status</th></tr>
+    <tr><td><code>filing.break.accounting_change</code>, <code>.acquisition</code>, <code>.divestiture</code>, <code>.leadership</code>, <code>.restructuring</code></td><td>5</td><td><code>server/model-events.js</code></td><td>the module does not require <code>server/event-log.js</code> at all</td></tr>
+    <tr><td><code>filing.roster.executive_joined</code>, <code>.executive_left</code>, <code>.pay_changed</code>, <code>.title_changed</code></td><td>4</td><td><code>server/executives.js</code></td><td>same</td></tr>
+    <tr><td><code>model.proforma.*</code> — <code>guidance</code>, <code>filing_update</code>, <code>tariff</code>, <code>input_cost</code>, <code>sector_demand</code>, <code>inflation_regime</code>, <code>discount_rate_shift</code>, <code>si_gate_probability</code>, <code>si_gate_resolved</code>, <code>si_capital_revision</code>, <code>si_scale_revision</code></td><td>11</td><td><code>server/proforma-events.js</code></td><td>same</td></tr>
+    <tr><td><code>book.note.added</code></td><td>1</td><td><code>server/events.js</code></td><td><b>excluded by design</b> — <code>STREAM_EXCLUDED</code> skips it, because a research note is our own record with its own producer at write time</td></tr>
+  </table></div>
+  <p>The twenty-one, in full:</p>
+  <p class="kindlist dormantlist">
+    <span>filing.break.accounting_change</span><span>filing.break.acquisition</span><span>filing.break.divestiture</span><span>filing.break.leadership</span><span>filing.break.restructuring</span><span>filing.roster.executive_joined</span><span>filing.roster.executive_left</span><span>filing.roster.pay_changed</span><span>filing.roster.title_changed</span><span>model.proforma.guidance</span><span>model.proforma.filing_update</span><span>model.proforma.tariff</span><span>model.proforma.input_cost</span><span>model.proforma.sector_demand</span><span>model.proforma.inflation_regime</span><span>model.proforma.discount_rate_shift</span><span>model.proforma.si_gate_probability</span><span>model.proforma.si_gate_resolved</span><span>model.proforma.si_capital_revision</span><span>model.proforma.si_scale_revision</span><span>book.note.added</span>
+  </p>
+  <div class="note">§4.8 worked example 5 in the spec uses <code>count(event(filing.break.*), 250d) == 0</code> as a veto. It compiles and it is always true today, because nothing has ever written a <code>filing.break.*</code> event. That is a correct <em>veto</em> (it never blocks) and a misleading <em>signal</em>.</div>
+  <p><b>Check before you commit.</b> <code>get_event_feed { "vocabulary_only": true }</code> returns the registry and the observed volume without reading any events, so you can see what your installation has actually recorded. <code>check_predicate_reach { "predicates": ["filing.break.acquisition"] }</code> gives the point-in-time verdict per predicate.</p>
+
+  <h3 id="absent">2.4 What is deliberately absent</h3>
+  <p>There is no <code>external.release.scheduled</code> and no <code>book.calendar.event_occurred</code>. A schedule has not happened; the log pages <b>backwards</b>, so thousands of future-dated records would make "what happened recently" answer with things that have not. This is why the legacy <code>earnings_within_days</code> alert <b>cannot be migrated</b>: it needs <code>filing.earnings.scheduled</code>, which does not exist.</p>
+  <p>The nearest workable substitute is <code>filing.ingest.earnings_scheduled</code>, which does exist and <em>is</em> written by the ingest cycle — with the caveat that it is an intake classification from structured fields, not a publisher's commitment, and its coverage is whatever your ingest universe covers.</p>
+
+  <h3 id="nonevent">2.5 Non-event predicates</h3>
+  <p>An event leaf is one of six leaf kinds. The others do not need the log at all:</p>
+  <ul>
+    <li><b><code>field</code></b> — the 520-field screen vocabulary, evaluated through <code>screener.applyOp</code> (the one comparator)</li>
+    <li><b><code>series</code></b> — an <code>expr-series</code> expression over <b>bars only</b> (<code>open high low close volume hlc3 ohlc4 time</code>)</li>
+    <li><b><code>indicator</code></b> — the one indicator registry, with the registry's own parameter names</li>
+    <li><b><code>member</code></b> — <code>cohort:&lt;id or name&gt;</code>, against the dated membership ledger</li>
+    <li><b><code>state</code></b> — the per-subject named state a <code>set_state</code> action wrote</li>
+  </ul>
+  <p><code>member</code> is deliberately restricted to cohorts. Index and universe membership are <b>not offered</b>: index membership resolves live from the provider's <em>current</em> constituents and nothing archives it, so a leaf naming it would be a claim this system cannot keep.</p>
+
+  <h2 id="conditions">3 &middot; How to write conditions</h2>
+  <p>The canonical form is <b>JSON</b>. A text <b>sugar</b> compiles to it and is never the stored form — a stored string is a parser dependency forever. <code>compile_condition</code> round-trips both directions and prints the fingerprint, the leaves with their planes, the durations with their clocks, and the operators used.</p>
+
+  <h3 id="first">3.1 The rules you will hit first</h3>
+  <h4>Durations carry their clock, and a bare number is a parse error.</h4>
+  <table>
+    <tr><th style="width:150px">suffix</th><th>means</th></tr>
+    <tr><td><code>20d</code></td><td>20 <b>trading</b> days (bars) — a holiday is not a bar and does not consume the window</td></tr>
+    <tr><td><code>20c</code></td><td>20 <b>calendar</b> days — a holiday consumes one, so the same nominal window covers fewer bars</td></tr>
+    <tr><td><code>1mo</code>, <code>1q</code>, <code>1y</code></td><td>calendar months, quarters, years</td></tr>
+  </table>
+  <p>There is no default and there will not be one: <em>"within a month of earnings"</em> and <em>"within twenty bars"</em> are different rules. The refusal names both suffixes.</p>
+  <h4>Triggers.</h4>
+  <table>
+    <tr><th style="width:150px">trigger</th><th>fires on</th></tr>
+    <tr><td><code>edge</code></td><td>the false→true transition. <b>The default</b>, because changing it would silently change every migrated alert.</td></tr>
+    <tr><td><code>level</code></td><td>every bar the condition holds — <b>requires an explicit <code>debounce</code></b>, refused at save. A level condition with no debounce is a firehose.</td></tr>
+    <tr><td><code>exit</code></td><td>the falling edge</td></tr>
+  </table>
+  <p><code>debounce</code> is <code>{"once_per": "&lt;duration&gt;"}</code>.</p>
+  <p><b>Caps.</b> <code>CONDITION_MAX_NODES</code> 64 &middot; <code>CONDITION_WINDOW_MAX_BARS</code> 2520 (about ten years of tape) &middot; <code>CONDITION_DEDUPE_HORIZON_DAYS</code> 370.</p>
+
+  <h3 id="examples">3.2 Trivial</h3>
+<pre><code>WHEN close &gt; 250</code></pre>
+<pre><code>{ "trigger": "edge", "when": { "series": "close &gt; 250" } }</code></pre>
+
+  <h3>3.3 An indicator, debounced</h3>
+<pre><code>WHEN rsi(14) &lt; 30 ONCE_PER 30d</code></pre>
+<pre><code>{
+  "trigger": "edge",
+  "debounce": { "once_per": "30d" },
+  "when": { "indicator": "rsi", "params": { "period": 14 }, "op": "lt", "value": 30 }
+}</code></pre>
+
+  <h3>3.4 The 52-week high, migrated from the legacy alert</h3>
+<pre><code>WHEN close &gt;= highest(high, 252) ONCE_PER 30d</code></pre>
+<pre><code>{
+  "trigger": "edge",
+  "debounce": { "once_per": "30d" },
+  "when": { "series": "close &gt;= highest(high, 252)" }
+}</code></pre>
+  <p>Note the fidelity difference <code>migrate_alerts</code> discloses: the legacy alert compared the live quote's <code>price</code> to the provider's <code>yearHigh</code> (an <em>intraday</em> high over the trailing 52 <em>calendar</em> weeks); the rule compares the <b>close</b> to the highest <b>high</b> of the last <b>252 bars</b>. They agree in the ordinary case and differ at the window edges.</p>
+
+  <h3>3.5 A sequence</h3>
+<pre><code>WHEN rsi(14) &lt; 30 THEN crossover(close, ema(close, 20)) WITHIN 10d</code></pre>
+<pre><code>{
+  "trigger": "edge",
+  "when": {
+    "then": [
+      { "indicator": "rsi", "params": { "period": 14 }, "op": "lt", "value": 30 },
+      { "series": "crossover(close, ema(close, 20))" }
+    ],
+    "within": "10d"
+  }
+}</code></pre>
+  <p>A <code>then</code> <b>must</b> state its window. An unbounded sequence is a partial match that never expires, and a partial that never expires is a memory leak wearing a semantic. A one-step <code>then</code> is the honest spelling of <em>"X occurred within the trailing window"</em>.</p>
+
+  <h3>3.6 Negation with timeout — the operator that makes this a scheduler</h3>
+<pre><code>WHEN event(filing.earnings.reported) AND absent(close &lt;= ref(close, 1), 5d)</code></pre>
+<pre><code>{
+  "trigger": "edge",
+  "when": {
+    "absent": { "series": "close &lt;= ref(close, 1)" },
+    "after":  { "event": "filing.earnings.reported" },
+    "within": "5d"
+  }
+}</code></pre>
+  <p><em>An earnings gap that does not fill.</em> It fires on the <b>fifth bar after</b> the earnings event, if no bar in between closed back at or below the prior close — that is, <b>on a day when nothing happened</b>. This is why the tick is calendar-triggered and why a missed tick is a missed firing that leaves no other trace.</p>
+  <p>An <code>absent</code> <b>requires</b> an anchor (<code>after</code>). Standing alone it would assert <em>"this never happened"</em>, which is a claim about all of history rather than a rule. In the sugar the compiler <b>lifts</b> the conjunction: the other conjuncts become the anchor. Two anchorless <code>absent</code> terms in one conjunction is refused.</p>
+  <div class="warn"><b>Note the anchor in this example is an <span class="pill ondemand">on demand</span> kind.</b> <code>filing.earnings.reported</code> is one of the twelve <a href="#ondemand">§2.2b</a> kinds — the anchor only exists on symbols for which something has called <code>get_events</code>.</div>
+
+  <h3>3.7 A real multi-leg temporal condition</h3>
+  <p>Cohort membership × tape × cross-sectional rank × a window aggregation used as a veto:</p>
+<pre><code>WHEN entered(cohort "Modernized G &amp; D")
+     THEN close &gt; sma(close, 200) WITHIN 20d
+     AND sustained(pctl(mom_10, within=cohort) &gt; 90, 5d)
+     AND netDebtToEbitda &lt; 3
+     AND count(event(filing.break.*), 250d) == 0
+     ONCE_PER 60d</code></pre>
+  <p>Canonical:</p>
+<pre><code>{
+  "trigger": "edge",
+  "debounce": { "once_per": "60d" },
+  "when": {
+    "all": [
+      {
+        "then": [
+          { "event": "membership.cohort.entered", "match": { "cohort": "Modernized G &amp; D" } },
+          { "series": "close &gt; sma(close, 200)" }
+        ],
+        "within": "20d"
+      },
+      {
+        "sustained": { "field": "mom_10", "op": "pctl_gt", "value": 90, "within": "cohort" },
+        "for": "5d"
+      },
+      { "field": "netDebtToEbitda", "op": "lt", "value": 3 },
+      { "count": { "event": "filing.break.*" }, "over": "250d", "op": "eq", "value": 0 }
+    ]
+  }
+}</code></pre>
+  <p>Read the reach report this compiles to before you trust it. Four of those legs sit on four different planes: <code>membership</code> (forward_only), <code>tape</code> (yes), <code>model</code>/<code>enrichment</code> for the percentile, and <code>filing</code> (gated) — and the <code>filing.break.*</code> count is over a <a href="#dormant"><b>dormant</b></a> family, <b>so it is always zero</b>. <code>evaluate_condition</code> returns the per-leg verdict.</p>
+
+  <h3 id="grammar">3.8 The rest of the grammar</h3>
+<pre><code>doc      := "WHEN" cond clause*
+clause   := "ONCE_PER" dur | "TRIGGER" (edge|level|exit) | "SCOPE" cohort "&lt;name&gt;"
+cond     := andExpr ("OR" andExpr)*
+andExpr  := seqExpr ("AND" seqExpr)*
+seqExpr  := unary ("THEN" unary)* ("WITHIN" dur)?
+unary    := "NOT" unary | primary
+primary  := "(" cond ")" | leaf
+leaf     := entered(cohort "…") | exited(cohort "…") | in(cohort "…")
+          | event(kind[, key=value]…) | state("name") is "value"
+          | sustained(cond, dur[, at_least N])
+          | count(cond, win) cmp num
+          | agg(max|min|sum|avg, &lt;series expr&gt;, win) cmp num
+          | absent(cond, dur)
+          | pctl(field, within=cohort) cmp num
+          | &lt;expression&gt;                       — classified against the registries
+win      := dur | "tumbling" dur | "session" "gap" dur</code></pre>
+  <p>Windows: <code>sliding</code> (the default), <code>tumbling size</code>, <code>session gap</code>. Aggregations: <code>max</code>, <code>min</code>, <code>sum</code>, <code>avg</code>.</p>
+  <p><b><code>=&gt;</code> is refused inside a condition, by name.</b> An action belongs to the <b>rule</b>, not the condition, because the condition's fingerprint is the per-subject state key — folding an action in would make retagging a proposal reset every open partial and re-arm the rule on every name it watches. <code>create_rule</code> accepts the full grammar including <code>=&gt;</code> and stores the two halves separately.</p>
+
+  <h3 id="pit">3.9 The point-in-time gate</h3>
+  <p>Before any evaluation is believed, the evaluator consults <code>server/reach.js</code> per leg. Every number in that report is a <b>live read of the stores</b>, so a verdict changes the day the record is long enough without anyone editing a constant.</p>
+  <table>
+    <tr><th style="width:170px">verdict</th><th>families today</th></tr>
+    <tr><td><code>yes</code></td><td><code>tape.bars</code>, <code>model.detections</code></td></tr>
+    <tr><td><code>gated</code></td><td><code>filing.statements</code></td></tr>
+    <tr><td><code>recorded_days</code></td><td><code>model.surface</code></td></tr>
+    <tr><td><code>forward_only</code></td><td><code>estimate.street</code>, <code>model.enrichment</code>, <code>membership.cohort</code>, <code>membership.universe</code></td></tr>
+    <tr><td><code>no</code></td><td><code>external.macro</code>, <code>external.container</code></td></tr>
+  </table>
+  <p>A historical evaluation (<code>as_of</code> before today, or <code>point_in_time: true</code>) with any leg on <code>forward_only</code>, <code>no</code> or <code>unresolved</code> <b>refuses by name</b>, naming the leg, its plane and what would fix it.</p>
+  <p>The evaluator also refuses on its <b>own</b> account, which is a stronger statement: a <code>field</code> leaf reads the <b>current</b> screener row, so at any historical <code>as_of</code> it refuses regardless of the verdict. A <code>gated</code> verdict says the <em>record</em> could support it; the evaluator says whether <em>this reader</em> can. The two are reported separately rather than collapsed.</p>
+
+  <h2 id="backtest">4 &middot; How a backtest executes, and how to read its result</h2>
+<pre><code>backtest_strategy {
+  "strategy": "Modernized G&amp;D",
+  "from": "2019-01-02",
+  "to": "2024-12-31",
+  "initial_cash": 100000,
+  "warmup_bars": 300
+}</code></pre>
+  <p><code>from</code> and <code>to</code> are <b>required</b>. A defaulted window is a window nobody chose, and the window is half of what a backtest result means.</p>
+
+  <h3>4.1 What it actually does</h3>
+  <p><b>A backtest is not a simulator.</b> It drives <code>server/strategy-loop.js run()</code> — the same function the live book runs — with <code>replayClock(from, to)</code> instead of a live clock, writing real <code>portfolio.buildRec</code> records into a <b>paper book of its own</b>, gated by <code>analytics.reconcile</code> on every replayed day, and measured by the existing engine. It computes no return, no Sharpe, no drawdown and no attribution of its own.</p>
+  <p>Two loop implementations would disagree, and the moment they did every reported number would be a claim about code the live book never ran. A test asserts the live path and the replay path call the same function.</p>
+  <p>It never touches the strategy's <b>live forward book</b>. That record is the out-of-sample evidence hindsight cannot manufacture, and a replay appending historical proposals into it would destroy it.</p>
+
+  <h3 id="preflight">4.2 What it refuses, and why — the preflight</h3>
+  <p>The preflight collects <b>every</b> refusal rather than short-circuiting on the first, because <em>"it did not fit"</em> and <em>"it did not fit for four separate reasons"</em> are different findings.</p>
+  <table>
+    <tr><th style="width:34%">refusal</th><th>why</th></tr>
+    <tr><td><b>Survivorship</b> — a <code>cohort</code>-, <code>screen</code>- or <code>universe</code>-scoped historical run</td><td>Running a cohort over today's membership is hindsight <b>twice over</b>: the membership is post-hoc (chosen knowing the outcome) and the members are survivors (the names that left are not in it). Both biases point the same way and both flatter. The refusal names the missing dated membership ledger and the date from which this installation now records one. An <b>explicit symbol list runs</b>, with the caller's own selection bias disclosed Tier 1 as the caller's own.</td></tr>
+    <tr><td><b>Point-in-time</b> — any leg whose reach verdict is <code>gated</code>, <code>recorded_days</code>, <code>forward_only</code> or <code>unresolved</code></td><td>Named per leg, with the rule and the plane. Fundamentals are <code>gated</code> because the provider serves them <b>as revised</b> and restatements are unrecoverable; panel fields and model outputs have no dated archive at all. The engine never substitutes today's value.</td></tr>
+    <tr><td><b>The rank</b> — <code>rank_entries_by</code> over a screen field</td><td>The ranking row comes from the screener's <b>current</b> values. Ranking a 2019 candidate set by 2026 fundamentals is not a subtle bias, it is the answer. Permitted: <code>signal_time</code>, <code>random(&lt;seed&gt;)</code>, expressions over <code>close</code>.</td></tr>
+    <tr><td><b>Judgment generations</b> — a window spanning a model re-fit</td><td>Refused by default when a model-plane predicate is in play. <code>acknowledge_generations: true</code> looks anyway and <b>stamps the generations spanned on every result the run produces</b>, not only the summary.</td></tr>
+    <tr><td><b>Window</b></td><td>missing or non-forward <code>from</code>/<code>to</code></td></tr>
+    <tr><td><b>Missing rules</b></td><td>the strategy binds rules that no longer exist — named, and the run is refused rather than run over the remainder</td></tr>
+    <tr><td><b>The tape does not reach <code>from</code></b></td><td>a run that quietly walked a narrower window and reported it as the one you asked for would be a real number over a window nobody chose. It refuses with <b>every symbol's first bar</b> so you can tell a short fetch from a late listing.</td></tr>
+    <tr><td><b>Fewer than two trading days</b></td><td>not a short backtest; no backtest</td></tr>
+    <tr><td><b>An exclusion leaving fewer than <code>DROP_RERUN_MIN_SURVIVING_NAMES</code> (2) names</b></td><td>below two names there is no cross-section for a result to survive into</td></tr>
+  </table>
+  <p><b>A refused run registers no trial.</b> Nothing ran, so nothing was tried; counting it would inflate the denominator of every later deflation with searches that never happened.</p>
+  <div class="note">Note the reading that follows from the survivorship refusal: <b>in practice a historical backtest runs over an explicit symbol list.</b> That is not a workaround, it is the honest posture — you chose those names today, and the payload says so.</div>
+
+  <h3 id="trials">4.3 Trial registration, and why the count matters</h3>
+  <p><b>Every run registers its trial in <code>server/search-ledger.js</code> before it computes the result.</b> A run that registered only on success would count the winners and forget the losers, which is precisely the bias the deflation exists to undo. The trial count rides every payload Tier 1: <em>a result rendered without its trial count is a defect.</em></p>
+  <p>The trial key is <code>(universe, from, to, cadence)</code>. The trial record has <b>no prune verb, no cap and no retention window</b> — a Deflated Sharpe computed against a pruned trial count is a lie. Runs <em>are</em> prunable (<code>prune_backtest_runs</code>, dry-run by default, two named depths); trials are not, and the prune path structurally cannot reach them.</p>
+  <p>Read the record with <code>get_strategy_trials</code>.</p>
+
+  <h3 id="dsr">4.4 The Deflated Sharpe Ratio — what it means</h3>
+  <p>At or above <code>DSR_MIN_TRIALS</code> (5) the engine reports the <b>DSR</b> (Bailey &amp; López de Prado, 2014):</p>
+<pre><code>DSR = Z( ((SR − SR₀) · √(T − 1)) / √(1 − γ₃·SR + ((γ₄ − 1)/4)·SR²) )</code></pre>
+  <p>all quantities <b>per-observation (daily)</b>. It corrects for the three things that actually inflate a strategy backtest:</p>
+  <ol>
+    <li><b>selection among trials</b>, through <code>SR₀</code> — the expected <em>maximum</em> Sharpe under the null, i.e. what the best of N tries looks like when none of them has any edge at all;</li>
+    <li><b>non-normality</b> — strategy returns are skewed and fat-tailed, and the classical Sharpe standard error assumes neither (<code>γ₄</code> here is raw kurtosis, not excess);</li>
+    <li><b>sample length</b> — a 2.0 Sharpe over 60 days and over 15 years are not the same claim.</li>
+  </ol>
+  <p><b>How to read the number.</b> DSR is <em>the probability that the true Sharpe exceeds zero, given the search that produced this one</em>. It is not a p-value on the return, it is not a forecast, and it does not become a recommendation at any value.</p>
+  <p>Below <code>DSR_MIN_TRIALS</code> the engine reports the <b>Šidák</b> deflation of the nominal per-trade p-value — <code>1 − (1 − p)^k</code> — and <b>says which statistic it used</b>. It does not fabricate the trial variance V: a variance from fewer than five points is noise wearing a formula.</p>
+  <div class="warn"><b>What deflation does not fix, printed on every payload:</b> it corrects for <em>how many strategies you tried</em>, not for <em>how few independent things you observed</em>. This house has the recorded negative result — the 2026-07-19 premium study survived Šidák at deflated p 0.009 with 5/5 sign-consistent slices and a cluster t of −8.2, and was still an artifact. Only the holdout and the name-drop killed it.</div>
+
+  <h3 id="holdout">4.5 The holdout</h3>
+  <p>Computed <b>inside</b> the engine over the clock's own days, so no caller argument can request the flattering half. It reports the holdout <b>trade count</b> because a strategy with four holdout trades has not been tested (<code>MIN_HOLDOUT_TRADES</code> = 10). Three verdicts:</p>
+  <ul>
+    <li><b>never traded in the holdout</b> — it says nothing out-of-sample; the in-sample half is the whole of what the run measured, and an in-sample-only result is a description of a fit;</li>
+    <li><b>below the trade floor</b> — a hit rate over that many trades is ±~15pp at 50%;</li>
+    <li><b>enough trades</b> — read the two halves against each other. <b>Holdout degradation</b> — an out-of-sample result that is a fraction of the in-sample one — is the signature of an overfit strategy.</li>
+  </ul>
+
+  <h3 id="drop">4.6 The drop-top-names re-run — how to read it</h3>
+<pre><code>rerun_backtest_dropping_top_names { "run_id": "&lt;the parent run&gt;", "n": 2 }</code></pre>
+  <p>The deflation asks <em>how many things did you try?</em> This asks <b>how much of it was one lucky name?</b> It replays the <b>same</b> strategy over the <b>same</b> window with the top contributor(s) removed <b>from the universe</b> — the exclusion applied where the universe resolves, never inside the walk.</p>
+  <p>Contributors are ranked by <b>contribution to return</b> through <code>analytics.contribution</code>, by <b>absolute</b> magnitude with the sign on every row, because a large loser concentrates a result exactly as much as a large winner. The closed-lot ranking is printed beside it, and the two can legitimately disagree — a position still open on the last day is invisible to closed-lot P&amp;L.</p>
+  <p>Ranking by contribution to <b>risk</b> is accepted and <b>refused by name</b>, for two reasons, the second being the interesting one: the re-run already reports the risk answer, because the change in Sharpe and in drawdown when a name is removed <em>is</em> that name's realised risk contribution — measured rather than decomposed.</p>
+  <p>Drops are <b>cumulative</b>: drop 1 removes the top name; drop 2 removes the top <b>two together</b>. That is a decay curve, which is the reading that means something. <code>DROP_TOP_NAMES_DEFAULT</code> = 1, <code>DROP_TOP_NAMES_MAX</code> = 3; an N above the cap is refused <b>with its count</b>, never silently truncated.</p>
+  <p><b>A drop re-run is not a trial.</b> It registers as a <b>derived</b> record linked to the parent and does not increment the trial count the DSR is computed against — nobody runs one hoping it wins, and counting it would mean that the more carefully a result was checked, the worse its deflated statistic read. It cannot launder a search either: a run is admitted as derived only when it is structurally a <b>subset re-run of a registered parent</b> (same strategy, same window, something actually excluded, and a strictly smaller surviving universe). Anything else registers as a <b>full trial and says it was downgraded</b>. Read them with <code>get_derived_runs</code>.</p>
+  <p><b>The reading vocabulary</b>, printed descriptively and never as advice:</p>
+  <table>
+    <tr><th style="width:170px">verdict</th><th>when</th></tr>
+    <tr><td><code>survived</code></td><td>the drop retains at least <code>DROP_RERUN_COLLAPSE_RETAINED_PCT</code> (50%) of the headline return</td></tr>
+    <tr><td><code>collapsed</code></td><td>below it — every other name together contributes less than the one dropped</td></tr>
+    <tr><td><code>reversed</code></td><td>the sign flips</td></tr>
+    <tr><td><code>unreadable</code></td><td>the headline return is zero, so there is no share of it to retain</td></tr>
+  </table>
+
+  <h3 id="measured">4.7 The measured example — read this one carefully</h3>
+  <p>This is the Wave-5 backtest this house actually ran, over <b>AAPL, MSFT, JNJ, KO, XOM</b>, 2019–2024, reconcile residue 0 on all 1,510 days:</p>
+  <table>
+    <tr><th style="width:210px">run</th><th style="width:190px">total return</th><th>reading</th></tr>
+    <tr><td>headline</td><td><b>+53.36%</b> (Sharpe 0.54, max DD −26.55%)</td><td>a respectable six-year result</td></tr>
+    <tr><td>without AAPL</td><td><b>+18.74%</b></td><td>35.1% of the headline retained → <b>collapsed</b></td></tr>
+    <tr><td>without AAPL and MSFT</td><td><b>−7.70%</b></td><td>sign flipped → <b>reversed</b></td></tr>
+  </table>
+  <div class="warn"><b>Three of the five names lost money over six years while the headline showed a 53% gain.</b> The deflation would not have told you that. The holdout might not have. The name-drop did, in one call.</div>
+  <p>Two further readings from that run, both of which are the machinery working:</p>
+  <ul>
+    <li>Dropping <b>KO — a loser — improved</b> the result. That is why the ranking is by <em>absolute</em> contribution: a large loser concentrates a result exactly as much as a large winner.</li>
+    <li>The two rankings <b>disagreed</b> (window contribution said AAPL, closed-lot P&amp;L said MSFT), because $144,868 of AAPL's contribution was unrealised on a position still open on the last day. Both are printed; neither is chosen for you.</li>
+  </ul>
+
+  <h3 id="reading">4.8 Reading the result</h3>
+<pre><code>get_backtests {}                                  // the tree — derived runs nested under their parent
+get_backtest_detail { "run_id": "…" }             // the panel payload: honesty block, curve, blotter, drops
+get_backtest_run { "run_id": "…", "report": true } // the full portfolio report over the run's book</code></pre>
+  <p>The detail runs <b>markers → honesty block → counterfactual → numbers</b>, in that order, and a run with no trial block reports <code>renderable: false</code> — the refusal prints <em>instead of</em> the performance table, the curve and the blotter, behind the same gate. A derived run is never listed as a peer; it nests under the run it checks.</p>
+  <div class="note">Order of reading, in this house's terms: <b>the refusals first, then the holdout and the name-drop, then the deflation, and only then the return.</b></div>
+
+  <h2 id="worked">5 &middot; A worked end-to-end example</h2>
+  <p>A momentum-with-a-value-gate strategy over five explicit names, forward-live and then backtested. Every call below is real and in the shipped tool surface.</p>
+
+  <h3>Step 1 — the book.</h3>
+<pre><code>create_paper_book {
+  "name": "Trend/Value demo (paper)",
+  "strategy": "Trend/Value demo",
+  "initial_cash": 100000,
+  "date": "2019-01-02",
+  "cost_basis_method": "fifo"
+}</code></pre>
+
+  <h3>Step 2 — the entry rule.</h3>
+  <p>Note the condition is <b>pure tape</b>, which is what makes it backtestable: every leg's reach verdict is <code>yes</code>.</p>
+<pre><code>create_rule {
+  "name": "TV entry — reclaim the 200-day after an oversold print",
+  "text": "WHEN rsi(14) &lt; 35 THEN crossover(close, sma(close, 200)) WITHIN 20d ONCE_PER 90d",
+  "scope": { "symbols": ["AAPL", "MSFT", "JNJ", "KO", "XOM"] },
+  "book": "Trend/Value demo (paper)",
+  "actions": [
+    { "action": "propose_buy", "size": { "kind": "fixed_pct", "pct": 15 }, "tag": "tv-entry" }
+  ]
+}</code></pre>
+
+  <h3>Step 3 — the exit rule.</h3>
+<pre><code>create_rule {
+  "name": "TV exit — 15% off the 60-day high",
+  "text": "WHEN close &lt; highest(close, 60) * 0.85 ONCE_PER 20d",
+  "scope": { "symbols": ["AAPL", "MSFT", "JNJ", "KO", "XOM"] },
+  "book": "Trend/Value demo (paper)"
+}</code></pre>
+
+  <h3>Step 4 — dry-run both against one name.</h3>
+  <p>Nothing is written.</p>
+<pre><code>test_rule { "rule": "TV entry — reclaim the 200-day after an oversold print", "symbol": "MSFT", "bars": 600 }</code></pre>
+  <p>Read <code>reach.legs</code> (both should be <code>tape.bars</code> / <code>yes</code>), <code>partials</code> (a sequence mid-flight is not a rule that failed), and <code>historical_firings</code> (the record the tape already carried — these are <em>not</em> notifications).</p>
+
+  <h3>Step 5 — the strategy.</h3>
+  <p><code>rank_entries_by</code> is <code>signal_time</code>, deliberately: it is one of the three forms the backtester permits, so this strategy is backtestable as written.</p>
+<pre><code>create_strategy {
+  "name": "Trend/Value demo",
+  "universe": { "kind": "explicit", "symbols": ["AAPL", "MSFT", "JNJ", "KO", "XOM"] },
+  "rules": [
+    { "rule": "TV entry — reclaim the 200-day after an oversold print", "role": "entry" },
+    { "rule": "TV exit — 15% off the 60-day high",                      "role": "exit"  }
+  ],
+  "policy": {
+    "rank_entries_by": "signal_time",
+    "sizing": { "kind": "fixed_pct", "pct": 15 },
+    "max_positions": 5,
+    "max_weight_pct": 25,
+    "cash_floor_pct": 2,
+    "cash_yield": { "source": "tbill", "series": "DTB3" },
+    "rebalance": { "cadence": "never" },
+    "costs": { "cost_bps": 10, "adv_participation_max_pct": 10 }
+  },
+  "book": "Trend/Value demo (paper)"
+}</code></pre>
+
+  <h3>Step 6 — run it forward once, and read the day.</h3>
+<pre><code>run_strategy_loop { "strategy": "Trend/Value demo", "days": 1 }
+get_strategy_run  { "strategy": "Trend/Value demo" }</code></pre>
+  <p>Check three things on the day record: <code>interest</code> (and its <code>source</code> — <code>tbill</code> or <code>zero</code>, and <em>which</em> it used), <code>skipped</code> (each entry that did not fit, with its <b>binding constraint named</b>), and <code>reconciliation</code> (which must be clean, because it throws if it is not).</p>
+
+  <h3>Step 7 — backtest it.</h3>
+<pre><code>backtest_strategy {
+  "strategy": "Trend/Value demo",
+  "from": "2019-01-02",
+  "to": "2024-12-31",
+  "initial_cash": 100000,
+  "warmup_bars": 300,
+  "drop_top_names": 2
+}</code></pre>
+  <p>The <code>warmup_bars</code> matters: the entry rule needs a 200-bar moving average, so without a warm-up the first replayed days would evaluate against a null-padded indicator. The fetch names the date it wants, and the run <b>refuses</b> if the tape does not reach it.</p>
+
+  <h3>Step 8 — read it in the right order.</h3>
+<pre><code>get_backtest_detail { "run_id": "&lt;from step 7&gt;" }</code></pre>
+  <ol>
+    <li><code>preflight.refusals</code> — every refusal that did <b>not</b> fire is as informative as the ones that did.</li>
+    <li><code>holdout.verdict</code> — trades out-of-sample, and how the two halves compare.</li>
+    <li>the drop table — <code>verdict</code> per drop, <code>retained_pct</code>, and both rankings.</li>
+    <li><code>trials</code> — the count, <code>statistic</code> (<code>dsr</code> or <code>sidak</code>), and <code>does_not_fix</code>.</li>
+    <li>only then <code>performance.twr_net_pct</code>.</li>
+  </ol>
+
+  <h3>Step 9 — if it survives, keep the forward record.</h3>
+  <p>The forward book accrues out-of-sample evidence a backtest cannot manufacture, one loop day at a time, and it costs nothing but the tick. That record — plus <code>get_rule_evaluations</code>, which writes the value every leg <em>actually had</em> on every day including the non-firings — is strictly better evidence than the backtest, and it is the reason the two books are kept separate.</p>
+
+  <h2 id="notexist">6 &middot; What does not exist</h2>
+  <p>Stated plainly, because a reader should not have to discover an absence by having something fail.</p>
+
+  <h3>6.1 No execution, anywhere</h3>
+  <p>No broker, no order routing, no "send to broker" affordance, no <code>execute</code> verb, no <code>promote_paper_book</code>. Law 4 is structural in four places: a different file, a write path that cannot address a real book, only the <em>pure</em> functions of <code>portfolio.js</code> reached (asserted by reading both module graphs), and <code>paper: true</code> stamped at the write rather than asserted at the read.</p>
+
+  <h3>6.2 Twenty-one registered event kinds nothing writes</h3>
+  <p><code>filing.break.*</code> (5), <code>filing.roster.*</code> (4), <code>model.proforma.*</code> (11) and <code>book.note.added</code> (1). See <a href="#dormant">§2.3</a>. A rule against any of them ticks daily and cannot fire.</p>
+
+  <h3>6.3 No scheduled-event kind</h3>
+  <p>There is no <code>external.release.scheduled</code> and no <code>book.calendar.event_occurred</code>, deliberately. Consequently <code>earnings_within_days</code> <b>cannot be migrated</b> from the legacy alert layer and is left running on the old path, by name. <code>rating_change</code> was refused for the same class of reason at 5.10.0 and now migrates, because <code>get_events</code> started writing <code>estimate.rating.changed</code> at 5.11.0 — that check is a live read of the log, not a list.</p>
+
+  <h3>6.4 No point-in-time field reader</h3>
+  <p><code>condition-eval.js</code> resolves a <code>field</code> leaf against the <b>current</b> screener row and refuses at any historical <code>as_of</code>. There is no dated panel archive and no as-filed statement reader wired into the evaluator, so <b>no historical backtest can use a fundamental predicate</b>. The spec's §8 claim that <em>"families 1–6 support real multi-decade backtesting today"</em> is aspirational on family 6 (as-filed statement lines) — the code's own §24.4 note records the correction, and the practical reach is families 1–5 plus 20.</p>
+
+  <h3>6.5 No cross-sectional point-in-time, except one part</h3>
+  <p>Of §7.3's three cross-sectional hazards, only the third is handled: a name whose <b>first bar postdates t</b> is excluded from that day's cross-section and counted. The comparison set as it stood (hazard a) and each member's inputs as they stood (hazard b) are <b>refusals</b>, not features. A <code>pctl(..., within=cohort)</code> leaf refuses to evaluate at any historical date: a rank against today's membership would be hindsight twice over.</p>
+
+  <h3>6.6 No continuous-query batch</h3>
+  <p>Owner-deferred (spec §21.6): there is no standing batch that evaluates every time-series criterion across the universe. Rules are evaluated per (rule, subject) on the daily tick, bounded by <code>RULE_TICK_MAX_SUBJECTS</code> (200).</p>
+
+  <h3>6.7 No intraday, no shorting, no leverage, no multi-currency, no optimizer</h3>
+  <p>The bar granularity is <b>daily</b>, honestly stated. There is no short-lot concept in the lot engine — <code>propose_sell</code> on an unheld name is refused by name rather than opening one. No margin, no options. The book is single-currency. There is <b>no automatic optimizer over rule space</b>; if one is ever built it must register every enumerated trial, report DSR against the full enumeration count, and refuse to report a single "best" without its holdout and its drop re-run. Those are gates, not guidelines.</p>
+
+  <h3>6.8 No rule marketplace or sharing</h3>
+  <p>Rules reference this installation's cohorts, custom indicators and models; a shared rule would silently rebind.</p>
+
+  <h3>6.9 Two tuning constants that are declared in prose and not in <code>server/tuning.js</code></h3>
+  <p><code>CASCADE_MAX_DEPTH</code> (used by <code>rule-actions.js</code>, fallback <b>3</b>) and <code>DEFAULT_CASH_FLOOR_PCT</code> (used by <code>strategy.js</code>, fallback <b>5</b>) are read through a helper that catches <code>tuning.get()</code>'s "unknown tuning constant" throw and returns the hard-coded fallback. Both therefore work, both report the documented value, and <b>neither can be overridden by the state directory's tuning override file</b>, which is the only override path this system offers. If you want to change either, today you must change the source.</p>
+
+  <h3>6.10 Unbuilt in the spec's own terms</h3>
+  <p>The strategy object, the constraint set, the ranking law, the cash yield and the daily loop are <b>built</b> (Wave 4). The backtester, the holdout, the deflation, the trial record and the drop re-run are <b>built</b> (Waves 5–6). What the spec lists and the code does not have: the continuous-query batch (§6.6 above), ALFRED vintages, an as-filed archive readable by the evaluator, and a dated enrichment-panel archive the ranker could use.</p>
+
+  <h2 id="appendix">Appendix — the tool surface, by layer</h2>
+  <table>
+    <tr><th style="width:130px">layer</th><th>verbs</th></tr>
+    <tr><td>conditions</td><td><code>compile_condition</code> &middot; <code>evaluate_condition</code> &middot; <code>check_predicate_reach</code></td></tr>
+    <tr><td>events</td><td><code>get_event_feed</code> &middot; <code>get_event_log</code> &middot; <code>backfill_event_log</code> &middot; <code>get_membership_ledger</code></td></tr>
+    <tr><td>rules</td><td><code>create_rule</code> &middot; <code>update_rule</code> &middot; <code>list_rules</code> &middot; <code>delete_rule</code> &middot; <code>test_rule</code> &middot; <code>run_rule_tick</code> &middot; <code>get_rule_evaluations</code> &middot; <code>get_rule_history</code> &middot; <code>migrate_alerts</code></td></tr>
+    <tr><td>actions</td><td><code>list_action_verbs</code></td></tr>
+    <tr><td>paper books</td><td><code>create_paper_book</code> &middot; <code>list_paper_books</code> &middot; <code>get_paper_book</code> &middot; <code>delete_paper_book</code></td></tr>
+    <tr><td>strategies</td><td><code>create_strategy</code> &middot; <code>update_strategy</code> &middot; <code>list_strategies</code> &middot; <code>get_strategy</code> &middot; <code>delete_strategy</code> &middot; <code>run_strategy_loop</code> &middot; <code>get_strategy_run</code> &middot; <code>list_sizing_methods</code></td></tr>
+    <tr><td>backtests</td><td><code>backtest_strategy</code> &middot; <code>rerun_backtest_dropping_top_names</code> &middot; <code>list_backtest_runs</code> &middot; <code>get_backtest_run</code> &middot; <code>get_backtests</code> &middot; <code>get_backtest_detail</code> &middot; <code>get_derived_runs</code> &middot; <code>get_strategy_trials</code> &middot; <code>prune_backtest_runs</code></td></tr>
+    <tr><td>processes</td><td><code>get_processes</code> &middot; <code>control_process { id: "event-engine" | "strategy-loop" }</code></td></tr>
+  </table>
+  <p>Terminal surfaces, in the rail's own grouping — <b>Administration →</b></p>
+  <ul>
+    <li><em>what can be known</em>: <b>Reach</b> &middot; <b>Conditions</b></li>
+    <li><em>what is watched</em>: <b>Rules</b> &middot; <b>Strategies</b></li>
+    <li><em>what happened</em>: <b>Events</b> &middot; <b>Firings</b> &middot; <b>Runs</b> &middot; <b>Backtests</b></li>
+  </ul>
+  <p>One note on the JSON forms above: parameter names on an <code>indicator</code> leaf are <b>the registry's own</b> — this compiler never invents one, and an unknown parameter is refused naming what the indicator does take. <code>rsi</code> takes <code>period</code>, not <code>length</code>.</p>
+
+  <div class="warn" style="margin-top:26px"><b>Descriptive, not advice.</b> A backtest is a description of a past, not a prediction. Nothing in this subsystem says a rule will work. Open Trading Surface is not investment advice — every output is a decision aid to be independently verified, and you bear full responsibility for all investment decisions.</div>
+
+  <footer><a href="index.html">Home</a> &middot; <a href="guide.html">User Guide</a> &middot; <a href="legal.html">Legal &amp; Disclaimer</a> &middot; <a href="support.html">Support &amp; Issues</a></footer>
+</div>
+</body>
+</html>

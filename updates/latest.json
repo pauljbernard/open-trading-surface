@@ -1,13 +1,13 @@
 {
-  "version": "5.43.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.43.0.plugin",
-  "sha256": "e353adf4b8ae0a0aa2ec956a57f752ae2a2fac7444d576758f245b587f5f926f",
+  "version": "5.43.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.43.1.plugin",
+  "sha256": "e812b92c6ca9a896346aa50ebd3b56451e982108a824ef872f5ec94ab41a915f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.43.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.43.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: *\"Currently, charts can display analyst rating changes, but what it doesn't do is provide the ability to slice it by firm. if we select Analyst rating changes in the Event selector I think a really great enhancement would be to display a dialog that displays all the firms, or \"all\" which allows us to overlay all of the changes or just the changes from a particular source. This would allow us to see very clearly who is good and has been accurate and who has not.\"* The ratings layer drew all of them or none of them, and on a well covered name that is a wall: AAPL's grade stream is 1,7",
-  "published": "2026-08-12T21:42:59.307Z",
+  "notes": "The owner, 2026-08-12. Opening the Perspectives panel for TM produced, in the panel body: *\"/px/get: the daemon did not answer within 120s — it may be mid-batch (a screen run, an enrichment tick or a strategy walk holds the loop).\"* This one is different from the two before it, and the difference is the whole diagnosis. 5.37.0's timeout was a model call. 5.40.0's was a staged multi-leg run held open past the client bound. /px/get is a READ — it opens a panel to see what reports exist. The measurement came first, and it ships node scripts/measure-px-read.js makes no provider call and no model c",
+  "published": "2026-08-13T01:28:22.708Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

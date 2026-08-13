@@ -13,6 +13,16 @@
   header .wrap{display:flex;align-items:center;height:60px;gap:18px}
   .brand{font-weight:800}.brand span{color:var(--accent)}
   header nav{margin-left:auto;font-size:14px;color:var(--muted)}header nav a{color:var(--muted);margin-left:18px}
+  /* The header is a fixed 60px row. On a phone the brand wraps to three lines and spills past
+     it — true on guide/changelog/support before the Event processing link existed, and newly
+     true on legal because a fifth nav item squeezed the brand. Measured, then fixed here:
+     below 700px the bar grows and the nav takes its own line. */
+  @media(max-width:700px){
+    header .wrap{height:auto;min-height:60px;flex-wrap:wrap;align-items:center;padding-top:9px;padding-bottom:9px;gap:4px}
+    .brand{flex:0 0 auto;font-size:15px}
+    header nav{margin-left:0;width:100%;line-height:2}
+    header nav a{margin-left:0;margin-right:16px;display:inline-block}
+  }
   h1{font-size:32px;margin:38px 0 6px;letter-spacing:-.5px}.lead{color:var(--muted);margin:0 0 26px}
   h2{font-size:21px;margin:34px 0 8px}
   .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:20px 0}
@@ -54,7 +64,7 @@
 <body>
 <header><div class="wrap">
   <div class="brand"><img class="brandmark" src="assets/ots-mark.svg" alt="">Open Trading Surface</div>
-  <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav>
+  <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav>
 </div></header>
 <div class="wrap">
   <h1>Support, feedback &amp; community</h1>
@@ -114,12 +124,15 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.43.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-12 21:42 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.43.1</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-13 01:28 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.43.1 <span class="reltitle">a read never waits for a model call, and a refusal that stopped guessing</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.43.0 <span class="reltitle">analyst rating changes, sliced by firm</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -147,15 +160,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.38.0 <span class="reltitle">the superset thesis: one model for a built and a discovered view</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.37.0 <span class="reltitle">zero is an error, the timeout was ours, and the gate rejected on the wrong axis</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>one SURVEY call</b> that names the structural changes worth writing up;</li>
-        <li><b>one call per shortlist entry</b>, asking for that thesis whole.</li>
-      </ul>
-    </div>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->

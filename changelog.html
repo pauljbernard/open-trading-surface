@@ -4,6 +4,15 @@ body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 -apple-system
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:800px;margin:0 auto;padding:0 22px}
 header{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(11,14,20,.85);backdrop-filter:blur(10px)}header .wrap{display:flex;align-items:center;height:60px}
 .brand{font-weight:800}.brand span{color:var(--accent)}header nav{margin-left:auto;font-size:14px;color:var(--muted)}header nav a{color:var(--muted);margin-left:18px}
+  /* the header is a fixed 60px row; on a phone the brand wraps and spills past it (measured).
+     Below 700px the bar grows and the nav takes its own line. Kept HERE because this page is
+     GENERATED — an edit to docs/changelog.html is overwritten by the next release. */
+  @media(max-width:700px){
+    header .wrap{height:auto;min-height:60px;flex-wrap:wrap;align-items:center;padding-top:9px;padding-bottom:9px;gap:4px}
+    .brand{flex:0 0 auto;font-size:15px}
+    header nav{margin-left:0;width:100%;line-height:2}
+    header nav a{margin-left:0;margin-right:16px;display:inline-block}
+  }
 h1{font-size:32px;margin:36px 0 20px}h2{font-size:19px;margin:28px 0 6px;color:var(--text);border-top:1px solid var(--border);padding-top:20px}
 ul{margin:6px 0 14px;padding-left:20px}li{color:var(--muted);font-size:14.5px;margin:5px 0}li b{color:var(--text)}
 code{font:13px ui-monospace,Menlo,monospace;background:#0d1017;border:1px solid var(--border);border-radius:5px;padding:1px 6px}
@@ -13,9 +22,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <style>.brand{display:inline-flex!important;align-items:center;gap:9px}.brand .brandmark{width:26px;height:26px;border-radius:7px;display:block;flex:none}</style>
 </head>
 <body><header><div class="wrap"><div class="brand"><img class="brandmark" src="assets/ots-mark.svg" alt="">Open Trading Surface</div>
-<nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
+<nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.43.1 — a read never waits for a model call, and a refusal that stopped guessing</h2>
+<ul>
+</ul>
 <h2>5.43.0 — analyst rating changes, sliced by firm</h2>
 <ul>
 <li><b>The window is the bar span</b> because <code>barTimeFor</code> returns null outside it: a count over</li>

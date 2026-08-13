@@ -1,0 +1,1018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 3416" width="1680" height="3416" role="img"
+     aria-label="Architecture of the Open Trading Surface event-processing subsystem: event plane, condition layer, rule layer, action layer, strategy layer and backtester, with refusal points marked distinctly.">
+<title>Event processing — events, conditions, rules, actions, strategies, backtests</title>
+<desc>Derived from the shipped code at 5.43.0: server/event-registry.js, event-log.js, event-producers.js, data-change.js, condition.js, condition-eval.js, condition-env.js, rules.js, rule-state.js, rule-engine.js, rule-accrual.js, rule-actions.js, paper-book.js, strategy*.js, backtest-strategy.js, backtest-rerun.js, backtest-store.js, deflation.js, search-ledger.js, membership-ledger.js.</desc>
+
+<style>
+  .bg      { fill:#ffffff; }
+  text     { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+             fill:#14202b; -webkit-font-smoothing:antialiased; }
+  .t-title { font-size:34px; font-weight:700; letter-spacing:-0.3px; }
+  .t-sub   { font-size:14px; fill:#5b6b7a; }
+  .t-band  { font-size:21px; font-weight:700; fill:#ffffff; letter-spacing:0.2px; }
+  .t-bandn { font-size:12px; font-weight:600; fill:#ffffff; opacity:.85; letter-spacing:1.4px; }
+  .t-box   { font-size:14px; font-weight:700; }
+  .t-boxs  { font-size:10.5px; font-weight:700; fill:#5b6b7a; letter-spacing:.6px; }
+  .t       { font-size:11.5px; }
+  .t-s     { font-size:10.5px; fill:#5b6b7a; }
+  .t-m     { font-size:11.5px; fill:#5b6b7a; }
+  .t-xs    { font-size:9.5px; fill:#5b6b7a; }
+  .mono    { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace; font-size:11px; }
+  .mono-s  { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace; font-size:10px; fill:#5b6b7a; }
+  .mono-b  { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace; font-size:11.5px; font-weight:700; }
+
+  .panel   { fill:#ffffff; stroke:#c3cfd9; stroke-width:1.2; }
+  .panel-i { fill:#f6f9fb; stroke:#d5dfe7; stroke-width:1; }
+  .band    { fill:#f4f7fa; stroke:#d5dfe7; stroke-width:1.2; }
+
+  .flow    { fill:none; stroke:#4a5b6b; stroke-width:2; marker-end:url(#arrow); }
+  .flow-th { fill:none; stroke:#2a3946; stroke-width:3; marker-end:url(#arrowb); }
+  .refuse  { fill:none; stroke:#b3261e; stroke-width:2; stroke-dasharray:7 5; marker-end:url(#arrowr); }
+  .dormant { fill:none; stroke:#93a2af; stroke-width:1.6; stroke-dasharray:2 4; }
+  .hair    { fill:none; stroke:#c3cfd9; stroke-width:1; }
+
+  .r-panel { fill:#fdf3f2; stroke:#b3261e; stroke-width:1.4; stroke-dasharray:6 4; }
+  .r-txt   { fill:#8f1d17; }
+  .r-hdr   { font-size:12.5px; font-weight:700; fill:#b3261e; letter-spacing:.4px; }
+  .d-panel { fill:#fdf8ec; stroke:#a8760a; stroke-width:1.2; }
+  .d-hdr   { font-size:12.5px; font-weight:700; fill:#8a6208; }
+  .n-panel { fill:#f4f6f8; stroke:#93a2af; stroke-width:1.2; stroke-dasharray:3 3; }
+
+  .pill-live { fill:#e7f4ec; stroke:#2f7a52; stroke-width:1; }
+  .pill-livet{ font-size:9.5px; font-weight:700; fill:#215f3e; letter-spacing:.6px; }
+  .pill-cond { fill:#fdf8ec; stroke:#a8760a; stroke-width:1; }
+  .pill-condt{ font-size:9.5px; font-weight:700; fill:#8a6208; letter-spacing:.6px; }
+  .pill-dorm { fill:#eef1f4; stroke:#93a2af; stroke-width:1; }
+  .pill-dormt{ font-size:9.5px; font-weight:700; fill:#5b6b7a; letter-spacing:.6px; }
+</style>
+
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#4a5b6b"/>
+  </marker>
+  <marker id="arrowb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#2a3946"/>
+  </marker>
+  <marker id="arrowr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#b3261e"/>
+  </marker>
+  <symbol id="stop" viewBox="0 0 24 24">
+    <path d="M7.5 1.5h9L22.5 7.5v9L16.5 22.5h-9L1.5 16.5v-9z" fill="#b3261e"/>
+    <path d="M6.5 12h11" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+  </symbol>
+</defs>
+
+<rect class="bg" x="0" y="0" width="1680" height="3416"/>
+
+<!-- ═══════════════ TITLE ═══════════════ -->
+<g transform="translate(56,0)">
+  <text class="t-title" x="0" y="58">Event processing — the CEP engine, the strategy layer and the backtester</text>
+  <text class="t-sub"   x="0" y="82">Open Trading Surface · derived from the shipped code, not from the specification · every box names the module that owns it</text>
+  <line class="hair" x1="0" y1="98" x2="1568" y2="98"/>
+</g>
+
+<!-- ═══════════════ LEGEND ═══════════════ -->
+<g transform="translate(56,112)">
+  <rect class="panel-i" x="0" y="0" width="1568" height="60" rx="4"/>
+
+  <line class="flow" x1="16" y1="22" x2="66" y2="22"/>
+  <text class="t" x="74" y="26">the happy path — a value, a record or a control flows</text>
+
+  <line class="refuse" x1="360" y1="22" x2="410" y2="22"/>
+  <text class="t r-txt" x="418" y="26">A REFUSAL — it names what is missing and writes nothing</text>
+
+  <line class="dormant" x1="800" y1="22" x2="850" y2="22"/>
+  <text class="t" x="858" y="26">registered in the vocabulary, and nothing writes it</text>
+
+  <use href="#stop" x="1180" y="14" width="17" height="17"/>
+  <text class="t" x="1204" y="26">refusal point — the run stops here rather than defaulting</text>
+
+  <rect class="pill-live" x="16" y="36" width="46" height="15" rx="7.5"/>
+  <text class="pill-livet" x="22" y="47">LIVE</text>
+  <text class="t-s" x="70" y="47">a writer exists and rides a fetch that was already happening</text>
+
+  <rect class="pill-cond" x="360" y="36" width="86" height="15" rx="7.5"/>
+  <text class="pill-condt" x="366" y="47">CONDITIONAL</text>
+  <text class="t-s" x="454" y="47">a writer exists, but only runs if a key / a process / a gesture does</text>
+
+  <rect class="pill-dorm" x="800" y="36" width="66" height="15" rx="7.5"/>
+  <text class="pill-dormt" x="806" y="47">DORMANT</text>
+  <text class="t-s" x="874" y="47">the kind resolves in the registry and no producer has ever written it — a rule on it cannot fire</text>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- BAND A — THE EVENT PLANE                                                -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<g transform="translate(56,196)">
+  <rect class="band" x="0" y="0" width="1568" height="728" rx="6"/>
+  <rect x="0" y="0" width="1568" height="38" rx="6" fill="#1f6f8b"/>
+  <rect x="0" y="26" width="1568" height="12" fill="#1f6f8b"/>
+  <text class="t-bandn" x="16" y="17">A</text>
+  <text class="t-band"  x="34" y="26">The event plane — one vocabulary, two timestamps, an append-only log</text>
+  <text class="t-band"  x="1180" y="26" style="font-size:13px;opacity:.9">101 kinds · 37 families · 7 planes</text>
+
+  <!-- ── COLUMN 1 : PRODUCERS  x 16..486 ── -->
+  <text class="t-boxs" x="16" y="60">PRODUCERS — NO POLLING LOOP EXISTS. EVERY ONE RIDES A FETCH THAT WAS ALREADY HAPPENING.</text>
+
+  <g transform="translate(16,70)">
+    <rect class="panel" x="0" y="0" width="470" height="80" rx="4"/>
+    <rect class="pill-live" x="416" y="9" width="44" height="15" rx="7.5"/><text class="pill-livet" x="422" y="20">LIVE</text>
+    <text class="t-box" x="12" y="21">News</text>
+    <text class="mono-s" x="12" y="35">server/event-producers.js · recordNewsItems()</text>
+    <text class="t-s" x="12" y="49">doors: get_news · ingest.runCycle</text>
+    <text class="mono" x="12" y="63">external.news.item</text>
+    <text class="t-s" x="12" y="75" style="fill:#8a6208">facts only — no sentiment, importance, category or relevance</text>
+  </g>
+
+  <g transform="translate(16,156)">
+    <rect class="panel" x="0" y="0" width="470" height="112" rx="4"/>
+    <rect class="pill-cond" x="374" y="9" width="86" height="15" rx="7.5"/><text class="pill-condt" x="380" y="20">CONDITIONAL</text>
+    <text class="t-box" x="12" y="21">Security stream</text>
+    <text class="mono-s" x="12" y="35">server/event-producers.js · recordSecurityStream()</text>
+    <text class="t-s" x="12" y="49">door: get_events → events.aggregate — ON DEMAND ONLY, no schedule</text>
+    <text class="mono" x="12" y="65">filing.earnings.reported · .dividend.paid · .split.effective</text>
+    <text class="mono" x="12" y="78">filing.sec.filed · .transcript.published · .insider.bought/.sold</text>
+    <text class="mono" x="12" y="91">filing.financials.released · estimate.ownership.changed</text>
+    <text class="mono" x="12" y="104">estimate.rating.upgraded / .downgraded / .changed</text>
+  </g>
+
+  <g transform="translate(16,274)">
+    <rect class="panel" x="0" y="0" width="470" height="66" rx="4"/>
+    <rect class="pill-cond" x="374" y="9" width="86" height="15" rx="7.5"/><text class="pill-condt" x="380" y="20">CONDITIONAL</text>
+    <text class="t-box" x="12" y="21">Intake items</text>
+    <text class="mono-s" x="12" y="35">server/ingest.js · runCycle() → recordIngestItems()</text>
+    <text class="mono" x="12" y="50">filing.ingest.&lt;structural_class&gt; — 14 classes</text>
+    <text class="t-s" x="12" y="62">the classification is the intake's, from STRUCTURED FIELDS ONLY</text>
+  </g>
+
+  <g transform="translate(16,346)">
+    <rect class="panel" x="0" y="0" width="470" height="76" rx="4"/>
+    <rect class="pill-cond" x="374" y="9" width="86" height="15" rx="7.5"/><text class="pill-condt" x="380" y="20">CONDITIONAL</text>
+    <text class="t-box" x="12" y="21">Repricing scan · divergence ledger</text>
+    <text class="mono-s" x="12" y="35">server/scan.js · server/divergence.js</text>
+    <text class="mono" x="12" y="50">model.* (16 kinds via SCAN_MAP) · filing.shares.discontinuity</text>
+    <text class="mono" x="12" y="65">model.divergence.* (5)</text>
+  </g>
+
+  <g transform="translate(16,428)">
+    <rect class="panel" x="0" y="0" width="470" height="112" rx="4"/>
+    <rect class="pill-live" x="416" y="9" width="44" height="15" rx="7.5"/><text class="pill-livet" x="422" y="20">LIVE</text>
+    <text class="t-box" x="12" y="21">Data change — detected against a WATERMARK</text>
+    <text class="mono-s" x="12" y="35">server/data-change.js — never a cache, never a poll</text>
+    <text class="t-s" x="12" y="50">doors: get_financial_statements · edgar.companyConcept · fred.series ·</text>
+    <text class="t-s" x="12" y="62">get_company_profile · get_analyst_data</text>
+    <text class="mono" x="12" y="78">filing.statement.filed / .restated / .bulk_restated</text>
+    <text class="mono" x="12" y="91">external.series.observation / .revised</text>
+    <text class="mono" x="12" y="104">estimate.field.moved</text>
+  </g>
+
+  <g transform="translate(16,546)">
+    <rect class="panel" x="0" y="0" width="470" height="100" rx="4"/>
+    <rect class="pill-cond" x="374" y="9" width="86" height="15" rx="7.5"/><text class="pill-condt" x="380" y="20">CONDITIONAL</text>
+    <text class="t-box" x="12" y="21">Membership · universe · calendar · user events</text>
+    <text class="mono-s" x="12" y="35">membership-ledger · screener · pit · econ-calendar · user-event</text>
+    <text class="mono" x="12" y="51">membership.cohort.entered / .exited</text>
+    <text class="mono" x="12" y="64">membership.universe.snapshot_taken / _refused</text>
+    <text class="mono" x="12" y="77">external.release.printed / .rescheduled / .missed</text>
+    <text class="mono" x="12" y="90">book.calendar.event_asserted / _amended / _retracted</text>
+  </g>
+
+  <g transform="translate(16,652)">
+    <rect class="panel" x="0" y="0" width="470" height="56" rx="4"/>
+    <rect class="pill-live" x="416" y="9" width="44" height="15" rx="7.5"/><text class="pill-livet" x="422" y="20">LIVE</text>
+    <text class="t-box" x="12" y="21">The engine's own record — written by bands C, D and E</text>
+    <text class="mono" x="12" y="38">book.rule.* · book.proposal.* · book.action.* · book.state.set</text>
+    <text class="mono" x="12" y="50">book.strategy.*</text>
+  </g>
+
+  <!-- ── COLUMN 2 : THE REGISTRY  x 502..802 ── -->
+  <g transform="translate(502,70)">
+    <rect class="panel" x="0" y="0" width="300" height="186" rx="4"/>
+    <text class="t-box" x="12" y="21">The kind registry</text>
+    <text class="mono-s" x="12" y="35">server/event-registry.js</text>
+    <line class="hair" x1="12" y1="45" x2="288" y2="45"/>
+    <text class="t-s" x="12" y="63">A kind is <tspan class="mono-b">plane.family.name</tspan> — three</text>
+    <text class="t-s" x="12" y="75">segments, always.</text>
+    <text class="t-s" x="12" y="95">EVERY FAMILY IS BUILT from a vocabulary its own</text>
+    <text class="t-s" x="12" y="107">producer publishes. Nothing here restates a list,</text>
+    <text class="t-s" x="12" y="119">and a coverage test fails the build BOTH ways.</text>
+    <text class="t-s" x="12" y="139">Seven planes, each with a different answer to</text>
+    <text class="t-s" x="12" y="151">"could we have known this then":</text>
+    <text class="mono" x="12" y="164">tape · filing · estimate · model</text>
+    <text class="mono" x="12" y="177">membership · external · book</text>
+  </g>
+
+  <g transform="translate(502,272)">
+    <rect class="r-panel" x="0" y="0" width="300" height="62" rx="4"/>
+    <use href="#stop" x="12" y="11" width="16" height="16"/>
+    <text class="r-hdr" x="34" y="23">assertKind() THROWS</text>
+    <text class="t-s r-txt" x="12" y="40">on a kind the registry does not carry, naming the</text>
+    <text class="t-s r-txt" x="12" y="52">families it could have meant. Never coerced.</text>
+  </g>
+
+  <g transform="translate(502,348)">
+    <rect class="n-panel" x="0" y="0" width="300" height="152" rx="4"/>
+    <rect class="pill-dorm" x="226" y="9" width="64" height="15" rx="7.5"/><text class="pill-dormt" x="232" y="20">DORMANT</text>
+    <text class="t-box" x="12" y="21" style="fill:#5b6b7a">Registered · never written</text>
+    <text class="t-s" x="12" y="38">21 of the 101 kinds resolve in the registry and</text>
+    <text class="t-s" x="12" y="50">NO CODE PATH RECORDS THEM. A rule matching one</text>
+    <text class="t-s" x="12" y="62">compiles, saves, ticks daily and cannot fire.</text>
+    <text class="mono" x="12" y="82" style="fill:#5b6b7a">filing.break.*     5  model-events.js</text>
+    <text class="mono" x="12" y="96" style="fill:#5b6b7a">filing.roster.*    4  executives.js</text>
+    <text class="mono" x="12" y="110" style="fill:#5b6b7a">model.proforma.*  11  proforma-events.js</text>
+    <text class="mono" x="12" y="124" style="fill:#5b6b7a">book.note.added    1  excluded by design</text>
+    <text class="t-s" x="12" y="142">None of the four requires server/event-log.js.</text>
+  </g>
+
+  <g transform="translate(502,510)">
+    <rect class="d-panel" x="0" y="0" width="300" height="100" rx="4"/>
+    <text class="d-hdr" x="12" y="21">THE DELIBERATE ABSENCE</text>
+    <text class="t-s" x="12" y="39">There is no <tspan class="mono">external.release.scheduled</tspan> and</text>
+    <text class="t-s" x="12" y="51">no <tspan class="mono">book.calendar.event_occurred</tspan>. A schedule has</text>
+    <text class="t-s" x="12" y="63">not happened; the log pages BACKWARDS, so</text>
+    <text class="t-s" x="12" y="75">future-dated records would make "what happened</text>
+    <text class="t-s" x="12" y="87">recently" answer with things that have not.</text>
+  </g>
+
+  <g transform="translate(502,622)">
+    <rect class="panel-i" x="0" y="0" width="300" height="98" rx="4"/>
+    <text class="t-box" x="12" y="21" style="font-size:12.5px">Reading the log</text>
+    <text class="mono" x="12" y="39">read()</text><text class="t-s" x="86" y="39">a dated range — the evaluator's door</text>
+    <text class="mono" x="12" y="55">feed()</text><text class="t-s" x="86" y="55">pages BACKWARDS from the newest day</text>
+    <text class="mono" x="12" y="71">volume()</text><text class="t-s" x="86" y="71">per-kind counts over the page</text>
+    <text class="mono" x="12" y="87">coverage()</text><text class="t-s" x="86" y="87">what has EVER been written, live</text>
+  </g>
+
+  <!-- ── COLUMN 3 : THE TYPED EVENT  x 818..1158 ── -->
+  <g transform="translate(818,70)">
+    <rect class="panel" x="0" y="0" width="340" height="306" rx="4"/>
+    <text class="t-box" x="12" y="22">The typed event</text>
+    <text class="mono-s" x="12" y="36">server/event-log.js · recordEvent()</text>
+    <line class="hair" x1="12" y1="46" x2="328" y2="46"/>
+    <text class="mono" x="12" y="64">id, kind, plane, subject, subject_kind</text>
+    <rect x="8" y="72" width="324" height="54" rx="3" fill="#eaf3f7" stroke="#1f6f8b" stroke-width="1.2"/>
+    <text class="mono-b" x="14" y="89">at</text>
+    <text class="t-s" x="48" y="89">YYYY-MM-DD — when it HAPPENED</text>
+    <text class="mono-b" x="14" y="105">observed_at</text>
+    <text class="t-s" x="104" y="105">ISO — when it became KNOWABLE</text>
+    <text class="t-s" x="14" y="120" style="fill:#1f6f8b">an explicit null means NEVER knowable, and is honoured</text>
+    <text class="mono" x="12" y="145">payload {…}   refs [ ]   source</text>
+    <text class="mono" x="12" y="161">provenance { producer, rule_id, generation }</text>
+    <text class="mono" x="12" y="177">reconstructable + reconstructable_why</text>
+    <text class="mono" x="12" y="193">dedupe_key</text>
+    <line class="hair" x1="12" y1="205" x2="328" y2="205"/>
+    <text class="t-s" x="12" y="223">Matching reads <tspan class="mono">observed_at</tspan>: an event becomes true on</text>
+    <text class="t-s" x="12" y="235">the first bar at or after it became knowable — and every</text>
+    <text class="t-s" x="12" y="247">record REPORTS BOTH.</text>
+    <text class="t-s" x="12" y="267" style="fill:#8a6208">EVENT_MAX_BYTES 4096 bounds the WRITE, never the detection:</text>
+    <text class="t-s" x="12" y="279" style="fill:#8a6208">an oversized payload is cut to its first three keys and SAYS</text>
+    <text class="t-s" x="12" y="291" style="fill:#8a6208">SO on the record.</text>
+  </g>
+
+  <g transform="translate(818,392)">
+    <rect class="r-panel" x="0" y="0" width="340" height="104" rx="4"/>
+    <use href="#stop" x="12" y="12" width="16" height="16"/>
+    <text class="r-hdr" x="34" y="25">recordEvent() THROWS on</text>
+    <text class="t-s r-txt" x="12" y="45">· an unregistered kind</text>
+    <text class="t-s r-txt" x="12" y="60">· a missing or malformed <tspan class="mono">at</tspan></text>
+    <text class="t-s r-txt" x="12" y="75">· a missing <tspan class="mono">source</tspan> — an event with no source cannot be</text>
+    <text class="t-s r-txt" x="24" y="88">joined back to the artifact that produced it</text>
+  </g>
+
+  <g transform="translate(818,512)">
+    <rect class="panel-i" x="0" y="0" width="340" height="60" rx="4"/>
+    <text class="t-box" x="12" y="21" style="font-size:12.5px">tryRecord()</text>
+    <text class="t-s" x="12" y="38">turns the throw into a STATED REFUSAL. Every producer uses</text>
+    <text class="t-s" x="12" y="50">it, so a log write can never cost the read it rides on.</text>
+  </g>
+
+  <g transform="translate(818,588)">
+    <rect class="panel-i" x="0" y="0" width="340" height="132" rx="4"/>
+    <text class="t-box" x="12" y="21" style="font-size:12.5px">Where a rule reads it — <tspan class="mono">condition-env.js</tspan></text>
+    <text class="t-s" x="12" y="39">THE KNOWABILITY CUT: the environment is assembled from</text>
+    <text class="t-s" x="12" y="51">bars ≤ t and events with <tspan class="mono">observed_at</tspan> ≤ close(t), and from</text>
+    <text class="t-s" x="12" y="63">nothing else. An event whose <tspan class="mono">observed_at</tspan> is null is NEVER</text>
+    <text class="t-s" x="12" y="75">knowable and is EXCLUDED rather than dated by occurrence.</text>
+    <text class="t-s" x="12" y="95">What it does not fetch is as deliberate as what it does: a</text>
+    <text class="t-s" x="12" y="107">condition naming no cohort does not touch the ledger, and the</text>
+    <text class="t-s" x="12" y="119">provenance block says which sources were skipped.</text>
+  </g>
+
+  <!-- ── COLUMN 4 : THE LOG  x 1174..1552 ── -->
+  <g transform="translate(1174,70)">
+    <rect class="panel" x="0" y="0" width="378" height="306" rx="4"/>
+    <text class="t-box" x="12" y="22">The append-only log</text>
+    <text class="mono-s" x="12" y="36">&lt;statedir&gt;/events/YYYY-MM-DD.jsonl</text>
+    <line class="hair" x1="12" y1="46" x2="366" y2="46"/>
+    <text class="t" x="12" y="66">DAY-PARTITIONED, append-only, 0o600. Nothing is edited.</text>
+    <text class="t" x="12" y="88">IDEMPOTENCE IS REFUSAL TO APPEND, never an edit: a re-run</text>
+    <text class="t" x="12" y="102">returns <tspan class="mono">{skipped, existing}</tspan>.</text>
+    <text class="t" x="12" y="124">The dedupe check and the append are ONE operation under</text>
+    <text class="t" x="12" y="138"><tspan class="mono">store.withLock</tspan> — splitting them is exactly how two</text>
+    <text class="t" x="12" y="152">writers both find the key absent and both write it.</text>
+    <text class="t" x="12" y="174">A per-day key index advances from the byte offset it last</text>
+    <text class="t" x="12" y="188">read to, so a re-fetch costs O(new lines).</text>
+    <text class="t" x="12" y="210">A crash-truncated tail is detected UNDER THE LOCK and</text>
+    <text class="t" x="12" y="224">never concatenated onto.</text>
+    <text class="t" x="12" y="248" style="fill:#8a6208">NO RETENTION POLICY, NO PRUNE VERB, NO CAP. The log and</text>
+    <text class="t" x="12" y="262" style="fill:#8a6208">the accrual record are the forward point-in-time evidence,</text>
+    <text class="t" x="12" y="276" style="fill:#8a6208">and pruning them destroys the only such evidence the</text>
+    <text class="t" x="12" y="290" style="fill:#8a6208">model plane will ever have.</text>
+  </g>
+
+  <g transform="translate(1174,392)">
+    <rect class="panel-i" x="0" y="0" width="378" height="180" rx="4"/>
+    <text class="t-box" x="12" y="21">The dedupe key</text>
+    <text class="t-s" x="12" y="39">It carries the SUBJECT. The stores that invented the key were</text>
+    <text class="t-s" x="12" y="51">per-symbol, so the subject was implicit in the filename; a</text>
+    <text class="t-s" x="12" y="63">cross-subject key without it silently eats records.</text>
+    <line class="hair" x1="12" y1="76" x2="366" y2="76"/>
+    <text class="t-box" x="12" y="96">What is deliberately NOT here</text>
+    <text class="t-s" x="12" y="114">The log does not become the authority for anything. Every</text>
+    <text class="t-s" x="12" y="126">producer KEEPS ITS OWN STORE as the authority for its own</text>
+    <text class="t-s" x="12" y="138">surface — the divergence view reads its ledger, the repricing</text>
+    <text class="t-s" x="12" y="150">report reads its run files — and the log is the JOIN beside</text>
+    <text class="t-s" x="12" y="162">them. Nothing was deleted or rewritten to build it.</text>
+  </g>
+
+  <g transform="translate(1174,588)">
+    <rect class="panel-i" x="0" y="0" width="378" height="120" rx="4"/>
+    <text class="t-box" x="12" y="21" style="font-size:12.5px">Tools</text>
+    <text class="mono" x="12" y="40">get_event_feed</text><text class="t-s" x="146" y="40">the browsable stream, filtered by kind,</text>
+    <text class="t-s" x="146" y="52">plane, subject or date, with its cursor</text>
+    <text class="mono" x="12" y="70">get_event_log</text><text class="t-s" x="146" y="70">a dated range read</text>
+    <text class="mono" x="12" y="88">backfill_event_log</text><text class="t-s" x="146" y="88">replays what is already on disk;</text>
+    <text class="t-s" x="146" y="100">idempotent, dry-run first, nothing</text>
+    <text class="t-s" x="146" y="112">read destructively and nothing deleted</text>
+  </g>
+
+  <!-- flows: producers → registry → typed event → log -->
+  <path class="flow-th" d="M486,352 L502,352"/>
+  <path class="flow-th" d="M802,160 L818,160"/>
+  <path class="flow-th" d="M1158,200 L1174,200"/>
+  <path class="refuse" d="M988,376 L988,392"/>
+  <path class="refuse" d="M652,256 L652,272"/>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- BAND B — THE CONDITION LAYER                                            -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<g transform="translate(56,944)">
+  <rect class="band" x="0" y="0" width="1568" height="556" rx="6"/>
+  <rect x="0" y="0" width="1568" height="38" rx="6" fill="#4b5f9e"/>
+  <rect x="0" y="26" width="1568" height="12" fill="#4b5f9e"/>
+  <text class="t-bandn" x="16" y="17">B</text>
+  <text class="t-band"  x="34" y="26">The condition layer — a tree over predicate streams</text>
+  <text class="t-band"  x="1080" y="26" style="font-size:13px;opacity:.9">server/condition.js · condition-eval.js · condition-env.js</text>
+
+  <!-- sugar → canonical -->
+  <g transform="translate(16,54)">
+    <rect class="panel" x="0" y="0" width="300" height="136" rx="4"/>
+    <text class="t-box" x="12" y="20">Two forms, one direction</text>
+    <text class="mono" x="12" y="40">text sugar  →  parseSugar()</text>
+    <text class="mono" x="12" y="56">     ↓</text>
+    <text class="mono-b" x="12" y="72">CANONICAL JSON  ← the stored form</text>
+    <text class="mono" x="12" y="88">     ↓  fingerprint()  = cond_&lt;sha1[12]&gt;</text>
+    <text class="t-s" x="12" y="104">The sugar is REGENERATED from the JSON on every write, so the</text>
+    <text class="t-s" x="12" y="116">display text cannot drift from the stored object. A stored</text>
+    <text class="t-s" x="12" y="128">string would be a parser dependency forever.</text>
+  </g>
+
+  <!-- leaves -->
+  <g transform="translate(16,192)">
+    <rect class="panel" x="0" y="0" width="470" height="222" rx="4"/>
+    <text class="t-box" x="12" y="20">Six leaf kinds — each resolves in a registry, or refuses</text>
+    <line class="hair" x1="12" y1="30" x2="458" y2="30"/>
+    <text class="mono-b" x="12" y="48">field</text>      <text class="t-s" x="96" y="48">the 520-field screen vocabulary · screener.applyOp</text>
+    <text class="t-s" x="96" y="60">also <tspan class="mono">value_field</tspan> and <tspan class="mono">pctl_gt/pctl_lt … within=</tspan></text>
+    <text class="mono-b" x="12" y="78">series</text>     <text class="t-s" x="96" y="78">expr-series.compileSeries over BARS only — a stray</text>
+    <text class="t-s" x="96" y="90">non-bar identifier is refused by name</text>
+    <text class="mono-b" x="12" y="108">indicator</text>  <text class="t-s" x="96" y="108">the ONE indicator registry, parameters its own</text>
+    <text class="mono-b" x="12" y="126">event</text>      <text class="t-s" x="96" y="126">the 101-kind registry; <tspan class="mono">*</tspan> matches a segment;</text>
+    <text class="t-s" x="96" y="138"><tspan class="mono">match:{…}</tspan> adds payload predicates</text>
+    <text class="mono-b" x="12" y="156">member</text>     <text class="t-s" x="96" y="156"><tspan class="mono">cohort:&lt;id|name&gt;</tspan> against the dated ledger —</text>
+    <text class="t-s" x="96" y="168">index and universe membership are NOT offered</text>
+    <text class="mono-b" x="12" y="186">state</text>      <text class="t-s" x="96" y="186">the per-subject named state a <tspan class="mono">set_state</tspan> action wrote</text>
+    <line class="hair" x1="12" y1="196" x2="458" y2="196"/>
+    <text class="t-s" x="12" y="212">Every leaf carries its PLANE, which is what the point-in-time gate consults.</text>
+  </g>
+
+  <!-- combinators -->
+  <g transform="translate(502,192)">
+    <rect class="panel" x="0" y="0" width="470" height="222" rx="4"/>
+    <text class="t-box" x="12" y="20">Eight combinators — the temporal operators CEP requires</text>
+    <line class="hair" x1="12" y1="30" x2="458" y2="30"/>
+    <text class="mono-b" x="12" y="48">all · any · not</text>  <text class="t-s" x="152" y="48">three-valued: an unknown leaf is null and propagates</text>
+    <text class="mono-b" x="12" y="68">then … within</text>    <text class="t-s" x="152" y="68">SEQUENCE — ordered, and the window is REQUIRED</text>
+    <text class="t-s" x="152" y="80">(one step = "occurred within the trailing window")</text>
+    <text class="mono-b" x="12" y="100">count(c, w) op n</text> <text class="t-s" x="152" y="100">window count over a condition</text>
+    <text class="mono-b" x="12" y="118">agg(fn, s, w) op n</text><text class="t-s" x="152" y="118">max | min | sum | avg of a series expression</text>
+    <text class="mono-b" x="12" y="138">sustained(c, d</text>   <text class="t-s" x="152" y="138">held across a window; <tspan class="mono">at_least k</tspan> makes it N-of-M</text>
+    <text class="mono-b" x="12" y="150">        [, at_least k])</text>
+    <text class="mono-b" x="12" y="170">absent(c, d)</text>     <text class="t-s" x="152" y="170">NEGATION WITH TIMEOUT — fires at the EXPIRY of its</text>
+    <text class="t-s" x="152" y="182">window, ON A DAY WHEN NOTHING HAPPENED. This is</text>
+    <text class="t-s" x="152" y="194">what makes the engine a SCHEDULER, not a filter.</text>
+    <text class="t-s" x="12" y="212">Windows: <tspan class="mono-b">sliding</tspan> (default) · <tspan class="mono-b">tumbling size</tspan> · <tspan class="mono-b">session gap</tspan></text>
+  </g>
+
+  <!-- durations + triggers -->
+  <g transform="translate(988,192)">
+    <rect class="panel" x="0" y="0" width="290" height="122" rx="4"/>
+    <text class="t-box" x="12" y="20">Durations carry their clock</text>
+    <text class="mono-b" x="12" y="40">20d</text><text class="t-s" x="52" y="40">20 TRADING days (bars) — a holiday is not a bar</text>
+    <text class="mono-b" x="12" y="56">20c</text><text class="t-s" x="52" y="56">20 CALENDAR days — a holiday consumes one</text>
+    <text class="mono-b" x="12" y="72">1mo 1q 1y</text><text class="t-s" x="88" y="72">calendar months, quarters, years</text>
+    <text class="t-s r-txt" x="12" y="92">A BARE NUMBER IS A PARSE ERROR, and the</text>
+    <text class="t-s r-txt" x="12" y="103">refusal NAMES BOTH SUFFIXES. There is no</text>
+    <text class="t-s r-txt" x="12" y="114">default, and there will not be one.</text>
+  </g>
+  <g transform="translate(988,322)">
+    <rect class="panel" x="0" y="0" width="290" height="92" rx="4"/>
+    <text class="t-box" x="12" y="18">Triggers and debounce</text>
+    <text class="mono-b" x="12" y="36">edge</text><text class="t-s" x="66" y="36">DEFAULT — the false→true transition</text>
+    <text class="mono-b" x="12" y="52">level</text><text class="t-s" x="66" y="52">every bar it holds — <tspan class="r-txt">requires an explicit</tspan></text>
+    <text class="t-s r-txt" x="66" y="64">debounce, refused at save; a level rule</text>
+    <text class="t-s r-txt" x="66" y="76">with none is a firehose</text>
+    <text class="mono-b" x="12" y="88">exit</text><text class="t-s" x="66" y="88">the falling edge</text>
+  </g>
+
+  <!-- PIT gate -->
+  <g transform="translate(1294,54)">
+    <rect class="panel" x="0" y="0" width="258" height="360" rx="4"/>
+    <text class="t-box" x="12" y="20">The point-in-time gate</text>
+    <text class="mono-s" x="12" y="34">condition-eval.reachOf → server/reach.js</text>
+    <line class="hair" x1="12" y1="44" x2="246" y2="44"/>
+    <text class="t-s" x="12" y="62">It runs BEFORE the evaluation is believed, and</text>
+    <text class="t-s" x="12" y="74">its verdicts ride the payload whether or not</text>
+    <text class="t-s" x="12" y="86">anything refused.</text>
+    <text class="t-s" x="12" y="106">Eleven families, each a LIVE READ of the stores.</text>
+    <text class="t-s" x="12" y="118">A verdict changes the day the record is long</text>
+    <text class="t-s" x="12" y="130">enough, with nobody editing a constant.</text>
+    <text class="mono-b" x="12" y="152">yes</text><text class="t-s" x="72" y="152">tape.bars · model.detections</text>
+    <text class="mono-b" x="12" y="170">gated</text><text class="t-s" x="72" y="170">filing.statements</text>
+    <text class="mono-b" x="12" y="188">recorded_days</text><text class="t-s" x="12" y="200">model.surface</text>
+    <text class="mono-b" x="12" y="218">forward_only</text><text class="t-s" x="12" y="230">estimate.street · model.enrichment ·</text>
+    <text class="t-s" x="12" y="242">membership.cohort · membership.universe</text>
+    <text class="mono-b" x="12" y="260">no</text><text class="t-s" x="72" y="260">external.macro · external.container</text>
+    <line class="hair" x1="12" y1="274" x2="246" y2="274"/>
+    <text class="t-s" x="12" y="292" style="fill:#8a6208">The EVALUATOR refuses on its own account too, which</text>
+    <text class="t-s" x="12" y="304" style="fill:#8a6208">is a stronger statement: a FIELD leaf reads the</text>
+    <text class="t-s" x="12" y="316" style="fill:#8a6208">CURRENT screener row, so at any historical as_of it</text>
+    <text class="t-s" x="12" y="328" style="fill:#8a6208">refuses. A `gated` verdict says the record COULD</text>
+    <text class="t-s" x="12" y="340" style="fill:#8a6208">support it; the evaluator says whether THIS READER</text>
+    <text class="t-s" x="12" y="352" style="fill:#8a6208">can, and the two are reported separately.</text>
+  </g>
+
+  <!-- refusals of the layer -->
+  <g transform="translate(340,54)">
+    <rect class="r-panel" x="0" y="0" width="632" height="112" rx="4"/>
+    <use href="#stop" x="12" y="10" width="17" height="17"/>
+    <text class="r-hdr" x="36" y="23">THE COMPILER REFUSES AT SAVE, NOT AT 3 A.M.</text>
+    <text class="t-s r-txt" x="12" y="42">· a leaf that resolves in NO registry — naming every registry searched and their sizes</text>
+    <text class="t-s r-txt" x="12" y="56">· a bare duration · a level trigger with no debounce · an unbounded <tspan class="mono">then</tspan> sequence</text>
+    <text class="t-s r-txt" x="12" y="70">· an <tspan class="mono">absent</tspan> with no anchor — "B never happened" is a claim about all of history, not a rule</text>
+    <text class="t-s r-txt" x="12" y="84">· more than CONDITION_MAX_NODES (64) · a trading window past CONDITION_WINDOW_MAX_BARS (2520)</text>
+    <text class="t-s r-txt" x="12" y="98">· <tspan class="mono">=&gt;</tspan> — an action is not part of a condition; the refusal explains the state key and points at the rule</text>
+  </g>
+
+  <!-- environment -->
+  <g transform="translate(16,430)">
+    <rect class="panel-i" x="0" y="0" width="1256" height="112" rx="4"/>
+    <text class="t-box" x="12" y="20">The evaluation environment — <tspan class="mono">server/condition-env.js</tspan></text>
+    <text class="t-s" x="12" y="40">THE KNOWABILITY CUT LIVES HERE, which is why it is a module and not four lines in a handler: the environment is assembled from bars ≤ t and</text>
+    <text class="t-s" x="12" y="54">events with <tspan class="mono">observed_at</tspan> ≤ close(t), and from nothing else. An event with <tspan class="mono">observed_at</tspan> null is NEVER knowable and is EXCLUDED rather than</text>
+    <text class="t-s" x="12" y="68">dated by its occurrence. Bars may be INJECTED by a caller that has already cut them — which is the seam the strategy loop and the replay use.</text>
+    <text class="t-s" x="12" y="88">WHAT IT DOES NOT FETCH IS AS DELIBERATE AS WHAT IT DOES: a condition naming no field does not run the screener; one naming no event does not</text>
+    <text class="t-s" x="12" y="102">read the log; one naming no cohort does not touch the ledger — and the provenance block says which sources were consulted, and which were skipped.</text>
+  </g>
+
+  <path class="flow" d="M166,190 L166,192"/>
+  <path class="flow" d="M486,300 L502,300"/>
+  <path class="flow" d="M972,262 L988,262"/>
+  <path class="flow" d="M1278,230 L1294,230"/>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- BAND C — THE RULE LAYER                                                 -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<g transform="translate(56,1520)">
+  <rect class="band" x="0" y="0" width="1568" height="452" rx="6"/>
+  <rect x="0" y="0" width="1568" height="38" rx="6" fill="#6a4d96"/>
+  <rect x="0" y="26" width="1568" height="12" fill="#6a4d96"/>
+  <text class="t-bandn" x="16" y="17">C</text>
+  <text class="t-band"  x="34" y="26">The rule layer — a named, versioned condition with a subject scope</text>
+  <text class="t-band"  x="1120" y="26" style="font-size:13px;opacity:.9">rules.js · rule-state.js · rule-engine.js · rule-accrual.js</text>
+
+  <!-- rule record -->
+  <g transform="translate(16,54)">
+    <rect class="panel" x="0" y="0" width="330" height="196" rx="4"/>
+    <text class="t-box" x="12" y="20">The rule record</text>
+    <text class="mono-s" x="12" y="34">&lt;statedir&gt;/rules.json · store.update</text>
+    <line class="hair" x1="12" y1="44" x2="318" y2="44"/>
+    <text class="mono" x="12" y="62">id · name (unique)</text>
+    <text class="mono" x="12" y="78">condition   the canonical JSON</text>
+    <text class="mono" x="12" y="94">sugar       regenerated, display only</text>
+    <text class="mono" x="12" y="110">fingerprint · rule_version</text>
+    <text class="mono" x="12" y="126">scope  {symbols[]} | {cohort} | {universe}</text>
+    <text class="mono" x="12" y="142">actions[] · book · playbook · note</text>
+    <text class="mono" x="12" y="158">enabled · fire count · edit history</text>
+    <text class="t-s r-txt" x="12" y="178">SCOPE IS REQUIRED. Defaulting it to the universe would</text>
+    <text class="t-s r-txt" x="12" y="190">silently point a per-name evaluation at six thousand names.</text>
+  </g>
+
+  <!-- state key + version law -->
+  <g transform="translate(362,54)">
+    <rect class="panel" x="0" y="0" width="440" height="196" rx="4"/>
+    <text class="t-box" x="12" y="20">The per-subject state, and the version law</text>
+    <rect x="8" y="30" width="424" height="30" rx="3" fill="#f2eef8" stroke="#6a4d96" stroke-width="1.2"/>
+    <text class="mono-b" x="14" y="50">key = rule_id | fingerprint | rule_version | SUBJECT</text>
+    <text class="t-s" x="12" y="76">It holds the sequence PARTIALS, the live <tspan class="mono">absent</tspan> TIMERS, the edge</text>
+    <text class="t-s" x="12" y="88">trigger's last value, the debounce clock and the named states.</text>
+    <text class="t-s" x="12" y="108"><tspan style="font-weight:700">An edit that MOVES the fingerprint</tspan> — the condition — bumps</text>
+    <text class="t-s" x="12" y="120"><tspan class="mono">rule_version</tspan> and RESETS the state, archiving what it drops to the</text>
+    <text class="t-s" x="12" y="132">log as <tspan class="mono">book.rule.reset</tspan>. A partial is a claim about a condition, and</text>
+    <text class="t-s" x="12" y="144">continuing it under new semantics would produce a firing no reading</text>
+    <text class="t-s" x="12" y="156">of the current rule explains.</text>
+    <text class="t-s" x="12" y="176"><tspan style="font-weight:700">An edit that does not</tspan> — name, note, scope, playbook, enabled,</text>
+    <text class="t-s" x="12" y="188"><tspan style="font-weight:700">ACTIONS</tspan> — INHERITS. Renaming a rule must not re-arm it.</text>
+  </g>
+
+  <!-- the tick -->
+  <g transform="translate(818,54)">
+    <rect class="panel" x="0" y="0" width="380" height="196" rx="4"/>
+    <text class="t-box" x="12" y="20">The tick — declared process <tspan class="mono">event-engine</tspan></text>
+    <text class="mono-s" x="12" y="34">server/rule-engine.js · tick()</text>
+    <line class="hair" x1="12" y1="44" x2="368" y2="44"/>
+    <text class="t-s" x="12" y="62">Once per weekday, CALENDAR-TRIGGERED with a data preference.</text>
+    <text class="t-s" x="12" y="80" style="font-weight:700">IT TICKS ON EMPTY DAYS BY DESIGN.</text>
+    <text class="t-s" x="12" y="94">An <tspan class="mono">absent … within N</tspan> fires at the EXPIRY of its window, on a day</text>
+    <text class="t-s" x="12" y="106">when nothing happened — so a data-triggered tick would be silent</text>
+    <text class="t-s" x="12" y="118">on the one day it was needed, and a missed tick is a MISSED FIRING</text>
+    <text class="t-s" x="12" y="130">that leaves no other trace anywhere.</text>
+    <text class="t-s" x="12" y="150">"RAN, NOTHING FIRED" is a recorded SUCCESS in those words. Silence</text>
+    <text class="t-s" x="12" y="162">records nothing, and nothing reads RED past</text>
+    <text class="t-s" x="12" y="174"><tspan class="mono">EVENT_ENGINE_TICK_GRACE_HOURS</tspan> (6). Pause is honoured BETWEEN</text>
+    <text class="t-s" x="12" y="186">subjects; the pending list persists, so a halt RESUMES.</text>
+  </g>
+
+  <!-- caps -->
+  <g transform="translate(1214,54)">
+    <rect class="r-panel" x="0" y="0" width="338" height="196" rx="4"/>
+    <use href="#stop" x="12" y="12" width="17" height="17"/>
+    <text class="r-hdr" x="36" y="25">CAPS THAT REFUSE, WITH THEIR COUNT</text>
+    <text class="t-s r-txt" x="12" y="46">Each is recorded as <tspan class="mono">book.rule.refused</tspan>. A refusal that is</text>
+    <text class="t-s r-txt" x="12" y="58">not recorded is indistinguishable from a rule that did not fire.</text>
+    <text class="mono-b r-txt" x="12" y="80">RULE_TICK_MAX_SUBJECTS  200</text>
+    <text class="t-s r-txt" x="12" y="92">refused WHOLE, never over a prefix — a firing count over</text>
+    <text class="t-s r-txt" x="12" y="104">200 of 6,000 names would mean nothing</text>
+    <text class="mono-b r-txt" x="12" y="126">RULE_STATE_MAX_PARTIALS   8</text>
+    <text class="mono-b r-txt" x="12" y="142">RULE_STATE_MAX_ROWS    4000</text>
+    <text class="t-s r-txt" x="12" y="164">Also refused per leg: a predicate with no point-in-time</text>
+    <text class="t-s r-txt" x="12" y="176">value at the requested <tspan class="mono">as_of</tspan>, naming the leg, its plane</text>
+    <text class="t-s r-txt" x="12" y="188">and what would fix it.</text>
+  </g>
+
+  <!-- accrual + firing -->
+  <g transform="translate(16,266)">
+    <rect class="panel" x="0" y="0" width="786" height="170" rx="4"/>
+    <text class="t-box" x="12" y="20">The forward-accrual record — <tspan class="mono">server/rule-accrual.js</tspan></text>
+    <text class="mono-s" x="12" y="34">&lt;statedir&gt;/rule-accrual/YYYY-MM-DD.jsonl · append-only, under the lock</text>
+    <line class="hair" x1="12" y1="44" x2="774" y2="44"/>
+    <text class="t-s" x="12" y="64" style="font-weight:700">EVERY LIVE EVALUATION WRITES A DATED ROW WHETHER OR NOT IT FIRED. THE NON-FIRINGS ARE THE DATA.</text>
+    <text class="t-s" x="12" y="82">A record of only the fires cannot compute a hit rate, a base rate or a false-positive count — the three things a reader actually wants</text>
+    <text class="t-s" x="12" y="96">to know about a rule after a year. And most of the interesting predicates here cannot be reconstructed backwards at all; a rule written</text>
+    <text class="t-s" x="12" y="110">TODAY writes, every trading day from today, the value those predicates ACTUALLY HAD — observed, not reconstructed.</text>
+    <text class="t-s" x="12" y="130" style="fill:#8a6208">COVERAGE COUNTS DAYS, NOT ROWS. A rule ticking over 40 names for 3 days has 120 rows and THREE DAYS of record; reporting 120 would be</text>
+    <text class="t-s" x="12" y="144" style="fill:#8a6208">cross-section wearing a time series' clothes. <tspan class="mono">ACCRUAL_MIN_DAYS_FOR_REACH</tspan> = 60. No retention policy, no prune verb, no cap.</text>
+    <text class="t-s" x="12" y="162" style="fill:#5b6b7a">Read it with <tspan class="mono">get_rule_evaluations</tspan> (fired: true | false | omit for both) and <tspan class="mono">get_rule_history</tspan>.</text>
+  </g>
+
+  <g transform="translate(818,266)">
+    <rect class="panel" x="0" y="0" width="734" height="170" rx="4"/>
+    <text class="t-box" x="12" y="20">What a firing does, in order</text>
+    <line class="hair" x1="12" y1="30" x2="722" y2="30"/>
+    <g transform="translate(12,44)">
+      <rect class="panel-i" x="0" y="0" width="168" height="46" rx="3"/>
+      <text class="mono-b" x="10" y="18">1  book.rule.fired</text>
+      <text class="t-s" x="10" y="32">both timestamps, rule id,</text>
+      <text class="t-s" x="10" y="42">version, fingerprint, inputs</text>
+    </g>
+    <g transform="translate(192,44)">
+      <rect class="panel-i" x="0" y="0" width="150" height="46" rx="3"/>
+      <text class="mono-b" x="10" y="18">2  fire count ++</text>
+      <text class="t-s" x="10" y="32">on the rule record</text>
+    </g>
+    <g transform="translate(354,44)">
+      <rect class="panel-i" x="0" y="0" width="150" height="46" rx="3"/>
+      <text class="mono-b" x="10" y="18">3  notify</text>
+      <text class="t-s" x="10" y="32">inbox <tspan class="mono">alert_fired</tspan> +</text>
+      <text class="t-s" x="10" y="42">playbooks.applicable()</text>
+    </g>
+    <g transform="translate(516,44)">
+      <rect class="panel-i" x="0" y="0" width="206" height="46" rx="3"/>
+      <text class="mono-b" x="10" y="18">4  runActions() → band D</text>
+      <text class="t-s" x="10" y="32">exactly once per firing, in</text>
+      <text class="t-s" x="10" y="42">order, with provenance captured HERE</text>
+    </g>
+    <path class="flow" d="M180,67 L192,67"/><path class="flow" d="M342,67 L354,67"/><path class="flow" d="M504,67 L516,67"/>
+    <text class="t-s" x="12" y="118">Provenance is captured AT FIRING TIME and never resolved later: the rule id, name, fingerprint and version</text>
+    <text class="t-s" x="12" y="132">are the ones in force when it fired. A proposal that re-read its rule at display time would silently restate</text>
+    <text class="t-s" x="12" y="146">its own reason after an edit.</text>
+    <text class="t-s" x="12" y="164" style="fill:#5b6b7a"><tspan class="mono">test_rule</tspan> runs this whole evaluation with NO SIDE EFFECTS — no event, no accrual row, no state, no notification, no fire count.</text>
+  </g>
+
+  <path class="flow" d="M346,152 L362,152"/>
+  <path class="flow" d="M802,152 L818,152"/>
+  <path class="refuse" d="M1198,152 L1214,152"/>
+  <path class="flow" d="M400,250 L400,266"/>
+  <path class="flow" d="M1008,250 L1008,266"/>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- BAND D — THE ACTION LAYER                                               -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<g transform="translate(56,1992)">
+  <rect class="band" x="0" y="0" width="1568" height="424" rx="6"/>
+  <rect x="0" y="0" width="1568" height="38" rx="6" fill="#9a6a2c"/>
+  <rect x="0" y="26" width="1568" height="12" fill="#9a6a2c"/>
+  <text class="t-bandn" x="16" y="17">D</text>
+  <text class="t-band"  x="34" y="26">The action layer — what a firing CAUSES</text>
+  <text class="t-band"  x="1220" y="26" style="font-size:13px;opacity:.9">rule-actions.js · paper-book.js</text>
+
+  <!-- why on the rule -->
+  <g transform="translate(16,54)">
+    <rect class="d-panel" x="0" y="0" width="410" height="90" rx="4"/>
+    <text class="d-hdr" x="12" y="20">ACTIONS ATTACH TO THE RULE, NOT TO THE CONDITION</text>
+    <text class="t-s" x="12" y="38">The condition's fingerprint is the per-subject state key. If an action were</text>
+    <text class="t-s" x="12" y="50">part of the condition, RETAGGING A PROPOSAL would re-arm the rule on every</text>
+    <text class="t-s" x="12" y="62">name it watches. So the sugar accepts <tspan class="mono">=&gt;</tspan>, the actions are stored</text>
+    <text class="t-s" x="12" y="74">BESIDE the condition, and <tspan class="mono">condition.fingerprint</tspan> never sees them.</text>
+    <text class="t-s" x="12" y="86">An action edit therefore INHERITS state.</text>
+  </g>
+
+  <!-- verbs -->
+  <g transform="translate(16,158)">
+    <rect class="panel" x="0" y="0" width="410" height="204" rx="4"/>
+    <text class="t-box" x="12" y="20">Nine typed verbs</text>
+    <text class="t-s" x="12" y="34">One registry; the selector and the tool surface both derive from it.</text>
+    <text class="t-boxs" x="12" y="54">BOOK — writes a PROPOSED transaction</text>
+    <text class="mono-b" x="12" y="72">propose_buy</text><text class="t-s" x="128" y="72"><tspan class="mono">size</tspan> (7 arms), <tspan class="mono">tag</tspan>, <tspan class="mono">limit</tspan> (RECORDED, never enforced)</text>
+    <text class="mono-b" x="12" y="88">propose_sell</text><text class="t-s" x="128" y="88"><tspan class="mono">qty</tspan> = "all" | {pct} | {shares}</text>
+    <text class="mono-b" x="12" y="104">propose_size</text><text class="t-s" x="128" y="104"><tspan class="mono">target_pct</tspan> of total equity — the DELTA trade</text>
+    <text class="t-boxs" x="12" y="126">RECORD — no book effect</text>
+    <text class="mono-b" x="12" y="144">flag</text><text class="t-s" x="128" y="144">label + one of five disclosure severities</text>
+    <text class="mono-b" x="12" y="158">annotate</text><text class="t-s" x="128" y="158">through <tspan class="mono">notes.add</tspan> — THE ONE note store, unchanged</text>
+    <text class="mono-b" x="12" y="172">notify</text><text class="t-s" x="128" y="172">the agent inbox as <tspan class="mono">alert_fired</tspan></text>
+    <text class="mono-b" x="12" y="186">run_playbook</text><text class="t-s" x="128" y="186">through <tspan class="mono">playbooks.applicable()</tspan> — unchanged</text>
+    <text class="mono-b" x="12" y="200">emit · set_state</text><text class="t-s" x="128" y="200">see the two panels to the right</text>
+  </g>
+
+  <!-- emit / set_state -->
+  <g transform="translate(442,54)">
+    <rect class="panel" x="0" y="0" width="330" height="146" rx="4"/>
+    <text class="t-box" x="12" y="20"><tspan class="mono-b">emit</tspan> — how rules compose</text>
+    <text class="t-s" x="12" y="38">Writes a <tspan class="mono">book.*</tspan> event back into the log, which a LATER</text>
+    <text class="t-s" x="12" y="50">TICK may match. An emitted event is written NOW and</text>
+    <text class="t-s" x="12" y="62">matched later, never re-evaluated inside this tick.</text>
+    <text class="t-s r-txt" x="12" y="82">REFUSES: an unregistered kind; ANY PLANE BUT <tspan class="mono">book</tspan> — a rule</text>
+    <text class="t-s r-txt" x="12" y="94">emitting a <tspan class="mono">filing.*</tspan> or <tspan class="mono">tape.*</tspan> kind would be this installation</text>
+    <text class="t-s r-txt" x="12" y="106">asserting a fact about the world on its own authority;</text>
+    <text class="t-s r-txt" x="12" y="118">a chain past CASCADE_MAX_DEPTH (3); and — statically, at</text>
+    <text class="t-s r-txt" x="12" y="130">SAVE time — a rule that emits a kind it also MATCHES,</text>
+    <text class="t-s r-txt" x="12" y="142">which is a rule that fires itself forever.</text>
+  </g>
+  <g transform="translate(442,212)">
+    <rect class="panel" x="0" y="0" width="330" height="70" rx="4"/>
+    <text class="t-box" x="12" y="20"><tspan class="mono-b">set_state</tspan> — the writer the state leaf needed</text>
+    <text class="t-s" x="12" y="38">Wave 1 compiled <tspan class="mono">{"state":…}</tspan> and refused to evaluate it</text>
+    <text class="t-s" x="12" y="50">because nothing wrote one. This is the writer; the store is</text>
+    <text class="t-s" x="12" y="62"><tspan class="mono">rule-state.js</tspan>, keyed per (rule, version, subject).</text>
+  </g>
+  <g transform="translate(442,294)">
+    <rect class="panel-i" x="0" y="0" width="330" height="124" rx="4"/>
+    <text class="t-box" x="12" y="19" style="font-size:12.5px">Bounds</text>
+    <text class="mono" x="12" y="37">ACTIONS_MAX_PER_FIRING 8</text><text class="t-s" x="200" y="37">refused at SAVE</text>
+    <text class="mono" x="12" y="53">CASCADE_MAX_DEPTH 3</text><text class="t-s" x="200" y="53">the emit chain</text>
+    <text class="mono" x="12" y="69">PAPER_BOOK_MAX_POSITIONS 60</text>
+    <text class="t-s" x="12" y="87">a STORE bound, not a policy — the strategy's own</text>
+    <text class="t-s" x="12" y="101"><tspan class="mono">max_positions</tspan> is band E, and it also decides WHICH</text>
+    <text class="t-s" x="12" y="115">candidates get the remaining slots.</text>
+  </g>
+
+  <!-- paper book -->
+  <g transform="translate(788,54)">
+    <rect class="panel" x="0" y="0" width="392" height="308" rx="4"/>
+    <text class="t-box" x="12" y="20">The paper book</text>
+    <text class="mono-s" x="12" y="34">server/paper-book.js · &lt;statedir&gt;/paper-books.json</text>
+    <line class="hair" x1="12" y1="44" x2="380" y2="44"/>
+    <text class="t-s" x="12" y="62">A REAL <tspan class="mono">portfolio.js</tspan> ledger in every respect except one: it is</text>
+    <text class="t-s" x="12" y="74">marked paper, it lives in its own file, and NOTHING in this system</text>
+    <text class="t-s" x="12" y="86">can write a proposal into anything else.</text>
+    <text class="t-s" x="12" y="106">It gets the same lot engine, the same five cost-basis methods, the</text>
+    <text class="t-s" x="12" y="118">same corporate-action vocabulary and the same <tspan class="mono">analytics.reconcile</tspan></text>
+    <text class="t-s" x="12" y="130">self-test — deliberately, so the proposals can be read honestly</text>
+    <text class="t-s" x="12" y="142">through the existing report and the paginated PDF.</text>
+    <rect x="8" y="154" width="376" height="26" rx="3" fill="#f6efe6" stroke="#9a6a2c" stroke-width="1.2"/>
+    <text class="t-s" x="14" y="171" style="font-weight:700">ONE BOOK PER STRATEGY — comparisons need independence.</text>
+    <text class="t-s" x="12" y="200">Every transaction carries <tspan class="mono">proposed:true</tspan>, a <tspan class="mono">why</tspan> naming the rule,</text>
+    <text class="t-s" x="12" y="212">the version, the fingerprint and the firing, and an <tspan class="mono">origin</tspan> block.</text>
+    <text class="t-s" x="12" y="232" style="fill:#5b6b7a">Verbs: <tspan class="mono">create_paper_book</tspan>, <tspan class="mono">list_paper_books</tspan>,</text>
+    <text class="t-s" x="12" y="244" style="fill:#5b6b7a"><tspan class="mono">get_paper_book</tspan>, <tspan class="mono">delete_paper_book</tspan>. That is the whole list.</text>
+    <line class="hair" x1="12" y1="258" x2="380" y2="258"/>
+    <text class="t-s" x="12" y="276" style="font-weight:700">There is deliberately no <tspan class="mono">promote_paper_book</tspan>, no order verb</text>
+    <text class="t-s" x="12" y="288" style="font-weight:700">and no execute verb. The owner books a trade by booking a trade.</text>
+  </g>
+
+  <!-- action refusals -->
+  <g transform="translate(1196,54)">
+    <rect class="r-panel" x="0" y="0" width="356" height="308" rx="4"/>
+    <use href="#stop" x="12" y="12" width="17" height="17"/>
+    <text class="r-hdr" x="36" y="25">WHAT AN ACTION REFUSES OR SKIPS</text>
+    <text class="t-s r-txt" x="12" y="46" style="font-weight:700">REFUSED BY NAME → book.action.refused</text>
+    <text class="t-s r-txt" x="12" y="62">· <tspan class="mono">propose_sell</tspan> on a name the book does not hold. A sell of an</text>
+    <text class="t-s r-txt" x="24" y="74">unheld name is not a smaller sell — booking it would open a</text>
+    <text class="t-s r-txt" x="24" y="86">SHORT LOT, and this engine has no short-lot concept.</text>
+    <text class="t-s r-txt" x="12" y="102">· a rule that names no paper book, refused at SAVE</text>
+    <text class="t-s r-txt" x="12" y="118">· a real portfolio named as the target — refused BY NAME, with</text>
+    <text class="t-s r-txt" x="24" y="130">the sentence that names it as the owner's own ledger. "Not</text>
+    <text class="t-s r-txt" x="24" y="142">found" would read as a typo, which is what invites a retry.</text>
+    <text class="t-s r-txt" x="12" y="166" style="font-weight:700">SKIPPED AND RECORDED → book.strategy.skipped_capacity</text>
+    <text class="t-s r-txt" x="12" y="182">with the BINDING CONSTRAINT NAMED:</text>
+    <text class="mono r-txt" x="12" y="200">no_price</text><text class="t-s r-txt" x="122" y="200">no close on the firing bar</text>
+    <text class="mono r-txt" x="12" y="216">unmarkable_book</text><text class="t-s r-txt" x="122" y="216">a quote missing for any held name</text>
+    <text class="mono r-txt" x="12" y="232">cash</text><text class="t-s r-txt" x="122" y="232">the computed size exceeds cash</text>
+    <text class="mono r-txt" x="12" y="248">position_cap</text><text class="t-s r-txt" x="122" y="248">PAPER_BOOK_MAX_POSITIONS</text>
+    <text class="mono r-txt" x="12" y="264">no_strategy_budget</text><text class="t-s r-txt" x="12" y="276">a shared-budget size arm on a book no strategy owns</text>
+    <text class="t-s r-txt" x="12" y="296" style="font-weight:700">IT NEVER FALLS BACK TO A DEFAULT WEIGHT.</text>
+  </g>
+
+  <path class="flow" d="M426,100 L442,100"/>
+  <path class="flow" d="M772,208 L788,208"/>
+  <path class="refuse" d="M1180,208 L1196,208"/>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- BAND E — THE STRATEGY LAYER                                             -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<g transform="translate(56,2436)">
+  <rect class="band" x="0" y="0" width="1568" height="606" rx="6"/>
+  <rect x="0" y="0" width="1568" height="38" rx="6" fill="#2f7a52"/>
+  <rect x="0" y="26" width="1568" height="12" fill="#2f7a52"/>
+  <text class="t-bandn" x="16" y="17">E</text>
+  <text class="t-band"  x="34" y="26">The strategy layer — firings compete for cash, slots, sector budget and liquidity</text>
+  <text class="t-band"  x="1140" y="26" style="font-size:13px;opacity:.9">strategy.js · -sizing · -constraints · -rank · -loop</text>
+
+  <!-- A · the strategy -->
+  <g transform="translate(16,54)">
+    <rect class="panel" x="0" y="0" width="336" height="256" rx="4"/>
+    <text class="t-box" x="12" y="21">The strategy</text>
+    <line class="hair" x1="12" y1="31" x2="324" y2="31"/>
+    <text class="mono" x="12" y="49">universe  explicit | cohort | screen</text>
+    <text class="mono" x="12" y="65">rules[]   {rule, role, priority}</text>
+    <text class="t-s" x="12" y="81">roles: <tspan class="mono-b">entry · exit · adjust · veto</tspan> — the role is</text>
+    <text class="t-s" x="12" y="93">the STRATEGY's, so one rule can be one strategy's</text>
+    <text class="t-s" x="12" y="105">entry and another's veto</text>
+    <text class="mono" x="12" y="123">policy    sizing · constraints · rank ·</text>
+    <text class="mono" x="12" y="136">          rebalance · costs · cash_yield</text>
+    <text class="mono" x="12" y="152">book      ONE paper book</text>
+    <text class="mono" x="12" y="168">strategy_version · fingerprint · breaks[]</text>
+    <line class="hair" x1="12" y1="182" x2="324" y2="182"/>
+    <text class="t-s" x="12" y="200">Declared process <tspan class="mono">strategy-loop</tspan>, sequenced AFTER</text>
+    <text class="t-s" x="12" y="212">the rule tick — the loop reads what the rules found,</text>
+    <text class="t-s" x="12" y="224">so running it first would form positions from</text>
+    <text class="t-s" x="12" y="236">yesterday's firings.</text>
+  </g>
+
+  <!-- B · sizing -->
+  <g transform="translate(364,54)">
+    <rect class="panel" x="0" y="0" width="420" height="256" rx="4"/>
+    <text class="t-box" x="12" y="20">Sizing — every arm states its BUDGET BASIS</text>
+    <text class="t-s" x="12" y="33">a share of WHAT, because that is the question a reader of a size has</text>
+    <line class="hair" x1="12" y1="43" x2="408" y2="43"/>
+    <text class="t-boxs" x="12" y="58">NO SHARED BUDGET — WORKS ON ANY PAPER BOOK</text>
+    <text class="mono-b" x="12" y="75">fixed_cash</text><text class="t-s" x="140" y="75">a stated dollar amount</text>
+    <text class="mono-b" x="12" y="90">fixed_pct</text><text class="t-s" x="140" y="90">a share of TOTAL EQUITY, fully marked</text>
+    <text class="mono-b" x="12" y="105">equal_weight</text><text class="t-s" x="140" y="105">equity ÷ the declared slot count</text>
+    <text class="mono-b" x="12" y="120">grade_ceiling</text><text class="t-s" x="140" y="120">capped by sizing.js's own ceilings</text>
+    <text class="t-boxs" x="12" y="141">SHARED BUDGET — REFUSES ON A BOOK NO STRATEGY OWNS</text>
+    <text class="mono-b" x="12" y="158">risk_parity</text><text class="t-s" x="140" y="158">the book's TARGET PORTFOLIO VOLATILITY</text>
+    <text class="mono-b" x="12" y="175">atr_risk</text><text class="t-s" x="140" y="175">a fixed fraction of equity PUT AT RISK</text>
+    <text class="mono-b" x="12" y="192">from_targets</text><text class="t-s" x="140" y="192">the strategy's stored target weights,</text>
+    <text class="t-s" x="140" y="204">through analytics.rebalancePlan — read, not re-derived</text>
+    <line class="hair" x1="12" y1="216" x2="408" y2="216"/>
+    <text class="t-s" x="12" y="230" style="fill:#8a6208">No shorting, no leverage, no margin. risk_parity's scale is</text>
+    <text class="t-s" x="12" y="242" style="fill:#8a6208">capped at fully-invested and NAMES ITSELF when it binds.</text>
+  </g>
+
+  <!-- C · constraints -->
+  <g transform="translate(796,54)">
+    <rect class="panel" x="0" y="0" width="380" height="256" rx="4"/>
+    <text class="t-box" x="12" y="21">Constraints — this ORDER, and they COMPOSE</text>
+    <line class="hair" x1="12" y1="31" x2="368" y2="31"/>
+    <text class="mono-b" x="12" y="49">1 max_positions</text><text class="t-s" x="196" y="49">refuses, names itself</text>
+    <text class="mono-b" x="12" y="67">2 max_weight_pct</text><text class="t-s" x="196" y="67">CEILING — shrinks and</text>
+    <text class="t-s" x="196" y="79">names itself</text>
+    <text class="mono-b" x="12" y="97">3 max_sector_pct</text><text class="t-s" x="196" y="97">CEILING — and an UNKNOWN</text>
+    <text class="t-s" x="196" y="109">sector REFUSES: unclassified</text>
+    <text class="t-s" x="196" y="121">is not sector-free</text>
+    <text class="mono-b" x="12" y="139">4 cash_floor_pct</text><text class="t-s" x="196" y="139">refuses, names itself</text>
+    <text class="mono-b" x="12" y="157">5 cash_available</text><text class="t-s" x="196" y="157">never part-filled</text>
+    <text class="mono-b" x="12" y="175">6 min_position_pct</text><text class="t-s" x="196" y="175">a REFUSAL, not a rounding</text>
+    <text class="mono-b" x="12" y="193">7 adv_participation</text><text class="t-s" x="196" y="193">a share of 20-day MEDIAN</text>
+    <text class="mono-b" x="12" y="205">  _max_pct</text><text class="t-s" x="196" y="205">dollar volume — past it a</text>
+    <text class="t-s" x="196" y="217">close fill is not defensible</text>
+    <line class="hair" x1="12" y1="222" x2="368" y2="222"/>
+    <text class="t-s" x="12" y="240" style="font-weight:700">WHEN ONE BINDS, THE PAYLOAD NAMES WHICH ONE — plus</text>
+    <text class="t-s" x="12" y="252" style="font-weight:700">every other that would also have bound.</text>
+  </g>
+
+  <!-- D · ranking -->
+  <g transform="translate(1188,54)">
+    <rect class="panel" x="0" y="0" width="364" height="256" rx="4"/>
+    <text class="t-box" x="12" y="21">Ranking — <tspan class="mono">rank_entries_by</tspan> is REQUIRED</text>
+    <line class="hair" x1="12" y1="31" x2="352" y2="31"/>
+    <text class="t-s" x="12" y="49">On any day where more candidates signal than fit,</text>
+    <text class="t-s" x="12" y="61">SOMETHING decides which get the cash and the slots. If</text>
+    <text class="t-s" x="12" y="73">the strategy does not say, the answer is hash iteration</text>
+    <text class="t-s" x="12" y="85">order — a hidden choice that changes the result and that</text>
+    <text class="t-s" x="12" y="97">nobody would defend if it were written down.</text>
+    <text class="mono-b" x="12" y="119">&lt;expression&gt;</text><text class="t-s" x="132" y="119">over server/expr.js and the</text>
+    <text class="t-s" x="132" y="131">screen row — anything a screen selects on</text>
+    <text class="mono-b" x="12" y="149">signal_time</text><text class="t-s" x="132" y="149">earliest signal first, declared</text>
+    <text class="mono-b" x="12" y="167">random(&lt;seed&gt;)</text><text class="t-s" x="132" y="167">a DECLARED, reproducible draw</text>
+    <text class="t-s" x="12" y="189" style="fill:#8a6208">A NULL RANK IS "no value for the thing you are ranking on",</text>
+    <text class="t-s" x="12" y="201" style="fill:#8a6208">not "ranks zero". Nulls sort LAST and are COUNTED.</text>
+    <text class="t-s" x="12" y="219">Exact ties break on signal time, then symbol — legal HERE</text>
+    <text class="t-s" x="12" y="231">only because it is declared, bounded and REPORTED per row.</text>
+  </g>
+
+  <!-- E · the edit law -->
+  <g transform="translate(16,320)">
+    <rect class="d-panel" x="0" y="0" width="770" height="86" rx="4"/>
+    <text class="d-hdr" x="12" y="21">THE EDIT LAW — AND IT DIFFERS FROM A RULE'S, DELIBERATELY</text>
+    <text class="t-s" x="12" y="40">A FORMING edit (universe, rules, policy) moves the formation fingerprint, bumps <tspan class="mono">strategy_version</tspan> and writes a DATED METHODOLOGY BREAK</text>
+    <text class="t-s" x="12" y="54">(<tspan class="mono">book.strategy.policy_changed</tspan>) — and DOES NOT RESET THE BOOK. A rule's partial match is a CLAIM about a condition and means nothing under</text>
+    <text class="t-s" x="12" y="68">new semantics; a book is a RECORD of proposals actually made at prices that actually printed, and resetting it would delete the only</text>
+    <text class="t-s" x="12" y="82">out-of-sample evidence the strategy has. An equity curve spanning a break is MORE THAN ONE MEASUREMENT, and every payload says so.</text>
+  </g>
+
+  <!-- F · cash yield -->
+  <g transform="translate(796,320)">
+    <rect class="panel-i" x="0" y="0" width="756" height="86" rx="4"/>
+    <text class="t-box" x="12" y="21">Cash yield — and the payload SAYS WHICH WAS USED</text>
+    <text class="t-s" x="12" y="40">Accrued <tspan style="font-weight:700">actual/360</tspan> — the US money-market convention for bills — and booked as <tspan class="mono">interest</tspan> transactions, so the EXISTING income</text>
+    <text class="t-s" x="12" y="54">accounting in <tspan class="mono">portfolio.derive()</tspan> and the gross/net TWR in <tspan class="mono">analytics.js</tspan> handle it, rather than a parallel path.</text>
+    <text class="mono-b" x="12" y="72">tbill</text><text class="t-s" x="66" y="72">the 3-month bill, <tspan class="mono">fred:DTB3</tspan>, where a FRED key is configured &#160;·&#160; <tspan class="mono-b">zero</tspan> where it is not. NEVER A SILENT DEFAULT.</text>
+  </g>
+
+  <!-- G · the daily loop -->
+  <g transform="translate(16,418)">
+    <rect class="panel" x="0" y="0" width="1536" height="168" rx="4"/>
+    <text class="t-box" x="12" y="21">The daily loop — <tspan class="mono">server/strategy-loop.js run()</tspan> &#160;·&#160; THE ORDER IS THE CONTRACT AND IT IS NOT NEUTRAL</text>
+    <text class="t-s" x="12" y="37">The loop takes a CLOCK and reads the wall clock NOWHERE — <tspan class="mono-b">liveClock</tspan> | <tspan class="mono-b">fixedClock</tspan> | <tspan class="mono-b">replayClock</tspan>. A derived test fails the build on a <tspan class="mono">new Date()</tspan> inside the walk, because the backtester DRIVES this same function.</text>
+
+    <g transform="translate(12,46)">
+      <g transform="translate(0,0)"><rect class="panel-i" x="0" y="0" width="292" height="44" rx="3"/>
+        <text class="mono-b" x="9" y="16">1 · CORPORATE ACTIONS</text>
+        <text class="t-xs" x="9" y="29">a split applied after the signal would price the</text>
+        <text class="t-xs" x="9" y="39">signal in pre-split units</text></g>
+      <g transform="translate(304,0)"><rect class="panel-i" x="0" y="0" width="292" height="44" rx="3"/>
+        <text class="mono-b" x="9" y="16">2 · CASH ACCRUES</text>
+        <text class="t-xs" x="9" y="29">before any trade — interest on the opening balance</text>
+        <text class="t-xs" x="9" y="39">is earned whatever the day then does with it</text></g>
+      <g transform="translate(608,0)"><rect class="panel-i" x="0" y="0" width="292" height="44" rx="3"/>
+        <text class="mono-b" x="9" y="16">3 · KNOWABILITY CUT</text>
+        <text class="t-xs" x="9" y="29">bars ≤ t, events observed_at ≤ close(t), and nothing</text>
+        <text class="t-xs" x="9" y="39">else — then the mark every later step reads</text></g>
+      <g transform="translate(912,0)"><rect class="panel-i" x="0" y="0" width="292" height="44" rx="3"/>
+        <text class="mono-b" x="9" y="16">4 · VETO</text>
+        <text class="t-xs" x="9" y="29">removes a subject from ENTRY and is RECORDED: "no</text>
+        <text class="t-xs" x="9" y="39">signal" and "signalled but vetoed" are different</text></g>
+      <g transform="translate(1216,0)"><rect class="panel-i" x="0" y="0" width="292" height="44" rx="3"/>
+        <text class="mono-b" x="9" y="16">5 · EXITS</text>
+        <text class="t-xs" x="9" y="29">BEFORE ENTRIES — an exit frees cash AND a slot;</text>
+        <text class="t-xs" x="9" y="39">entries first tie capacity to iteration order</text></g>
+      <path class="flow" d="M292,22 L304,22"/><path class="flow" d="M596,22 L608,22"/><path class="flow" d="M900,22 L912,22"/><path class="flow" d="M1204,22 L1216,22"/>
+    </g>
+
+    <g transform="translate(12,106)">
+      <g transform="translate(0,0)"><rect class="panel-i" x="0" y="0" width="292" height="44" rx="3"/>
+        <text class="mono-b" x="9" y="16">6 · RANK</text>
+        <text class="t-xs" x="9" y="29">candidates collected, then ranked by the strategy's</text>
+        <text class="t-xs" x="9" y="39">REQUIRED rank_entries_by</text></g>
+      <g transform="translate(304,0)"><rect class="panel-i" x="0" y="0" width="292" height="44" rx="3"/>
+        <text class="mono-b" x="9" y="16">7 · SIZE + CONSTRAIN</text>
+        <text class="t-xs" x="9" y="29">in rank order until something binds; each miss records</text>
+        <text class="t-xs" x="9" y="39">skipped_capacity WITH ITS BINDING CONSTRAINT NAMED</text></g>
+      <g transform="translate(608,0)"><rect class="panel-i" x="0" y="0" width="292" height="44" rx="3"/>
+        <text class="mono-b" x="9" y="16">8 · FILL</text>
+        <text class="t-xs" x="9" y="29">at the bar CLOSE, cost_bps per side booked as a `fee`</text>
+        <text class="t-xs" x="9" y="39">transaction — not a second cost path</text></g>
+      <g transform="translate(912,0)"><rect class="panel-i" x="0" y="0" width="292" height="44" rx="3"/>
+        <text class="mono-b" x="9" y="16">9 · REBALANCE</text>
+        <text class="t-xs" x="9" y="29">if t is a rebalance date, through</text>
+        <text class="t-xs" x="9" y="39">analytics.rebalancePlan — read, not re-derived</text></g>
+      <g transform="translate(1216,0)"><rect x="0" y="0" width="292" height="44" rx="3" fill="#fdf3f2" stroke="#b3261e" stroke-width="1.4"/>
+        <text class="mono-b r-txt" x="9" y="16">10 · MARK + RECONCILE</text>
+        <text class="t-xs r-txt" x="9" y="29">analytics.reconcile derives the day two independent</text>
+        <text class="t-xs r-txt" x="9" y="39">ways and THROWS above one cent. NO FLAG SKIPS IT.</text></g>
+      <path class="flow" d="M292,22 L304,22"/><path class="flow" d="M596,22 L608,22"/><path class="flow" d="M900,22 L912,22"/><path class="refuse" d="M1204,22 L1216,22"/>
+    </g>
+    <use href="#stop" x="1504" y="150" width="18" height="18"/>
+  </g>
+
+  <path class="flow" d="M352,172 L364,172"/>
+  <path class="flow" d="M784,172 L796,172"/>
+  <path class="flow" d="M1176,172 L1188,172"/>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- BAND F — THE BACKTEST                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<g transform="translate(56,3062)">
+  <rect class="band" x="0" y="0" width="1568" height="230" rx="6"/>
+  <rect x="0" y="0" width="1568" height="38" rx="6" fill="#8a4a4a"/>
+  <rect x="0" y="26" width="1568" height="12" fill="#8a4a4a"/>
+  <text class="t-bandn" x="16" y="17">F</text>
+  <text class="t-band"  x="34" y="26">The backtest — the SAME loop, a replay clock, and a bias toward refusing over producing a number</text>
+  <text class="t-band"  x="1140" y="26" style="font-size:13px;opacity:.9">backtest-strategy.js · -rerun · -store · deflation.js</text>
+
+  <!-- preflight -->
+  <g transform="translate(16,50)">
+    <rect class="r-panel" x="0" y="0" width="470" height="172" rx="4"/>
+    <use href="#stop" x="12" y="10" width="17" height="17"/>
+    <text class="r-hdr" x="36" y="23">1 · PREFLIGHT — IT COLLECTS EVERY REFUSAL, NOT THE FIRST</text>
+    <text class="t-s r-txt" x="12" y="42"><tspan style="font-weight:700">SURVIVORSHIP</tspan> a cohort-, screen- or universe-scoped historical run is</text>
+    <text class="t-s r-txt" x="12" y="54">REFUSED, naming the missing dated ledger. An EXPLICIT list runs, with the</text>
+    <text class="t-s r-txt" x="12" y="66">caller's own selection bias disclosed as the caller's own.</text>
+    <text class="t-s r-txt" x="12" y="82"><tspan style="font-weight:700">POINT-IN-TIME</tspan> any leg whose verdict is <tspan class="mono">gated · recorded_days ·</tspan></text>
+    <text class="t-s r-txt" x="12" y="94"><tspan class="mono">forward_only · unresolved</tspan> refuses the run, NAMING the leg, the rule and the plane.</text>
+    <text class="t-s r-txt" x="12" y="110"><tspan style="font-weight:700">THE RANK</tspan> a rank over a screen field is REFUSED — 2019's candidates by 2026's</text>
+    <text class="t-s r-txt" x="12" y="122">fundamentals is not a subtle bias, it is the answer. Permitted: <tspan class="mono">signal_time</tspan>,</text>
+    <text class="t-s r-txt" x="12" y="134"><tspan class="mono">random(seed)</tspan>, expressions over <tspan class="mono">close</tspan>. <tspan style="font-weight:700">GENERATIONS</tspan> refused unless acknowledged.</text>
+  </g>
+
+  <!-- run -->
+  <g transform="translate(502,50)">
+    <rect class="panel" x="0" y="0" width="470" height="172" rx="4"/>
+    <text class="t-box" x="12" y="19">2 · THE REPLAY — the SAME loop, a different clock</text>
+    <text class="mono-s" x="12" y="32">loop.run(strategy, { clock: replayClock(…), book_override })</text>
+    <text class="t-s" x="12" y="49">A BACKTEST IS NOT A SIMULATOR. It is <tspan class="mono">strategy-loop.run()</tspan> — the loop</text>
+    <text class="t-s" x="12" y="61">the live book runs — under a replay clock, writing real</text>
+    <text class="t-s" x="12" y="73"><tspan class="mono">portfolio.buildRec</tspan> records into a PAPER BOOK OF ITS OWN,</text>
+    <text class="t-s" x="12" y="85">reconciled on EVERY replayed day.</text>
+    <text class="t-s" x="12" y="103">It never touches the strategy's live forward book: that record is</text>
+    <text class="t-s" x="12" y="115">the out-of-sample evidence hindsight cannot manufacture.</text>
+    <text class="t-s" x="12" y="133">It computes NO return, NO Sharpe, NO drawdown and NO attribution of</text>
+    <text class="t-s" x="12" y="145">its own — every number comes from an EXISTING module: <tspan class="mono">analytics.js</tspan>,</text>
+    <text class="t-s" x="12" y="157"><tspan class="mono">portfolio.js</tspan>, <tspan class="mono">pf-risk.js</tspan>, <tspan class="mono">inference.js</tspan>, <tspan class="mono">deflation.js</tspan>.</text>
+  </g>
+
+  <!-- law 3 -->
+  <g transform="translate(988,50)">
+    <rect class="panel" x="0" y="0" width="270" height="172" rx="4"/>
+    <text class="t-box" x="12" y="20">3 · THE TRIAL, REGISTERED FIRST</text>
+    <text class="t-s" x="12" y="38">Registered in <tspan class="mono">search-ledger.js</tspan> BEFORE the</text>
+    <text class="t-s" x="12" y="50">result is computed — a run that registered</text>
+    <text class="t-s" x="12" y="62">only on success would count the winners and</text>
+    <text class="t-s" x="12" y="74">forget the losers.</text>
+    <text class="t-s" x="12" y="92">trials ≥ <tspan class="mono">DSR_MIN_TRIALS</tspan> (5) → <tspan style="font-weight:700">DSR</tspan></text>
+    <text class="t-s" x="12" y="106">below it → <tspan style="font-weight:700">Šidák</tspan>, AND IT SAYS WHICH.</text>
+    <text class="t-s" x="12" y="118">It never fabricates V.</text>
+    <text class="t-s r-txt" x="12" y="134">A REFUSED run registers NOTHING: nothing ran.</text>
+  </g>
+
+  <!-- drop rerun -->
+  <g transform="translate(1274,50)">
+    <rect class="panel" x="0" y="0" width="278" height="172" rx="4"/>
+    <text class="t-box" x="12" y="20">4 · THE DROP-TOP-NAMES RE-RUN</text>
+    <text class="t-s" x="12" y="38">The deflation asks HOW MANY THINGS YOU TRIED.</text>
+    <text class="t-s" x="12" y="50">This asks HOW MUCH OF IT WAS ONE LUCKY NAME.</text>
+    <text class="t-s" x="12" y="68">Same strategy, same window, the top</text>
+    <text class="t-s" x="12" y="80">contributor removed FROM THE UNIVERSE.</text>
+    <text class="t-s" x="12" y="98" style="font-weight:700">A DROP RE-RUN IS NOT A TRIAL.</text>
+    <text class="t-s" x="12" y="110">It registers as a DERIVED record and does not</text>
+    <text class="t-s" x="12" y="122">move the denominator — or the more carefully a</text>
+    <text class="t-s" x="12" y="134">result was checked, the worse it would read.</text>
+  </g>
+
+  <path class="refuse" d="M486,136 L502,136"/>
+  <path class="flow" d="M972,136 L988,136"/>
+  <path class="flow" d="M1258,136 L1274,136"/>
+</g>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- LAW 4                                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<g transform="translate(56,3312)">
+  <rect x="0" y="0" width="1568" height="70" rx="6" fill="#14202b"/>
+  <text x="18" y="24" style="font-size:14px;font-weight:700;fill:#ffffff">LAW 4 — PROPOSALS ONLY, AND IT IS STRUCTURAL IN FOUR PLACES, NOT CONVENTIONAL IN ONE</text>
+  <text x="18" y="44" style="font-size:11px;fill:#d6dee6">1 · a DIFFERENT FILE — <tspan class="mono" style="fill:#ffffff">&lt;statedir&gt;/paper-books.json</tspan>, never <tspan class="mono" style="fill:#ffffff">portfolios.json</tspan>, with a throw if the two paths ever resolve to the same bytes</text>
+  <text x="18" y="62" style="font-size:11px;fill:#d6dee6">2 · the write path CANNOT ADDRESS a real book: it resolves targets only inside the paper store, and naming a real portfolio is REFUSED BY NAME</text>
+  <text x="800" y="44" style="font-size:11px;fill:#d6dee6">3 · only the PURE functions of <tspan class="mono" style="fill:#ffffff">portfolio.js</tspan> are reached — asserted by reading both module graphs</text>
+  <text x="800" y="62" style="font-size:11px;fill:#d6dee6">4 · <tspan class="mono" style="fill:#ffffff">paper:true</tspan> is stamped AT THE WRITE, not asserted at the read, and rides every payload</text>
+</g>
+<text class="t-s" x="56" y="3404">There is no <tspan class="mono">execute</tspan> verb, no order verb, no broker and no <tspan class="mono">promote_paper_book</tspan> anywhere in this system. &#160;·&#160; Diagram derived from the shipped code at 5.43.0; where the specification and the code disagree, the code is what is drawn.</text>
+
+</svg>
