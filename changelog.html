@@ -13,9 +13,17 @@ header{border-bottom:1px solid var(--border);position:sticky;top:0;background:rg
     header nav{margin-left:0;width:100%;line-height:2}
     header nav a{margin-left:0;margin-right:16px;display:inline-block}
   }
+header nav a.here{color:var(--text)}
 h1{font-size:32px;margin:36px 0 20px}h2{font-size:19px;margin:28px 0 6px;color:var(--text);border-top:1px solid var(--border);padding-top:20px}
 ul{margin:6px 0 14px;padding-left:20px}li{color:var(--muted);font-size:14.5px;margin:5px 0}li b{color:var(--text)}
-code{font:13px ui-monospace,Menlo,monospace;background:#0d1017;border:1px solid var(--border);border-radius:5px;padding:1px 6px}
+/* This page's prose is GENERATED from CHANGELOG.md, so it can contain any token the notes
+   happen to contain — and one bare unbreakable string ("fred:/fmp:econ:/fmp:treasury:...")
+   in a single bullet pushed the whole page 57px past a 390px viewport. A hand-authored
+   page can be fixed by rewording; a generated one cannot, so the safety rule lives here.
+   break-word rather than anywhere: it breaks only when a word genuinely does not fit, and
+   leaves every other line measured exactly as before. */
+li,p{overflow-wrap:break-word}
+code{font:13px ui-monospace,Menlo,monospace;background:#0d1017;border:1px solid var(--border);border-radius:5px;padding:1px 6px;overflow-wrap:anywhere}
 footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;padding:30px 0;margin-top:40px}</style><link rel="icon" type="image/svg+xml" href="assets/ots-mark.svg">
 <meta property="og:title" content="Open Trading Surface — agent-native investment research terminal">
 <meta property="og:image" content="assets/ots-wordmark.svg">
@@ -25,6 +33,19 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.44.0 — Sharadar, the point-in-time fundamentals source, and nothing reads it</h2>
+<ul>
+<li><b>The ambiguity is disclosed rather than resolved.</b> What was measured is that an invalid key</li>
+<li><b><code>node scripts/measure-sharadar.js</code> takes the measurement in one command</b> and **refuses by</li>
+<li><b>No live <code>vintageDelta</code> has ever run.</b></li>
+<li><b>5.44.0 has never been opened in a browser.</b></li>
+</ul>
+<h2>Also in 5.44.0 — the documentation, recaptured from a live terminal</h2>
+<ul>
+<li><b>Administration</b> — Processes, Reach, Conditions and Events now show the <b>thirteen-panel</b></li>
+<li><b>The portfolio tables</b> — Holdings, Performance and Allocation. The old images were full-bleed</li>
+<li><b>Four surfaces that had never been pictured</b> — the economic <b>Calendar</b> (the monthly zoom, a</li>
+</ul>
 <h2>5.43.1 — a read never waits for a model call, and a refusal that stopped guessing</h2>
 <ul>
 </ul>
@@ -2510,4 +2531,4 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <ul>
 <li>Clean-room canvas charting engine (~125 indicators, 39 drawing tools), multi-security research terminal, FMP-backed data, localhost server with agent control channel, packaged as an installable plugin.</li>
 </ul>
-<footer><a href="index.html">Home</a> · <a href="legal.html">Legal &amp; Disclaimer</a></footer></div></body></html>
+<footer><a href="index.html">Home</a> · <a href="guide.html">User Guide</a> · <a href="events.html">Event processing</a> · <a href="support.html">Support &amp; Issues</a> · <a href="legal.html">Legal &amp; Disclaimer</a></footer></div></body></html>

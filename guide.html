@@ -23,6 +23,7 @@
     header nav{margin-left:0;width:100%;line-height:2}
     header nav a{margin-left:0;margin-right:16px;display:inline-block}
   }
+  header nav a.here{color:var(--text)}
   h1{font-size:32px;margin:36px 0 8px}.lead{color:var(--muted);margin:0 0 22px}
   h2{font-size:22px;margin:34px 0 8px;border-top:1px solid var(--border);padding-top:26px}
   h3{font-size:17px;margin:22px 0 6px}
@@ -34,6 +35,13 @@
   table{width:100%;border-collapse:collapse;font-size:14px;margin:12px 0}
   th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--border);vertical-align:top}
   th{color:var(--muted)}
+  /* An inline code token has no break opportunity, so one series reference like
+     `pricing:SYM:composite.momw:2026-01-15` sets a table cell's minimum width and pushes
+     the whole PAGE sideways — measured at 395px in a 390px viewport. Inline code wraps
+     anywhere; code inside a <pre> does NOT, because a pre already scrolls and wrapping
+     a code sample destroys the line structure that is the point of showing it. */
+  code{overflow-wrap:anywhere}
+  pre code{overflow-wrap:normal}
   .toc{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:14px 20px;margin:20px 0;columns:2}
   .toc a{display:block;padding:3px 0;font-size:14px}
   .toc .tocgrp{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin:12px 0 4px;break-inside:avoid}
@@ -43,6 +51,11 @@
   figure{margin:20px 0}
   figure img{display:block;width:100%;border:1px solid var(--border);border-radius:var(--r)}
   figcaption{color:var(--muted);font-size:13px;margin-top:8px}
+  /* A screenshot is a dated observation like any other number here. Every image on this
+     page was captured from a live 5.19.6 terminal on 2026-08-07; where the surface has
+     moved since, the caption says what moved rather than letting the picture stand as
+     current. Same two-tier rule the product applies to its own numbers. */
+  .shotage{display:block;margin-top:6px;font-size:12.5px;color:#f3c66b}
   footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text-align:center;padding:30px 0;margin-top:44px}
 </style>
 <link rel="icon" type="image/svg+xml" href="assets/ots-mark.svg">
@@ -53,11 +66,12 @@
 <body>
 <header><div class="wrap">
   <div class="brand"><img class="brandmark" src="assets/ots-mark.svg" alt="">Open Trading Surface</div>
-  <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav>
+  <nav><a href="index.html">Home</a><a class="here" href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav>
 </div></header>
 <div class="wrap">
   <h1>User Guide</h1>
   <p class="lead">How Open Trading Surface works, how to set it up, and how to use every part of it. If you're new, start with the <a href="#quickstart">5-minute quickstart</a>, then dip into whichever feature you need. If you last used it before the panel workspace arrived, read <a href="#workspace">The terminal is a workspace</a> first — the way you move around has changed.</p>
+  <div class="note"><b>If you are coming back after a while</b>, four things arrived that change how you work rather than merely adding to it: the <a href="#calendar">economic calendar</a> and the <a href="#series">one series identity</a> underneath it (including a dated change to how filed fundamentals are dated); <a href="#perspectives">Perspectives</a> becoming three lenses with a prompt library of its own; the <a href="#thesis">thesis engine</a> gaining an AI discovery agent and a four-stage journey; and <a href="#charts">chart preferences</a> — the defaults every chart opened with are now yours to set.</div>
   <div class="toc">
     <div class="tocgrp">Getting started</div>
     <a href="#quickstart">★ 5-minute quickstart</a>
@@ -84,14 +98,17 @@
     <a href="#models">Company operating models</a>
     <a href="#substrate">Pro forma statements &amp; the substrate</a>
     <a href="#containers">The economy &amp; industry containers</a>
-    <a href="#perspectives">Perspectives</a>
-    <a href="#thesis">The thesis engine</a>
+    <a href="#calendar">The economic calendar</a>
+    <a href="#series">Series, overlays &amp; knowability</a>
+    <a href="#perspectives">Perspectives — the three lenses</a>
+    <a href="#thesis">The thesis engine &amp; discovery</a>
     <a href="#market">The Market tab: heat map &amp; repricing scan</a>
     <a href="#divergence">Divergence ledger, reratings &amp; event impact</a>
     <a href="#honesty">Honest numbers: grades, base rates &amp; expectations</a>
 
     <div class="tocgrp">Portfolios</div>
     <a href="#portfolio">Portfolios &amp; the transaction ledger</a>
+    <a href="#tables">Sorting &amp; the house table</a>
     <a href="#costbasis">Cost basis &amp; tax lots</a>
     <a href="#performance">Performance, attribution &amp; risk</a>
     <a href="#report">The PDF report</a>
@@ -142,15 +159,17 @@
   <p>The terminal is a <b>shared world-model</b>: everything you see, the agent can read and drive. You work by conversation — "open a chart on AAPL beside MSFT," "what do the signals say," "record this as a thesis." The agent inspects the exact panel you're looking at and acts on it. It's <b>plan-only</b>: it models, screens, and drafts, but never places a trade or moves money.</p>
   <h3>3. It refuses rather than defaults</h3>
   <p>This is the property that distinguishes it, and it is deliberate. Where a number cannot be honestly computed, Open Trading Surface <b>says so by name</b> instead of substituting a plausible one — which input is missing, on which leg, and what would fix it. Where a new layer would move a number you have already read, it <b>discloses before it adjusts</b>: both values side by side, the delta named, and the change recorded as a <b>dated methodology break</b>. And it will tell you <a href="#reach">what it could honestly backtest</a> rather than producing a flattering number over a window it does not have the record for. Empty results, red process lights and refusal sentences are not failures of the product — they are the product working.</p>
+  <p>The clearest recent example: filed fundamentals used to be treated as knowable on the day the <em>period</em> ended rather than on the day the filing that published them existed. Fixing that <a href="#series">moved published numbers by a median of 496 days</a> — so the release that <em>disclosed</em> the dating basis shipped first, moving no number at all, and the correction followed. A disclosure no reader carries is a comment.</p>
+  <div class="note"><b>About the screenshots on this page.</b> Every image here was captured from a live terminal on <b>2026-08-07</b>. Where the surface has moved since, the caption says <em>what</em> moved rather than letting the picture stand as current. Several surfaces described below — the economic calendar, the thesis journey, the prompt library, chart preferences — have <b>no screenshot at all</b> yet, and none has been invented for them.</div>
   <div class="warn"><b>Open Trading Surface is not investment advice.</b> Every output — including probabilities, models, fair values, characterizations and paper-book proposals — is a decision aid to verify independently. You bear full responsibility for all decisions.</div>
 
   <h2 id="requirements">Requirements</h2>
   <ul>
     <li><b>Node.js 18 or newer</b> — the plugin's local server has zero runtime npm dependencies (Node's standard library only; build and test tooling is separate).</li>
     <li><b>A Financial Modeling Prep API key</b> — for market and fundamental data.</li>
-    <li><b>Optional: a free FRED API key</b> — unlocks the macro signal engine, system-proposed theses, and the cash-yield series a strategy accrues against. <a href="https://fred.stlouisfed.org/docs/api/api_key.html">Register free</a>.</li>
-    <li><b>Optional: an AI vendor key</b> — enables <a href="#perspectives">Perspectives</a>, the per-security written assessment. Without one, every Perspectives operation refuses in one sentence and nothing is sent anywhere.</li>
-    <li><b>Optional: an SEC EDGAR contact string</b> — EDGAR requires a contact header; set it in Settings if filing fetches return 403.</li>
+    <li><b>Optional: a free FRED API key</b> — unlocks the macro signal engine, system-proposed theses, the cash-yield series a strategy accrues against, the <a href="#series">macro series</a> in the chart picker, and the <a href="#calendar">economic calendar</a>. <a href="https://fred.stlouisfed.org/docs/api/api_key.html">Register free</a>.</li>
+    <li><b>Optional: an AI vendor key</b> — enables <a href="#perspectives">Perspectives</a> and <a href="#thesis">thesis discovery</a>. Without one, every operation that would call a model refuses in one sentence and nothing is sent anywhere — but stored candidates and stored reports are records this machine already holds, so <b>the queue still renders and only the run control refuses</b>.</li>
+    <li><b>Optional: an SEC EDGAR contact string</b> — EDGAR requires a contact header, and every EDGAR read <b>refuses by name</b> without one rather than sending a fabricated identity. Set it in Settings.</li>
   </ul>
 
   <h2 id="install">Installing</h2>
@@ -169,13 +188,14 @@
   <p>The easiest path is in the UI: open the terminal, click <b>🛠 Administration</b> in the top strip, and pick <b>Settings</b> from the left menu. That one panel holds every credential the system uses:</p>
   <ul>
     <li><b>FMP</b> — market and fundamental data. Paste and press <b>Test</b> to confirm live connectivity.</li>
-    <li><b>FRED</b> — free macro series.</li>
-    <li><b>SEC EDGAR contact</b> — e.g. <code>Your Name your@email.com</code>. EDGAR rejects anonymous requests.</li>
+    <li><b>FRED</b> — free macro series. This is what unlocks the <a href="#calendar">economic calendar</a>, the macro overlays, the worldview signals and the cash-yield series a strategy accrues against.</li>
+    <li><b>SEC EDGAR contact</b> — e.g. <code>Your Name your@email.com</code>. Every EDGAR read <b>refuses by name</b> without one rather than sending a fabricated identity to a regulator, and <b>Test</b> makes one governed request through the same door every other EDGAR read uses.</li>
     <li><b>AI vendor</b> — pick one of <b>Anthropic, OpenAI, Google, AWS Bedrock, Grok</b> or an <b>OpenAI-compatible</b> endpoint, then fill only the fields that vendor declares. <b>Fetch models</b> asks the vendor's own live endpoint for its model list (model names are never hardcoded), and <b>Test connection</b> makes one minimal call and prints the vendor's answer or its error verbatim.</li>
   </ul>
   <p>You can also set <code>FMP_API_KEY</code> / <code>FRED_API_KEY</code> / <code>OTS_AI_API_KEY</code> environment variables, which take precedence over the stored file.</p>
   <div class="note">Keys are stored on your machine in <code>~/.ots/config.json</code> with file mode 600 and are never transmitted anywhere but the data providers themselves. <b>Exactly one AI vendor is configured at a time</b> — saving a different one <em>replaces</em> the configuration rather than parking the old key beside it. There is no simultaneous-vendor mode and no automatic failover, deliberately.</div>
-  <p>The Settings panel also holds the <a href="#perspectives">Perspectives prompt editor</a>.</p>
+  <div class="note"><b>What a Test button establishes, and what it does not.</b> The EDGAR check reports that the request was <b>accepted</b>, never that your contact string was <b>approved</b> — measured on 2026-08-10, a deliberately fabricated contact returned <code>200</code>, so SEC does not enforce identity at the wire on that endpoint today and a tick mark implying otherwise would manufacture an authority nobody granted. The local <code>Name email@domain.tld</code> shape check is <em>ours</em>, says so, and never overrides the network verdict.</div>
+  <p>Prompts are <b>not</b> in Settings. Every text this installation sends to a model — the three lens defaults, per-security overrides and library, and the thesis-discovery prompt — lives in <b>Administration → Prompts</b>; see <a href="#perspectives">Perspectives</a>.</p>
 
   <h2 id="first">First run &amp; the disclaimer</h2>
   <p>On first launch the terminal presents a one-time legal acknowledgment. You must read and accept it before using the application. A short disclaimer stays visible in the footer at all times, and the full terms live on the <a href="legal.html">Legal page</a>.</p>
@@ -186,7 +206,7 @@
   <ul>
     <li><b>Surface batch</b> — weekdays after the US close; records the day's surface. The very first universe fill is a one-off ~10–12 hour job (resumable, and you can start it in the daemon and check progress), after which the daily task keeps it fresh.</li>
     <li><b>Daily ledger</b> — weekdays before the open.</li>
-    <li>Other jobs — the enrichment batch, cohort refresh and the repricing scan — ride inside those schedules or run inside the daemon.</li>
+    <li>Other jobs — the enrichment batch, cohort refresh, the repricing scan and the twice-daily <a href="#calendar">economic-calendar pull</a> — ride inside those schedules or run inside the daemon.</li>
   </ul>
   <p>Whatever you install, <b>Administration → Processes</b> is where you see whether it actually ran. If your environment has no scheduling capability, <code>/ots:automate</code> gives you the command-line equivalent for the automations that have one, and says plainly which have no headless equivalent.</p>
   <div class="note">Automations are read-only over your configuration. They never modify strategic-initiative books, pricing models, watchlists or settings; everything they record is descriptive market data.</div>
@@ -195,7 +215,7 @@
   <p>The right-hand area of the terminal is no longer one active view — it is an <b>MDI floating panel workspace</b>. You can open any number of panels, arrange them freely, and reduce them without closing them.</p>
   <figure>
     <img src="assets/workspace.png" alt="The terminal workspace with six panels tiled three across and two down on a single security, each panel carrying its own title bar with duplicate, minimize, maximize and close controls, and a taskbar of open panels along the bottom edge.">
-    <figcaption>Six panels on one name, tiled. The strip at the top is the launcher; the left menu opens panels; the bar along the bottom is the taskbar of everything open.</figcaption>
+    <figcaption>Six panels on one name, tiled. The strip at the top is the launcher; the left menu opens panels; the bar along the bottom is the taskbar of everything open.<span class="shotage">Captured from a live terminal on 2026-08-07 (5.19.6). The workspace chrome and the per-security menu are unchanged since; a chart panel has gained a 💾 save-settings control and the pane-height rule described below.</span></figcaption>
   </figure>
 
   <h3>The one rule everything follows: a panel pins its security</h3>
@@ -235,6 +255,16 @@
   </ul>
   <div class="note"><b>If a panel seems stuck:</b> it is probably maximized. A maximized panel is pinned to the viewport, so its record can move while the screen does not — that is what a "snap back" used to be. Maximized panels now show it (an accent title bar and a <b>❐</b> control), and any drag or resize <b>leaves maximized first</b>, restoring under your cursor. Ask the agent to <code>unmaximize_panel</code> if you want to be certain of the end state; <code>maximize_panel</code> is a toggle and cannot promise one.</div>
 
+  <h3>How tall a chart's panes are, and when the panel scrolls</h3>
+  <p>A chart panel divides the height it is given between the price pane and each indicator pane. Two floors govern that, and both are <b>derived from the drawing engine's own metrics</b> rather than chosen: a pane must be able to show the engine's minimum number of price intervals with each interval two axis-label boxes tall (64px of plot, 90px for the one pane that draws the time axis), and its <em>natural</em> height is that same interval count at the spacing the engine is actually aiming for.</p>
+  <ul>
+    <li><b>Content adapts to a size you chose; it scrolls in a size the machine chose.</b> If you dragged the panel's edge yourself, the panes fit the height you gave them. If <b>Tile</b>, <b>Cascade</b>, <b>Stack</b> or <b>Gather</b> sized it, the panes take their natural height and the column scrolls.</li>
+    <li><b>Two kinds of overflow get different words.</b> <em>"↕ scrolls — 2 rows below the fold, at their natural height"</em> is a panel doing what it was asked. <em>"⚠ 2 rows cut off at the bottom — this panel is 118px too short"</em> is a defect report, with the required and available heights, both floors, and both remedies.</li>
+    <li><b>Nothing is squashed and nothing is hidden.</b> Where even the floors do not fit, every pane still draws at its floor and the shortfall is <b>counted and named</b> rather than absorbed.</li>
+    <li>Scrolling is reachable at that point because the chart's wheel-zoom yields to it; zoom stays on the ± control and the range buttons, and the disclosure says so.</li>
+  </ul>
+  <p>A layout saved before this rule existed reads as <code>unknown</code>, <b>refuses to guess</b> which of the two produced it, and resolves to fit.</p>
+
   <h3>Per-panel chart state</h3>
   <p>Two chart panels on the same name are ordinary, so chart state <b>diverges fully per panel — including drawings</b>. It is made safe by inherit-then-diverge: a new chart panel with no record of its own reads the existing symbol-scoped record and immediately writes a copy to its own key, so your existing drawings land on the first panel you open <em>and on every later one</em>, nothing is orphaned, and the original record is never deleted or written to by a panel. A standalone chart (a published chart URL) goes on reading exactly what it always read. A drawing that cannot be migrated is <b>refused by name</b>, never silently dropped.</p>
 
@@ -257,22 +287,24 @@
   <div class="note"><b>For agents and power users — a contract change worth knowing.</b> <code>active_symbol</code> now means <b>the security of the focused panel</b> (what you are actually looking at), falling back to the strip's selection when nothing is focused. The strip's selection — the security the left menu will open next — is <code>context_symbol</code>. Both are always present, they may legitimately differ, and every payload carries <code>active_symbol_means</code> saying which of the two it currently is. Older verbs (<code>set_view</code>, <code>select_security</code>, <code>add_tab</code>, <code>remove_tab</code>…) still answer, each marking itself deprecated, stating what it actually did, and naming its successor.</div>
 
   <h2 id="admin">Administration</h2>
-  <p>The utility and engine surfaces live under one pinned tab — <b>🛠 Administration</b> — behind a left-hand menu, grouped so the list reads rather than merely scanning. There are <b>eleven panels in four groups</b>:</p>
+  <p>The utility and engine surfaces live under one pinned tab — <b>🛠 Administration</b> — behind a left-hand menu, grouped so the list reads rather than merely scanning. There are <b>thirteen panels</b>:</p>
   <table>
     <tr><th>Group</th><th>Panels</th></tr>
-    <tr><td><b>Machine</b></td><td><b>Settings</b> (all API keys and the Perspectives prompt editor) · <b>Processes</b> (the batches on this machine) · <b>Support</b> (guide, diagnostics, what's new and learning, served from the same knowledge base the agent uses)</td></tr>
+    <tr><td><b>Machine</b></td><td><b>Settings</b> (every API key) · <b>Prompts</b> (every text this installation sends to a model) · <b>Chart preferences</b> (what a new chart opens with) · <b>Processes</b> (the batches on this machine)</td></tr>
     <tr><td><b>Event processing — what can be known</b></td><td><b>Reach</b> · <b>Conditions</b></td></tr>
     <tr><td><b>Event processing — what is watched</b></td><td><b>Rules</b> · <b>Strategies</b></td></tr>
     <tr><td><b>Event processing — what happened</b></td><td><b>Events</b> · <b>Firings</b> · <b>Runs</b> · <b>Backtests</b></td></tr>
+    <tr><td><b>Machine</b> (again)</td><td><b>Support</b> (guide, diagnostics, what's new and learning, served from the same knowledge base the agent uses)</td></tr>
   </table>
   <p>The ordering is the reading order: what could be known, what can be asked, what is being watched, what is being held because of it — then what actually happened, what a rule has actually done, what a strategy did today, and what a replay of the past concluded.</p>
-  <div class="note">Settings, Processes and Support were once top-level tabs; Thesis, Economy and Sectors were three more. Settings/Processes/Support are now Administration panels, and Thesis/Economy/Sectors are panels under <b>🌎 Macro-economic</b>. Old links and old agent verbs migrate to the right panel rather than breaking.</div>
+  <div class="note"><b>Why "Machine" appears twice.</b> The menu emits a heading when the group <em>changes</em>, in the registry's own order — so a heading that recurs is reported rather than tidied away. The tab's tooltip is computed from the same table by the same rule, which means it describes what you will actually see when you click it. It used to be a hand-written sentence naming three panels, written when there were three; it went unrepaired through eight more, on the only affordance that describes the tab.</div>
+  <div class="note">Settings, Processes and Support were once top-level tabs; Thesis, Economy and Sectors were three more. Settings/Processes/Support are now Administration panels, and Thesis/Economy/Sectors — <em>plus the release <a href="#calendar">Calendar</a></em> — are panels under <b>🌎 Macro-economic</b>. Old links and old agent verbs migrate to the right panel rather than breaking.</div>
 
   <h2 id="processes">Processes</h2>
   <p><b>Administration → Processes</b> is the board for every batch this installation runs. Each row carries a status light with the reason for it, the cadence, when it last ran, when it is next due, and Start / Pause controls.</p>
   <figure>
     <img src="assets/processes.png" alt="The Processes board listing the scheduled batches, each with a coloured status light, a plain-language reason, its cadence, last run and next due time, and Start or Pause controls — with several rows showing red for overdue or unscheduled jobs.">
-    <figcaption>The process board, including its honest red rows. A job with no schedule anywhere on the machine reads red and says exactly that.</figcaption>
+    <figcaption>The process board, including its honest red rows. A job with no schedule anywhere on the machine reads red and says exactly that. Eleven processes are declared; the figure is the top of the board.</figcaption>
   </figure>
   <h3>The status law</h3>
   <ul>
@@ -281,9 +313,15 @@
     <li><b>Red</b> — paused by you (the reason says so), <em>or</em> the last run failed or was halted, <em>or</em> the job is overdue against its own cadence, <em>or</em> it has never run at all. Never-ran is red, not grey: an unasked question is not a pass.</li>
   </ul>
   <h3>What runs</h3>
-  <p>The registry is derived from the code rather than hand-maintained. It currently declares the surface batch, the screener enrichment batch, the daily repricing scan, the cohort refresh, the daily ledger, the monthly universe snapshot (the survivorship archive), the <a href="#rules">event-engine tick</a>, the <a href="#strategies">strategy loop</a>, the monthly point-in-time snapshot, and the legacy alert evaluation.</p>
+  <p>The registry is derived from the code rather than hand-maintained. It currently declares <b>eleven</b> processes: the surface batch, the screener enrichment batch, the daily repricing scan, the cohort refresh, the daily ledger, the monthly universe snapshot (the survivorship archive), the <a href="#rules">event-engine tick</a>, the <a href="#strategies">strategy loop</a>, the monthly point-in-time snapshot, the legacy alert evaluation, and the <a href="#calendar">economic-calendar pull</a>.</p>
   <div class="note"><b>An example of the house rule in action.</b> The legacy alert evaluation ships on the board declared <b>unscheduled</b> — nothing on the machine runs it, and its row says so in a sentence rather than showing a stale green light. Naming a gap is the disclosure; closing it is a separate decision.</div>
+  <h3>Green is not the only question</h3>
+  <p>A process that ran cleanly over a near-empty input reports success — and success is not the question you were asking. That is <em>not</em> a false light (the run really did succeed) so it does not get a new colour; a colour would put a correct idempotent no-op in the same bucket as a job that covered 25 panels of 7,600. Instead every run also publishes a <b>yield verdict</b> from a closed vocabulary — <code>full</code> · <code>partial</code> · <code>near_empty</code> · <code>empty_by_design</code> · <code>not_applicable</code> — computed by the process itself.</p>
+  <p>Whenever the verdict is short, a <code>not_this_process</code> field is <b>required</b>: a yield disclosure that does not name whose shortfall it is converts a useful fact into a false accusation.</p>
+  <h3>What a run cost</h3>
+  <p>The heavy passes record what they spent — provider calls, calls per name, throttled seconds, HTTP 429s split by the population they came from, and cache hits — read off the request governor's own counter, so a pass that met a provider rate-storm can say so and a pass that could not measure its cost <b>says that</b> rather than reporting zeroes. A provider failure is classified <b>by HTTP status and never by the provider's prose</b>: a rate limit and a plan limit can arrive in the same English sentence, and a failure with no status is reported as unclassified rather than labelled from a guess.</p>
   <p>Pausing is authoritative and journaled: a paused process reads red as "halted by owner" until you Resume. A red light is information, not a trigger — nothing on this board edits books, models or configuration.</p>
+  <div class="note"><b>Liveness is derived, never stored.</b> A record that says a job is running is not evidence that it is: a dead process id is proof of death at second one, while a live one is never proof of life. So there is no state in which you can neither stop nor start a job — <b>Start</b> takes over a dead heartbeat and discloses it, and <b>Stop</b> against a dead loop retires the record and says plainly that <em>nothing was stopped because nothing was running</em>, rather than promising a stop no surviving process could honour.</div>
 
   <h2 id="coherence">One selector, two-tier disclosure</h2>
   <p>Two small things do most of the work of making the interface coherent.</p>
@@ -302,7 +340,7 @@
   <p>The charting workbench is a full technical-analysis surface with its own engine — ~125 indicators, 39 drawing tools, all timeframes and extended hours, compare overlays, and event markers. Open one with a request, then refine it in words. Inside the terminal it is a panel; you can also open a standalone chart page.</p>
   <figure>
     <img src="assets/chart-workbench.png" alt="The charting workbench showing candlesticks with moving averages, a lower oscillator pane, drawing tools in the left toolbar and sentiment-coloured event markers along the price series.">
-    <figcaption>The workbench. Indicators, overlays, drawings and event markers are all addressable by the agent.</figcaption>
+    <figcaption>The workbench. Indicators, overlays, drawings and event markers are all addressable by the agent.<span class="shotage">Captured at 5.19.6. The legend row has since gained a 💾 save-settings control whose label states which preference is in force, and — when analyst rating changes are on — a ⛃ Firms… control at the right edge of the events row.</span></figcaption>
   </figure>
   <table>
     <tr><th>You say</th><th>What happens</th></tr>
@@ -312,6 +350,33 @@
     <tr><td>"What do the signals say?"</td><td>Reads the live 12-signal technical battery + key levels off the chart.</td></tr>
   </table>
   <div class="note">Charts are served from a localhost URL; the API key stays server-side. A standalone file copy is also saved — that copy embeds the key, so treat it like a credential. Inside the workspace, an embedded chart holds no long-lived connection however many chart panels you open, so a screen full of charts does not starve the terminal of sockets.</div>
+
+  <h3>Chart preferences — the defaults stop being a secret</h3>
+  <p>Every new chart used to open with a 50 and 200-day moving average, RSI(14), MACD(12,26,9) and a volume underlay, and <b>that set was written down nowhere you could reach</b> — it was transcribed four times, in three spellings, across two documents, and the volume underlay appeared in none of the server-side lists at all, which is precisely why it could not be found. Two of the four disagreed about the MACD parameters, and agreed only for as long as the indicator registry happened to say 12/26/9.</p>
+  <table>
+    <tr><th>Where</th><th>What it sets</th></tr>
+    <tr><td><b>Administration → Chart preferences</b></td><td>The <b>universe default</b> — the indicators and parameters every new chart opens with, chosen through the same selector every other dialog uses, over a list derived from the chart's own indicator registry.</td></tr>
+    <tr><td><b>💾 on any chart</b></td><td>Saves <em>that chart's</em> settings for that <b>(security, interval)</b> pair. The control's label states what is currently in force; Alt-click clears it; every saved pair is listed in the panel with a Clear beside it.</td></tr>
+  </table>
+  <p>A record captures indicators and parameters, overlays, comparisons, style, log/linear, the volume underlay, event layers and the window. <b>Drawings are deliberately not included</b> — a drawing is an annotation rather than a configuration, and it already carries its own per-panel inherit-then-diverge contract.</p>
+  <p><b>The key is (security, interval), and there is no fall-back between intervals.</b> AAPL daily and AAPL weekly are different records, because a 14-period RSI is a different study on each — so the interval stops being a saved value and becomes part of the address. Resolution runs explicit caller → saved (security, interval) → universe default, and the payload names which rung answered. Where a chart falls through to the universe default, the legend says so <b>in words</b> and names the intervals that <em>do</em> carry a record, because "where did my settings go" has to be answerable from the screen.</p>
+  <div class="note">A preference is installation state, so it deliberately <b>does not travel in an exported layout</b> — and the export says so rather than omitting it silently. Importing a layout must not overwrite a preference you set for every other chart.</div>
+  <figure>
+    <img src="assets/chart-preferences.png" alt="Administration, Chart preferences: a table of the universe-default indicators with their parameters and a column stating where each parameter came from, above a table of saved per-security, per-interval records each with a Clear control.">
+    <figcaption>The universe default, with a column stating <i>where each parameter came from</i> — chosen in this preference, or inherited from the chart's own indicator registry. Beneath it, every saved (security, interval) record with a Clear beside it.</figcaption>
+  </figure>
+
+  <h3>Analyst rating changes, sliced by firm</h3>
+  <p>The rating layer used to draw all of them or none of them, and on a well-covered name that is a wall — a single measured grade stream ran to <b>1,784 rows</b>. Turn the layer on and a picker offers <b>All</b> or a list of firms, each with its change count over the chart's currently loaded bar span, so the number beside a firm always describes markers you could actually see.</p>
+  <ul>
+    <li><b>The list is derived, never maintained.</b> It is built from the stream the chart holds; there is no table of banks anywhere in the system, and a test plants three fabricated firm names and requires them absent from the shipped document and present in the picker.</li>
+    <li><b>A count is exact or a floor, and it says which</b> — derived from the stream's own earliest date, never from the row cap the request asked for.</li>
+    <li><b>Spelling variants are disclosed, not merged.</b> The provider really does emit <code>Scotiabank</code> and <code>ScotiaBank</code>, and <code>Keybanc</code> and <code>KeyBanc</code>. Case-folding is a repair of a publisher's own record, and it would not help anyway: <b>Bank of America</b> and <b>B of A Securities</b> are the same house under two names no case rule joins, and a rule wide enough to join them would eventually join two firms that are not the same.</li>
+    <li><b>A row the provider attributes to nobody is kept and named</b> as <code>unattributed</code> — dropping it to make the counts tidy is a silent drop, and assigning it would be worse.</li>
+    <li><b>"All" and an explicit selection are different states</b>, and the difference bites: widen the window and a new firm is included by All and excluded by a selection. Every payload publishes which is in force. Emptying a selection returns to All, because a selection of nothing is an empty chart with extra steps.</li>
+    <li><b>A source that refused is not a source with nothing in it.</b> A rate-limited grades request and a security no analyst covers used to produce the same answer; refusals now carry their HTTP status and the remedy, so <em>no rating changes in this window</em> is never printed over a request that failed.</li>
+  </ul>
+  <div class="note"><b>Nothing is scored.</b> A per-firm accuracy number needs a horizon, a benchmark and a definition of a correct call — and on a well-covered name <em>reiterations are the majority of the rows</em>. Rather than invent one, the payload carries the four decisions such a number would require, so a later version inherits them rather than reinventing them.</div>
 
   <h3>Chart grids</h3>
   <figure>
@@ -349,12 +414,13 @@
   <div class="note">Detections are structured estimates from price geometry, not predictions — <em>forming</em> means the confirmation trigger (neckline, breakout) has not happened yet. Confirm against context before acting.</div>
 
   <h3>Events &amp; sentiment on the chart</h3>
-  <p>The <b>📅 Events</b> menu covers every source: earnings (beat/miss), dividends, splits, insider buys/sells, SEC filings, earnings-call transcripts, institutional 13F ownership flow, analyst rating changes, quarterly financial releases, news, and your own research notes. Each is a separate toggle, and every marker is <b>sentiment-colored</b>, with busy days collapsed into a single <code>N×</code> cluster. Turn on <b>Show events pane</b> for a lane charting <b>net event sentiment per bar</b>.</p>
-  <p><b>Hover</b> any marker to read it; <b>click</b> it and the terminal opens the view that owns the source — filings to SEC Filings, ratings to Analyst Ratings, insider to Insider Trades — with the dated row highlighted. If the security has an <a href="#models">operating model</a>, every event also carries a <b>model link</b> naming which driver it bears on, drawn only through edges your model really has.</p>
+  <p>The <b>📅 Events</b> menu covers every source: earnings (beat/miss), dividends, splits, insider buys/sells, SEC filings, earnings-call transcripts, institutional 13F ownership flow, analyst rating changes, quarterly financial releases, news, your own research notes, and <b>events you have associated with a series</b> — which draw wherever that series is overlaid, on whatever security's chart that happens to be. Each is a separate toggle, and every marker is <b>sentiment-colored</b>, with busy days collapsed into a single <code>N×</code> cluster. Turn on <b>Show events pane</b> for a lane charting <b>net event sentiment per bar</b>.</p>
+  <p><b>Hover</b> any marker to read it; <b>click</b> it and the terminal opens the view that owns the source — filings to SEC Filings, ratings to Analyst Ratings, insider to Insider Trades, an event you entered yourself to its calendar drill-down — with the dated row highlighted. If the security has an <a href="#models">operating model</a>, every event also carries a <b>model link</b> naming which driver it bears on, drawn only through edges your model really has.</p>
+  <div class="note"><b>Every marker now says where it came from, first, above the label.</b> Eleven of the twelve sources had no provenance at all until recently — a dated row that cannot say where it came from must not sit on a chart where a reader cannot tell it from one that can. Two origins are named rather than flattened: eleven sources are <b>a publisher stating something</b>, and a research note is <b>you stating it</b> — the same origin an event you add to the calendar carries, because it is the same kind of claim. A row arriving with no provenance renders <em>"source not stated by the producer"</em> rather than as though it had one; silence there is indistinguishable from a publisher.</div>
   <div class="note">Chart event sentiment is a <b>heuristic</b> read per event type — a fast orientation aid, not a verdict. Read the underlying event before acting on it. Note the deliberate contrast with the <a href="#events">typed event log</a>, which withholds sentiment entirely: the chart's colouring is presentation, not a fact recorded about the event.</div>
 
   <h2 id="screener">Screening stocks</h2>
-  <p>The screener does cross-sectional factor ranking (percentile or winsorized z-score, sector-neutral), an expression language for custom filters and derived fields, quality/health scores (Piotroski, Altman), 12-1 momentum, 13F crowding, and point-in-time-honest factor backtests — over a vocabulary of <b>several hundred fields</b> (roughly 250 in the catalog before the later expansions, plus the enrichment families, plus 148 technical readings).</p>
+  <p>The screener does cross-sectional factor ranking (percentile or winsorized z-score, sector-neutral), an expression language for custom filters and derived fields, quality/health scores (Piotroski, Altman), 12-1 momentum, 13F crowding, and point-in-time-honest factor backtests — over a vocabulary of <b>520 declared fields</b>, including the enrichment families and 148 technical readings derived from the chart's own indicator taxonomy.</p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
     <tr><td>"Screen large-cap tech under 20× earnings, ranked by momentum, sector-neutral."</td><td>Builds and runs the screen, returns a ranked table.</td></tr>
@@ -370,6 +436,9 @@
     <li><b>Contradiction refuses.</b> Where the provider serves the same field in two blocks and they disagree beyond a threshold, the field refuses for that row naming both values and both blocks, and the run reports its field integrity.</li>
     <li><b>Deferred work is shown, not hidden.</b> Fields that are implementable but not built are listed under <b>Not yet available</b> with the obstacle named. Fields that are proprietary composites of another vendor are <b>not planned</b>, on principle: a number whose derivation cannot be disclosed cannot sit in a system whose law is disclosure.</li>
     <li><b>The technical vocabulary is derived from the chart.</b> 125 chartable indicators yield 148 screenable readings; the 7 with no honest scalar are registered as excluded with the obstacle stated. An indicator that becomes chartable without becoming screenable — or without being registered as excluded — fails the build.</li>
+    <li><b>A name the screen could not see is removed and named, never silently dropped.</b> A fetch that <em>failed</em> and a company the provider genuinely has no data for used to produce the same answer — so during a provider rate-storm a screen could return a <b>smaller membership as a fact</b>. Now the two are told apart at one door, the status travels, and an unknown name can honestly be neither included (nothing evaluated it) nor excluded (that is the silent drop): it is removed <em>and counted</em>.</li>
+    <li><b>Above a stated threshold the run refuses outright.</b> The primary trigger is comparative rather than tuned — if the unknowns are at least as many as the matches, the count is not a count, because the truth lies somewhere between N and N+unknown. That makes a screen returning <b>zero</b> with even one unknown refuse. A shrunk list is a worse lie than an empty one, because an empty one is obviously broken.</li>
+    <li><b>The run tells you which predicate emptied it.</b> Per predicate: how many candidates it was handed, how many passed, and — of the removals — how many were removed <em>for a null</em> (a coverage fact about this installation) rather than for a value present and failing (a fact about the market). A prose paragraph cannot know which predicate emptied a run; the run can.</li>
   </ul>
 
   <h2 id="defensive">Modernized G &amp; D</h2>
@@ -488,40 +557,215 @@
   <p>The governing rule: <b>a fitted driver is a measurement; an industry variable is a prior; a measurement is never silently displaced by a prior</b> — not with every toggle on. The visible payoff is the case that previously got nothing: a thin-history name whose driver fit refuses now shows the industry prior as a disclosed, sourced, provenance-stamped option — refusal plus an honest alternative, never a silent default.</p>
   <p>On top of the containers sits a <b>dependency layer</b>: one dependency is one claim — <em>this driver, in this industry, moves with that variable, by this much</em> — with elasticities as time series on the pro forma grid (a scalar is accepted as shorthand for a flat series and stamped as such, because "flat" is a stated shape, never a hidden assumption). Three layers: a common template, per-industry templates written the way sector analysts model them with their basis stated, and your own overrides, which require a reason. <b>Templates never claim measurement</b> — a payload calls a template a template — and dependencies condition drawn scenario worlds without shifting the deterministic base projection at any setting.</p>
 
-  <h2 id="perspectives">Perspectives</h2>
+  <h2 id="calendar">The economic calendar</h2>
+  <p><b>🌎 Macro-economic → Calendar</b> is the schedule of economic releases — what is expected, what printed, and what the surprise was — with a route from any release to the chart of the series it publishes. It needs a free <a href="#keys">FRED key</a>; without one it says so rather than showing an empty grid.</p>
+
+  <h3>Four zooms, and each one is a real grid</h3>
+  <table>
+    <tr><th>Zoom</th><th>What you see</th></tr>
+    <tr><td><b>Annual</b></td><td>Twelve month mini-grids, every day a cell, shaded by <b>intensity</b>. A year is roughly eleven thousand occurrences, so this view shows <em>shape</em> and says so on its face. Every month is present including the empty ones — a missing March would shift every later month into the wrong slot.</td></tr>
+    <tr><td><b>Monthly</b></td><td>A real seven-column grid. Each cell carries the <b>full</b> count plus ranked chips and a real <em>+N more</em>.</td></tr>
+    <tr><td><b>Weekly</b></td><td>Seven day columns, <b>Sunday-anchored</b>. It used to be <em>today − 3 → today + 3</em>, which is seven days and not a week — and a zoom whose window is not aligned to its unit cannot be a grid.</td></tr>
+    <tr><td><b>Daily</b></td><td>Everything for that day, in full.</td></tr>
+  </table>
+  <p><b>Every shade is a ratio against a published denominator</b> — the busiest day's count, printed in the legend. An intensity with no denominator is a palette.</p>
+  <figure>
+    <img src="assets/calendar-econ.png" alt="The economic calendar at the monthly zoom: a seven-column grid of August 2026, each day cell carrying its occurrence count, ranked release chips and a plus-N-more link, shaded by intensity, with the link-rate and consensus-archive disclosures printed above the grid.">
+    <figcaption>The monthly zoom — a real seven-column grid, each cell carrying the full count, ranked chips and a real <i>+N more</i>. Above it, in words: the link rate, the sentence saying it is a <b>floor and not a measurement</b> because the second matching lane is only partly warmed, and the size of the point-in-time consensus archive.</figcaption>
+  </figure>
+  <p>The <code>‹ ›</code> buttons and the agent's own move verb read <b>one derived navigation block</b> rather than each computing a date, because two implementations of one movement put the first month-boundary defect in exactly one of them. A direction with no target <b>refuses by name</b> — annual has no coarser zoom, and the refusal names the range bound that is the reason rather than pretending it is an omission.</p>
+
+  <h3>Consensus is recorded before the print, not after</h3>
+  <p>The pull runs <b>twice on weekdays</b>. That is not redundancy: an evening-only pull structurally cannot record a consensus before an 08:30 print, so it would be a different and broken process. What was expected is written to an append-only point-in-time archive as it was believed at the time, and the surprise is computed against that rather than against a figure revised afterwards.</p>
+
+  <h3>Jump to the chart — of a security you choose</h3>
+  <p>Pick a release, pick one of its series, and the terminal asks <b>which security's chart</b> to put it on. That question is the feature. The obvious behaviour — open a bare chart of the series — answers <em>show me this series</em> when the question was <b>show me this series on something</b>, and produces a chart with no price beside it and no relation to any name you were working on.</p>
+  <ul>
+    <li>The target list is <b>derived from your workspace</b>: every pane holding a chart of one security, including duplicates and including each <em>displayed</em> cell of a chart grid — a grid cell is a chart pinned to a security with its own frame, and excluding it would claim a security has no chart while one of its charts is on the screen.</li>
+    <li>A security with <b>no</b> chart panel gets one opened; a security with <b>several</b> is listed once per panel and never guessed between. An agent asking for it without naming a panel gets the list <em>in the refusal</em>.</li>
+    <li>The series choice is the same dialog's second column — rank 1 is the default and is <b>labelled as rank 1</b>, every other chartable candidate is one control away with FRED's own popularity printed, and the ones that cannot be charted are named beneath rather than being silently absent.</li>
+    <li><b>The delivery is acknowledged.</b> A freshly opened chart panel is still fetching, so the overlay message repeats until the chart answers, and is abandoned at a bounded deadline <b>with a named refusal written on the target panel</b>. A relay with no reply makes a slow chart and a broken one identical.</li>
+  </ul>
+
+  <h3>The link rate is published, and it is not high</h3>
+  <p>Each dated occurrence carries a consensus only if a row from the estimates provider can be matched to it, and that match rate is <b>22 of 100</b> on a measured window — a quarter of what the design assumed before it was measured.</p>
+  <div class="note"><b>It is low for a structural reason no threshold fixes.</b> The two providers name <em>different levels of one taxonomy</em>: one names the <b>series</b> ("Initial Jobless Claims"), the other names the <b>release</b> ("Unemployment Insurance Weekly Claims Report"). A second matching lane over FRED's own series titles took the rate from 12% to 22% at unchanged precision — and it is still derived rather than read from a table. One case is provably unreachable and is <em>recorded rather than tuned around</em>: "Inflation Rate YoY" against the Consumer Price Index, none of whose series titles contains the word <em>inflation</em>. The honest answer there is a refusal, and asserting the link yourself is the escape hatch.</div>
+  <p>Two things follow that are worth knowing before you read the number:</p>
+  <ul>
+    <li><b>The rate does not damage what the calendar is for.</b> The chart jump resolves through the <em>release</em>, so every occurrence has a route to a chart; the link only adds the consensus.</li>
+    <li><b>Below full coverage the rate is a floor and the panel says so</b>, Tier 1 — the matcher scores against whatever series titles this installation has pulled, so a lane scored against an empty cache is silently a one-lane matcher. Every verdict carries whether the lane was available.</li>
+    <li>A weak link is <b>marked, not rejected</b>: <em>weak link (0.4)</em> rides the row, and the payload says plainly that this is <b>not a correctness verdict</b> — correct links score that low too. Three wrong links were measured on a real window and are disclosed rather than tuned away, because the constant that would have caught them was fitted to a different month.</li>
+  </ul>
+
+  <h3>Your own calendar events</h3>
+  <p>Forward dates are either known from a reliable source or left out — there is no periodicity-inferred "next" date anywhere in this system, and that is a rule rather than an omission. The most tempting derivation is the one that is <em>so nearly always right</em>, which is exactly what makes a wrong one unfindable. What replaces it is you: add an event with a date and a title, and associate it with a FRED series, an EDGAR series, a security, or nothing.</p>
+  <ul>
+    <li><b>The merge happens at read, never at write.</b> Writing into the calendar's own schedule projection would mean the next pull silently deletes your events.</li>
+    <li><b>An edit is a supersession and a delete is a retraction record.</b> Nothing leaves the disk, there is no prune verb, and the verb says plainly that nothing was deleted.</li>
+    <li><b>It is the only dated fact in this system whose knowability is recorded rather than inferred</b> — you said it on the day you said it. So a point-in-time read anchored at a past date sees the version current then, and <b>a retracted event stays visible to a read anchored before its retraction</b>, which is correct: on that date you believed it.</li>
+    <li><b>A security outside the covered universe is held, not refused</b> — refuse the claim, never the record. The admission state is derived on read, so a later release that widens coverage changes the reading with no migration. A fourth state, <code>unknown</code>, exists because three cannot answer a cold installation, and calling a name "held" on the evidence of a missing file would state a coverage limit nobody established.</li>
+    <li><b>Your events are not counted in the published link rate</b>, or that rate would move the day you added one.</li>
+  </ul>
+  <p>They appear at all four zooms, on the chart, and in the unified <a href="#watch">Alerts calendar</a> — under the same event ids, so the same thing on two surfaces is the same thing.</p>
+
+  <h2 id="series">Series, overlays &amp; knowability</h2>
+  <p>Everything periodic in this system is <b>one observable series</b>: a dated observation stream, its metadata, and its release schedule — with three renderings. Past observations <b>plot</b>. Dated occurrences become <b>markers</b> on a price axis. Scheduled releases become <b>calendar rows</b>. The hybrid is the proof the abstraction is right: history plots and the schedule marks, on one chart, with today as the boundary between data and schedule.</p>
+
+  <h3>One identity, and a picker that stopped having a list</h3>
+  <p>A reference like <code>fred:DGS10</code>, <code>edgar:AAPL:NetIncomeLoss</code>, <code>fmp:income:AAPL:revenue:quarter</code> or <code>pricing:AAPL:intrinsic.dcf_fcff</code> resolves through <b>one identity module</b> with one normalization rule per source, one constructor and one parser. Before that, twelve places in the code built references by string concatenation — twelve independent untested implementations of the same identity.</p>
+  <p>The Indicators picker no longer holds a hand-written catalog. Each consumer <b>publishes</b> the series it declares and the picker derives the union, in three tiers:</p>
+  <table>
+    <tr><th>Tier</th><th>How many</th><th>How you reach it</th></tr>
+    <tr><td><b>A — declared</b></td><td><b>28</b></td><td>Listed outright. This is the union of what seven modules in the server actually use.</td></tr>
+    <tr><td><b>B — reachable</b></td><td>~2,360 on a warm installation</td><td>Browse FRED's releases as nav nodes, alphabetical with each node's recorded occurrence count beside it — <em>a nav tree that reorders itself between sessions is a nav tree you cannot learn</em>. Series arrive on expansion.</td></tr>
+    <tr><td><b>C — searchable</b></td><td>~800,000</td><td>Search only. Results carry FRED's own popularity ranking, <b>printed</b>, and the heading claims only that.</td></tr>
+  </table>
+  <div class="warn"><b>Nineteen of the twenty-eight declared series used to be invisible</b> — among them the potential-growth series that caps the terminal value of every valuation in the system. That count is now a derivation rather than a hand transcription, and a test fails the build if any series named anywhere in the server cannot be found in the picker.</div>
+  <p>Tier B is a property of <em>what this machine has pulled</em>, so an empty branch would read as "FRED has no releases." It never does: three cold states are kept apart — <b>never pulled</b> (naming the pull process <em>and</em> the two doors that still work: search, and typing a reference directly), <b>warm-up short</b> (printing what it has and saying the count is a floor), and <b>genuinely empty</b> (a release with no chartable series, which is the world being empty and a different fact from both).</p>
+  <div class="note"><b>Search quality is not measured, and the surface says so rather than printing a number.</b> The method is fixed in shipped code — twenty declared queries — and the surface publishes either a measurement with its date and per-query detail or an <b>explicit refusal naming the script that would produce one</b>. A precision figure typed into a source file is a claim with no evidence behind it, and a build fails on a record that carries a precision without a measurement behind it.</div>
+
+  <h3>The two dates, and the dated methodology break</h3>
+  <p>Every observation has two dates: <b><code>date</code></b> — the period the number is <em>about</em> — and <b><code>knowable_at</code></b> — when it became knowable to you. <b>A plot is dated by one and an inference by the other</b>, and that is why one series cannot carry a single date field and serve both.</p>
+  <p>Filed EDGAR figures used to carry only the period end. A quarter ending 30 December was therefore treated as knowable on 30 December, weeks or months before the filing that published it existed — <em>while the statements branch a few lines away did the opposite and disclosed that it did</em>. That is fixed, and it moved published numbers on purpose:</p>
+  <table>
+    <tr><th>What moved</th><th>By how much</th></tr>
+    <tr><td>As-of cells on a typical net-income series</td><td><b>196 of 204 move (96.1%)</b>, median lag <b>578 days</b></td></tr>
+    <tr><td>An instant-in-time concept like total assets</td><td>47.5% move, median lag <b>33 days</b> — the clean case</td></tr>
+    <tr><td>Corpus-wide</td><td>median <b>496</b> days, 95th percentile <b>849</b>, maximum <b>1,518</b></td></tr>
+    <tr><td>One worked value</td><td>AAPL net income as of 2019-01-31 was <b>$19.965bn</b> and is now <b>$8.717bn</b></td></tr>
+  </table>
+  <ul>
+    <li><b>The plot does not move.</b> A plot is dated by the period and may not claim knowability. Every <em>inference</em> — lead/lag, exposure, the return panel — moves, through the one as-of aligner all three share, so there is nothing for a caller to remember.</li>
+    <li><b>The correction can only ever remove foresight</b>, asserted at every cell rather than argued: a filing date is never earlier than the period it describes.</li>
+    <li><b>Why 578 and not 33 is the caveat that matters most.</b> The projection keeps the latest-filed vintage, so <code>knowable_at</code> is when <em>that</em> value — the latest restatement — became knowable, not when the figure was first published. Every payload carries that sentence.</li>
+    <li><b>An unstamped observation is dropped and counted</b>, never fallen back to the period end. A series that declares knowability and then carries none refuses by name, saying nothing was substituted.</li>
+  </ul>
+  <div class="warn"><b>Two limits stated plainly.</b> Filed statements from the market-data provider still date their points by the <em>filing</em> date while EDGAR dates its points by the <em>period end</em>, so two fundamental overlays can sit at different x positions for the same fact — each says which basis it used, and harmonising them is a further dated break that has not been taken. And an EDGAR series can serve several period <em>durations</em> under one line: a measured example carries 40 quarters, 19 full years, 8 nine-month year-to-dates and 7 half-years <b>drawn as one line</b>. Every read now computes and publishes that composition on the series in front of you, because the honest fix needs a grammar for period duration and would change every existing EDGAR series.</div>
+
+  <h2 id="perspectives">Perspectives — the three lenses</h2>
   <p><b>🔭 Perspectives</b> is a per-security, model-written assessment. Configure a key for one AI vendor (see <a href="#keys">Configuring API keys</a>) and the panel collects what the server already holds for that name, passes what is necessary to the model, and asks for an assessment grounded in classical value discipline.</p>
   <p>The report comes back as prose in structured sections — business and earning power; balance sheet; valuation against substantiated value; temperament; risks — ending with an overall <b>defensive / enterprising / speculative</b> characterization, a <b>six-axis characterization chart</b> (financial strength, earnings stability, earnings power, growth record, dividend record, margin of safety), and the house disclaimer.</p>
+
+  <h3>Three lenses, differing in one thing</h3>
+  <p>It ships with <b>three default lenses — bear, neutral and bull</b>. They are not three tones of voice and they are not three conclusions. A lens is <b>a rule about where the burden of proof sits</b>: under the bear lens the favourable reading of a figure must be <em>earned</em> from the record while the unfavourable reading stands until the record answers it. Everything else — the instruments, the accounting gates, the refusal to credit forecasts, the required disclosure of what could not be checked — is <b>identical across all three</b>, because those are the discipline and the lens is only the burden.</p>
+  <ul>
+    <li><b>A lens is expected to conclude against itself where the evidence does.</b> A disconfirming lens that has never once found a security sound is not a lens, it is a verdict wearing one — the moment you can predict the answer from the lens name, the assessment has stopped carrying information. The closing section must state explicitly whether the disconfirming reading survived contact with the record.</li>
+    <li><b>Run all three and read them against each other.</b> The evidence that they read the same facts is that all three reports carry the <b>same bundle digest</b>.</li>
+    <li><b>Three polygons on one radar.</b> The six axes are defined identically under every lens and are scored <b>once</b>, in a closing pass over the assembled report — scoring per section would produce several partial characterizations of one security that nothing could honestly combine. Where the three disagree asymmetrically, that asymmetry is stated Tier 1 beside the radar, <b>in words, carrying no severity</b>.</li>
+    <li><b>The divergence reading measures and enforces nothing.</b> It reports where a section is present in one lens and absent from another — never a global similarity percentage, because a similarity number is not a correctness verdict and three lenses are <em>supposed</em> to differ. It may not gate a run, refuse an edit, or be presented as a quality score. On a fresh installation all three descend from one shipped body and are trivially similar <b>by construction</b>, so it reads <em>as shipped</em>, in words, rather than as a number that would be mistaken for health.</li>
+  </ul>
+
+  <h3>The prompt library — Administration → Prompts</h3>
+  <p>Every text this installation sends to a model lives in one place, with the sections <b>derived from the store's own scopes</b> rather than a hand-written map:</p>
+  <table>
+    <tr><th>Scope</th><th>What it is</th></tr>
+    <tr><td><b>Lens defaults</b></td><td>The three shipped texts. Amend, reset, and read the full version history.</td></tr>
+    <tr><td><b>Per-security override</b></td><td>Replaces a lens for one name. The panel marks it <b>✎ overridden here</b>.</td></tr>
+    <tr><td><b>Per-security library</b></td><td>Named prompts you write for one name. Structurally distinct from an override — an override carries the global chain it overrides, a library entry carries none, and a write that wears the other's clothes is refused.</td></tr>
+    <tr><td><b>Promotion</b></td><td>Turns a security prompt into a shared one. This makes <b>scope a property of a version, never of a chain</b> — otherwise promoting a prompt in September would rewrite what every August report claims about itself.</td></tr>
+    <tr><td><b>Discovery</b></td><td>The <a href="#thesis">thesis-discovery</a> prompt, which had four agent verbs, no route and no surface anywhere until this panel existed.</td></tr>
+  </table>
+  <p>Adopting a per-security override as the global default is offered, and it is disclosed as a <b>dated methodology break</b> rather than presented as a save.</p>
+  <figure>
+    <img src="assets/prompts.png" alt="Administration, Prompts: the six prompt scopes listed in order, each shipped lens default shown with its version, character count and creation date and Edit, Versions and Reset controls, with the empty per-security scopes explaining where they are created from.">
+    <figcaption>Every text this installation sends to a model, in one place. A save never edits a version — it appends v(n+1) and makes it the head, because every stored report pins the version number that produced it. The two empty scopes say <i>where</i> they are created from rather than rendering as blank.</figcaption>
+  </figure>
+
   <h3>How it behaves</h3>
   <ul>
-    <li><b>First look runs it; later looks don't.</b> The first display for a name with no history runs the analysis automatically. Every later display returns the newest stored report instantly and calls nothing. Only the explicit <b>Refresh</b> action (or <code>run_perspective</code>) spends credits again, and both say so on their face.</li>
-    <li><b>History is never overwritten.</b> A rerun <em>prepends</em>. Every past report stays readable, with the vendor and model that produced it, forever — switching vendors never rewrites history.</li>
-    <li><b>The prompt is yours, and versioned.</b> Edit it in Settings; saving <b>appends a new version</b> and never mutates an old one. Reverting appends the old text as a new version. Each report pins the prompt version it used, and a past report offers <b>view prompt used</b>.</li>
-    <li><b>The data is pinned too.</b> The exact string sent to the model is stored with the report, with its digest, and a past report offers <b>view data sent</b>. It is returned only on an explicit per-report request, never in the display payload.</li>
-    <li><b>Refusals travel into the bundle verbatim.</b> A block that refuses upstream enters as its refusal sentence — the model should see the honesty, not a gap — and is instructed to treat a stated absence as information.</li>
-    <li><b>The no-mention rule is enforced in code, not by the prompt.</b> The assessment must stand on its reasoning without invoking authority, so the output is post-checked for the names of the books and authors it draws on. A hit gets one sharpened retry; a second hit is <b>redacted</b>, with the redaction count stored on the record. Because the prompt is editable, the check lives in code and runs on every output regardless of what the prompt says.</li>
-    <li><b>A score is never invented.</b> If the characterization block is missing, malformed, out of range or missing a stated basis, the report is stored <em>without</em> a chart plus a sentence naming what was wrong — never clamped or partially accepted.</li>
+    <li><b>Opening the panel never waits for a model call.</b> A read is a read — it opens to see what reports exist. The local read costs about 19 ms and touches no provider; where a run starts, the read returns as soon as that run is <b>registered</b> and the report arrives through the poll. A refusal that happens <em>before</em> the run starts is still the answer to your request rather than being dropped into a poll nobody could end.</li>
+    <li><b>First look runs it; later looks don't.</b> The first display for a name with no history runs the analysis automatically. Every later display returns the newest stored report and calls nothing. Only <b>Refresh</b> (or <code>run_perspective</code>) spends credits again, and both say so on their face.</li>
+    <li><b>History is never overwritten.</b> A rerun <em>prepends</em>. Every past report stays readable, with the vendor, model and prompt version that produced it, forever.</li>
+    <li><b>An unselected panel shows the newest report whatever wrote it</b> — reports written before lenses existed carry none, and keying the display on the selected lens would have made every one of them unreachable. Choose a lens explicitly and you get that lens's report.</li>
+    <li><b>The data is pinned too.</b> The exact string sent is stored with the report and its digest, returned only on an explicit per-report request and never in the display payload.</li>
+    <li><b>Refusals travel into the bundle verbatim</b>, and the model is told to treat a stated absence as information rather than a gap.</li>
+    <li><b>The no-mention rule is enforced in code, not by the prompt.</b> The output is post-checked for the names of the books and authors it draws on; a hit gets one sharpened retry, a second hit is <b>redacted</b> with the count stored. Because the prompt is editable, the check cannot live in it.</li>
+    <li><b>A score is never invented</b> — a malformed characterization is stored <em>without</em> a chart plus a sentence naming what was wrong, never clamped. Where several characterization blocks arrive, the reader <b>refuses rather than choosing between them</b>, because choosing would be a repair.</li>
+    <li><b>The report can be captured as a research note</b>, verbatim and idempotent per report, with origin <code>judgment</code> and the vendor and model named — <b>never</b> as your own assertion. A model-written note labelled as yours would flow back into the next bundle and be read as your view, which is the worst outcome available and one field away.</li>
   </ul>
+
+  <h3>What the bundle says about itself</h3>
+  <p>The facts sent to the model come with a <b>manifest</b>: what was included, what refused, what was dropped for budget, and — the load-bearing half — <b>what the assembler was capable of at that build</b>. A report written before a block existed must not read as though the model saw that block and dismissed it.</p>
+  <ul>
+    <li><b>A vintage is stated only where the block publishes one</b> (11 of 26 do); the rest carry the fetch time and a sentence saying why there is no vintage. The fetch clock used to be printed under the word this system uses for a data vintage, which labelled a 2019 annual statement <em>as of today</em>.</li>
+    <li><b>Where two blocks serve the same ratio and disagree</b>, both are named and the <b>filed</b> statement is preferred — a measured specimen has a current ratio of 8.737 in one block and 0.3196 in the other, a 27× disagreement.</li>
+    <li><b>Every block declares its priority, cost and provenance at load time</b> or the module refuses to load at all. There is no priority map to fall out of, because eight blocks were previously priority-1 by <em>omission</em>.</li>
+    <li><b>A long report is written in several calls</b>, planned from the resolved prompt's own declared structure. A leg that fails names the sections it was carrying, the report is assembled from what arrived and stored <b>incomplete with the missing sections named</b>, and a run where every leg failed stores nothing and says so once rather than once per leg.</li>
+  </ul>
+  <div class="note"><b>Every refusal reports the request that was actually sent</b> — the exact body with credentials redacted and the prompt and bundle replaced by their lengths, beside the vendor's own token counts. A refusal that reports a number the request did not carry cannot tell <em>the bound was never sent</em> from <em>the bound was sent and ignored</em>, and that ambiguity cost two releases to resolve. Relatedly, the shape of the reasoning parameter is <b>negotiated by the request rather than guessed from a model name</b>: a rejection naming the current shape's own parameter advances to the next, and the answer is learned per vendor and model. A table of model ids and their capabilities would rot on the vendor's release schedule rather than on ours.</div>
   <div class="note">Older reports display honestly rather than being backfilled: reports written before the prompt was versioned say <em>"prompt: unversioned"</em>, reports written before the characterization existed say <em>"no characterization recorded"</em>, and reports written before the vendor was recorded say so and show the old provider field. Asserting a record was written under a vendor id that did not exist when it was written would be a fabrication.</div>
   <div class="note">Vendor errors surface <b>verbatim</b> — a bad credential shows the vendor's own message, an endpoint with no model-list route says so and invites a typed model id, and no credential shows one sentence naming both places to configure one plus the guarantee that nothing is sent anywhere. There is no simultaneous-vendor mode, no automatic failover, no scheduled auto-rerun, no ensemble, and no cost estimation: the panel says a run spends credits and does not pretend to price them.</div>
   <div class="warn">A perspective is a <b>model-generated interpretation of recorded data</b>. It characterizes; it never instructs. It is not investment advice and it may be wrong.</div>
 
-  <h2 id="thesis">The thesis engine</h2>
-  <p>Turn a view into a maintained, probability-weighted thesis with an evidence ledger — and let the system propose its own from macro (FRED) signals. As evidence arrives, the probability moves and the change is logged. As theses resolve, Open Trading Surface scores its own calibration (Brier score, skill vs base rate). The <b>Thesis</b> panel lives under <b>🌎 Macro-economic</b>.</p>
+  <h2 id="thesis">The thesis engine &amp; discovery</h2>
+  <p>Turn a view into a maintained, probability-weighted thesis with an evidence ledger — and let an AI agent propose its own from this system's own planes. As evidence arrives, the probability moves and the change is logged. As theses resolve, Open Trading Surface scores its own calibration (Brier score, skill vs base rate). The <b>Thesis</b> panel lives under <b>🌎 Macro-economic</b>, with every thesis, the <b>＋ New thesis</b> affordance and the <b>🌍 Worldview</b> nested under it.</p>
   <table>
     <tr><th>You say</th><th>What it does</th></tr>
-    <tr><td>"Create a thesis: US energy-security capex supercycle; set it high-confidence; sectors Energy and Utilities overweight."</td><td>Records the thesis with an initial probability and tilts.</td></tr>
+    <tr><td>"Create a thesis: US energy-security capex supercycle; sectors Energy and Utilities overweight."</td><td>Records the thesis with an initial probability and tilts.</td></tr>
     <tr><td>"Nat-gas guidance was cut — log that as evidence against, and reassess the probability."</td><td>Appends to the evidence ledger and updates the probability with a reason.</td></tr>
-    <tr><td>"Compile this thesis into a screen and build a paper model portfolio."</td><td>Turns tilts into a screen spec and a model portfolio.</td></tr>
+    <tr><td>"Run thesis discovery."</td><td>Assembles the bundle, stages the run, and writes candidates into the review queue.</td></tr>
+    <tr><td>"Compile this thesis into a screen and build a paper model portfolio."</td><td>Proposes a screen for review, then materializes a cohort from the accepted one.</td></tr>
     <tr><td>"How well-calibrated have my probabilities been?"</td><td>Reports calibration once enough theses have resolved (else says so honestly).</td></tr>
   </table>
-  <p>A thesis cannot graduate to <b>active</b> until it carries a recorded <b>challenge</b> — the strongest opposing case argued from the same data. A token objection is rejected; forcing past the gate is allowed but permanently logged. The <b>risk register</b> lists active convictions nobody has argued against.</p>
-  <div class="note">Probabilities are subjective, auditable estimates with a full evidence trail — not validated forecasts. Treat them as decision aids.</div>
+
+  <h3>The journey: four stages, one panel</h3>
+  <p>The panel used to be one long page that grew as steps were taken. It is now a staged progression, and the stage is <b>derived from what the record carries</b> and never stored — a stored stage is a fact duplicated into a field that can disagree with it.</p>
+  <table>
+    <tr><th>Stage</th><th>What it means</th></tr>
+    <tr><td><b>1 · Candidate</b></td><td>A proposal in the review queue — model-written or your own — to be read, edited, rejected or converted.</td></tr>
+    <tr><td><b>2 · Inventory</b></td><td>A thesis you have decided to manage. <b>This is a legitimate resting state</b>: a thesis may sit here indefinitely with no screen, and the surface may not nag about it — no severity, no warning, no completion fraction.</td></tr>
+    <tr><td><b>3 · Screen</b></td><td>A screen candidate proposed, reviewed and accepted. See below.</td></tr>
+    <tr><td><b>4 · Cohort</b></td><td>The accepted screen materialized into a living cohort whose membership re-evaluates as fundamentals change. <b>This is the terminus, declared as one</b> — a model portfolio still works and is simply not a stage.</td></tr>
+  </table>
+  <p>The current stage renders open, earlier ones collapsed and reachable, later ones named and not open, with one advance affordance on the row. Selecting a thesis in the left menu opens it at its current stage; the <b>🧪 Candidates</b> queue stays its own destination, because reviewing eight candidates in a sitting is a different task from walking one thesis forward.</p>
+  <div class="note">A thesis whose screen predates screen review reads <b>an effective accepted screen with no candidate behind it</b>, named on the record rather than papered over with a proposal minted retroactively.</div>
+  <figure>
+    <img src="assets/thesis-journey.png" alt="The thesis panel showing one thesis as a four-stage progression — Candidate, Inventory, Screen, Cohort — with the fourth stage marked as the current one and open, the first three collapsed and marked done, and the terminus scope note printed beneath.">
+    <figcaption>One thesis as a staged progression. The current stage is open, the earlier ones are collapsed and reachable, and the sentence beneath states that the journey <b>ends</b> at the cohort by decision — a scope line, not an omission.</figcaption>
+  </figure>
+
+  <h3>The screen is itself reviewable</h3>
+  <p>A thesis does not necessarily have a well-defined screen. So the screen arrives the same way the thesis did — as a <b>candidate</b> you accept, amend or reject:</p>
+  <ul>
+    <li><b>Every predicate is validated at the write</b> through the one screen bridge, against the real <b>520-field</b> vocabulary, and <b>refused by name</b> with nothing written. A spec with no filters is refused, because a screen selecting the whole universe is not a selection.</li>
+    <li><b>A rejection requires a reason</b>, and an <b>acceptance is terminal</b> — accept, reject and amend all refuse by name afterwards. An edit is an amendment on the same chain; nothing is mutated.</li>
+    <li><b>An owner-authored screen is equally first-class</b>, and the proposal step may be skipped entirely.</li>
+    <li>Acceptance <b>pins</b> the compiled screen onto the thesis and records a <b>dated methodology break</b>, because a compiled screen moving is a change in what the thesis selects.</li>
+  </ul>
+
+  <h3>Discovery — what it reads, and what it refuses</h3>
+  <p>The discovery agent reads <b>this system's own planes and no open web</b>: sixteen declared blocks, of which fifteen are buildable, each declaring its priority, cost, provenance and whether it is untrusted third-party text. The manifest accounts for every block in both directions — included, refused, dropped for budget, not built — and the totals are asserted rather than promised.</p>
+  <div class="note"><b>The inversion is the heart of it.</b> The economic calendar and the macro containers are deliberately <em>excluded</em> from a per-security assessment, because there is no symbol axis and the per-name elasticity that would give a macro print meaning is not built. Thesis discovery <b>has no symbol axis by design</b> — so the reason those blocks were refused there is the reason they belong here.</div>
+  <ul>
+    <li><b>Zero candidates is an error, not an answer.</b> A run that returns none says which of six causes it was — the model was not asked, the call failed, the answer was unreadable, the container was too thin, the model returned none, or the gate refused them all — and where the bundle was complete it says plainly that it is <b>this process's</b> defect and names the three places to look, in order. The model is deliberately never told <em>zero is an error</em>, because that is an instruction to manufacture; the ruling reaches it as a <b>wider bar</b> and reaches you as a defect report.</li>
+    <li><b>A substantively reasonable candidate with structural gaps is stored with its gaps named.</b> Completeness is derived on every read over twenty-one parts, from the same table the request is composed from, each gap <em>named</em> rather than counted: <em>INCOMPLETE — n of 21 parts missing or unreadable. THE IDEA WAS KEPT.</em> An earlier gate enforced completeness and could not enforce quality — it discarded good-but-incomplete ideas while admitting complete-but-vacuous ones, which is precisely backwards.</li>
+    <li><b>Refusal is reserved for things that are not theses at all</b> — no record, no assertion about the world (a bare title is a <em>label</em>, and "AI infrastructure" is a topic rather than a proposition), a provenance that cannot be named. Everything else is a gap.</li>
+    <li><b>The refusals are the valuable output.</b> The agent proposes screen predicates and the ones this system cannot honour are listed by name — an honest per-thesis register of <em>what this thesis needs that this system cannot screen for</em>. The first live run produced two real vocabulary gaps.</li>
+    <li><b>A staged run is a job with a poll</b>, not a request held open — one survey call naming the changes worth writing up, then one call per shortlist entry. <b>The number of legs is the model's own answer</b>, not a number this software chose, and a leg that fails costs one candidate rather than the run.</li>
+    <li><b>Progress is honest about what it does not know</b> — the survey leg names itself and publishes no fraction, because the denominator is the model's own shortlist and does not exist yet, and a numerator with no denominator publishes neither.</li>
+  </ul>
+
+  <h3>Reading a candidate</h3>
+  <ul>
+    <li><b>The scores are the model's and never render as computed.</b> Tier 1, in words, on the score column <em>and</em> on every row: <em>scored by the model — not measured</em>. The overall is the model's too and is <b>not recomputed</b> from the ten axes, because a mean of ten opinions presented as arithmetic converts a judgment into a measurement.</li>
+    <li><b>The queue's default order is the date it was generated, never a score.</b> A default ranked by the model's own confidence is a surface that has quietly delegated the decision.</li>
+    <li><b>Two derived readings mark and enforce nothing.</b> <em>Beneficiary obviousness</em> counts how many named companies are already in a cohort or on a prior candidate; <em>falsifier discriminance</em> asks how many falsification criteria name something this system could ever observe. On the first real run that was <b>1 of 4</b> — the other three genuine falsifiers nothing here can watch. Where a denominator does not exist the reading <b>refuses by name</b> rather than reporting zero overlap, which would read as the opposite of the truth.</li>
+    <li><b>Named companies are a disclosed artifact and may not be laundered into a screen</b> — a test fails the build on any path that reads them into a screen spec. A rent-owner that is private or foreign-listed is a <em>real finding, held not refused</em>; converting it into the nearest listed proxy is one of the method's own failure modes wearing a helpful face.</li>
+  </ul>
+
+  <h3>Conversion records lineage and does not endorse</h3>
+  <p>A converted thesis is born <b>watching</b> and never active — asking for active refuses by name with nothing written. The candidate is <b>not deleted</b>: a conversion record is appended to its chain and every earlier version still says exactly what it said. Authorship is <b>derived per field from the diff</b>, so a thesis you rewrote entirely reports as your assertion and one you changed a word of does not — and where the conversion itself changed a field, it says <em>the software did that</em> rather than crediting you with a change you did not make.</p>
+  <p>A thesis still cannot graduate to <b>active</b> until it carries a recorded <b>challenge</b> — the strongest opposing case argued from the same data. A token objection is rejected; forcing past the gate is allowed but permanently logged. The <b>risk register</b> lists active convictions nobody has argued against.</p>
+  <div class="warn"><b>A contract change, stated as one.</b> A thesis is now born <b>watching</b>. Until recently <code>create_thesis</code> hard-coded <em>active</em> while the challenge gate lived only on the update path — so every thesis was born active and unchallenged and appeared in the risk register on the same call that created it. Existing stored theses were not touched; the break is on the write path, and both doors carry the sentence saying which contract is in force.</div>
+  <div class="note">Probabilities are subjective, auditable estimates with a full evidence trail — not validated forecasts. Model-written candidates are the model's judgment, labelled as such at every point, and converting one is an act you take rather than one the system takes for you. Treat all of it as a decision aid.</div>
 
   <h2 id="market">The Market tab: the heat map &amp; the repricing scan</h2>
   <p>The <b>🌐 Market</b> tab is the twin's instrument panel — where the gap between the evidence-supported price and the market's price becomes visible across the whole market at once.</p>
   <p><b>🗺️ Heat map.</b> A treemap of every covered NYSE+NASDAQ name's gap between price and its precision-weighted Model of Models — the <b>residual field</b>. Pick a per-model lens, read it as Δ% or Δ$, scroll back one recorded trading day at a time, and slice it to any cohort. Gap movement is repricing, not dollar flow. Reconstructed history days are labelled as reconstructions.</p>
   <p><b>📡 Repricing scan.</b> A daily scan classifies where models and prices disagree and what to do about each class: names whose gap calls for a <b>strategic-initiative book</b>, cheap tails routed to erosion/regime review, <b>data defects</b> named as defects rather than opportunities, model-maintenance items, and new divergence-ledger activity. Every SI-need row clicks through to that name's Strategic Initiatives editor.</p>
+  <p><b>🧬 Valuation structure.</b> The third view: which names are declared operating, hybrid or initiative-principal, and what that declaration does to how their composite is read.</p>
   <div class="note">The surface accrues from the daily batch (see <a href="#automate">Automations</a>); coverage and staleness are disclosed on the map rather than smoothed over.</div>
+  <div class="warn"><b>A sign test is not a floor, and this is what that cost.</b> The composite used to admit any fair value above zero, so a broken denominator of one cent was published as a fair value and the gap was <em>divided by it</em> — one name printed a <b>+20,414%</b> gap, and those values clustered at a few cents <em>regardless of price</em>, which is a broken denominator and not a cheap stock. A value below a stated floor now <b>refuses by name</b>, never clamped and never substituted. The sector means moved as a result: aggregates are taken over the evidenced set with a <b>median published beside the mean and named as the reading to prefer</b> (a gap is bounded at −100 and unbounded above, so its mean is not a location statistic), the incumbent number is preserved verbatim under its own name, and <b>no cell was deleted</b> — every cell carries whether it was evidenced.</div>
 
   <h2 id="divergence">Divergence ledger, rerating test &amp; event impact</h2>
   <p>The twin's discipline is that disagreement between its read and the market's is <b>stored, not discarded</b>:</p>
@@ -566,6 +810,26 @@
   <p>Two laws worth knowing. <b>Income is not price P&amp;L</b>: dividends, interest and withholding aggregate separately and enter position P&amp;L as income, never blended into price appreciation. And <b>a recorded income event must be possible</b>: a dividend on a symbol the ledger never held on or before that date refuses at record time.</p>
   <p><b>Delisting</b> is the instructive one: it transforms nothing — your lots and basis are untouched — but the position becomes <b>unpriceable</b>, and every valuation of the book refuses <em>naming the delisting date</em> until you resolve it with a sale, a tender, or a <code>worthless</code> record. That is refusal-over-default applied to your own money.</p>
   <div class="note"><b>Detection assists, never corrects.</b> Your ledger is compared against provider split history in both directions, and missing dividends are detected — but every finding is <b>flagged for investigation</b>, never applied. A flag is a question, not an edit.</div>
+
+  <h2 id="tables">Sorting &amp; the house table</h2>
+  <p>The portfolio surface is <b>nineteen tables across eight views</b>, and until recently not one of them sorted. They do now — and the point is that it was not done table by table.</p>
+  <h3>A table declares its columns, and the sort arrives with the declaration</h3>
+  <p>A sort added per table is the curated list this house says rots: it is exactly how three tables end up sorting and two silently do not. So a table <b>declares its columns</b> through one door, the sort comes with the declaration, and the build fails on any portfolio renderer that emits a heading outside it.</p>
+  <ul>
+    <li><b>Column type is derived from the values the rows hold, never from the rendered cell.</b> A column printed <code>$1,000.00</code> sorts on <code>1000</code>, because <code>"$1,000.00"</code> sorting before <code>"$9.00"</code> is the defect the feature exists to remove. Dates sort chronologically. A declared type that disagrees with the values <b>refuses</b>, saying nothing was sorted — that disagreement means the sort is reading the cell.</li>
+    <li><b>A missing value sorts last in both directions and is never read as zero</b>, and the count is published. Ascending, a coerced blank would come <em>first</em>.</li>
+    <li><b>The tie-break is declared and counted</b>: the producer's own row order.</li>
+    <li>First click opens a numeric or date column high→low and a text column A→Z. <b>The current sort is stated on the heading</b> — a glyph, words, and the accessibility attribute — because a table that is sorted and does not say so is one you will misread.</li>
+  </ul>
+  <h3>Two tables refuse to sort, by name</h3>
+  <p>The cash-flow reconciliation is an <b>ordered identity</b>, not a list:</p>
+  <pre><code>opening + contributions − withdrawals + income − fees ± market change = closing</code></pre>
+  <p>Reordering it leaves it numerically correct and meaningless, so it refuses and <b>offers no affordance at all</b>. Three footer blocks — the decomposition's residual, the contribution-to-risk total, the realized table's short/long subtotals — were ordinary rows that would have sorted into the middle of their own bodies, and are now footers. A position's <b>tax lots are that position's detail</b> and travel with their parent row rather than being sorted away from it.</p>
+  <h3>One house table</h3>
+  <p>Every table in the terminal now has a <b>maximum width of 1,120px</b>, drag-resizable columns, and sortable headings where the surface has been migrated. The width is <b>measured, and what it was measured on is the decision</b>: it is the natural width of the widest table of <em>bounded</em> content — the twelve-column holdings table, 990px at a 31-character name and 1,117 at 50. A free-text column is bounded by <em>wrapping</em>, not by the table, so deriving a ceiling from a sentence would let one long title decide the width of every table in the terminal. The <a href="#calendar">calendar grid</a> refuses the ceiling, in the stylesheet next to the rule it refuses.</p>
+  <p>A resize <b>pins every column</b> and the table takes the sum of its columns — before that line existed, a −120px drag moved the column 95px.</p>
+  <div class="note"><b>What is not yet migrated is declared rather than implied.</b> The max width applies to every table on day one, because it is a stylesheet rule that needs no adoption. Sorting and adjustable widths arrive with a column declaration, and a survey found <b>584 table headings across 53 functions</b> outside that door. That population is a dated debt policed by a ratchet — a count that grew fails the build, <em>and a count that fell fails too</em>, because paying it down has to be a visible edit rather than a number that drifts.</div>
+  <div class="note">A sort is the panel's own state: it survives a re-render and a reload, and it deliberately <b>does not travel in an exported layout</b> — stated on the payload — because the portfolio surface is a pinned surface rather than a workspace panel. <code>sort_portfolio_table</code> runs the same operation the click runs.</div>
 
   <h2 id="costbasis">Cost basis &amp; tax lots</h2>
   <p>Five methods, from <b>one lot engine</b> — there is no second derivation path anywhere in the system:</p>
@@ -788,7 +1052,8 @@
   <p>The <b>🔔 Alerts</b> tab has three sub-sections, all fed by the same typed-alert machinery:</p>
   <p><b>Feed</b> — the attention-focusing stream. Typed notifications (divergence activity, rerating candidates, SI gates approaching, band crossings, scan findings, executive changes, price-rule firings) grouped by day then type, with per-type count chips, aggregated day summaries, the deciding subscription layer on hover, and click-through to each type's evidence surface. Classic price rules live in a panel inside the feed, with playbooks.</p>
   <p><b>Subscriptions</b> — deliberate control over <b>which alert types fire on which securities</b>, cohort-first: pick a cohort, toggle types on or off as standing rules new members inherit, set defaults, and drill into per-symbol overrides.</p>
-  <p><b>Calendar</b> — one time axis for everything dated: typed alerts, SI gate expected resolutions (overdue flagged), corporate events, ingest intake items, divergence-ledger entries, and roster changes — as a list or a visual <b>month grid</b> with day drill-down, type filters, cohort/symbol slices, and click-through per row.</p>
+  <p><b>Calendar</b> — one time axis for everything dated: typed alerts, SI gate expected resolutions (overdue flagged), corporate events, ingest intake items, divergence-ledger entries, roster changes, <b>economic releases</b> and <b>your own calendar events</b> — as a list or a visual <b>month grid</b> with day drill-down, type filters, cohort/symbol slices, and click-through per row.</p>
+  <div class="note">This calendar and the <a href="#calendar">Macro-economic → Calendar</a> panel are two views of the same records, not two feeds: the economic rows are <b>read from the same store</b> under the same ids, so the same event appears on both surfaces and clicking through resolves to the same thing.</div>
   <div class="note">The classic alert machinery and the <a href="#rules">rule engine</a> coexist deliberately. Seven of the nine legacy alert types have a rule equivalent you can migrate to; the other two were refused by name rather than approximated, and continue to run on the old path.</div>
 
   <h2 id="executives">Executive profiles</h2>
@@ -834,12 +1099,18 @@
     <li><b>A backtest refuses:</b> that is a result. The sentence names the missing record; <a href="#reach">Reach</a> tells you what would be needed and from when.</li>
     <li><b>A screen returns nothing:</b> check surface coverage first — several instruments read a recorded surface day, and a fresh install has none until the batches have run.</li>
     <li><b>Charts show no live data when opened from a saved file:</b> by design, saved files never embed your key; open the live terminal URL the agent provides for live data.</li>
-    <li><b>SEC filing fetch returns 403:</b> set an EDGAR contact in Administration → Settings (e.g. "Your Name your@email.com").</li>
-    <li><b>Perspectives shows a vendor error:</b> that text is the vendor's own, verbatim. Check the credential and the model id in Settings, and use <b>Fetch models</b> to ask the vendor what it actually offers.</li>
+    <li><b>SEC filing fetch refuses:</b> set an EDGAR contact in Administration → Settings (e.g. "Your Name your@email.com") and press Test. Every EDGAR read refuses by name without one and says plainly that nothing was fetched.</li>
+    <li><b>Perspectives shows a vendor error:</b> that text is the vendor's own, verbatim, and the refusal also prints <b>the request that was actually sent</b> (credentials redacted, prompt and bundle replaced by their lengths) beside the vendor's own token counts. Check the credential and the model id in Settings, and use <b>Fetch models</b> to ask the vendor what it actually offers.</li>
+    <li><b>Perspectives opens but the report is not there yet:</b> a read never waits for a model call. The panel returns immediately and the report arrives through the poll; a run that finished <em>without</em> storing a report is a third state and keeps its own sentence, with the vendor's own error and the bound that aborted it.</li>
+    <li><b>A report says it is INCOMPLETE:</b> a long report is written in several calls and one leg failed. The sections it was carrying are named. The prose that did arrive is kept — the tokens were paid for, and discarding them would answer one dishonesty with a second.</li>
+    <li><b>The calendar is empty, or Tier B of the series picker is empty:</b> both are properties of what <em>this machine has pulled</em>, not of the world. The panel names the pull process and the doors that still work; a <a href="#keys">FRED key</a> is required for either.</li>
+    <li><b>Chart panes look short, or rows are below the fold:</b> read the words on the row. <em>"↕ scrolls"</em> is the panel doing what an automatic arrangement asked; <em>"⚠ cut off"</em> is a defect report and names how much too short the panel is. Drag the panel's own edge and the panes fit instead of scrolling.</li>
+    <li><b>My chart settings went somewhere:</b> preferences are keyed on <b>(security, interval)</b> with no fall-back between intervals, and the legend says which intervals do carry a record.</li>
+    <li><b>A request timed out:</b> the sentence now names what was established rather than guessing. It asks the daemon what it is doing and reports one of four states — a batch running (named, with its age, and stated as a correlation rather than a cause), no batch running (so the loop is not held, which is a different defect), the probe itself failing, or no daemon to ask, in which case it says <b>nothing was established</b>.</li>
     <li><b>Something looks wrong:</b> ask the agent to <code>run_test_suite</code>, and <a href="support.html">open an issue</a>.</li>
   </ul>
 
-  <footer><a href="index.html">Home</a> · <a href="events.html">Event processing</a> · <a href="legal.html">Legal &amp; Disclaimer</a> · <a href="support.html">Support &amp; Issues</a></footer>
+  <footer><a href="index.html">Home</a> · <a href="events.html">Event processing</a> · <a href="changelog.html">Changelog</a> · <a href="legal.html">Legal &amp; Disclaimer</a> · <a href="support.html">Support &amp; Issues</a></footer>
 </div>
 </body>
 </html>

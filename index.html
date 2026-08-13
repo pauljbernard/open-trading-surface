@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Open Trading Surface — the investment research terminal whose understanding compounds between sessions</title>
-<meta name="description" content="An agent-native investment research terminal for Claude: a price-discovery digital twin of the market — residual-field heat map, per-stock model mixtures, a floating-panel workspace, typed events, rules, paper strategies and an honest backtester — plus charting, screening, portfolio analytics, and a probability-weighted thesis engine. It refuses rather than defaults.">
+<meta name="description" content="An agent-native investment research terminal for Claude: a price-discovery digital twin of the market — residual-field heat map, per-stock model mixtures, a floating-panel workspace, an economic calendar, one series identity with a knowability contract, typed events, rules, paper strategies and an honest backtester — plus charting, screening, portfolio analytics, three-lens written assessments and an AI thesis-discovery agent. It refuses rather than defaults.">
 <style>
-  :root{--bg:#0b0e14;--panel:#131722;--border:#242938;--text:#d7dbe6;--muted:#8b93a7;--accent:#2f7bff;--pos:#26a969;--neg:#ef5350;--r:14px}
+  :root{--bg:#0b0e14;--panel:#131722;--border:#242938;--text:#d7dbe6;--muted:#8b93a7;--accent:#2f7bff;--pos:#26a969;--amber:#f5b544;--neg:#ef5350;--r:14px}
   *{box-sizing:border-box}html{scroll-behavior:smooth}
   body{margin:0;background:radial-gradient(1200px 620px at 72% -12%,rgba(47,123,255,.16),transparent),var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
   a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
@@ -34,7 +34,7 @@
   .browserbar span{margin-left:12px;color:var(--muted);font-size:12px}
   section{padding:60px 0;border-top:1px solid var(--border)}
   section h2{font-size:30px;margin:0 0 6px;letter-spacing:-.6px;text-align:center}
-  section .sub{color:var(--muted);margin:0 auto 34px;text-align:center;max-width:640px}
+  section .sub{color:var(--muted);margin:0 auto 34px;text-align:center;max-width:660px}
   .feat{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;margin:46px 0}
   .feat.rev{grid-template-columns:1fr 1.05fr}.feat.rev .txt{order:2}
   .feat h3{font-size:23px;margin:0 0 10px;letter-spacing:-.3px}
@@ -83,6 +83,16 @@
   figcaption{color:var(--muted);font-size:13px;margin-top:9px;text-align:center}
   figcaption b{color:var(--text)}
   .wideshot{max-width:960px;margin:34px auto 0}
+  /* --- 5.43.1 refresh --- */
+  /* A screenshot is a dated observation like any other number on this site. Every image
+     here was captured from a live 5.19.6 terminal on 2026-08-07; where the surface has
+     moved since, the caption says what moved rather than letting the picture stand as
+     current. This is the same two-tier rule the product itself applies. */
+  .shotage{display:block;margin-top:6px;font-size:12px;color:#f3c66b}
+  .shotage b{color:#f3c66b}
+  .newsec{background:linear-gradient(180deg,rgba(245,181,68,.045),transparent)}
+  .note{background:rgba(47,123,255,.08);border:1px solid rgba(47,123,255,.3);border-radius:12px;padding:14px 18px;font-size:14px;margin:22px auto 0;max-width:860px}
+  .note b{color:var(--text)}
 </style>
 <link rel="icon" type="image/svg+xml" href="assets/ots-mark.svg">
 <meta property="og:title" content="Open Trading Surface — agent-native investment research terminal">
@@ -112,7 +122,7 @@
     <div class="hero-brand">Open Trading Surface</div>
     <span class="kicker">An agent-native investment research terminal for Claude</span>
     <h1>The investment research terminal<br>whose understanding compounds between sessions.</h1>
-    <p class="lead">Open Trading Surface doesn't just fetch data — it maintains a digital twin of the market and hands the agent the controls. The twin discovers an evidence-supported price for every covered name, reconciles it against the price the market discovered, and treats the gap — the residual — as the object of study. A worldview that becomes probability-weighted theses, driver-based company models, portfolios measured to institutional standard, and a complex-event engine that watches for the conditions you actually care about — all on a surface the agent reads and drives, all on your machine.</p>
+    <p class="lead">Open Trading Surface doesn't just fetch data — it maintains a digital twin of the market and hands the agent the controls. The twin discovers an evidence-supported price for every covered name, reconciles it against the price the market discovered, and treats the gap — the residual — as the object of study. A worldview that becomes probability-weighted theses, driver-based company models, a full economic release calendar, portfolios measured to institutional standard, and a complex-event engine that watches for the conditions you actually care about — all on a surface the agent reads and drives, all on your machine.</p>
     <div class="cta">
       <a class="btn primary" href="download/ots.plugin">Download the plugin</a>
       <a class="btn ghost" href="#features">See what it does</a>
@@ -123,6 +133,7 @@
     <div class="browserbar"><i class="r"></i><i class="y"></i><i class="g"></i><span>Open Trading Surface — the panel workspace</span></div>
     <img src="assets/workspace.png" alt="The Open Trading Surface terminal showing six floating panels tiled three across and two down on a single security — chart, financial statements, model of models, perspectives, news and peer comps — each with its own title bar and a taskbar of open panels along the bottom.">
   </div>
+  <p class="loopcap" style="max-width:860px">Six panels on one name, tiled. <span class="shotage">Captured from a live terminal on 2026-08-07 (5.19.6). The workspace chrome and the per-security menu are unchanged since; the chart panel has since gained a 💾 save-settings control and a derived pane-height rule.</span></p>
   <div class="disc"><b>Not investment advice.</b> Open Trading Surface is an informational research tool. Nothing it produces is advice or a recommendation; data may be inaccurate — verify everything independently. You bear full responsibility for all decisions. See the <a href="legal.html">full disclaimer</a>.</div>
 </div>
 
@@ -134,13 +145,13 @@
     <div class="pillar">
       <div class="pic">🌍</div>
       <h3>A price-discovery digital twin, not a data feed</h3>
-      <p>A market price is a clearing level, not a prediction — so the twin's job is <b>explanatory</b>: discover an <b>evidence-supported price</b> per name, reconcile it against the market's discovered price, and <b>attribute every element of the reconciliation</b>. The unexplained remainder — the residual — is tracked as a first-class quantity, because that's where discovery failures, regime signals, and reratings-in-progress live. A structured <b>worldview</b> still becomes <b>theses with auditable probability estimates</b>, and every name is grounded in a <b>driver-based operating model</b> and an <b>articulated pro forma statement set</b>; it all persists and compounds between sessions.</p>
+      <p>A market price is a clearing level, not a prediction — so the twin's job is <b>explanatory</b>: discover an <b>evidence-supported price</b> per name, reconcile it against the market's discovered price, and <b>attribute every element of the reconciliation</b>. The unexplained remainder — the residual — is tracked as a first-class quantity, because that's where discovery failures, regime signals, and reratings-in-progress live. A structured <b>worldview</b> becomes <b>theses with auditable probability estimates</b>, and every name is grounded in a <b>driver-based operating model</b> and an <b>articulated pro forma statement set</b>; it all persists and compounds between sessions.</p>
       <ul>
         <li><b>The residual field, mapped</b> — a market-wide heat map of price vs the evidence-supported composite across every covered NYSE+NASDAQ name, one recorded day at a time</li>
         <li><b>A model mixture per stock</b> — walk-forward weights estimating which valuation frame the market is actually pricing a name on; the rotation itself is chartable</li>
         <li><b>Divergences stored, not discarded</b> — a ledger of event-vs-reaction disagreements, a rerating hypothesis test over shifted weights, and per-event impact routed through the mixture</li>
         <li><b>One stack, top to bottom</b> — an economy container of time-series variables, an industry rung of priors and elasticities, and a company's own fitted drivers, each disclosing what it contributed</li>
-        <li><b>Worldview → thesis → screen → cohort → name</b> — one connected funnel, point-in-time honest, with snapshots that keep backtests free of hindsight</li>
+        <li><b>Worldview → thesis → screen → cohort → name</b> — one connected funnel with a staged journey per thesis, point-in-time honest, with snapshots that keep backtests free of hindsight</li>
       </ul>
     </div>
     <div class="pillar">
@@ -149,7 +160,7 @@
       <p>The terminal is a <b>shared world-model</b>: everything you see, the agent can <b>read and drive</b>. It isn't a dashboard a human clicks — it's an operating surface with hundreds of introspectable tools, an <b>event inbox</b>, reusable <b>playbooks</b>, an audit <b>journal</b>, and <b>research memory</b>. The facts, judgments, and their provenance live in the twin; the agent reasons over them — it never has to be the information store. Ask in plain language; the agent inspects the exact panel you're looking at and acts on it.</p>
       <ul>
         <li><b>inspect_* / control_*</b> — the agent reads state, rendered views, and raw data, and drives every surface</li>
-        <li><b>Parity is proven, not asserted</b> — for the panel workspace, a derived test computes from the source that every operation is reachable from a verb and every verb resolves to an operation</li>
+        <li><b>Parity is proven, not asserted</b> — for the panel workspace and for every sortable portfolio table, a derived test computes from the source that every operation is reachable from a verb and every verb resolves to an operation</li>
         <li><b>Thinks between sessions</b> — inbox, morning brief, memory, and an API-budget governor</li>
         <li><b>Governed by design</b> — tuning constants carry their bases, journals are append-only, automations only propose</li>
         <li><b>Plan-only</b> — it models, drafts, and proposes, and never places a trade</li>
@@ -201,6 +212,7 @@
       <ul>
         <li><b>The refusal is Tier 1</b> — it stays on the row, where the missing number would have been, because a refusal you cannot read is not a refusal</li>
         <li><b>Refusals propagate</b> — where a block declines upstream, the report prints the refusal sentence, never a blank or a default</li>
+        <li><b>There is one numeric admission door, and it decides by type</b> — because <code>Number(null)</code> is <code>0</code>, and a guard that coerces instead of refusing does not merely fail to help: it publishes</li>
         <li><b>An empty screen is a finding</b> — the modern defensive standard ships stating that it returned zero names, why, and that nothing was tuned to make it return something</li>
       </ul>
     </div>
@@ -210,7 +222,7 @@
       <p>When a new layer would move a number you have already read, it discloses <b>before</b> it moves anything — both values side by side, the delta named, and the change recorded as a <b>dated methodology break</b> rather than absorbed. The benchmark moving from a price proxy to a total-return construction <i>lowered</i> every published excess return, and every payload that defines the benchmark says so in a sentence.</p>
       <ul>
         <li><b>Two numbers before one</b> — staged layers compute the old and the new together, with the published headline unchanged until the switch is deliberately thrown</li>
-        <li><b>The break is dated and named</b>, never edited into history</li>
+        <li><b>The break is dated and named</b>, never edited into history. When filed fundamentals started being dated by <i>when they became knowable</i> rather than by their period end, the release shipped the disclosure channel first, in a release that moved no number at all</li>
         <li><b>Two-tier disclosure</b> — what changes how a number is read stays on the row; explanation and provenance move behind one icon that states its count and its highest severity</li>
       </ul>
     </div>
@@ -223,11 +235,13 @@
     </figure>
     <figure>
       <div class="shot"><img src="assets/processes.png" alt="The Processes board in Administration, listing the scheduled batches with green, yellow and red status lights, each row showing its cadence, last run, next due and Start or Pause control — including red rows for jobs that are overdue or have no schedule at all."></div>
-      <figcaption><b>Processes</b> — every batch on this machine with a green/yellow/red light and the reason for it. A job with no cadence anywhere reads red and says exactly that. No other terminal shows you the jobs it is failing to run.</figcaption>
+      <figcaption><b>Processes</b> — every batch on this machine with a green/yellow/red light and the reason for it. A job with no cadence anywhere reads red and says exactly that. No other terminal shows you the jobs it is failing to run. Eleven processes are declared; the figure is the top of the board.</figcaption>
     </figure>
   </div>
 
-  <p class="loopcap" style="max-width:760px;margin-top:26px">And the backtester is built to the same posture: a run that <b>declines</b> is a result. It refuses a cohort-scoped historical window with no dated membership ledger, refuses a predicate leg with no point-in-time value, refuses to rank a 2019 candidate set by today's fundamentals, and refuses a tape that does not reach the date you asked for — each by name, each before it runs.</p>
+  <p class="loopcap" style="max-width:800px;margin-top:26px">And the backtester is built to the same posture: a run that <b>declines</b> is a result. It refuses a cohort-scoped historical window with no dated membership ledger, refuses a predicate leg with no point-in-time value, refuses to rank a 2019 candidate set by today's fundamentals, and refuses a tape that does not reach the date you asked for — each by name, each before it runs.</p>
+
+  <div class="note"><b>A green light is not always the answer you asked for.</b> A process that ran cleanly over a near-empty input reports success — and success is not the question the reader had. So every batch also publishes a <b>yield verdict</b> from a closed vocabulary (<code>full</code> · <code>partial</code> · <code>near_empty</code> · <code>empty_by_design</code> · <code>not_applicable</code>), and a short verdict is <b>required</b> to name whose shortfall it is. A yield disclosure that does not say whose job the gap was converts a useful fact into a false accusation.</div>
 </div></section>
 
 <section id="workspace"><div class="wrap">
@@ -242,6 +256,7 @@
         <li><b>The top strip is a launcher</b>, not a mode switch: it chooses which security the left menu will open next; the left menu opens a new floating panel</li>
         <li><b>A reduced panel is still open</b> — minimizing hides pixels and nothing else; the node, its scroll position and its loaded data all survive, and restoring re-fetches nothing</li>
         <li><b>⊞ Tile · ⊟ Cascade · ▤ Stack · ⊙ Gather</b> — one-shot arrangements, never sticky modes; a panel's geometry afterwards is ordinary geometry you can immediately drag</li>
+        <li><b>Content adapts to a size you chose, and scrolls in a size the machine chose</b> — a tiled chart panel divides its height between price and indicator panes down to a floor derived from the drawing engine's own metrics, then scrolls; drag the panel yourself and it fits instead. Either way, a pane is never squashed below the height at which its axis can be read, and anything below the fold is <i>counted and named</i></li>
         <li><b>Chart state diverges per panel</b>, including drawings — a new panel copies the existing record to its own key at first read, so nothing is orphaned and a standalone chart still reads what it always read</li>
         <li><b>A panel is never unreachable</b> — the workspace scrolls both axes, placement is computed against what is actually on screen, and the taskbar <i>summons</i>: if no scroll position could reach a panel's title bar, it is moved to you and says so</li>
         <li><b>Nothing is silently dropped</b> — a restored panel whose view was retired opens a refusal panel in its saved geometry, naming its successor</li>
@@ -266,6 +281,37 @@
   </div>
 </div></section>
 
+<section id="calendar" class="newsec"><div class="wrap">
+  <h2>The economic calendar, and one identity for every series</h2>
+  <p class="sub">Everything periodic — a FRED series, a filed statement line, a scheduled release, a note you write yourself — is one observable stream with three renderings: a plotted overlay, dated markers on a price axis, and calendar rows.</p>
+
+  <div class="feat">
+    <div class="txt">
+      <h3>📅 A calendar that is actually a calendar</h3>
+      <p>Under <b>🌎 Macro-economic → Calendar</b>: the schedule of economic releases at <b>four zooms</b> — a twelve-month year of day cells shaded by intensity, a real seven-column month grid, a Sunday-anchored week, and a day in full — with what was expected of each release, what printed, and the surprise. A twice-daily pull records the consensus <i>before</i> the print, because an evening-only pull structurally cannot record a consensus before an 08:30 print.</p>
+      <ul>
+        <li><b>Hand-rolled CSS grid, zero dependencies</b>, in the terminal's own visual language — and every shade is a ratio against a published denominator, printed in the legend, because an intensity with no denominator is a palette</li>
+        <li><b>Drill down and jump to the chart</b> — pick a release, pick its series, and a dialog asks <i>which security's chart</i> to overlay it on. The system anchors charts around securities, so a macro series is put <b>on</b> something rather than into a second chart with no price beside it</li>
+        <li><b>The link rate is published, and it is not high</b> — the two providers name different levels of one taxonomy (one names the series, the other the release), so only 22 of 100 rows link at unchanged precision. That number rides every payload. The chart jump does not depend on it</li>
+        <li><b>Add your own events</b> — dated, associated with a FRED series, an EDGAR series, a security, or nothing, merged into the same stream at read time and drawn on the chart as markers</li>
+        <li><b>Provenance rides every row, in words, above the title</b> — on the sourced rows too, because marking only the user rows would make provenance an exception, and an exception is what a future renderer forgets</li>
+      </ul>
+    </div>
+    <div class="txt">
+      <h3>🔗 One series identity, and a knowability contract</h3>
+      <p>A ref like <code>fred:DGS10</code> or <code>edgar:AAPL:NetIncomeLoss</code> now resolves through <b>one identity module</b> with one normalization rule per source, one constructor and one parser. The picker stopped having a hand-maintained list: it <b>derives</b> what is available from the seven modules that declare series, so a series a consumer starts using becomes selectable with no edit anywhere else.</p>
+      <ul>
+        <li><b>Three tiers, only two enumerable</b> — 28 declared series; roughly 2,360 reachable by browsing FRED's releases in the picker; and search over the rest, whose ranking is FRED's own and is labelled as such</li>
+        <li><b>Nineteen series were invisible before this</b> — including the potential-growth series that caps every terminal value in the system. That measurement is now a derivation, and a test fails the build if any series named anywhere in the server cannot be found in the picker</li>
+        <li><b>A plot is dated by the period; an inference is dated by when the number became knowable.</b> Filed EDGAR figures used to be treated as knowable weeks or months before the filing that published them existed. They are not any more — measured live, 96% of as-of cells move on a typical net-income series, median lag <b>578 days</b> — and every payload says which basis it used</li>
+        <li><b>The correction can only ever remove foresight</b>, and that is asserted at every cell rather than argued</li>
+        <li><b>As-filed vintages are kept from now on</b> — every restatement EDGAR already returns in a response we already fetch is written to disk instead of discarded. Nothing reads that store yet, and a test enforces it: a store nothing reads cannot move a number, which is what makes it safe to start before its reader exists</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note"><b>What this does not do.</b> The economic calendar needs a free FRED key; with none, it says so rather than showing an empty grid. There is deliberately <b>no scheduled-release event kind</b> — a schedule has not happened, and the event log pages backwards, so thousands of future-dated records would make "what happened recently" answer with things that have not. And the vintage store's value accrues <b>forward only</b>: a backfill is a named, scoped task that has not been scheduled.</div>
+</div></section>
+
 <section id="features"><div class="wrap">
   <h2>One tool, the whole workflow</h2>
   <p class="sub">From a market view to a modeled position — top to bottom, all agent-operable.</p>
@@ -279,8 +325,8 @@
         <li><b>Every model is a line on the chart</b> — point-in-time reconstructions from filed statements only, no lookahead, side by side with price — and frames that don't apply refuse with their reason stated, never a silent zero</li>
         <li><b>The Model of Models</b>: each frame earns a walk-forward precision weight against the name's own price, per stock, adaptive over time — the weights are the reading, and their rotation is chartable as per-model weight series</li>
         <li><b>Recorded weightings</b> — dated weight vectors saved per stock, so the composite replots under the weighting of any point in time; the chart line is always one consistent snapshot, never rolling weights</li>
-        <li><b>A declared valuation structure</b> per name — an operating business, a hybrid whose initiatives <i>add</i> to its base, or one whose programs <i>are</i> the company — computed and disclosed beside the incumbent composite</li>
-        <li><b>A modeling-gaps strip</b> — which frames refused and why, whether a strategic-initiative book exists, and how much of the composite gap it covers</li>
+        <li><b>A declared valuation structure</b> per name — an operating business, a hybrid whose initiatives <i>add</i> to its base, or one whose programs <i>are</i> the company — computed and disclosed beside the incumbent composite, with its own view under the Market tab</li>
+        <li><b>A value below a stated floor refuses rather than publishing</b> — a fair value of one cent is a broken denominator, not a cheap stock, and the ratio it would produce is not a finding</li>
       </ul>
     </div>
     <div class="shot"><img src="assets/model-of-models.png" alt="The Model of Models panel for a security: each valuation frame with its fair value, its walk-forward weight, and the precision-weighted composite against price, with refused frames stating their reasons."></div>
@@ -289,14 +335,15 @@
   <div class="feat rev">
     <div class="txt">
       <h3>📈 A charting workbench that answers "why"</h3>
-      <p>Price is where a question starts, not where it ends. Overlay the outside world on the chart, then trace any move back to the document behind it. ~125 indicators and 39 drawing tools on an engine that is original code — no third-party charting library.</p>
+      <p>Price is where a question starts, not where it ends. Overlay the outside world on the chart, then trace any move back to the document behind it. <b>125 indicators</b> and 39 drawing tools on an engine that is original code — no third-party charting library.</p>
       <ul>
         <li><b>Overlay any series</b> — FRED economics and rates, commodities, indices, FX, company financial line items, SEC XBRL facts, every pricing model's fair-value line, the Model of Models composite, and per-model weight series — on the price scale, stacked right-hand axes, or their own panes, with lead/lag shift and best-lag cross-correlation</li>
         <li><b>Every overlay carries its relationship to the price</b> — flip any series to Δ$ (price − series) or Δ% and the relative track renders on its own axis; a model line in Δ$ reads as the premium itself</li>
-        <li><b>Events from eleven sources</b> as sentiment-colored markers — earnings, filings, insider trades, rating changes, transcripts, 13F flow, news, your own notes. <b>Hover to read one, click to open it</b>, and where you have an operating model each event tells you which driver it moves</li>
-        <li><b>Auto-detected</b> trendlines, support/resistance zones and candlestick patterns, computed locally on the bars already loaded</li>
+        <li><b>Every overlay also carries its dating basis</b>, Tier 1 in words: a series a publisher dates by period end is marked <code>⚠ period-end dated</code>, because treating any lead it shows as real is exactly the mistake</li>
+        <li><b>Events from twelve sources</b> as sentiment-colored markers — earnings, filings, insider trades, rating changes, transcripts, 13F flow, news, your own notes, and now events you associate with a series wherever that series is overlaid. Every marker names <b>where it came from</b>, first, above the label</li>
+        <li><b>Analyst rating changes, sliced by firm</b> — a well-covered name carries over a thousand grade rows, which is a wall. Pick the firms you want from a list derived over the chart's own loaded window, with each firm's change count beside it</li>
+        <li><b>Your chart defaults stop being a secret</b> — set the universe default in Administration, save per (security, interval) from any chart, and read on the legend which one is in force</li>
         <li><b>Replay without lookahead</b> — walk a name forward bar by bar with indicators, detections and even as-known-then fundamentals recomputed at the cursor</li>
-        <li><b>Rules and indicators you write yourself</b> — define an indicator from a formula, backtest an entry/exit rule against a reserved holdout, and see trades and an equity curve painted on price</li>
       </ul>
     </div>
     <div class="shot"><img src="assets/chart-workbench.png" alt="The charting workbench with candlesticks, moving averages, an oscillator pane, drawing tools and sentiment-coloured event markers along the price series."></div>
@@ -309,7 +356,7 @@
       <ul>
         <li><b>Ranges sync within the grid</b> — pan or zoom one cell and the others follow</li>
         <li><b>The crosshair relay resolves to its owning panel</b>, so it cannot cross into a different grid even by accident</li>
-        <li><b>Each cell keeps its own indicators</b> and its own drawings</li>
+        <li><b>Each cell keeps its own indicators</b> and its own drawings — and each displayed cell is a real overlay target, so a macro series can be sent to the cell you are looking at</li>
       </ul>
     </div>
     <div class="shot"><img src="assets/chart-grid.png" alt="A four-up chart grid panel showing four securities on a shared date window with a linked crosshair across all four cells."></div>
@@ -331,34 +378,63 @@
 
   <div class="feat">
     <div class="txt">
-      <h3>🔭 Perspectives — a written assessment, per name, with its provenance pinned</h3>
-      <p>Configure a key for one of six AI vendors and each security gains a model-written assessment grounded in classical value discipline: business and earning power, balance sheet, valuation against substantiated value, temperament, risks, and a defensive / enterprising / speculative characterization on a six-axis chart.</p>
+      <h3>🔭 Perspectives — three lenses over one bundle of facts</h3>
+      <p>Configure a key for one of six AI vendors and each security gains a model-written assessment grounded in classical value discipline. It ships with <b>three default lenses — bear, neutral and bull</b>, which differ in <i>where the burden of proof sits</i> and in nothing else: the instruments, the accounting gates and the refusal to credit forecasts are identical, because those are the discipline and the lens is only the burden.</p>
       <ul>
-        <li><b>The prompt is yours, and versioned</b> — editing appends a new version and never mutates an old one; every report pins the prompt version <i>and</i> the exact data bundle that produced it</li>
-        <li><b>History is never overwritten</b> — a rerun prepends; every past report stays readable, with the prompt it used</li>
-        <li><b>Refusals travel into the bundle verbatim</b> — the model sees the honesty rather than a gap</li>
-        <li><b>A score is never invented</b> — a malformed characterization is stored without one, naming what was wrong, rather than clamped into range</li>
+        <li><b>Run all three and read them against each other</b> — the evidence that they read the same facts is that the three reports carry the <b>same bundle digest</b>. Their six characterization axes are scored once, over the assembled report, so three lenses land as three polygons on <b>one radar</b></li>
+        <li><b>Every prompt this installation sends to a model is editable in one place</b> — Administration → <b>Prompts</b>: the three lens defaults, per-security overrides, a per-security named library, promotion of a security prompt to a shared one, and the thesis-discovery prompt. Editing appends a version; nothing is ever mutated</li>
+        <li><b>A lens is expected to conclude against itself</b> where the evidence does. A disconfirming lens that has never once found a security sound is not a lens; it is a verdict wearing one</li>
+        <li><b>The bundle says what it could not establish</b> — a manifest of what was included, what refused, what was dropped for budget, and <b>what the assembler was capable of at that build</b>, so a report written before a block existed never reads as though the model saw it and dismissed it</li>
+        <li><b>A partial report is a real recorded state</b> — a long report is written in several calls, and a leg that fails names the sections it was carrying rather than discarding the run</li>
+        <li><b>A read never waits for a model call</b> — opening the panel returns immediately and the report arrives through the poll</li>
       </ul>
     </div>
-    <div class="shot"><img src="assets/cross-security.png" alt="Three Perspectives-era Model of Models panels open on AAPL, MSFT and NVDA at once, showing that each name is assessed independently and can reach a different verdict."></div>
+    <div class="shot"><img src="assets/prompts.png" alt="Administration, Prompts: the six prompt scopes, each shipped lens default shown with its version, character count and creation date beside Edit, Versions and Reset controls."></div>
   </div>
 
   <div class="feat rev">
     <div class="txt">
+      <h3>🧭 A thesis engine — and an agent that proposes its own</h3>
+      <p>A thesis is a maintained, probability-weighted belief with an evidence ledger and a forced adversarial pass. On top of it sits an <b>AI discovery agent</b> that reads this system's own planes — never the open web — and writes candidates you review, edit, reject or convert.</p>
+      <ul>
+        <li><b>Four stages, one panel</b>: candidate → inventory → screen → cohort. The stage is <b>derived from what the record carries</b> and never stored, the current stage renders open with earlier ones collapsed and reachable, and <b>sitting at inventory with no screen is a legitimate resting state</b> the surface may not nag about</li>
+        <li><b>A screen is itself reviewable</b> — the agent proposes screen predicates, they are validated against the real 520-field vocabulary or <b>refused by name</b>, and you accept, amend, reject with a required reason, or write your own. Acceptance is terminal and pins the compiled screen</li>
+        <li><b>The refusals are the valuable output</b> — an honest per-thesis list of <i>what this thesis needs that this system cannot screen for</i>. The first live run produced two real vocabulary gaps</li>
+        <li><b>Zero candidates is an error, not an answer</b> — a discovery run that returns none says which of six causes it was, and names the three places to look, in order</li>
+        <li><b>The scores are the model's and never render as computed</b> — Tier 1, in words, on the row: <i>scored by the model — not measured</i>. The overall is the model's too and is not recomputed from the axes, and <b>the queue's default sort is the date, never a score</b></li>
+        <li><b>A candidate is born watching, never active</b>, and conversion records lineage without endorsing: the candidate is not deleted, and authorship is derived per field from the diff</li>
+      </ul>
+    </div>
+    <div class="shot"><img src="assets/thesis-journey.png" alt="The thesis panel showing one thesis as a four-stage progression — Candidate, Inventory, Screen, Cohort — with the current stage open, the earlier stages collapsed and marked done, and the terminus scope note printed beneath."></div>
+  </div>
+
+  <div class="feat">
+    <div class="txt">
       <h3>⚡ Typed events, standing rules, and paper strategies</h3>
-      <p>A complex-event engine sits under the terminal. Every event carries <b>two timestamps</b> — when it happened, and when it was first knowable — because a backtest that reads a restatement on its period-end date is not a backtest. Conditions join a cross-sectional predicate language to real temporal operators; a rule is a named, versioned condition with a subject scope; a firing can propose a trade into a <b>paper book</b>.</p>
+      <p>A complex-event engine sits under the terminal. Every event carries <b>two timestamps</b> — when it happened, and when it was first knowable — because a backtest that reads a restatement on its period-end date is not a backtest. Conditions join a cross-sectional predicate language to real temporal operators; a rule is a named, versioned condition with a subject scope; a firing can propose a trade into a <b>paper book</b>. <a href="events.html">The full guide is its own page →</a></p>
       <ul>
         <li><b>Real CEP operators</b> — sequence within a window, sliding / tumbling / session windows, aggregation, negation-with-timeout, sustained and N-of-M, debounce, and edge vs level vs exit triggers</li>
         <li><b>Durations carry their clock</b> — <code>20d</code> is trading days, <code>20c</code> is calendar days, and a bare number is a parse error that names both</li>
-        <li><b>A rule edit that moves the condition's fingerprint resets its state</b>; renaming a rule inherits it, because renaming must not re-arm a rule on every name it watches</li>
+        <li><b>101 registered event kinds — and the guide names the 21 that nothing writes</b>, because a rule against one of them ticks every weekday and is structurally incapable of firing, and finding that out by waiting is not acceptable</li>
         <li><b>The tick is calendar-triggered</b>, not data-triggered — an "absent within N" fires on a day when nothing happened, and a tick that ran and fired nothing records a success saying so</li>
         <li><b>Proposals only</b> — there is no execute verb, no order verb and no promote path anywhere in this system, and that is enforced in four structural places, not by policy</li>
       </ul>
     </div>
-    <div class="shot"><img src="assets/conditions.png" alt="The Conditions builder in Administration: a condition tree composed from the shared attribute selector, compiled to canonical JSON, with its point-in-time verdict shown beside it."></div>
+    <div class="shot"><img src="assets/events.png" alt="The Events panel showing a paged feed of typed events, each row carrying both its occurrence timestamp and its knowable-at timestamp with the divergence between them labelled."></div>
   </div>
 
-  <div class="feat">
+  <div class="pair">
+    <figure>
+      <div class="shot"><img src="assets/conditions.png" alt="The Conditions builder in Administration: a condition tree composed from the shared attribute selector, compiled to canonical JSON, with its point-in-time verdict shown beside it."></div>
+      <figcaption><b>Conditions</b> — the builder compiles to canonical JSON and shows its point-in-time verdict beside it, so you learn a condition cannot honestly be backtested <i>before</i> you build a rule on it.</figcaption>
+    </figure>
+    <figure>
+      <div class="shot"><img src="assets/calendar-econ.png" alt="The economic calendar at the monthly zoom: a seven-column grid of August 2026, each day cell carrying its occurrence count, ranked release chips and a plus-N-more link, shaded by intensity, with the link-rate and consensus-archive disclosures printed above the grid."></div>
+      <figcaption><b>The economic calendar</b> — four zooms over one store, each a real grid, every shade a ratio against a printed denominator. The link rate is published on the surface and stated to be a <i>floor</i>, not a measurement.</figcaption>
+    </figure>
+  </div>
+
+  <div class="feat rev">
     <div class="txt">
       <h3>🧪 A backtester that would rather decline than flatter you</h3>
       <p>The backtest is not a simulator — it is <b>the same daily loop the live book runs</b>, driven by a replay clock, writing real ledger records into a paper book of its own, reconciled on every replayed day and measured by the existing performance engine. It computes no return, no Sharpe and no drawdown of its own.</p>
@@ -370,18 +446,20 @@
         <li>Runs can be pruned; <b>the trial record cannot</b>, and there is no verb anywhere that would</li>
       </ul>
     </div>
-    <div class="shot"><img src="assets/events.png" alt="The Events panel showing a paged feed of typed events, each row carrying both its occurrence timestamp and its knowable-at timestamp with the divergence between them labelled."></div>
+    <div class="shot"><img src="assets/reach.png" alt="The Reach panel listing predicate families with their point-in-time verdicts and the refusals naming what record is missing."></div>
   </div>
 
-  <div class="feat rev">
+  <div class="feat">
     <div class="txt">
-      <h3>💼 Institutional portfolio analytics</h3>
+      <h3>💼 Institutional portfolio analytics — in one house table</h3>
       <p>The measurement core professionals expect — verified against closed forms, and honest about what it cannot compute. Positions are derived from a transaction ledger; nothing is an opaque balance.</p>
       <ul>
+        <li><b>Every table sorts, and it is derived rather than added table by table</b> — a table declares its columns and the sort arrives with the declaration, so a build fails if any portfolio view emits a heading outside that one door. Column type comes from the values, never the rendered cell, because <code>"$1,000.00"</code> sorting before <code>"$9.00"</code> is the defect the feature exists to remove</li>
+        <li><b>A missing value sorts last in both directions and is never read as zero</b>, and the count is published</li>
+        <li><b>Two tables refuse to sort, by name</b> — the cash-flow reconciliation is an <i>ordered identity</i>, not a list, and reordering it leaves it numerically correct and meaningless</li>
+        <li><b>One house table</b> — a measured 1,120px maximum width, drag-resizable columns, and the current sort stated on the heading in words as well as a glyph</li>
         <li><b>Time-weighted and money-weighted returns</b>, gross and net of fee, against a <b>total-return</b> benchmark — a change that <i>lowered</i> published excess returns and says so wherever the benchmark is defined</li>
-        <li><b>Carino-linked Brinson-Fachler attribution</b>, a factor lens printed <i>beside</i> it (never instead), and the disagreement between them reported as the finding it is</li>
-        <li><b>Ex-ante risk</b> — forecast volatility and tracking error, contribution to risk, concentration, and a stress table — labelled ex-ante, refusing below a minimum observation count</li>
-        <li><b>Five cost-basis methods from one lot engine</b> — FIFO, LIFO, HIFO, average cost and specific identification — with a short/long-term split, and performance that does not move when you change method</li>
+        <li><b>Five cost-basis methods from one lot engine</b>, with a short/long-term split, and performance that does not move when you change method</li>
         <li><b>A client-statement reconciliation that must sum</b> — derived twice by independent routes; a residue beyond one cent refuses rather than printing</li>
       </ul>
     </div>
@@ -402,22 +480,23 @@
   <div class="feat" style="margin-top:46px">
     <div class="txt">
       <h3>🔍 Analyst-grade screening, and a defensive standard retranslated</h3>
-      <p>Cross-sectional factor composites, an expression language, and relative-valuation tables — well beyond boolean filters — over a vocabulary of several hundred fields, each carrying its stage, its source block and its cost. And on top of it, <b>Modernized G &amp; D</b>: Graham's defensive criteria retranslated instrument by instrument.</p>
+      <p>Cross-sectional factor composites, an expression language, and relative-valuation tables — well beyond boolean filters — over a vocabulary of <b>520 declared fields</b>, each carrying its stage, its source block and its cost. And on top of it, <b>Modernized G &amp; D</b>: Graham's defensive criteria retranslated instrument by instrument.</p>
       <ul>
         <li><b>Sector-neutral percentile / z-score ranks</b>, Piotroski, Altman, 12-1 momentum, 13F crowding, and 148 technical readings derived from the chart's own indicator taxonomy</li>
         <li><b>A two-sided margin of safety</b> — a name must be materially below its substantiated value <i>and</i> offer a required return on normalized cash earnings; clearing one side and failing the other is an exclusion with the failing side named</li>
         <li><b>No hard multiple cap anywhere</b> — a P/B gate in an intangible economy is a filter for asset-heavy declining businesses, so the standard caps price against <i>demonstrated earning power</i> instead</li>
         <li><b>Accounting-quality gates</b> — accruals, cash conversion, goodwill share of equity, stock-based compensation, and capitalized-vs-expensed divergence — the part every other "Graham screen" omits</li>
+        <li><b>A screen that cannot see a name says so</b> — a name whose fetch failed is <b>removed and named</b>, never silently dropped, and above a stated threshold the run refuses outright, because a shrunk list is a worse lie than an empty one</li>
         <li><b>Sector variants, one of which ships refusing</b> — the financials variant creates no screen and no cohort, because the served balance sheet has no deposits line and the refusal <i>is</i> the finding</li>
-        <li><b>The strict Graham screen is preserved unchanged</b> as the barometer: a screen whose empty result is informative should never be tuned until it returns something</li>
       </ul>
     </div>
     <div class="shot"><img src="assets/cohorts.png" alt="The Cohorts tab listing peer groups — sector, size, index, factor screens and owner lists — with member counts, premium and coverage headers, and freshness disclosures per row."></div>
   </div>
 
   <div class="grid">
-    <div class="card"><div class="ic">🛠</div><h4>Administration, in one place</h4><p>Eleven panels behind one tab in four groups — Settings, Processes and Support under <i>Machine</i>, and the event-processing arc read in order: what can be known (Reach, Conditions), what is watched (Rules, Strategies), what happened (Events, Firings, Runs, Backtests).</p></div>
-    <div class="card"><div class="ic">🔔</div><h4>Alerts, subscriptions &amp; calendar</h4><p>A type-first alert feed with per-type counts and click-through to each alert's evidence surface; cohort-first subscriptions that decide which alert types fire on which securities; and a unified calendar as a list or a month grid. Plus playbooks and a morning brief.</p></div>
+    <div class="card"><div class="ic">🛠</div><h4>Administration, in one place</h4><p><b>Thirteen panels</b> behind one tab — Settings, Prompts, Chart preferences, Processes and Support under <i>Machine</i>, and the event-processing arc read in order: what can be known (Reach, Conditions), what is watched (Rules, Strategies), what happened (Events, Firings, Runs, Backtests).</p></div>
+    <div class="card"><div class="ic">🌎</div><h4>Macro-economic, in four</h4><p>Thesis — with every thesis, the New thesis affordance and the Worldview nested under it — plus Economy, Sectors and the release Calendar. The menu nests because an entry <i>declares</i> what is under it, so there is no second nesting mechanism to fall out of step.</p></div>
+    <div class="card"><div class="ic">🔔</div><h4>Alerts, subscriptions &amp; calendar</h4><p>A type-first alert feed with per-type counts and click-through to each alert's evidence surface; cohort-first subscriptions that decide which alert types fire on which securities; and a unified calendar carrying the same economic events, under the same ids, as the Calendar panel.</p></div>
     <div class="card"><div class="ic">🧬</div><h4>Cohorts as lenses</h4><p>The peer groups every valuation is measured against — sector, size, index, factor screens, your own lists, a thesis materialized into a living cohort, or a portfolio whose membership is derived at read time so it cannot fall out of sync.</p></div>
     <div class="card"><div class="ic">📄</div><h4>A paginated PDF report</h4><p>Cover, performance, attribution, risk and stress, holdings, and a drill-down page per position in contribution order — written by a zero-dependency PDF writer with no raster, no external font and no library, and downloaded straight from the Report view.</p></div>
     <div class="card"><div class="ic">🎯</div><h4>One selector, one taxonomy</h4><p>Every dialog that asks you to choose something opens the same component, over one category taxonomy — fundamental · technical · model &amp; attribution · macro &amp; data · market &amp; flows · identity — derived from the underlying registries rather than hand-maintained.</p></div>
@@ -436,7 +515,7 @@
     <li><b>Download the package</b><span style="color:var(--muted);font-size:14px">Grab the latest package — <a href="download/ots.plugin"><code>ots.plugin</code></a>.</span></li>
     <li><b>Install it as a plugin</b><span style="color:var(--muted);font-size:14px">Open the <b>Cowork</b> tab, then open <b>Customize</b> in the left sidebar → <b>Plugins</b> tab. Under <b>Personal plugins</b> click <b>+</b> and add the <code>ots.plugin</code> file you downloaded, then restart the session.</span></li>
     <li><b>Start Open Trading Surface</b><span style="color:var(--muted);font-size:14px">In a Cowork chat, just tell the agent: <b>“open the Open Trading Surface terminal.”</b> That boots Open Trading Surface's local engine and opens the terminal in your browser. (First run: acknowledge the one-time disclaimer.)</span></li>
-    <li><b>Add your keys under 🛠 Administration → Settings</b><span style="color:var(--muted);font-size:14px">In the terminal, open <b>🛠 Administration</b> and pick <b>Settings</b> from the left menu. Paste your FMP key (and a free FRED key), hit Test. Keys never leave your machine.</span></li>
+    <li><b>Add your keys under 🛠 Administration → Settings</b><span style="color:var(--muted);font-size:14px">In the terminal, open <b>🛠 Administration</b> and pick <b>Settings</b> from the left menu. Paste your FMP key, a free FRED key (the economic calendar and the macro series need it) and an SEC EDGAR contact string, and press <b>Test</b> on each. Keys never leave your machine.</span></li>
     <li><b>Turn on the batches</b><span style="color:var(--muted);font-size:14px">Run <code>/ots:automate</code> and choose which scheduled jobs to install on this machine — the surface batch and the daily ledger are the ones that make the twin accrue. <b>Administration → Processes</b> then shows each one's light, cadence and next due.</span></li>
     <li><b>Go</b><span style="color:var(--muted);font-size:14px">Ask in plain language — e.g. <b>“analyze NVDA”</b> or <b>“screen large-cap tech under 20× earnings.”</b></span></li>
   </ol>
