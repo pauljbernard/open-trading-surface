@@ -1,13 +1,13 @@
 {
-  "version": "5.48.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.48.0.plugin",
-  "sha256": "5c67335232b7b0eeca2563f16c40ece7e52c6fa9646a4f3fc5e15302f4e6b9e9",
+  "version": "5.49.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.49.0.plugin",
+  "sha256": "de4302a0b9c1413be262672f87b67ecd56ceac40e1554a5b27874db3bfc9f2d0",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.48.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.49.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Two things the owner could see on his own screen. One of them was a number disagreeing with the chart it sat on top of. The header is the chart's own last bar > *\"the price at top of charts is not updated to reflect the actual current > price either for the current day or the most recent price when realtime is > selected.\"* His TSLA 1-minute header read 327.51 / −5.30 (−1.59%) over a series whose own last-price axis label read 336.17. Three figures, three sources, and only one of them about the chart in front of him: the price and change came from the FMP quote endpoint, the OHLC from the cros",
-  "published": "2026-08-13T18:36:44.375Z",
+  "notes": "server/backtest-strategy.js has refused every as-filed fundamental leg of a historical backtest since 5.14.0, and the sentence it printed ended: > *\"WHAT WOULD FIX IT: an AS-FILED archive keyed on fillingDate, and a field > reader that consults it. Neither exists.\"* The archive has existed since 5.26.0 and a second one since 5.47.0. The first clause was false and the second was true. This release makes the sentence true by building the reader — and it narrows the refusal rather than deleting it. Nothing that completed before this release produces a different number, and that is proven rather t",
+  "published": "2026-08-13T20:22:08.323Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
