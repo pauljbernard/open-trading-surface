@@ -1,13 +1,13 @@
 {
-  "version": "5.56.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.56.0.plugin",
-  "sha256": "e85e0bea52bfc72c6b01a2b8675077648ec8bfb76c24d227c98fecb86078e0c1",
+  "version": "5.57.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.57.0.plugin",
+  "sha256": "3c65175a79fbf9744c834e5dfa7669dfeef255215e75ca008326fa4a25b3cf21",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.56.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.57.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Widening the as-filed field mapping. At 5.55.0 all 146 filing-plane fields were classified and none was unmeasured, so it looked as though the mapping could not widen at all. It could: no_vendor_column is the fall-through default — a field lands there by matching no refusal pattern and carrying no arm, which is *not being looked at* rather than having been checked against the vendor's 112 columns. Two of the 26 had a plausible direct column. - salesTtm → Sharadar revenue at ART — ADMITTED. Measured against MRT over the whole corpus: AAPL 466,823,000,000; MSFT 331,839,000,000; JNJ 97,929,000,00",
-  "published": "2026-08-14T13:37:09.265Z",
+  "notes": "A disagreement between two sources is an observation about two sources. It is not a defect, and it is not evidence that the one already held is right. The owner, 2026-08-14: *\"when data doesn't agree that doesn't necessarily mean that the data you already have is right and the new data is wrong. It may of course, but it should be presumed.\"* That invalidates a discipline shipped the same morning, and the evidence was already inside the file that shipped it: asfiled.js admits a mapping only if it agrees with the incumbent and calls every disagreement refuted_by_measurement — while three of thos",
+  "published": "2026-08-14T15:05:42.099Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
