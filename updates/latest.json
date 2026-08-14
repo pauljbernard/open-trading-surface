@@ -1,13 +1,13 @@
 {
-  "version": "5.57.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.57.0.plugin",
-  "sha256": "3c65175a79fbf9744c834e5dfa7669dfeef255215e75ca008326fa4a25b3cf21",
+  "version": "5.58.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.58.0.plugin",
+  "sha256": "c74cd9958c608a04dab9655bc6c2d1ebca10f12fdb2d0462e7d683024327f6ee",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.57.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.58.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A disagreement between two sources is an observation about two sources. It is not a defect, and it is not evidence that the one already held is right. The owner, 2026-08-14: *\"when data doesn't agree that doesn't necessarily mean that the data you already have is right and the new data is wrong. It may of course, but it should be presumed.\"* That invalidates a discipline shipped the same morning, and the evidence was already inside the file that shipped it: asfiled.js admits a mapping only if it agrees with the incumbent and calls every disagreement refuted_by_measurement — while three of thos",
-  "published": "2026-08-14T15:05:42.099Z",
+  "notes": "Phase 2 shipped dead, and the panel reported the cold state with a straight face. Hours after 5.57.0 was published and verified, a real screen run refused 199 fields across 112 names and routed zero observations, while the queue answered *\"NO DETECTOR HAS WRITTEN AN OBSERVATION ON THIS INSTALLATION\"* — true in every word and completely misleading. The cause is one identifier. const L = integrityLedger is scoped to the block that builds the integrity report; the routing seam 140 lines below it read L.refusals. Every run threw ReferenceError: L is not defined on the seam's first statement of rea",
+  "published": "2026-08-14T21:52:18.361Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
