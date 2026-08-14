@@ -137,12 +137,24 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.53.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-14 02:41 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.54.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-14 03:08 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.54.0 <span class="reltitle">one column, two names</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>An ordered candidate list, not a third rename.</b> <code>vendor_column: 'date'</code></li>
+        <li><b>Exactly one must be present, and a header carrying BOTH is refused.</b> Two</li>
+        <li><b>Which one answered is recorded</b> on the build record as</li>
+        <li><b>The required-column set is derived from the declared primary key</b> through</li>
+        <li><b><code>columns_unmapped</code> / <code>columns_missing</code> now survive the header</b>, so the next</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.53.0 <span class="reltitle">every entry point is a skill, and six of them may not fire themselves</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -201,9 +213,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.47.0 <span class="reltitle">the second source, and a deletion somebody could swear to</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.46.0 <span class="reltitle">the notice that was owed, and the store that nothing reads</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->

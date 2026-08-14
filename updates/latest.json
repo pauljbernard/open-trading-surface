@@ -1,13 +1,13 @@
 {
-  "version": "5.53.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.53.0.plugin",
-  "sha256": "b237dd0ad037c7913e3c73e3699f37549d6133be2947f7845f2586312c7e796b",
+  "version": "5.54.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.54.0.plugin",
+  "sha256": "d2c18e24dffca1640ce0c63a0a0f86ca5ac4d722fe10f5098905d07a5fdd5ec4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.53.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.54.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Installing 5.52.0 printed: *\"it uses the legacy commands/ format. Both formats work — consider migrating to skills/*/SKILL.md.\"* Both do work, and there is no published removal date — but the migration is not the file move it looks like. A command is never model-invoked. It runs when, and only when, the user types it. A skill is model-invoked, from its description. So moving seven commands/*.md into skills/*/SKILL.md unchanged would have silently converted seven user-initiated entry points into seven things Claude may decide to run on its own — and two of them write: /ots:setup stores an API k",
-  "published": "2026-08-14T02:41:47.407Z",
+  "notes": "5.52.0's zip reader worked on the owner's 118,513,718-byte archive at the first real attempt: it opened the container, inflated it, and read a clean 112-column header. Then it refused, by name — because that header does not carry date. It carries datekey. The vendor gives one column two names on two delivery paths. The filtered API serves date; the bulk export serves datekey. Everything either side of it is identical — ticker, dimension, calendardate, <it>, reportperiod, fiscalperiod, lastupdated, accoci, assets, … — so this is one schema under two spellings, not two schemas. It is the third d",
+  "published": "2026-08-14T03:08:03.703Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
