@@ -1,13 +1,13 @@
 {
-  "version": "5.51.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.51.0.plugin",
-  "sha256": "c48e11e533586695e99085ec2a5d6902fd34b7b902738982da6a3f4a57cc3096",
+  "version": "5.52.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.52.0.plugin",
+  "sha256": "d3bc0ec8c98c0cb40c5224ad2f23887c473d91c15ef2f3aa1f56fe261e11a72a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.51.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.52.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "> *\"there are multiple periods that one might display stretching from daily all > the way up through weekly. So I would suggest that storing a configuration by > period is causing confusion. I would store only by security, not by > security/period.\"* > *\"the warning at the top of the panel that is displayed when charts are > displayed, example: 'ANOTHER TAB SAVED 2026-08-13 14:59:16 ⚠ THIS ARRANGEMENT > WAS RESCALED — it was saved at 204…' is unnecessary.\"* A chart preference is keyed on the SECURITY alone. This reverses owner decision 2 of 5.33.0, and both readings stand on the page: the case",
-  "published": "2026-08-13T21:47:30.560Z",
+  "notes": "The first real bulk seed of the local store obtained the vendor's redirect, wrote 118,513,718 bytes to disk, recorded the artifact with its sha256, wrote a build record — and loaded 0 rows while dropping 441,960. The store reported state: \"complete\", whose own sentence is *\"Every manifest artifact has a build record with a matching sha256\"*, every word of which was true. The vendor serves a .zip and the reader knew .gz and plain text. The archive fell through to the plain path, was read as UTF-8, split on whatever 0x0a bytes fell inside the deflate stream, and had its first fragment taken as a",
+  "published": "2026-08-14T01:58:58.894Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

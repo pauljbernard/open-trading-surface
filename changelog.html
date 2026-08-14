@@ -33,6 +33,15 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.52.0 — the seed that downloaded 113 MB and admitted none of it</h2>
+<ul>
+<li><b>A ZIP READER, THROUGH THE CENTRAL DIRECTORY</b> — never through the local</li>
+<li><b>THE DECOMPRESSED BUFFER IS WALKED, NOT STRINGIFIED.</b> <code>MAX_LENGTH</code> is 8 PiB</li>
+<li><b>ROWS ARE EMITTED, NOT ACCUMULATED.</b> Phase 1's <code>rows</code> array is right for one</li>
+<li><b><code>loaded_nothing</code> — a sixth state.</b> <code>complete</code> tested bookkeeping and was</li>
+<li><b>A header without the key columns refuses at the header</b>, naming the missing</li>
+<li><b>The artifact name carries the depth that was fetched.</b> <code>'-full-'</code> was</li>
+</ul>
 <h2>5.51.0 — one saved record per security, and two banners removed</h2>
 <ul>
 </ul>
