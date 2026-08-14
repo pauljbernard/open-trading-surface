@@ -1,13 +1,13 @@
 {
-  "version": "5.54.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.54.0.plugin",
-  "sha256": "d2c18e24dffca1640ce0c63a0a0f86ca5ac4d722fe10f5098905d07a5fdd5ec4",
+  "version": "5.55.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.55.0.plugin",
+  "sha256": "00edd05d72d3f01a4ba792506713cb77dca3a1b763ddf373fa0f2f53d924fa89",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.54.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.55.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.52.0's zip reader worked on the owner's 118,513,718-byte archive at the first real attempt: it opened the container, inflated it, and read a clean 112-column header. Then it refused, by name — because that header does not carry date. It carries datekey. The vendor gives one column two names on two delivery paths. The filtered API serves date; the bulk export serves datekey. Everything either side of it is identical — ticker, dimension, calendardate, <it>, reportperiod, fiscalperiod, lastupdated, accoci, assets, … — so this is one schema under two spellings, not two schemas. It is the third d",
-  "published": "2026-08-14T03:08:03.703Z",
+  "notes": "The 5.54.0 seed loaded 546,918 rows from the owner's own archive. Reading the result turned up two things worth fixing. Every pass was re-downloading the whole archive. mode is derived from high_water, and high_water is derived from the loaded rows — correct and deliberately conservative, because an artifact that landed and did not load must not advance the window. The consequence was not priced: an artifact on disk that cannot be *read* leaves the high water null forever, so every pass chose seed and re-fetched the entire bulk export. Measured: two identical 118,513,718-byte copies of the sam",
+  "published": "2026-08-14T03:49:32.240Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
