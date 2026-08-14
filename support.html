@@ -137,12 +137,25 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.52.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-14 01:58 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.53.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-14 02:41 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.53.0 <span class="reltitle">every entry point is a skill, and six of them may not fire themselves</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>The migration moves no behaviour, by construction.</b> All seven carry</li>
+        <li><b><code>commands/</code> is gone.</b> A command and a skill of the same name are two copies</li>
+        <li><b>Every <code>/ots:…</code> you already type still works.</b> Names are preserved.</li>
+        <li><b>A skill that needs an argument refuses to guess without one.</b> <code>$ARGUMENTS</code></li>
+        <li><b>The frontmatter is machine-clean</b> — no commentary between the keys, because</li>
+        <li><b>Docs updated</b> — README and the user guide now state that the <code>/</code> skills are</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.52.0 <span class="reltitle">the seed that downloaded 113 MB and admitted none of it</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -191,17 +204,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.46.0 <span class="reltitle">the notice that was owed, and the store that nothing reads</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.45.0 <span class="reltitle">Sharadar, rebuilt against the publisher; and §29 as a dated correction</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>An unrecognised key is not refused.</b> No key, an empty key and a well-formed</li>
-        <li><b>An unsupported filter is silently ignored.</b> <code>reportperiod.gte</code> returned the</li>
-        <li><b>An unknown dimension returns zero rows rather than an error</b>, so the closed</li>
-        <li><b>403 is ambiguous</b> between no key, an invalid key and an unsubscribed table,</li>
-      </ul>
-    </div>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->

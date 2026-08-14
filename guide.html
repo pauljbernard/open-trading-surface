@@ -180,9 +180,12 @@
     <li>Open the <b>Cowork</b> tab, then open <b>Customize</b> in the left sidebar and go to the <b>Plugins</b> tab. (Customize is where plugins, skills, and connectors now live.)</li>
     <li>Under <b>Personal plugins</b>, click the <b>+</b> button and add the <code>ots.plugin</code> file you downloaded. Plugins you add yourself are stored locally on your computer.</li>
     <li><b>Restart the session</b> so the plugin's local server starts. Open Trading Surface's skills then appear under the <code>/</code> menu, and its tools as <code>mcp__ots__*</code>.</li>
+    <li><b>You should see no format warning.</b> Through 5.52.0 the package shipped its entry points in the older <code>commands/</code> layout and installing it printed a note suggesting the <code>skills/</code> format. From 5.53.0 every entry point is a skill, so that note is gone. If you still see it, you are installing an older package.</li>
     <li><b>Start it:</b> in a Cowork chat, tell the agent <b>"open the Open Trading Surface terminal."</b> That boots Open Trading Surface's local engine and opens the terminal in your browser — the first thing to do after installing.</li>
   </ol>
   <div class="note">Nothing to launch manually — you never run a command yourself. Installing the plugin makes the tools available; saying <b>"open the Open Trading Surface terminal"</b> (or just "open Open Trading Surface") is what actually starts it.</div>
+
+  <div class="note"><b>The <code>/</code> skills are yours to trigger, not Claude's.</b> Every one of them — <code>/ots:analyze</code>, <code>/ots:chart</code>, <code>/ots:compare</code>, <code>/ots:fundamentals</code>, <code>/ots:screen</code>, <code>/ots:setup</code>, <code>/ots:automate</code> — is declared <b>explicit-invocation only</b>, so Claude will never decide to run one on its own. That is deliberate: two of them write. <code>/ots:setup</code> stores an API key, and <code>/ots:automate</code> installs scheduled tasks on your machine, and neither should happen because a sentence read as though it were a request. The single exception is the <b>stock-analysis</b> methodology skill, which Claude may consult when you ask about a ticker — it describes how to reason and touches nothing.</div>
 
   <h2 id="keys">Configuring API keys</h2>
   <p>The easiest path is in the UI: open the terminal, click <b>🛠 Administration</b> in the top strip, and pick <b>Settings</b> from the left menu. That one panel holds every credential the system uses:</p>

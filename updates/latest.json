@@ -1,13 +1,13 @@
 {
-  "version": "5.52.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.52.0.plugin",
-  "sha256": "d3bc0ec8c98c0cb40c5224ad2f23887c473d91c15ef2f3aa1f56fe261e11a72a",
+  "version": "5.53.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.53.0.plugin",
+  "sha256": "b237dd0ad037c7913e3c73e3699f37549d6133be2947f7845f2586312c7e796b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.52.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.53.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The first real bulk seed of the local store obtained the vendor's redirect, wrote 118,513,718 bytes to disk, recorded the artifact with its sha256, wrote a build record — and loaded 0 rows while dropping 441,960. The store reported state: \"complete\", whose own sentence is *\"Every manifest artifact has a build record with a matching sha256\"*, every word of which was true. The vendor serves a .zip and the reader knew .gz and plain text. The archive fell through to the plain path, was read as UTF-8, split on whatever 0x0a bytes fell inside the deflate stream, and had its first fragment taken as a",
-  "published": "2026-08-14T01:58:58.894Z",
+  "notes": "Installing 5.52.0 printed: *\"it uses the legacy commands/ format. Both formats work — consider migrating to skills/*/SKILL.md.\"* Both do work, and there is no published removal date — but the migration is not the file move it looks like. A command is never model-invoked. It runs when, and only when, the user types it. A skill is model-invoked, from its description. So moving seven commands/*.md into skills/*/SKILL.md unchanged would have silently converted seven user-initiated entry points into seven things Claude may decide to run on its own — and two of them write: /ots:setup stores an API k",
+  "published": "2026-08-14T02:41:47.407Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
