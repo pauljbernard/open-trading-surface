@@ -1,13 +1,13 @@
 {
-  "version": "5.55.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.55.0.plugin",
-  "sha256": "00edd05d72d3f01a4ba792506713cb77dca3a1b763ddf373fa0f2f53d924fa89",
+  "version": "5.56.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.56.0.plugin",
+  "sha256": "e85e0bea52bfc72c6b01a2b8675077648ec8bfb76c24d227c98fecb86078e0c1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.55.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.56.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The 5.54.0 seed loaded 546,918 rows from the owner's own archive. Reading the result turned up two things worth fixing. Every pass was re-downloading the whole archive. mode is derived from high_water, and high_water is derived from the loaded rows — correct and deliberately conservative, because an artifact that landed and did not load must not advance the window. The consequence was not priced: an artifact on disk that cannot be *read* leaves the high water null forever, so every pass chose seed and re-fetched the entire bulk export. Measured: two identical 118,513,718-byte copies of the sam",
-  "published": "2026-08-14T03:49:32.240Z",
+  "notes": "Widening the as-filed field mapping. At 5.55.0 all 146 filing-plane fields were classified and none was unmeasured, so it looked as though the mapping could not widen at all. It could: no_vendor_column is the fall-through default — a field lands there by matching no refusal pattern and carrying no arm, which is *not being looked at* rather than having been checked against the vendor's 112 columns. Two of the 26 had a plausible direct column. - salesTtm → Sharadar revenue at ART — ADMITTED. Measured against MRT over the whole corpus: AAPL 466,823,000,000; MSFT 331,839,000,000; JNJ 97,929,000,00",
+  "published": "2026-08-14T13:37:09.265Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
