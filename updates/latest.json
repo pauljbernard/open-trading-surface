@@ -1,13 +1,13 @@
 {
-  "version": "5.59.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.59.0.plugin",
-  "sha256": "9a72dd1d90a8e448a8180485cc85efc0df25c818819894222ca460cf47e7f400",
+  "version": "5.60.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.60.0.plugin",
+  "sha256": "07e5b28dec8ab77eb3258ac8ea4d9c50acef63935d226b75ea401cec14be3658",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.59.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.60.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Phases 0-2 detected and presented. This decides. The live queue chose the shape. 305 events over 8 fields, and the fields are dividendYield, pe, priceToBook, currentRatio — TTM against filed-annual. A trailing-twelve-month yield and a fiscal-year yield are not two answers to one question; they are answers to two questions. So the queue is plausibly eight decisions rather than three hundred and five, both_valid was built before accept, and the affordances sit on the field. A gap Phase 2 left: the routed events named their sources and carried no numbers — the figures existed only inside the Engl",
-  "published": "2026-08-14T23:52:58.701Z",
+  "notes": "The owner, on the Phase 3 dashboard: *\"provides me no insight whatsoever why the data is being presented has an issue, and what that issue happens to be\"* — then the brief: *\"a person is going to look at this dashboard and only knows what you are displaying to make a decision. so the evidence needs to be present what is wrong and why it cannot be processed. and secondly if there are choices what are not only the implications of each but why might one pick one versus the other.\"* He was right. 5.59.0 put both values on every claim precisely so they could be shown, then rendered an aggregate cou",
+  "published": "2026-08-15T01:08:01.069Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
