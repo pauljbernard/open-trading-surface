@@ -1,13 +1,13 @@
 {
-  "version": "5.60.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.60.0.plugin",
-  "sha256": "07e5b28dec8ab77eb3258ac8ea4d9c50acef63935d226b75ea401cec14be3658",
+  "version": "5.61.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.0.plugin",
+  "sha256": "5a77b4c07ed8b41ba87850631d2433a574472a374c65c70bf7d50ad987e620c4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.60.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, on the Phase 3 dashboard: *\"provides me no insight whatsoever why the data is being presented has an issue, and what that issue happens to be\"* — then the brief: *\"a person is going to look at this dashboard and only knows what you are displaying to make a decision. so the evidence needs to be present what is wrong and why it cannot be processed. and secondly if there are choices what are not only the implications of each but why might one pick one versus the other.\"* He was right. 5.59.0 put both values on every claim precisely so they could be shown, then rendered an aggregate cou",
-  "published": "2026-08-15T01:08:01.069Z",
+  "notes": "The owner, twice, and the second time settled it: *\"if you are comparing two different fields both from FMP and saying they are not consistent, then its you that misunderstands the fields you are looking at\"* — and then *\"we had decided that we would only treat sharadar as just another set of time series data with its own prefix and we would stop trying to resolve whether its right or wrong.\"* Two comparisons are retired in this release. Neither was a bug. Both were category errors that had been running long enough to produce records, withhold fields, and shape a whole module's design. A trail",
+  "published": "2026-08-15T18:33:52.432Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

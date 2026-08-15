@@ -137,12 +137,15 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.60.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-15 01:08 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.61.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-15 18:33 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.61.0 <span class="reltitle">a vendor is a time series, not a verdict</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.60.0 <span class="reltitle">the evidence, not the count</span></h3>
   </div>
@@ -196,19 +199,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
         <li><b>Which one answered is recorded</b> on the build record as</li>
         <li><b>The required-column set is derived from the declared primary key</b> through</li>
         <li><b><code>columns_unmapped</code> / <code>columns_missing</code> now survive the header</b>, so the next</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.53.0 <span class="reltitle">every entry point is a skill, and six of them may not fire themselves</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The migration moves no behaviour, by construction.</b> All seven carry</li>
-        <li><b><code>commands/</code> is gone.</b> A command and a skill of the same name are two copies</li>
-        <li><b>Every <code>/ots:…</code> you already type still works.</b> Names are preserved.</li>
-        <li><b>A skill that needs an argument refuses to guess without one.</b> <code>$ARGUMENTS</code></li>
-        <li><b>The frontmatter is machine-clean</b> — no commentary between the keys, because</li>
-        <li><b>Docs updated</b> — README and the user guide now state that the <code>/</code> skills are</li>
       </ul>
     </div>
   </div>
