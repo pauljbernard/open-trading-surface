@@ -1,13 +1,13 @@
 {
-  "version": "5.65.3",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.3.plugin",
-  "sha256": "db0903a81c6bdb7bae391e89769d7721a2f9326b23ab9cd6981ac8f9e9eb8e56",
+  "version": "5.65.4",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.4.plugin",
+  "sha256": "6d370f032276dd306e653c885a59f747145279291339e0e01fde70203cf10322",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.3.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.4.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.65.2 gave the cohorts surface the ability to say which cohort it was waiting on. On its first use it said coh_31psejwx — \"Graham Defensive\" — and the answer was worth the release. Nothing about that cohort is misconfigured. Three rules that are each individually correct compose into a cohort that can never be read: 1. writeCache never persists an EMPTY resolution, so that a transient provider failure cannot become a permanent \"this group has no companies in it\". 2. So a cohort whose rule legitimately matches nobody keeps its last NON-EMPTY cache — and that cache only ever gets older. 3. Past",
-  "published": "2026-08-16T22:38:08.047Z",
+  "notes": "The cohorts list rendered one heading and one table PER KIND. That was right when there were 23 cohorts. On this machine there are 520, 476 of them peer groups nobody created — so the page grew a section per kind and a row per cohort, finding one cohort meant scrolling past every other kind, and because each shelf was its own table nothing could be ordered: \"the biggest\" and \"the stalest\" were questions the surface could not answer at all. The owner, 2026-08-16, having first asked for a table per category and then revised it: *\"actually one table might be more extensible. That table can have f",
+  "published": "2026-08-16T23:13:48.139Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
