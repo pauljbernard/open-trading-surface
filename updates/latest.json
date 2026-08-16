@@ -1,13 +1,13 @@
 {
-  "version": "5.61.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.1.plugin",
-  "sha256": "f9ae231152ecfc11056094bb2041c4e7e50de5e67115f9347e463d16168a26fa",
+  "version": "5.61.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.2.plugin",
+  "sha256": "09830e50e4d9f87f86b501e60bd26a710e999ddf08c27f59fa920ab4a2c93df9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.61.0 shipped with six failing assertions across four suites. The code it shipped was sound; the guards that police it were not, and nobody noticed because of how the battery was read, not what it said. The harness reported every failure — in a Failures section — and exited 1. The person running it grepped stdout for a | FAIL | table row and never checked the exit code, so a failure reported anywhere else was invisible. Six shards were declared clean, six times, on a check that could not fail. This codebase has a name for that and a test for it in half a dozen places: *a check that reports an",
-  "published": "2026-08-16T00:34:30.283Z",
+  "notes": "5.61.0 built the vendor's indicator dictionary and called it from nowhere. refreshDictionary was written, exported, given a table declaration in local-store-schema.js and its own artifact reader in local-store.js. Every piece was there and no code path reached it. So sharadar-refresh ran, fetched fundamentals, reported success, and never created sharadar_indicators — while all 107 sd_ fields went on serving the vendor's bare column name and a unit derived from the SQLite storage type, each of which says on its own payload that it is a fallback. The fallback was correct and permanent. The rule ",
+  "published": "2026-08-16T01:01:24.449Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
