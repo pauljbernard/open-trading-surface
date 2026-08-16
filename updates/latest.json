@@ -1,13 +1,13 @@
 {
-  "version": "5.65.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.2.plugin",
-  "sha256": "a19c960e06359f183ef8a3f606730dc6f8f8d86eeebcc046f7a16a7d5c8a2a47",
+  "version": "5.65.3",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.3.plugin",
+  "sha256": "db0903a81c6bdb7bae391e89769d7721a2f9326b23ab9cd6981ac8f9e9eb8e56",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.3.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The cohorts surface sat on \"Resolving membership…\" across two daemon restarts and three separate attempts to diagnose it. The mechanism was never exotic: state.cohSel is PERSISTED, so every page load re-opens the same cohort detail and re-issues /cm/cohort_detail, which awaits co.resolve() before it answers anything — so a cohort whose resolve outruns the fetch leaves the panel on its loading placeholder forever, and does it again on the next reload. What made it undiagnosable was not the hang. inspect_terminal what=state disclosed thesis_selected, watchlist_selected, portfolio_selected and se",
-  "published": "2026-08-16T21:59:44.749Z",
+  "notes": "5.65.2 gave the cohorts surface the ability to say which cohort it was waiting on. On its first use it said coh_31psejwx — \"Graham Defensive\" — and the answer was worth the release. Nothing about that cohort is misconfigured. Three rules that are each individually correct compose into a cohort that can never be read: 1. writeCache never persists an EMPTY resolution, so that a transient provider failure cannot become a permanent \"this group has no companies in it\". 2. So a cohort whose rule legitimately matches nobody keeps its last NON-EMPTY cache — and that cache only ever gets older. 3. Past",
+  "published": "2026-08-16T22:38:08.047Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
