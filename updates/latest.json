@@ -1,13 +1,13 @@
 {
-  "version": "5.61.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.2.plugin",
-  "sha256": "09830e50e4d9f87f86b501e60bd26a710e999ddf08c27f59fa920ab4a2c93df9",
+  "version": "5.61.3",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.3.plugin",
+  "sha256": "725ad800a2845356eeb44697f35010b61cc9ab56d06e6006b6d44536d908136b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.3.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.61.0 built the vendor's indicator dictionary and called it from nowhere. refreshDictionary was written, exported, given a table declaration in local-store-schema.js and its own artifact reader in local-store.js. Every piece was there and no code path reached it. So sharadar-refresh ran, fetched fundamentals, reported success, and never created sharadar_indicators — while all 107 sd_ fields went on serving the vendor's bare column name and a unit derived from the SQLite storage type, each of which says on its own payload that it is a fallback. The fallback was correct and permanent. The rule ",
-  "published": "2026-08-16T01:01:24.449Z",
+  "notes": "The dictionary fetched, loaded, and reported itself missing. sharadar-refresh ran inside the daemon, wrote the vendor's CSV verbatim, and the rebuild that followed created sharadar_indicators with 359 rows, zero dropped. Every sd_ field went on saying *\"THE VENDOR'S DICTIONARY IS NOT LOADED ON THIS INSTALLATION\"* — over a table that was sitting right there. The memo cached the wrong thing. dictionary() held its answer whatever the answer was, on the reasoning that \"a dictionary does not move within a process's life\". THE DICTIONARY DOESN'T; WHETHER THIS INSTALLATION HAS ONE DOES — and the proc",
+  "published": "2026-08-16T01:39:47.588Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
