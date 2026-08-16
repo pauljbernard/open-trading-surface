@@ -1,13 +1,13 @@
 {
-  "version": "5.61.3",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.3.plugin",
-  "sha256": "725ad800a2845356eeb44697f35010b61cc9ab56d06e6006b6d44536d908136b",
+  "version": "5.62.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.62.0.plugin",
+  "sha256": "c7b2611f35d90753774c8f988ff54abc7dea33b13b1751043cf9a25ad0315d7d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.3.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.62.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The dictionary fetched, loaded, and reported itself missing. sharadar-refresh ran inside the daemon, wrote the vendor's CSV verbatim, and the rebuild that followed created sharadar_indicators with 359 rows, zero dropped. Every sd_ field went on saying *\"THE VENDOR'S DICTIONARY IS NOT LOADED ON THIS INSTALLATION\"* — over a table that was sitting right there. The memo cached the wrong thing. dictionary() held its answer whatever the answer was, on the reasoning that \"a dictionary does not move within a process's life\". THE DICTIONARY DOESN'T; WHETHER THIS INSTALLATION HAS ONE DOES — and the proc",
-  "published": "2026-08-16T01:39:47.588Z",
+  "notes": "A screener predicate could always compute roeMedian5y * (1 - payoutRatio). It just could not KEEP it. run_screen's derive: has the right substrate and the wrong scope — one screen — so the same formula was retyped per screen and drifted; define_indicator's ci_<name> has the right scope and the wrong substrate, a series over price bars, which a fundamental derivation is not. A custom field is derive promoted to global scope, which is why it reuses server/expr.js — the DSL where and derive already parse — rather than inventing a third one. Define once as cf_<name>; it appears in list_screen_fiel",
+  "published": "2026-08-16T17:24:37.234Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
