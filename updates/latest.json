@@ -1,13 +1,13 @@
 {
-  "version": "5.65.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.1.plugin",
-  "sha256": "22c3e1083c497c64cfd9df058db1375a33089b2037e9b0b9c28771742eeab364",
+  "version": "5.65.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.2.plugin",
+  "sha256": "a19c960e06359f183ef8a3f606730dc6f8f8d86eeebcc046f7a16a7d5c8a2a47",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A live cohort — Reflexive Fertile Ground, migrated from a saved screen on 2026-08-12 — carried this where clause: m_optionality_strategic_initiatives > 0 or model_spread_ln > 0.35 or is not an operator in this DSL. It tokenizes as an identifier. The cohort failed every refresh pass for four days, was retried each time, and every layer above the mistake pointed the reader somewhere else. The parser said what was true and not what was wrong. expected \"eof\" but got \"id\" in expression is a correct structural complaint about the token AFTER the mistake, and says nothing about the four characters th",
-  "published": "2026-08-16T21:26:47.526Z",
+  "notes": "The cohorts surface sat on \"Resolving membership…\" across two daemon restarts and three separate attempts to diagnose it. The mechanism was never exotic: state.cohSel is PERSISTED, so every page load re-opens the same cohort detail and re-issues /cm/cohort_detail, which awaits co.resolve() before it answers anything — so a cohort whose resolve outruns the fetch leaves the panel on its loading placeholder forever, and does it again on the next reload. What made it undiagnosable was not the hang. inspect_terminal what=state disclosed thesis_selected, watchlist_selected, portfolio_selected and se",
+  "published": "2026-08-16T21:59:44.749Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
