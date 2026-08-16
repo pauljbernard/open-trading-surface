@@ -1,13 +1,13 @@
 {
-  "version": "5.64.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.64.0.plugin",
-  "sha256": "a947712b13afc811df862bacaa3b81bfbdc768914d188f366bead8eec8dd683c",
+  "version": "5.65.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.0.plugin",
+  "sha256": "07822e34934afa89789921fa92418408a3e19b2e753a3f530b1c748c395e41b2",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.64.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.62.0 built the derived-field registry and, in the same breath, refused a streak by name: a screener row carries aggregates, and a streak needs the year-by-year ladder. That refusal was correct and it left a hole. The motivating example — epsGrowthStreak — was the field the refusal kept sending people away from, and it had nowhere to go. Now it does. epsGrowthStreak — consecutive fiscal years of diluted EPS growth, computed in screen-vocabulary.statementStats off the same eleven-year income panel epsCagr5y and epsCagr10y already fetch. No new provider call: the ladder was in hand the whole ti",
-  "published": "2026-08-16T20:03:34.722Z",
+  "notes": "Translating the Stockopedia quality screens kept producing the same shape of failure: a chip that states one quantity against another, and a catalog that only carries the ratio somebody else already decided to take. Debt and earnings as LEVELS — totalDebtFy, longTermDebtFy, netIncomeFy, off the balance sheet and income statement the fund stage already fetches. Every debt instrument here was a ratio, and a ratio answers a fixed question. Buffettology asks whether long-term debt is under five times net profit; debtToFcfYears is the nearest shape in the catalog and measures debt against CASH FLOW",
+  "published": "2026-08-16T20:34:19.956Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
