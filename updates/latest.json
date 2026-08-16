@@ -1,13 +1,13 @@
 {
-  "version": "5.61.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.0.plugin",
-  "sha256": "5a77b4c07ed8b41ba87850631d2433a574472a374c65c70bf7d50ad987e620c4",
+  "version": "5.61.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.1.plugin",
+  "sha256": "f9ae231152ecfc11056094bb2041c4e7e50de5e67115f9347e463d16168a26fa",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.61.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, twice, and the second time settled it: *\"if you are comparing two different fields both from FMP and saying they are not consistent, then its you that misunderstands the fields you are looking at\"* — and then *\"we had decided that we would only treat sharadar as just another set of time series data with its own prefix and we would stop trying to resolve whether its right or wrong.\"* Two comparisons are retired in this release. Neither was a bug. Both were category errors that had been running long enough to produce records, withhold fields, and shape a whole module's design. A trail",
-  "published": "2026-08-15T18:33:52.432Z",
+  "notes": "5.61.0 shipped with six failing assertions across four suites. The code it shipped was sound; the guards that police it were not, and nobody noticed because of how the battery was read, not what it said. The harness reported every failure — in a Failures section — and exited 1. The person running it grepped stdout for a | FAIL | table row and never checked the exit code, so a failure reported anywhere else was invisible. Six shards were declared clean, six times, on a check that could not fail. This codebase has a name for that and a test for it in half a dozen places: *a check that reports an",
+  "published": "2026-08-16T00:34:30.283Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
