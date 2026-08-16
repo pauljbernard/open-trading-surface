@@ -1,13 +1,13 @@
 {
-  "version": "5.62.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.62.0.plugin",
-  "sha256": "c7b2611f35d90753774c8f988ff54abc7dea33b13b1751043cf9a25ad0315d7d",
+  "version": "5.63.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.63.0.plugin",
+  "sha256": "069398231b04993bdc97535461070a2eadf5077a7069a9057a65d66d5a24494c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.62.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.63.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A screener predicate could always compute roeMedian5y * (1 - payoutRatio). It just could not KEEP it. run_screen's derive: has the right substrate and the wrong scope — one screen — so the same formula was retyped per screen and drifted; define_indicator's ci_<name> has the right scope and the wrong substrate, a series over price bars, which a fundamental derivation is not. A custom field is derive promoted to global scope, which is why it reuses server/expr.js — the DSL where and derive already parse — rather than inventing a third one. Define once as cf_<name>; it appears in list_screen_fiel",
-  "published": "2026-08-16T17:24:37.234Z",
+  "notes": "5.62.0 gave custom FIELDS an editor and a delete guard. Putting them beside custom INDICATORS is what made the asymmetry visible, and one half of it was not cosmetic. ci_ was screenable and unguarded, and had been since 5.4.0. indicator-registry publishes every custom indicator into screener.listFields() as ci_<name> and ci_<name>_<plot>, so a saved screen, a cohort's inline spec, a rule condition, a strategy's ranking expression or a cf_ could all gate on one. delete_custom_indicator spliced the record out anyway, and redefining overwrote in place — silently moving the membership of every coh",
+  "published": "2026-08-16T18:20:08.562Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
