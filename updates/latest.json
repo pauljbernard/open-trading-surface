@@ -1,13 +1,13 @@
 {
-  "version": "5.63.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.63.0.plugin",
-  "sha256": "069398231b04993bdc97535461070a2eadf5077a7069a9057a65d66d5a24494c",
+  "version": "5.64.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.64.0.plugin",
+  "sha256": "a947712b13afc811df862bacaa3b81bfbdc768914d188f366bead8eec8dd683c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.63.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.64.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.62.0 gave custom FIELDS an editor and a delete guard. Putting them beside custom INDICATORS is what made the asymmetry visible, and one half of it was not cosmetic. ci_ was screenable and unguarded, and had been since 5.4.0. indicator-registry publishes every custom indicator into screener.listFields() as ci_<name> and ci_<name>_<plot>, so a saved screen, a cohort's inline spec, a rule condition, a strategy's ranking expression or a cf_ could all gate on one. delete_custom_indicator spliced the record out anyway, and redefining overwrote in place — silently moving the membership of every coh",
-  "published": "2026-08-16T18:20:08.562Z",
+  "notes": "5.62.0 built the derived-field registry and, in the same breath, refused a streak by name: a screener row carries aggregates, and a streak needs the year-by-year ladder. That refusal was correct and it left a hole. The motivating example — epsGrowthStreak — was the field the refusal kept sending people away from, and it had nowhere to go. Now it does. epsGrowthStreak — consecutive fiscal years of diluted EPS growth, computed in screen-vocabulary.statementStats off the same eleven-year income panel epsCagr5y and epsCagr10y already fetch. No new provider call: the ladder was in hand the whole ti",
+  "published": "2026-08-16T20:03:34.722Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
