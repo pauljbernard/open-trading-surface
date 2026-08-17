@@ -1,13 +1,13 @@
 {
-  "version": "5.74.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.74.2.plugin",
-  "sha256": "ad52342ac674b8342eb823b79edddaff397ddb2b9084fae001f37343bb499707",
+  "version": "5.74.3",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.74.3.plugin",
+  "sha256": "9be94062a55f04c4f0cfff559b04fa780486c7582092af5d566a351ff6642b5d",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "The owner, minutes after 5.74.0 reached his screen: \"if I select the portfolio tab, then select a panel, after the panel is displayed, it reverts to the stock tab.\" The line he tripped over was correct until yesterday. WS.open and WS.focus both stepped out of a pinned surface when a panel was opened, because every pinned surface COVERED the canvas — a panel opened from behind a cover had to leave it, or it would be opened into something the reader could not see. Portfolios hosts the canvas now, so stepping out is exactly wrong. And the landing spot made it worse than a pointless hop. A portfol",
-  "published": "2026-08-17T18:16:14.810Z",
+  "notes": "The owner, 2026-08-17: \"I would like to change the order of the tabs. 1) Administration 2) Analysis 3) Research 4) Stock\" — with Portfolios last, which he chose when asked rather than having it guessed for him. The bar now reads: Administration · Analysis · Research · Stock · Portfolios. The interesting part is why this was not a one-line change. 5.74.0 declared the pinned tabs in an array and then appended the Stock tab *after* the loop, so the bar's order was two facts in two places — and it could not express \"a vertical after Stock\" at all without moving code. A request to reorder should ne",
+  "published": "2026-08-17T18:38:29.242Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
