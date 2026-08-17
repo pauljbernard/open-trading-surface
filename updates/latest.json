@@ -1,13 +1,13 @@
 {
-  "version": "5.69.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.69.0.plugin",
-  "sha256": "3d0d30fcaba75347356a801ecc0db3ca1a962f9e15c7237cebf45682d2fef152",
+  "version": "5.69.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.69.1.plugin",
+  "sha256": "a07f7811e033ec558f0d4b056afcea29491ee3f35a1a1ce85a09826b77144c90",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.69.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.69.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-17: \"now that we have two distinct verticals 1) Research and 2) Analysis; that the Macro-economic tab should also be refactored. Rather than having a distinct Macro-economic tab, lets remove the tab, and move the Economy and the Sectors pages under the Research Tab … I would also suggest that the Alerts tab is also now unnecessary.\" Both are the same observation, and it is the one the last three releases were circling. Once the question a tab answers is named, a tab that answers no question of its own is a container for whatever was left. Macro-economic had become two panels",
-  "published": "2026-08-17T04:06:23.713Z",
+  "notes": "The calendar holds what fired AND what is scheduled, and now you can say which. The owner: \"the calendar should contain all the events that have fired, but also all the events that are scheduled in the future as well. The latter of which probably needs a toggle.\" It already held both — four of the seven sources are forward-looking by nature (SI gate expected resolutions, the provider earnings / dividend / split calendars, the economic release schedule, and your own dated events). What was missing was the control. Three states rather than a checkbox, because *hide the future* and *show only the",
+  "published": "2026-08-17T04:33:21.044Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
