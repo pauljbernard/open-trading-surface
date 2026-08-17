@@ -1,13 +1,13 @@
 {
-  "version": "5.74.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.74.0.plugin",
-  "sha256": "42d46a92f159fa29c77941dfd5b073f230d374b7a0b624e3f33b756f949c413a",
+  "version": "5.74.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.74.1.plugin",
+  "sha256": "325f96da1bf0e52526bab2477ca154ed851b4768c490e3882fdbb207547c899c",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "The owner, on being shown portfolio panels landing on the shared canvas: \"Currently each stock has its own Tab. The shared canvas somewhat breaks this … we have one tab called 'Stock' with its own horizontal bar below it that allows the user to select which security needs to be put in context.\" He had found the same category error one level up from the one he named at 5.71.0. A rail that grows with the data is not a menu — and a tab bar that grows with the data is not navigation either. One tab per security is the same shape as eight verbs repeated under N books. So the tab bar holds verticals",
-  "published": "2026-08-17T17:21:37.873Z",
+  "notes": "Found by opening 5.74.0 and looking at it, one minute after it was published, and findable no other way: a portfolio panel opened from the Stock tab titled itself o4pr40py · Holdings — the raw book id — above a body that correctly read \"Interesting\". PF_NAMES was populated as a side effect of the portfolio context bar fetching /pf/list. While the only way to look at a book was to stand on the surface whose strip did that fetch, every panel had names available by coincidence. A shared canvas broke the coincidence: open a panel from another vertical, or through open_panel as an agent does, and t",
+  "published": "2026-08-17T18:02:53.750Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
