@@ -1,13 +1,13 @@
 {
-  "version": "5.70.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.70.2.plugin",
-  "sha256": "a86a25d4ddd4efe8babde622689f563fbeda73ac88bb0f45e1c4de195c4fbc5c",
+  "version": "5.71.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.71.0.plugin",
+  "sha256": "cc62be72424ea758cc0b218a81ddb303aa2b2656b1f944f522a328c402142f11",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.70.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.71.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.70.1 shipped a moved-panel redirect that crashed on every refusal: undefined is not an object (evaluating 'MOVED_PANELS[id]'). The record was declared INSIDE the ctl switch, where a var hoists to the enclosing function as undefined and its ASSIGNMENT never runs — a switch jumps straight to the matching case. The function declaration beside it hoisted whole, so the call resolved and the lookup threw. The suite could not see it because the suite grepped for the declaration. It asserted that var MOVED_PANELS = { and function movedPanelRefusal(…) exist in the source, which they did, in a place w",
-  "published": "2026-08-17T13:31:44.590Z",
+  "notes": "The owner, 2026-08-18: \"every time a new portfolio is created it creates a new left hand side menu item. This is not an extensible model. All the verbs are sub menus under each top level portfolio menu and are repeated under each.\" Both readings are right and the first is the sharper one. This is the same category error 5.66.0 fixed for theses. 5.20.6 had made the theses render in the right PLACE — inside their parent, through the declared-children mechanism — and left the error itself standing, which is that a rail that grows with the DATA is not a menu. Eight views repeated under each of N p",
+  "published": "2026-08-17T14:27:47.871Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
