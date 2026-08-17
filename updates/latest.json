@@ -1,13 +1,13 @@
 {
-  "version": "5.65.4",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.4.plugin",
-  "sha256": "6d370f032276dd306e653c885a59f747145279291339e0e01fde70203cf10322",
+  "version": "5.66.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.0.plugin",
+  "sha256": "4820fcdf79435b3944c4a8c17060012aa492859f36bb2b6da5f40e13523a7223",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.65.4.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The cohorts list rendered one heading and one table PER KIND. That was right when there were 23 cohorts. On this machine there are 520, 476 of them peer groups nobody created — so the page grew a section per kind and a row per cohort, finding one cohort meant scrolling past every other kind, and because each shelf was its own table nothing could be ordered: \"the biggest\" and \"the stalest\" were questions the surface could not answer at all. The owner, 2026-08-16, having first asked for a table per category and then revised it: *\"actually one table might be more extensible. That table can have f",
-  "published": "2026-08-16T23:13:48.139Z",
+  "notes": "THE OWNER, 2026-08-16: \"Currently we are commingling the Complex Event processing functionality with other Administration capabilities. This is a conflation that is not appropriate. Also we currently have Thesis organized under Macro-economics. This is a misalignment.\" Both readings are right and the second is the sharper one. The journey this system is built around is thesis → predicates → screen → cohort → daily refresh. Every step existed and no two consecutive steps lived in the same place: Thesis sat under Macro-economic (it is not a macro container, it is the belief that USES one), the p",
+  "published": "2026-08-17T00:13:33.481Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
