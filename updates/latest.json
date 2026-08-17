@@ -1,13 +1,13 @@
 {
-  "version": "5.68.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.68.0.plugin",
-  "sha256": "9845cca1916a8eac1316fd9666c146180c9e04379690db5e38076766e2b4e313",
+  "version": "5.69.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.69.0.plugin",
+  "sha256": "3d0d30fcaba75347356a801ecc0db3ca1a962f9e15c7237cebf45682d2fef152",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.68.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.69.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-17: \"we can combine them into one target calendar representation both historically as well as forward looking, but we will need to add filter, sort, search, and paging capabilities so that the magnitude of what might be displayed doesn't become overwhelming.\" These were never two implementations of one thing, which is why this is a merge and not a rename. renderWlCalendar was the UNIFIED TIME AXIS — five dated sources on one month grid. renderContentCal was the ECONOMIC-RELEASE calendar — four zooms, what was expected of each release, what printed, and a jump to the series i",
-  "published": "2026-08-17T03:18:06.404Z",
+  "notes": "The owner, 2026-08-17: \"now that we have two distinct verticals 1) Research and 2) Analysis; that the Macro-economic tab should also be refactored. Rather than having a distinct Macro-economic tab, lets remove the tab, and move the Economy and the Sectors pages under the Research Tab … I would also suggest that the Alerts tab is also now unnecessary.\" Both are the same observation, and it is the one the last three releases were circling. Once the question a tab answers is named, a tab that answers no question of its own is a container for whatever was left. Macro-economic had become two panels",
+  "published": "2026-08-17T04:06:23.713Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
