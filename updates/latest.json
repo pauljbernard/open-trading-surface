@@ -1,13 +1,13 @@
 {
-  "version": "5.74.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.74.1.plugin",
-  "sha256": "325f96da1bf0e52526bab2477ca154ed851b4768c490e3882fdbb207547c899c",
+  "version": "5.74.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.74.2.plugin",
+  "sha256": "ad52342ac674b8342eb823b79edddaff397ddb2b9084fae001f37343bb499707",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "Found by opening 5.74.0 and looking at it, one minute after it was published, and findable no other way: a portfolio panel opened from the Stock tab titled itself o4pr40py · Holdings — the raw book id — above a body that correctly read \"Interesting\". PF_NAMES was populated as a side effect of the portfolio context bar fetching /pf/list. While the only way to look at a book was to stand on the surface whose strip did that fetch, every panel had names available by coincidence. A shared canvas broke the coincidence: open a panel from another vertical, or through open_panel as an agent does, and t",
-  "published": "2026-08-17T18:02:53.750Z",
+  "notes": "The owner, minutes after 5.74.0 reached his screen: \"if I select the portfolio tab, then select a panel, after the panel is displayed, it reverts to the stock tab.\" The line he tripped over was correct until yesterday. WS.open and WS.focus both stepped out of a pinned surface when a panel was opened, because every pinned surface COVERED the canvas — a panel opened from behind a cover had to leave it, or it would be opened into something the reader could not see. Portfolios hosts the canvas now, so stepping out is exactly wrong. And the landing spot made it worse than a pointless hop. A portfol",
+  "published": "2026-08-17T18:16:14.810Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
