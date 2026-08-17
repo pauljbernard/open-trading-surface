@@ -1,13 +1,13 @@
 {
-  "version": "5.76.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.76.1.plugin",
-  "sha256": "511de4eda74388344b8d32f545931126c0eaa8842847f93d7fe5172fe18f30e1",
+  "version": "5.77.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.77.0.plugin",
+  "sha256": "310d9ee3806af9ddaf02248edc6fcfa69c58e36dad0382643089b9bed7d385a7",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "The owner opened the switcher and sent a picture of it. Three separate things were wrong in that single frame, and not one of them was visible to the suite that had just passed — because all three are in the CLIENT, and the store they exercise was fine. The dialog was forbidden. /ws/* is a guarded route and wsFetch sent Content-Type and nothing else, so every call came back *\"forbidden — missing local session token\"* and none of the four gestures could work. pfFetch, one screen away, has always sent the token. That is the standing cost of a second fetch helper existing at all — and the reason ",
-  "published": "2026-08-17T20:06:17.150Z",
+  "notes": "The owner: \"cash is very slow but eventually returns, can you look and see if we have an addressible performance problem.\" There was one, and it was structural. /pf/get priced the whole book before it answered anything — one live quote per distinct position, 22 for his book, timed end to end at 11.7 seconds. The Cash view shares a renderer with Holdings and therefore shared that fetch, so it waited on twenty-two network round trips to print a cash balance that depends on none of them. 5.75.0 made it worse, and that is a cost of the architecture rather than a coincidence. Once every rail row op",
+  "published": "2026-08-17T20:44:49.054Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
