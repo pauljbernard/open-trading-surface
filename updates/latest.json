@@ -1,13 +1,13 @@
 {
-  "version": "5.66.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.0.plugin",
-  "sha256": "4820fcdf79435b3944c4a8c17060012aa492859f36bb2b6da5f40e13523a7223",
+  "version": "5.66.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.1.plugin",
+  "sha256": "ffa58a8ae42dbf8973919a175d6acdc3ac3b455ce294734bd96a33b9302b709b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER, 2026-08-16: \"Currently we are commingling the Complex Event processing functionality with other Administration capabilities. This is a conflation that is not appropriate. Also we currently have Thesis organized under Macro-economics. This is a misalignment.\" Both readings are right and the second is the sharper one. The journey this system is built around is thesis → predicates → screen → cohort → daily refresh. Every step existed and no two consecutive steps lived in the same place: Thesis sat under Macro-economic (it is not a macro container, it is the belief that USES one), the p",
-  "published": "2026-08-17T00:13:33.481Z",
+  "notes": "Minutes after 5.66.0 the owner reported it: \"the following menu items are not retrieving a response: Reach, Conditions, Rules, Strategies, Events, firing, runs, backtests, processes.\" Nine panels — every one of the nine that had moved from Administration to Analysis — rendered nothing at all. Each of those renderers fetches, then guards its callback with \"am I still the visible panel?\" before painting. That guard is right: it stops a late response painting over a surface the reader has since left. What was wrong was the QUESTION. Every call site asked adminActive(id), which is state.active ===",
+  "published": "2026-08-17T00:53:08.088Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
