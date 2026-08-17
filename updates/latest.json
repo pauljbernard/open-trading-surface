@@ -1,13 +1,13 @@
 {
-  "version": "5.66.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.2.plugin",
-  "sha256": "97f2d4fb2e9904f4e4a26d25009ff037e0cb40a47b7f82d5351a8f1cc8186efd",
+  "version": "5.67.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.67.0.plugin",
+  "sha256": "fce9b6e9ff271f7e18162faa4371e1e2e24f117917cf4de861869799fc593716",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.67.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-17: \"Under analysis move Derived Vocabulary, and Data review below Processes.\" Right, and it sharpens what the rail is saying. Thesis → Event processing → Cohorts → Processes is the JOURNEY, in the order it is walked and ending where it ends — the daily refresh. Derived vocabulary and Data review are instruments used along the way rather than steps of it: one defines the predicates a thesis compiles into, the other adjudicates the data every step reads. Sitting at the head of the rail, they made the first thing a reader saw a tool rather than the first step. One registry ent",
-  "published": "2026-08-17T01:08:21.968Z",
+  "notes": "The owner, 2026-08-17: the Calendar is not an alert. It had been a VIEW of the Alerts tab since 3.93.0, and that made Alerts two things at once — the typed notification stream, and the entire dated axis of everything this system records. Neither reading was wrong when it was written; together they are the same class of conflation 5.66.0 named in Administration, a tab whose entries have nothing in common except that somebody needed somewhere to put them. Research is the new home, at -16, and it says what it is for: the surfaces you open to look at the market AS A WHOLE, rather than to act on a ",
+  "published": "2026-08-17T02:02:42.525Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
