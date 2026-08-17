@@ -1,13 +1,13 @@
 {
-  "version": "5.66.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.1.plugin",
-  "sha256": "ffa58a8ae42dbf8973919a175d6acdc3ac3b455ce294734bd96a33b9302b709b",
+  "version": "5.66.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.2.plugin",
+  "sha256": "97f2d4fb2e9904f4e4a26d25009ff037e0cb40a47b7f82d5351a8f1cc8186efd",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.66.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Minutes after 5.66.0 the owner reported it: \"the following menu items are not retrieving a response: Reach, Conditions, Rules, Strategies, Events, firing, runs, backtests, processes.\" Nine panels — every one of the nine that had moved from Administration to Analysis — rendered nothing at all. Each of those renderers fetches, then guards its callback with \"am I still the visible panel?\" before painting. That guard is right: it stops a late response painting over a surface the reader has since left. What was wrong was the QUESTION. Every call site asked adminActive(id), which is state.active ===",
-  "published": "2026-08-17T00:53:08.088Z",
+  "notes": "The owner, 2026-08-17: \"Under analysis move Derived Vocabulary, and Data review below Processes.\" Right, and it sharpens what the rail is saying. Thesis → Event processing → Cohorts → Processes is the JOURNEY, in the order it is walked and ending where it ends — the daily refresh. Derived vocabulary and Data review are instruments used along the way rather than steps of it: one defines the predicates a thesis compiles into, the other adjudicates the data every step reads. Sitting at the head of the rail, they made the first thing a reader saw a tool rather than the first step. One registry ent",
+  "published": "2026-08-17T01:08:21.968Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
