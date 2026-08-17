@@ -1,13 +1,13 @@
 {
-  "version": "5.70.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.70.0.plugin",
-  "sha256": "a0d5af823ef98398b2bf97eb3d951bf753cf17c0a00ed4e5f508a7f25d2e65c4",
+  "version": "5.70.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.70.1.plugin",
+  "sha256": "5c1de047aea530f61740c36b944d07b34af18b49be5bad34d64193e06046a6de",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.70.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.70.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-17: \"Thesis and Cohorts which is currently under Analysis should be moved under the research tab. That would result in a nice clean Analysis tab handling data, events and processes which I think is more synergistic.\" He is right, and it resolves a tension 5.66.0 introduced. That release put the JOURNEY in one tab — thesis → predicates → screen → cohort → daily refresh — which was the correct fix for surfaces scattered across three tabs. But a journey is not a category. The rail had come to hold two different kinds of thing: SURFACES YOU AUTHOR AND READ (a belief, a group of ",
-  "published": "2026-08-17T04:58:42.107Z",
+  "notes": "open_analysis {panel: \"thesis\"} answered *\"Unknown analysis panel: thesis\"* and listed what Analysis does have. That is safe — it changed nothing — and it is a dead end: a caller following a recorded habit is told the NAME is wrong when the truth is that the SURFACE MOVED, and the list it gets back cannot contain the thing it asked for. 5.66.0 got this right for Administration, by hand. Three restructures later, doing it by hand in each verb is how one of them gets forgotten — and this one was. The departures are now recorded once, with the release that moved each panel and the verb that reach",
+  "published": "2026-08-17T13:05:55.398Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
