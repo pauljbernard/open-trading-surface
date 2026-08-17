@@ -1,13 +1,13 @@
 {
-  "version": "5.76.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.76.0.plugin",
-  "sha256": "7e47e5ed5b7989f78dbdc8593b80b2e78c6f027c5f03d08aaf2c1b02bab0ff88",
+  "version": "5.76.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.76.1.plugin",
+  "sha256": "511de4eda74388344b8d32f545931126c0eaa8842847f93d7fe5172fe18f30e1",
   "signed": false,
   "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "The pressure was measured, not anticipated. 5.75.0 finished the model — four verticals, one canvas, every rail row opening a bound panel — and within a minute of driving it tile_panels refused: seven panels could not be laid out above their declared minimums in a 1660×1057 frame. That refusal was correct, and it was also the diagnosis. The answer to \"too many panels\" is not a denser grid. It is that a reader has several situations — the morning review, working a thesis, watching a book — and each wants its own canvas rather than a share of one. The owner: \"I suspect the answer is exactly what ",
-  "published": "2026-08-17T19:43:49.019Z",
+  "notes": "The owner opened the switcher and sent a picture of it. Three separate things were wrong in that single frame, and not one of them was visible to the suite that had just passed — because all three are in the CLIENT, and the store they exercise was fine. The dialog was forbidden. /ws/* is a guarded route and wsFetch sent Content-Type and nothing else, so every call came back *\"forbidden — missing local session token\"* and none of the four gestures could work. pfFetch, one screen away, has always sent the token. That is the standing cost of a second fetch helper existing at all — and the reason ",
+  "published": "2026-08-17T20:06:17.150Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
