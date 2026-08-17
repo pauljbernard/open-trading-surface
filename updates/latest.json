@@ -1,13 +1,13 @@
 {
-  "version": "5.73.3",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.73.3.plugin",
-  "sha256": "3a6e8e3f065014db833af95df4caa9fd72387c56609789356e39163c02d3bc0c",
-  "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.73.3.plugin.asc",
+  "version": "5.73.4",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.73.4.plugin",
+  "sha256": "bd264d1f4d8ba6f0b4e087450931b1e46fe3c7558f1dbd09ac91c1bedf8975c0",
+  "signed": false,
+  "signature_url": "",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
-  "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
+  "signing_key_fingerprint": "",
   "min_node": "18",
-  "notes": "The owner, minutes after looking at the screen: \"the individual panels of the portfolio functionality overlap the portfolio selection bar\" and \"the drop list box and the New Portfolio buttons don't work when you click on them.\" Both symptoms are one fact. #content is position:absolute; inset:0 and .view is ALSO position:absolute; inset:0, so the control strip — appended as a normal-flow sibling BEFORE the view — was painted underneath it. Visible through .view, which carries no background, and unclickable because .view sat on top eating every pointer event. Visible and dead is the worst shape ",
-  "published": "2026-08-17T15:52:09.743Z",
+  "notes": "The terminal published as 5.73.0 through 5.73.3 did not boot. pfViewLabelInit() was called beside the portfolio rail, at offset 667,792 of the emitted document, and wrote into a PF_VIEW_LABEL var that was not declared until offset 895,026 — so it was undefined when the call executed, the write threw, and boot died before the page registered the control channel. Which means the failure mode was not an error message: it was a blank window, and an agent that could not connect to be asked about it. Four published releases carried it. PF_VIEW_LABEL is now derived where PF_VIEWS is declared, in one ",
+  "published": "2026-08-17T16:31:45.248Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

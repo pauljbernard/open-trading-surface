@@ -122,10 +122,8 @@
   <p style="color:var(--muted);font-size:14px">Every release ships a SHA-256 checksum so you can confirm your <code>ots.plugin</code> downloaded intact. Compare it against the published checksum:</p>
   <pre><code># compare against download/ots.plugin.sha256
 shasum -a 256 ots.plugin</code></pre>
-  <p style="color:var(--muted);font-size:14px">Releases are also GPG-signed. Import the <a href="assets/ots-signing-key.asc">Open Trading Surface release signing key</a> (fingerprint <code>4703 B1C3 57AD E3DA B29E D4F4 8EAF A2ED 2005 8E4B</code>) and verify the detached signature:</p>
-  <pre><code>gpg --import ots-signing-key.asc
-gpg --verify ots.plugin.asc ots.plugin</code></pre>
-  <p style="color:var(--muted);font-size:13px">During the rebrand transition, packages are also signed with the <a href="assets/orrery-signing-key-legacy.asc">legacy Orrery key</a> (fingerprint <code>7FB3 00D8 4247 9AF6 41C8 EEF9 911D 3894 8CBC 401B</code>), so either key verifies. Releases from the brief 2026 window when the original key was lost shipped with checksums only.</p>
+  <p style="color:var(--muted);font-size:14px"><b>This release is not GPG-signed — the checksum above is the only verification available for it.</b> Signature verification applies to releases up to <b>5.61.3</b>, which ship a detached <code>.asc</code> beside the package; every release after it ships a checksum only, because the signing key has not been present on the build machine since. A page that told you to check a signature that was never produced would be worse than one that admits the gap, so it is stated here rather than left to be discovered at the command line.</p>
+  <p style="color:var(--muted);font-size:13px">For a release that does carry a <code>.asc</code>, import the <a href="assets/ots-signing-key.asc">Open Trading Surface release signing key</a> (fingerprint <code>4703 B1C3 57AD E3DA B29E D4F4 8EAF A2ED 2005 8E4B</code>) or, for packages from the rebrand transition, the <a href="assets/orrery-signing-key-legacy.asc">legacy Orrery key</a> (fingerprint <code>7FB3 00D8 4247 9AF6 41C8 EEF9 911D 3894 8CBC 401B</code>) — either key verifies a dual-signed package — and check the detached signature with GPG's verify command. When signing resumes, this section returns and the release pipeline says so on its own summary line.</p>
 
   <h2>Issue status at a glance</h2>
   <p style="color:var(--muted);font-size:14px">This snapshot is illustrative; the <a href="https://github.com/pauljbernard/open-trading-surface/issues">live tracker</a> is the source of truth.</p>
@@ -137,12 +135,15 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.73.3</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-17 15:52 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.73.4</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-17 16:31 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.73.4 <span class="reltitle">a blank terminal, and the guard that finally runs the code</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.73.3 <span class="reltitle">visible and dead</span></h3>
   </div>
@@ -170,9 +171,6 @@ gpg --verify ots.plugin.asc ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.70.2 <span class="reltitle">the fix that crashed, and the test that could not see it</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.70.1 <span class="reltitle">a refusal names its obstacle, and a moved panel is an obstacle with an address</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
