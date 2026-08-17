@@ -1,13 +1,13 @@
 {
-  "version": "5.71.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.71.0.plugin",
-  "sha256": "cc62be72424ea758cc0b218a81ddb303aa2b2656b1f944f522a328c402142f11",
+  "version": "5.72.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.72.0.plugin",
+  "sha256": "189d3d6b99512bb7ab5636b42c36f881e68550114aceb5dabef3f2d642737f14",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.71.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.72.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-18: \"every time a new portfolio is created it creates a new left hand side menu item. This is not an extensible model. All the verbs are sub menus under each top level portfolio menu and are repeated under each.\" Both readings are right and the first is the sharper one. This is the same category error 5.66.0 fixed for theses. 5.20.6 had made the theses render in the right PLACE — inside their parent, through the declared-children mechanism — and left the error itself standing, which is that a rail that grows with the DATA is not a menu. Eight views repeated under each of N p",
-  "published": "2026-08-17T14:27:47.871Z",
+  "notes": "Release 2 of the portfolio restructure, and nothing on the screen changes. What changes is that the eight sub-pages stopped depending on where they are. Every one of them read state.pf.sel and state.pf.period directly. That is the shape that cannot become a panel: a renderer which reaches for the CURRENT selection can only ever draw the current selection, so two portfolios side by side would both render whichever was selected last. Each renderer now takes a RECORD — which portfolio, which view, and that book's own periods — and reads nothing global. The dispatcher is the one place that reads t",
+  "published": "2026-08-17T14:42:28.483Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
