@@ -1,13 +1,13 @@
 {
-  "version": "5.70.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.70.1.plugin",
-  "sha256": "5c1de047aea530f61740c36b944d07b34af18b49be5bad34d64193e06046a6de",
+  "version": "5.70.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.70.2.plugin",
+  "sha256": "a86a25d4ddd4efe8babde622689f563fbeda73ac88bb0f45e1c4de195c4fbc5c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.70.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.70.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "open_analysis {panel: \"thesis\"} answered *\"Unknown analysis panel: thesis\"* and listed what Analysis does have. That is safe — it changed nothing — and it is a dead end: a caller following a recorded habit is told the NAME is wrong when the truth is that the SURFACE MOVED, and the list it gets back cannot contain the thing it asked for. 5.66.0 got this right for Administration, by hand. Three restructures later, doing it by hand in each verb is how one of them gets forgotten — and this one was. The departures are now recorded once, with the release that moved each panel and the verb that reach",
-  "published": "2026-08-17T13:05:55.398Z",
+  "notes": "5.70.1 shipped a moved-panel redirect that crashed on every refusal: undefined is not an object (evaluating 'MOVED_PANELS[id]'). The record was declared INSIDE the ctl switch, where a var hoists to the enclosing function as undefined and its ASSIGNMENT never runs — a switch jumps straight to the matching case. The function declaration beside it hoisted whole, so the call resolved and the lookup threw. The suite could not see it because the suite grepped for the declaration. It asserted that var MOVED_PANELS = { and function movedPanelRefusal(…) exist in the source, which they did, in a place w",
+  "published": "2026-08-17T13:31:44.590Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
