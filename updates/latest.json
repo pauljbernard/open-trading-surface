@@ -1,13 +1,13 @@
 {
-  "version": "5.67.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.67.0.plugin",
-  "sha256": "fce9b6e9ff271f7e18162faa4371e1e2e24f117917cf4de861869799fc593716",
+  "version": "5.68.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.68.0.plugin",
+  "sha256": "9845cca1916a8eac1316fd9666c146180c9e04379690db5e38076766e2b4e313",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.67.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.68.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-17: the Calendar is not an alert. It had been a VIEW of the Alerts tab since 3.93.0, and that made Alerts two things at once — the typed notification stream, and the entire dated axis of everything this system records. Neither reading was wrong when it was written; together they are the same class of conflation 5.66.0 named in Administration, a tab whose entries have nothing in common except that somebody needed somewhere to put them. Research is the new home, at -16, and it says what it is for: the surfaces you open to look at the market AS A WHOLE, rather than to act on a ",
-  "published": "2026-08-17T02:02:42.525Z",
+  "notes": "The owner, 2026-08-17: \"we can combine them into one target calendar representation both historically as well as forward looking, but we will need to add filter, sort, search, and paging capabilities so that the magnitude of what might be displayed doesn't become overwhelming.\" These were never two implementations of one thing, which is why this is a merge and not a rename. renderWlCalendar was the UNIFIED TIME AXIS — five dated sources on one month grid. renderContentCal was the ECONOMIC-RELEASE calendar — four zooms, what was expected of each release, what printed, and a jump to the series i",
+  "published": "2026-08-17T03:18:06.404Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
