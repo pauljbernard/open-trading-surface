@@ -1,13 +1,13 @@
 {
-  "version": "5.80.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.2.plugin",
-  "sha256": "dc416c1984f679b5218bccaba6bd0a78fa0d71764e4a2398e3e533cd390cee82",
+  "version": "5.80.3",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.3.plugin",
+  "sha256": "2bf3d0f604707a458322876065cef9ffb87c7f1cfe916d7b7941e5d763ed004b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.3.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner opened Administration → Chat accounts — the first person to see it rendered — and asked for three things. All three shipped, and building the second found a defect in a guard. THE PORT FOLLOWS THE PROTOCOL AND THE ENCRYPTION. It was hard-coded to 5222; switching the dropdown to IRC left it there, which is exactly the kind of thing that produces a puzzling connection failure. The defaults are a declared table (5222 for XMPP either way, since RFC 6120 upgrades in-band; 6697/6667 for IRC, where plaintext is a DIFFERENT port) — and a default may never overwrite a value somebody typed: th",
-  "published": "2026-08-18T17:10:05.386Z",
+  "notes": "He pressed Test against his own Openfire at 127.0.0.1:5222 — the first time any of this code met a real server — and got \"[object Object]\" is not valid JSON. THE ROUTE PARSED THE BODY TWICE. serve.js's readBody resolves a PARSED OBJECT (resolve(JSON.parse(b '{}')) — its own source), and the route did JSON.parse(await readBody(req)): JSON.parse of an object is JSON.parse of \"[object Object]\". Every POST on the namespace threw before dispatch — Save account, Connect, Disconnect, Say, the allowlist, and Test. The panel was a form wired to a door that refused everything. WHY THE SUITE WAS GREEN: t",
+  "published": "2026-08-18T17:26:28.783Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
