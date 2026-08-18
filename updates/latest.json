@@ -1,13 +1,13 @@
 {
-  "version": "5.80.3",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.3.plugin",
-  "sha256": "2bf3d0f604707a458322876065cef9ffb87c7f1cfe916d7b7941e5d763ed004b",
+  "version": "5.80.4",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.4.plugin",
+  "sha256": "b7a0b4f1464bd6f4db05a9af7495a2d990d8c064d00a6a00e4df6eb2925b3966",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.3.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.4.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "He pressed Test against his own Openfire at 127.0.0.1:5222 — the first time any of this code met a real server — and got \"[object Object]\" is not valid JSON. THE ROUTE PARSED THE BODY TWICE. serve.js's readBody resolves a PARSED OBJECT (resolve(JSON.parse(b '{}')) — its own source), and the route did JSON.parse(await readBody(req)): JSON.parse of an object is JSON.parse of \"[object Object]\". Every POST on the namespace threw before dispatch — Save account, Connect, Disconnect, Say, the allowlist, and Test. The panel was a form wired to a door that refused everything. WHY THE SUITE WAS GREEN: t",
-  "published": "2026-08-18T17:26:28.783Z",
+  "notes": "The owner's Test press against his own Openfire surfaced a probe sentence (the daemon was mid-restart), and REASONING ABOUT WHAT HIS NEXT PRESS WOULD DO found three defects in the connect path — each of which would have made that press fail slowly instead of working. A TLS HELLO AT A STARTTLS PORT IS A HANDSHAKE THAT CAN NEVER COMPLETE. XMPP's 5222 opens PLAIN and upgrades in-band (RFC 6120 §5) — which is what Openfire serves — and the driver mapped the account's tls flag straight onto tls.connect. The shipped port table even said *\"5222 — STARTTLS on the client port\"* while the driver contrad",
+  "published": "2026-08-18T17:37:42.580Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
