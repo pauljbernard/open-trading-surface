@@ -1,13 +1,13 @@
 {
-  "version": "5.80.10",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.10.plugin",
-  "sha256": "56632af60bedde95cac6accf74f3ea3eaa66b3c072c9c43d7e9212b3fab5c095",
+  "version": "5.80.11",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.11.plugin",
+  "sha256": "e63107aa98aad53af3e873ad95ca5b88285862dfa1490317e3c987499a7ad91b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.10.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.11.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's Connect on 5.80.9 froze at securing — past the 30-second deadline that should have moved it, with an authenticated session sitting idle on Openfire's side. The panel offered one word, and one word is not a diagnosis. Twice today a defect was found only by reasoning backwards from a frozen phase; this release makes the next one a read instead of a reconstruction. THE LIFECYCLE CARRIES A FLIGHT RECORDER. Every event the link receives is recorded with the phase it found and the phase it left, timestamped with the CALLER'S clock — the purity guard caught the first cut reaching for the ",
-  "published": "2026-08-18T20:23:15.227Z",
+  "notes": "The panel froze at securing while get_chat_state reported the same link ready with a clean 36 ms trace. The daemon was right and the screen was stale, and the cause is one line of history: from 5.80.8 through 5.80.10 the server panel's repaint loop called chatServersPoll and NO SUCH FUNCTION WAS EVER DEFINED. The call shipped; the definition did not — git log -S shows exactly one commit ever touching the name, and it adds only the call. The first repaint of a moving link threw a ReferenceError inside an async continuation, AFTER the panel had painted once, so the panel showed whatever phase it",
+  "published": "2026-08-18T20:59:05.158Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
