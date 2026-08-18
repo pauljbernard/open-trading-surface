@@ -1,13 +1,13 @@
 {
-  "version": "5.80.4",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.4.plugin",
-  "sha256": "b7a0b4f1464bd6f4db05a9af7495a2d990d8c064d00a6a00e4df6eb2925b3966",
+  "version": "5.80.5",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.5.plugin",
+  "sha256": "19dc6dd59f3cd273612d214d0ccb34c504758f9be770d2c3023002a385f7d334",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.4.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.5.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's Test press against his own Openfire surfaced a probe sentence (the daemon was mid-restart), and REASONING ABOUT WHAT HIS NEXT PRESS WOULD DO found three defects in the connect path — each of which would have made that press fail slowly instead of working. A TLS HELLO AT A STARTTLS PORT IS A HANDSHAKE THAT CAN NEVER COMPLETE. XMPP's 5222 opens PLAIN and upgrades in-band (RFC 6120 §5) — which is what Openfire serves — and the driver mapped the account's tls flag straight onto tls.connect. The shipped port table even said *\"5222 — STARTTLS on the client port\"* while the driver contrad",
-  "published": "2026-08-18T17:37:42.580Z",
+  "notes": "The owner's first real Test press against his Openfire ran the whole corrected path — plain connect, ready for STARTTLS — and failed with the GENERIC network_unreachable sentence and no detail. The socket's actual error was captured and CLOBBERED ONE EVENT LATER. Node emits error then close on a failed socket. The lifecycle treated the close as a fresh failure: the stop was re-recorded with a null detail — overwriting ECONNREFUSED, or self-signed certificate, or whatever the socket actually said — and the failure count moved twice per attempt, skewing the backoff. A close or a late error arriv",
+  "published": "2026-08-18T17:46:29.604Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
