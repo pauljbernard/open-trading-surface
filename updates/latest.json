@@ -1,13 +1,13 @@
 {
-  "version": "5.80.6",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.6.plugin",
-  "sha256": "63a6dbbffbeb07ac5c9bd006d5e4432f50f7d7fc5ff5c4079ca781219dfae6e4",
+  "version": "5.80.7",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.7.plugin",
+  "sha256": "dd91ecff80ed175987bdbf8ed487c7754cd2b94c0b58caefba75519c60108d77",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.6.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.7.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's Test reached his Openfire and came back with the socket's own sentence — *self-signed certificate* — which is the good world: TCP, the stream, STARTTLS and the TLS handshake all worked, and Node refused to trust a private server's out-of-the-box certificate. The trust question was put to the owner with the trade-offs stated, and he chose: allow self-signed, per account. Recorded as his decision, and built the house way. VERIFICATION IS NOT TURNED OFF — IT IS MOVED. The socket still runs Node's verification and reports the verdict and the peer certificate's SHA-256 fingerprint as FA",
-  "published": "2026-08-18T17:57:56.342Z",
+  "notes": "The owner's Test cleared the certificate rung and stalled one higher: *authenticating — it did not answer in time*, on both JIDs. The silence was ours. AN XMPP SESSION IS THREE STREAMS, AND THE DRIVER ONLY RESTARTED ITS READER FOR THE FIRST HANDOVER. The STARTTLS restart goes through the lifecycle's restart_stream action, which resets the XML reader. The POST-SASL restart (RFC 6120 §6.4.6) is initiated BY THE CORE, which writes the new stream header itself on success — and the driver never reset the reader for it. The third stream's root then arrived as a CHILD of the second stream's still-ope",
+  "published": "2026-08-18T18:09:06.079Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
