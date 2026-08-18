@@ -1,13 +1,13 @@
 {
-  "version": "5.80.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.0.plugin",
-  "sha256": "87e6d1b756b479b5adc40562b387ab1ede385b680b06f0c88d3e19cbbbd22bf1",
+  "version": "5.80.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.1.plugin",
+  "sha256": "e9a5c35df4a4d8eb4ff3eb60c60327d516f1ad294e955aae33afc664893318e5",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-17: *\"We need the ability for instances of the application we are creating (OTS) along with agents that are interacting with OTS and users of OTS to talk to each other … the ability to configure one or more XMPP and IRC servers in the Administration Settings configuration area … and a new Tab dedicated to the purpose of a chat client that supports both xmpp and irc.\"* THE PROTOCOL STACKS ARE WRITTEN HERE. This project has zero runtime dependencies and keeps them: an incremental XMPP stream parser, the IRC line grammar, SCRAM-SHA-256/SHA-1 checked against RFC 5802's own worke",
-  "published": "2026-08-18T14:31:01.067Z",
+  "notes": "5.80.0 published, and the Chat tab was opened for the first time. Both panels sat on *\"Reading the accounts…\"* for ever, and the rail printed *\"Conversations could not list what is under it — [object Object]\"*. Every assertion in the battery was green. AN ASYNC CONTINUATION IS A DIFFERENT CALL. renderPanelInto calls a zero-arity renderer as fn(), which relies on RENDER_HOST being set for the SYNCHRONOUS call — so the placeholder landed in the panel correctly. But the fetch callback runs after that scope has unwound, RENDER_HOST is null again, and contentHost() falls through to gestureHost(): t",
+  "published": "2026-08-18T15:00:23.131Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
