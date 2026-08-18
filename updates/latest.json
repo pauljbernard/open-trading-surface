@@ -1,13 +1,13 @@
 {
-  "version": "5.80.7",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.7.plugin",
-  "sha256": "dd91ecff80ed175987bdbf8ed487c7754cd2b94c0b58caefba75519c60108d77",
+  "version": "5.80.8",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.8.plugin",
+  "sha256": "b0410c4fa6435ae11a4212c7dcd29f58d2b7e1b55b32c287612deae27f1e8bae",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.7.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.8.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's Test cleared the certificate rung and stalled one higher: *authenticating — it did not answer in time*, on both JIDs. The silence was ours. AN XMPP SESSION IS THREE STREAMS, AND THE DRIVER ONLY RESTARTED ITS READER FOR THE FIRST HANDOVER. The STARTTLS restart goes through the lifecycle's restart_stream action, which resets the XML reader. The POST-SASL restart (RFC 6120 §6.4.6) is initiated BY THE CORE, which writes the new stream header itself on success — and the driver never reset the reader for it. The third stream's root then arrived as a CHILD of the second stream's still-ope",
-  "published": "2026-08-18T18:09:06.079Z",
+  "notes": "THE FIRST COMPLETE XMPP SESSION IN THIS PROJECT'S HISTORY, confirmed by the server itself. Openfire's console: a026723@pauls-macbook-pro.local/ots — the resource ots is what this client binds — Authenticated, Online, TLSv1.3, TLS_AES_256_GCM_SHA384, SCRAM-SHA-1. Every layer written from the RFCs held against a real server: the stream, STARTTLS, the certificate under the owner's setting, SCRAM, the post-SASL restart fixed one release earlier, bind, roster, presence-last. Seven Test presses, each advancing exactly one rung, each rung a property of the real wire no fixture could reach — CHAT-SPEC",
+  "published": "2026-08-18T19:56:46.369Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
