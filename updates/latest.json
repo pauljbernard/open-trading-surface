@@ -1,13 +1,13 @@
 {
-  "version": "5.80.8",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.8.plugin",
-  "sha256": "b0410c4fa6435ae11a4212c7dcd29f58d2b7e1b55b32c287612deae27f1e8bae",
+  "version": "5.80.9",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.9.plugin",
+  "sha256": "d4624c950941386e399958382cf9203b8204f7ca928bb41f646682c5bb25d59a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.8.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.9.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE FIRST COMPLETE XMPP SESSION IN THIS PROJECT'S HISTORY, confirmed by the server itself. Openfire's console: a026723@pauls-macbook-pro.local/ots — the resource ots is what this client binds — Authenticated, Online, TLSv1.3, TLS_AES_256_GCM_SHA384, SCRAM-SHA-1. Every layer written from the RFCs held against a real server: the stream, STARTTLS, the certificate under the owner's setting, SCRAM, the post-SASL restart fixed one release earlier, bind, roster, presence-last. Seven Test presses, each advancing exactly one rung, each rung a property of the real wire no fixture could reach — CHAT-SPEC",
-  "published": "2026-08-18T19:56:46.369Z",
+  "notes": "The owner pressed Connect on 5.80.8 and watched the panel churn on connecting with the certificate note attached and no failure sentence — a combination that is impossible in a single attempt, which is what gave the mechanism away. Openfire showed no session. TWO DEFECTS, ONE DEATH SPIRAL. A retryable stop returned only wait, so the socket that failed was never closed. And every socket's handlers fed the one link FOREVER — so when the retry opened a new socket, the abandoned one's dying close event arrived during the new attempt's connecting phase, where the 5.80.5 tail-guard does not apply, a",
+  "published": "2026-08-18T20:08:20.279Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
