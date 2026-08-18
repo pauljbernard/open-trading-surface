@@ -1,13 +1,13 @@
 {
-  "version": "5.80.12",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.12.plugin",
-  "sha256": "eaba6a26e9ed4d7a6dfedac8c35d60f999fc6cde97b881e380980720415e35d8",
+  "version": "5.80.13",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.13.plugin",
+  "sha256": "b578062db0593cc92df02da030a8fab09883d2d6273db7e0eba3183311c3dd9e",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.12.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.13.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The daemon died minutes after the first live chat link went ready, with stdio:'ignore' and no runtime crash handler — nothing written anywhere. The daemon now carries uncaughtException/unhandledRejection handlers that write daemon-crash.log and exit: the next crash is a read, not a reconstruction. The investigation found four defects worse than the crash: Every reconnect after a STARTTLS upgrade dialed direct-TLS at the plain port. The lifecycle's secured handler wrote state.tls = true — and state.tls is the socket kind every later connect action carries, so from the first successful upgrade o",
-  "published": "2026-08-18T21:43:41.231Z",
+  "notes": "The owner joined his first real room and clicked it — and the click was refused: open_panel {kind:\"surface\", vertical:\"chat\"} needs a view. Views: servers_xmpp, servers_irc. The chat render map answers room views BY SHAPE (a Proxy over room:<protocol <account <conversation>, because conversations are discovered rather than declared), while the open door validated against the DECLARED id list only — the registry and the door were two different answers to one question. The vertical now declares accepts(), judged by the SAME ref parse the renderer and the label function use, so the door and the r",
+  "published": "2026-08-18T22:01:32.959Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
