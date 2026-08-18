@@ -1,13 +1,13 @@
 {
-  "version": "5.80.5",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.5.plugin",
-  "sha256": "19dc6dd59f3cd273612d214d0ccb34c504758f9be770d2c3023002a385f7d334",
+  "version": "5.80.6",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.6.plugin",
+  "sha256": "63a6dbbffbeb07ac5c9bd006d5e4432f50f7d7fc5ff5c4079ca781219dfae6e4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.5.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.6.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's first real Test press against his Openfire ran the whole corrected path — plain connect, ready for STARTTLS — and failed with the GENERIC network_unreachable sentence and no detail. The socket's actual error was captured and CLOBBERED ONE EVENT LATER. Node emits error then close on a failed socket. The lifecycle treated the close as a fresh failure: the stop was re-recorded with a null detail — overwriting ECONNREFUSED, or self-signed certificate, or whatever the socket actually said — and the failure count moved twice per attempt, skewing the backoff. A close or a late error arriv",
-  "published": "2026-08-18T17:46:29.604Z",
+  "notes": "The owner's Test reached his Openfire and came back with the socket's own sentence — *self-signed certificate* — which is the good world: TCP, the stream, STARTTLS and the TLS handshake all worked, and Node refused to trust a private server's out-of-the-box certificate. The trust question was put to the owner with the trade-offs stated, and he chose: allow self-signed, per account. Recorded as his decision, and built the house way. VERIFICATION IS NOT TURNED OFF — IT IS MOVED. The socket still runs Node's verification and reports the verdict and the peer certificate's SHA-256 fingerprint as FA",
+  "published": "2026-08-18T17:57:56.342Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
