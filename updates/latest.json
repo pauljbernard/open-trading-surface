@@ -1,13 +1,13 @@
 {
-  "version": "5.79.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.79.0.plugin",
-  "sha256": "918a8ff49088b428043e0b8541eb655c096a1b10e7d4170db7cffaa30436b328",
-  "signed": false,
-  "signature_url": "",
+  "version": "5.80.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.0.plugin",
+  "sha256": "87e6d1b756b479b5adc40562b387ab1ede385b680b06f0c88d3e19cbbbd22bf1",
+  "signed": true,
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
-  "signing_key_fingerprint": "",
+  "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"I have a suggestion on how we can improve the visual presentation of our portfolio reporting. lets work on improving our portfolio Report\" — with a one-page institutional tearsheet as the reference: a header band, a strip of headline figures, a row of performance charts, a row of risk and allocation diagrams, a footer of disclosures. THREE OF THE SIX PANELS HAD NO ANALYSIS BEHIND THEM, so the analysis came first. Drawing them from something adjacent would have put shapes on a page whose whole purpose is to be trusted. The underwater path (analytics.drawdownPath). riskStats has alwa",
-  "published": "2026-08-17T23:24:55.400Z",
+  "notes": "The owner, 2026-08-17: *\"We need the ability for instances of the application we are creating (OTS) along with agents that are interacting with OTS and users of OTS to talk to each other … the ability to configure one or more XMPP and IRC servers in the Administration Settings configuration area … and a new Tab dedicated to the purpose of a chat client that supports both xmpp and irc.\"* THE PROTOCOL STACKS ARE WRITTEN HERE. This project has zero runtime dependencies and keeps them: an incremental XMPP stream parser, the IRC line grammar, SCRAM-SHA-256/SHA-1 checked against RFC 5802's own worke",
+  "published": "2026-08-18T14:31:01.067Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
