@@ -1,13 +1,13 @@
 {
-  "version": "5.80.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.1.plugin",
-  "sha256": "e9a5c35df4a4d8eb4ff3eb60c60327d516f1ad294e955aae33afc664893318e5",
+  "version": "5.80.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.2.plugin",
+  "sha256": "dc416c1984f679b5218bccaba6bd0a78fa0d71764e4a2398e3e533cd390cee82",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.80.0 published, and the Chat tab was opened for the first time. Both panels sat on *\"Reading the accounts…\"* for ever, and the rail printed *\"Conversations could not list what is under it — [object Object]\"*. Every assertion in the battery was green. AN ASYNC CONTINUATION IS A DIFFERENT CALL. renderPanelInto calls a zero-arity renderer as fn(), which relies on RENDER_HOST being set for the SYNCHRONOUS call — so the placeholder landed in the panel correctly. But the fetch callback runs after that scope has unwound, RENDER_HOST is null again, and contentHost() falls through to gestureHost(): t",
-  "published": "2026-08-18T15:00:23.131Z",
+  "notes": "The owner opened Administration → Chat accounts — the first person to see it rendered — and asked for three things. All three shipped, and building the second found a defect in a guard. THE PORT FOLLOWS THE PROTOCOL AND THE ENCRYPTION. It was hard-coded to 5222; switching the dropdown to IRC left it there, which is exactly the kind of thing that produces a puzzling connection failure. The defaults are a declared table (5222 for XMPP either way, since RFC 6120 upgrades in-band; 6697/6667 for IRC, where plaintext is a DIFFERENT port) — and a default may never overwrite a value somebody typed: th",
+  "published": "2026-08-18T17:10:05.386Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
