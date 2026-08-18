@@ -1,13 +1,13 @@
 {
-  "version": "5.80.14",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.14.plugin",
-  "sha256": "d5d6d45d2876b927195221fabd8f5007ef534693fc5a017121a22d40db69d66d",
+  "version": "5.80.15",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.15.plugin",
+  "sha256": "af74a6f87371c56d9e73bac742e2799b2cf1c6940b7902a51a635276ae3d38fb",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.14.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.15.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The first real message this system ever sent was on disk with its room echo — and the open conversation panel went on saying \"No message has been recorded\": it painted once at open and repainted only after its OWN Send, so anything that ARRIVED (the entire point of a chat panel) stayed invisible until a manual repaint. The chatServersPoll law, applied to the room panel: per host in the one WeakMap, armed FIRST in the draw before any painting can throw, ungated. A poll repaint paints over the standing content rather than flashing the placeholder, carries the half-typed draft and its caret acros",
-  "published": "2026-08-18T22:22:08.558Z",
+  "notes": "The owner: \"have you enabled support for MAM, so that the client doesn't miss any messages.\" It hadn't — the only recovery was the MUC join backlog (40 stanzas, rooms only); a 1:1 message sent while this client was away was gone. At ready the driver now asks each joined room's OWN archive (MUC archives live at the room) and the account's server archive for the 1:1 side, each anchored at the newest message already on disk — the answer is the gap, not the history; a cold conversation asks for the latest page only, never an unbounded everything. A result is unwrapped from its forwarded envelope a",
+  "published": "2026-08-18T22:57:40.843Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
