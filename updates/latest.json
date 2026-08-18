@@ -1,13 +1,13 @@
 {
-  "version": "5.80.15",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.15.plugin",
-  "sha256": "af74a6f87371c56d9e73bac742e2799b2cf1c6940b7902a51a635276ae3d38fb",
+  "version": "5.81.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.81.0.plugin",
+  "sha256": "5bd0bfbc933c1912c950267aaf6df63f37bb140ef42669715d852d7badda0385",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.15.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.81.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"have you enabled support for MAM, so that the client doesn't miss any messages.\" It hadn't — the only recovery was the MUC join backlog (40 stanzas, rooms only); a 1:1 message sent while this client was away was gone. At ready the driver now asks each joined room's OWN archive (MUC archives live at the room) and the account's server archive for the 1:1 side, each anchored at the newest message already on disk — the answer is the gap, not the history; a cold conversation asks for the latest page only, never an unbounded everything. A result is unwrapped from its forwarded envelope a",
-  "published": "2026-08-18T22:57:40.843Z",
+  "notes": "The owner: \"enhance the UX to be a competitive XMPP chat client with the full feature set that the server currently supports\" — toward OTS users sharing data from their local OTS context over the §6 envelope. What a competitive client could not do here before: start a DM (the roster was fetched and rendered nowhere), see presence, answer a subscription request, add a contact, see a room's subject or occupants, see typing, know a message arrived, or share a file. Now: contacts with live presence and one-click DM initiation; subscription requests with Approve/Deny (approval subscribes back); add",
+  "published": "2026-08-18T23:18:58.824Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
