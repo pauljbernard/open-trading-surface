@@ -1,13 +1,13 @@
 {
-  "version": "5.81.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.81.0.plugin",
-  "sha256": "5bd0bfbc933c1912c950267aaf6df63f37bb140ef42669715d852d7badda0385",
+  "version": "5.82.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.82.0.plugin",
+  "sha256": "4415749a70746e5f3f7984abf2dd814667a633053d4b3329148c99bfecad6331",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.81.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.82.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"enhance the UX to be a competitive XMPP chat client with the full feature set that the server currently supports\" — toward OTS users sharing data from their local OTS context over the §6 envelope. What a competitive client could not do here before: start a DM (the roster was fetched and rendered nowhere), see presence, answer a subscription request, add a contact, see a room's subject or occupants, see typing, know a message arrived, or share a file. Now: contacts with live presence and one-click DM initiation; subscription requests with Approve/Deny (approval subscribes back); add",
-  "published": "2026-08-18T23:18:58.824Z",
+  "notes": "The owner: the UX \"would feel more like Microsoft Teams with nouns and verbs that users of such systems now expect… that fact that XMPP is being used shouldn't even be obvious.\" The rail now reads Chats (people by name, presence dots, every recorded 1:1), Channels (published names, a \"+ Join or create…\" row), and Accounts — the per-protocol plumbing tucked away. Conversation titles are names with the address in the tooltip; the Accounts panel says People, Channels, Add someone; no protocol word or XEP number headlines anything. Marked accounts auto-connect at daemon boot, because seamless mean",
+  "published": "2026-08-18T23:44:30.212Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
