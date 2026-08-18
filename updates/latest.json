@@ -1,13 +1,13 @@
 {
-  "version": "5.80.9",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.9.plugin",
-  "sha256": "d4624c950941386e399958382cf9203b8204f7ca928bb41f646682c5bb25d59a",
+  "version": "5.80.10",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.10.plugin",
+  "sha256": "56632af60bedde95cac6accf74f3ea3eaa66b3c072c9c43d7e9212b3fab5c095",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.9.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.80.10.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner pressed Connect on 5.80.8 and watched the panel churn on connecting with the certificate note attached and no failure sentence — a combination that is impossible in a single attempt, which is what gave the mechanism away. Openfire showed no session. TWO DEFECTS, ONE DEATH SPIRAL. A retryable stop returned only wait, so the socket that failed was never closed. And every socket's handlers fed the one link FOREVER — so when the retry opened a new socket, the abandoned one's dying close event arrived during the new attempt's connecting phase, where the 5.80.5 tail-guard does not apply, a",
-  "published": "2026-08-18T20:08:20.279Z",
+  "notes": "The owner's Connect on 5.80.9 froze at securing — past the 30-second deadline that should have moved it, with an authenticated session sitting idle on Openfire's side. The panel offered one word, and one word is not a diagnosis. Twice today a defect was found only by reasoning backwards from a frozen phase; this release makes the next one a read instead of a reconstruction. THE LIFECYCLE CARRIES A FLIGHT RECORDER. Every event the link receives is recorded with the phase it found and the phase it left, timestamped with the CALLER'S clock — the purity guard caught the first cut reaching for the ",
+  "published": "2026-08-18T20:23:15.227Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
