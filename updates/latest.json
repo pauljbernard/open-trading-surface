@@ -1,13 +1,13 @@
 {
-  "version": "5.90.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.0.plugin",
-  "sha256": "e7b8df99519a2e7de501be556a3710d83a75cf7b0edc377371b13f0457bb44d1",
+  "version": "5.90.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.1.plugin",
+  "sha256": "b88d9a0bb1107e35a9622eef89a647bf5643ec3419528b513659ac28b197fff6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"split the frame horizontally… the upper section will be a table where each article is rendered with one row and a column for each data element… vertically scrollable… when the scroll gets to the bottom triggers a request for the next 40 most recent articles… the lower section should be for all intents and purposes an Iframe that displays the actual story of the story selected.\" Exactly that: Published | Source | Headline | Summary as one row per story in a scrollable upper table; reaching the bottom asks the provider's page cursor for the next 40, deduped on the article URL, with a",
-  "published": "2026-08-19T17:33:08.190Z",
+  "notes": "The 5.89.1 metadata refresh grew plugin.json's description to 644 characters and the plugin upload failed validation: \"description must be at most 500 characters\" — a description the installer refuses is a release nobody can take. Trimmed to 482 without losing a pillar, synced to marketplace.json, and the 500-character bound is now asserted in version.test.js beside the version-agreement guards, so an over-long description fails the battery instead of the upload.",
+  "published": "2026-08-19T17:55:32.692Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
