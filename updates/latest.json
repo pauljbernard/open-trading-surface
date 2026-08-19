@@ -1,13 +1,13 @@
 {
-  "version": "5.89.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.89.0.plugin",
-  "sha256": "8c2f3504786b54d494617c17a5fa9025fa74d33484ecc8e4b1eb5e23f7c53be5",
+  "version": "5.89.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.89.1.plugin",
+  "sha256": "3a3b5df7672ae8af2581b23dc1d5d5783e56334a769d9da23d9c1b3627e4f9e1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.89.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.89.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Another agent reported the exposed MCP routing surface stale, and the measurement agreed: control_terminal's hand-written action list named 49 of the 94 verbs the terminal dispatches — open_administration, open_calendar, open_analysis, open_research, sort_table and forty more were dispatchable and invisible to any agent routing off the schema (the debt DATA-MANAGEMENT §11.5 recorded at 5.58.0, grown from 43/92). The list is now DERIVED from the dispatcher itself (terminal.ctlVerbs(), refusing rather than publishing a short list), the deprecated six are a declared set checked at load, and a sui",
-  "published": "2026-08-19T13:38:49.522Z",
+  "notes": "The owner asked whether the MCP server's published metadata was current, and it was not, twice. The initialize handshake announced version 1.0.0 from the day index.js was written — a fifth hard-coded copy of \"what version am I\" in the codebase whose version.js exists to end that class — so every MCP client that recorded our serverInfo was told 1.0.0 across five major versions; it now reads version.current(). And .claude-plugin/marketplace.json said 2.19.1 with the plugin description truncated mid-word, stale since the 2.x era; it is synced to plugin.json and guarded in version.test.js so neith",
+  "published": "2026-08-19T17:13:23.041Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
