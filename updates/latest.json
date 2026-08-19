@@ -1,13 +1,13 @@
 {
-  "version": "5.93.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.93.0.plugin",
-  "sha256": "ab880aaf48f0077189fadbaa165183881574392ca9c46c58fc1c178006517862",
+  "version": "5.93.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.93.1.plugin",
+  "sha256": "39825f2590c001c55fc3782aaa4ba693afbfaecf55f34733f1f1d079068445c1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.93.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.93.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, on the News panel: \"The text 'TSLA — News' is correctly displayed in the pane title bar, and then again in the body of the panel itself… The second instance can be removed as its redundant.\" He named one panel as an example; the class was TWENTY-SEVEN sites — every security view has carried a \"SYM — ViewLabel\" body heading since before panels had title bars (the heading WAS the title when views were full-page tabs, and 5.19.0 gave every panel a derived title without retiring the old one). All twenty-seven are gone, and only the duplication went: what the title bar does NOT carry sta",
-  "published": "2026-08-19T19:57:48.429Z",
+  "notes": "The owner: \"Research Thesis, doesn't appear to have a way to navigate back to top level thesis page, and is now stuck displaying a lower level page.\" The mode strip (New thesis · Candidates · Discover · Worldview) was built inside the DEFAULT mode's table renderer (5.66.0), so the four whole-pane modes it led to rendered without it — one-way doors with no control leading back, and the rail's Thesis row does not reset the mode. The strip (thModeBar) now renders from renderContentTh itself, BEFORE the mode dispatch, in every mode, and its first chip — 🧭 Theses — IS the top level; the mode body ",
+  "published": "2026-08-19T21:17:27.649Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
