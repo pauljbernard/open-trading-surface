@@ -1,13 +1,13 @@
 {
-  "version": "5.85.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.2.plugin",
-  "sha256": "a04e79c0c7cbc4a34f41135cd659663770e2f1de563963d9603ce999e7442b3f",
+  "version": "5.85.3",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.3.plugin",
+  "sha256": "ab3c0b8d0558d36fd8e9e2c02af380504c390bcbdb084c616f9a91c1424011c4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.3.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's room showed ONE message FOUR TIMES — one copy per reconnect, at 22:13, 23:24, 23:56 and 00:27. Every MUC join replays the room's recent history as DELAYED messages; unlike MAM results they were dated by RECEIPT time, so each replay landed hours outside the dedup tolerance and the same line was stored again on every reconnect. A delayed stamp is a replay's own date, whichever door it came through: the backlog is now dated by its original stamp and deduplicated exactly as a MAM answer is — folded and counted, never silent — while a live message is never deduplicated. The copies alrea",
-  "published": "2026-08-19T01:38:24.727Z",
+  "notes": "The 5.85.2 fix dated MUC-backlog replays by their delay stamp — and the owner's very next reconnect stored a FIFTH copy at receipt time, because the fix read only the modern urn:xmpp:delay while Openfire delivers MUC history under the LEGACY jabber:x:delay (XEP-0091) with the compact CCYYMMDDThh:mm:ss stamp. Both dialects now read as one replay: the legacy stamp is normalized to ISO (UTC with no zone, per its own spec), a stamp that normalizes to nothing yields history-with-no-usable-date rather than a fabricated one, and the replay dedup finally bites on the wire Openfire actually sends. Prov",
+  "published": "2026-08-19T02:06:15.427Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
