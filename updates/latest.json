@@ -1,13 +1,13 @@
 {
-  "version": "5.93.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.93.1.plugin",
-  "sha256": "39825f2590c001c55fc3782aaa4ba693afbfaecf55f34733f1f1d079068445c1",
+  "version": "5.93.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.93.2.plugin",
+  "sha256": "537b63bf4741c69d17d4d2cbe70d0f3dc86ab42e7f871bc5329e764a5afd9ff8",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.93.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.93.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"Research Thesis, doesn't appear to have a way to navigate back to top level thesis page, and is now stuck displaying a lower level page.\" The mode strip (New thesis · Candidates · Discover · Worldview) was built inside the DEFAULT mode's table renderer (5.66.0), so the four whole-pane modes it led to rendered without it — one-way doors with no control leading back, and the rail's Thesis row does not reset the mode. The strip (thModeBar) now renders from renderContentTh itself, BEFORE the mode dispatch, in every mode, and its first chip — 🧭 Theses — IS the top level; the mode body ",
-  "published": "2026-08-19T21:17:27.649Z",
+  "notes": "The owner: \"shouldn't worldview be the farthest left button in terms of navigating from left to right?\" Yes — thesis formation flows FROM the worldview (the refresh bundle's own first sentence), so the strip now reads 🌍 Worldview · 🔭 Discover · 🧪 Candidates · 🧭 Theses · ＋ New thesis: the world picture, the discovery run over it, the candidates it proposed, the theses they became, and authoring one by hand. The default mode is unchanged — the panel still opens at Theses; only the reading order moved.",
+  "published": "2026-08-19T21:59:40.866Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
