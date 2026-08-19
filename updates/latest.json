@@ -1,13 +1,13 @@
 {
-  "version": "5.85.4",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.4.plugin",
-  "sha256": "2f74e94788b6eb3f607c16e260422f4575e1f9473b790ae57f8f0d109a693d4c",
+  "version": "5.86.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.86.0.plugin",
+  "sha256": "937e323870d3fd0dddb8cef4b3625af779fbbb7663f1b097c163534bdc720a72",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.4.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.86.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A conversation panel opened at its OLDEST line — found by the documentation capture itself, where the share card sat below the fold. A chat now opens at its newest message, and a poll repaint keeps your place UNLESS you were at the bottom, in which case it follows: reading history is respected, following along is the default. Presence marks in the browse and share dialogs moved from emoji to theme glyphs. And the documentation site catches up with the whole Surface arc: the user guide gains a full \"Surface — shared research\" section (accounts and auto-connect, people with presence, channels an",
-  "published": "2026-08-19T02:33:40.218Z",
+  "notes": "The owner: \"remove the IRC Accounts and only offer XMPP… there shouldn't be any need to leave any vestiges of IRC support — it has not been used or configured for any purpose and hasn't even been tested.\" Because nothing was ever configured or received over IRC, the removal is total rather than a retirement-with-compatibility: the IRC protocol core and its suite are deleted; the IRC accounts panel, form option and default ports are gone; the trust boundary's irc identity/conversation rules and the services_account basis are removed (the ONE identity basis is bare_jid); every door refuses non-X",
+  "published": "2026-08-19T03:21:20.661Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
