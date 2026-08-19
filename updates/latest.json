@@ -1,13 +1,13 @@
 {
-  "version": "5.83.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.83.0.plugin",
-  "sha256": "afcb3553e2a08167db839541774005ed0ef4a08ffaf636726546b2e306e3f363",
+  "version": "5.84.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.84.0.plugin",
+  "sha256": "631d6d1b2037dda3a3a253c276c89cb308e918f87d2eb220e435da974972d051",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.83.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.84.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, with the screenshot that proved it: you had to KNOW a channel's name to join it — Teams gives you a dialog to search or browse rooms and people. Two defects sat behind the observation: discovery ran once at ready (his second room, created later, was invisible until reconnect), and the panel filtered out joined channels so the whole browse section vanished the moment everything advertised was joined. Now: the channel directory always renders (joined marked, never filtered), is refreshable (⟳ on the panel; re-asked automatically as the dialog opens); the server's user directory is sea",
-  "published": "2026-08-19T00:15:46.449Z",
+  "notes": "The owner created #shared-data and named the objective: share structured data between all users — \"a sort of distributed cut and paste,\" charts first. This is what the §6 envelope was built for. Chart panels (only) carry a 📤 that opens the ONE selector to pick a destination — the shared-data channel, any channel, or a person; the payload is the symbol, the clock, the window and the chart's OWN layout record verbatim, as a share_chart envelope under the existing closed grammar (an undeclared field refuses by name; nothing can be smuggled). The receiver sees a card — 📊 AAPL · daily · window · ",
+  "published": "2026-08-19T00:49:42.694Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
