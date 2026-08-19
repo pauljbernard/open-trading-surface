@@ -1,13 +1,13 @@
 {
-  "version": "5.84.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.84.0.plugin",
-  "sha256": "631d6d1b2037dda3a3a253c276c89cb308e918f87d2eb220e435da974972d051",
+  "version": "5.85.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.0.plugin",
+  "sha256": "045c411bfe28b4b222d2d466b74d14d575901be501e2eb78bc1fbb18cecdd0e4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.84.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner created #shared-data and named the objective: share structured data between all users — \"a sort of distributed cut and paste,\" charts first. This is what the §6 envelope was built for. Chart panels (only) carry a 📤 that opens the ONE selector to pick a destination — the shared-data channel, any channel, or a person; the payload is the symbol, the clock, the window and the chart's OWN layout record verbatim, as a share_chart envelope under the existing closed grammar (an undeclared field refuses by name; nothing can be smuggled). The receiver sees a card — 📊 AAPL · daily · window · ",
-  "published": "2026-08-19T00:49:42.694Z",
+  "notes": "The owner, the same hour 5.84.0 shipped: \"architected in a manner that can be expanded to other panes later… Imagine a hive mind of securities researchers sharing everything from charts, thesis, screens, cohorts, research notes.\" The chart share is generalized from a special case into CHAT_SHARE_KINDS — one row per shareable kind (applies, collect, card, reconstruct) plus one verb reviewed into the chat-trust closed vocabulary; the 📤 control renders wherever a kind applies, derived rather than hand-tested, and the dialog, send, card and click all dispatch through the table. The next kind is a",
+  "published": "2026-08-19T01:08:02.483Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
