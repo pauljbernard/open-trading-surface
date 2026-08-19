@@ -1,13 +1,13 @@
 {
-  "version": "5.86.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.86.0.plugin",
-  "sha256": "937e323870d3fd0dddb8cef4b3625af779fbbb7663f1b097c163534bdc720a72",
+  "version": "5.87.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.87.0.plugin",
+  "sha256": "1acdc1f2eb6de5a0e27dd6993b57e381f6b982b3dac18aa166ec4f3a9b1615d1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.86.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.87.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"remove the IRC Accounts and only offer XMPP… there shouldn't be any need to leave any vestiges of IRC support — it has not been used or configured for any purpose and hasn't even been tested.\" Because nothing was ever configured or received over IRC, the removal is total rather than a retirement-with-compatibility: the IRC protocol core and its suite are deleted; the IRC accounts panel, form option and default ports are gone; the trust boundary's irc identity/conversation rules and the services_account basis are removed (the ONE identity basis is bare_jid); every door refuses non-X",
-  "published": "2026-08-19T03:21:20.661Z",
+  "notes": "The owner: \"If I select a panel where TSLA is the active security that should change the drop list box's selection. In short, its bi directional.\" Focusing a panel that pins exactly one security now moves the strip context — and the Stock dropdown — to that security, through the ONE focus operation every gesture and the focus_panel verb share, reported as context_followed on the payload. It never guesses: a multi-security chart grid and a panel with no security move nothing, and focus still re-renders no body. The dropdown keeps driving the rail the other way; focus_differs and the away-securi",
+  "published": "2026-08-19T11:11:45.017Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
