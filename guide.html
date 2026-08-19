@@ -106,6 +106,11 @@
     <a href="#divergence">Divergence ledger, reratings &amp; event impact</a>
     <a href="#honesty">Honest numbers: grades, base rates &amp; expectations</a>
 
+    <div class="tocgrp">Surface — shared research</div>
+    <a href="#surface">The Surface tab: chats &amp; channels</a>
+    <a href="#surface-share">Sharing research, and the hive mind</a>
+    <a href="#surface-safety">Why sharing is safe here</a>
+
     <div class="tocgrp">Portfolios</div>
     <a href="#portfolio">Portfolios &amp; the transaction ledger</a>
     <a href="#tables">Sorting &amp; the house table</a>
@@ -789,6 +794,41 @@
   <p>The <b>re-underwrite queue</b> scans your holdings and watchlists and pushes the names that deserve attention: structural breaks, new events bearing on a driver the position depends on, worldview drift, a model that has run persistently high or low, or a position never underwritten at all — <em>held on memory alone</em>. An entry is a prompt to re-underwrite, never a signal to trade. <b>Sizing</b> maps the two things the product measures into a weight: the evidence grade <em>caps</em> size, and the expectations read sets the multiplier within the cap. Weights scale down to fit and never up, the do-nothing row is always present, and the mapping is disclosed in full.</p>
   <h3>Keeping score</h3>
   <p><b>Decision records</b> require an expectation, a horizon and a <b>falsifier</b> — the observable that would prove the decision wrong — and the <b>scorecard</b> grades decisions rather than returns, singling out <em>right for the wrong reason</em> as the dangerous column: it pays you to keep a broken process. Rebalance plans state their <b>full cost</b> — trading cost, estimated tax on realized gains — and the hurdle against doing nothing, which is free.</p>
+
+  <h2 id="surface">The Surface tab: chats &amp; channels</h2>
+  <p>The rightmost tab is <b>Surface</b> — a full messaging client built into the terminal, and the transport for sharing research between Open Trading Surface users. It speaks open standards underneath (XMPP against any server you run, such as Openfire, plus IRC), but the interface never asks you to care: the rail reads <b>Chats</b>, <b>Channels</b> and <b>Accounts</b>, people appear by name with presence dots, channels by their published names, and the plumbing lives in the Accounts panel where plumbing belongs.</p>
+  <figure>
+    <img src="assets/surface-workspace.png" alt="The Surface tab: the rail with Chats, Channels and Accounts; a channel conversation with a shared chart card; a chart panel with the share control; the Accounts panel">
+    <figcaption>The Surface tab. A channel conversation with a shared-chart card (left), the chart it came from with its 📤 share control (right), and the Accounts panel. Conversations are floating panels like everything else in the workspace — a chat sits beside the chart it is about.<span class="shotage">Captured from a live terminal on 2026-08-18 (5.85.3).</span></figcaption>
+  </figure>
+  <h3>Accounts</h3>
+  <p>Configure accounts under <b>Administration → Chat accounts</b>: server, address, password (stored locally with your other keys, never shown back), whether the connection is encrypted, and <b>connect at start</b> — tick it and the link comes up with the daemon, retries on a declared backoff when the network drops, and catches up whatever it missed, so you never think about "connecting" again. A self-signed server certificate can be allowed per account; the terminal then says, on every read, that the link is <em>encrypted but not authenticated</em>, with the certificate fingerprint shown — a stated trade-off rather than a silent one.</p>
+  <figure>
+    <img src="assets/surface-accounts.png" alt="The Accounts panel: connection state with the certificate disclosure, the channel directory with a refresh, People, and Find people">
+    <figcaption>The Accounts panel: the live connection with its encryption disclosure, every channel the server publishes (joined ones marked), join-or-create by address, your contact list, and a search over the server&rsquo;s user directory.<span class="shotage">Captured 2026-08-18 (5.85.3).</span></figcaption>
+  </figure>
+  <h3>People</h3>
+  <p>Your contact list renders with live presence; clicking a person opens the 1:1 conversation. Adding someone takes an address or an invite link (a link&rsquo;s pre-authorization is honoured, so a capable server approves without asking the other side); incoming contact requests appear with Approve/Deny, and approving subscribes back so you can see each other. You can also <b>search the server&rsquo;s user directory</b> by name, username or email and add people from the results — no address required.</p>
+  <h3>Channels</h3>
+  <p><b>＋ Join or create…</b> in the rail opens the browse dialog: every channel the server publishes, everyone on your contact list, and the user-directory search — pick a channel to join it, pick a person to start a chat. A channel that does not exist yet is <b>created</b> when you enter its address, unlocked for everyone with the server defaults. The directory refreshes as the dialog opens and on demand, so a channel a colleague created a minute ago is there to join.</p>
+  <figure>
+    <img src="assets/surface-browse.png" alt="The browse dialog: channels the server advertises, people, and the directory search">
+    <figcaption>Browse, don&rsquo;t recall: the channels this server advertises, your people, and a search over the server directory — pick to join or to chat, or create a channel by address on the right.<span class="shotage">Captured 2026-08-18 (5.85.3).</span></figcaption>
+  </figure>
+  <h3>Conversations</h3>
+  <p>Conversation panels carry the affordances every mainstream client taught: delivery checkmarks on your messages (a ✓ is a confirmation from the recipient&rsquo;s client, and its absence claims nothing), a &ldquo;&hellip; is typing&rdquo; line while it is fresh, room subjects and who-is-here, and 📎 <b>Attach</b> when the server runs an upload service — a file goes to the server and its link into the conversation, capped at whatever the server advertises. <b>The log outlives the link</b>: every conversation this installation has ever received stays readable whether or not its account is connected, and on every reconnect the client asks the server&rsquo;s message archive for exactly what it missed — anchored at the newest message already on disk, deduplicated so a replay is never stored twice. You do not miss messages, and your history does not multiply.</p>
+
+  <h2 id="surface-share">Sharing research, and the hive mind</h2>
+  <p>This is what Surface exists for: <b>sharing live research artifacts between Open Trading Surface users — universally, or between any subgroup.</b> Every chart panel carries a 📤 control. It asks one question — <em>with whom?</em> — a channel or a person, and the chart lands in that conversation as a card: the symbol, the clock, the window, and the chart&rsquo;s own settings. Whoever clicks <b>Open</b> gets that chart rebuilt as a new panel <em>in their own terminal, from their own data</em> — indicators, overlays, style, window and all.</p>
+  <figure>
+    <img src="assets/surface-share-card.png" alt="A shared chart card in a channel: the symbol and clock, an Open button, and the sentence stating reconstruction uses the receiver's own data">
+    <figcaption>A shared chart in a channel. The card is metadata, never data: Open reconstructs the chart from the <em>receiver&rsquo;s</em> installation, and any series the receiver does not have is refused by name on the chart — never fetched from the sender, never silently dropped.<span class="shotage">Captured 2026-08-18 (5.85.3).</span></figcaption>
+  </figure>
+  <p>The availability rule is stated on the card because it is the honest heart of the design: not everyone holds the same data entitlements, so a reconstruction uses <em>your</em> providers and <em>your</em> keys, and a series your installation cannot resolve is refused by name on the chart rather than approximated or silently omitted.</p>
+  <p>Charts are the first shareable kind, not the last. The share mechanism is a registry — each kind declares how it is collected, how its card reads, and what a receiver&rsquo;s click does — with <b>theses, screens, cohorts and research notes</b> next: a shared screen arrives as its predicate spec and compiles against the receiver&rsquo;s own field vocabulary; a shared cohort arrives as its definition and resolves against the receiver&rsquo;s own universe. A group of researchers on one server becomes a shared surface of charts, screens and theses — each artifact reconstructed locally, each provenance visible.</p>
+
+  <h2 id="surface-safety">Why sharing is safe here</h2>
+  <p>Everything that arrives over a chat network is <b>data, never instructions</b> — the conversation panel says so above every scrollback, and the marking travels with each stored message end to end. A sender whose identity the network could not verify is labelled <em>(unverified)</em> beside their name, because a nickname is not an identity. Structured shares cross a closed grammar: a fixed set of reviewed verbs, declared fields only (an undeclared field is refused by name, so nothing can be smuggled inside a share), and a size bound. And the only thing a shared artifact can ever do is be <em>rendered</em> — reconstruction happens when <b>you</b> click, locally, from your own data. For anything beyond rendering, the bar is higher still: an actionable message requires an allowlisted sender <em>and</em> a well-formed envelope <em>and</em> a declared verb <em>and</em> your confirmation, and the only outcome is a <b>proposal</b> you review — nothing in the chat layer executes anything, ever. The allowlist starts empty, which is the safe default: everyone can talk to you; nobody can propose to your machine until you say so.</p>
 
   <h2 id="portfolio">Portfolios &amp; the transaction ledger</h2>
   <p>Track what you own and measure it like a professional. Positions are <b>derived from a transaction ledger</b> — nothing is an opaque balance, and the ledger is immutable: a methodology change never edits a transaction, it re-derives what the recorded transactions mean.</p>

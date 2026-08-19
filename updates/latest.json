@@ -1,13 +1,13 @@
 {
-  "version": "5.85.3",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.3.plugin",
-  "sha256": "ab3c0b8d0558d36fd8e9e2c02af380504c390bcbdb084c616f9a91c1424011c4",
+  "version": "5.85.4",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.4.plugin",
+  "sha256": "2f74e94788b6eb3f607c16e260422f4575e1f9473b790ae57f8f0d109a693d4c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.3.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.4.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The 5.85.2 fix dated MUC-backlog replays by their delay stamp — and the owner's very next reconnect stored a FIFTH copy at receipt time, because the fix read only the modern urn:xmpp:delay while Openfire delivers MUC history under the LEGACY jabber:x:delay (XEP-0091) with the compact CCYYMMDDThh:mm:ss stamp. Both dialects now read as one replay: the legacy stamp is normalized to ISO (UTC with no zone, per its own spec), a stamp that normalizes to nothing yields history-with-no-usable-date rather than a fabricated one, and the replay dedup finally bites on the wire Openfire actually sends. Prov",
-  "published": "2026-08-19T02:06:15.427Z",
+  "notes": "A conversation panel opened at its OLDEST line — found by the documentation capture itself, where the share card sat below the fold. A chat now opens at its newest message, and a poll repaint keeps your place UNLESS you were at the bottom, in which case it follows: reading history is respected, following along is the default. Presence marks in the browse and share dialogs moved from emoji to theme glyphs. And the documentation site catches up with the whole Surface arc: the user guide gains a full \"Surface — shared research\" section (accounts and auto-connect, people with presence, channels an",
+  "published": "2026-08-19T02:33:40.218Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
