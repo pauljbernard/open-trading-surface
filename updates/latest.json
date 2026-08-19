@@ -1,13 +1,13 @@
 {
-  "version": "5.85.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.0.plugin",
-  "sha256": "045c411bfe28b4b222d2d466b74d14d575901be501e2eb78bc1fbb18cecdd0e4",
+  "version": "5.85.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.1.plugin",
+  "sha256": "eb7dd292382b1e52ec76f1ad6b659194825a16ea5f892b7098d0a0b357ee4c2f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.85.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, the same hour 5.84.0 shipped: \"architected in a manner that can be expanded to other panes later… Imagine a hive mind of securities researchers sharing everything from charts, thesis, screens, cohorts, research notes.\" The chart share is generalized from a special case into CHAT_SHARE_KINDS — one row per shareable kind (applies, collect, card, reconstruct) plus one verb reviewed into the chat-trust closed vocabulary; the 📤 control renders wherever a kind applies, derived rather than hand-tested, and the dialog, send, card and click all dispatch through the table. The next kind is a",
-  "published": "2026-08-19T01:08:02.483Z",
+  "notes": "The owner: rename Chat to Surface — \"fitting to both the name of the application and the fundamental idea behind surfacing shared research.\" A label and only a label: the pinned index, the vertical id, every door, verb, store path and payload key are unchanged. Panel titles follow the label with no migration.",
+  "published": "2026-08-19T01:23:56.031Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
