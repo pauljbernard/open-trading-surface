@@ -1,13 +1,13 @@
 {
-  "version": "5.91.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.91.0.plugin",
-  "sha256": "8fd07681eb4c7f61d6a25140f90d9f906850c76dd2f042604182ab520d48b7ea",
+  "version": "5.92.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.92.0.plugin",
+  "sha256": "87053f70e6387aef6e3ee60580b55ec33cf926783190fd2745a59c83c429d703",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.91.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.92.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner hit a Distil \"Pardon Our Interruption\" wall inside the news iframe and observed the decisive fact himself: \"the page renders just fine, if its not in the iframe.\" The wall objects to the FRAME — a cross-site iframe gets its cookies partitioned by the browser whatever the embedder grants, the wall's set-a-cookie-and-check probe fails, and it concludes bot. Measured on his exact Zacks link: the same page serves its FULL article to the daemon's top-level fetch. So the lower pane gains READER VIEW, a toggle beside Open ↗: the daemon fetches the story (server/article-reader.js — a pure pa",
-  "published": "2026-08-19T18:54:09.257Z",
+  "notes": "Two owner directives, one release. \"It might be best for consistency purposes to always use reader view, and then provide the open in browser link as an alternative\": the embed iframe is GONE, not defaulted away — its best case was inconsistent rendering and its worst was a blank frame that could not say why (a cross-site iframe gets its cookies partitioned, and publisher bot-walls read that as a bot). Every selection now renders the daemon's text extraction, declared as an extraction, with Open in browser stated as the full-page alternative. And \"the line between the upper and lower section s",
+  "published": "2026-08-19T19:19:32.583Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
