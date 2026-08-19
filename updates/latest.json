@@ -1,13 +1,13 @@
 {
-  "version": "5.82.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.82.0.plugin",
-  "sha256": "4415749a70746e5f3f7984abf2dd814667a633053d4b3329148c99bfecad6331",
+  "version": "5.83.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.83.0.plugin",
+  "sha256": "afcb3553e2a08167db839541774005ed0ef4a08ffaf636726546b2e306e3f363",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.82.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.83.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: the UX \"would feel more like Microsoft Teams with nouns and verbs that users of such systems now expect… that fact that XMPP is being used shouldn't even be obvious.\" The rail now reads Chats (people by name, presence dots, every recorded 1:1), Channels (published names, a \"+ Join or create…\" row), and Accounts — the per-protocol plumbing tucked away. Conversation titles are names with the address in the tooltip; the Accounts panel says People, Channels, Add someone; no protocol word or XEP number headlines anything. Marked accounts auto-connect at daemon boot, because seamless mean",
-  "published": "2026-08-18T23:44:30.212Z",
+  "notes": "The owner, with the screenshot that proved it: you had to KNOW a channel's name to join it — Teams gives you a dialog to search or browse rooms and people. Two defects sat behind the observation: discovery ran once at ready (his second room, created later, was invisible until reconnect), and the panel filtered out joined channels so the whole browse section vanished the moment everything advertised was joined. Now: the channel directory always renders (joined marked, never filtered), is refreshable (⟳ on the panel; re-asked automatically as the dialog opens); the server's user directory is sea",
+  "published": "2026-08-19T00:15:46.449Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
