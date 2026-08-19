@@ -1,13 +1,13 @@
 {
-  "version": "5.90.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.2.plugin",
-  "sha256": "2990ca032b41f9905ee2dc68742a06b1940837823238a9a2c8656058f965fbb7",
+  "version": "5.91.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.91.0.plugin",
+  "sha256": "8fd07681eb4c7f61d6a25140f90d9f906850c76dd2f042604182ab520d48b7ea",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.91.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"the inner iframe needs to support javascript and cookies to render some web sites.\" Scripts were never blocked — the frame ships without a sandbox, deliberately — but two of its attributes were working against real publishers: referrerpolicy=\"no-referrer\" starved referrer-gated sites into serving blank or stripped pages (removed; the browser default applies), and the frame granted no permissions, so an embedded cross-site page could not even ASK for its cookies under third-party-cookie blocking (it now carries allow=\"storage-access *\" plus fullscreen/autoplay/encrypted-media/ pictu",
-  "published": "2026-08-19T18:33:32.835Z",
+  "notes": "The owner hit a Distil \"Pardon Our Interruption\" wall inside the news iframe and observed the decisive fact himself: \"the page renders just fine, if its not in the iframe.\" The wall objects to the FRAME — a cross-site iframe gets its cookies partitioned by the browser whatever the embedder grants, the wall's set-a-cookie-and-check probe fails, and it concludes bot. Measured on his exact Zacks link: the same page serves its FULL article to the daemon's top-level fetch. So the lower pane gains READER VIEW, a toggle beside Open ↗: the daemon fetches the story (server/article-reader.js — a pure pa",
+  "published": "2026-08-19T18:54:09.257Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
