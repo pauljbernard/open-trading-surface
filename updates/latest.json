@@ -1,13 +1,13 @@
 {
-  "version": "5.90.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.1.plugin",
-  "sha256": "b88d9a0bb1107e35a9622eef89a647bf5643ec3419528b513659ac28b197fff6",
+  "version": "5.90.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.2.plugin",
+  "sha256": "2990ca032b41f9905ee2dc68742a06b1940837823238a9a2c8656058f965fbb7",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The 5.89.1 metadata refresh grew plugin.json's description to 644 characters and the plugin upload failed validation: \"description must be at most 500 characters\" — a description the installer refuses is a release nobody can take. Trimmed to 482 without losing a pillar, synced to marketplace.json, and the 500-character bound is now asserted in version.test.js beside the version-agreement guards, so an over-long description fails the battery instead of the upload.",
-  "published": "2026-08-19T17:55:32.692Z",
+  "notes": "The owner: \"the inner iframe needs to support javascript and cookies to render some web sites.\" Scripts were never blocked — the frame ships without a sandbox, deliberately — but two of its attributes were working against real publishers: referrerpolicy=\"no-referrer\" starved referrer-gated sites into serving blank or stripped pages (removed; the browser default applies), and the frame granted no permissions, so an embedded cross-site page could not even ASK for its cookies under third-party-cookie blocking (it now carries allow=\"storage-access *\" plus fullscreen/autoplay/encrypted-media/ pictu",
+  "published": "2026-08-19T18:33:32.835Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
