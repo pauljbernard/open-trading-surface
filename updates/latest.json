@@ -1,13 +1,13 @@
 {
-  "version": "5.93.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.93.2.plugin",
-  "sha256": "537b63bf4741c69d17d4d2cbe70d0f3dc86ab42e7f871bc5329e764a5afd9ff8",
+  "version": "5.94.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.94.0.plugin",
+  "sha256": "cae4a965b8a784eff7d01b7ff2d83ef3a82bcdec1ef59901ed2a4c1c4f3220f8",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.93.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.94.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"shouldn't worldview be the farthest left button in terms of navigating from left to right?\" Yes — thesis formation flows FROM the worldview (the refresh bundle's own first sentence), so the strip now reads 🌍 Worldview · 🔭 Discover · 🧪 Candidates · 🧭 Theses · ＋ New thesis: the world picture, the discovery run over it, the candidates it proposed, the theses they became, and authoring one by hand. The default mode is unchanged — the panel still opens at Theses; only the reading order moved.",
-  "published": "2026-08-19T21:59:40.866Z",
+  "notes": "The owner: \"the formation of the world view needs to be a 'governed, editorialized' model … what's key is that in the end I agree, modify or reject the result for each.\" LAW 1 lands structurally: nothing writes the worldview but an owner act — update_worldview carries a dated CONTRACT BREAK (it wrote the store directly from its first release; it now PROPOSES, and the proposal must carry its CASE or it is refused at the write), verdicts and supersession are derived from the fold, a rejection requires the reason that feeds the next run's bundle, and accept-with-edits lands with per-field authors",
+  "published": "2026-08-19T22:43:27.011Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
