@@ -1,13 +1,13 @@
 {
-  "version": "5.89.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.89.1.plugin",
-  "sha256": "3a3b5df7672ae8af2581b23dc1d5d5783e56334a769d9da23d9c1b3627e4f9e1",
+  "version": "5.90.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.0.plugin",
+  "sha256": "e7b8df99519a2e7de501be556a3710d83a75cf7b0edc377371b13f0457bb44d1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.89.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.90.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner asked whether the MCP server's published metadata was current, and it was not, twice. The initialize handshake announced version 1.0.0 from the day index.js was written — a fifth hard-coded copy of \"what version am I\" in the codebase whose version.js exists to end that class — so every MCP client that recorded our serverInfo was told 1.0.0 across five major versions; it now reads version.current(). And .claude-plugin/marketplace.json said 2.19.1 with the plugin description truncated mid-word, stale since the 2.x era; it is synced to plugin.json and guarded in version.test.js so neith",
-  "published": "2026-08-19T17:13:23.041Z",
+  "notes": "The owner: \"split the frame horizontally… the upper section will be a table where each article is rendered with one row and a column for each data element… vertically scrollable… when the scroll gets to the bottom triggers a request for the next 40 most recent articles… the lower section should be for all intents and purposes an Iframe that displays the actual story of the story selected.\" Exactly that: Published | Source | Headline | Summary as one row per story in a scrollable upper table; reaching the bottom asks the provider's page cursor for the next 40, deduped on the article URL, with a",
+  "published": "2026-08-19T17:33:08.190Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
