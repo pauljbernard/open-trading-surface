@@ -106,8 +106,8 @@
     <a href="#divergence">Divergence ledger, reratings &amp; event impact</a>
     <a href="#honesty">Honest numbers: grades, base rates &amp; expectations</a>
 
-    <div class="tocgrp">Surface — shared research</div>
-    <a href="#surface">The Surface tab: chats &amp; channels</a>
+    <div class="tocgrp">Community — shared research</div>
+    <a href="#surface">The Community tab: chats &amp; channels</a>
     <a href="#surface-share">Sharing research, and the hive mind</a>
     <a href="#surface-safety">Why sharing is safe here</a>
 
@@ -795,11 +795,11 @@
   <h3>Keeping score</h3>
   <p><b>Decision records</b> require an expectation, a horizon and a <b>falsifier</b> — the observable that would prove the decision wrong — and the <b>scorecard</b> grades decisions rather than returns, singling out <em>right for the wrong reason</em> as the dangerous column: it pays you to keep a broken process. Rebalance plans state their <b>full cost</b> — trading cost, estimated tax on realized gains — and the hurdle against doing nothing, which is free.</p>
 
-  <h2 id="surface">The Surface tab: chats &amp; channels</h2>
-  <p>The rightmost tab is <b>Surface</b> — a full messaging client built into the terminal, and the transport for sharing research between Open Trading Surface users. It speaks an open standard underneath (XMPP against any server you run, such as Openfire), but the interface never asks you to care: the rail reads <b>Chats</b>, <b>Channels</b> and <b>Accounts</b>, people appear by name with presence dots, channels by their published names, and the plumbing lives in the Accounts panel where plumbing belongs.</p>
+  <h2 id="surface">The Community tab: chats &amp; channels</h2>
+  <p>The rightmost tab is <b>Community</b> — a full messaging client built into the terminal, and the transport for sharing research between Open Trading Surface users. It speaks an open standard underneath (XMPP against any server you run, such as Openfire), but the interface never asks you to care: the rail reads <b>Chats</b>, <b>Channels</b> and <b>Accounts</b>, people appear by name with presence dots, channels by their published names, and the plumbing lives in the Accounts panel where plumbing belongs.</p>
   <figure>
-    <img src="assets/surface-workspace.png" alt="The Surface tab: the rail with Chats, Channels and Accounts; a channel conversation with a shared chart card; a chart panel with the share control; the Accounts panel">
-    <figcaption>The Surface tab. A channel conversation with a shared-chart card (left), the chart it came from with its 📤 share control (right), and the Accounts panel. Conversations are floating panels like everything else in the workspace — a chat sits beside the chart it is about.<span class="shotage">Captured from a live terminal on 2026-08-18 (5.85.3).</span></figcaption>
+    <img src="assets/surface-workspace.png" alt="The Community tab: the rail with Chats, Channels and Accounts; a channel conversation with a shared chart card; a chart panel with the share control; the Accounts panel">
+    <figcaption>The Community tab. A channel conversation with a shared-chart card (left), the chart it came from with its 📤 share control (right), and the Accounts panel. Conversations are floating panels like everything else in the workspace — a chat sits beside the chart it is about.<span class="shotage">Captured from a live terminal on 2026-08-18 (5.85.3).</span></figcaption>
   </figure>
   <h3>Accounts</h3>
   <p>Configure accounts under <b>Administration → Chat accounts</b>: server, address, password (stored locally with your other keys, never shown back), whether the connection is encrypted, and <b>connect at start</b> — tick it and the link comes up with the daemon, retries on a declared backoff when the network drops, and catches up whatever it missed, so you never think about "connecting" again. A self-signed server certificate can be allowed per account; the terminal then says, on every read, that the link is <em>encrypted but not authenticated</em>, with the certificate fingerprint shown — a stated trade-off rather than a silent one.</p>

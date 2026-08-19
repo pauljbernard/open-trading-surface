@@ -1,13 +1,13 @@
 {
-  "version": "5.87.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.87.0.plugin",
-  "sha256": "1acdc1f2eb6de5a0e27dd6993b57e381f6b982b3dac18aa166ec4f3a9b1615d1",
+  "version": "5.88.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.88.0.plugin",
+  "sha256": "0ab919b0942097861d5605433261c5ee393e9c4ca1916877ca1860a0fc74f425",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.87.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.88.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"If I select a panel where TSLA is the active security that should change the drop list box's selection. In short, its bi directional.\" Focusing a panel that pins exactly one security now moves the strip context — and the Stock dropdown — to that security, through the ONE focus operation every gesture and the focus_panel verb share, reported as context_followed on the payload. It never guesses: a multi-security chart grid and a panel with no security move nothing, and focus still re-renders no body. The dropdown keeps driving the rail the other way; focus_differs and the away-securi",
-  "published": "2026-08-19T11:11:45.017Z",
+  "notes": "The owner: \"the tab that is labeled 'Surface' will be confusing. It might be better to call it 'Community'\" — right for a reason the 5.85.1 rename did not weigh: the application is CALLED Open Trading Surface, so a tab named Surface reads as the product's own name. Community names what the tab holds: other people, their channels, their shared research. Label-only, the third time the rule has applied: the vertical id stays chat, -17 stays -17, every door, verb and store path is unchanged, and panel titles follow the label with no migration. CHAT-SPEC §19.",
+  "published": "2026-08-19T13:20:22.848Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
