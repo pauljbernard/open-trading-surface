@@ -1,13 +1,13 @@
 {
-  "version": "5.95.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.95.0.plugin",
-  "sha256": "560b7c89e42795e275b852ba23ff3be2250f45e550efaa3e188e10428f0bcb30",
+  "version": "5.96.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.96.0.plugin",
+  "sha256": "f68da50d91d0ee7f98b9b2cc65797cf6238170a6c0c7e6f1251ac967530f019d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.95.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.96.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The batch half of the governed worldview. server/worldview-refresh.js assembles a per-domain bundle from a DECLARED block registry (standing domain reading and the owner's prior adjudications at priority 1 — law 5's objections are never the first thing dropped; FRED seeds, the economic calendar and active theses at 2; news at 3, carrying the untrusted fence in words because it is the one block whose text third parties wrote), resolves the domain's formation prompt FROM the one prompt store (law 3 — the owner's edited text is what the batch sends), calls the model once per STALE domain, and fil",
-  "published": "2026-08-20T00:03:51.721Z",
+  "notes": "The chat-like half the owner asked for: \"the agent should make the case for why they are proposing what they do, and I should be able to support, or critique it.\" Every proposal (and every no-change reading — \"why did you see no change?\" is exactly the critique law 4 exists to keep) carries a discussion thread: wvm_ messages minted through the one registry, append-only, never edited, no delete verb and no prune, surviving the verdict — the thread is the WHY of the worldview. An owner message may, as an EXPLICIT priced choice (ask_model:true, never a default), trigger one bounded model reply: t",
+  "published": "2026-08-20T00:25:08.681Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
