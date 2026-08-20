@@ -1,13 +1,13 @@
 {
-  "version": "5.104.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.104.0.plugin",
-  "sha256": "d3205025305c738433bba014b29c1bc30310b1e7d0ce269ad3e25ecb5751c7b8",
+  "version": "5.105.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.105.0.plugin",
+  "sha256": "f1294d0e8954339c2cc2101ae7ceabd9dc7877f61b5e9ee41ea77132116de2e4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.104.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.105.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE CEP ENHANCEMENTS THE OWNER'S \"POTENTIALLY WITH ENHANCEMENTS\" NAMED ARE ALL BUILT. P2a made portfolio-plane rules expressible, P2b gave a firing a question and a hold, and P2c closes the phase with the last two policy items. - fields injection into condition-env.build — the bars_array mirror (audit R4): a BRANCH WORLD hands in the field row it is POSITING (\"what would this policy do if grossMargin were 12?\") and every field leg reads from it, marked POSITED, NOT MEASURED — on the leg (posited: true plus the sentence) and in the provenance — with neither the screener nor the as-filed store c",
-  "published": "2026-08-20T22:08:05.926Z",
+  "notes": "\"A PORTFOLIO PROGRAM IS A SET OF RULES, ALGORITHMS AND CONFIGURATIONS that both CREATES the initial state (a portfolio) and MAINTAINS it through the events it receives from its environment\" — the owner's own definition, 2026-08-20, and until this release nothing in the system WAS one. server/program.js is the entity: FIVE MODULES pinned like a lockfile, the version the hash of the pins, and everything the arc built so far (the mandate, the rules, the paper books, the approval queue) composable under one address. - The five modules: mandate (P1's object, pinned at the version in force — an unse",
+  "published": "2026-08-20T22:43:28.057Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
