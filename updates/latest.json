@@ -1,13 +1,13 @@
 {
-  "version": "5.100.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.100.0.plugin",
-  "sha256": "2b7ad629574b1be3bb26922ffbc8464075f99bdb6d9638d09e64df6dbed2d8a0",
+  "version": "5.101.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.101.0.plugin",
+  "sha256": "a64612559e1095a91109ebcbc042ff10690f82c46509c2ab8be9e2bfe50dedd8",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.100.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.101.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The audit's first blocker closed. server/mandate.js is the declared objective object: SAFETY assertions with tolerances (max_weight_pct, max_sector_pct, max_positions, min_position_pct, cash_floor_pct evaluated now; max_drawdown_pct and min_liquidity_days declared, evaluated where the price series exists in P1b) and LIVENESS targets (twr_target, accumulation) that are MEASURED AND NEVER ENFORCED — an enforcement on a goal is refused at the write. LAW B: an edit is a DEPLOY — versions append-only per scope with a deploy block naming exactly what changed, owner attribution required. Scope is D2 ",
-  "published": "2026-08-20T19:38:44.780Z",
+  "notes": "The series tier evaluates where the price history exists. Every portfolio report now carries the mandate's limit-vs-actual block computed over the report's OWN series and risk arithmetic (max_drawdown_pct from the same riskStats the tearsheet prints, so the spec reading and the tearsheet cannot disagree; valued-tier weights from the report's final valued day), and the nightly portfolio-reconcile pass reads the SAME rows — one evaluation, two readers — surfacing a safety breach to the agent inbox as mandate_breach, the declared precursor of P6's incident entity. LIVENESS WEARS ITS OWN VOCABULAR",
+  "published": "2026-08-20T20:11:29.698Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
