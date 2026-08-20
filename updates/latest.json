@@ -1,13 +1,13 @@
 {
-  "version": "5.105.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.105.0.plugin",
-  "sha256": "f1294d0e8954339c2cc2101ae7ceabd9dc7877f61b5e9ee41ea77132116de2e4",
+  "version": "5.106.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.106.0.plugin",
+  "sha256": "29af824d141389358e76dc5b45db1ffbaa9ddd594a81ec0ea76464982c9aca32",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.105.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.106.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "\"A PORTFOLIO PROGRAM IS A SET OF RULES, ALGORITHMS AND CONFIGURATIONS that both CREATES the initial state (a portfolio) and MAINTAINS it through the events it receives from its environment\" — the owner's own definition, 2026-08-20, and until this release nothing in the system WAS one. server/program.js is the entity: FIVE MODULES pinned like a lockfile, the version the hash of the pins, and everything the arc built so far (the mandate, the rules, the paper books, the approval queue) composable under one address. - The five modules: mandate (P1's object, pinned at the version in force — an unse",
-  "published": "2026-08-20T22:43:28.057Z",
+  "notes": "THE ENTITY AND THE APPROVAL QUEUE REACH THE SCREEN, AND THIS RELEASE WAS ACTUALLY DRIVEN IN A REAL CHROMIUM BEFORE IT SHIPPED. node scripts/measure-programs-panel.js serves the SHIPPED generateTerminalHtml() output over http against a REAL planted state directory — one program (created, deployed once, staged) and one pending approval held by a blocking escalate through the real P2b path — and drives it with real trusted clicks: the first-run legal gate accepted the way a person does (checkbox, then Accept), the 🔬 Analysis tab clicked, the Programs rail item clicked, and then the ✓ Approve but",
+  "published": "2026-08-20T23:13:58.292Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

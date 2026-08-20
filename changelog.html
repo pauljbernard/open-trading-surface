@@ -33,6 +33,15 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.106.0 — PORTFOLIO-PROGRAM-SPEC P3c: THE PROGRAMS SURFACE — measured in a real browser, real clicks, all nine readings PASS</h2>
+<ul>
+<li><b>Administration of nothing new</b>: <code>Analysis → Programs</code> leads the rail (the tab is what the machine knows,</li>
+<li><b>ONE payload</b> (<code>server/program-report.js</code> = <code>program.get()</code> + <code>approvals.list()</code> and nothing else — the</li>
+<li><b>The cold states are kept apart</b>: no programs is a sentence naming <code>create_program</code>, never an empty table; an</li>
+<li><code>open_programs</code> ctl verb (and <code>open_analysis {panel:"programs"}</code> addresses it through the derived vocabulary);</li>
+<li>Suite: <code>server/tests/portfolio-program-p3c.test.js</code> (5) — payload over planted state, cold states, the emitted</li>
+<li>WHAT THE MEASUREMENT DOES NOT ESTABLISH: the rig serves a minimal http shim rather than the full daemon (the</li>
+</ul>
 <h2>5.105.0 — PORTFOLIO-PROGRAM-SPEC P3a: THE PROGRAM ENTITY — the organizing principle becomes a visible object</h2>
 <ul>
 <li><b>The five modules</b>: <code>mandate</code> (P1's object, pinned at the version in force — an unset mandate asserts NOTHING</li>
