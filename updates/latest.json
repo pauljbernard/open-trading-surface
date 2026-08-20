@@ -1,13 +1,13 @@
 {
-  "version": "5.97.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.97.0.plugin",
-  "sha256": "1e7a4c41ac3fa4ae56764c11a0cd88aa864f7ccd06d31fef48641bf54239093b",
+  "version": "5.98.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.98.0.plugin",
+  "sha256": "7941305f46ed18b9bfb12d42c5078db9a69bf9cf5979ae4b2c4b3cb67b390e75",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.97.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.98.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The page the governance was built toward. The Worldview mode now paints from ONE derivation (/wv/board, server/worldview-board.js) — eight cards, always all eight, each carrying its standing reading and one of FOUR states kept apart: an OPEN proposal with the current-vs-proposed diff side by side, THE CASE, and the verdict controls (Accept · Edit & accept, with per-field authorship stated before the edit is made · Reject, whose editor states law 5 where the reason is typed · Discuss, with the thread inline and the priced model ask a SECOND button that says what it spends); REVIEWED-NO-CHANGE, ",
-  "published": "2026-08-20T00:53:52.578Z",
+  "notes": "The first release of the portfolio-as-program arc (PORTFOLIO-PROGRAM-SPEC, approved in principle 2026-08-20; evidence base research/PORTFOLIO-AS-PROGRAM-AUDIT.md). Three changes, each proven. THE REAL LEDGER JOINS THE LOCK (audit G15): the owner's own portfolios.json was the ONE store in the system whose mutators bypassed store.update — a bare load → mutate → writeJson, the exact cross-process hazard the paper books have avoided since they shipped. Every mutator now routes through ONE mutate() door; two real concurrent processes keep 40 of 40 records; a refusal writes nothing (file byte-identi",
+  "published": "2026-08-20T17:58:55.364Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
