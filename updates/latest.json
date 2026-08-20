@@ -1,13 +1,13 @@
 {
-  "version": "5.103.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.103.0.plugin",
-  "sha256": "3205aed34c3fff4dc77dde3dc764a791361e71db93d9dc14246ab91b7a7e23c7",
+  "version": "5.104.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.104.0.plugin",
+  "sha256": "d3205025305c738433bba014b29c1bc30310b1e7d0ce269ad3e25ecb5751c7b8",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.103.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.104.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE TENTH ACTION VERB IS A QUESTION, AND A BLOCKING QUESTION HOLDS THE TRADE. Until this release the rule vocabulary had nine verbs and no way to ask: a rule that wanted a human decision mid-firing had notify — a sentence in an inbox with nothing attached to decide — so every automated proposal was either booked or refused with no rung between. escalate {question, blocking?, deadline?} is the missing middle and it is LAW C made mechanical: the harness proposes, the owner rules. - Non-blocking, it is a typed ask: a first-class escalation inbox kind (the 5.8.0 rule — never relabelled system) car",
-  "published": "2026-08-20T21:42:37.660Z",
+  "notes": "THE CEP ENHANCEMENTS THE OWNER'S \"POTENTIALLY WITH ENHANCEMENTS\" NAMED ARE ALL BUILT. P2a made portfolio-plane rules expressible, P2b gave a firing a question and a hold, and P2c closes the phase with the last two policy items. - fields injection into condition-env.build — the bars_array mirror (audit R4): a BRANCH WORLD hands in the field row it is POSITING (\"what would this policy do if grossMargin were 12?\") and every field leg reads from it, marked POSITED, NOT MEASURED — on the leg (posited: true plus the sentence) and in the provenance — with neither the screener nor the as-filed store c",
+  "published": "2026-08-20T22:08:05.926Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
