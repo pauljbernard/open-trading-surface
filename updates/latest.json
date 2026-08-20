@@ -1,13 +1,13 @@
 {
-  "version": "5.98.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.98.0.plugin",
-  "sha256": "7941305f46ed18b9bfb12d42c5078db9a69bf9cf5979ae4b2c4b3cb67b390e75",
+  "version": "5.99.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.99.0.plugin",
+  "sha256": "a29a58333da2db70fd0671db3bf0d9b65dfb33654d9e86b9115c0d19dcba908f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.98.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.99.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The first release of the portfolio-as-program arc (PORTFOLIO-PROGRAM-SPEC, approved in principle 2026-08-20; evidence base research/PORTFOLIO-AS-PROGRAM-AUDIT.md). Three changes, each proven. THE REAL LEDGER JOINS THE LOCK (audit G15): the owner's own portfolios.json was the ONE store in the system whose mutators bypassed store.update — a bare load → mutate → writeJson, the exact cross-process hazard the paper books have avoided since they shipped. Every mutator now routes through ONE mutate() door; two real concurrent processes keep 40 of 40 records; a refusal writes nothing (file byte-identi",
-  "published": "2026-08-20T17:58:55.364Z",
+  "notes": "The scheduling half of P0: four monitors the audit found written and dark, lit. THE LEGACY ALERTS GET THEIR CADENCE — the alert-check registry row demanded one for eleven releases (\"leaving it as it is, is the one option that is definitely wrong\"); the daemon now evaluates every ALERT_CHECK_EVERY_MIN minutes on weekdays, fired alerts land in the agent inbox, and the two types the 5.10.0 migration protected can finally fire on their own (retirement into typed rules remains owner decision D9). THE MORNING BRIEF becomes one builder behind two doors (server/brief.js — the tool delegates), schedule",
+  "published": "2026-08-20T18:38:13.437Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
