@@ -1,13 +1,13 @@
 {
-  "version": "5.102.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.102.0.plugin",
-  "sha256": "57c941bf5130b09a2a92b017e2a1419e4a7300234f08c3c2e119be95ac77ba21",
+  "version": "5.103.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.103.0.plugin",
+  "sha256": "3205aed34c3fff4dc77dde3dc764a791361e71db93d9dc14246ab91b7a7e23c7",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.102.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.103.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Audit G11 closed. Until this release the condition language had no portfolio-plane leaf at all — a book drawdown rule was not merely unhandled, it was INEXPRESSIBLE. The seventh leaf kind: book(\"equity\"), book(\"drawdown_pct\"), book(\"cash_pct\"), book(\"positions\") and book(\"weight_of\", SYM) — a closed metric vocabulary refusing unknowns by name — compiling, round-tripping and fingerprinting like every other leaf, evaluated as a fact about NOW (the state leaf's shape: true at the last bar, null before) against a BOOK STATE the caller supplies. THE STRATEGY LOOP SUPPLIES ITS OWN MARKED BOOK — upda",
-  "published": "2026-08-20T21:06:15.237Z",
+  "notes": "THE TENTH ACTION VERB IS A QUESTION, AND A BLOCKING QUESTION HOLDS THE TRADE. Until this release the rule vocabulary had nine verbs and no way to ask: a rule that wanted a human decision mid-firing had notify — a sentence in an inbox with nothing attached to decide — so every automated proposal was either booked or refused with no rung between. escalate {question, blocking?, deadline?} is the missing middle and it is LAW C made mechanical: the harness proposes, the owner rules. - Non-blocking, it is a typed ask: a first-class escalation inbox kind (the 5.8.0 rule — never relabelled system) car",
+  "published": "2026-08-20T21:42:37.660Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

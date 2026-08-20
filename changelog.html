@@ -33,6 +33,19 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.103.0 — PORTFOLIO-PROGRAM-SPEC P2b: <code>escalate</code>, the approval queue, and book state at the tick (LAW C)</h2>
+<ul>
+<li><b>Non-blocking, it is a typed ask</b>: a first-class <code>escalation</code> inbox kind (the 5.8.0 rule — never relabelled</li>
+<li>**Blocking, it HOLDS every LATER propose_* action of the same firing.** The transaction is computed EXACTLY as</li>
+<li><b>The ordering that could never work is refused AT SAVE</b>: a blocking escalate listed after a propose would ask</li>
+<li><b><code>server/approvals.js</code> — the queue.</b> Append-only JSONL under <code>store.withLock</code> from its first line, monthly</li>
+<li><b><code>approve_proposal</code> books the held record at the FIRING price through <code>paper-book.append</code> — THE ONE DOOR</b> —</li>
+<li><b>Four event kinds</b> — <code>book.action.escalated</code>, <code>book.proposal.held</code> (rule-actions), <code>book.proposal.approved</code>,</li>
+<li><b>The standalone tick now supplies book state for a <code>book(...)</code> rule</b> (P2a's stated debt, one release old):</li>
+<li><b>The reach layer learned the book plane</b>: <code>book:*</code> predicates resolve to the <code>book.ledger</code> family — our own</li>
+<li>Tools: <code>get_approval_queue</code>, <code>approve_proposal</code>, <code>decline_proposal</code>. Sugar: `=&gt; ESCALATE "…" blocking=true</li>
+<li>Suite: <code>server/tests/portfolio-program-p2b.test.js</code> (6) — the hold end-to-end (book provably untouched, firing</li>
+</ul>
 <h2>5.102.0 — the book leaf: portfolio-plane rules become expressible (PORTFOLIO-PROGRAM-SPEC P2a)</h2>
 <ul>
 </ul>

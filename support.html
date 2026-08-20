@@ -135,12 +135,29 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.102.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-20 21:06 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.103.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-20 21:42 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.103.0 <span class="reltitle">PORTFOLIO-PROGRAM-SPEC P2b: <code>escalate</code>, the approval queue, and book state at the tick (LAW C)</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b>Non-blocking, it is a typed ask</b>: a first-class <code>escalation</code> inbox kind (the 5.8.0 rule — never relabelled</li>
+        <li>**Blocking, it HOLDS every LATER propose_<i> action of the same firing.</i>* The transaction is computed EXACTLY as</li>
+        <li><b>The ordering that could never work is refused AT SAVE</b>: a blocking escalate listed after a propose would ask</li>
+        <li><b><code>server/approvals.js</code> — the queue.</b> Append-only JSONL under <code>store.withLock</code> from its first line, monthly</li>
+        <li><b><code>approve_proposal</code> books the held record at the FIRING price through <code>paper-book.append</code> — THE ONE DOOR</b> —</li>
+        <li><b>Four event kinds</b> — <code>book.action.escalated</code>, <code>book.proposal.held</code> (rule-actions), <code>book.proposal.approved</code>,</li>
+        <li><b>The standalone tick now supplies book state for a <code>book(...)</code> rule</b> (P2a's stated debt, one release old):</li>
+        <li><b>The reach layer learned the book plane</b>: <code>book:*</code> predicates resolve to the <code>book.ledger</code> family — our own</li>
+        <li>Tools: <code>get_approval_queue</code>, <code>approve_proposal</code>, <code>decline_proposal</code>. Sugar: `=&gt; ESCALATE "…" blocking=true</li>
+        <li>Suite: <code>server/tests/portfolio-program-p2b.test.js</code> (6) — the hold end-to-end (book provably untouched, firing</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.102.0 <span class="reltitle">the book leaf: portfolio-plane rules become expressible (PORTFOLIO-PROGRAM-SPEC P2a)</span></h3>
   </div>
@@ -161,9 +178,6 @@ shasum -a 256 ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.96.0 <span class="reltitle">the worldview discussions: the argument becomes part of the record (GOVERNED-WORLDVIEW-SPEC Phase 3)</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.95.0 <span class="reltitle">the worldview refresh batch: the fifteenth declared process, proposing and never writing (GOVERNED-WORLDVIEW-SPEC Phase 2)</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
