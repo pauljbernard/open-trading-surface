@@ -135,12 +135,15 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.114.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-21 13:27 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.115.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-21 13:46 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.115.0 <span class="reltitle">SUPERSESSION + AMENDMENT LINEAGE (plan-of-record gap 2)</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.114.0 <span class="reltitle">PARTIAL FILLS: a working order fills in tranches (plan of record, gap 1)</span></h3>
   </div>
@@ -202,21 +205,6 @@ shasum -a 256 ots.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-rm">Removed</span>
       <ul>
         <li><b>🗑 Retract / ↩ Restore</b> — reason required; nothing deleted; the pill flips.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.107.0 <span class="reltitle">THE PROGRAMS IDE: code, not text (owner directive, 2026-08-20)</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li><b>The explorer tree</b> — each program is a project; its five modules are FILES: <code>Program.lock</code>, <code>mandate.spec</code>,</li>
-        <li><b>The editor</b> — monospace, line-numbered, syntax-highlighted. <b>A policy file's code IS the rule's own sugar</b></li>
-        <li><b>The pipeline strip</b> — the derived stage ladder as CI nodes: ● draft — ● validated — ○ qa (P4) — ● staged —</li>
-        <li><b>The approval queue as PR review</b> — a pending hold is a review card whose held transaction renders as a</li>
-        <li><b>↻ Refresh</b> — the renders-once wrinkle found live (open_programs focused the panel without re-fetching) has</li>
-        <li><code>program-report.js</code> gains the IDE enrichment: <code>policy_live</code> (each pinned rule's live sugar, version, enabled,</li>
-        <li><b>MEASURED</b> (<code>scripts/measure-programs-panel.js</code>, real Chromium, real trusted clicks on the shipped document</li>
-        <li>Suite updated for the IDE shape (tree/pipeline/editor/diff assertions + the escape-free tokenizer); battery</li>
       </ul>
     </div>
   </div>

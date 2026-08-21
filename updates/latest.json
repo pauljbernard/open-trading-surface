@@ -1,13 +1,13 @@
 {
-  "version": "5.114.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.114.0.plugin",
-  "sha256": "f93a883803a4f4d98fd90993d85dd916d7bd2f3daf9183d5141b21844022678d",
+  "version": "5.115.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.115.0.plugin",
+  "sha256": "222fb02371247b51ac41cfcb6c6e66159c7cf7910feffeca16a3b1265e58a13b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.114.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.115.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE PROFESSIONAL-PIPELINE GAP ANALYSIS (2026-08-21) IS NOW THE PLAN OF RECORD — four gaps measured against how an institutional desk runs, recorded in PORTFOLIO-PROGRAM-SPEC with their sequence: partial fills, supersession + amendment lineage, TCA/implementation shortfall, and the phase-4 lot-level vocabulary. This release is gap 1, and it corrects something the 5.111.0 order book got WRONG rather than merely incomplete: a desk works an order in tranches — three executions, a cumulative quantity, a remaining balance, an average price — and our fill was terminal on its first tranche, so recordi",
-  "published": "2026-08-21T13:27:49.388Z",
+  "notes": "A REVISED DECISION GOVERNS, AND THE SURFACE NOW SAYS SO. book.allocation.superseded has its producer: when the SAME handler (rule) publishes a new allocation decision for the SAME subject and phase, the supersession is recorded as its own event naming WHICH replaced WHICH — both decision events stand, nothing is edited or retracted, and the prior decision is found in the log itself (a bounded read inside the log's own EVENT_LOG_MAX_RANGE_DAYS window; a handler silent longer than that has no working order to confuse). THE STALE-DECISION FLAG: an open (or partially filled) order whose provenance",
+  "published": "2026-08-21T13:46:08.880Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
