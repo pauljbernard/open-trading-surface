@@ -1,13 +1,13 @@
 {
-  "version": "5.119.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.119.0.plugin",
-  "sha256": "f0ff84f1d3f41a645dae063fb63e0bc41c9b0f9de774b6b41d146169dcdc9925",
+  "version": "5.120.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.120.0.plugin",
+  "sha256": "280734964447d7d4e619cd2fe9d94ffd77906c092030d2230bacb039598cfb6d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.119.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.120.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE WHOLE-PROGRAM PRE-FLIGHT, A READER AND NOTHING ELSE. run_program_suite (and 📋 Suite on the IDE toolbar) composes what the parts already know into one dossier read before ⚑ Init or a production bind: - The lockfile — the stage ladder re-validated at this read; pin drift as findings (the program still runs what it pinned; re-pinning is a deploy). - The universe, resolved live — an empty resolution is a FAILED section naming why an init would refuse. - The construction, run DRY — the same resolution ⚑ Init runs, with NO event published, proven on the event log's own count: the dossier reads,",
-  "published": "2026-08-21T15:57:30.588Z",
+  "notes": "LAW C'S MISSING HALF. \"The harness proposes, the owner rules\" has governed trades since P2b — but a program CHANGE had only the direct edit. Now the reviewed path exists: the PR model the owner named for theses, applied to the program codebase itself. A PROPOSAL IS A DIFF, VALIDATED THROUGH THE ONE MERGE. program.mergePins was EXTRACTED from deploy at this release precisely so a reviewed diff and the landed deploy cannot merge differently — the patch validates through the same merge and validator at proposal time, so an approved patch cannot fail validation at the ruling. Stored per-module (be",
+  "published": "2026-08-21T16:21:28.163Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
