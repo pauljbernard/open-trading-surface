@@ -1,13 +1,13 @@
 {
-  "version": "5.124.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.124.0.plugin",
-  "sha256": "c444f0c6da76d96d5e81092e123ddf6b654149e8707fa05207ead1072bc4e057",
+  "version": "5.125.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.125.0.plugin",
+  "sha256": "893aba6c2a3c05a02980fe4709a6db1d7c8df98bb009d2fa2570fb06c9abdeba",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.124.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.125.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER: \"no person is going to edit code in forms/dialog... they will expect a full featured editor will expert knowledge of the programming language being used, with code complete, compiler/interpreter error checking, packaging, test suite execution, etc.\" THE LOCKFILE TEXT IS NOW A LANGUAGE, NOT A RENDERING. server/program-lang.js is ONE formatter and ONE parser, both server-side: the buffer the IDE edits is format()'s own output (carried on the report as g.source, so the viewer and the parser cannot drift), and save runs parse() → the SAME validatePins a deploy runs → program.deploy — sa",
-  "published": "2026-08-21T22:15:47.826Z",
+  "notes": "THE OWNER (2026-08-21): the Programs panel \"doesn't provide an embedded coding agent panel.\" A DOCK, NOT A DIALOG. 🤖 Agent opens beside the editor: type an instruction, the model is handed the GRAMMAR (program-lang's own export — one module owns the language), the program's own format() source and the live vocabulary (with an explicit instruction to DECLINE rather than invent a rule id), and returns a WHY plus ONE fenced block holding the COMPLETE revised source. THE COMPILER JUDGES THE ANSWER AND NEVER REPAIRS IT. No block = the model declining (verbatim, NOTHING FILED). Non-compiling = verb",
+  "published": "2026-08-21T22:44:53.939Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
