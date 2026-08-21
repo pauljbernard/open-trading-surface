@@ -1,13 +1,13 @@
 {
-  "version": "5.109.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.109.0.plugin",
-  "sha256": "8ac4838e60ea57ee5726eea512dd16d6bb4341b8d8da4bafab07349aea5f3edd",
+  "version": "5.110.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.110.0.plugin",
+  "sha256": "e47e414d74723025f875d55a826e5b88df726e1dcf54d1ac747f630ed87b72bb",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.109.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.110.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER, READING THE LOCKFILE: *\"While there may be a need to support the ability to set the Universe as a strict symbol list, would we not also want to define the universe in terms of a screen… a program could reference an existing screen, a program can define the screen in the program, or it could simply do as it does now and define a list of symbols.\"* Two of the three already existed — {symbols:[…]} (HARD-CODED membership) and {screen:\"name\"} (a REFERENCE to a saved screen: dynamic membership, resolved live) — plus {cohort}. What was missing is the middle form, and it is the one that mak",
-  "published": "2026-08-21T01:28:42.204Z",
+  "notes": "THE OWNER NAMED THE ARCHITECTURE'S MOST IMPORTANT SEAM, in two directives recorded verbatim in the spec's new \"event-driven pipeline\" section. First: the four lifecycle phases (establishment · rebalance · liquidation · specialized) have subroutines that decide WHAT, not WHEN — *\"portfolio allocation creates an event which is then also processed by the CEP engine which can drive other programs to determine the actual buy/sell decisions independently. This is generally how portfolio management and trading desks actually operate.\"* Second, completing it: *\"the portfolio program also runs inside t",
+  "published": "2026-08-21T02:10:02.840Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
