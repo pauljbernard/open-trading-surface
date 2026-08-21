@@ -1,13 +1,13 @@
 {
-  "version": "5.118.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.118.0.plugin",
-  "sha256": "077cccd51a002029eafe9a509f7fa6a29b3b14842ebe8ab2421e4e20067a99c1",
+  "version": "5.119.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.119.0.plugin",
+  "sha256": "f0ff84f1d3f41a645dae063fb63e0bc41c9b0f9de774b6b41d146169dcdc9925",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.118.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.119.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "ESTABLISHMENT WAS THE ONE PHASE BYPASSING THE OWNER'S OWN ARCHITECTURE. Rebalance has flowed decision → event → CEP → trading rule → order → fill since 5.110.0; construction still built a book directly. Now init_program runs the program's OWN construction over its OWN universe and PUBLISHES the result — PUBLISHED, NOT TRANSACTED: book.allocation.decided events with phase establishment, one per target subject (a trading rule evaluates per subject and matches events for ITS subject), one batch stamp re-assembling the whole decision, the program's exact fingerprint on every event. No book is buil",
-  "published": "2026-08-21T15:28:46.564Z",
+  "notes": "THE WHOLE-PROGRAM PRE-FLIGHT, A READER AND NOTHING ELSE. run_program_suite (and 📋 Suite on the IDE toolbar) composes what the parts already know into one dossier read before ⚑ Init or a production bind: - The lockfile — the stage ladder re-validated at this read; pin drift as findings (the program still runs what it pinned; re-pinning is a deploy). - The universe, resolved live — an empty resolution is a FAILED section naming why an init would refuse. - The construction, run DRY — the same resolution ⚑ Init runs, with NO event published, proven on the event log's own count: the dossier reads,",
+  "published": "2026-08-21T15:57:30.588Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
