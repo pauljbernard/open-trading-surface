@@ -1,13 +1,13 @@
 {
-  "version": "5.106.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.106.0.plugin",
-  "sha256": "29af824d141389358e76dc5b45db1ffbaa9ddd594a81ec0ea76464982c9aca32",
+  "version": "5.107.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.107.0.plugin",
+  "sha256": "41468bd0eadd339cf6f2a1d87ec9a5aed4a2d601bc62c7a6c32c2b7b4983e7d9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.106.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.107.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE ENTITY AND THE APPROVAL QUEUE REACH THE SCREEN, AND THIS RELEASE WAS ACTUALLY DRIVEN IN A REAL CHROMIUM BEFORE IT SHIPPED. node scripts/measure-programs-panel.js serves the SHIPPED generateTerminalHtml() output over http against a REAL planted state directory — one program (created, deployed once, staged) and one pending approval held by a blocking escalate through the real P2b path — and drives it with real trusted clicks: the first-run legal gate accepted the way a person does (checkbox, then Accept), the 🔬 Analysis tab clicked, the Programs rail item clicked, and then the ✓ Approve but",
-  "published": "2026-08-20T23:13:58.292Z",
+  "notes": "THE OWNER, ON SEEING 5.106.0 LIVE: *\"the user interface is pretty bad for programs. Its textual rather than more laid out like a programatic IDE. We are creating code not text.\"* He is right, and it is his own framing turned on the surface: if a portfolio program is CODE, the panel should read like an IDE. Rebuilt in one release, measured in a real Chromium before shipping: 12 PASS / 0 FAIL, zero page errors. - The explorer tree — each program is a project; its five modules are FILES: Program.lock, mandate.spec, universe.sel, construction.algo, policy/<role>.<id>.rule per rule, config.json, pl",
+  "published": "2026-08-21T00:35:02.301Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
