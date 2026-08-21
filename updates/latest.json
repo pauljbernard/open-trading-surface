@@ -1,13 +1,13 @@
 {
-  "version": "5.117.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.117.0.plugin",
-  "sha256": "69c830127156806275df9790e447d72c756e5f1604bc8de5f75d235629440c01",
+  "version": "5.118.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.118.0.plugin",
+  "sha256": "077cccd51a002029eafe9a509f7fa6a29b3b14842ebe8ab2421e4e20067a99c1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.117.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.118.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE FOURTH LIFECYCLE PHASE WAS NAMEABLE AND NOT EXPRESSIBLE. The four-phase model names \"specialized (tax optimization)\" as phase 4; the lot engine has supported HIFO/specific-ID and the ST/LT split for a long time — and the rule language could not reach a single lot-level fact, so no program could say what a tax desk says. ONE DERIVATION: server/lot-facts.js, over the cost-basis engine's own open lots, through portfolio.termOf — the ONE term rule, exported at this release so \"more than one year\" lives in exactly one place. Ten metrics join the book(...) leaf as a VISIBLE edit: lot_count, lot_",
-  "published": "2026-08-21T14:53:50.277Z",
+  "notes": "ESTABLISHMENT WAS THE ONE PHASE BYPASSING THE OWNER'S OWN ARCHITECTURE. Rebalance has flowed decision → event → CEP → trading rule → order → fill since 5.110.0; construction still built a book directly. Now init_program runs the program's OWN construction over its OWN universe and PUBLISHES the result — PUBLISHED, NOT TRANSACTED: book.allocation.decided events with phase establishment, one per target subject (a trading rule evaluates per subject and matches events for ITS subject), one batch stamp re-assembling the whole decision, the program's exact fingerprint on every event. No book is buil",
+  "published": "2026-08-21T15:28:46.564Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
