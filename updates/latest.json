@@ -1,13 +1,13 @@
 {
-  "version": "5.121.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.121.0.plugin",
-  "sha256": "a5572c65099fa233636aeb5fe97705584b01e95b81cfe10fcb71848afda3e593",
+  "version": "5.122.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.122.0.plugin",
+  "sha256": "096491d430bda48fba34e32085aac9fefe89e4a1c770d47d86b5f3608349cb4e",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.121.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.122.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE REFUSAL IS REPLACED BY THE CONTRACT IT NAMED. Since P3 the production bind refused by name, stating exactly what the machinery would have to be; this release builds it. bind_program {mode:\"production\", book:<real portfolio>} takes THE CONVERGENCE CONTRACT: the real book is MEASURED against the program's intent, the transitions are STAGED AS ORDERS for the owner's review, and every booking is the owner's fill — a measurement obligation, never an execution grant (Law 4). A paper book refuses the production bind by name — a convergence contract measures the book the owner actually holds. The ",
-  "published": "2026-08-21T17:01:09.567Z",
+  "notes": "THE FINAL PHASE. A declared process (convergence-monitor, daemon-resident, daily on weekdays — CONVERGENCE_MONITOR_CADENCE_DAYS, with the six-hourly resident check its siblings use) measures every production-bound program against its intent through the same derivation get_program_convergence runs, so drift is NOTICED rather than discovered at the next hand-run measurement. THE EVENT IS THE TRANSITION, NEVER THE LEVEL. book.convergence.changed records a flip (converged↔drifted) exactly once — proven across three ticks: a first observation is not a flip; the flip records ONE event; a still-drift",
+  "published": "2026-08-21T17:21:50.275Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
