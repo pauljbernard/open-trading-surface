@@ -1,13 +1,13 @@
 {
-  "version": "5.110.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.110.0.plugin",
-  "sha256": "e47e414d74723025f875d55a826e5b88df726e1dcf54d1ac747f630ed87b72bb",
+  "version": "5.111.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.111.0.plugin",
+  "sha256": "c2865c814ba4dba5a1acf29fc67a0518e31cbb5c51d70b585f3b1db788b7562d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.110.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.111.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER NAMED THE ARCHITECTURE'S MOST IMPORTANT SEAM, in two directives recorded verbatim in the spec's new \"event-driven pipeline\" section. First: the four lifecycle phases (establishment · rebalance · liquidation · specialized) have subroutines that decide WHAT, not WHEN — *\"portfolio allocation creates an event which is then also processed by the CEP engine which can drive other programs to determine the actual buy/sell decisions independently. This is generally how portfolio management and trading desks actually operate.\"* Second, completing it: *\"the portfolio program also runs inside t",
-  "published": "2026-08-21T02:10:02.840Z",
+  "notes": "THE PIPELINE'S TERMINAL STAGE. The owner: *\"we don't have a place for 'orders' to land, so we will need to add an Order book with the ability to integrate with the transactions functionality when a user decided that an order has in fact ben executed off system. I think that order book should be under the Portfolio tab.\"* The 5.110.0 allocation half published decisions into the CEP stream and trading rules consumed them — and their output had nowhere to land. Now it does, and the landing place is deliberately NOT a broker: an order is STAGED AND NOTHING MORE, reviewed by the owner, executed OFF",
+  "published": "2026-08-21T02:49:09.142Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
