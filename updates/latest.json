@@ -1,13 +1,13 @@
 {
-  "version": "5.122.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.122.0.plugin",
-  "sha256": "096491d430bda48fba34e32085aac9fefe89e4a1c770d47d86b5f3608349cb4e",
+  "version": "5.122.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.122.1.plugin",
+  "sha256": "c99157416e6a2c3a2a496b5b8821d89ae9274a25de8c62bdd66369111ef56b7b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.122.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.122.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE FINAL PHASE. A declared process (convergence-monitor, daemon-resident, daily on weekdays — CONVERGENCE_MONITOR_CADENCE_DAYS, with the six-hourly resident check its siblings use) measures every production-bound program against its intent through the same derivation get_program_convergence runs, so drift is NOTICED rather than discovered at the next hand-run measurement. THE EVENT IS THE TRANSITION, NEVER THE LEVEL. book.convergence.changed records a flip (converged↔drifted) exactly once — proven across three ticks: a first observation is not a flip; the flip records ONE event; a still-drift",
-  "published": "2026-08-21T17:21:50.275Z",
+  "notes": "THE FIRST LIVE ⚑ INIT ON THE OWNER'S INSTALLATION FOUND THE DEFECT THE TESTS MISSED. round(100/6, 4) gave six names 16.6667% each — which SUMS to 100.0002% — and the lever guard refused the construction on its own rounding: *\"targets summing to 100.00% — this engine does not lever. NOTHING WAS PUBLISHED.\"* The suite's fixtures used three names (33.3333 × 3 = 99.9999, which passes); six names is the owner's actual program, and the first real run is where the defect lived. THE FIX IS THE ORDER BOOK'S OWN DISCIPLINE: rounded DOWN, never past the stated amount. equal_weight and rank_decay now FLOO",
+  "published": "2026-08-21T19:58:51.046Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
