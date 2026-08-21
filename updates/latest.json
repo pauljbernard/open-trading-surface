@@ -1,13 +1,13 @@
 {
-  "version": "5.115.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.115.0.plugin",
-  "sha256": "222fb02371247b51ac41cfcb6c6e66159c7cf7910feffeca16a3b1265e58a13b",
+  "version": "5.116.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.116.0.plugin",
+  "sha256": "f669d1b6ed2a8ea490cffc4009ef915b64e5f023aedb8ad310986cee5d0bb868",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.115.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.116.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A REVISED DECISION GOVERNS, AND THE SURFACE NOW SAYS SO. book.allocation.superseded has its producer: when the SAME handler (rule) publishes a new allocation decision for the SAME subject and phase, the supersession is recorded as its own event naming WHICH replaced WHICH — both decision events stand, nothing is edited or retracted, and the prior decision is found in the log itself (a bounded read inside the log's own EVENT_LOG_MAX_RANGE_DAYS window; a handler silent longer than that has no working order to confuse). THE STALE-DECISION FLAG: an open (or partially filled) order whose provenance",
-  "published": "2026-08-21T13:46:08.880Z",
+  "notes": "THE DATA WAS ALREADY RECORDED AND NOTHING READ IT. Since 5.113.0 every order carries its staging resolution's reference price (the firing bar for a rule-staged order, a live quote for a hand-staged one), the limit as guidance, and — since 5.114.0 — the actual fills tranche by tranche with their fees. server/order-tca.js is the reader: A READER AND NOTHING ELSE (no write, no provider call). PER ORDER: cost in basis points against the reference under the desk's sign convention (positive = execution WORSE — paid more on a buy, received less on a sell), all-in including fees per share, dollars, th",
+  "published": "2026-08-21T14:05:02.095Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
