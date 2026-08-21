@@ -1,13 +1,13 @@
 {
-  "version": "5.111.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.111.0.plugin",
-  "sha256": "c2865c814ba4dba5a1acf29fc67a0518e31cbb5c51d70b585f3b1db788b7562d",
+  "version": "5.112.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.112.0.plugin",
+  "sha256": "3d5a53ce6f7547683c418b70b8908516ff0d8499f4255b091d5dcf10d737b5fd",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.111.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.112.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE PIPELINE'S TERMINAL STAGE. The owner: *\"we don't have a place for 'orders' to land, so we will need to add an Order book with the ability to integrate with the transactions functionality when a user decided that an order has in fact ben executed off system. I think that order book should be under the Portfolio tab.\"* The 5.110.0 allocation half published decisions into the CEP stream and trading rules consumed them — and their output had nowhere to land. Now it does, and the landing place is deliberately NOT a broker: an order is STAGED AND NOTHING MORE, reviewed by the owner, executed OFF",
-  "published": "2026-08-21T02:49:09.142Z",
+  "notes": "THE OWNER: *\"the only difference between a paper book and a real portfolio is a classification. ... portfolio allocation changes and order will flow through the same path, landing in the order book and obviously attributed so the order is clear which portfolio/paper book it targets, but in all cases the user determine if the order is being executed into a transaction and the opportunity is given to the user to make updates to the execution — we don't know the actual execution values until the user collects that information from the external order system. the exception of course is that transac",
+  "published": "2026-08-21T03:11:35.071Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
