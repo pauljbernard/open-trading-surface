@@ -135,12 +135,28 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.108.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-21 01:18 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.109.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-21 01:28 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.109.0 <span class="reltitle">THE UNIVERSE HAS FOUR FORMS: the inline screen (owner directive, mid-review of 5.108.0)</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>The New-program form gains the inline-filters input (JSON), taking precedence when supplied; exactly-one-of-four</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li><b><code>{inline_screen: {filters:[…]}}</code></b> — the screen DEFINED IN THE PROGRAM. Validated AT THE WRITE through the</li>
+        <li><b>The lockfile says which kind of membership each form is</b>: <code>symbols […] // hard-coded membership</code> vs</li>
+        <li>What resolves the membership: nothing on the program path yet, and that is stated — the pin is the SELECTION</li>
+        <li>Suite: the four-forms test (valid inline verbatim, unknown-field refusal through the bridge, empty-filter</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.108.0 <span class="reltitle">THE IDE GETS ITS VERBS: create, edit, retract, test, execute — from the panel</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -243,9 +259,6 @@ shasum -a 256 ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.102.0 <span class="reltitle">the book leaf: portfolio-plane rules become expressible (PORTFOLIO-PROGRAM-SPEC P2a)</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.101.0 <span class="reltitle">limit vs actual everywhere the series lives, and the mandate outranks the strategy (PORTFOLIO-PROGRAM-SPEC P1b — P1 complete)</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->

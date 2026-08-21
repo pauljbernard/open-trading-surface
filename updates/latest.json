@@ -1,13 +1,13 @@
 {
-  "version": "5.108.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.108.0.plugin",
-  "sha256": "6316874976f32e9b65e8ff1a22349476dc8678db416c9ecd8abbeb41aca239ad",
+  "version": "5.109.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.109.0.plugin",
+  "sha256": "8ac4838e60ea57ee5726eea512dd16d6bb4341b8d8da4bafab07349aea5f3edd",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.108.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.109.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER, ON 5.107.0: *\"its not clear how multiple programs (multiple portfolios) are created, edited, deleted, tested, and or executed? The UI doesn't appear to support all of those core capabilities.\"* Right — it was a viewer with a review queue. Now the toolbar carries the lifecycle, every verb delegating to the SAME functions the agent tools call, and the whole lifecycle was driven in a real Chromium before shipping: 18 PASS / 0 FAIL, zero page errors — including CREATE from the form landing on disk at v1, TEST into the console, EXECUTE running a real tick, RETRACT with its required reaso",
-  "published": "2026-08-21T01:18:06.775Z",
+  "notes": "THE OWNER, READING THE LOCKFILE: *\"While there may be a need to support the ability to set the Universe as a strict symbol list, would we not also want to define the universe in terms of a screen… a program could reference an existing screen, a program can define the screen in the program, or it could simply do as it does now and define a list of symbols.\"* Two of the three already existed — {symbols:[…]} (HARD-CODED membership) and {screen:\"name\"} (a REFERENCE to a saved screen: dynamic membership, resolved live) — plus {cohort}. What was missing is the middle form, and it is the one that mak",
+  "published": "2026-08-21T01:28:42.204Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
