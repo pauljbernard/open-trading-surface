@@ -1,13 +1,13 @@
 {
-  "version": "5.120.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.120.0.plugin",
-  "sha256": "280734964447d7d4e619cd2fe9d94ffd77906c092030d2230bacb039598cfb6d",
+  "version": "5.121.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.121.0.plugin",
+  "sha256": "a5572c65099fa233636aeb5fe97705584b01e95b81cfe10fcb71848afda3e593",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.120.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.121.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "LAW C'S MISSING HALF. \"The harness proposes, the owner rules\" has governed trades since P2b — but a program CHANGE had only the direct edit. Now the reviewed path exists: the PR model the owner named for theses, applied to the program codebase itself. A PROPOSAL IS A DIFF, VALIDATED THROUGH THE ONE MERGE. program.mergePins was EXTRACTED from deploy at this release precisely so a reviewed diff and the landed deploy cannot merge differently — the patch validates through the same merge and validator at proposal time, so an approved patch cannot fail validation at the ruling. Stored per-module (be",
-  "published": "2026-08-21T16:21:28.163Z",
+  "notes": "THE REFUSAL IS REPLACED BY THE CONTRACT IT NAMED. Since P3 the production bind refused by name, stating exactly what the machinery would have to be; this release builds it. bind_program {mode:\"production\", book:<real portfolio>} takes THE CONVERGENCE CONTRACT: the real book is MEASURED against the program's intent, the transitions are STAGED AS ORDERS for the owner's review, and every booking is the owner's fill — a measurement obligation, never an execution grant (Law 4). A paper book refuses the production bind by name — a convergence contract measures the book the owner actually holds. The ",
+  "published": "2026-08-21T17:01:09.567Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
