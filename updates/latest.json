@@ -1,13 +1,13 @@
 {
-  "version": "5.113.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.113.0.plugin",
-  "sha256": "0ba255e3f8c87367a87e89c9df09596177885b0cede8223d2e204be89928f02e",
+  "version": "5.114.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.114.0.plugin",
+  "sha256": "f93a883803a4f4d98fd90993d85dd916d7bd2f3daf9183d5141b21844022678d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.113.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.114.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER, reviewing the first staged order: a portfolio management program creating an order *\"should be assigning a quantity as well as the target (limit) price.\"* He was right on both halves: the demo's missing share count was the test's choice (notional was staged deliberately), but one layer up a REAL gap stood — a trading rule's STAGE_ORDER carried whatever form its text held, and a rule consuming book.allocation.decided naturally speaks in target weights, so a program-staged order could arrive with no share count and leave the arithmetic to the human at fill time. A desk resolves the wo",
-  "published": "2026-08-21T03:46:57.083Z",
+  "notes": "THE PROFESSIONAL-PIPELINE GAP ANALYSIS (2026-08-21) IS NOW THE PLAN OF RECORD — four gaps measured against how an institutional desk runs, recorded in PORTFOLIO-PROGRAM-SPEC with their sequence: partial fills, supersession + amendment lineage, TCA/implementation shortfall, and the phase-4 lot-level vocabulary. This release is gap 1, and it corrects something the 5.111.0 order book got WRONG rather than merely incomplete: a desk works an order in tranches — three executions, a cumulative quantity, a remaining balance, an average price — and our fill was terminal on its first tranche, so recordi",
+  "published": "2026-08-21T13:27:49.388Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
