@@ -1,13 +1,13 @@
 {
-  "version": "5.112.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.112.0.plugin",
-  "sha256": "3d5a53ce6f7547683c418b70b8908516ff0d8499f4255b091d5dcf10d737b5fd",
+  "version": "5.113.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.113.0.plugin",
+  "sha256": "0ba255e3f8c87367a87e89c9df09596177885b0cede8223d2e204be89928f02e",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.112.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.113.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER: *\"the only difference between a paper book and a real portfolio is a classification. ... portfolio allocation changes and order will flow through the same path, landing in the order book and obviously attributed so the order is clear which portfolio/paper book it targets, but in all cases the user determine if the order is being executed into a transaction and the opportunity is given to the user to make updates to the execution — we don't know the actual execution values until the user collects that information from the external order system. the exception of course is that transac",
-  "published": "2026-08-21T03:11:35.071Z",
+  "notes": "THE OWNER, reviewing the first staged order: a portfolio management program creating an order *\"should be assigning a quantity as well as the target (limit) price.\"* He was right on both halves: the demo's missing share count was the test's choice (notional was staged deliberately), but one layer up a REAL gap stood — a trading rule's STAGE_ORDER carried whatever form its text held, and a rule consuming book.allocation.decided naturally speaks in target weights, so a program-staged order could arrive with no share count and leave the arithmetic to the human at fill time. A desk resolves the wo",
+  "published": "2026-08-21T03:46:57.083Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
