@@ -1,13 +1,13 @@
 {
-  "version": "5.107.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.107.0.plugin",
-  "sha256": "41468bd0eadd339cf6f2a1d87ec9a5aed4a2d601bc62c7a6c32c2b7b4983e7d9",
+  "version": "5.108.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.108.0.plugin",
+  "sha256": "6316874976f32e9b65e8ff1a22349476dc8678db416c9ecd8abbeb41aca239ad",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.107.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.108.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER, ON SEEING 5.106.0 LIVE: *\"the user interface is pretty bad for programs. Its textual rather than more laid out like a programatic IDE. We are creating code not text.\"* He is right, and it is his own framing turned on the surface: if a portfolio program is CODE, the panel should read like an IDE. Rebuilt in one release, measured in a real Chromium before shipping: 12 PASS / 0 FAIL, zero page errors. - The explorer tree — each program is a project; its five modules are FILES: Program.lock, mandate.spec, universe.sel, construction.algo, policy/<role>.<id>.rule per rule, config.json, pl",
-  "published": "2026-08-21T00:35:02.301Z",
+  "notes": "THE OWNER, ON 5.107.0: *\"its not clear how multiple programs (multiple portfolios) are created, edited, deleted, tested, and or executed? The UI doesn't appear to support all of those core capabilities.\"* Right — it was a viewer with a review queue. Now the toolbar carries the lifecycle, every verb delegating to the SAME functions the agent tools call, and the whole lifecycle was driven in a real Chromium before shipping: 18 PASS / 0 FAIL, zero page errors — including CREATE from the form landing on disk at v1, TEST into the console, EXECUTE running a real tick, RETRACT with its required reaso",
+  "published": "2026-08-21T01:18:06.775Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
