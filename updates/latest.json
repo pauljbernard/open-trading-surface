@@ -1,13 +1,13 @@
 {
-  "version": "5.122.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.122.1.plugin",
-  "sha256": "c99157416e6a2c3a2a496b5b8821d89ae9274a25de8c62bdd66369111ef56b7b",
+  "version": "5.123.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.123.0.plugin",
+  "sha256": "bbb94482231b18597e46362eaff1720faceb1ab56e6a357832392fa83857afdc",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.122.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.123.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE FIRST LIVE ⚑ INIT ON THE OWNER'S INSTALLATION FOUND THE DEFECT THE TESTS MISSED. round(100/6, 4) gave six names 16.6667% each — which SUMS to 100.0002% — and the lever guard refused the construction on its own rounding: *\"targets summing to 100.00% — this engine does not lever. NOTHING WAS PUBLISHED.\"* The suite's fixtures used three names (33.3333 × 3 = 99.9999, which passes); six names is the owner's actual program, and the first real run is where the defect lived. THE FIX IS THE ORDER BOOK'S OWN DISCIPLINE: rounded DOWN, never past the stated amount. equal_weight and rank_decay now FLOO",
-  "published": "2026-08-21T19:58:51.046Z",
+  "notes": "THE OWNER, drilling into the Programs panel: not to the level of a first-class IDE — no robust multi-project UX, no code completion, no embedded coding agent, wasted space at the bottom (the editor does not resize to the panel), too much descriptive text above the editor, and version control not apparent. Sequenced as three releases; this is the SHELL. THE EDITOR FILLS THE PANEL. The view is a flex column: the IDE block takes every pixel the toolbar and the status bar do not — measured in a real Chromium at 0px of waste below the status bar, with the 240px editor floor holding when the drawer ",
+  "published": "2026-08-21T20:58:42.882Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
