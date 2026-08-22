@@ -1,13 +1,13 @@
 {
-  "version": "5.126.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.126.0.plugin",
-  "sha256": "e9a0d3abc3b3a44eed6c2dc9da5b442c133ebafab6162d4594a10557fcc4d099",
+  "version": "5.127.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.127.0.plugin",
+  "sha256": "e586308ba517abe6045f70c4a3f9c735b087840bd31c8d84d59e953868f512a6",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.126.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.127.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER, first live session on the buffer: the editor \"doesn't expand vertically when the Program pane is expanded\", the code pane \"is still read only, and I cannot edit anything\", and \"the agent pane doesn't appear to be wired into the LLM.\" THE LLM WIRING WAS PROVEN LIVE FIRST — draft_program_patch through the owner's own daemon made a real claude-sonnet-5 call and filed a correct [AGENT] patch — so the third report is the second in the dock's clothes: a dead caret kills the instruction box too, and Draft with an empty box does nothing. THE FILL. A workspace panel hands renderContentPgm a ",
-  "published": "2026-08-22T00:17:11.454Z",
+  "notes": "THE OWNER: the Draft control \"should be a simple button with an icon of an up arrow which is standard for most chat applications\"; the transcript explainer, the header slogan and the \"LAW C ⓘ\" chip are \"unnecessary fluff\"; \"Its also not clear which button open/closes each subpanel\"; the in-panel \"Programs\" heading \"only needs to be in the title bar.\" All taken: ↑ sends (Enter sends, Shift+Enter newline); the transcript area holds ONLY the transcript; the teaching sentences survive as hover titles, off the surface (the 5.123.0 text-diet discipline applied to the dock that release added); the st",
+  "published": "2026-08-22T01:11:55.198Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
