@@ -1,13 +1,13 @@
 {
-  "version": "5.125.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.125.0.plugin",
-  "sha256": "893aba6c2a3c05a02980fe4709a6db1d7c8df98bb009d2fa2570fb06c9abdeba",
+  "version": "5.126.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.126.0.plugin",
+  "sha256": "e9a0d3abc3b3a44eed6c2dc9da5b442c133ebafab6162d4594a10557fcc4d099",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.125.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.126.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER (2026-08-21): the Programs panel \"doesn't provide an embedded coding agent panel.\" A DOCK, NOT A DIALOG. 🤖 Agent opens beside the editor: type an instruction, the model is handed the GRAMMAR (program-lang's own export — one module owns the language), the program's own format() source and the live vocabulary (with an explicit instruction to DECLINE rather than invent a rule id), and returns a WHY plus ONE fenced block holding the COMPLETE revised source. THE COMPILER JUDGES THE ANSWER AND NEVER REPAIRS IT. No block = the model declining (verbatim, NOTHING FILED). Non-compiling = verb",
-  "published": "2026-08-21T22:44:53.939Z",
+  "notes": "THE OWNER, first live session on the buffer: the editor \"doesn't expand vertically when the Program pane is expanded\", the code pane \"is still read only, and I cannot edit anything\", and \"the agent pane doesn't appear to be wired into the LLM.\" THE LLM WIRING WAS PROVEN LIVE FIRST — draft_program_patch through the owner's own daemon made a real claude-sonnet-5 call and filed a correct [AGENT] patch — so the third report is the second in the dock's clothes: a dead caret kills the instruction box too, and Draft with an empty box does nothing. THE FILL. A workspace panel hands renderContentPgm a ",
+  "published": "2026-08-22T00:17:11.454Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
