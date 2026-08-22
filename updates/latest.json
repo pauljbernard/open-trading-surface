@@ -1,13 +1,13 @@
 {
-  "version": "5.131.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.131.0.plugin",
-  "sha256": "4cfb367165dc07d2428eea19eafe7cb0c89a9c6bd9ee2e8a79aaf44871e13d92",
+  "version": "5.132.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.132.0.plugin",
+  "sha256": "bb59f07de97beebc622a0e996d6921b061bd4d1be2ac0301480ac0aa3444d206",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.131.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.132.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The design's heart, the owner's reason 6: \"the runtime itself of the CEP engine can call the objects that implement specific interface signatures as event handlers.\" An ENROLLMENT is an ste_ record with the protocol checked AT THE DOOR against the booted image (onEvent: without subscriptions refuses — the engine derives routing FROM THE OBJECT at tick time, never a stored table). THE TICK SENDS MESSAGES: each send budgeted under ST_STEP_BUDGET, failures isolated and recorded verbatim (a divide-by-zero handler cannot take its neighbour down), a runaway loop aborts as a recorded failure naming t",
-  "published": "2026-08-22T08:16:48.803Z",
+  "notes": "Analysis → System Browser: the Pharo/Calypso four panes — packages | classes | protocols | methods with the Inst./Class side toggle — over ONE assembly (/cm/smalltalk: the image fold, the enrollments, the boot problems), every op delegating to st-image/st-engine/st-capabilities. The 5.124.0 buffer is the METHOD editor (debounced checks through the real parser, why-required saves = commits, retraction from the bar). THE CLASS DEFINITION IS CODE: the fluid form (Strategy << #Momentum slots: { #window }; package: …) is evaluated in a scratch interpreter and recorded through defineClass — never a ",
+  "published": "2026-08-22T09:00:12.495Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
