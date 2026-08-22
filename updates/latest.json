@@ -1,13 +1,13 @@
 {
-  "version": "5.128.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.128.0.plugin",
-  "sha256": "7dd7a9775291fa1ae6534ff8833023ce5a6b62650bb0934aa25a39cbf78b0b38",
+  "version": "5.129.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.129.0.plugin",
+  "sha256": "916ae224b5904751d80ac8d52617295bbd9e678adac2e3bda713c59025f601c1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.128.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.129.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER: \"its almost never a good idea to invent a new programming language… I would suggest we go with Smalltalk\" — and the corollary that makes it checkable: \"With Smalltalk as your target its deterministic whether the language is fully implemented or not.\" server/st-parser.js + server/st-interp.js: a DECLARED Smalltalk-80 subset where everything included behaves as Smalltalk-80 defines it and everything excluded REFUSES BY NAME. Full message syntax (unary > binary > keyword, left-to-right binary, cascades to the receiver of the last message), blocks as full closures with NON-LOCAL RETURN ",
-  "published": "2026-08-22T02:28:23.267Z",
+  "notes": "Classic Smalltalk persists a memory image; this house persists append-only attributed records. The resolution ships: server/st-image.js — a class is a CHAIN keyed by name, a method a chain keyed by (class, side, selector), every accepted edit an stc_ COMMIT through the one minter (LAW B: why + attribution required, an agent's commit marked with the model wearing its own name). THE COMPILER JUDGES THE WRITE: a non-parsing method refuses with line:col and NOTHING WRITTEN; an unresolvable superclass, a kernel redefinition, and retracting a class with live subclasses all refuse by name. An edit is",
+  "published": "2026-08-22T03:09:36.508Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
