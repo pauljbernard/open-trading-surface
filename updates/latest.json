@@ -1,13 +1,13 @@
 {
-  "version": "5.132.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.132.0.plugin",
-  "sha256": "bb59f07de97beebc622a0e996d6921b061bd4d1be2ac0301480ac0aa3444d206",
+  "version": "5.133.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.133.0.plugin",
+  "sha256": "8e77e1bb8f6eb445e68fcb92d479ee48be008ac2dac573650f5b5f6d3d2aa59c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.132.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.133.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Analysis → System Browser: the Pharo/Calypso four panes — packages | classes | protocols | methods with the Inst./Class side toggle — over ONE assembly (/cm/smalltalk: the image fold, the enrollments, the boot problems), every op delegating to st-image/st-engine/st-capabilities. The 5.124.0 buffer is the METHOD editor (debounced checks through the real parser, why-required saves = commits, retraction from the bar). THE CLASS DEFINITION IS CODE: the fluid form (Strategy << #Momentum slots: { #window }; package: …) is evaluated in a scratch interpreter and recorded through defineClass — never a ",
-  "published": "2026-08-22T09:00:12.495Z",
+  "notes": "THE MIGRATION (owner-invoked, mechanical): st_migrate_program translates a program into a browsable class — pins become methods answering literals (quote-safe), plus a subscriptions declaration and a documented onEvent: skeleton, every commit citing [MIGRATED from <pgm>@vN]. TRANSLATED, NOT ENROLLED: the program keeps running untouched, its rules keep firing as trigger indexes, and enrolling is a separate act. The generated class boots, answers its pins, and is enrollable as-is. THE BROWSER'S AGENT (st_draft_method + the 🤖 dock in the System Browser): the model is handed the CLASS SOURCE — re",
+  "published": "2026-08-22T09:32:10.874Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
