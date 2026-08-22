@@ -1,13 +1,13 @@
 {
-  "version": "5.134.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.134.0.plugin",
-  "sha256": "149f5ee5de387cdfb0a402c33eec7fb6d92fc00069d1a1be26e57fd62a9366de",
+  "version": "5.135.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.135.0.plugin",
+  "sha256": "da180e0e2fb1b572f7e1b2b3dbc0f661fefd536f5efe8465701fe23389021859",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.134.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.135.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE DIRECTIVE: \"are we at a point where the screen and custom indicators could also be written and implemented in smalltalk so that we are uniform throughout the codebase and don't implement any special macro's anywhere?\" — answered by MEASUREMENT before any code (§12: an SMA(20) over 2,600 bars in 19.8 ms; a cf_-shaped formula over 5,000 screener rows in 15.5 ms; ~12M sends/sec), and the phases A–D recorded with four decisions: the numeric boundary is FLOAT (no published number changes kind), cycles move from write-time to run-time NAMING THE UNIT, predicates stay ENUMERABLE, and NOTHING IS R",
-  "published": "2026-08-22T14:18:09.951Z",
+  "notes": "A custom screener field may now be a SMALLTALK CLASS in the image's Fields package instead of an expr.js expression — the first DSL surface to gain the uniform body. define_field {class} names a class implementing valueFor: (a Number, Boolean, or nil) and references (the catalog fields it reads); the DECLARED references drive exactly the machinery the expr form drives — unknown identifiers, cycles, stage/expensive derivation, the dependency graph, the catalog — ONE graph, two body forms, and the declaration is BINDING: the row handed to valueFor: is restricted to the declared keys, so an undec",
+  "published": "2026-08-22T18:59:14.754Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
