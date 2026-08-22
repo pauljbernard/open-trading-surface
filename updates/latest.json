@@ -1,13 +1,13 @@
 {
-  "version": "5.142.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.142.0.plugin",
-  "sha256": "455f8106072d9a75acf32da4a1cfb26333dcf1717fb872cf0446ab894311749f",
+  "version": "5.143.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.143.0.plugin",
+  "sha256": "ca6219ee36b631cc77a8dbafe1fd1d12fe4c1a1cca410fe49d63fe6e77edfde7",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.142.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.143.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's thesis, §14 ruling recorded: transfer never presumes execution. D-A lands role 2 — storage serialization: st_export_source sweeps the fold to the owner's layout (classes → directories, methods → individual files, definitions as evaluable fluid forms) with THE CHAINS STAYING THE TRUTH — the tree is a derived projection for git (diff, history, pull requests), and the image still boots from the append-only store alone. st_import_source hydrates the other direction THROUGH THE JUDGED-WRITE DOORS: every unit an attributed commit citing [GIT-INGEST from <origin>], definitions parsed in a",
-  "published": "2026-08-22T22:08:58.937Z",
+  "notes": "The owner's ruling, structural: \"transmit … should not presume instance execution … the user should be given a warning, asking them if they trust the source and the code.\" st-package.js — the quarantine a transmitted package lands in: INERT (provably absent from the live image until the confirm), HASH-PINNED (sha256 over a canonical, order-independent serialization; a declared-hash mismatch is disclosed), ORIGIN-MARKED (no origin, no quarantine), structurally validated in a capability-free scratch (a non-parsing payload is refused, never stored), full source reviewable before any ruling. ACTIV",
+  "published": "2026-08-22T22:23:34.041Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
