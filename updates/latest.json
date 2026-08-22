@@ -1,13 +1,13 @@
 {
-  "version": "5.136.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.136.0.plugin",
-  "sha256": "90c86e57a6bef8f9170cec2321611d6cf4b4aa41ab57531a552720016b5be547",
+  "version": "5.137.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.137.0.plugin",
+  "sha256": "a8ed1b671fb23501bff828ec3235483b07d25ab8e0e84422c139513bd41a21db",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.136.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.137.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The second and last DSL surface gains the uniform body — a custom chart indicator may now be a Smalltalk class in the image's Indicators package (the condition sugar remains D1's separate arc). define_indicator {class} is VALIDATED BY RUNNING IT: a probe over a synthetic tape at the declared defaults must answer well-formed plots whose values align with the bars — an indicator's shape is the class's own answer, and the only honest way to learn an answer is to ask. The chart seam routes class-backed indicators through the one pure door; a misaligned answer refuses naming the plot; an exhaustion",
-  "published": "2026-08-22T19:37:00.695Z",
+  "notes": "The last invented language stops being a program. A Smalltalk handler implementing onTrigger: declares trigger — an existing rule by id/name (its scope, temporal operators, per-subject state and accrual record stand: ONE evaluation engine, never two) or inline WHEN-text, which becomes a MANAGED PURE-TRIGGER RULE at enroll time: action-less (a declaration carrying => actions refuses — a trigger is a wake-up, not a program), notify:false, scope from triggerScope (refused rather than defaulted), named for its enrollment and removed with it. The rule engine hands its own firings to the Smalltalk s",
+  "published": "2026-08-22T19:59:26.594Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
