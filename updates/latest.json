@@ -1,13 +1,13 @@
 {
-  "version": "5.141.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.141.0.plugin",
-  "sha256": "827943527d574a32454df92c8428d606e9d2a34e8f248b7deac16c3356ecc2b8",
+  "version": "5.142.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.142.0.plugin",
+  "sha256": "455f8106072d9a75acf32da4a1cfb26333dcf1717fb872cf0446ab894311749f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.141.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.142.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "P3 (compile-to-JS-source) — MEASURED AND NOT SHIPPED, by its own declared gate. After P1+P2 the profile shifted: the tree-walk dispatch is gone as a hotspot, JS time is the message machinery itself (budget, depth, lookup, frame setup — each a semantic requirement), and the node binary's share rose to 57.0%. Source emission can only attack the residual closure trampoline (~6-8% of total), which does not pay for a full compiler's correctness surface. A ~0 measurement is reported, not shipped. P4 (SmallInteger representation) — THE BOUND IS MEASURED AND PRESENTED FOR THE OWNER'S DECISION (node sc",
-  "published": "2026-08-22T21:35:44.374Z",
+  "notes": "The owner's thesis, §14 ruling recorded: transfer never presumes execution. D-A lands role 2 — storage serialization: st_export_source sweeps the fold to the owner's layout (classes → directories, methods → individual files, definitions as evaluable fluid forms) with THE CHAINS STAYING THE TRUTH — the tree is a derived projection for git (diff, history, pull requests), and the image still boots from the append-only store alone. st_import_source hydrates the other direction THROUGH THE JUDGED-WRITE DOORS: every unit an attributed commit citing [GIT-INGEST from <origin>], definitions parsed in a",
+  "published": "2026-08-22T22:08:58.937Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
