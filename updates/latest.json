@@ -1,13 +1,13 @@
 {
-  "version": "5.140.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.140.0.plugin",
-  "sha256": "512f61b3a84c353998c01201b1a06fc1b66c64c51bc1e17121fab36b6026c1dd",
+  "version": "5.141.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.141.0.plugin",
+  "sha256": "827943527d574a32454df92c8428d606e9d2a34e8f248b7deac16c3356ecc2b8",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.140.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.141.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A variable whose binding is statically visible now compiles to a constant number of parent hops plus one property access, instead of a per-frame name scan on every read. The compile-time scope chain mirrors the runtime frame chain for method-rooted code; block bodies compile eagerly under their enclosing chain; and every name the static chain cannot see — a do-it temp reached from a block, an instance variable, a global — keeps the full runtime fallback, because a resolver that guessed would break exactly the cases it cannot prove. MEASURED: collections −37% (39.8 → 25.2 ms), the naive windowe",
-  "published": "2026-08-22T21:24:11.528Z",
+  "notes": "P3 (compile-to-JS-source) — MEASURED AND NOT SHIPPED, by its own declared gate. After P1+P2 the profile shifted: the tree-walk dispatch is gone as a hotspot, JS time is the message machinery itself (budget, depth, lookup, frame setup — each a semantic requirement), and the node binary's share rose to 57.0%. Source emission can only attack the residual closure trampoline (~6-8% of total), which does not pay for a full compiler's correctness surface. A ~0 measurement is reported, not shipped. P4 (SmallInteger representation) — THE BOUND IS MEASURED AND PRESENTED FOR THE OWNER'S DECISION (node sc",
+  "published": "2026-08-22T21:35:44.374Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
