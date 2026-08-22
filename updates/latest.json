@@ -1,13 +1,13 @@
 {
-  "version": "5.143.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.143.0.plugin",
-  "sha256": "ca6219ee36b631cc77a8dbafe1fd1d12fe4c1a1cca410fe49d63fe6e77edfde7",
+  "version": "5.144.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.144.0.plugin",
+  "sha256": "62c3e994df121a5ecf8084c0007a9fa6d4c1730454d3d29bb556a777364866d8",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.143.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.144.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's ruling, structural: \"transmit … should not presume instance execution … the user should be given a warning, asking them if they trust the source and the code.\" st-package.js — the quarantine a transmitted package lands in: INERT (provably absent from the live image until the confirm), HASH-PINNED (sha256 over a canonical, order-independent serialization; a declared-hash mismatch is disclosed), ORIGIN-MARKED (no origin, no quarantine), structurally validated in a capability-free scratch (a non-parsing payload is refused, never stored), full source reviewable before any ruling. ACTIV",
-  "published": "2026-08-22T22:23:34.041Z",
+  "notes": "The owner's §14.2(2) ruling, now end to end on the wire: \"The ability to transmit a package over XMPP should not presume instance execution. Like all safe operating systems, the user should be given a warning, asking them if they trust the source and the code, and if they confirm yes, then it should execute, otherwise it is rejected by the user.\" - D-C: share_package reviewed into the chat-trust closed vocabulary; the package row joins CHAT_SHARE_KINDS (one table, never a second pipeline). The sender serializes at the daemon (collectAsync — the registry's first); the receiver's click QUARANTIN",
+  "published": "2026-08-22T22:53:52.828Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
