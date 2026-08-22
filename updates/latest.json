@@ -1,13 +1,13 @@
 {
-  "version": "5.137.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.137.0.plugin",
-  "sha256": "a8ed1b671fb23501bff828ec3235483b07d25ab8e0e84422c139513bd41a21db",
+  "version": "5.138.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.138.0.plugin",
+  "sha256": "9712d6697a820be403b912b6692a30d8662b20d9720818e74e78edfa50c02547",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.137.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.138.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The last invented language stops being a program. A Smalltalk handler implementing onTrigger: declares trigger — an existing rule by id/name (its scope, temporal operators, per-subject state and accrual record stand: ONE evaluation engine, never two) or inline WHEN-text, which becomes a MANAGED PURE-TRIGGER RULE at enroll time: action-less (a declaration carrying => actions refuses — a trigger is a wake-up, not a program), notify:false, scope from triggerScope (refused rather than defaulted), named for its enrollment and removed with it. The rule engine hands its own firings to the Smalltalk s",
-  "published": "2026-08-22T19:59:26.594Z",
+  "notes": "Characterized by measurement: a six-workload battery under V8's profiler found the switch-dispatching AST walk at 46.6% of JS time, a tag table allocated per call, two Frac allocations per integer add, an opts object and a map closure per send, a Map frame and a fresh ctx per block invocation, GC at 12.8%. Shipped, each proven VALUE-IDENTICAL (conformance battery + both migration identity proofs re-run, zero differences): closure compilation — every AST node compiles once into a specialized closure cached non-enumerably on the node, dispatch decided at compile time, budget/depth counting untou",
+  "published": "2026-08-22T20:32:37.292Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
