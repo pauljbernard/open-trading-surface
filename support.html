@@ -135,12 +135,15 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.162.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-23 18:30 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.163.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-23 19:17 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.163.0 <span class="reltitle">PHASE 2a: the disclosure moves into the image</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.162.0 <span class="reltitle">PHASE 1c: the constructs Phase 1 refused, and one that was never a limit</span></h3>
   </div>
@@ -197,25 +200,6 @@ shasum -a 256 ots.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-rm">Removed</span>
       <ul>
         <li>The old name is RETRACTED, not deleted - its history survives its name.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.155.0 <span class="reltitle">PHASE 3 OF THE DEVELOPER-JOURNEY ARC: the stack, and the inspector</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>cmFetch now carries the refusal PAYLOAD: it threw a bare sentence, so the</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>THE STACK IS BUILT DURING UNWINDING, NOT MAINTAINED DURING EXECUTION. Each</li>
-        <li>Frames are innermost-first with the receiver, the arguments and the</li>
-        <li>The failing send is its own fact beside the frames: the innermost frame names</li>
-        <li>A non-local return is control flow and never a frame. The stack is bounded at</li>
-        <li>Every reader carries it: the playground, a failing test, and a failing tick -</li>
-        <li>st_inspect walks an object graph ONE DEPTH AT A TIME and never serializes it</li>
-        <li>No step, resume or restart-frame: those need a suspendable interpreter (D3).</li>
       </ul>
     </div>
   </div>

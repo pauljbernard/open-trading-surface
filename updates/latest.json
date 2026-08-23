@@ -1,13 +1,13 @@
 {
-  "version": "5.162.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.162.0.plugin",
-  "sha256": "c1e36158d0329274bba16a71093262f1c08d3db8698aa8fed011b557cc5e83b2",
+  "version": "5.163.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.163.0.plugin",
+  "sha256": "ae692007d8806777240a751e16955ba9d63eebd0a411a3452ccd804828936009",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.162.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.163.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Phase 2 is the switch, and it could not ship while four constructs refused: a stored rule using a month-clock window, a tumbling window or a session window would have stopped evaluating the day the tick started sending. All three now evaluate, proven cell for cell against the incumbent. THE SWITCH IS UNBLOCKED. THE FOURTH WAS NEVER A LIMIT, and establishing that is the release's first finding. The percentile operators are STRUCTURALLY UNREACHABLE from a combinator: condition.js's normOp admits them only on the FIELD-LEAF path, and a field leaf is resolved by the host into a vector before the s",
-  "published": "2026-08-23T18:30:32.407Z",
+  "notes": "Phase 2 is the switch, and reading condition-eval.evaluate BEFORE touching it found why it could not be one step. evaluate reads FOUR things its operators produce as SIDE EFFECTS on the evaluation context — the per-leaf legs, the open sequence partials, the live absent timers, and the window notes — and a naive switch would have lost THREE OF THE FOUR. The series would have been right and the tick would have gone quiet about every open sequence, every live timer and every still-open session; state would have stopped reporting partial at all, which is a firing-adjacent fact the accrual record c",
+  "published": "2026-08-23T19:17:33.903Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
