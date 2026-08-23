@@ -1,13 +1,13 @@
 {
-  "version": "5.146.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.146.0.plugin",
-  "sha256": "df67e6a925adaff543ca19c1d49785ef37e05582a319a513870ddcef9233ebd0",
+  "version": "5.147.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.147.0.plugin",
+  "sha256": "fa80727bfe6d178cc13dbe8b791b6567c9022d69e4b8026ccfb34342f895b293",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.146.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.147.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"add some Settings in the Settings Browser to support different visual color palettes… we should also be able to support the one that I've added an image of [Pharo DarkBlue]. And the drill downs for each visual color palettes should allow the configuration for Fonts, Colors, etc.\" - THE REGISTRY IS THE TRUTH AND THE STYLESHEET DERIVES: server/ui-theme.js declares every themable variable (kind, meaning, incumbent value) and both palettes; the emitted :root is COMPOSED from it at page emission (the saved palette baked into the served bytes — no flash). The default palette is the incum",
-  "published": "2026-08-23T01:29:09.210Z",
+  "notes": "The owner: \"each theme could have a subsection for the charts when that theme is selected. Would that make sense?\" It does — and the 5.146.0 architecture made the settings half free: the drill-down rows derive from the registry's own group field, so six new group:'Charts' variables put a Charts heading in every palette's drill-down with NO client edit. - Six Charts vars (chart background, text, grid, scale border, candle up/down), defaults the INCUMBENT chart literals byte for byte; DarkBlue carries slate-blue surfaces with the candle semantics unchanged. - The chart document derives at emissi",
+  "published": "2026-08-23T02:07:47.908Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

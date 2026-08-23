@@ -33,6 +33,16 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.147.0 — THE CHARTS SECTION: each palette themes the chart drawing surface (TERMINAL-WORKSPACE-SPEC §48)</h2>
+<ul>
+<li>Six Charts vars (chart background, text, grid, scale border, candle</li>
+<li>The chart document derives at emission exactly as the terminal does: its</li>
+<li>Precedence stated: a candle color from a chart's own settings dialog</li>
+<li>Unthemed deliberately: indicator line colors (a data-distinguishing</li>
+<li>§47.6's "the chart documents are not themed" carries a dated</li>
+<li>artifact.test.js's build is HERMETIC — it wrote server/client-embed.js</li>
+<li>run-all keeps a FAILING suite's raw output (/tmp/ots-suite-fail-*.log):</li>
+</ul>
 <h2>5.146.0 — VISUAL COLOR PALETTES: Appearance in the Settings Browser (TERMINAL-WORKSPACE-SPEC §47)</h2>
 <ul>
 <li>THE REGISTRY IS THE TRUTH AND THE STYLESHEET DERIVES: server/ui-theme.js</li>

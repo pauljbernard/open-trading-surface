@@ -135,12 +135,26 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.146.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-23 01:29 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.147.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-23 02:07 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.147.0 <span class="reltitle">THE CHARTS SECTION: each palette themes the chart drawing surface (TERMINAL-WORKSPACE-SPEC §48)</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>Six Charts vars (chart background, text, grid, scale border, candle</li>
+        <li>The chart document derives at emission exactly as the terminal does: its</li>
+        <li>Precedence stated: a candle color from a chart's own settings dialog</li>
+        <li>Unthemed deliberately: indicator line colors (a data-distinguishing</li>
+        <li>§47.6's "the chart documents are not themed" carries a dated</li>
+        <li>artifact.test.js's build is HERMETIC — it wrote server/client-embed.js</li>
+        <li>run-all keeps a FAILING suite's raw output (/tmp/ots-suite-fail-*.log):</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.146.0 <span class="reltitle">VISUAL COLOR PALETTES: Appearance in the Settings Browser (TERMINAL-WORKSPACE-SPEC §47)</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -191,9 +205,6 @@ shasum -a 256 ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.140.0 <span class="reltitle">PERF ARC P2: hop-resolved lexical addressing</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.139.0 <span class="reltitle">PERF ARC P1: the CiSeries accelerator (owner: "we should do all of those")</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
