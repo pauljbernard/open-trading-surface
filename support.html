@@ -135,12 +135,31 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.154.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-23 14:45 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.155.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-23 15:06 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.155.0 <span class="reltitle">PHASE 3 OF THE DEVELOPER-JOURNEY ARC: the stack, and the inspector</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>cmFetch now carries the refusal PAYLOAD: it threw a bare sentence, so the</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>THE STACK IS BUILT DURING UNWINDING, NOT MAINTAINED DURING EXECUTION. Each</li>
+        <li>Frames are innermost-first with the receiver, the arguments and the</li>
+        <li>The failing send is its own fact beside the frames: the innermost frame names</li>
+        <li>A non-local return is control flow and never a frame. The stack is bounded at</li>
+        <li>Every reader carries it: the playground, a failing test, and a failing tick -</li>
+        <li>st_inspect walks an object graph ONE DEPTH AT A TIME and never serializes it</li>
+        <li>No step, resume or restart-frame: those need a suspendable interpreter (D3).</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.154.0 <span class="reltitle">PHASE 2 OF THE DEVELOPER-JOURNEY ARC: SUnit in the image</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -243,20 +262,6 @@ shasum -a 256 ots.plugin</code></pre>
         <li>THE BOOT BACKFILL (idempotent, daemon boot): every existing expression-</li>
         <li>NOT in this release and said so: SCREENS (the owner's item 3) — D7 is</li>
         <li>THE COMPILED DIGEST: machine-writtenness is a property THE CLASS CARRIES</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.147.0 <span class="reltitle">THE CHARTS SECTION: each palette themes the chart drawing surface (TERMINAL-WORKSPACE-SPEC §48)</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>Six Charts vars (chart background, text, grid, scale border, candle</li>
-        <li>The chart document derives at emission exactly as the terminal does: its</li>
-        <li>Precedence stated: a candle color from a chart's own settings dialog</li>
-        <li>Unthemed deliberately: indicator line colors (a data-distinguishing</li>
-        <li>§47.6's "the chart documents are not themed" carries a dated</li>
-        <li>artifact.test.js's build is HERMETIC — it wrote server/client-embed.js</li>
-        <li>run-all keeps a FAILING suite's raw output (/tmp/ots-suite-fail-*.log):</li>
       </ul>
     </div>
   </div>

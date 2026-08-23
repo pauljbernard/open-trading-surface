@@ -1,13 +1,13 @@
 {
-  "version": "5.154.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.154.0.plugin",
-  "sha256": "4c22dbd008b55595240e60c00e06d554e1cd011ef09c28be9db1a80961fe1814",
+  "version": "5.155.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.155.0.plugin",
+  "sha256": "a814b5e6e8161687f3d516a538f9979229ac3212c6b453d8387d3ba20298a0f4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.154.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.155.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "There was no TestCase, no assertions, no runner, no red or green - so the git journey shipped at 5.151.0 had no verification half at all: you could commit and push packages nobody had ever run. - TestCase is a KERNEL class: every image has it without loading anything, and the kernel never travels, so no package can carry a divergent framework whose green disagrees with everyone else's. Subclassing is ordinary; redefining refuses. - Protocol: setUp, tearDown, assert:, deny:, assert:description:, deny:description:, assert:equals:, fail:, shouldRaise:. - THREE OUTCOMES KEPT APART, classified by a",
-  "published": "2026-08-23T14:45:57.473Z",
+  "notes": "An error was a string. There was no stack, no receiver, no arguments, no temporaries, and no way to look inside a value beyond printString. - THE STACK IS BUILT DURING UNWINDING, NOT MAINTAINED DURING EXECUTION. Each frame appends itself to the error as it passes through, inside a catch that already existed - so the success path pays nothing. MEASURED against the previous interpreter loaded out of git: +0.1% (noise), while a drift build pushing a frame on every send costs +10.1%. - Frames are innermost-first with the receiver, the arguments and the TEMPORARIES - a temporary computed three fram",
+  "published": "2026-08-23T15:06:58.500Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
