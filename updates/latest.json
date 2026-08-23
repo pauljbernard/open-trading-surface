@@ -1,13 +1,13 @@
 {
-  "version": "5.163.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.163.0.plugin",
-  "sha256": "ae692007d8806777240a751e16955ba9d63eebd0a411a3452ccd804828936009",
+  "version": "5.164.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.164.0.plugin",
+  "sha256": "e440c91622781de32a1bd56380eff73d2cf87c817f6704d2574350399b0e5401",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.163.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.164.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Phase 2 is the switch, and reading condition-eval.evaluate BEFORE touching it found why it could not be one step. evaluate reads FOUR things its operators produce as SIDE EFFECTS on the evaluation context — the per-leaf legs, the open sequence partials, the live absent timers, and the window notes — and a naive switch would have lost THREE OF THE FOUR. The series would have been right and the tick would have gone quiet about every open sequence, every live timer and every still-open session; state would have stopped reporting partial at all, which is a firing-adjacent fact the accrual record c",
-  "published": "2026-08-23T19:17:33.903Z",
+  "notes": "CONDITION_SUBSTRATE_SMALLTALK is the flag that ends the second substrate. ONE LINE decides which engine walks the node tree; everything below it — triggering, debounce, dedupe, the reach gate, the legs, the disclosure — is unchanged host code either way. The switch moves the EVALUATOR and nothing else, which is why it can be one branch and why the proof is over the WHOLE evaluate() payload rather than over a series. THE PROOF: twelve conditions spanning every combinator, both clocks, all three window kinds, both trigger modes and a debounce, asserted BYTE-IDENTICAL — not deepStrictEqual, becau",
+  "published": "2026-08-23T20:10:59.620Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
