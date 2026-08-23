@@ -1,13 +1,13 @@
 {
-  "version": "5.148.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.148.0.plugin",
-  "sha256": "c834e412f228cc8efd8190365ac65c17cdb7268cf6cfe6ecd5d62b8cb88713f7",
+  "version": "5.149.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.149.0.plugin",
+  "sha256": "f69acde3c3eb808cfdf8c8aa9cd70011f2eb1f86ec844a2b57a9a15eb1df6b2c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.148.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.149.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"even if there was what appeared to be a DSL facade for those areas ... it would still result in the presence of Smalltalk packages/ classes/objects/methods which would be the actual implementation and that this would appear in the System Browser. Currently this is not the case.\" He was right: Phases B/C built the capability and left migration an owner act per artifact, so the Fields and Indicators packages were EMPTY. - A DSL SAVE IS A COMPILE: define_field/define_indicator auto-translate through the ONE source builders (the owner-act translators now consume the same builders — one",
-  "published": "2026-08-23T02:47:13.616Z",
+  "notes": "The owner's third area closed: a SAVED SCREEN is now a Screens-package class whose per-row predicate methods ARE what the engine executes. - save_screen/update_screen auto-compile every saved screen into Scr<Name> under ScrScreen (helpers mirroring applyOp BRANCH FOR BRANCH); the stored filters are the authoring source; the binding is earned by an exhaustive identity probe against the engine's own applyOp. - THE RUN GOES THROUGH THE IMAGE at the engine's one applyOp call site, gated on the class's filtersDigest equalling the digest of the filters the run carries — augmented filters run the eng",
+  "published": "2026-08-23T03:04:09.719Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

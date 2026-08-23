@@ -135,12 +135,24 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.148.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-23 02:47 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.149.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-23 03:04 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.149.0 <span class="reltitle">SCREENS COMPILE INTO THE IMAGE (D7 resolved — SMALLTALK-SPEC §12.5)</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>save_screen/update_screen auto-compile every saved screen into</li>
+        <li>THE RUN GOES THROUGH THE IMAGE at the engine's one applyOp call site,</li>
+        <li>THE CLASS GOVERNS: a hand edit changes the next run's membership</li>
+        <li>THE MATRIX FOUND AN INCUMBENT QUIRK, mirrored not fixed: applyOp's JS</li>
+        <li>Saved screens backfill at boot like fields and indicators; presets stay</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.148.0 <span class="reltitle">THE FACADE COMPILES INTO THE IMAGE: cf_ fields and ci_ indicators are Smalltalk-backed by construction (SMALLTALK-SPEC §12.5)</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -212,9 +224,6 @@ shasum -a 256 ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.142.0 <span class="reltitle">D-ARC D-A: the source-tree projection (git role of the distribution thesis)</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.141.0 <span class="reltitle">PERF ARC P3+P4: the measured verdicts (SMALLTALK-SPEC §12.1.1)</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->

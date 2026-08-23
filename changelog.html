@@ -33,6 +33,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.149.0 — SCREENS COMPILE INTO THE IMAGE (D7 resolved — SMALLTALK-SPEC §12.5)</h2>
+<ul>
+<li>save_screen/update_screen auto-compile every saved screen into</li>
+<li>THE RUN GOES THROUGH THE IMAGE at the engine's one applyOp call site,</li>
+<li>THE CLASS GOVERNS: a hand edit changes the next run's membership</li>
+<li>THE MATRIX FOUND AN INCUMBENT QUIRK, mirrored not fixed: applyOp's JS</li>
+<li>Saved screens backfill at boot like fields and indicators; presets stay</li>
+</ul>
 <h2>5.148.0 — THE FACADE COMPILES INTO THE IMAGE: cf_ fields and ci_ indicators are Smalltalk-backed by construction (SMALLTALK-SPEC §12.5)</h2>
 <ul>
 <li>A DSL SAVE IS A COMPILE: define_field/define_indicator auto-translate</li>
