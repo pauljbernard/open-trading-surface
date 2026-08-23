@@ -135,12 +135,36 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.155.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-23 15:06 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.156.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-23 15:26 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.156.0 <span class="reltitle">PHASE 4 OF THE DEVELOPER-JOURNEY ARC: rename, with the senders updated</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>The parser now records EVERY selector token's position. Before this a rename</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>st_rename_method rewrites the definition AND every sender at AST TOKEN</li>
+        <li>FOUND BY DRIVING IT: a rename rewrites every SEND of that selector, and no</li>
+        <li>FOUND BY THE SUITE: rewrite_symbols reported a count of symbols it had not</li>
+        <li>Every refusal fires BEFORE any write and the refusal is a WORK LIST: arity,</li>
+        <li>A symbol is reported and not rewritten by default: <code>perform: #foo</code> should</li>
+        <li>st_rename_class moves the methods, rebases the subclasses and rewrites the</li>
+        <li>The browser's Rename control dry-runs first, always.</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
+      <ul>
+        <li>The old name is RETRACTED, not deleted - its history survives its name.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.155.0 <span class="reltitle">PHASE 3 OF THE DEVELOPER-JOURNEY ARC: the stack, and the inspector</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -249,19 +273,6 @@ shasum -a 256 ots.plugin</code></pre>
         <li>THE CLASS GOVERNS: a hand edit changes the next run's membership</li>
         <li>THE MATRIX FOUND AN INCUMBENT QUIRK, mirrored not fixed: applyOp's JS</li>
         <li>Saved screens backfill at boot like fields and indicators; presets stay</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.148.0 <span class="reltitle">THE FACADE COMPILES INTO THE IMAGE: cf_ fields and ci_ indicators are Smalltalk-backed by construction (SMALLTALK-SPEC §12.5)</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>A DSL SAVE IS A COMPILE: define_field/define_indicator auto-translate</li>
-        <li>THE BINDING IS EARNED: an identity probe proves the class answers exactly</li>
-        <li>THE D-A DIVERGENCE RULE at the define door: machine-current classes</li>
-        <li>THE BOOT BACKFILL (idempotent, daemon boot): every existing expression-</li>
-        <li>NOT in this release and said so: SCREENS (the owner's item 3) — D7 is</li>
-        <li>THE COMPILED DIGEST: machine-writtenness is a property THE CLASS CARRIES</li>
       </ul>
     </div>
   </div>
