@@ -1,13 +1,13 @@
 {
-  "version": "5.158.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.158.0.plugin",
-  "sha256": "ed93110c8e26a084cda73c2f3939699fad007e78671d9532041a90072981f7e4",
+  "version": "5.159.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.159.0.plugin",
+  "sha256": "25e82c1e1c4d765739c21882e72b396a8f17b4770b41b61961e38e1bd7bdf961",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.158.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.159.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The chat layer could only push. Two share kinds, both volunteered, and no way for a peer to ASK — so the sharing half of the standing directive (\"sufficient support for shared modules via version control and sharing over XMPP\") was one-directional, and a developer who knew a colleague had a package had no way to say so from inside the terminal. THE ASYMMETRY THIS CLOSES IS THE TRUST QUESTION POINTED THE OTHER WAY. On the receiving side it is \"do I trust this code\", and the quarantine has answered it since 5.143.0: nothing enters the image until the owner reads the source and confirms. On the S",
-  "published": "2026-08-23T16:33:23.918Z",
+  "notes": "There were two execution substrates. 9,049 lines of condition/rule/strategy engine and 7,611 lines of Smalltalk image, and they met in exactly ONE place — after the rules stage, where the tick hands its firings to enrolled handlers. So the image was a CONSUMER of the DSL engine's output rather than an alternative to it. This release ships the seam that lets that end, and MOVES NOTHING. Two modules land and NOTHING CONSUMES EITHER — a plan nobody performs and an environment nobody sends cannot move a number, which is exactly what makes them safe to land before their readers exist. That property",
+  "published": "2026-08-23T17:32:17.093Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
