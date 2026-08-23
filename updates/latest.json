@@ -1,13 +1,13 @@
 {
-  "version": "5.149.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.149.0.plugin",
-  "sha256": "f69acde3c3eb808cfdf8c8aa9cd70011f2eb1f86ec844a2b57a9a15eb1df6b2c",
+  "version": "5.150.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.150.0.plugin",
+  "sha256": "0982eb9d3bae27d78482fc79126a1db441f4fc8e350e0b9a74c979a4adb39629",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.149.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.150.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's third area closed: a SAVED SCREEN is now a Screens-package class whose per-row predicate methods ARE what the engine executes. - save_screen/update_screen auto-compile every saved screen into Scr<Name> under ScrScreen (helpers mirroring applyOp BRANCH FOR BRANCH); the stored filters are the authoring source; the binding is earned by an exhaustive identity probe against the engine's own applyOp. - THE RUN GOES THROUGH THE IMAGE at the engine's one applyOp call site, gated on the class's filtersDigest equalling the digest of the filters the run carries — augmented filters run the eng",
-  "published": "2026-08-23T03:04:09.719Z",
+  "notes": "The area the whole Smalltalk arc started from. The owner: \"I do not see the programs converted over to packages/classes/instances/methods.\" - A create or a deploy compiles the program into its Programs-package class: the pins ARE methods, onEvent: is the CEP extension point, and program.get() RESOLVES THE PINS THROUGH THE CLASS (pins_resolved_through on the payload) — what the pipeline reads was answered by Smalltalk. - THE OWNER CORRECTED THE DESIGN MID-BUILD and the correction is the release: \"in the smalltalk model there is only one version in the system… modern smalltalk environments store",
+  "published": "2026-08-23T03:39:25.196Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
