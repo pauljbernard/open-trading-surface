@@ -1,13 +1,13 @@
 {
-  "version": "5.145.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.145.0.plugin",
-  "sha256": "d70e07657182ec10a534d9c7a75df2b5c36413167029ca21778847a48d0abe00",
+  "version": "5.146.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.146.0.plugin",
+  "sha256": "df67e6a925adaff543ca19c1d49785ef37e05582a319a513870ddcef9233ebd0",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.145.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.146.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"Smalltalk environments have one Settings Browser, and a standard way to segment, display and modify settings and preferences… far more consistent than how we are currently providing settings… the 'Settings' menu will go to the new 'Settings Browser' which will replace the existing Settings Panel, with a new Floating panel displayed in the floating area.\" - The Pharo shape: one tree of groups and rows with inline widgets, a search field, an expand/collapse-all control, and a DESCRIPTION PANE at the bottom. The row emitters write sbLabel/sbHelp as they emit and the search and the pan",
-  "published": "2026-08-23T01:02:07.375Z",
+  "notes": "The owner: \"add some Settings in the Settings Browser to support different visual color palettes… we should also be able to support the one that I've added an image of [Pharo DarkBlue]. And the drill downs for each visual color palettes should allow the configuration for Fonts, Colors, etc.\" - THE REGISTRY IS THE TRUTH AND THE STYLESHEET DERIVES: server/ui-theme.js declares every themable variable (kind, meaning, incumbent value) and both palettes; the emitted :root is COMPOSED from it at page emission (the saved palette baked into the served bytes — no flash). The default palette is the incum",
+  "published": "2026-08-23T01:29:09.210Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

@@ -135,12 +135,25 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.145.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-23 01:02 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.146.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-23 01:29 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.146.0 <span class="reltitle">VISUAL COLOR PALETTES: Appearance in the Settings Browser (TERMINAL-WORKSPACE-SPEC §47)</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>THE REGISTRY IS THE TRUTH AND THE STYLESHEET DERIVES: server/ui-theme.js</li>
+        <li>The promoted literals are gone: --chrome, --titlebar, --titlebar-focus,</li>
+        <li>Two palettes: OTS Dark (default, incumbent) and DarkBlue (Pharo). up/down/</li>
+        <li>The drill-downs: Appearance FIRST, one collapsed subgroup per palette,</li>
+        <li>Validation is the injection guard (values are emitted inside a &lt;style&gt;):</li>
+        <li>get_ui_theme / set_ui_theme for agent parity; ui-theme.json rides the</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.145.0 <span class="reltitle">THE SETTINGS BROWSER: the Pharo model, one settings surface, floating (TERMINAL-WORKSPACE-SPEC §46)</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -181,9 +194,6 @@ shasum -a 256 ots.plugin</code></pre>
   </div>
   <div class="relbox">
     <h3 class="relver">5.139.0 <span class="reltitle">PERF ARC P1: the CiSeries accelerator (owner: "we should do all of those")</span></h3>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.138.0 <span class="reltitle">THE INTERPRETER PERFORMANCE REVIEW (task #77 taken; SMALLTALK-SPEC §12.1.1)</span></h3>
   </div>
   <p class="sub">Categories above are derived from each note's wording, not hand-curated — read the note itself for the detail.</p>
   <!-- RELEASE-INFO:END -->
