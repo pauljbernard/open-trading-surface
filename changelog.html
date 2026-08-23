@@ -33,6 +33,18 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.153.0 — PHASE 1 OF THE DEVELOPER-JOURNEY ARC: senders, implementors, references, search</h2>
+<ul>
+<li>st_senders / st_implementors / st_references / st_search_source, and the</li>
+<li>DERIVED FROM THE AST, NEVER A REGEX. A selector inside a string literal or a</li>
+<li>A selector NAMED AS A SYMBOL is reported beside the senders and never among</li>
+<li>IMPLEMENTORS derives the override chain: several along one superclass chain</li>
+<li>REFERENCES keeps three kinds apart - variable, symbol, superclass - because</li>
+<li>An unparseable method is NAMED, never skipped: the count is a floor and says</li>
+<li>The walker's node vocabulary is closed and throws on an unknown kind - a node</li>
+<li>Nothing here writes, asserted from the shape of the module.</li>
+<li>A DEFECT FOUND ON THE WAY IN: st-migrate's commitIfChanged read <code>.selector</code></li>
+</ul>
 <h2>5.152.0 — PHASE 0 OF THE DEVELOPER-JOURNEY ARC: two lifecycle defects, both in shipped code</h2>
 <ul>
 <li>A SHAPE CHANGE WAS A SILENT DROP. The tick restored persisted ivars with</li>
