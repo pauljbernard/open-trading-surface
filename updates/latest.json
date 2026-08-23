@@ -1,13 +1,13 @@
 {
-  "version": "5.153.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.153.0.plugin",
-  "sha256": "c345923eeb80efbf115267e1e5179d8fbed69149045b0ade7cf27af45e4d43d8",
+  "version": "5.154.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.154.0.plugin",
+  "sha256": "4c22dbd008b55595240e60c00e06d554e1cd011ef09c28be9db1a80961fe1814",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.153.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.154.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The browser went package to class to protocol to selector and stopped, so \"who calls this?\" - the most-used operation in every Smalltalk browser - was unanswerable. It is also the precondition for renaming anything safely. - st_senders / st_implementors / st_references / st_search_source, and the three lookup controls in the System Browser where their subject lives. A result NAVIGATES: it opens that method in this browser. - DERIVED FROM THE AST, NEVER A REGEX. A selector inside a string literal or a comment is not a sender; #foo is a reference, not a call; and at:put: is found whole while at:",
-  "published": "2026-08-23T14:29:31.441Z",
+  "notes": "There was no TestCase, no assertions, no runner, no red or green - so the git journey shipped at 5.151.0 had no verification half at all: you could commit and push packages nobody had ever run. - TestCase is a KERNEL class: every image has it without loading anything, and the kernel never travels, so no package can carry a divergent framework whose green disagrees with everyone else's. Subclassing is ordinary; redefining refuses. - Protocol: setUp, tearDown, assert:, deny:, assert:description:, deny:description:, assert:equals:, fail:, shouldRaise:. - THREE OUTCOMES KEPT APART, classified by a",
+  "published": "2026-08-23T14:45:57.473Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }

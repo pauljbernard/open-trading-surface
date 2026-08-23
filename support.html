@@ -135,12 +135,32 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.153.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-23 14:29 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.154.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-23 14:45 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.154.0 <span class="reltitle">PHASE 2 OF THE DEVELOPER-JOURNEY ARC: SUnit in the image</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>st_commit_packages now carries a test verdict, on the dry run too. It</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>TestCase is a KERNEL class: every image has it without loading anything, and</li>
+        <li>Protocol: setUp, tearDown, assert:, deny:, assert:description:,</li>
+        <li>THREE OUTCOMES KEPT APART, classified by a marker the interpreter stamps and</li>
+        <li>A FOURTH STATE: a TestCase subclass with no test method is UNTESTED, never</li>
+        <li><code>assert:</code> refuses a non-Boolean as an ERROR: <code>assert: nil</code> is the classic</li>
+        <li>Scratch capabilities by default - a test suite that can stage orders is not a</li>
+        <li>Tests pane in the System Browser, with Run all / Run class / Run package; a</li>
+        <li>should:raise: could not be built as specified - there are no exception</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.153.0 <span class="reltitle">PHASE 1 OF THE DEVELOPER-JOURNEY ARC: senders, implementors, references, search</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -237,19 +257,6 @@ shasum -a 256 ots.plugin</code></pre>
         <li>§47.6's "the chart documents are not themed" carries a dated</li>
         <li>artifact.test.js's build is HERMETIC — it wrote server/client-embed.js</li>
         <li>run-all keeps a FAILING suite's raw output (/tmp/ots-suite-fail-*.log):</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.146.0 <span class="reltitle">VISUAL COLOR PALETTES: Appearance in the Settings Browser (TERMINAL-WORKSPACE-SPEC §47)</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>THE REGISTRY IS THE TRUTH AND THE STYLESHEET DERIVES: server/ui-theme.js</li>
-        <li>The promoted literals are gone: --chrome, --titlebar, --titlebar-focus,</li>
-        <li>Two palettes: OTS Dark (default, incumbent) and DarkBlue (Pharo). up/down/</li>
-        <li>The drill-downs: Appearance FIRST, one collapsed subgroup per palette,</li>
-        <li>Validation is the injection guard (values are emitted inside a &lt;style&gt;):</li>
-        <li>get_ui_theme / set_ui_theme for agent parity; ui-theme.json rides the</li>
       </ul>
     </div>
   </div>
