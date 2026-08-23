@@ -1,13 +1,13 @@
 {
-  "version": "5.147.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.147.0.plugin",
-  "sha256": "fa80727bfe6d178cc13dbe8b791b6567c9022d69e4b8026ccfb34342f895b293",
+  "version": "5.148.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.148.0.plugin",
+  "sha256": "c834e412f228cc8efd8190365ac65c17cdb7268cf6cfe6ecd5d62b8cb88713f7",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.147.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.148.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"each theme could have a subsection for the charts when that theme is selected. Would that make sense?\" It does — and the 5.146.0 architecture made the settings half free: the drill-down rows derive from the registry's own group field, so six new group:'Charts' variables put a Charts heading in every palette's drill-down with NO client edit. - Six Charts vars (chart background, text, grid, scale border, candle up/down), defaults the INCUMBENT chart literals byte for byte; DarkBlue carries slate-blue surfaces with the candle semantics unchanged. - The chart document derives at emissi",
-  "published": "2026-08-23T02:07:47.908Z",
+  "notes": "The owner: \"even if there was what appeared to be a DSL facade for those areas ... it would still result in the presence of Smalltalk packages/ classes/objects/methods which would be the actual implementation and that this would appear in the System Browser. Currently this is not the case.\" He was right: Phases B/C built the capability and left migration an owner act per artifact, so the Fields and Indicators packages were EMPTY. - A DSL SAVE IS A COMPILE: define_field/define_indicator auto-translate through the ONE source builders (the owner-act translators now consume the same builders — one",
+  "published": "2026-08-23T02:47:13.616Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
