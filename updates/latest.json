@@ -1,13 +1,13 @@
 {
-  "version": "5.159.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.159.0.plugin",
-  "sha256": "25e82c1e1c4d765739c21882e72b396a8f17b4770b41b61961e38e1bd7bdf961",
+  "version": "5.160.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.160.0.plugin",
+  "sha256": "5da89a4c1e07aafa813d2603fb42e0f169e53e109eba89fb4892e5eb20a663ee",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.159.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.160.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "There were two execution substrates. 9,049 lines of condition/rule/strategy engine and 7,611 lines of Smalltalk image, and they met in exactly ONE place — after the rules stage, where the tick hands its firings to enrolled handlers. So the image was a CONSUMER of the DSL engine's output rather than an alternative to it. This release ships the seam that lets that end, and MOVES NOTHING. Two modules land and NOTHING CONSUMES EITHER — a plan nobody performs and an environment nobody sends cannot move a number, which is exactly what makes them safe to land before their readers exist. That property",
-  "published": "2026-08-23T17:32:17.093Z",
+  "notes": "A condition now answers #holdsOver: with a BOOLEAN SERIES. Bars in, one true/false/nil per bar out — ONE SEND per (rule, subject) rather than one per bar, which is the plotsFor:params: shape the chart indicators have used since 5.136.0 and is what makes this arc affordable at all. THE PROOF IS THE RELEASE: 12 conditions, 3,840 cells, ZERO DIFFERENCES. Seven of the eight combinators and both clocks — all, any, not, then-within, absent-within, sustained on the trading AND calendar clocks, the window count, and the window aggregation in its max and avg arms — asserted cell for cell including the ",
+  "published": "2026-08-23T17:58:37.560Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
