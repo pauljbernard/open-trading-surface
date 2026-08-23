@@ -1,13 +1,13 @@
 {
-  "version": "5.144.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.144.0.plugin",
-  "sha256": "62c3e994df121a5ecf8084c0007a9fa6d4c1730454d3d29bb556a777364866d8",
+  "version": "5.145.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.145.0.plugin",
+  "sha256": "d70e07657182ec10a534d9c7a75df2b5c36413167029ca21778847a48d0abe00",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.144.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.145.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's §14.2(2) ruling, now end to end on the wire: \"The ability to transmit a package over XMPP should not presume instance execution. Like all safe operating systems, the user should be given a warning, asking them if they trust the source and the code, and if they confirm yes, then it should execute, otherwise it is rejected by the user.\" - D-C: share_package reviewed into the chat-trust closed vocabulary; the package row joins CHAT_SHARE_KINDS (one table, never a second pipeline). The sender serializes at the daemon (collectAsync — the registry's first); the receiver's click QUARANTIN",
-  "published": "2026-08-22T22:53:52.828Z",
+  "notes": "The owner: \"Smalltalk environments have one Settings Browser, and a standard way to segment, display and modify settings and preferences… far more consistent than how we are currently providing settings… the 'Settings' menu will go to the new 'Settings Browser' which will replace the existing Settings Panel, with a new Floating panel displayed in the floating area.\" - The Pharo shape: one tree of groups and rows with inline widgets, a search field, an expand/collapse-all control, and a DESCRIPTION PANE at the bottom. The row emitters write sbLabel/sbHelp as they emit and the search and the pan",
+  "published": "2026-08-23T01:02:07.375Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
