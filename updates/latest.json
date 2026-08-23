@@ -1,13 +1,13 @@
 {
-  "version": "5.157.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.157.0.plugin",
-  "sha256": "0042fcbeb5e5b531afe3d5f7ce3240ebc17fc0982d72d5fa8103a27073273b1a",
+  "version": "5.158.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.158.0.plugin",
+  "sha256": "ed93110c8e26a084cda73c2f3939699fad007e78671d9532041a90072981f7e4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.157.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.158.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A \"package\" was the value of package: on a class definition - a string. No requires, no load order, no uninstall, and nothing checking what depended on what. It is why the Package Dependencies Browser was deliberately not built. - THE BASELINE IS A CLASS, NOT A FILE. BaselineOf<Package> with class-side packageName / requires / description, living IN the package it describes - so it travels through the Tonel projection, the .otspkg artifact, the quarantine, XMPP and git with NO change to any of them. Proven by serializing a package and finding its baseline inside the payload. - MEMBERSHIP IS DE",
-  "published": "2026-08-23T15:41:22.200Z",
+  "notes": "The chat layer could only push. Two share kinds, both volunteered, and no way for a peer to ASK — so the sharing half of the standing directive (\"sufficient support for shared modules via version control and sharing over XMPP\") was one-directional, and a developer who knew a colleague had a package had no way to say so from inside the terminal. THE ASYMMETRY THIS CLOSES IS THE TRUST QUESTION POINTED THE OTHER WAY. On the receiving side it is \"do I trust this code\", and the quarantine has answered it since 5.143.0: nothing enters the image until the owner reads the source and confirms. On the S",
+  "published": "2026-08-23T16:33:23.918Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
