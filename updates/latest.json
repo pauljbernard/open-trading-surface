@@ -1,13 +1,13 @@
 {
-  "version": "5.164.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.164.0.plugin",
-  "sha256": "e440c91622781de32a1bd56380eff73d2cf87c817f6704d2574350399b0e5401",
+  "version": "5.165.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.165.0.plugin",
+  "sha256": "cf2c2ab6fe21b6bcbac576af9372d6b6e4e87b0bed1586feef73ed89c5e55d22",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.164.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.165.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "CONDITION_SUBSTRATE_SMALLTALK is the flag that ends the second substrate. ONE LINE decides which engine walks the node tree; everything below it — triggering, debounce, dedupe, the reach gate, the legs, the disclosure — is unchanged host code either way. The switch moves the EVALUATOR and nothing else, which is why it can be one branch and why the proof is over the WHOLE evaluate() payload rather than over a series. THE PROOF: twelve conditions spanning every combinator, both clocks, all three window kinds, both trigger modes and a debounce, asserted BYTE-IDENTICAL — not deepStrictEqual, becau",
-  "published": "2026-08-23T20:10:59.620Z",
+  "notes": "The owner's reframe was that \"Processes and the event processing engine itself are ways to invoke smalltalk programs based upon observed changes in the data … we should have a 'process' package with the processes actually implemented in smalltalk.\" This is that package. THE MEASUREMENT IS WHY IT IS TRACTABLE: the eighteen declared process entry bodies are 345 lines in total, median 20, three of them THREE LINES, each delegating to one host module. A process is already a DECLARATION plus an INVOCATION, and what moves into the image is the invocation's DECISIONS. PLAN then PERFORM then SETTLE — ",
+  "published": "2026-08-23T23:11:55.754Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
