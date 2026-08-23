@@ -1,13 +1,13 @@
 {
-  "version": "5.165.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.165.0.plugin",
-  "sha256": "cf2c2ab6fe21b6bcbac576af9372d6b6e4e87b0bed1586feef73ed89c5e55d22",
+  "version": "5.166.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.166.0.plugin",
+  "sha256": "285ebc4cd7f5b6298137e9c48d9c3a17ebeadab1410ec768b82a901e12b74a06",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.165.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.166.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner's reframe was that \"Processes and the event processing engine itself are ways to invoke smalltalk programs based upon observed changes in the data … we should have a 'process' package with the processes actually implemented in smalltalk.\" This is that package. THE MEASUREMENT IS WHY IT IS TRACTABLE: the eighteen declared process entry bodies are 345 lines in total, median 20, three of them THREE LINES, each delegating to one host module. A process is already a DECLARATION plus an INVOCATION, and what moves into the image is the invocation's DECISIONS. PLAN then PERFORM then SETTLE — ",
-  "published": "2026-08-23T23:11:55.754Z",
+  "notes": "TWO OWNER RULINGS, AND THE SECOND FOUND A DEFECT. D1 — \"each condition should be a smalltalk method with a composite method that ties together the and/or across all the separate condition lines then it all rolls up to one class. We are trying to avoid DSL's. As described we are simply providing a slightly more use case specific smalltalk editor for the specific purpose, but when submitted it just becomes a smalltalk class.\" THIS PROJECT ASKED THE WRONG QUESTION. Both options it offered assumed the choice was between KEEPING a notation and DELETING one. The answer is that there is no notation t",
+  "published": "2026-08-23T23:57:44.546Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
