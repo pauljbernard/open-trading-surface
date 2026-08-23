@@ -1,13 +1,13 @@
 {
-  "version": "5.150.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.150.0.plugin",
-  "sha256": "0982eb9d3bae27d78482fc79126a1db441f4fc8e350e0b9a74c979a4adb39629",
+  "version": "5.151.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.151.0.plugin",
+  "sha256": "54d6cfd8efd1c99b865a7b79de54d995c410024c04e3c81f0440a65f3193519a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.150.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.151.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The area the whole Smalltalk arc started from. The owner: \"I do not see the programs converted over to packages/classes/instances/methods.\" - A create or a deploy compiles the program into its Programs-package class: the pins ARE methods, onEvent: is the CEP extension point, and program.get() RESOLVES THE PINS THROUGH THE CLASS (pins_resolved_through on the payload) — what the pipeline reads was answered by Smalltalk. - THE OWNER CORRECTED THE DESIGN MID-BUILD and the correction is the release: \"in the smalltalk model there is only one version in the system… modern smalltalk environments store",
-  "published": "2026-08-23T03:39:25.196Z",
+  "notes": "The owner: \"The robust git integration is required to avoid the 'image trap'..... If we cannot share subsets of functionality, then we fail in terms of community adoption.\" And the shape, off his own Pharo screenshots: panes that INTROSPECT what is in the system, FETCH versioned packages from the outside world, and COMMIT the system's packages to a repo, local or remote. - Analysis Repositories: Projects (Repository / Status / Branch, as Pharo shows them) and Packages (what the image holds and which repositories carry it). Fetch all, Add, and per row Fetch / Load / Commit / Remove. - THE IMAGE",
+  "published": "2026-08-23T04:24:24.259Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
