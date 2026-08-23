@@ -1,13 +1,13 @@
 {
-  "version": "5.160.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.160.0.plugin",
-  "sha256": "5da89a4c1e07aafa813d2603fb42e0f169e53e109eba89fb4892e5eb20a663ee",
+  "version": "5.161.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.161.0.plugin",
+  "sha256": "bc16ad9c1dc639e0b27fdee299ac7633bb50a71d33c8d777a2925cee3dca83b1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.160.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.161.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A condition now answers #holdsOver: with a BOOLEAN SERIES. Bars in, one true/false/nil per bar out — ONE SEND per (rule, subject) rather than one per bar, which is the plotsFor:params: shape the chart indicators have used since 5.136.0 and is what makes this arc affordable at all. THE PROOF IS THE RELEASE: 12 conditions, 3,840 cells, ZERO DIFFERENCES. Seven of the eight combinators and both clocks — all, any, not, then-within, absent-within, sustained on the trading AND calendar clocks, the window count, and the window aggregation in its max and avg arms — asserted cell for cell including the ",
-  "published": "2026-08-23T17:58:37.560Z",
+  "notes": "The owner, on 5.160.0's numbers: \"we are substantially slower and we need to understand why that is and what optimization and performance enhancements are possible.\" THE CAUSE IS SHAPE, NOT LANGUAGE. A window-walking combinator is O(N x window): over 2,600 bars with a 20-bar window that is roughly 52,000 inner iterations, and each iteration IN THE INTERPRETER is a sequence of SENDS — at:, >, +, and a block activation per whileTrue: — where the incumbent is a plain JavaScript for loop that V8 compiles to machine code. Nothing about Smalltalk makes this slow; an interpreted inner loop makes it s",
+  "published": "2026-08-23T18:14:13.612Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
