@@ -135,12 +135,15 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.161.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-23 18:14 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.162.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-23 18:30 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.162.0 <span class="reltitle">PHASE 1c: the constructs Phase 1 refused, and one that was never a limit</span></h3>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.161.0 <span class="reltitle">PHASE 1b: the condition operators go host-backed, and the slowness is explained</span></h3>
   </div>
@@ -213,26 +216,6 @@ shasum -a 256 ots.plugin</code></pre>
         <li>Every reader carries it: the playground, a failing test, and a failing tick -</li>
         <li>st_inspect walks an object graph ONE DEPTH AT A TIME and never serializes it</li>
         <li>No step, resume or restart-frame: those need a suspendable interpreter (D3).</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.154.0 <span class="reltitle">PHASE 2 OF THE DEVELOPER-JOURNEY ARC: SUnit in the image</span></h3>
-    <div class="relgrp"><span class="reltag rel-new">New</span>
-      <ul>
-        <li>st_commit_packages now carries a test verdict, on the dry run too. It</li>
-      </ul>
-    </div>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>TestCase is a KERNEL class: every image has it without loading anything, and</li>
-        <li>Protocol: setUp, tearDown, assert:, deny:, assert:description:,</li>
-        <li>THREE OUTCOMES KEPT APART, classified by a marker the interpreter stamps and</li>
-        <li>A FOURTH STATE: a TestCase subclass with no test method is UNTESTED, never</li>
-        <li><code>assert:</code> refuses a non-Boolean as an ERROR: <code>assert: nil</code> is the classic</li>
-        <li>Scratch capabilities by default - a test suite that can stage orders is not a</li>
-        <li>Tests pane in the System Browser, with Run all / Run class / Run package; a</li>
-        <li>should:raise: could not be built as specified - there are no exception</li>
       </ul>
     </div>
   </div>

@@ -1,13 +1,13 @@
 {
-  "version": "5.161.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.161.0.plugin",
-  "sha256": "bc16ad9c1dc639e0b27fdee299ac7633bb50a71d33c8d777a2925cee3dca83b1",
+  "version": "5.162.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.162.0.plugin",
+  "sha256": "c1e36158d0329274bba16a71093262f1c08d3db8698aa8fed011b557cc5e83b2",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.161.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.162.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, on 5.160.0's numbers: \"we are substantially slower and we need to understand why that is and what optimization and performance enhancements are possible.\" THE CAUSE IS SHAPE, NOT LANGUAGE. A window-walking combinator is O(N x window): over 2,600 bars with a 20-bar window that is roughly 52,000 inner iterations, and each iteration IN THE INTERPRETER is a sequence of SENDS — at:, >, +, and a block activation per whileTrue: — where the incumbent is a plain JavaScript for loop that V8 compiles to machine code. Nothing about Smalltalk makes this slow; an interpreted inner loop makes it s",
-  "published": "2026-08-23T18:14:13.612Z",
+  "notes": "Phase 2 is the switch, and it could not ship while four constructs refused: a stored rule using a month-clock window, a tumbling window or a session window would have stopped evaluating the day the tick started sending. All three now evaluate, proven cell for cell against the incumbent. THE SWITCH IS UNBLOCKED. THE FOURTH WAS NEVER A LIMIT, and establishing that is the release's first finding. The percentile operators are STRUCTURALLY UNREACHABLE from a combinator: condition.js's normOp admits them only on the FIELD-LEAF path, and a field leaf is resolved by the host into a vector before the s",
+  "published": "2026-08-23T18:30:32.407Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
