@@ -135,12 +135,29 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.151.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-23 04:24 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.152.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-23 14:06 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.152.0 <span class="reltitle">PHASE 0 OF THE DEVELOPER-JOURNEY ARC: two lifecycle defects, both in shipped code</span></h3>
+    <div class="relgrp"><span class="reltag rel-new">New</span>
+      <ul>
+        <li>DEVELOPER-JOURNEY-SPEC is the new spec: the SDLC arc from a measured audit,</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>A SHAPE CHANGE WAS A SILENT DROP. The tick restored persisted ivars with</li>
+        <li>The restore is now TOTAL and PURE: restored / started_nil / shed / rejoined.</li>
+        <li>A tick does not stop because a shape moved. The author changed the class on</li>
+        <li>A FAILING HANDLER WAS INVISIBLE. The tick computed the failure with the</li>
+        <li>Three states now, kept apart: never_ticked / ok / failing, each with its own</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.151.0 <span class="reltitle">THE REPOSITORIES BROWSER: git integration, and the way out of the image trap</span></h3>
     <div class="relgrp"><span class="reltag rel-ch">Changed</span>
@@ -233,16 +250,6 @@ shasum -a 256 ots.plugin</code></pre>
     <div class="relgrp"><span class="reltag rel-rm">Removed</span>
       <ul>
         <li>The Prompts card is REMOVED by owner ruling (vestigial beside the direct</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.144.0 <span class="reltitle">D-ARC D-C + D-D: XMPP package transit under the trust confirm, and the lean distribution artifact (SMALLTALK-SPEC §14.4 — THE D-ARC IS COMPLETE)</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>D-C: <code>share_package</code> reviewed into the chat-trust closed vocabulary; the</li>
-        <li>Per-verb wire bounds: chat-trust verbs may declare wire_max/arg_max; the</li>
-        <li>D-D: st_export_artifact / st_import_artifact (.otspkg, ots-stpkg/1) — the</li>
       </ul>
     </div>
   </div>

@@ -1,13 +1,13 @@
 {
-  "version": "5.151.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.151.0.plugin",
-  "sha256": "54d6cfd8efd1c99b865a7b79de54d995c410024c04e3c81f0440a65f3193519a",
+  "version": "5.152.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.152.0.plugin",
+  "sha256": "295e914bd888aebd78c7067c8cde2c619d86f1a6f979e251da19ca3d635246e9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.151.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.152.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: \"The robust git integration is required to avoid the 'image trap'..... If we cannot share subsets of functionality, then we fail in terms of community adoption.\" And the shape, off his own Pharo screenshots: panes that INTROSPECT what is in the system, FETCH versioned packages from the outside world, and COMMIT the system's packages to a repo, local or remote. - Analysis Repositories: Projects (Repository / Status / Branch, as Pharo shows them) and Packages (what the image holds and which repositories carry it). Fetch all, Add, and per row Fetch / Load / Commit / Remove. - THE IMAGE",
-  "published": "2026-08-23T04:24:24.259Z",
+  "notes": "Found by auditing the shipped surface against the owner's question - \"Do we have a complete user (developer) set of journeys\". Both had been running his handlers in production. No new capability; no published number moves. - A SHAPE CHANGE WAS A SILENT DROP. The tick restored persisted ivars with if (k in inst.iv), so a value whose instance variable had left the class shape was skipped - uncounted, unnamed, unreported. A handler accruing for three months whose class was edited lost the accrual on its next tick and reported success. - The restore is now TOTAL and PURE: restored / started_nil / ",
+  "published": "2026-08-23T14:06:35.534Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
