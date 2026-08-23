@@ -33,6 +33,18 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:13px;text
 <nav><a href="index.html">Home</a><a href="guide.html">Guide</a><a href="events.html">Event processing</a><a href="support.html">Support</a><a href="legal.html">Legal</a></nav></div></header>
 <div class="wrap"><h1>Changelog</h1>
 <p>All notable changes to Open Trading Surface. Versions follow semantic versioning. This page is generated from <code>CHANGELOG.md</code>.</p>
+<h2>5.157.0 — PHASE 5 OF THE DEVELOPER-JOURNEY ARC: the package as an entity</h2>
+<ul>
+<li>THE BASELINE IS A CLASS, NOT A FILE. BaselineOf&lt;Package&gt; with class-side</li>
+<li>MEMBERSHIP IS DERIVED from each class's own package: - no second list that</li>
+<li>The structural dependency the baselines cannot see is reported beside them: a</li>
+<li>A package with no baseline SAYS SO rather than showing an empty requires list</li>
+<li>LOAD ORDER derived depth-first every time, stored nowhere. A CYCLE IS NAMED,</li>
+<li>UNINSTALL is one attributed act that refuses and names what it would break.</li>
+<li>Retracted, not deleted: chains stay readable with the uninstall cited.</li>
+<li>The activation gate reads the baseline off the payload and refuses by name</li>
+<li>THE PACKAGE DEPENDENCIES BROWSER, in the System Browser: requires, required</li>
+</ul>
 <h2>5.156.0 — PHASE 4 OF THE DEVELOPER-JOURNEY ARC: rename, with the senders updated</h2>
 <ul>
 <li>st_rename_method rewrites the definition AND every sender at AST TOKEN</li>

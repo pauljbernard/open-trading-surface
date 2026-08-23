@@ -135,12 +135,32 @@ shasum -a 256 ots.plugin</code></pre>
   <!-- RELEASE-INFO:START -->
   <h2 id="release">Release information</h2>
   <div class="relhead">
-    <div><span class="rellbl">Current version</span><b>5.156.0</b></div>
-    <div><span class="rellbl">Published</span><b>2026-08-23 15:26 UTC</b></div>
+    <div><span class="rellbl">Current version</span><b>5.157.0</b></div>
+    <div><span class="rellbl">Published</span><b>2026-08-23 15:41 UTC</b></div>
     <div><span class="rellbl">Channel</span><b><a href="updates/latest.json">updates/latest.json</a></b></div>
     <div><span class="rellbl">Download</span><b><a href="download/ots.plugin">ots.plugin</a></b></div>
   </div>
   <p class="sub">Ask the agent <em>"check for updates"</em> and it compares your installed build against this channel. Full history is on the <a href="changelog.html">changelog</a>.</p>
+  <div class="relbox">
+    <h3 class="relver">5.157.0 <span class="reltitle">PHASE 5 OF THE DEVELOPER-JOURNEY ARC: the package as an entity</span></h3>
+    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
+      <ul>
+        <li>THE BASELINE IS A CLASS, NOT A FILE. BaselineOf&lt;Package&gt; with class-side</li>
+        <li>MEMBERSHIP IS DERIVED from each class's own package: - no second list that</li>
+        <li>The structural dependency the baselines cannot see is reported beside them: a</li>
+        <li>A package with no baseline SAYS SO rather than showing an empty requires list</li>
+        <li>LOAD ORDER derived depth-first every time, stored nowhere. A CYCLE IS NAMED,</li>
+        <li>UNINSTALL is one attributed act that refuses and names what it would break.</li>
+        <li>The activation gate reads the baseline off the payload and refuses by name</li>
+        <li>THE PACKAGE DEPENDENCIES BROWSER, in the System Browser: requires, required</li>
+      </ul>
+    </div>
+    <div class="relgrp"><span class="reltag rel-rm">Removed</span>
+      <ul>
+        <li>Retracted, not deleted: chains stay readable with the uninstall cited.</li>
+      </ul>
+    </div>
+  </div>
   <div class="relbox">
     <h3 class="relver">5.156.0 <span class="reltitle">PHASE 4 OF THE DEVELOPER-JOURNEY ARC: rename, with the senders updated</span></h3>
     <div class="relgrp"><span class="reltag rel-new">New</span>
@@ -261,18 +281,6 @@ shasum -a 256 ots.plugin</code></pre>
         <li>AN EDIT IS A DEPLOY: a hand-edited pin method is an UNRECORDED DEPLOY (a</li>
         <li>The binding is DERIVED, never stored (class name from program name +</li>
         <li>§12.7 records the owner's IMAGE-TRAP directive — robust git integration is</li>
-      </ul>
-    </div>
-  </div>
-  <div class="relbox">
-    <h3 class="relver">5.149.0 <span class="reltitle">SCREENS COMPILE INTO THE IMAGE (D7 resolved — SMALLTALK-SPEC §12.5)</span></h3>
-    <div class="relgrp"><span class="reltag rel-ch">Changed</span>
-      <ul>
-        <li>save_screen/update_screen auto-compile every saved screen into</li>
-        <li>THE RUN GOES THROUGH THE IMAGE at the engine's one applyOp call site,</li>
-        <li>THE CLASS GOVERNS: a hand edit changes the next run's membership</li>
-        <li>THE MATRIX FOUND AN INCUMBENT QUIRK, mirrored not fixed: applyOp's JS</li>
-        <li>Saved screens backfill at boot like fields and indicators; presets stay</li>
       </ul>
     </div>
   </div>

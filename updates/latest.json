@@ -1,13 +1,13 @@
 {
-  "version": "5.156.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.156.0.plugin",
-  "sha256": "094380f220008cde8112ad3d87a7b7915382f12d6471feeb43b97cb49a360dc1",
+  "version": "5.157.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.157.0.plugin",
+  "sha256": "0042fcbeb5e5b531afe3d5f7ce3240ebc17fc0982d72d5fa8103a27073273b1a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.156.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.157.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A rename was compile-the-new plus retract-the-old, with nothing updating the callers and nothing even naming them. - st_rename_method rewrites the definition AND every sender at AST TOKEN POSITIONS - not a text substitution (which moves the selector inside strings and comments) and not a parse-and-pretty-print (which reformats the whole method). Everything outside the selector tokens is byte-identical. - The parser now records EVERY selector token's position. Before this a rename could see at: and not the put:. - FOUND BY DRIVING IT: a rename rewrites every SEND of that selector, and no AST ca",
-  "published": "2026-08-23T15:26:39.075Z",
+  "notes": "A \"package\" was the value of package: on a class definition - a string. No requires, no load order, no uninstall, and nothing checking what depended on what. It is why the Package Dependencies Browser was deliberately not built. - THE BASELINE IS A CLASS, NOT A FILE. BaselineOf<Package> with class-side packageName / requires / description, living IN the package it describes - so it travels through the Tonel projection, the .otspkg artifact, the quarantine, XMPP and git with NO change to any of them. Proven by serializing a package and finding its baseline inside the payload. - MEMBERSHIP IS DE",
+  "published": "2026-08-23T15:41:22.200Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
