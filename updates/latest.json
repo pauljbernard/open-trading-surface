@@ -1,13 +1,13 @@
 {
-  "version": "5.167.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.167.0.plugin",
-  "sha256": "30c4e8e7b631f8249206cd5cc40dbe989f8e328e4a4920f161fc77d7c47632cd",
+  "version": "5.168.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.168.0.plugin",
+  "sha256": "4dcf1b30adaf2091cb19af0cc48ce072d1deb2374895f518bb2630395d392552",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.167.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.168.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.166.0 closed the INDICATOR half of the owner's bidirectionality directive. The measurement that produced this release found the FIELD half to be a different and worse defect than the display staleness it looked like. A cf_ field whose valueFor: was edited in the System Browser from #roe to #grossMargin: BEFORE refs [\"roe\"] value 20 AFTER refs [\"roe\"] value null <- grossMargin * 2 = 14 is the answer NOTHING WAS STALE. references is read LIVE from the class and always was. What happened is that A CLASS CARRIES TWO STATEMENTS ABOUT THE SAME THING AND THEY WERE ALLOWED TO DISAGREE — the body sen",
-  "published": "2026-08-24T00:30:57.337Z",
+  "notes": "5.167.0 closed the field and screen halves of the bidirectionality directive. Checking the fourth facade — programs — turned up two things. PROGRAMS WERE ALREADY RIGHT, AND THEY ARE THE FOURTH DISTINCT BEHAVIOUR. Measured: a pin method edited in the System Browser flips resolves_through from image to record, sets uncommitted_image_edits, and the panel keeps showing the RECORDED pins with a sentence saying why — *\"every dossier, event and convergence reading cites program@vN and a run nobody deployed would make those citations false\"* — and naming sync_program_from_image as the one call that re",
+  "published": "2026-08-24T00:45:57.054Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
