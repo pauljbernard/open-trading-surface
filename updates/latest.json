@@ -1,13 +1,13 @@
 {
-  "version": "5.168.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.168.0.plugin",
-  "sha256": "4dcf1b30adaf2091cb19af0cc48ce072d1deb2374895f518bb2630395d392552",
+  "version": "5.169.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.169.0.plugin",
+  "sha256": "49b640be045cea733ce1b08a10752aab0b1837379e04febf1dd5d48a049caf6d",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.168.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.169.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.167.0 closed the field and screen halves of the bidirectionality directive. Checking the fourth facade — programs — turned up two things. PROGRAMS WERE ALREADY RIGHT, AND THEY ARE THE FOURTH DISTINCT BEHAVIOUR. Measured: a pin method edited in the System Browser flips resolves_through from image to record, sets uncommitted_image_edits, and the panel keeps showing the RECORDED pins with a sentence saying why — *\"every dossier, event and convergence reading cites program@vN and a run nobody deployed would make those citations false\"* — and naming sync_program_from_image as the one call that re",
-  "published": "2026-08-24T00:45:57.054Z",
+  "notes": "THE SURVEY THAT CHOSE THESE THREE CORRECTED D4's OWN \"cheapest first\", and that correction is the release's first result. Ordering the fourteen unmigrated processes by the LINE COUNT of their entry put six two-line delegations at the top — and every one of them delegates to a host module that already composes its own yield verdict and records its own run: universe-archive screener.universeArchiveTick own yield, own record event-engine rule-engine.tick own yield, own record strategy-loop strategy-loop.tickAll own record pit-snapshot pit.snapshotUniverse own record alert-check alerts.runSchedule",
+  "published": "2026-08-24T01:08:33.034Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
