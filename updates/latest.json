@@ -1,13 +1,13 @@
 {
-  "version": "5.171.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.171.0.plugin",
-  "sha256": "f3357d39f7158d7793b2046ea5da1ff18bbbdcf179bde719b036948be33ecd1b",
+  "version": "5.172.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.172.0.plugin",
+  "sha256": "5fe573c5fc21cebb3d941a7b6235e61075656595aa72ef2d5b38135ffd77f0c4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.171.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.172.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.170.0 reported \"3 identical, 0 differ\" over the owner's own stored rules and treated that as the strongest evidence yet for flipping the condition substrate. Looking at what those three rules actually ARE corrects the reading: Beverage Core — KO entry (owner-gated) leaves 1 | edge | combinators: NONE Beverage Core — drawdown guard leaves 1 | edge | combinators: NONE Beverage Core — establishment executor leaves 1 | edge | combinators: NONE COMBINATOR COVERAGE: 0 of 15 declared combinators exercised by any stored rule EVERY STORED RULE IS A SINGLE LEAF, so holdsOver: is the IDENTITY and there",
-  "published": "2026-08-24T01:46:10.661Z",
+  "notes": "With ~/.ots readable, reading the owner's live process ledger found two processes dead on our own validation: red convergence-monitor last run failed 2026-08-21 — yield.basis is required red worldview-refresh last run failed 2026-08-20 — yield.basis is required Three sites compose {verdict: 'empty_by_design', detail: '<prose>'} where normalizeYield requires basis — and detail is a real field kept only when it is a structured OBJECT, so the prose was dropped *and* the required key was absent. The author sees a refusal about a key they believe they supplied. THE SHAPE OF THE DEFECT IS WHY IT LAS",
+  "published": "2026-08-24T02:06:51.862Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
