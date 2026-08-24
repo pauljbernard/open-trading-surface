@@ -1,13 +1,13 @@
 {
-  "version": "5.172.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.172.0.plugin",
-  "sha256": "5fe573c5fc21cebb3d941a7b6235e61075656595aa72ef2d5b38135ffd77f0c4",
+  "version": "5.173.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.173.0.plugin",
+  "sha256": "37d9539313b774fc84723cfc651e7ec68c4de4a46387ad560be046c67b2f6d48",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.172.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.173.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "With ~/.ots readable, reading the owner's live process ledger found two processes dead on our own validation: red convergence-monitor last run failed 2026-08-21 — yield.basis is required red worldview-refresh last run failed 2026-08-20 — yield.basis is required Three sites compose {verdict: 'empty_by_design', detail: '<prose>'} where normalizeYield requires basis — and detail is a real field kept only when it is a structured OBJECT, so the prose was dropped *and* the required key was absent. The author sees a refusal about a key they believe they supplied. THE SHAPE OF THE DEFECT IS WHY IT LAS",
-  "published": "2026-08-24T02:06:51.862Z",
+  "notes": "Reading the owner's ~/.ots/daemon-crash.log, readable for the first time: 2026-08-19T03:14:28.777Z [uncaughtException] TypeError [ERR_INVALID_ARG_TYPE] The first argument must be of type string ... Received null at Function.from (node:buffer:325:9) at Object.receive (...) at TLSSocket.onData (...) server/chat-xmpp.js decoded a SASL challenge payload with Buffer.from(X.textOf(stanza), 'base64') and no guard, while the success branch three lines below carried ''. A challenge with no text threw — and the throw came out of a socket data handler, so it became an uncaught exception and took the whol",
+  "published": "2026-08-24T02:35:36.141Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
