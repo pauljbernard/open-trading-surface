@@ -1,13 +1,13 @@
 {
-  "version": "5.173.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.173.0.plugin",
-  "sha256": "37d9539313b774fc84723cfc651e7ec68c4de4a46387ad560be046c67b2f6d48",
+  "version": "5.174.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.174.0.plugin",
+  "sha256": "02a162834a628eb8c29061d823000401307bf902364e91b0f8b62cdacd266773",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.173.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.174.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Reading the owner's ~/.ots/daemon-crash.log, readable for the first time: 2026-08-19T03:14:28.777Z [uncaughtException] TypeError [ERR_INVALID_ARG_TYPE] The first argument must be of type string ... Received null at Function.from (node:buffer:325:9) at Object.receive (...) at TLSSocket.onData (...) server/chat-xmpp.js decoded a SASL challenge payload with Buffer.from(X.textOf(stanza), 'base64') and no guard, while the success branch three lines below carried ''. A challenge with no text threw — and the throw came out of a socket data handler, so it became an uncaught exception and took the whol",
-  "published": "2026-08-24T02:35:36.141Z",
+  "notes": "The Processes panel said, on the owner's own installation: red surface-batch overdue — was due 2026-08-17T21:30:00.000Z (~148h ago) That sentence was false in its implication. The host scheduled task HAD fired — lastRunAt 2026-08-21T21:32 in the scheduler's own record — and what produced nothing was the work. An entire session read the panel's words, concluded the scheduler had stopped, and went after a scheduler that was fine the whole time. THE PANEL COULD NOT HAVE SAID OTHERWISE. A host-level scheduled task runs in a DIFFERENT PROCESS from the daemon, so nothing it did before its first reco",
+  "published": "2026-08-24T02:59:59.870Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
