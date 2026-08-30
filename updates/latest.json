@@ -1,13 +1,13 @@
 {
-  "version": "5.183.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.183.0.plugin",
-  "sha256": "fa55cfa09c4b82d1f2d59be1d1830252acff1d18407536234aa2b4021a27f9ec",
+  "version": "5.183.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.183.1.plugin",
+  "sha256": "d1a627d14b527b7b1881b87c2a6767a4cc293e3c6731968ac7c03b36fbfeedcf",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.183.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.183.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-30, with two Pharo screenshots: *\"pharo's ability to view inheritance in line… The first example is children, and the second example has the 'Hier' box checked and displays what that looks like.\"* and *\"Both images also show how hierarchical packages are displayed and navigated.\"* THE MEASUREMENT CAME FIRST AND CHANGED THE DESIGN TWICE. Against his own image — 17 classes, 3 packages — Screens holds thirteen classes of which TWELVE are siblings under one parent, and Fields holds three of which two are. That is the most useful fact about either package and the flat alphabetica",
-  "published": "2026-08-30T23:20:40.275Z",
+  "notes": "FOUND BY DRIVING THE LIVE TERMINAL, ONE CALL AFTER 5.183.0 WAS VERIFIED. set_browser_selection {package:'Screens', class_basis:'inheritance'} reported package Screens, basis inheritance, 14 rows and nests:true — and the panel body showed all seventeen classes, flat, with no ghost row and Screens unselected. The payload was right about what it would draw. Nothing drew it. THE CAUSE IS A CONTRACT THE DOOR STATES AND ITS CALLER IGNORED. stbOpenPane's last line returns false for *\"a pane that needs no read; THE CALLER REPAINTS\"*. stbApply is that caller and never repainted: it dispatched a pane lo",
+  "published": "2026-08-30T23:32:33.487Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
