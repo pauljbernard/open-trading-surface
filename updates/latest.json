@@ -1,13 +1,13 @@
 {
-  "version": "5.179.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.179.0.plugin",
-  "sha256": "e6d2895d1b41f433e6f33a2e499269a2d718aaf0d5368f5603994039551bdce1",
+  "version": "5.180.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.180.0.plugin",
+  "sha256": "7c52995d921e11405017d17005e5254dd1d089cbdead46aec332f0252c81ef1c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.179.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.180.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-30: *\"absolutely address the introspectability and control via MCP and agent control.\"* THE GAP WAS FOUND BY TRYING TO VERIFY MY OWN WORK AND BEING UNABLE TO. The P0–P2 panes were provably drawn on the owner's live terminal and the data behind them provably answered — and there was no way to click them. open_smalltalk took no arguments, and nothing published the selection, the open pane, or what any pane had resolved. The System Browser was the one surface in this terminal an agent could open and then only a person could use. INTROSPECTION. inspect_terminal now carries a sma",
-  "published": "2026-08-30T21:13:14.885Z",
+  "notes": "A protocol is a method's category — plots, provenance, accessing. Every Smalltalk since the 1970s organises a class by them, and this image has carried one on every method commit since 5.129.0 — settable when a method is saved and never reorganisable afterwards. The only way to move a method was to re-save it, which drags whatever is in the editor buffer along with it. A browser that can set a category once and never move it has a field, not a protocol. THE STRUCTURAL FACT DECIDES THE DESIGN. The protocol lives on the *commit*, and the image is an append-only fold: there is no stored record to",
+  "published": "2026-08-30T21:27:47.285Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
