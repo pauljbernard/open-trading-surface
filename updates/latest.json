@@ -1,13 +1,13 @@
 {
-  "version": "5.181.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.181.2.plugin",
-  "sha256": "20364d91abf642a27c7d61a7eebfbede3dc00ca9f8c8463acc8816d291c52437",
+  "version": "5.182.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.182.0.plugin",
+  "sha256": "a59116f0e05f0abca01ccb98338ef3007791498b0ebce6cf411506f5da31e1a4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.181.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.182.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "With 5.181.1 running, set_browser_selection finally answered — ok: true, changed: [class, selector, pane], the hierarchy loader dispatched. And the panel went on showing \"select a class\". stbApply took its host from document.getElementById('content'). That is the pinned-surface container, and it is display:none exactly when the workspace is visible — 5.20.4's defect, where renderAll wrote a failure into a node nobody could see. The repaint landed in the hidden node; the real panel body was never touched. THAT IS THE PAYLOAD/SCREEN DISAGREEMENT THE WHOLE smalltalk BLOCK EXISTS TO MAKE IMPOSSIBL",
-  "published": "2026-08-30T22:22:04.948Z",
+  "notes": "The owner, 2026-08-30: *\"the columns when selected should result in table sorting on that column\"*, and a bricklet for 13F shares over shares outstanding — *\"However, I would not label it 'institutional ownership' I would label it 13F % Ownership as that is more accurate.\"* HIS NAMING POINT IS THE LOAD-BEARING ONE AND IT IS KEPT IN THE CODE. A 13F covers only managers over $100M AUM holding 13(f) securities, so it is a subset of institutional holding. The wider label would name a category the filing does not measure. The accurate label names the *filing*. THE MEASURED FINDING: the holder table",
+  "published": "2026-08-30T22:35:29.891Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
