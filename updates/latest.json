@@ -1,13 +1,13 @@
 {
-  "version": "5.178.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.178.1.plugin",
-  "sha256": "bb04af146ec39a5abe0d744cd40021525c640cc652b2473cc89c466cbfcdc2e9",
+  "version": "5.179.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.179.0.plugin",
+  "sha256": "e6d2895d1b41f433e6f33a2e499269a2d718aaf0d5368f5603994039551bdce1",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.178.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.179.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "FOUND BY DRIVING 5.178.0 AGAINST THE OWNER'S LIVE IMAGE, MINUTES AFTER IT SHIPPED — and it is a defect the suite could not have caught, because the screen hid it. hierarchyOf composed its answer by spreading chainOf() and subclassesOf() into one object. Both carry means (and found, and class), so the second silently destroyed the first: reading a leaf class published > \"NO SUBCLASSES — this class is a leaf.\" as the meaning of the whole answer, chain included, and the chain's own sentence was gone. A spread of two objects sharing a key is a silent last-one-wins. THE PANE LOOKED RIGHT, WHICH IS ",
-  "published": "2026-08-30T20:32:13.386Z",
+  "notes": "The owner, 2026-08-30: *\"absolutely address the introspectability and control via MCP and agent control.\"* THE GAP WAS FOUND BY TRYING TO VERIFY MY OWN WORK AND BEING UNABLE TO. The P0–P2 panes were provably drawn on the owner's live terminal and the data behind them provably answered — and there was no way to click them. open_smalltalk took no arguments, and nothing published the selection, the open pane, or what any pane had resolved. The System Browser was the one surface in this terminal an agent could open and then only a person could use. INTROSPECTION. inspect_terminal now carries a sma",
+  "published": "2026-08-30T21:13:14.885Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
