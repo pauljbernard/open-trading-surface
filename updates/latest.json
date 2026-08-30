@@ -1,13 +1,13 @@
 {
-  "version": "5.174.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.174.0.plugin",
-  "sha256": "02a162834a628eb8c29061d823000401307bf902364e91b0f8b62cdacd266773",
+  "version": "5.175.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.175.0.plugin",
+  "sha256": "9f5bc2b966378fa9f79decea8a48f1aaaa5b0376ef5de3db62e0c533d6e2e3c4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.174.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.175.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The Processes panel said, on the owner's own installation: red surface-batch overdue — was due 2026-08-17T21:30:00.000Z (~148h ago) That sentence was false in its implication. The host scheduled task HAD fired — lastRunAt 2026-08-21T21:32 in the scheduler's own record — and what produced nothing was the work. An entire session read the panel's words, concluded the scheduler had stopped, and went after a scheduler that was fine the whole time. THE PANEL COULD NOT HAVE SAID OTHERWISE. A host-level scheduled task runs in a DIFFERENT PROCESS from the daemon, so nothing it did before its first reco",
-  "published": "2026-08-24T02:59:59.870Z",
+  "notes": "Squeak and Pharo have shipped a versions browser since the 1980s. This image has carried the chain since 5.129.0 — every commit with its source, its author, its actor kind and its why — and the browser showed a count. THE GAP WAS MEASURED AGAINST THE EMITTED DOCUMENT, which is also how the audit that found it corrected itself: in the browser's own 51,537-character region the only \"version\" was v + a count in a class-row tooltip, and the only revert was the editor's ⟳ Revert, whose own tooltip reads *\"discard the buffer\"*. Discarding an unsaved edit and restoring one you saved last month are no",
+  "published": "2026-08-30T19:04:37.253Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
