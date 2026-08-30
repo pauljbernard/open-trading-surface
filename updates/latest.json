@@ -1,13 +1,13 @@
 {
-  "version": "5.183.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.183.1.plugin",
-  "sha256": "d1a627d14b527b7b1881b87c2a6767a4cc293e3c6731968ac7c03b36fbfeedcf",
+  "version": "5.184.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.184.0.plugin",
+  "sha256": "a2406d5a817874c7ff059bf1566a5d1ffa0fdf0b2cd19b001102ae08ebf5c65e",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.183.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.184.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "FOUND BY DRIVING THE LIVE TERMINAL, ONE CALL AFTER 5.183.0 WAS VERIFIED. set_browser_selection {package:'Screens', class_basis:'inheritance'} reported package Screens, basis inheritance, 14 rows and nests:true — and the panel body showed all seventeen classes, flat, with no ghost row and Screens unselected. The payload was right about what it would draw. Nothing drew it. THE CAUSE IS A CONTRACT THE DOOR STATES AND ITS CALLER IGNORED. stbOpenPane's last line returns false for *\"a pane that needs no read; THE CALLER REPAINTS\"*. stbApply is that caller and never repainted: it dispatched a pane lo",
-  "published": "2026-08-30T23:32:33.487Z",
+  "notes": "The owner, 2026-08-30: *\"the vertical and horizontal lines between page areas should be moveable splitters, so we can resize each area.\"* EVERY BOUNDARY IN THIS BROWSER WAS A STATIC BORDER. Four columns at flex:1 inside a band pinned at 210px, so the Methods list was exactly as wide as the Packages list whether you had three packages or three hundred methods, and the code editor got whatever was left of a height nobody could change. THE FLOORS ARE READ FROM THE ENGINE AND NEVER CHOSEN. This is CHARTING-SPEC §21's rule, where a 260px literal sat in the chart client for releases being applied to",
+  "published": "2026-08-30T23:46:02.750Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
