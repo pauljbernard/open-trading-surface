@@ -1,13 +1,13 @@
 {
-  "version": "5.180.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.180.0.plugin",
-  "sha256": "7c52995d921e11405017d17005e5254dd1d089cbdead46aec332f0252c81ef1c",
+  "version": "5.181.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.181.0.plugin",
+  "sha256": "35a6678c3533e4ea1b428e0ac835d0be514a325ab2dbcda3f35175eacae1b27f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.180.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.181.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "A protocol is a method's category — plots, provenance, accessing. Every Smalltalk since the 1970s organises a class by them, and this image has carried one on every method commit since 5.129.0 — settable when a method is saved and never reorganisable afterwards. The only way to move a method was to re-save it, which drags whatever is in the editor buffer along with it. A browser that can set a category once and never move it has a field, not a protocol. THE STRUCTURAL FACT DECIDES THE DESIGN. The protocol lives on the *commit*, and the image is an append-only fold: there is no stored record to",
-  "published": "2026-08-30T21:27:47.285Z",
+  "notes": "Pharo's Spotter answers one question — *where is the thing I am thinking of* — across every kind an image holds. This browser had all the parts (classes, selectors, implementors, senders, packages, source) and no front door: you had to know *which kind* your answer was before you could look for it, which is exactly what you don't know when you're looking for something. THE RANKING IS ACCOUNTABLE, AND THAT IS THE POINT. A ranked list whose order nobody can explain is one that has quietly made the decision for you. Every hit carries the score it got and the rule that gave it, from a small declar",
+  "published": "2026-08-30T21:53:16.748Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
