@@ -1,13 +1,13 @@
 {
-  "version": "5.178.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.178.0.plugin",
-  "sha256": "8b488405fb4648d4384bd62abb0ff59da157e35d75aa6fafd910daaca252e4bc",
+  "version": "5.178.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.178.1.plugin",
+  "sha256": "bb04af146ec39a5abe0d744cd40021525c640cc652b2473cc89c466cbfcdc2e9",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.178.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.178.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The browser has listed classes alphabetically, in packages, since 5.132.0. That is a *directory*, not a hierarchy: it could not answer what a class inherits from, what inherits from it, or the question a person asks a hundred times a day in Squeak and Pharo — when I send this, whose method runs? THE LOAD-BEARING PROPERTY IS A COMPARISON AND NOT A CLAIM. definerOf says it answers by the engine's own lookup rule. Asserted, that is worth nothing. So the suite builds a real three-level hierarchy in the image — a class defining a method, a subclass inheriting it, a third overriding it — sends the m",
-  "published": "2026-08-30T20:19:22.550Z",
+  "notes": "FOUND BY DRIVING 5.178.0 AGAINST THE OWNER'S LIVE IMAGE, MINUTES AFTER IT SHIPPED — and it is a defect the suite could not have caught, because the screen hid it. hierarchyOf composed its answer by spreading chainOf() and subclassesOf() into one object. Both carry means (and found, and class), so the second silently destroyed the first: reading a leaf class published > \"NO SUBCLASSES — this class is a leaf.\" as the meaning of the whole answer, chain included, and the chain's own sentence was gone. A spread of two objects sharing a key is a silent last-one-wins. THE PANE LOOKED RIGHT, WHICH IS ",
+  "published": "2026-08-30T20:32:13.386Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
