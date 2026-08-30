@@ -1,13 +1,13 @@
 {
-  "version": "5.176.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.176.0.plugin",
-  "sha256": "bf2dcb879d0bc93f08569f322df6a794f23ab06595c129c8ebc3b6936a2c3754",
+  "version": "5.177.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.177.0.plugin",
+  "sha256": "d1ba5ba30b2baefdc581cc7c087387ec2947cd20f585c16a51b2d00509f23706",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.176.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.177.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-30, on two things at once: > \"while trying to submit a transaction I recieved the following warning > '⚠ MANDATE REFUSAL (max_weight_pct: TSLA at 25.89% vs limit 20) …' The order > and transaction screens should not prevent me from entering transactions. > The warning is fine, but I would have a check box that allows me to override > the warnings.\" > \"We currently have the ability to sort on columns, but I would also like the > ability to filter on date, symbol, and type.\" THE REMEDY WAS DECLARED AND UNREACHABLE. The gate has accepted override: true since 5.100.0, stamps ove",
-  "published": "2026-08-30T19:49:08.182Z",
+  "notes": "st_inspect has been a verb since 5.155.0 and had no pane. Squeak, Pharo and every commercial image have had an inspector for decades; it is the affordance that turns *\"the debugger says the receiver is an Alpha\"* into *\"and here is what is inside it\"*. THE FIRST CUT OF THE PANE WAS WRONG, AND DRIVING THE ENGINE IS WHAT CAUGHT IT. It invented label and has_children; the engine emits name and children. Because has_children is simply absent, the Into button rendered on nothing — a drill-down that silently could not drill. Every assertion in the new suite therefore drives st-debug rather than read",
+  "published": "2026-08-30T20:04:11.779Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
