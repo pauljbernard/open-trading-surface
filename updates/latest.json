@@ -1,13 +1,13 @@
 {
-  "version": "5.181.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.181.0.plugin",
-  "sha256": "35a6678c3533e4ea1b428e0ac835d0be514a325ab2dbcda3f35175eacae1b27f",
+  "version": "5.181.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.181.1.plugin",
+  "sha256": "1055c8f68e8ae6fdb61f8180767784a335cb01ec8fabdde195a345bb74f48b40",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.181.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.181.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Pharo's Spotter answers one question — *where is the thing I am thinking of* — across every kind an image holds. This browser had all the parts (classes, selectors, implementors, senders, packages, source) and no front door: you had to know *which kind* your answer was before you could look for it, which is exactly what you don't know when you're looking for something. THE RANKING IS ACCOUNTABLE, AND THAT IS THE POINT. A ranked list whose order nobody can explain is one that has quietly made the decision for you. Every hit carries the score it got and the rule that gave it, from a small declar",
-  "published": "2026-08-30T21:53:16.748Z",
+  "notes": "THE FIRST TIME set_browser_selection WAS EVER DRIVEN — against the owner's live terminal, minutes after his daemon reached 5.181.0 — it answered: > Can't find variable: a The three System Browser cases added at 5.179.0 read a. The dispatcher's argument is cmd. Every one of them threw on its first statement, so the agent control that release exists to provide had never worked. AND EVERY ASSERTION WAS GREEN, CORRECTLY. They proved the case was PRESENT in the emitted document, that the door validates before it applies, that the verb and the click share one opening — and not one of them executed a",
+  "published": "2026-08-30T22:04:55.784Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
