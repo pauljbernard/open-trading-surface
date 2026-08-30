@@ -1,13 +1,13 @@
 {
-  "version": "5.182.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.182.0.plugin",
-  "sha256": "a59116f0e05f0abca01ccb98338ef3007791498b0ebce6cf411506f5da31e1a4",
+  "version": "5.182.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.182.1.plugin",
+  "sha256": "9f3590c974c9f5e5b02037e85f2a7bf64756f9840965c353f5bb38d85dc7496b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.182.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.182.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-30: *\"the columns when selected should result in table sorting on that column\"*, and a bricklet for 13F shares over shares outstanding — *\"However, I would not label it 'institutional ownership' I would label it 13F % Ownership as that is more accurate.\"* HIS NAMING POINT IS THE LOAD-BEARING ONE AND IT IS KEPT IN THE CODE. A 13F covers only managers over $100M AUM holding 13(f) securities, so it is a subset of institutional holding. The wider label would name a category the filing does not measure. The accurate label names the *filing*. THE MEASURED FINDING: the holder table",
-  "published": "2026-08-30T22:35:29.891Z",
+  "notes": "FOUND BY OPENING THE TERMINAL, ONE READ AFTER 5.182.0 WAS VERIFIED. The 13F % Ownership tile shipped that morning read an em-dash on AMZN, and the provider was serving the denominator the whole time (weightedAverageShsOutDil: 10,827,000,000, read live through the shipped door). THE CAUSE IS ONE FUNCTION USED FOR THE WRONG JOB. num() is the DISPLAY formatter — Number(v).toLocaleString('en-US') — and answers \"10,827,000,000\". 5.182.0 read both figures through it, so the guard was \"10,827,000,000\" > 0, which is NaN > 0, which is false. The tile took the refusal branch on every symbol, in every br",
+  "published": "2026-08-30T23:01:11.244Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
