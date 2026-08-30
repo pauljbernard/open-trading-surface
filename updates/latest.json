@@ -1,13 +1,13 @@
 {
-  "version": "5.182.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.182.1.plugin",
-  "sha256": "9f3590c974c9f5e5b02037e85f2a7bf64756f9840965c353f5bb38d85dc7496b",
+  "version": "5.183.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.183.0.plugin",
+  "sha256": "fa55cfa09c4b82d1f2d59be1d1830252acff1d18407536234aa2b4021a27f9ec",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.182.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.183.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "FOUND BY OPENING THE TERMINAL, ONE READ AFTER 5.182.0 WAS VERIFIED. The 13F % Ownership tile shipped that morning read an em-dash on AMZN, and the provider was serving the denominator the whole time (weightedAverageShsOutDil: 10,827,000,000, read live through the shipped door). THE CAUSE IS ONE FUNCTION USED FOR THE WRONG JOB. num() is the DISPLAY formatter — Number(v).toLocaleString('en-US') — and answers \"10,827,000,000\". 5.182.0 read both figures through it, so the guard was \"10,827,000,000\" > 0, which is NaN > 0, which is false. The tile took the refusal branch on every symbol, in every br",
-  "published": "2026-08-30T23:01:11.244Z",
+  "notes": "The owner, 2026-08-30, with two Pharo screenshots: *\"pharo's ability to view inheritance in line… The first example is children, and the second example has the 'Hier' box checked and displays what that looks like.\"* and *\"Both images also show how hierarchical packages are displayed and navigated.\"* THE MEASUREMENT CAME FIRST AND CHANGED THE DESIGN TWICE. Against his own image — 17 classes, 3 packages — Screens holds thirteen classes of which TWELVE are siblings under one parent, and Fields holds three of which two are. That is the most useful fact about either package and the flat alphabetica",
+  "published": "2026-08-30T23:20:40.275Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
