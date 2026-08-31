@@ -1,13 +1,13 @@
 {
-  "version": "5.189.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.189.0.plugin",
-  "sha256": "731780c3907afcbc1675b8238b3dfae3ae2793786f9dd4f7cdd8de1e6377ea9c",
+  "version": "5.190.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.190.0.plugin",
+  "sha256": "cc6d0801bec64577813be87bbd1e393e03e378f418f27224c391179f1425bb9f",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.189.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.190.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER, 2026-08-30: *\"so we have a correct representation of the institutional ownership percentage as a percentage of total shares outstanding, and so that we have the ability to view that as a time series chart and time series charts for each of the institutions ownership.\"* THE DENOMINATOR WAS WRONG ON EVERY QUARTER, NOT JUST THE BROKEN ONE. 5.188.0 refused a 13F total that exceeded the shares outstanding, which caught TSLA 2026 Q2. Pulling eight quarters to build this series found something larger. MEASURED LIVE (node scripts/measure-ownership-series.js): quarter | 13F shares | provider",
-  "published": "2026-08-31T02:14:04.910Z",
+  "notes": "THE OWNER'S DIRECTIVE, 2026-08-30: *\"the notion that you implemented them as re JavaScript modules needs to be corrected.\"* The trees moved at 5.185.0 and the hierarchy at 5.186.0. This is the finder. THE SPLIT IS NOT ARBITRARY. GATHERING IS I/O — reading the image's classes, walking an AST for senders, scanning source text — and under UNIFIED-EXECUTION Law 3 the host reads the world. RANKING IS A JUDGMENT, and it is the half a reader argues with: why does the class beat the forty methods that mention it? That belongs where the owner can open it, read it and change it. So the host gathers and ",
+  "published": "2026-08-31T02:28:20.484Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
