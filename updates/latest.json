@@ -1,13 +1,13 @@
 {
-  "version": "5.187.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.187.0.plugin",
-  "sha256": "ba23e22bde8fc0eb0958f8e6c9db8691eb156a8f84ae12e2ff255c3355cc2517",
+  "version": "5.187.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.187.1.plugin",
+  "sha256": "fa952865994661d59747782b9146db70348bedb7f56728252bd740e054954f5a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.187.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.187.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner: *\"lets make sure we have a full and comprehensive SUnit test suite compliant with Smalltalk SUnit implementation and the UX capability to execute tests on demand that fully tests and validates the System Browser capability set\"* — and, with a Pharo screenshot, *\"SUnit is part of the class/object hierarchy that is part of the image and as such should be visible in the System browser… typically SUnit tests are in their own package under the parent package that it tests.\"* THIS COULD NOT HAVE BEEN WRITTEN BEFORE 5.185.0, WHICH IS WHY THE REQUEST SURFACED THE ARCHITECTURE PROBLEM. A Tes",
-  "published": "2026-08-31T00:39:17.775Z",
+  "notes": "The owner, minutes after 5.184.0 reached him: *\"the splitter keeps collapsing the top pane every time you try to use it.\"* His screenshot showed the column band at roughly a heading's height with the rows clipped, and the Versions pane open below it — which is the whole diagnosis. TWO DEFECTS, AND THE FIRST ONE IS THE COLLAPSE. The horizontal drag computed its ceiling as band.offsetHeight + editor.offsetHeight − floor, finding the editor by .pgm-main or [data-ebuf]. THOSE EXIST ONLY FOR THE EDITOR PANE. With Versions, Tests, Hierarchy, Finder, Inspect, Playground, Enrollments or Dependencies o",
+  "published": "2026-08-31T00:55:06.939Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
