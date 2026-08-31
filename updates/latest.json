@@ -1,13 +1,13 @@
 {
-  "version": "5.187.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.187.2.plugin",
-  "sha256": "eefbaf7090a08fab8b3773ecac1d9c84823744bdceae08055b8d101e410adcb4",
+  "version": "5.188.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.188.0.plugin",
+  "sha256": "68f12726ed1992a33b03540091d52fd5691282ff73f83ea20b12474794337842",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.187.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.188.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER, 2026-08-30: \"the vertical sliders have a bug.\" His screenshot showed Packages and Classes filling the band, Protocols reduced to a bare strip and the Methods column clipped off the right edge of the panel. TWO DEFECTS, BOTH MEASURED IN A REAL CHROMIUM ON THE SHIPPED DOCUMENT BEFORE ANYTHING WAS CHANGED (node scripts/measure-stb-columns.js). ONE — THE UNITS WERE MIXED, AND THIS IS THE ONE THAT MADE THE SCREENSHOT. The stored default is a RATIO, [1,1,1,1] — four equal shares — while the drag writes PIXELS into the inline flex of the two columns it touches. Both are read as flex-grow, ",
-  "published": "2026-08-31T01:20:38.003Z",
+  "notes": "THE OWNER, 2026-08-30, on TSLA 2026 Q2: *\"13f% ownership is clearly not based upon total shares outstanding. Institutions do not own 99.07 percent of all the shares outstanding.\"* HE IS RIGHT, AND THE DENOMINATOR WAS THE ONE HALF THAT WAS FINE. Measured on the live provider payload: numberOf13Fshares 3,495,668,998 (was 1,588,080,490 — up 120%) investorsHolding 4,596 (was 4,483 — up 2.5%) ownershipPercent 108.0912 ← THE PROVIDER'S OWN FIGURE A 2.5% rise in filers cannot produce a 120% rise in shares, there was no split, and the provider itself publishes an impossible percentage. The holder list",
+  "published": "2026-08-31T01:40:49.408Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
