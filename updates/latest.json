@@ -1,13 +1,13 @@
 {
-  "version": "5.190.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.190.2.plugin",
-  "sha256": "e7fa5a04b0f7e0619b613d6a32ddb96722318e9d4b3f04456df148ec866f65e4",
+  "version": "5.191.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.191.0.plugin",
+  "sha256": "2176c0685c998c071c9243a4899e1cd9a64e06b414546f61c2b8e58efc6dab20",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.190.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.191.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "5.190.1 FIXED THE ROUTE AND THE PANE STILL SAID \"0 of 0 quarters\". Driving the route directly answered 200 with 8 quarters, 7 plotted, 104 holders — so the server was right and the client was not reaching it. otsFetch IS THE BOUND AND NOTHING ELSE: it returns the RAW Response and adds NO auth token. cmFetch is the door — it carries the token, parses the body, and turns a refusal into an Error whose PAYLOAD travels with it. The 5.189.0 loader called the bound directly, so the request went out unauthenticated AND the handler received a Response where it expected a payload. r.series was undefined",
-  "published": "2026-08-31T03:07:34.038Z",
+  "notes": "THE OWNER, 2026-08-31, ON THE REFUSAL: *\"the 13% owership is refused and shouldn't be. we know the total outstanding shares in the larger data set, and we know the 13F Shares count. As such we most certainly can calculate the % of the total is held under 13f.\"* HE IS RIGHT, AND THIS SUPERSEDES 5.188.0 AND 5.189.0. That refusal conflated two different things: a number that cannot be computed and a number that looks wrong. Both inputs are filed and known, so the percentage exists — and withholding it hides the very figure a reader needs in order to disagree with it. The earlier reading is kept r",
+  "published": "2026-08-31T10:45:42.900Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
