@@ -1,13 +1,13 @@
 {
-  "version": "5.184.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.184.0.plugin",
-  "sha256": "a2406d5a817874c7ff059bf1566a5d1ffa0fdf0b2cd19b001102ae08ebf5c65e",
+  "version": "5.185.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.185.0.plugin",
+  "sha256": "074c1e49870d09c2171cbc6908ac909ac4e403bffb88422998e9a08a7c93f891",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.184.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.185.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-30: *\"the vertical and horizontal lines between page areas should be moveable splitters, so we can resize each area.\"* EVERY BOUNDARY IN THIS BROWSER WAS A STATIC BORDER. Four columns at flex:1 inside a band pinned at 210px, so the Methods list was exactly as wide as the Packages list whether you had three packages or three hundred methods, and the code editor got whatever was left of a height nobody could change. THE FLOORS ARE READ FROM THE ENGINE AND NEVER CHOSEN. This is CHARTING-SPEC §21's rule, where a 260px literal sat in the chart client for releases being applied to",
-  "published": "2026-08-30T23:46:02.750Z",
+  "notes": "The owner, 2026-08-30: *\"the notion that you implemented them as JavaScript modules needs to be corrected.\"* He is right, and the correction is larger than the request that surfaced it. He had asked for SUnit tests of the System Browser, and the honest answer was that a TestCase cannot test a module — so the plan was going to be a capability wrapper around a foreign implementation. That is a workaround for a boundary in the wrong place. A System Browser browses the image; a System Browser whose own logic lives outside the image is the one part of the system that cannot be opened in itself. MEA",
+  "published": "2026-08-31T00:06:25.195Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
