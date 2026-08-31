@@ -1,13 +1,13 @@
 {
-  "version": "5.185.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.185.0.plugin",
-  "sha256": "074c1e49870d09c2171cbc6908ac909ac4e403bffb88422998e9a08a7c93f891",
+  "version": "5.186.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.186.0.plugin",
+  "sha256": "6ad3fb2f73d307f33a1351b357932ab934b486df67851c06d526f1aeb754a95a",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.185.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.186.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, 2026-08-30: *\"the notion that you implemented them as JavaScript modules needs to be corrected.\"* He is right, and the correction is larger than the request that surfaced it. He had asked for SUnit tests of the System Browser, and the honest answer was that a TestCase cannot test a module — so the plan was going to be a capability wrapper around a foreign implementation. That is a workaround for a boundary in the wrong place. A System Browser browses the image; a System Browser whose own logic lives outside the image is the one part of the system that cannot be opened in itself. MEA",
-  "published": "2026-08-31T00:06:25.195Z",
+  "notes": "P2 of the correction the owner gave on 2026-08-30: *\"the notion that you implemented them as JavaScript modules needs to be corrected.\"* st-hierarchy.js was measured at 5.184.0 as making zero store calls — a pure derivation over a world somebody hands it, and the next module with no argument about where the boundary goes. The superclass chain, the subclass count and the method-lookup resolution are now StHierarchy, ten methods in package SystemBrowser, seeded as real commits beside StBrowserTree. PROVEN: 56 OF 56 IDENTICAL against the pre-change implementation loaded out of git and run — six c",
+  "published": "2026-08-31T00:24:30.155Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
