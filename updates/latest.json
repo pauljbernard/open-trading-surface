@@ -1,13 +1,13 @@
 {
-  "version": "5.188.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.188.0.plugin",
-  "sha256": "68f12726ed1992a33b03540091d52fd5691282ff73f83ea20b12474794337842",
+  "version": "5.189.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.189.0.plugin",
+  "sha256": "731780c3907afcbc1675b8238b3dfae3ae2793786f9dd4f7cdd8de1e6377ea9c",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.188.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.189.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER, 2026-08-30, on TSLA 2026 Q2: *\"13f% ownership is clearly not based upon total shares outstanding. Institutions do not own 99.07 percent of all the shares outstanding.\"* HE IS RIGHT, AND THE DENOMINATOR WAS THE ONE HALF THAT WAS FINE. Measured on the live provider payload: numberOf13Fshares 3,495,668,998 (was 1,588,080,490 — up 120%) investorsHolding 4,596 (was 4,483 — up 2.5%) ownershipPercent 108.0912 ← THE PROVIDER'S OWN FIGURE A 2.5% rise in filers cannot produce a 120% rise in shares, there was no split, and the provider itself publishes an impossible percentage. The holder list",
-  "published": "2026-08-31T01:40:49.408Z",
+  "notes": "THE OWNER, 2026-08-30: *\"so we have a correct representation of the institutional ownership percentage as a percentage of total shares outstanding, and so that we have the ability to view that as a time series chart and time series charts for each of the institutions ownership.\"* THE DENOMINATOR WAS WRONG ON EVERY QUARTER, NOT JUST THE BROKEN ONE. 5.188.0 refused a 13F total that exceeded the shares outstanding, which caught TSLA 2026 Q2. Pulling eight quarters to build this series found something larger. MEASURED LIVE (node scripts/measure-ownership-series.js): quarter | 13F shares | provider",
+  "published": "2026-08-31T02:14:04.910Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
