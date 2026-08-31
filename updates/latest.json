@@ -1,13 +1,13 @@
 {
-  "version": "5.190.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.190.0.plugin",
-  "sha256": "cc6d0801bec64577813be87bbd1e393e03e378f418f27224c391179f1425bb9f",
+  "version": "5.190.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.190.1.plugin",
+  "sha256": "3a99f963c83f014cafb83801c8f0ef0eb1c557e8b4b597b12c4c5520eddf5e67",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.190.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.190.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER'S DIRECTIVE, 2026-08-30: *\"the notion that you implemented them as re JavaScript modules needs to be corrected.\"* The trees moved at 5.185.0 and the hierarchy at 5.186.0. This is the finder. THE SPLIT IS NOT ARBITRARY. GATHERING IS I/O — reading the image's classes, walking an AST for senders, scanning source text — and under UNIFIED-EXECUTION Law 3 the host reads the world. RANKING IS A JUDGMENT, and it is the half a reader argues with: why does the class beat the forty methods that mention it? That belongs where the owner can open it, read it and change it. So the host gathers and ",
-  "published": "2026-08-31T02:28:20.484Z",
+  "notes": "FOUND BY OPENING THE TERMINAL. The Ownership pane rendered *\"NOT ENOUGH POINTS TO DRAW A LINE — 0 of 0 quarters carry a value\"*, which reads as a coverage fact and was a wiring fault. BOTH CALL SITES INJECTED A PROVIDER AND BOTH GOT IT WRONG THE SAME WAY. The route and the tool passed fmp: (ep, args) => fmp(ep, args), and in BOTH files fmp is the MODULE rather than a function — server/routes/cm.js:1577 calls fmp.fmp('quote', …) and server/index.js:7 is the module. So the lambda called a module, threw, and the series came back empty. AND THE SUITE WAS GREEN THROUGHOUT, CORRECTLY. It drove build",
+  "published": "2026-08-31T02:49:52.394Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
