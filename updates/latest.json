@@ -1,13 +1,13 @@
 {
-  "version": "5.187.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.187.1.plugin",
-  "sha256": "fa952865994661d59747782b9146db70348bedb7f56728252bd740e054954f5a",
+  "version": "5.187.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.187.2.plugin",
+  "sha256": "eefbaf7090a08fab8b3773ecac1d9c84823744bdceae08055b8d101e410adcb4",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.187.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.187.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "The owner, minutes after 5.184.0 reached him: *\"the splitter keeps collapsing the top pane every time you try to use it.\"* His screenshot showed the column band at roughly a heading's height with the rows clipped, and the Versions pane open below it — which is the whole diagnosis. TWO DEFECTS, AND THE FIRST ONE IS THE COLLAPSE. The horizontal drag computed its ceiling as band.offsetHeight + editor.offsetHeight − floor, finding the editor by .pgm-main or [data-ebuf]. THOSE EXIST ONLY FOR THE EDITOR PANE. With Versions, Tests, Hierarchy, Finder, Inspect, Playground, Enrollments or Dependencies o",
-  "published": "2026-08-31T00:55:06.939Z",
+  "notes": "THE OWNER, 2026-08-30: \"the vertical sliders have a bug.\" His screenshot showed Packages and Classes filling the band, Protocols reduced to a bare strip and the Methods column clipped off the right edge of the panel. TWO DEFECTS, BOTH MEASURED IN A REAL CHROMIUM ON THE SHIPPED DOCUMENT BEFORE ANYTHING WAS CHANGED (node scripts/measure-stb-columns.js). ONE — THE UNITS WERE MIXED, AND THIS IS THE ONE THAT MADE THE SCREENSHOT. The stored default is a RATIO, [1,1,1,1] — four equal shares — while the drag writes PIXELS into the inline flex of the two columns it touches. Both are read as flex-grow, ",
+  "published": "2026-08-31T01:20:38.003Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
