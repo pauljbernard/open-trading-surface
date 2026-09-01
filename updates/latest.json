@@ -1,13 +1,13 @@
 {
-  "version": "5.199.1",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.199.1.plugin",
-  "sha256": "0ea09f607266595fe74083f23394ba8e50eda82bb9387153f3d35a73034d0be5",
+  "version": "5.199.2",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.199.2.plugin",
+  "sha256": "b64313d78e916f00faf4e5d959423c559e92a4dbb0de596f0b3395940dd32b5b",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.199.1.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.199.2.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "FOUND BY THE OWNER, ON HIS OWN SCREEN, ON THE RELEASE THAT SHIPPED THE METHOD. The System Browser drew one line: *\"StBrowserTree does not implement #classColumnFor:package:tag:basis: — the System Browser column cannot be computed. NOTHING WAS COMPUTED.\"* The refusal was correct, and the method it named was in the release he was running. 5.197.0 FIXED THE RULE AND LEFT THE TRIGGER, AND THAT IS THE WHOLE DEFECT. That release established what the seeder must do — update a stale method it wrote, leave one somebody else wrote, and name it — and proved all four arms. What it never touched is when th",
-  "published": "2026-09-01T03:46:47.682Z",
+  "notes": "FOUND BY LOOKING AT WHY TWO PROCESSES WERE RED ON THE OWNER'S INSTALLATION, and the finding is a second instance of the defect 5.172.0 fixed — in the same three files, on the arms that release left behind. MEASURED, on his live store: worldview-refresh recorded outcome: failed on 2026-08-20 and again on 2026-08-27, the second after 4,884,989 ms — 81 minutes — of real work, with the summary *\"yield.basis is required\"*. The process succeeded whenever it had nothing to do and threw away every run in which it did something. That is 5.172.0's own sentence — *\"a defect on that arm is invisible until",
+  "published": "2026-09-01T23:27:30.281Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
