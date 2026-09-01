@@ -1,13 +1,13 @@
 {
-  "version": "5.199.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.199.0.plugin",
-  "sha256": "93d0bea8bb15a68937bfac4cc03d94f892bd3f72df92bec84033a9ca709e8c59",
+  "version": "5.199.1",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.199.1.plugin",
+  "sha256": "0ea09f607266595fe74083f23394ba8e50eda82bb9387153f3d35a73034d0be5",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.199.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.199.1.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE OWNER, 2026-08-31, CORRECTING THE RELEASE BEFORE THIS ONE: *\"I understand why the packages column worked the way it did originally. The level beneath packages could sometimes be 'tags', and a tag can exist under multiple packages. As such selecting a tag under an existing package should have displayed only those classes with the same tag, under the specified package. If it did that rather than displaying all the classes under that package it would have made sense.\"* HE IS RIGHT, AND IT RELOCATES THE DEFECT: THE ROW WAS NEVER THE PROBLEM — THE ROW NOT FILTERING WAS. 5.198.0 read *\"selecting",
-  "published": "2026-09-01T03:24:39.137Z",
+  "notes": "FOUND BY THE OWNER, ON HIS OWN SCREEN, ON THE RELEASE THAT SHIPPED THE METHOD. The System Browser drew one line: *\"StBrowserTree does not implement #classColumnFor:package:tag:basis: — the System Browser column cannot be computed. NOTHING WAS COMPUTED.\"* The refusal was correct, and the method it named was in the release he was running. 5.197.0 FIXED THE RULE AND LEFT THE TRIGGER, AND THAT IS THE WHOLE DEFECT. That release established what the seeder must do — update a stale method it wrote, leave one somebody else wrote, and name it — and proved all four arms. What it never touched is when th",
+  "published": "2026-09-01T03:46:47.682Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
