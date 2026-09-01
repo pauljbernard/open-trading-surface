@@ -1,13 +1,13 @@
 {
-  "version": "5.196.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.196.0.plugin",
-  "sha256": "0dd6589dc183e7dffae07c3efc559b1ccf8a6a85bbfcacd6061c3d5a8bb15639",
+  "version": "5.197.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.197.0.plugin",
+  "sha256": "5f6fbc1d00261e19d23c857b561aafee1ba2cab334e1749c4ca3e47daf464128",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.196.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.197.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "P6.1 OF SYSTEM-BROWSER-SPEC §2, THE STRONGEST OF THE FIVE, AND THE SECOND TO SHIP. Browse the image AS OF a commit or an instant: the class list, the method source — and the part that is genuinely new, senders and implementors computed at that point. IT IS NOT A RECONSTRUCTION. The image is a fold over an append-only commit log (5.129.0) rather than a mutable heap snapshot, so the image as it was is the same fold run over fewer records. Squeak and Pharo images are opaque binary blobs, and Squeak's changes file is a replay log no browser reads as a dimension. A CUT IS A BOUND, NEVER A FILTER, A",
-  "published": "2026-09-01T01:48:14.839Z",
+  "notes": "TWO DEFECTS WITH ONE ROOT, BOTH FOUND WHILE TRYING TO SHIP A TWENTY-LINE UX CHANGE THE OWNER ASKED FOR, AND BOTH OF WHICH HAD TO BE FIXED FIRST. (1) THE SEED COULD NOT UPDATE A METHOD IT HAD ALREADY SEEDED — AND THE FILE SAID SO IN ITS OWN HEADER. server/st-browser-seed.js declared the rule correctly: *\"A 5.185.0 installation that later takes a release with a corrected method MUST RECEIVE IT — but an OWNER EDIT MUST NOT BE OVERWRITTEN.\"* It then implemented compile a method only when the class does not carry it at all, which satisfies the second half and defeats the first. Every shipped fix to",
+  "published": "2026-09-01T02:30:47.423Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
