@@ -1,13 +1,13 @@
 {
-  "version": "5.197.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.197.0.plugin",
-  "sha256": "5f6fbc1d00261e19d23c857b561aafee1ba2cab334e1749c4ca3e47daf464128",
+  "version": "5.198.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.198.0.plugin",
+  "sha256": "ebc21280c917e696a33a81cf04e85ad9ac02f8dd37a09cbe38631975f1c477cc",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.197.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.198.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "TWO DEFECTS WITH ONE ROOT, BOTH FOUND WHILE TRYING TO SHIP A TWENTY-LINE UX CHANGE THE OWNER ASKED FOR, AND BOTH OF WHICH HAD TO BE FIXED FIRST. (1) THE SEED COULD NOT UPDATE A METHOD IT HAD ALREADY SEEDED — AND THE FILE SAID SO IN ITS OWN HEADER. server/st-browser-seed.js declared the rule correctly: *\"A 5.185.0 installation that later takes a release with a corrected method MUST RECEIVE IT — but an OWNER EDIT MUST NOT BE OVERWRITTEN.\"* It then implemented compile a method only when the class does not carry it at all, which satisfies the second half and defeats the first. Every shipped fix to",
-  "published": "2026-09-01T02:30:47.423Z",
+  "notes": "THE OWNER, 2026-08-31: *\"selecting a package and or a class under the package in the packages column tree list, has unexpected results in terms of what is displayed in the Classes column\"* — and, having been offered the alternative, *\"I would go with packages only in the first column.\"* THIS OVERTURNS 5.185.0 RATHER THAN REFINING IT, AND THE SUPERSEDED READING IS KEPT. Until now a package expanded to its TAGS, and the diagnosis is one sentence: a column holding two different kinds of thing cannot answer the one gesture it exists for. A tag is a grouping WITHIN a package, so nothing downstream ",
+  "published": "2026-09-01T02:54:13.471Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
