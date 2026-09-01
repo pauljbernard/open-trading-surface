@@ -1,13 +1,13 @@
 {
-  "version": "5.194.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.194.0.plugin",
-  "sha256": "d6cafc8c012749edb8de7977d5b9f97ae45edf8846e4e653a90a63afb005825e",
+  "version": "5.195.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.195.0.plugin",
+  "sha256": "7beabe23d0c35715babb18969f11f11e101eb38c06e2519d047ca1fa7cae3c53",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.194.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.195.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "THE FOURTH DERIVATION TO CROSS THE LINE. The trees moved at 5.185.0, the hierarchy at 5.186.0, the finder's ranking at 5.188.0 — and the walk went last because measuring it first, which is the precondition for any identity proof, found it was WRONG (5.193.0). MOVING A DEFECTIVE DERIVATION INTO SMALLTALK WOULD HAVE CARRIED THE DEFECT ACROSS AND MADE IT HARDER TO SEE, so it was fixed in the language it already lived in, where the comparison against its own previous self is cheap. This release moves one that is known correct. WHERE THE LINE GOES. Parsing stays in the host — the parser reads text ",
-  "published": "2026-09-01T00:59:11.854Z",
+  "notes": "P6.2 OF SYSTEM-BROWSER-SPEC §2, AND THE FIRST OF THE FIVE THINGS THAT DOCUMENT'S WHOLE ARGUMENT RESTS ON. P0–P4 achieved parity with Squeak and Pharo; this is the first release that goes past one, and the claim is not about cleverness — it is about what was recorded. THE ENABLING PROPERTY IS A REFUSAL, AND IT IS ASSERTED RATHER THAN ASSUMED. server/st-image.js has refused any commit that cannot say who made it since 5.129.0 — *\"requires by and actor_kind — every image commit is attributed (LAW B), and an agent's is MARKED. NOTHING WAS WRITTEN.\"* So by, actor_kind and why ride every record by c",
+  "published": "2026-09-01T01:23:30.392Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
