@@ -1,13 +1,13 @@
 {
-  "version": "5.199.2",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.199.2.plugin",
-  "sha256": "b64313d78e916f00faf4e5d959423c559e92a4dbb0de596f0b3395940dd32b5b",
+  "version": "5.200.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.200.0.plugin",
+  "sha256": "94997556d1c9ae357272e2251b673133538578aebf3be556143f25bda8162081",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.199.2.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.200.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "FOUND BY LOOKING AT WHY TWO PROCESSES WERE RED ON THE OWNER'S INSTALLATION, and the finding is a second instance of the defect 5.172.0 fixed — in the same three files, on the arms that release left behind. MEASURED, on his live store: worldview-refresh recorded outcome: failed on 2026-08-20 and again on 2026-08-27, the second after 4,884,989 ms — 81 minutes — of real work, with the summary *\"yield.basis is required\"*. The process succeeded whenever it had nothing to do and threw away every run in which it did something. That is 5.172.0's own sentence — *\"a defect on that arm is invisible until",
-  "published": "2026-09-01T23:27:30.281Z",
+  "notes": "SYSTEM-BROWSER-SPEC §2.3. A class in this image can BE a screener field, a chart indicator, a saved screen or a program (5.148.0–5.168.0), so the browser can answer a question no other Smalltalk has to ask: what does this class RUN, out there? Squeak and Pharo cannot have this reading and the reason is not effort — they have no facades. THE FINDING THAT SHAPED IT: FOUR KINDS, FOUR GENUINELY DIFFERENT RELATIONS. The first cut assumed one relation with four instances. It is not, and one word would have been wrong about three: - FIELD — two_statements. Two statements *inside one class* can disagr",
+  "published": "2026-09-02T00:51:25.752Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
