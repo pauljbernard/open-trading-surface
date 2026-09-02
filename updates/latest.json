@@ -1,13 +1,13 @@
 {
-  "version": "5.201.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.201.0.plugin",
-  "sha256": "9e3b26ce73b35ef52bcfe575d5312dd78a141fc0c6fb7da85ac038a1707f5667",
+  "version": "5.202.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.202.0.plugin",
+  "sha256": "4482c1f82ce7cde9a5344c77616a9b2c5ab773a12d451b14c5cc87cf6730dbbe",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.201.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.202.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "SYSTEM-BROWSER-SPEC §2.4. User Smalltalk executes inside the daemon, so the primitive set is the security model: everything a class can do to the world is a send to one of the declared capability classes (5.130.0). Pharo has no such boundary — everything can do anything — so there is nothing there to compute a reach against. A 🔐 Reach tab, st_capability_reach, and a transitive walk of the send graph. THE LOAD-BEARING PROPERTY IS NOT THAT THE WALK FINDS THINGS. IT IS THAT THE ANSWER SAYS IT IS A FLOOR. A static walk sees a receiver that is written down; it cannot see one held in a variable, re",
-  "published": "2026-09-02T02:00:26.912Z",
+  "notes": "SYSTEM-BROWSER-SPEC §2.5, the last of the five. Paste a SHAPE with holes and get every method whose code has that shape. A 🔍 Shape tab and st_search_shape. Pharo has AST matching in the Refactoring Browser and it is not the browser's front door; our own Find… is a TEXT scan by design — it matches inside comments and string literals, which is useful and is a different question. THE ONE THING IT MUST NOT DO, AND THE ASSERTION THAT PROVES IT DOESN'T. A structural search that quietly degraded to a text scan would answer that other question under this heading, with the reader unable to tell which ",
+  "published": "2026-09-02T02:21:55.023Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
