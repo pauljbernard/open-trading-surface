@@ -1,13 +1,13 @@
 {
-  "version": "5.202.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.202.0.plugin",
-  "sha256": "4482c1f82ce7cde9a5344c77616a9b2c5ab773a12d451b14c5cc87cf6730dbbe",
+  "version": "5.203.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.203.0.plugin",
+  "sha256": "13134c9785aa8d406804eb99a56189c01eedd133820e9e7cd433d6f6cb5509c0",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.202.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.203.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "SYSTEM-BROWSER-SPEC §2.5, the last of the five. Paste a SHAPE with holes and get every method whose code has that shape. A 🔍 Shape tab and st_search_shape. Pharo has AST matching in the Refactoring Browser and it is not the browser's front door; our own Find… is a TEXT scan by design — it matches inside comments and string literals, which is useful and is a different question. THE ONE THING IT MUST NOT DO, AND THE ASSERTION THAT PROVES IT DOESN'T. A structural search that quietly degraded to a text scan would answer that other question under this heading, with the reader unable to tell which ",
-  "published": "2026-09-02T02:21:55.023Z",
+  "notes": "THE FOURTH INSTANCE, AND THE FIRST ONE ANSWERED WITH A LAW RATHER THAN A PATCH. DATA-MANAGEMENT-SPEC said *\"SPECIFICATION. NOTHING BUILT (2026-08-14)\"* while its own §12 documented Phase 3 shipping at 5.59.0 and four modules sat on disk. Patching it by hand is what was done the first three times: - CLAUDE.md opens with it — six spec files carried SPEC ONLY for between eight and nineteen releases *after* the code shipped, one contradicting itself fifty lines further down. - SYSTEM-BROWSER-SPEC said *\"NOTHING BUILT\"* while 5.175.0 was shipping the versions browser, and adopted a phase table as t",
+  "published": "2026-09-02T02:50:15.881Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
