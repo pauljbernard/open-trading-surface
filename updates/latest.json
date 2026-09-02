@@ -1,13 +1,13 @@
 {
-  "version": "5.204.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.204.0.plugin",
-  "sha256": "ebf5634dce5953f50f82945bf7b0df951db473c277667f9d7885a5b6755b7796",
+  "version": "5.205.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.205.0.plugin",
+  "sha256": "e4dd9c59b32ecb5af3c370729ff4a742e66097ca5dd649f440a8f52c266a5a93",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.204.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.205.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "Three suites failed in one battery run, all green the release before, none of them touched: ownership-pane's target sat 62 commits back against a bound of 60, ownership-series' at 62 against 40, st-finder's at 68 against 40. Nothing broke. The history simply moved. THIS IS 5.189.1's DEFECT ONE LAYER DOWN, IN THE FILE WHOSE HEADER IS ABOUT IT. That release raised prior.js's DEFAULT depth from 400 to 900 and named the cause exactly — a control without a since hint must cover a distance that grows with every release — and it did not look at the callers who had written a smaller number of their ow",
-  "published": "2026-09-02T03:37:30.032Z",
+  "notes": "A SECOND WALK OF ONE GRAMMAR IS HOW ONE OF THEM STOPS SEEING A CASCADE. That sentence was written into st-xref-source.js at 5.194.0, after 5.193.0 found the cross-reference blind to cascades. Nine releases later it happened again — in the module whose own class comment claimed the closed vocabulary made it structurally impossible. server/st-shape.js (5.202.0) MATCHED with StXref's closed node vocabulary, asserted equal to it by a test. But it REACHED the nodes with a private subtrees() declaring its own child keys: ['recv','expr','value'] and ['args','stmts','items','msgs']. No node in this sy",
+  "published": "2026-09-02T03:56:52.933Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
