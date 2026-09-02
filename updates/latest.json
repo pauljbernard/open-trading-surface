@@ -1,13 +1,13 @@
 {
-  "version": "5.200.0",
-  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.200.0.plugin",
-  "sha256": "94997556d1c9ae357272e2251b673133538578aebf3be556143f25bda8162081",
+  "version": "5.201.0",
+  "download_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.201.0.plugin",
+  "sha256": "9e3b26ce73b35ef52bcfe575d5312dd78a141fc0c6fb7da85ac038a1707f5667",
   "signed": true,
-  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.200.0.plugin.asc",
+  "signature_url": "https://pauljbernard.github.io/open-trading-surface/download/ots-5.201.0.plugin.asc",
   "signing_key_url": "https://pauljbernard.github.io/open-trading-surface/assets/ots-signing-key.asc",
   "signing_key_fingerprint": "4703B1C357ADE3DAB29ED4F48EAFA2ED20058E4B",
   "min_node": "18",
-  "notes": "SYSTEM-BROWSER-SPEC §2.3. A class in this image can BE a screener field, a chart indicator, a saved screen or a program (5.148.0–5.168.0), so the browser can answer a question no other Smalltalk has to ask: what does this class RUN, out there? Squeak and Pharo cannot have this reading and the reason is not effort — they have no facades. THE FINDING THAT SHAPED IT: FOUR KINDS, FOUR GENUINELY DIFFERENT RELATIONS. The first cut assumed one relation with four instances. It is not, and one word would have been wrong about three: - FIELD — two_statements. Two statements *inside one class* can disagr",
-  "published": "2026-09-02T00:51:25.752Z",
+  "notes": "SYSTEM-BROWSER-SPEC §2.4. User Smalltalk executes inside the daemon, so the primitive set is the security model: everything a class can do to the world is a send to one of the declared capability classes (5.130.0). Pharo has no such boundary — everything can do anything — so there is nothing there to compute a reach against. A 🔐 Reach tab, st_capability_reach, and a transitive walk of the send graph. THE LOAD-BEARING PROPERTY IS NOT THAT THE WALK FINDS THINGS. IT IS THAT THE ANSWER SAYS IT IS A FLOOR. A static walk sees a receiver that is written down; it cannot see one held in a variable, re",
+  "published": "2026-09-02T02:00:26.912Z",
   "channel": "https://pauljbernard.github.io/open-trading-surface/updates/latest.json"
 }
